@@ -996,7 +996,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				/* Parse CSS from array() -> Desktop CSS */
 				$parse_css .= astra_parse_css( $desktop_screen_gb_css );
 
-				if( ! astra_improve_gutenberg_blocks_ui() ) {
+				if ( ! astra_improve_gutenberg_blocks_ui() ) {
 					$middle_screen_min_gb_css = array(
 						// Group & Column block > align compatibility (min-width:1200px) CSS.
 						'.wp-block-cover__inner-container, .alignwide .wp-block-group__inner-container, .alignfull .wp-block-group__inner-container' => array(
@@ -1004,7 +1004,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'margin'    => '0 auto',
 						),
 						'.wp-block-group.alignnone, .wp-block-group.aligncenter, .wp-block-group.alignleft, .wp-block-group.alignright, .wp-block-group.alignwide, .wp-block-columns.alignwide' => array(
-							'margin'    => '2rem 0 1rem 0',
+							'margin' => '2rem 0 1rem 0',
 						),
 					);
 				} else {
@@ -1491,7 +1491,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$can_update_gb_blocks_ui = astra_improve_gutenberg_blocks_ui();
 
-				$file_block_button_selector = $can_update_gb_blocks_ui ? ', body .wp-block-file .wp-block-file__button' : '';
+				$file_block_button_selector       = $can_update_gb_blocks_ui ? ', body .wp-block-file .wp-block-file__button' : '';
 				$file_block_button_hover_selector = $can_update_gb_blocks_ui ? ', body .wp-block-file .wp-block-file__button:hover, body .wp-block-file .wp-block-file__button:focus' : '';
 
 				/**
@@ -1739,10 +1739,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					);
 
 					$global_button_page_builder_desktop['.wp-block-buttons .wp-block-button .wp-block-button__link'] = array(
-						'padding-top'         => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
-						'padding-right'       => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
-						'padding-bottom'      => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
-						'padding-left'        => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
+						'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
+						'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
+						'padding-bottom' => astra_responsive_spacing( $theme_btn_padding, 'bottom', 'desktop' ),
+						'padding-left'   => astra_responsive_spacing( $theme_btn_padding, 'left', 'desktop' ),
 					);
 
 					$global_button_page_builder_tablet = array(
@@ -2108,35 +2108,35 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 *
 			 * @since x.x.x
 			 */
-			if( astra_improve_gutenberg_blocks_ui() ) {
+			if ( astra_improve_gutenberg_blocks_ui() ) {
 				$core_blocks_width_desktop_ui_css = array(
 					'.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide)' => array(
-						'max-width'  	=> '58em',
-						'width' 		=> 'calc(100% - 4rem)',
-						'margin-left' 	=> 'auto',
-						'margin-right' 	=> 'auto',
+						'max-width'    => '58em',
+						'width'        => 'calc(100% - 4rem)',
+						'margin-left'  => 'auto',
+						'margin-right' => 'auto',
 					),
 					'.wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container' => array(
-						'padding' 	=> '2em 0',
+						'padding' => '2em 0',
 					),
 				);
 
 				/* Parse CSS from array -> Desktop CSS. */
-				$parse_css             .= astra_parse_css( $core_blocks_width_desktop_ui_css );
+				$parse_css .= astra_parse_css( $core_blocks_width_desktop_ui_css );
 
 				$core_blocks_min_width_tablet_ui_css = array(
 					'.wp-block-archives:not(.alignwide):not(.alignfull), .wp-block-categories:not(.alignwide):not(.alignfull), .wp-block-code, .wp-block-columns:not(.alignwide):not(.alignfull), .wp-block-cover:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-embed:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-gallery:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-group:not(.has-background):not(.alignwide):not(.alignfull), .wp-block-image:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-latest-comments:not(.aligncenter):not(.alignleft):not(.alignright), .wp-block-latest-posts:not(.aligncenter):not(.alignleft):not(.alignright), .wp-block-media-text:not(.alignwide):not(.alignfull), .wp-block-preformatted, .wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright), .wp-block-quote, .wp-block-quote.is-large, .wp-block-quote.is-style-large, .wp-block-verse, .wp-block-video:not(.alignwide):not(.alignfull), .entry-content > .alignwide:not(.wp-block-group.has-background), .entry-content > .alignfull:not(.wp-block-group.has-background)' => array(
-						'margin-top' 	=> '4em',
+						'margin-top'    => '4em',
 						'margin-bottom' => '4em',
-						'padding' 	=> '0',
+						'padding'       => '0',
 					),
 					'.entry-content > .alignwide:not(.wp-block-group.has-background), .entry-content > .alignfull:not(.wp-block-group.has-background)' => array(
-						'padding' 	=> '1em',
+						'padding' => '1em',
 					),
 					'.entry-content > .wp-block-group.alignwide.has-background, .entry-content > .wp-block-group.alignfull.has-background' => array(
-						'margin-top' 	=> '0',
+						'margin-top'    => '0',
 						'margin-bottom' => '0',
-						'padding' 	=> '6em 4em',
+						'padding'       => '6em 4em',
 					),
 				);
 
@@ -2145,7 +2145,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$core_blocks_min_width_1200_ui_css = array(
 					'.entry-content > .wp-block-group.alignwide.has-background, .entry-content > .wp-block-group.alignfull.has-background' => array(
-						'padding' 	=> '6em 4em',
+						'padding' => '6em 4em',
 					),
 				);
 
@@ -2154,11 +2154,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$core_blocks_min_width_mobile_ui_css = array(
 					'.site-main .entry-content > .alignwide' => array(
-						'margin' 	=> '2em auto',
+						'margin' => '2em auto',
 					),
 					'.wp-block-group.has-background' => array(
-						'padding' 	=> '4em',
-						'margin-top' 	=> '0',
+						'padding'       => '4em',
+						'margin-top'    => '0',
 						'margin-bottom' => '0',
 					),
 				);

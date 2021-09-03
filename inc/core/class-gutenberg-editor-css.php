@@ -427,8 +427,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$search_button_selector       = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button' : '';
 				$search_button_hover_selector = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
 
-				$can_update_gb_blocks_ui = astra_improve_gutenberg_blocks_ui();
-				$file_block_button_selector = $can_update_gb_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button' : '';
+				$can_update_gb_blocks_ui          = astra_improve_gutenberg_blocks_ui();
+				$file_block_button_selector       = $can_update_gb_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button' : '';
 				$file_block_button_hover_selector = $can_update_gb_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button:hover, .block-editor-writing-flow .wp-block-file .wp-block-file__button:focus' : '';
 
 				$button_desktop_css = array(
@@ -463,11 +463,11 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 				);
 
-				if( $can_update_gb_blocks_ui ) {
+				if ( $can_update_gb_blocks_ui ) {
 					$button_desktop_css['.block-editor-writing-flow .wp-block-file__content-wrapper'] = array(
-						'display' => 'flex',
-						'align-items' => 'center',
-						'flex-wrap' => 'wrap',
+						'display'         => 'flex',
+						'align-items'     => 'center',
+						'flex-wrap'       => 'wrap',
 						'justify-content' => 'space-between',
 					);
 				}
@@ -783,7 +783,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'max-width' => '610px',
 					),
 					'.block-editor-block-list__layout > .wp-block-group .wp-block, .block-editor-block-list__layout > .wp-block .wp-block-cover .wp-block, .block-editor-block-list__layout > .wp-block-cover .wp-block' => array(
-						'margin-top' => '28px',
+						'margin-top'    => '28px',
 						'margin-bottom' => '28px',
 					),
 					'.block-editor-block-list__layout > .wp-block[data-align="wide"]' => array(
@@ -793,7 +793,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding' => '6em 4em',
 					),
 					'.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"], .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"]' => array(
-						'margin-left' => '-20px',
+						'margin-left'  => '-20px',
 						'margin-right' => '-20px',
 					),
 					'.ast-separate-container .edit-post-visual-editor .wp-block[data-align="full"] .wp-block-cover, .ast-separate-container .edit-post-visual-editor .wp-block[data-align="full"] .wp-block-group' => array(
@@ -1104,13 +1104,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 				);
 
-				if( ! astra_improve_gutenberg_blocks_ui() ) {
+				if ( ! astra_improve_gutenberg_blocks_ui() ) {
 					$gtn_full_wide_image_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"], .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"]'] = array(
 						'margin-left'  => 'auto',
 						'margin-right' => 'auto',
 					);
-				}
-
+				}           
 			} else {
 				$gtn_full_wide_image_css = array(
 					'.ast-separate-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] figure.wp-block-image' => array(
@@ -1130,7 +1129,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $gtn_full_wide_image_css );
 
-			if( astra_improve_gutenberg_blocks_ui() ) {
+			if ( astra_improve_gutenberg_blocks_ui() ) {
 				$compatibility_css = '
 				.wp-block-cover__inner-container .wp-block {
 					color: #ffffff;
@@ -1158,7 +1157,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					list-style-type: none;
 				}';
 
-				if( $is_site_rtl ) {
+				if ( $is_site_rtl ) {
 					$compatibility_css .= '
 					.edit-post-visual-editor ul, .edit-post-visual-editor ol {
 						margin-right: 20px;

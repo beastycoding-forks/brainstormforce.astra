@@ -63,8 +63,8 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
 	}
 
-	if( astra_improve_gutenberg_blocks_ui() ) {
-		$is_site_rtl                = is_rtl();
+	if ( astra_improve_gutenberg_blocks_ui() ) {
+		$is_site_rtl = is_rtl();
 
 		$editor_improvement_css = '
 		body .wp-block-file .wp-block-file__button {
@@ -105,7 +105,7 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 			border: 2px solid currentColor;
 		}';
 
-		if( $is_site_rtl ) {
+		if ( $is_site_rtl ) {
 			$editor_improvement_css .= '
 			ul, ol {
 				margin-right: 20px;

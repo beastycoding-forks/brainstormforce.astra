@@ -138,4 +138,9 @@ ins {
 	text-decoration: none;
 }
 
+.astra-logo-svg {
+	height: calc( var(--maxHeight, 150px) - 215px );
+}
+
+@import "lists";
 @import "tables";

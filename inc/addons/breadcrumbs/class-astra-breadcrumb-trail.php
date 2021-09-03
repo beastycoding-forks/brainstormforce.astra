@@ -987,6 +987,7 @@ class Astra_Breadcrumb_Trail {
 
 		// Add the week item.
 		if ( is_paged() ) {
+			/** @psalm-suppress InvalidArgument **/
 			$this->items[] = esc_url( get_archives_link( add_query_arg( array( 'm' => get_the_time( 'Y' ), 'w' => get_the_time( 'W' ) ), home_url() ), $week, false ) );
 		}
 		elseif ( true === $this->args['show_title'] ) {

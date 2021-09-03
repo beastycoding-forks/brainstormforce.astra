@@ -20,9 +20,12 @@ add_filter( 'astra_theme_defaults', 'astra_hf_builder_customizer_defaults' );
  */
 function astra_hf_builder_customizer_defaults( $defaults ) {
 
+	$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
+
 	/**
 	 * Header Builder - Desktop Defaults.
 	 */
+	$apply_new_default_values         = astra_apply_new_default_blog_values();
 	$defaults['header-desktop-items'] = array(
 		'popup'   => array( 'popup_content' => array( 'mobile-menu' ) ),
 		'above'   =>
@@ -81,7 +84,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['hb-header-main-layout-width'] = 'content';
 	$defaults['hb-header-height']            = array(
-		'desktop' => 70,
+		'desktop' => $apply_new_default_values ? 80 : 70,
 		'tablet'  => '',
 		'mobile'  => '',
 	);
@@ -91,7 +94,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 'stack',
 	);
 
-	$defaults['hb-header-main-sep']          = 1;
+	$defaults['hb-header-main-sep']          = $apply_new_default_values ? 0 : 1;
 	$defaults['hb-header-main-sep-color']    = '#eaeaea';
 	$defaults['hb-header-main-menu-align']   = 'inline';
 	$defaults['hb-header-bg-obj-responsive'] = array(
@@ -159,7 +162,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet'  => 'stack',
 		'mobile'  => 'stack',
 	);
-	$defaults['hba-header-separator']               = 1;
+	$defaults['hba-header-separator']               = $apply_new_default_values ? 0 : 1;
 	$defaults['hba-header-bottom-border-color']     = '#eaeaea';
 	$defaults['hba-header-bg-obj-responsive']       = array(
 		'desktop' => array(
@@ -250,7 +253,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 'stack',
 	);
 
-	$defaults['hbb-header-separator']           = 1;
+	$defaults['hbb-header-separator']           = $apply_new_default_values ? 0 : 1;
 	$defaults['hbb-header-bottom-border-color'] = '#eaeaea';
 	$defaults['hbb-header-bg-obj-responsive']   = array(
 		'desktop' => array(
@@ -506,7 +509,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Below Footer Defaults.
 	 */
-	$defaults['hbb-footer-height'] = 80;
+	$defaults['hbb-footer-height'] = $apply_new_default_values ? 70 : 80;
 	$defaults['hbb-footer-column'] = '1';
 	$defaults['hbb-footer-layout'] = array(
 		'desktop' => 'full',
@@ -568,7 +571,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Footer Copyright.
 	 */
 	$defaults['footer-copyright-editor']                 = 'Copyright [copyright] [current_year] [site_title] | Powered by [theme_author]';
-	$defaults['footer-copyright-color']                  = '#3a3a3a';
+	$defaults['footer-copyright-color']                  = 'var(' . $palette_css_var_prefix . '3)';
 	$defaults['line-height-section-footer-copyright']    = 2;
 	$defaults['footer-copyright-alignment']              = array(
 		'desktop' => 'center',
@@ -812,6 +815,24 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['mobile-header-label-text-transform'] = '';
 	$defaults['mobile-header-label-line-height']    = '';
 	$defaults['mobile-header-label-font-size']      = '';
+
+	/**
+	 * Global Color Palette.
+	 */
+	$defaults['global-color-palette'] = array(
+		'labels'  => Astra_Global_Palette::get_palette_labels(),
+		'palette' => array(
+			'#0274be',
+			'#3a3a3a',
+			'#3a3a3a',
+			'#4B4F58',
+			'#F5F5F5',
+			'#FFFFFF',
+			'#F2F5F7',
+			'#424242',
+			'#000000',
+		),
+	);
 
 	/**
 	* Mobile Menu
@@ -1116,8 +1137,34 @@ function prepare_button_defaults( $defaults, $index ) {
 		'mobile'  => '',
 	);
 	$defaults[ 'header-' . $_prefix . '-border-radius' ]  = '';
+	
+	$responsive_hb_button_padding = Astra_Builder_Helper::$default_responsive_spacing;
+	
+	if ( true === astra_apply_new_default_blog_values() ) {
+		$padding_arr                  = array(
+			'desktop' => array(
+				'top'    => 11,
+				'right'  => 22,
+				'bottom' => 11,
+				'left'   => 22,
+			),
+			'tablet'  => array(
+				'top'    => 11,
+				'right'  => 22,
+				'bottom' => 11,
+				'left'   => 22,
+			),
+			'mobile'  => array(
+				'top'    => 10,
+				'right'  => 20,
+				'bottom' => 10,
+				'left'   => 20,
+			),
+		);
+		$responsive_hb_button_padding = wp_parse_args( $padding_arr, Astra_Builder_Helper::$default_responsive_spacing );
+	}
 
-	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = $responsive_hb_button_padding;
 	$defaults[ 'section-hb-button-' . $index . '-margin' ]    = Astra_Builder_Helper::$default_responsive_spacing;
 	$defaults[ 'sticky-header-button' . $index . '-padding' ] = Astra_Builder_Helper::$default_responsive_spacing;
 

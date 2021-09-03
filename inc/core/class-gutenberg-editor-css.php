@@ -796,7 +796,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'margin-left'  => '-20px',
 						'margin-right' => '-20px',
 					),
-					'.ast-separate-container .edit-post-visual-editor .wp-block[data-align="full"] .wp-block-cover, .ast-separate-container .edit-post-visual-editor .wp-block[data-align="full"] .wp-block-group' => array(
+					'.ast-separate-container .edit-post-visual-editor .wp-block[data-align="full"] .wp-block-cover, .ast-separate-container .edit-post-visual-editor .wp-block[data-align="full"] .wp-block-group, .ast-separate-container .edit-post-visual-editor .wp-block[data-align="full"] .wp-block-columns' => array(
 						'margin-left'  => 'calc(-4.8em - -20px)',
 						'margin-right' => 'calc(-4.8em - -20px)',
 					),
@@ -1109,7 +1109,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'margin-left'  => 'auto',
 						'margin-right' => 'auto',
 					);
-				}           
+				}
 			} else {
 				$gtn_full_wide_image_css = array(
 					'.ast-separate-container .block-editor-block-list__layout .block-editor-block-list__block[data-align="full"] figure.wp-block-image' => array(

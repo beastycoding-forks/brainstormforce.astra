@@ -116,7 +116,7 @@ class Astra_Mobile_Menu_Component {
 							'id' => 'mobile-site-navigation',
 						)
 					);
-					echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
+					echo ' class="site-navigation ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
 						wp_page_menu( $fallback_menu_args );
 					echo '</nav>';
 				echo '</div>';

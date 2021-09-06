@@ -428,7 +428,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$search_button_hover_selector = $is_support_wp_5_8 ? ', .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:hover, .block-editor-writing-flow .wp-block-search .wp-block-search__inside-wrapper .wp-block-search__button:focus' : '';
 
 				/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$can_update_gb_blocks_ui          = astra_improve_gutenberg_blocks_ui();
+				$can_update_gb_blocks_ui = astra_improve_gutenberg_blocks_ui();
 				/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$file_block_button_selector       = $can_update_gb_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button' : '';
 				$file_block_button_hover_selector = $can_update_gb_blocks_ui ? ', .block-editor-writing-flow .wp-block-file .wp-block-file__button:hover, .block-editor-writing-flow .wp-block-file .wp-block-file__button:focus' : '';

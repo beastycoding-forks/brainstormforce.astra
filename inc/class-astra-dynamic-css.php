@@ -818,7 +818,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					switch ( $ast_container_layout ) {
 						case 'content-boxed-container':
 						case 'boxed-container':
-							if( astra_improve_gutenberg_blocks_ui() ) {
+							if ( astra_improve_gutenberg_blocks_ui() ) {
 								break;
 							}
 							$parse_css .= astra_parse_css(
@@ -871,8 +871,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					switch ( $container_layout ) {
 						case 'content-boxed-container':
 						case 'boxed-container':
-
-							if( astra_improve_gutenberg_blocks_ui() ) {
+							if ( astra_improve_gutenberg_blocks_ui() ) {
 								break;
 							}
 

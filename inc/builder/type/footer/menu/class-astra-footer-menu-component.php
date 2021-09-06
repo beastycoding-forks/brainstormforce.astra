@@ -80,7 +80,7 @@ class Astra_Footer_Menu_Component {
 			'site-navigation',
 			array(
 				'id'         => 'footer-site-navigation',
-				'class'      => 'ast-flex-grow-1 navigation-accessibility footer-navigation',
+				'class'      => 'site-navigation ast-flex-grow-1 navigation-accessibility footer-navigation',
 				'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 			)
 		);

@@ -68,7 +68,7 @@ class Astra_Mobile_Menu_Component {
 			'site-navigation',
 			array(
 				'id'         => 'mobile-site-navigation',
-				'class'      => 'ast-flex-grow-1 navigation-accessibility site-header-focus-item',
+				'class'      => 'site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item',
 				'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 			)
 		);

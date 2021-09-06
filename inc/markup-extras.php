@@ -832,7 +832,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 				'site-navigation',
 				array(
 					'id'         => 'site-navigation',
-					'class'      => 'ast-flex-grow-1 navigation-accessibility',
+					'class'      => 'site-navigation ast-flex-grow-1 navigation-accessibility',
 					'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 				)
 			);
@@ -869,7 +869,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 								'id' => 'site-navigation',
 							)
 						);
-						echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
+						echo ' class="site-navigation ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
 							wp_page_menu( $fallback_menu_args );
 						echo '</nav>';
 					echo '</div>';

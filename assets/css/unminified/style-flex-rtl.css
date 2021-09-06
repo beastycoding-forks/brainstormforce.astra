@@ -1554,10 +1554,7 @@ body {
   margin-right: auto;
 }
 
-#site-navigation,
-#footer-site-navigation,
-#mobile-site-navigation,
-#account-site-navigation {
+.site-navigation {
   height: 100%;
 }
 

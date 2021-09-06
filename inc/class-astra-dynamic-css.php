@@ -2117,9 +2117,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 */
 			if ( astra_improve_gutenberg_blocks_ui() ) {
 				$core_blocks_width_desktop_ui_css = array(
-					'.entry-content > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide)' => array(
+					'.entry-content > .wp-block-group, .entry-content > .wp-block-cover, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns' => array(
 						'max-width'    => '58em',
-						'width'        => 'calc(100% - 4rem)',
+						'width'        => 'calc(100% - 4em)',
 						'margin-left'  => 'auto',
 						'margin-right' => 'auto',
 					),
@@ -2133,8 +2133,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$core_blocks_min_width_tablet_ui_css = array(
 					'.wp-block-archives:not(.alignwide):not(.alignfull), .wp-block-categories:not(.alignwide):not(.alignfull), .wp-block-columns:not(.alignwide):not(.alignfull), .wp-block-cover:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-embed:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-gallery:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-group:not(.has-background):not(.alignwide):not(.alignfull), .wp-block-image:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-latest-comments:not(.aligncenter):not(.alignleft):not(.alignright), .wp-block-latest-posts:not(.aligncenter):not(.alignleft):not(.alignright), .wp-block-media-text:not(.alignwide):not(.alignfull), .wp-block-preformatted, .wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright), .wp-block-quote, .wp-block-quote.is-large, .wp-block-quote.is-style-large, .wp-block-verse, .wp-block-video:not(.alignwide):not(.alignfull), .entry-content > .alignwide:not(.wp-block-group.has-background), .entry-content > .alignfull:not(.wp-block-group.has-background)' => array(
-						'margin-top'    => '4em',
-						'margin-bottom' => '4em',
+						'margin-top'    => '2em',
+						'margin-bottom' => '2em',
 					),
 					'.entry-content > .alignwide:not(.wp-block-group.has-background), .entry-content > .alignfull:not(.wp-block-group.has-background)' => array(
 						'padding' => '1em',
@@ -2146,7 +2146,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 
-				/* Parse CSS from array -> min-width(tablet-breakpoint + 1) */
+				/* Parse CSS from array -> min-width(tablet-breakpoint) */
 				$parse_css .= astra_parse_css( $core_blocks_min_width_tablet_ui_css, astra_get_tablet_breakpoint() );
 
 				$core_blocks_min_width_1200_ui_css = array(

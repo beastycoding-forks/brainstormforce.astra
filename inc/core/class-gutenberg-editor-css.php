@@ -810,6 +810,13 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.block-editor-block-list__layout > .wp-block[data-align="wide"] .wp-block-group:not(.has-background), .block-editor-block-list__layout > .wp-block[data-align="full"] .wp-block-group:not(.has-background), .wp-block-group:not(.has-background)' => array(
 						'padding' => '2em',
 					),
+					'.wp-block[data-align="left"] figure figcaption, .wp-block[data-align="right"] figure figcaption, .wp-block[data-align="center"] figure figcaption' => array(
+						'padding-left'  => '20px',
+						'padding-right' => '20px',
+					),
+					'.wp-block[data-align="right"] figure figcaption' => array(
+						'text-align'  => 'right',
+					),
 				);
 
 				$css .= astra_parse_css( $gb_editor_core_blocks_ui_css );

@@ -111,11 +111,17 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 			$editor_improvement_css .= '
 			ul, ol {
 				margin-right: 20px;
+			}
+			figure.alignright figcaption {
+				text-align: left;
 			}';
 		} else {
 			$editor_improvement_css .= '
 			ul, ol {
 				margin-left: 20px;
+			}
+			figure.alignright figcaption {
+				text-align: right;
 			}';
 		}
 

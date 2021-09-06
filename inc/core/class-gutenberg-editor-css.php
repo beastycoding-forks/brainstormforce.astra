@@ -826,7 +826,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'padding-right' => '20px',
 					),
 					'.wp-block[data-align="right"] figure figcaption' => array(
-						'text-align'  => 'right',
+						'text-align' => 'right',
 					),
 				);
 

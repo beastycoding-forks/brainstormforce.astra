@@ -1,5 +1,5 @@
 v3.7.1
-- Fix: Accessibility - Duplicate HTML id site-navigationon if there are multiple menus on a single page.
+- Fix: Accessibility - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
 
 v3.6.9
 - Improvement: In the font size option, users cannot set the value '0'.

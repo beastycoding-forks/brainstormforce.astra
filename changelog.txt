@@ -1,4 +1,4 @@
-v3.7.1
+v3.7.1(unreleased)
 - Fix: Accessibility - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
 
 v3.6.9

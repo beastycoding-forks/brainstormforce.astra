@@ -229,6 +229,7 @@
 					}
 
 					if( config.hasOwnProperty('lazy') && true === config.lazy ) {
+						this.addControl(config.id, config);
 						continue;
 					}
 
@@ -360,7 +361,7 @@
 					// Add controls to theme sections.
 					for (const [section_id, config] of Object.entries(sections)) {
 						AstCustomizerAPI.addSection(section_id, config);
-						AstCustomizerAPI.registerControlsBySection(api.section(section_id));
+						AstCustomizerAPI.registerControlsBySection(api.section(section_id), true);
 						delete controls[section_id];
 						await null;
 					}
@@ -701,7 +702,7 @@
 
 						setTimeout( function() {
 							AstCustomizerAPI.registerControlsBySection( api.section(section.id), true );
-						}, 1000 );
+						}, 2000 );
 
 						// Lazy Loaded Context.
 						AstCustomizerAPI.setControlContextBySection(api.section(section.id));

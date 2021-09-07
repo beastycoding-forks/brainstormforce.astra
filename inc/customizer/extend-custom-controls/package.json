@@ -13,10 +13,11 @@
     "react-select": "^4.3.1",
     "react-sortablejs": "^6.0.0",
     "sortablejs": "^1.14.0",
-    "webfontloader": "^1.6.28"
+    "webfontloader": "^1.6.28",
+    "html-react-parser": "^1.2.7"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^17.1.0"
+    "@wordpress/scripts": "^18.0.0"
   },
   "scripts": {
     "build": "wp-scripts build",

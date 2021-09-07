@@ -1,6 +1,6 @@
-import {useState} from 'react';
+import { useState , useEffect } from 'react';
 
-const {__} = wp.i18n;
+const { __ } = wp.i18n;
 const {Dashicon, Tooltip, TextControl, Button } = wp.components;
 import FontIconPicker from "@fonticonpicker/react-fonticonpicker"
 import astIcons from "../../../../../assets/svg/ast-social-icons"
@@ -20,6 +20,13 @@ const ItemComponent = props => {
 	const icon = props.item.id.replace(/[\d_]+$/g, ''); // Regex to replace numeric chars with empty string.
 	const urlLabel = ( 'phone' === props.item.id || 'phone_2' === props.item.id ) ? __('Number', 'astra') : __('URL', 'astra');
 
+	const[ selectedIcon , setSelectedIcon ] = useState(
+		props.item.icon
+	)
+	useEffect(() => {
+		setSelectedIcon( Icons[props.item.icon] );
+	}, []);
+
 	return <div className="ahfb-sorter-item" data-id={props.item.id} key={props.item.id}>
 		<div className="ahfb-sorter-item-panel-header" onClick={() => {
 			setState((prevState => ({
@@ -30,7 +37,7 @@ const ItemComponent = props => {
 			<Tooltip text={__('Toggle Item Visiblity', 'astra')}>
 				<Button className="ahfb-sorter-visiblity">
 							<span dangerouslySetInnerHTML={{
-								__html: Icons[icon]
+								__html: selectedIcon
 							}}/>
 				</Button>
 			</Tooltip>
@@ -65,9 +72,12 @@ const ItemComponent = props => {
 				renderFunc= {renderSVG}
 				theme="default"
 				value={props.item.icon}
-				onChange={ value => { props.onChangeIcon(value, props.index); } }
+				onChange={ value => {
+					props.onChangeIcon(value, props.index);
+					setSelectedIcon( Icons[value] );
+				} }
 				isMulti={false}
-				noSelectedPlaceholder= { __( "Select Icon" ) }
+				noSelectedPlaceholder= { __( 'Select Icon', 'astra' ) }
 			/>
 		</div>}
 	</div>;

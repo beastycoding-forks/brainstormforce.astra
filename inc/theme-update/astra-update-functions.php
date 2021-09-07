@@ -55,7 +55,7 @@ function astra_vertical_horizontal_padding_migration() {
 
 	$btn_vertical_padding   = isset( $theme_options['button-v-padding'] ) ? $theme_options['button-v-padding'] : 10;
 	$btn_horizontal_padding = isset( $theme_options['button-h-padding'] ) ? $theme_options['button-h-padding'] : 40;
-
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	if ( false === astra_get_db_option( 'theme-button-padding', false ) ) {
 
 		// Migrate button vertical padding to the new padding param for button.
@@ -3058,6 +3058,20 @@ function astra_remove_logo_max_width() {
  * @since 3.6.0
  * @return void.
  */
+function astra_update_button_defaults_and_gb_button_patterns() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['can-update-button-defaults-to-gb-support'] ) ) {
+		$theme_options['can-update-button-defaults-to-gb-support'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set default value for the transparent header.
+ *
+ * @return void
+ */
 function astra_transparent_header_default_value() {
 	$theme_options = get_option( 'astra-settings', array() );
 
@@ -3150,6 +3164,36 @@ function astra_fix_footer_widget_right_margin_case() {
 }
 
 /**
+ * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_update_sticky_footer_flag() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['stick-footer-at-bottom'] ) ) {
+		$theme_options['stick-footer-at-bottom'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to provide backward compatibility blog/archive Grid CSS compatiblity for old users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_blog_grid_css_compatiblity() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['apply-blog-grid-css'] ) ) {
+		$theme_options['apply-blog-grid-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * @since 3.6.7
@@ -3160,6 +3204,21 @@ function astra_remove_elementor_toc_margin() {
 
 	if ( ! isset( $theme_options['remove-elementor-toc-margin-css'] ) ) {
 		$theme_options['remove-elementor-toc-margin-css'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Link default color compatibility.
+ *
+ * @since x.x.x
+ * @return void.
+ */
+function astra_global_color_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['support-global-color-format'] ) ) {
+		$theme_options['support-global-color-format'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
@@ -3181,9 +3240,24 @@ function astra_set_removal_widget_design_options_flag() {
 }
 
 /**
- * Apply zero font size for new users.
+ * Do not apply direct reflections on site, setting up flag here before updating font-size for buttons for existing users.
  *
  * @since x.x.x
+ * @return void
+ */
+function astra_may_update_button_font_size() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['button-default-empty-font-size'] ) ) {
+		$theme_options['button-default-empty-font-size'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Apply zero font size for new users.
+ *
+ * @since 3.6.9
  * @return void
  */
 function astra_zero_font_size_comp() {
@@ -3195,9 +3269,10 @@ function astra_zero_font_size_comp() {
 	}
 }
 
-/** Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
- * @since x.x.x
+ * @since 3.6.9
  * @return void
  */
 function astra_unset_builder_elements_underline() {
@@ -3209,7 +3284,38 @@ function astra_unset_builder_elements_underline() {
 	}
 }
 
-/** Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+/**
+ * Migrating Builder > Account > transparent resonsive menu color options to single color options.
+ * Because we do not show menu on resonsive devices, whereas we trigger login link on responsive devices instead of showing menu.
+ *
+ * @since 3.6.9
+ *
+ * @return void
+ */
+function astra_remove_responsive_account_menu_colors_support() {
+
+	$theme_options = get_option( 'astra-settings', array() );
+
+	$account_menu_colors = array(
+		'transparent-account-menu-color',                // Menu color.
+		'transparent-account-menu-bg-obj',               // Menu background color.
+		'transparent-account-menu-h-color',              // Menu hover color.
+		'transparent-account-menu-h-bg-color',           // Menu background hover color.
+		'transparent-account-menu-a-color',              // Menu active color.
+		'transparent-account-menu-a-bg-color',           // Menu background active color.
+	);
+
+	foreach ( $account_menu_colors as $color_option ) {
+		if ( ! isset( $theme_options[ $color_option ] ) && isset( $theme_options[ $color_option . '-responsive' ]['desktop'] ) ) {
+			$theme_options[ $color_option ] = $theme_options[ $color_option . '-responsive' ]['desktop'];
+		}
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * @since x.x.x
  * @return void

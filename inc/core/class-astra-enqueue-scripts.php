@@ -144,6 +144,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			);
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$css_file = 'frontend';
+
+				if ( astra_apply_blog_grid_css() ) {
+					$css_file = 'main-grid';
+				} elseif ( Astra_Builder_Helper::apply_flex_based_css() ) {
+					$css_file = 'main';
+				}
 
 				$default_assets = array(
 					// handle => location ( in /assets/js/ ) ( without .js ext).
@@ -152,11 +159,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					),
 					// handle => location ( in /assets/css/ ) ( without .css ext).
 					'css' => array(
-						'astra-theme-css' => Astra_Builder_Helper::apply_flex_based_css() ? 'main' : 'frontend',
+						'astra-theme-css' => $css_file,
 					),
 				);
 
-				if ( defined( 'ASTRA_EXT_VER' ) ) {
+				if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.5.9', '<' ) ) {
 					$default_assets['js']['astra-theme-js-pro'] = 'frontend-pro';
 				}
 
@@ -313,8 +320,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			$astra_localize = array(
-				'break_point' => astra_header_break_point(),    // Header Break Point.
-				'isRtl'       => is_rtl(),
+				'break_point'  => astra_header_break_point(),    // Header Break Point.
+				'stick_footer' => astra_isset_sticky_footer(),    // Is sticky footer enabled.
+				'isRtl'        => is_rtl(),
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
@@ -355,8 +363,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
 			$js_uri  = ASTRA_THEME_URI . 'inc/assets/js/block-editor-script.js';
-
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_enqueue_style( 'astra-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_enqueue_script( 'astra-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
 
 			// Render fonts in Gutenberg layout.

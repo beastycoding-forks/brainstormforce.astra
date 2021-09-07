@@ -26,6 +26,8 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 	 */
 	function astra_get_foreground_color( $hex ) {
 
+		$hex = apply_filters( 'astra_before_foreground_color_generation', $hex );
+
 		// bail early if color's not set.
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
 			return 'transparent';
@@ -1528,7 +1530,7 @@ function is_current_post_comment_enabled() {
 /**
  * Dont apply zero size to existing user.
  *
- * @since x.x.x
+ * @since 3.6.9
  * @return boolean false if it is an existing user , true if not.
  */
 function astra_zero_font_size_case() {

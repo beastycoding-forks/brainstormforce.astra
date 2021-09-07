@@ -1,10 +1,36 @@
+v3.7.1 (Unreleased)
+- New: Breadcrumb compatibility with SEOPress. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
+- Improvement: Breadcrumb compatibility with SEOPress. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
+- Fix: W3C HTML validation - Duplicate ID: Layer_1.
+- Fix: W3C HTML validation - Duplicate ID: ast-hf-mobile-menu.
+
 v3.6.9
-- Improvement : Gutenberg editor overall UI/UX improved.
-- Improvement : Font size '0' will applicable for the fonts.
-- Improvement: Introduced filter to exclude anchor links from text-decoration style. ( Needs Doc )
-- Improvement: Clear asset cache of theme and addon on every new update of theme.
-- Fix: Auto scroll isssue on clicking Footer Builder in customiser preview.
-- Fix: WooCommerce - Cart icon broken on Tab & Mobile devices.
+- Improvement: In the font size option, users cannot set the value '0'.
+- Improvement: Introduced filter to exclude anchor links from text-decoration style. ( https://wpastra.com/docs/remove-underlined-content-links/ )
+- Improvement: Clear asset cache of theme and addon on every new update of the theme.
+- Improvement: Moved addon related Toggle for Desktop frontend-pro.js file from theme to the addon.
+- Improvement: Moved the 'Site Icon' control to a separate section, 'Site Identity'.
+- Fix: Auto-scroll not working on clicking Footer Builder in the customizer preview.
+- Fix: WooCommerce - Cart icon not appearing correctly on Tablet & Mobile devices.
+- Fix: Dropdown target as a link not working if the menu item has a link.
+- Fix: WooCommerce - Cart count is overlapping on submenu section.
+- Fix: The submenu toggle is not working when 'Flyout Menu' is used, and the page is resized.
+- Fix: Customizer color group control's reset position misaligned.
+- Fix: Desktop logo width is applying on the mobile devices during page load.
+- Fix: Social icon does not change in the customizer preview.
+- Fix: Gutenberg Editor content area showing white background color when Full-Width Contained / Stretched layout is active.
+- Deprecated: Builder - Account Element - Deprecated transparent header's responsive options for menu colors.
+
+v3.7.0-beta.1
+- New: Introduced Global Color Palette Feature. ( https://wpastra.com/docs/astra-global-color-palette-settings/ )
+- New: Introduced Typography Presets Feature. ( https://wpastra.com/docs/astra-typography-presets/ )
+- New: Introduced Button Presets Feature. ( https://wpastra.com/docs/astra-button-styles-presets/ )
+- New: Added Heading Typography options for H4-H6 also.
+- New: Content background color option.
+- Fix: Heading color option not working for Sidebar, Footer widget title.
+- Fix: Heading color option not working for the Archive page title.
+- Fix: Live preview for content background option not working.
+- Fix: Content background image not working for related posts section.
 
 v3.6.8
 - Improvement: Added WPML translation support for all customizer's strings through wpml-config.xml file.
@@ -16,6 +42,13 @@ v3.6.8
 v3.6.7
 - Improvement: Rendered Addon dependent toggle code conditionally and removed unwanted code.
 - Improvement: Changed the screen reader text tag from 'h2' to 'span' for better SEO.
+v3.7.1 (Unreleased)
+- Improvement: Builder - Removed design specific options from widgets in WordPress 5.8.
+
+v3.6.6 (Unreleased)
+- Improvement: Rendered Addon dependent toggle code conditionally and removed unwanted code.
+- Improvement: Moved customizer related code from frontend JS file to customizer JS file.
+- Improvement: Stick Footer to bottom when page content is Less.
 - Fix: Changing Off-canvas flyout close button color not reflecting on frontend.
 - Fix: Broken layout WooCommerce Shop/Archive page on mobile view when using elementor template or Product archive widget.
 - Fix: Next and Previous pagination button is not aligned with page numbers for mobile view.
@@ -23,6 +56,9 @@ v3.6.7
 - Fix: Heading color h1-h6 of customizer not working in the Gutenberg editor.
 - Fix: Global headings font family not working in the Gutenberg editor.
 - Fix: Footer Builder - Widgets - Right margin space not working. ( https://wpastra.com/docs/fix-footer-widget-right-margin/ )
+- Fix: Footer Builder - Widgets - Right margin space not working.
+- Fix: 'Disable Footer' and 'Disable Footer Widgets' option is missing in Page meta settings.
+- Fix: 'Disable Footer' Widgets Page meta setting is not reflecting on frontend.
 - Fix: Search icon color is not applying to the Standard and Transparent Header Search Box style.
 - Fix: Removed the spacing applied for the menu items in the customizer section.
 - Fix: Builder - WooCommerce & EDD cart - Cart and Checkout buttons not visible when multiple products added to cart flyout.
@@ -33,6 +69,7 @@ v3.6.7
 - Fix: Off-canvas menu closes on scrolling on mobile devices.
 - Fix: Customizer builder section not scrollable when multiple elements dropped in builder area.
 - Fix: Theme's default margin space of OL tag apply to Elementor's TOC widget. ( https://wpastra.com/docs/remove-spacing-elementor-toc/ )
+- Fix: Theme's default margin space of OL tag apply to Elementor's TOC widget.
 - Fix: Menu dropdown icons showing at incorrect position in RTL languages.
 - Fix: “Search” string in Search Form is not translatable.
 - Fix: Transparent header showing border even if it is not set from customizer in FireFox browser.
@@ -53,6 +90,9 @@ v3.6.5
 - Fix: Headers showing border even though its not set from customizer in FireFox browser.
 
 v3.6.4
+- Fix: Headers showing border even though its not set from customizer in FireFox browser.
+
+v3.6.3
 - Improvement: Introducing content links underline option.
 
 v3.6.3

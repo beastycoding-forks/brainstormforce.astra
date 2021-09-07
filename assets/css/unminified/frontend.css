@@ -739,6 +739,36 @@ ins {
   text-decoration: none;
 }
 
+.astra-logo-svg {
+  height: calc( var(--maxHeight, 150px) - 215px);
+}
+
+ul, ol {
+  margin: 0 0 1.5em 3em;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
 table, th, td {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -1181,11 +1211,6 @@ textarea,
   line-height: 1.2;
 }
 
-.entry-title,
-.entry-title a {
-  font-weight: normal;
-}
-
 /*----------  Media ----------*/
 /* Astra Respnosive oEmbed Video container */
 .ast-oembed-container {
@@ -1401,8 +1426,8 @@ body {
 .main-header-menu .menu-link,
 .main-header-menu > a {
   text-decoration: none;
-  padding: 0 1em;
   display: inline-block;
+  padding: 0 1em;
   transition: all 0.2s linear;
 }
 
@@ -1814,14 +1839,6 @@ body {
 }
 
 /* .alignwide & .alignfull CSS compatibility */
-.ast-no-sidebar {
-  /* Boxed & Content Boxed container alignment support */
-}
-
-.ast-no-sidebar .entry-content {
-  /* Alignment while using the column block */
-}
-
 .ast-no-sidebar .entry-content .alignfull {
   margin-left: calc(-50vw  + 50%);
   margin-right: calc(-50vw  + 50%);
@@ -1855,10 +1872,6 @@ body {
   margin-left: auto;
   margin-right: auto;
   width: 100%;
-}
-
-.ast-no-sidebar.ast-separate-container .entry-content {
-  /* Alignment while using the column block */
 }
 
 .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
@@ -1947,11 +1960,6 @@ body .entry-content .wp-block-latest-posts li {
 
 .ast-no-sidebar .ast-container .entry-content .wp-block-latest-posts {
   margin-left: 0;
-}
-
-.ast-header-break-point .entry-content .alignwide {
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .entry-content .blocks-gallery-item img {
@@ -2590,9 +2598,9 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 /**
- * 10 - Submenu container box shadow 
+ * 10 - Submenu container box shadow
  */
-.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .sub-menu {
+.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu):not(#ast-desktop-toggle-menu) .sub-menu {
   box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
 }
 
@@ -3058,7 +3066,6 @@ input[type="color"]::-webkit-color-swatch {
 
 .page-title {
   margin-bottom: 1em;
-  font-weight: normal;
 }
 
 .entry-title {
@@ -3078,14 +3085,57 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 3em;
 }
 
-.blog-layout-1 {
-  /* 2 - Blog Thumbnail Styles */
-}
-
 .blog-layout-1 .post-thumb {
   padding-left: 0;
   padding-right: 0;
   position: relative;
+}
+
+.ast-page-builder-template .ast-article-post {
+  margin-bottom: 2.5em;
+}
+
+.ast-separate-container .ast-separate-posts.ast-article-post {
+  margin-bottom: 2em;
+}
+
+.ast-separate-container .ast-grid-1 .blog-layout-1 {
+  padding: 0;
+}
+
+.ast-separate-container .ast-grid-2 .ast-article-post,
+.ast-separate-container .ast-grid-3 .ast-article-post,
+.ast-separate-container .ast-grid-4 .ast-article-post {
+  background: transparent;
+}
+
+.ast-separate-container .blog-layout-1 {
+  padding: 2.66666em;
+  background: #ffffff;
+}
+
+.ast-separate-container .ast-grid-2 .blog-layout-1,
+.ast-separate-container .ast-grid-3 .blog-layout-1,
+.ast-separate-container .ast-grid-4 .blog-layout-1 {
+  padding: 1.5em;
+}
+
+@media (max-width: 1200px) {
+  .ast-separate-container .ast-grid-2 .ast-article-post:nth-child(2n+0), .ast-separate-container .ast-grid-2 .ast-article-post:nth-child(2n+1),
+  .ast-separate-container .ast-grid-3 .ast-article-post:nth-child(2n+0),
+  .ast-separate-container .ast-grid-3 .ast-article-post:nth-child(2n+1),
+  .ast-separate-container .ast-grid-4 .ast-article-post:nth-child(2n+0),
+  .ast-separate-container .ast-grid-4 .ast-article-post:nth-child(2n+1) {
+    padding: 0;
+  }
+  .ast-separate-container .blog-layout-1 {
+    padding: 1.5em;
+  }
+}
+
+.ast-page-builder-template .ast-article-post .entry-header {
+  margin: auto auto 1em auto;
+  padding: 0;
 }
 
 .blog .posted-on {
@@ -3129,7 +3179,6 @@ input[type="color"]::-webkit-color-swatch {
   margin-bottom: 4px;
   font-size: 40px;
   font-size: 2.85714rem;
-  font-weight: 300;
 }
 
 .ast-archive-description p {

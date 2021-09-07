@@ -166,6 +166,36 @@ html {
   text-decoration: none;
 }
 
+.edit-post-visual-editor .astra-logo-svg {
+  height: calc( var(--maxHeight, 150px) - 215px);
+}
+
+.edit-post-visual-editor ul, .edit-post-visual-editor ol {
+  margin: 0 0 1.5em 3em;
+}
+
+.edit-post-visual-editor ul {
+  list-style: disc;
+}
+
+.edit-post-visual-editor ol {
+  list-style: decimal;
+}
+
+.edit-post-visual-editor li > ul,
+.edit-post-visual-editor li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+
+.edit-post-visual-editor dt {
+  font-weight: bold;
+}
+
+.edit-post-visual-editor dd {
+  margin: 0 1.5em 1.5em;
+}
+
 .edit-post-visual-editor table, .edit-post-visual-editor th, .edit-post-visual-editor td {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -734,4 +764,17 @@ ul.wp-block-categories__list {
 
 .wp-block-buttons .wp-block-button:not(:first-child) {
   padding-left: 0;
+}
+
+.edit-post-visual-editor pre.wp-block, .edit-post-visual-editor .wp-block.wp-block-query-title {
+  padding-left: 20px;
+}
+
+.edit-post-visual-editor ul.block-editor-block-list__block,
+.edit-post-visual-editor ol.block-editor-block-list__block {
+  margin-left: 20px;
+}
+
+.edit-post-visual-editor .components-button {
+  color: #1e1e1e;
 }

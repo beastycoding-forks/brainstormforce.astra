@@ -13,6 +13,7 @@ v3.6.9
 - Fix: Desktop logo width is applying on the mobile devices during page load.
 - Fix: Social icon does not change in the customizer preview.
 - Fix: Gutenberg Editor content area showing white background color when Full-Width Contained / Stretched layout is active.
+- Fix: Accessibility - Duplicate HTML id site-navigationon if there are multiple menus on a single page.
 - Deprecated: Builder - Account Element - Deprecated transparent header's responsive options for menu colors.
 
 v3.6.8

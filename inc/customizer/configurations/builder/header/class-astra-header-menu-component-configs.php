@@ -627,6 +627,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 				);
 
+				$_configs = array_merge(
+					$_configs,
+					astra_builder_base_configuration_instance()->prepare_transparent_header_notice( $_section, 'menu-' . $index, __( 'Menu', 'astra' ) )
+				);
+
 				$html_config[] = Astra_Builder_Base_Configuration::prepare_visibility_tab( $_section );
 				$html_config[] = $_configs;
 			}

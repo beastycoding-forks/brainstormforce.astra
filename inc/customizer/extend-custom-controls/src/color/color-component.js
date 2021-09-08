@@ -13,13 +13,6 @@ const ColorComponent = props => {
 		value: value,
 	});
 
-	useEffect( () => {
-		// If settings are changed externally.
-		if( state.value !== value ) {
-			setState(value);
-		}
-	}, [props]);
-
 	const updateValues = (value) => {
 		setState(prevState => ({
 			...prevState,

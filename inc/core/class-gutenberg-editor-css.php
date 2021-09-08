@@ -178,12 +178,19 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 
+			/**
+			 * Button visited color options.
+			 */
+			$btn_visited_color    = astra_get_option( 'button-visited-color', $btn_color );
+			$btn_visited_bg_color = astra_get_option( 'button-bg-visited-color', $btn_bg_color );
+
 			$css = '';
 
 			$desktop_css = array(
 				'html'                                    => array(
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
+				':root'                                   => Astra_Global_Palette::generate_global_palette_style(),
 				'a'                                       => array(
 					'color' => esc_attr( $link_color ),
 				),
@@ -303,6 +310,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'border-color'     => $btn_bg_h_color,
 					'background-color' => $btn_bg_h_color,
 				),
+				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link:visited' => array(
+					'color'            => $btn_visited_color,
+					'background-color' => $btn_visited_bg_color,
+				),
 				'.wc-block-grid__products .wc-block-grid__product .wp-block-button__link' => array(
 					'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
 					'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
@@ -382,6 +393,44 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $desktop_css );
 
+			if ( astra_can_improve_gutenberg_blocks_ui() ) {
+				$compatibility_css = '
+				.editor-styles-wrapper .wp-block-pullquote blockquote::before {
+					background: #f5f5f5;
+					border-radius: 50%;
+					content: "”";
+					display: block;
+					font-size: 6.2rem;
+					line-height: 1.2;
+					font-weight: 500;
+					margin: 0 auto;
+					text-align: left;
+					height: 4.4rem;
+					width: 4.4rem;
+				}
+				.editor-styles-wrapper .wp-block-pullquote.is-style-solid-color blockquote {
+					max-width: 100%;
+					text-align: inherit;
+				}
+				ul.wp-block-categories__list, ul.wp-block-archives-list {
+					list-style-type: none;
+				}';
+
+				if ( $is_site_rtl ) {
+					$compatibility_css .= '
+					.edit-post-visual-editor ul, .edit-post-visual-editor ol {
+						margin-right: 20px;
+					}';
+				} else {
+					$compatibility_css .= '
+					.edit-post-visual-editor ul, .edit-post-visual-editor ol {
+						margin-left: 20px;
+					}';
+				}
+
+				$css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
+			}
+
 			/**
 			 * Global button CSS - Tablet.
 			 */
@@ -458,6 +507,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'color'            => esc_attr( $btn_h_color ),
 						'background-color' => esc_attr( $btn_bg_h_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_h_color ) : esc_attr( $btn_border_h_color ),
+					),
+					'.wp-block-button .wp-block-button__link:visited' => array(
+						'color'            => esc_attr( $btn_visited_color ),
+						'background-color' => esc_attr( $btn_visited_bg_color ),
 					),
 				);
 
@@ -948,6 +1001,20 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'margin-right' => '0',
 				),
 			);
+
+			if ( astra_is_content_bg_option_to_load() ) {
+
+				$content_bg_obj = astra_get_option( 'content-bg-obj-responsive' );
+
+				$boxed_container['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'desktop' );
+
+				$boxed_container_tablet['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'tablet' );
+
+				$boxed_container_mobile['.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow'] = astra_get_responsive_background_obj( $content_bg_obj, 'mobile' );
+
+				$css .= astra_parse_css( $boxed_container_tablet, '', astra_get_tablet_breakpoint() );
+				$css .= astra_parse_css( $boxed_container_mobile, '', astra_get_mobile_breakpoint() );
+			}
 
 			$css .= astra_parse_css( $boxed_container );
 

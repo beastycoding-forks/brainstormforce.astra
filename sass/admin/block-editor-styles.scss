@@ -354,3 +354,16 @@ h6{
 		}
     }
 }
+ul.wp-block-categories__list {
+	padding-left: 0;
+}
+.edit-post-visual-editor pre.wp-block, .edit-post-visual-editor .wp-block.wp-block-query-title {
+    padding-left: 20px;
+}
+.edit-post-visual-editor ul.block-editor-block-list__block,
+.edit-post-visual-editor ol.block-editor-block-list__block {
+    margin-left: 20px;
+}
+.edit-post-visual-editor .components-button {
+	color: #1e1e1e;
+}

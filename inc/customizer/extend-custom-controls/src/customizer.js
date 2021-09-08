@@ -213,7 +213,7 @@
 			set_context(control_id);
 		},
 
-		registerControlsBySection: async function (section) {
+		registerControlsBySection: async function ( section, lazy = false ) {
 
 			if( ! section ) {
 				return;
@@ -222,6 +222,16 @@
 			if ('undefined' != typeof AstraBuilderCustomizerData) {
 				let controls = Object.assign({}, AstraBuilderCustomizerData.js_configs.controls[section.id]);
 				for (const [section_id, config] of Object.entries(controls)) {
+
+					if( true === lazy && ( config.hasOwnProperty('lazy') && true === config.lazy ) ) {
+						this.addControl(config.id, config);
+						continue;
+					}
+
+					if( config.hasOwnProperty('lazy') && true === config.lazy ) {
+						continue;
+					}
+
 					this.addControl(config.id, config);
 					await null;
 				}
@@ -633,6 +643,28 @@
 		sessionStorage.removeItem('astra-builder-reset-in-progress');
 	}
 
+	const setPaletteVariables = function() {
+
+		const globalPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
+
+		const customizerPreviewContainer =  document.getElementById('customize-preview')
+		const iframe = customizerPreviewContainer.getElementsByTagName('iframe')[0]
+		const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+		let stylePrefix = astra.customizer.globalPaletteStylePrefix;
+
+		Object.entries( globalPalette.palette ).map( ( paletteItem, index ) => {
+			innerDoc.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
+			document.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
+
+			if( true === astra.customizer.isElementorActive ) {
+				let paletteSlugs = astra.customizer.globalPaletteSlugs;
+				// Set css variables for Elementor style.
+				innerDoc.documentElement.style.setProperty( '--e-global-color-astra' + paletteSlugs[ index ].replace(/-/g, ""), paletteItem[1] );
+			}
+
+		} );
+	}
+
 	api.bind('ready', function () {
 
 		astra_builder_clear_operation_session();
@@ -669,6 +701,11 @@
 			]).then(function () {
 				api.section.each(function (section) {
 					section.expanded.bind(function (isExpanded) {
+
+						setTimeout( function() {
+							AstCustomizerAPI.registerControlsBySection( api.section(section.id), true );
+						}, 1000 );
+
 						// Lazy Loaded Context.
 						AstCustomizerAPI.setControlContextBySection(api.section(section.id));
 
@@ -783,6 +820,14 @@
 				api.section.remove(forceRemoveSection.section);
 
 			});
+
+			setPaletteVariables();
+
+			document.addEventListener(
+				"AstUpdatePaletteVariables",
+				setPaletteVariables,
+				false
+			);
 
 		});
 

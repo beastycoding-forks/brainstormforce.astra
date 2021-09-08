@@ -1,11 +1,7 @@
-<<<<<<< HEAD
-v3.7.1(unreleased)
-- Fix: Accessibility - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
-=======
 v3.7.1 (Unreleased)
 - New: Breadcrumb compatibility with SEOPress. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
 - Fix: The default "Add Widget" text alignment issue in header.
->>>>>>> 2e9727de5488093682d6feb387767d510137ca22
+- Fix: Accessibility - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
 
 v3.6.9
 - Improvement: In the font size option, users cannot set the value '0'.

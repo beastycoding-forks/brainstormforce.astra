@@ -229,7 +229,6 @@
 					}
 
 					if( config.hasOwnProperty('lazy') && true === config.lazy ) {
-						this.addControl(config.id, config);
 						continue;
 					}
 
@@ -470,6 +469,7 @@
 						// Change Dynamic section for sticky header controls.
 						if( typeof currentValue === 'object' && undefined !== rule['sticky-header-item'] ) {
 							var headers = ['above','primary','below'];
+
 							$.each( headers, function( key, val ) {
 								$.each( currentValue[val] , function( key, zone ) {
 									if( zone.indexOf( comparedValue ) > -1 ){
@@ -702,7 +702,7 @@
 
 						setTimeout( function() {
 							AstCustomizerAPI.registerControlsBySection( api.section(section.id), true );
-						}, 2000 );
+						}, 1000 );
 
 						// Lazy Loaded Context.
 						AstCustomizerAPI.setControlContextBySection(api.section(section.id));

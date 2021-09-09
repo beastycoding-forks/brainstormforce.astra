@@ -719,12 +719,13 @@ if ( ! function_exists( 'astra_toggle_buttons_markup' ) ) {
 	function astra_toggle_buttons_markup() {
 		$disable_primary_navigation = astra_get_option( 'disable-primary-nav' );
 		$custom_header_section      = astra_get_option( 'header-main-rt-section' );
-		$hide_custom_menu_mobile    = astra_get_option( 'hide-custom-menu-mobile', false );
-		$above_header_merge         = astra_get_option( 'above-header-merge-menu' );
-		$above_header_on_mobile     = astra_get_option( 'above-header-on-mobile' );
-		$below_header_merge         = astra_get_option( 'below-header-merge-menu' );
-		$below_header_on_mobile     = astra_get_option( 'below-header-on-mobile' );
-		$menu_bottons               = true;
+		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$hide_custom_menu_mobile = astra_get_option( 'hide-custom-menu-mobile', false );
+		$above_header_merge      = astra_get_option( 'above-header-merge-menu' );
+		$above_header_on_mobile  = astra_get_option( 'above-header-on-mobile' );
+		$below_header_merge      = astra_get_option( 'below-header-merge-menu' );
+		$below_header_on_mobile  = astra_get_option( 'below-header-on-mobile' );
+		$menu_bottons            = true;
 
 		if ( ( $disable_primary_navigation && 'none' == $custom_header_section ) || ( $disable_primary_navigation && true == $hide_custom_menu_mobile ) ) {
 			$menu_bottons = false;
@@ -1078,10 +1079,11 @@ function astra_get_header_classes() {
 		$logo_title_inline             = astra_get_option( 'logo-title-inline' );
 		$mobile_header_logo            = astra_get_option( 'mobile-header-logo' );
 		$different_mobile_header_order = astra_get_option( 'different-mobile-logo' );
-		$hide_custom_menu_mobile       = astra_get_option( 'hide-custom-menu-mobile', false );
-		$menu_mobile_target            = astra_get_option( 'mobile-header-toggle-target', 'icon' );
-		$submenu_container_animation   = astra_get_option( 'header-main-submenu-container-animation' );
-		$builder_menu_mobile_target    = astra_get_option( 'header-builder-menu-toggle-target', 'icon' );
+		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$hide_custom_menu_mobile     = astra_get_option( 'hide-custom-menu-mobile', false );
+		$menu_mobile_target          = astra_get_option( 'mobile-header-toggle-target', 'icon' );
+		$submenu_container_animation = astra_get_option( 'header-main-submenu-container-animation' );
+		$builder_menu_mobile_target  = astra_get_option( 'header-builder-menu-toggle-target', 'icon' );
 
 	if ( '' !== $submenu_container_animation ) {
 		$classes[] = 'ast-primary-submenu-animation-' . $submenu_container_animation;
@@ -1219,7 +1221,7 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 			$args['title_reply']       = astra_default_strings( 'string-comment-title-reply', false );
 			$args['cancel_reply_link'] = astra_default_strings( 'string-comment-cancel-reply-link', false );
 			$args['label_submit']      = astra_default_strings( 'string-comment-label-submit', false );
-			$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ' . astra_attr( 'ast-grid-lg-12' ) . '"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+			$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ' . ( ! astra_apply_blog_grid_css() ? astra_attr( 'ast-grid-lg-12' ) : '' ) . '"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 		}
 		return apply_filters( 'astra_comment_form_default_markup', $args );
 

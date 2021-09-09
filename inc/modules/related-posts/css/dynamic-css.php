@@ -155,6 +155,19 @@ function astra_related_posts_css( $dynamic_css ) {
 			),
 		);
 
+		if ( astra_has_global_color_format_support() ) {
+
+			$related_posts_bg_color = astra_get_option( 'related-posts-background-color', $content_bg_obj );
+
+			if ( is_array( $related_posts_bg_color ) ) {
+				$css_desktop_output['.ast-single-related-posts-container'] = astra_get_responsive_background_obj( $related_posts_bg_color, 'desktop' );
+			} else {
+				$css_desktop_output['.ast-single-related-posts-container'] = array(
+					'background-color' => esc_attr( $related_posts_bg_color ),
+				);
+			}
+		}
+
 		$dynamic_css .= astra_parse_css( $css_desktop_output );
 
 		$css_max_tablet_output = array(
@@ -178,6 +191,16 @@ function astra_related_posts_css( $dynamic_css ) {
 			),
 		);
 
+		if ( astra_has_global_color_format_support() ) {
+			if ( is_array( $related_posts_bg_color ) ) {
+				$css_max_tablet_output['.ast-single-related-posts-container'] = astra_get_responsive_background_obj( $related_posts_bg_color, 'desktop' );
+			} else {
+				$css_max_tablet_output['.ast-single-related-posts-container'] = array(
+					'background-color' => esc_attr( $related_posts_bg_color ),
+				);
+			}
+		}
+
 		$dynamic_css .= astra_parse_css( $css_max_tablet_output, '', astra_get_tablet_breakpoint() );
 
 		$css_max_mobile_output = array(
@@ -197,6 +220,16 @@ function astra_related_posts_css( $dynamic_css ) {
 				'font-size' => astra_responsive_font( $related_posts_section_title_font_size, 'mobile' ),
 			),
 		);
+
+		if ( astra_has_global_color_format_support() ) {
+			if ( is_array( $related_posts_bg_color ) ) {
+				$css_max_mobile_output['.ast-single-related-posts-container'] = astra_get_responsive_background_obj( $related_posts_bg_color, 'desktop' );
+			} else {
+				$css_max_mobile_output['.ast-single-related-posts-container'] = array(
+					'background-color' => esc_attr( $related_posts_bg_color ),
+				);
+			}
+		}
 
 		$dynamic_css .= astra_parse_css( $css_max_mobile_output, '', astra_get_mobile_breakpoint() );
 

@@ -60,7 +60,52 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 			vertical-align: middle;
 		}';
 
-		return $dynamic_css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
+		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $compatibility_css );
+	}
+
+	if( astra_can_improve_gutenberg_blocks_ui() ) {
+		$is_site_rtl                = is_rtl();
+
+		$editor_improvement_css = '
+		.wp-block-pullquote blockquote::before {
+			background: #f5f5f5;
+			border-radius: 50%;
+			content: "”";
+			display: block;
+			font-size: 6.2rem;
+			line-height: 1.2;
+			font-weight: 500;
+			margin: 0 auto;
+			height: 4.4rem;
+			width: 4.4rem;
+		}
+		figure.wp-block-pullquote.is-style-solid-color blockquote {
+			max-width: 100%;
+			text-align: inherit;
+		}
+		ul.wp-block-categories-list.wp-block-categories, ul.wp-block-archives-list.wp-block-archives {
+			list-style-type: none;
+		}';
+
+		if( $is_site_rtl ) {
+			$editor_improvement_css .= '
+			.wp-block-pullquote blockquote::before {
+				text-align: right;
+			}
+			ul, ol {
+				margin-right: 20px;
+			}';
+		} else {
+			$editor_improvement_css .= '
+			.wp-block-pullquote blockquote::before {
+				text-align: left;
+			}
+			ul, ol {
+				margin-left: 20px;
+			}';
+		}
+
+		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $editor_improvement_css );
 	}
 
 	return $dynamic_css;

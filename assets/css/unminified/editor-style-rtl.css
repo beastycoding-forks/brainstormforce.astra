@@ -1442,6 +1442,36 @@ ins {
   text-decoration: none;
 }
 
+.astra-logo-svg {
+  height: calc( var(--maxHeight, 150px) - 215px);
+}
+
+ul, ol {
+  margin: 0 3em 1.5em 0;
+}
+
+ul {
+  list-style: disc;
+}
+
+ol {
+  list-style: decimal;
+}
+
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-right: 1.5em;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
 table, th, td {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
@@ -1857,11 +1887,6 @@ textarea,
 .ast-single-post .entry-title,
 .ast-single-post .entry-title a {
   line-height: 1.2;
-}
-
-.entry-title,
-.entry-title a {
-  font-weight: normal;
 }
 
 /* Astra Respnosive oEmbed Video container */

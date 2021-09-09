@@ -409,12 +409,13 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 		'ast-hf-menu-7',
 		'ast-hf-menu-8',
 		'ast-hf-menu-9',
-		'ast-hf-menu-10',       // Cloned builder menus.
-		'ast-hf-mobile-menu',   // Builder - Mobile Menu.
-		'ast-hf-account-menu',  // Builder - Login Account Menu.
-		'primary-menu',         // Old header - Primary Menu.
-		'above_header-menu',    // Old header - Above Menu.
-		'below_header-menu',    // Old header - Below Menu.
+		'ast-hf-menu-10',           // Cloned builder menus.
+		'ast-hf-mobile-menu',       // Builder - Mobile Menu.
+		'ast-desktop-toggle-menu',  // Builder - Toggle for Desktop Menu.
+		'ast-hf-account-menu',      // Builder - Login Account Menu.
+		'primary-menu',             // Old header - Primary Menu.
+		'above_header-menu',        // Old header - Above Menu.
+		'below_header-menu',        // Old header - Below Menu.
 	);
 
 	$load_svg_menu_icons = false;
@@ -577,6 +578,16 @@ function astra_target_rules_for_related_posts() {
 }
 
 /**
+ * Check if elementor plugin is active on the site.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_is_elemetor_active() {
+	return class_exists( '\Elementor\Plugin' );
+}
+
+/**
  * Check the Astra addon 3.5.0 version is using or not.
  * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
  *
@@ -599,6 +610,7 @@ function is_astra_addon_3_5_0_version() {
 function ast_get_webfont_url( $url, $format = 'woff2' ) {
 
 	// Check if already Google font URL present or not. Basically avoiding 'Astra_WebFont_Loader' class rendering.
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$astra_font_url = astra_get_option( 'astra_font_url', false );
 	if ( $astra_font_url ) {
 		return json_decode( $astra_font_url );
@@ -649,6 +661,18 @@ function astra_get_transparent_header_default_value() {
 }
 
 /**
+ * Check if content bg options can be loaded.
+ *
+ * @since x.x.x
+ */
+function astra_is_content_bg_option_to_load() {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0-beta.1', '<' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
  * Check whether user is exising or new to apply the updated default values for button padding & support GB button paddings with global button padding options.
  *
  * @since 3.6.3
@@ -658,6 +682,18 @@ function astra_button_default_padding_updated() {
 	$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['btn-default-padding-updated'] = isset( $astra_settings['btn-default-padding-updated'] ) ? $astra_settings['btn-default-padding-updated'] : true;
 	return apply_filters( 'astra_update_button_padding_defaults', $astra_settings['btn-default-padding-updated'] );
+}
+
+/**
+ * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_isset_sticky_footer() {
+	$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['stick-footer-at-bottom'] = isset( $astra_settings['stick-footer-at-bottom'] ) ? false : true;
+	return apply_filters( 'astra_stick_footer_at_bottom', $astra_settings['stick-footer-at-bottom'] );
 }
 
 /**
@@ -675,6 +711,42 @@ function astra_has_widgets_block_editor() {
 }
 
 /**
+ * Check whether user is exising or new to apply the updated default values for default blog post layout..
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_apply_new_default_blog_values() {
+	$astra_settings                                  = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['default-layout-updated-values'] = isset( $astra_settings['default-layout-updated-values'] ) ? $astra_settings['default-layout-updated-values'] : true;
+	return apply_filters( 'astra_default_layout_updated_values', $astra_settings['default-layout-updated-values'] );
+}
+
+/**
+ * Get compatibility for Old user to apply the blog grid bse css changes.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_apply_blog_grid_css() {
+	$astra_settings                        = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['apply-blog-grid-css'] = isset( $astra_settings['apply-blog-grid-css'] ) ? false : true;
+	return apply_filters( 'astra_apply_blog_grid_css', $astra_settings['apply-blog-grid-css'] );
+}
+
+/**
+ * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+ *
+ * @since x.x.x
+ */
+function astra_maybe_load_h4_to_h6_typo_options() {
+	if ( defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.6.0-beta.1', '<' ) ) {
+		return false;
+	}
+	return true;
+}
+
+/**
  * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
  *
  * @since 3.6.7
@@ -684,6 +756,18 @@ function astra_can_remove_elementor_toc_margin_space() {
 	$astra_settings                                    = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['remove-elementor-toc-margin-css'] = isset( $astra_settings['remove-elementor-toc-margin-css'] ) ? false : true;
 	return apply_filters( 'astra_remove_elementor_toc_margin', $astra_settings['remove-elementor-toc-margin-css'] );
+}
+
+/**
+ * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
+ *
+ * @since x.x.x
+ * @return boolean false if it is an existing user, true for new user.
+ */
+function astra_has_global_color_format_support() {
+	$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['support-global-color-format'] = isset( $astra_settings['support-global-color-format'] ) ? false : true;
+	return apply_filters( 'astra_apply_global_color_format_support', $astra_settings['support-global-color-format'] );
 }
 
 /**
@@ -734,3 +818,15 @@ function astra_clear_theme_addon_asset_cache() {
 }
 
 add_action( 'astra_theme_update_after', 'astra_clear_theme_addon_asset_cache', 10 );
+
+/**
+ * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_can_improve_gutenberg_blocks_ui() {
+	$astra_settings                         = get_option( ASTRA_THEME_SETTINGS );
+	$astra_settings['improve-gutenberg-ui'] = isset( $astra_settings['improve-gutenberg-ui'] ) ? false : true;
+	return apply_filters( 'astra_improve_gutenberg_blocks_ui', $astra_settings['improve-gutenberg-ui'] );
+}

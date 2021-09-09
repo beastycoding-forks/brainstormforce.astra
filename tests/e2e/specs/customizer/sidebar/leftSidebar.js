@@ -33,6 +33,7 @@ describe( 'To test Left Sidebar size in the customizer ', () => {
             'site-page-sidebar-layout': 'left-sidebar',
             'inspector-input-control-0' : '35%'
         };
+		await trashAllPosts( 'page' );
         await setCustomize( pageLeftSidebarSize );
         await createNewPost( { postType: 'page', title: 'sidebar page' } );
         await publishPost();

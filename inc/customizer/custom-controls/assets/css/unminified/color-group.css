@@ -136,6 +136,10 @@
   top: 73px;
 }
 
+.astra-color-picker-wrap.open + span {
+  display: none;
+}
+
 .ast-color-multiple-group-reset.ast-color-multiple-group-reset.ast-color-group-reset {
   right: 112px;
 }

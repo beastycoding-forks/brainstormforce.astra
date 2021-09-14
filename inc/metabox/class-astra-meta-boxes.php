@@ -66,7 +66,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function astra_react_meta_scripts() {
 			wp_enqueue_style( 'astra-react-metabox-style', ASTRA_THEME_URI . 'inc/metabox/css/metabox.css', false, ASTRA_THEME_VERSION );
-			wp_enqueue_script( 'astra-react-metabox-script', ASTRA_THEME_URI . 'inc/metabox/build/index.js', array( 'wp-blocks', 'wp-i18n', 'wp-data', 'wp-compose', 'wp-plugins', 'wp-edit-post', 'wp-element' ), ASTRA_THEME_VERSION, true );
+			wp_enqueue_script( 'astra-react-metabox-script', ASTRA_THEME_URI . 'inc/metabox/build/index.js', array( 'wp-plugins', 'wp-edit-post', 'wp-i18n', 'wp-element' ), ASTRA_THEME_VERSION, true );
 		}
 
 		/**

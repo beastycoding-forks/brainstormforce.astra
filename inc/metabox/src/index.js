@@ -13,12 +13,18 @@ registerPlugin( 'astra-metabox-sidebar', {
 	render: () => {
 	  return (
 		<>
-		  <PluginSidebar
-			title={ __( 'Astra Settings', 'astra' ) }
-		  >
+			<PluginSidebarMoreMenuItem
+				target="astra-metabox-sidebar"
+			>
+			{ __( 'Astra Settings', 'astra' ) }
+			</PluginSidebarMoreMenuItem>
+			<PluginSidebar
+				name="astra-metabox-sidebar"
+				title={ __( 'Astra Settings', 'astra' ) }
+			>
 			Meta Content goes here...
-		  </PluginSidebar>
+			</PluginSidebar>
 		</>
 	  )
 	}
-})
+ })

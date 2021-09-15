@@ -37,6 +37,236 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_configs = array(
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[button-preset-style]',
+					'default'   => astra_get_option( 'button-preset-style' ),
+					'type'      => 'control',
+					'control'   => 'ast-button-presets',
+					'title'     => __( 'Button Presets', 'astra' ),
+					'section'   => 'section-buttons',
+					'options'   => array(
+						'button_01' => array(
+							'src'               => 'btn-preset-01',
+							'border-size'       => array(
+								'top'    => 0,
+								'right'  => 0,
+								'bottom' => 0,
+								'left'   => 0,
+							),
+							'border-radius'     => 0,
+							'button-padding'    => array(
+								'desktop'      => array(
+									'top'    => 10,
+									'right'  => 20,
+									'bottom' => 10,
+									'left'   => 20,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
+							'button-bg-color'   => '',
+							'button-bg-h-color' => '',
+							'button-color'      => '',
+						),
+						'button_02' => array(
+							'src'               => 'btn-preset-02',
+							'border-size'       => array(
+								'top'    => 0,
+								'right'  => 0,
+								'bottom' => 0,
+								'left'   => 0,
+							),
+							'border-radius'     => 3,
+							'button-padding'    => array(
+								'desktop'      => array(
+									'top'    => 10,
+									'right'  => 20,
+									'bottom' => 10,
+									'left'   => 20,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
+							'button-bg-color'   => '',
+							'button-bg-h-color' => '',
+							'button-color'      => '',
+						),
+						'button_03' => array(
+							'src'               => 'btn-preset-03',
+							'border-size'       => array(
+								'top'    => 0,
+								'right'  => 0,
+								'bottom' => 0,
+								'left'   => 0,
+							),
+							'border-radius'     => 30,
+							'button-padding'    => array(
+								'desktop'      => array(
+									'top'    => 10,
+									'right'  => 20,
+									'bottom' => 10,
+									'left'   => 20,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
+							'button-bg-color'   => '',
+							'button-bg-h-color' => '',
+							'button-color'      => '',
+						),
+						'button_04' => array(
+							'src'               => 'btn-preset-04',
+							'border-size'       => array(
+								'top'    => 1,
+								'right'  => 1,
+								'bottom' => 1,
+								'left'   => 1,
+							),
+							'border-radius'     => 0,
+							'button-padding'    => array(
+								'desktop'      => array(
+									'top'    => 10,
+									'right'  => 20,
+									'bottom' => 10,
+									'left'   => 20,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
+							'button-bg-color'   => 'rgba(0,0,0,0)',
+							'button-bg-h-color' => '',
+							'button-color'      => '#0170B9',
+						),
+						'button_05' => array(
+							'src'               => 'btn-preset-05',
+							'border-size'       => array(
+								'top'    => 1,
+								'right'  => 1,
+								'bottom' => 1,
+								'left'   => 1,
+							),
+							'border-radius'     => 3,
+							'button-padding'    => array(
+								'desktop'      => array(
+									'top'    => 10,
+									'right'  => 20,
+									'bottom' => 10,
+									'left'   => 20,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
+							'button-bg-color'   => 'rgba(0,0,0,0)',
+							'button-bg-h-color' => '',
+							'button-color'      => '#0170B9',
+						),
+						'button_06' => array(
+							'src'               => 'btn-preset-06',
+							'border-size'       => array(
+								'top'    => 1,
+								'right'  => 1,
+								'bottom' => 1,
+								'left'   => 1,
+							),
+							'border-radius'     => 30,
+							'button-padding'    => array(
+								'desktop'      => array(
+									'top'    => 10,
+									'right'  => 20,
+									'bottom' => 10,
+									'left'   => 20,
+								),
+								'tablet'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'mobile'       => array(
+									'top'    => '',
+									'right'  => '',
+									'bottom' => '',
+									'left'   => '',
+								),
+								'desktop-unit' => 'px',
+								'tablet-unit'  => 'px',
+								'mobile-unit'  => 'px',
+							),
+							'button-bg-color'   => 'rgba(0,0,0,0)',
+							'button-bg-h-color' => '',
+							'button-color'      => '#0170B9',
+						),
+					),
+					'priority'  => 18,
+					'transport' => 'postMessage',
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+				),
+
 				/**
 				 * Group: Theme Button color Group
 				 */
@@ -94,6 +324,20 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
+				 * Option: Button Visited Color
+				 */
+				array(
+					'name'     => 'button-visited-color',
+					'default'  => astra_get_option( 'button-visited-color' ),
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[theme-button-color-group]',
+					'section'  => 'section-buttons',
+					'control'  => 'ast-color',
+					'title'    => __( 'Visited', 'astra' ),
+					'priority' => 40,
+				),
+
+				/**
 				 * Option: Button Background Color
 				 */
 				array(
@@ -118,6 +362,20 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'control'  => 'ast-color',
 					'title'    => __( 'Hover', 'astra' ),
 					'priority' => 40,
+				),
+
+				/**
+				 * Option: Button Background Visited Color
+				 */
+				array(
+					'name'     => 'button-bg-visited-color',
+					'default'  => astra_get_option( 'button-bg-visited-color' ),
+					'type'     => 'sub-control',
+					'parent'   => ASTRA_THEME_SETTINGS . '[theme-button-bg-color-group]',
+					'section'  => 'section-buttons',
+					'control'  => 'ast-color',
+					'title'    => __( 'Visited', 'astra' ),
+					'priority' => 42,
 				),
 
 				/**
@@ -194,6 +452,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'name'        => ASTRA_THEME_SETTINGS . '[button-radius]',
 					'default'     => astra_get_option( 'button-radius' ),
 					'type'        => 'control',
+					'transport'   => 'postMessage',
 					'section'     => 'section-buttons',
 					'control'     => 'ast-slider',
 					'priority'    => 19,

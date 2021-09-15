@@ -663,6 +663,28 @@
 		sessionStorage.removeItem('astra-builder-reset-in-progress');
 	}
 
+	const setPaletteVariables = function() {
+
+		const globalPalette = wp.customize.control( 'astra-settings[global-color-palette]' ).setting.get();
+
+		const customizerPreviewContainer =  document.getElementById('customize-preview')
+		const iframe = customizerPreviewContainer.getElementsByTagName('iframe')[0]
+		const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+		let stylePrefix = astra.customizer.globalPaletteStylePrefix;
+
+		Object.entries( globalPalette.palette ).map( ( paletteItem, index ) => {
+			innerDoc.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
+			document.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
+
+			if( true === astra.customizer.isElementorActive ) {
+				let paletteSlugs = astra.customizer.globalPaletteSlugs;
+				// Set css variables for Elementor style.
+				innerDoc.documentElement.style.setProperty( '--e-global-color-astra' + paletteSlugs[ index ].replace(/-/g, ""), paletteItem[1] );
+			}
+
+		} );
+	}
+
 	api.bind('ready', function () {
 
 		astra_builder_clear_operation_session();
@@ -818,6 +840,14 @@
 				api.section.remove(forceRemoveSection.section);
 
 			});
+
+			setPaletteVariables();
+
+			document.addEventListener(
+				"AstUpdatePaletteVariables",
+				setPaletteVariables,
+				false
+			);
 
 		});
 

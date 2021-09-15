@@ -394,9 +394,11 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 		/**
 		 *  Call Mobile Menu Markup.
+		 *
+		 * @param string $device Checking where mobile-menu is dropped.
 		 */
-		public function header_mobile_menu_markup() {
-			Astra_Mobile_Menu_Component::menu_markup();
+		public function header_mobile_menu_markup( $device = '' ) {
+			Astra_Mobile_Menu_Component::menu_markup( $device );
 		}
 
 		/**

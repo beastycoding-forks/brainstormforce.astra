@@ -25,6 +25,25 @@ const ColorGroupComponent = props => {
 	tooltips = [],
 	colorGroupType = [];
 
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'btn-preset' ) {
+				Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
+					colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
+					colorGroupDefaults[value.name] = value.default;
+					tooltips[value.name] = value.title;
+					colorGroupType[value.name] = value.control_type;
+				});
+
+				setState( colorGroup );
+				setFlag( 1 ); // This is used to Re render component on first custom event.
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
+
 	Object.entries( linkedSubColors ).map( ( [ key,value ] ) => {
 		colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
 		colorGroupDefaults[value.name] = value.default;
@@ -33,11 +52,13 @@ const ColorGroupComponent = props => {
 	});
 
 	const[ colorGroupState , setState ] = useState(colorGroup);
+	const[ flag , setFlag ] = useState(0);
 
 	const handleChangeComplete = ( key, color='', device='', backgroundType='' ) => {
 		let updateState = {
 			...colorGroupState
 		};
+
 
 		let value;
 
@@ -224,6 +245,7 @@ const ColorGroupComponent = props => {
 	}
 
 	const renderInputHtml = ( device ) => {
+
 		if( responsive ){
 			innerOptionsHtml = Object.entries( colorGroupState ).map( ( [ key,value ] ) => {
 				let tooltip = tooltips[key] || __('Color', 'astra');

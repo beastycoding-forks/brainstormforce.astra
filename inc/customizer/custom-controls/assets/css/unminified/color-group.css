@@ -135,3 +135,11 @@
 .customize-control-ast-color-group .ast-divider-title + .ast-control-wrap .astra-color-picker-wrap {
   top: 73px;
 }
+
+.astra-color-picker-wrap.open + span {
+  display: none;
+}
+
+.ast-color-multiple-group-reset.ast-color-multiple-group-reset.ast-color-group-reset {
+  right: 112px;
+}

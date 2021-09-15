@@ -23,7 +23,6 @@ const ItemComponent = props => {
 	const[ selectedIcon , setSelectedIcon ] = useState(
 		props.item.icon
 	)
-
 	useEffect(() => {
 		setSelectedIcon( Icons[props.item.icon] );
 	}, []);

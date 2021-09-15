@@ -34,7 +34,6 @@ import { colorGroupControl } from './color-group/control';
 import { selectorControl } from './selector/control';
 import { boxShadowControl }  from './box-shadow/control.js';
 import { responsiveToggleControl } from './responsive-toggle-control/control';
-import { controlTitleControl } from './controls-title/control';
 
 window.svgIcons = svgIcons;
 wp.customize.controlConstructor['ast-heading'] = headingControl;
@@ -70,7 +69,6 @@ wp.customize.controlConstructor['ast-toggle-control'] = toggleControl;
 wp.customize.controlConstructor['ast-color-group'] = colorGroupControl;
 wp.customize.controlConstructor['ast-selector'] = selectorControl;
 wp.customize.controlConstructor['ast-responsive-toggle-control'] = responsiveToggleControl;
-wp.customize.controlConstructor['ast-controls-title'] = controlTitleControl;
 
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;
 import { Base } from './customizer';

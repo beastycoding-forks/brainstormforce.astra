@@ -49,6 +49,13 @@
           "color": "var(--ast-global-color-8)"
         }
       ]
+    },
+    "blocks": {
+      "core/image": {
+          "supports": {
+		        "align": [ "wide", "full" ]
+          }
+      }
     }
   }
 }

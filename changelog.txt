@@ -1,3 +1,5 @@
+Test
+
 v3.6.9
 - Improvement: In font size option user are not able to set value '0'.
 - Improvement: Introduced filter to exclude anchor links from text-decoration style. ( https://wpastra.com/docs/remove-underlined-content-links/ )

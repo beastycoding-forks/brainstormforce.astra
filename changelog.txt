@@ -1,9 +1,4 @@
-Test
 
-v3.7.2 (Unreleased)
-- New: Breadcrumb compatibility with SEOPress. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
-- Fix: W3C HTML validation - Duplicate ID: Layer_1.
-- Fix: The default "Add Widget" text alignment issue in header.
 
 v3.7.1
 - Fix: Gutenberg - Group Block appearing full width on frontend.

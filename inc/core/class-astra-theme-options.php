@@ -323,7 +323,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'site-content-width'                   => 1200,
 					'site-layout-outside-bg-obj-responsive' => array(
 						'desktop' => array(
-							'background-color'      => 'var(' . $palette_css_var_prefix . '4)',
+							'background-color'      => '',
 							'background-image'      => '',
 							'background-repeat'     => 'repeat',
 							'background-position'   => 'center center',

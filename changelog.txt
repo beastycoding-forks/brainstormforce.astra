@@ -1,4 +1,3 @@
-
 v3.7.3 (Unreleased)
 - New: Breadcrumb compatibility with SEOPress. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
 - Fix: W3C HTML validation - Duplicate ID: Layer_1.

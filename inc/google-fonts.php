@@ -292,12 +292,6 @@ return array(
 		),
 	),
 	array(
-		'Andada' => array(
-			'variants' => array( 'regular' ), 
-			'category' => 'serif', 
-		),
-	),
-	array(
 		'Andada Pro' => array(
 			'variants' => array( 'regular', '500', '600', '700', '800', 'italic', '500italic', '600italic', '700italic', '800italic' ), 
 			'category' => 'serif', 
@@ -4330,6 +4324,12 @@ return array(
 		),
 	),
 	array(
+		'Noto Sans Vai' => array(
+			'variants' => array( 'regular' ), 
+			'category' => 'sans-serif', 
+		),
+	),
+	array(
 		'Noto Serif' => array(
 			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
 			'category' => 'serif', 
@@ -5353,12 +5353,6 @@ return array(
 		'Rye' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
-		),
-	),
-	array(
-		'STIX Two Math' => array(
-			'variants' => array( 'regular' ), 
-			'category' => 'serif', 
 		),
 	),
 	array(

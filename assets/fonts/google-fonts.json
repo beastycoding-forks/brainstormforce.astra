@@ -465,14 +465,6 @@
         }
     },
     {
-        "Andada": {
-            "variants": [
-                "regular"
-            ],
-            "category": "serif"
-        }
-    },
-    {
         "Andada Pro": {
             "variants": [
                 "regular",
@@ -7590,6 +7582,14 @@
         }
     },
     {
+        "Noto Sans Vai": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Serif": {
             "variants": [
                 "regular",
@@ -9362,14 +9362,6 @@
                 "regular"
             ],
             "category": "display"
-        }
-    },
-    {
-        "STIX Two Math": {
-            "variants": [
-                "regular"
-            ],
-            "category": "serif"
         }
     },
     {

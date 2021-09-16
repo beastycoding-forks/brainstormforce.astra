@@ -28,10 +28,13 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 
-		await page.waitForSelector( '.ast-breadcrumbs .trail-browse, .ast-breadcrumbs .trail-items, .ast-breadcrumbs .trail-items li' );
+		await page.waitForSelector(
+			'.ast-breadcrumbs .trail-browse, .ast-breadcrumbs .trail-items, .ast-breadcrumbs .trail-items li',
+		);
 
 		await expect( {
-			selector: '.ast-breadcrumbs .trail-browse, .ast-breadcrumbs .trail-items, .ast-breadcrumbs .trail-items li ',
+			selector:
+				'.ast-breadcrumbs .trail-browse, .ast-breadcrumbs .trail-items, .ast-breadcrumbs .trail-items li ',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ breadcrumbTypography[ 'breadcrumb-font-size' ].desktop }${ breadcrumbTypography[ 'breadcrumb-font-size' ][ 'desktop-unit' ] }`,
@@ -61,11 +64,15 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper, .ast-breadcrumbs-wrapper a',
 			property: 'font-family',
-		} ).cssValueToBe( `${ breadcrumbTypography[ 'breadcrumb-font-family' ] }` );
+		} ).cssValueToBe(
+			`${ breadcrumbTypography[ 'breadcrumb-font-family' ] }`,
+		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items .trail-end',
 			property: 'color',
-		} ).cssValueToBe( `${ breadcrumbTypography[ 'breadcrumb-active-color-responsive' ].desktop }` );
+		} ).cssValueToBe(
+			`${ breadcrumbTypography[ 'breadcrumb-active-color-responsive' ].desktop }`,
+		);
 	} );
 } );

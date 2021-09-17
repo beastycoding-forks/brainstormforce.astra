@@ -43,13 +43,19 @@
     "grunt-wp-readme-to-markdown": "^2.0.1",
     "jest-silent-reporter": "^0.5.0",
     "kind-of": ">=6.0.3",
+    "laravel-mix": "^6.0.19",
     "lodash": "^4.17.21",
     "minimist": ">=1.2.3",
     "node-fetch": "^2.6.1",
     "node-sass": "^6.0.1",
-    "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build"
+    "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
+    "resolve-url-loader": "4.0.0"
   },
   "scripts": {
+    "build": "mix",
+    "build:production": "mix --production",
+    "start": "mix watch",
+    "hot": "mix watch --hot",
     "pree2etests": "cross-env sh ./bin/scripts/pre-e2e-tests.sh",
     "test:e2e": "npm run pree2etests && cross-env WP_BASE_URL=http://localhost:8888 wp-scripts test-e2e --config=tests/e2e/jest.config.js",
     "test:e2e:interactive": "npm run test:e2e -- --puppeteer-interactive",

@@ -131,7 +131,7 @@ if ( ! class_exists( 'Astra_Customizer_Control_Base' ) ) {
 
 				wp_enqueue_style( 'astra-select-woo-style', $css_uri . 'selectWoo.css', null, ASTRA_THEME_VERSION );
 
-				wp_enqueue_script( 'astra-custom-control-react-script', ASTRA_THEME_URI . 'inc/customizer/extend-custom-controls/build/index.js', $custom_controls_react_deps, ASTRA_THEME_VERSION, true );
+				wp_enqueue_script( 'astra-custom-control-react-script', ASTRA_THEME_URI . 'build/scripts/main.js', $custom_controls_react_deps, ASTRA_THEME_VERSION, true );
 
 				$localize_array = array(
 					'colors' => astra_color_palette(),

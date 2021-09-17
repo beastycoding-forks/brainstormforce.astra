@@ -698,7 +698,7 @@ module.exports = function (grunt) {
                     {
                         src: [
                             'inc/customizer/custom-controls/assets/js/unminified/custom-controls-plain.js',
-                            'inc/customizer/extend-custom-controls/build/index.js'
+                            'build/scripts/main.js'
                         ],
                         dest: 'inc/customizer/custom-controls/assets/js/unminified/custom-controls.js',
                     },

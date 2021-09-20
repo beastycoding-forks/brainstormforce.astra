@@ -1,11 +1,11 @@
 ### Brainstorm Force
 
-## Welcome to **Astra**
+Welcome to **Astra**
+====================
 
 We’re so glad to have you join the team! This guide is meant to provide team specific information to help you get off to a great and productive start.
 
-Table of contents
-=================
+# Table of contents
 
    * [Who We Are](#who-we-are)
       * [Our mission](#-our-mission)
@@ -15,7 +15,7 @@ Table of contents
       * [Project Process](#-project-process)
       * [Important Meetings](#-important-meetings)
       * [Tools and Prerequisites](#-tools-and-prerequisites)
-   * [Onboarding Tasklist](#-onboarding-tasklist)
+   * [Onboarding Tasklist](#onboarding-tasklist)
       * [1](#-1)
       * [2](#-2)
    * [Resources](#resources)

@@ -35,12 +35,12 @@ Our team is of highly skilled developers who are responsible for delivering full
 
 ### # Slack channels related to Astra that you should join
 
-1. **#ast-developers** - All the technical discussions happen here.
-2. **#ast-discussion** - Any announcement related to product or feature, designer, marketing related discussions happen here.
-3. **#ast-firehose** - GitHub, JIRA related updates notifications come here.
-4. **#ast-support** - Our support team is mainly active here. You can jump in and help resolve any technical issues they face.
-5. **#ast-docs** - Anything related to documentation of Astra or Astra Addon happens here.
-6. **#ast-website** - Discussions related to wpastra.com website happen here.
+1. **`#ast-developers`** - All the technical discussions happen here.
+2. **`#ast-discussion`** - Any announcement related to product or feature, designer, marketing related discussions happen here.
+3. **`#ast-firehose`** - GitHub, JIRA related updates notifications come here.
+4. **`#ast-support`** - Our support team is mainly active here. You can jump in and help resolve any technical issues they face.
+5. **`#ast-docs`** - Anything related to documentation of Astra or Astra Addon happens here.
+6. **`#ast-website`** - Discussions related to wpastra.com website happen here.
 
 ### # Project Process
 

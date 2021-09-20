@@ -8,18 +8,18 @@ Table of contents
 =================
 
    * [Who We Are](#who-we-are)
-      * [Our mission](#our-mission)
-      * [The team](#the-team)
+      * [Our mission](#-our-mission)
+      * [The team](#-the-team)
    * [Product And Process](#product-and-process)
-      * [Slack channels related to Astra that you should join](#slack-channels-related-to-astra-that-you-should-join)
-      * [Project Process](#project-process)
-      * [Important Meetings](#important-meetings)
-      * [Tools and Prerequisites](#tools-and-prerequisites)
-   * [Onboarding Tasklist](#onboarding-tasklist)
-      * [1](#1)
-      * [2](#2)
+      * [Slack channels related to Astra that you should join](#-slack-channels-related-to-astra-that-you-should-join)
+      * [Project Process](#-project-process)
+      * [Important Meetings](#-important-meetings)
+      * [Tools and Prerequisites](#-tools-and-prerequisites)
+   * [Onboarding Tasklist](#-onboarding-tasklist)
+      * [1](#-1)
+      * [2](#-2)
    * [Resources](#resources)
-      * [Helpful Links](#helpful-links)
+      * [Helpful Links](#-helpful-links)
 
 ## Who We Are
 

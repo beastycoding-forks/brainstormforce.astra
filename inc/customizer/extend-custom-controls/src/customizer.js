@@ -659,7 +659,7 @@
 			if( true === astra.customizer.isElementorActive ) {
 				let paletteSlugs = astra.customizer.globalPaletteSlugs;
 				// Set css variables for Elementor style.
-				innerDoc.documentElement.style.setProperty( '--e-global-color-astra' + paletteSlugs[ index ].replace(/-/g, ""), paletteItem[1] );
+				innerDoc.documentElement.style.setProperty( '--e-global-color-' + paletteSlugs[ index ].replace(/-/g, ""), paletteItem[1] );
 			}
 
 		} );

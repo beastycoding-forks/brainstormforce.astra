@@ -24,16 +24,6 @@ We’re so glad to have you join the team! This guide is meant to provide team s
 
 We use Agile Methodology in our project to achieve our goals. We use JIRA software to achieve this.
 
-### # Important Meetings
-
-Some of the important meetings that we have in our project are:
-
-1. Daily scrum calls at 09:45 AM.
-2. Sprint planning call - Before starting the sprint.
-3. Mid Sprint call to discuss the update on sprint midway and resolve any blockages for the development team.
-4. Sprint retrospective call which happens after the end of each sprint.
-5. Weekly support meeting with the support team. Every Tuesday at 3:30 PM.
-
 ### # Tools and Prerequisites
 
 1. JIRA - As mentioned above, for agile methodology we use JIRA. Agile methodology has a concept of sprint for more information on what sprint is, please check this [link](https://www.atlassian.com/agile/scrum/sprints). In Astra, each sprint is of 3 weeks or 21 Days.

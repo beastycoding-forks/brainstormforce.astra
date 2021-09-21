@@ -62,13 +62,3 @@ We use Agile Methodology in our project to achieve our goals. We use JIRA softwa
 * Explore functions.php file
 * Explore the code base of Customizer options and how it is [registered](https://github.com/brainstormforce/astra/blob/next-release/inc/customizer/class-astra-customizer.php).
 * Check the [dynamic-css.php](https://github.com/brainstormforce/astra/blob/next-release/inc/class-astra-dynamic-css.php) file for frontend CSS rendering.
-
-## Resources
-
-### # Helpful Links
-
-* Astra Docs - [https://wpastra.com/docs/](https://wpastra.com/docs/)
-* JIRA Board - [https://wp-astra.atlassian.net/jira/software/projects/AST/boards/21](https://wp-astra.atlassian.net/jira/software/projects/AST/boards/21)
-* Astra Docs Request Trello Board - [https://trello.com/b/dDKnnqDa/astra-docs](https://trello.com/b/dDKnnqDa/astra-docs)
-* Astra Repo - [https://github.com/brainstormforce/astra](https://github.com/brainstormforce/astra)
-* Astra Pro Repo - [https://github.com/brainstormforce/astra-addon](https://github.com/brainstormforce/astra-addon)

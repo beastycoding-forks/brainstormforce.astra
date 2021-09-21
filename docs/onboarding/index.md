@@ -64,18 +64,17 @@ Some of the important meetings that we have in our project are:
 4. For calls/meetings we use Zoom. You are encouraged to install the Zoom app on your laptop/desktop and login using your BSF Account.
 5. For coding, our team uses VS code editor. It is not compulsory to use VS code editor but it is preferred. Here is a list of recommended extensions that you should install in VS Code:
     1. [https://marketplace.visualstudio.com/items?itemName=aeschli.vscode-css-formatter](https://marketplace.visualstudio.com/items?itemName=aeschli.vscode-css-formatter)
-    2. [https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
-    3. [https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
-    4. [https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-    5. [https://marketplace.visualstudio.com/items?itemName=mkxml.vscode-filesize](https://marketplace.visualstudio.com/items?itemName=mkxml.vscode-filesize)
-    6. [https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-    7. [https://marketplace.visualstudio.com/items?itemName=nhoizey.gremlins](https://marketplace.visualstudio.com/items?itemName=nhoizey.gremlins)
-    8. [https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
-    9. [https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
-    10. [https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
-    11. [https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
-    12. [https://marketplace.visualstudio.com/items?itemName=adamwalzer.scss-lint](https://marketplace.visualstudio.com/items?itemName=adamwalzer.scss-lint)
-    13. [https://marketplace.visualstudio.com/items?itemName=wordpresstoolbox.wordpress-toolbox](https://marketplace.visualstudio.com/items?itemName=wordpresstoolbox.wordpress-toolbox)
+    2. [https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
+    3. [https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+    4. [https://marketplace.visualstudio.com/items?itemName=mkxml.vscode-filesize](https://marketplace.visualstudio.com/items?itemName=mkxml.vscode-filesize)
+    5. [https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+    6. [https://marketplace.visualstudio.com/items?itemName=nhoizey.gremlins](https://marketplace.visualstudio.com/items?itemName=nhoizey.gremlins)
+    7. [https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-intellisense)
+    8. [https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs](https://marketplace.visualstudio.com/items?itemName=ikappas.phpcs)
+    9. [https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
+    10. [https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl)
+    11. [https://marketplace.visualstudio.com/items?itemName=adamwalzer.scss-lint](https://marketplace.visualstudio.com/items?itemName=adamwalzer.scss-lint)
+    12. [https://marketplace.visualstudio.com/items?itemName=wordpresstoolbox.wordpress-toolbox](https://marketplace.visualstudio.com/items?itemName=wordpresstoolbox.wordpress-toolbox)
 6. Make sure to set up Node.js/npm, composer and WP CLI on your local machine.
 7. We have E2E setup in the theme and addon. Please make sure to set up that. Follow this [P2](https://product-testing.sharkz.in/2021/07/21/introduction-e2e-tests/) for set up.
 

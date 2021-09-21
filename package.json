@@ -46,7 +46,8 @@
     "lodash": "^4.17.21",
     "minimist": ">=1.2.3",
     "node-sass": "^6.0.1",
-    "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build"
+    "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
+    "puppeteer": "^10.2.0"
   },
   "scripts": {
     "pree2etests": "cross-env sh ./bin/scripts/pre-e2e-tests.sh",

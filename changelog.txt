@@ -11,6 +11,7 @@ v3.7.3 (Unreleased)
 - Fix: W3 validator - CSS parse error for '.menu-link' & '.wp-block-button__link'.
 - Fix: Customizer - Block Settings area getting irrelevant round shapes.
 - Fix: Full Size & Wide Size block layout options missing from core/image block.
+- Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.
 
 v3.7.2
 - Fix: Incorrect Site Background Color on pages with Full Width layout.

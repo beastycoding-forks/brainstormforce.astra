@@ -1740,7 +1740,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					// Check if Global Elementor - Theme Style - button color is set. If yes then remove ( :visited ) CSS for the compatibility.
 					$btn_text_visited_color_selectors = '';
 					if ( false === self::is_elementor_kit_button_color_set() ) {
-						$btn_text_color_selectors .= ' , .elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
+						$btn_text_color_selectors        .= ' , .elementor-button-wrapper .elementor-button, .elementor-button-wrapper .elementor-button:visited';
 						$btn_text_visited_color_selectors = '.elementor-button-wrapper .elementor-button:visited';
 					} else {
 						$btn_text_color_selectors .= ' , .elementor-button-wrapper .elementor-button';

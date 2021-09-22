@@ -400,7 +400,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$css .= astra_parse_css( $desktop_css );
 
-			if( astra_can_improve_gutenberg_blocks_ui() ) {
+			if ( astra_can_improve_gutenberg_blocks_ui() ) {
 				$compatibility_css = '
 				.editor-styles-wrapper .wp-block-pullquote blockquote::before {
 					background: #f5f5f5;
@@ -423,7 +423,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					list-style-type: none;
 				}';
 
-				if( $is_site_rtl ) {
+				if ( $is_site_rtl ) {
 					$compatibility_css .= '
 					.edit-post-visual-editor ul, .edit-post-visual-editor ol {
 						margin-right: 20px;

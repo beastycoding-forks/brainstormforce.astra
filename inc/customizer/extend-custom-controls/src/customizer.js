@@ -360,7 +360,7 @@
 					// Add controls to theme sections.
 					for (const [section_id, config] of Object.entries(sections)) {
 						AstCustomizerAPI.addSection(section_id, config);
-						AstCustomizerAPI.registerControlsBySection(api.section(section_id));
+						AstCustomizerAPI.registerControlsBySection(api.section(section_id), true);
 						delete controls[section_id];
 						await null;
 					}
@@ -461,9 +461,30 @@
 						if (undefined == operator || '=' == operator) {
 							operator = '==';
 						}
+
 						if(typeof currentValue === 'object' && undefined !== currentValue[rule['setting-key']]){
 							currentValue = currentValue[rule['setting-key']];
 						}
+
+						// Change Dynamic section for sticky header controls.
+						if( typeof currentValue === 'object' && undefined !== rule['sticky-header-item'] ) {
+							var headers = ['above','primary','below'];
+
+							$.each( headers, function( key, val ) {
+								$.each( currentValue[val] , function( key, zone ) {
+									if( zone.indexOf( comparedValue ) > -1 ){
+										header_type = (val == 'primary' ) ? 'main' : val;
+
+										let sticky_settings = getSetting( 'astra-settings[header-' + header_type + '-stick]');
+										// Check if sticky header is active or not.
+										if( true == sticky_settings.get() ) {
+											currentValue = comparedValue;
+										}
+									}
+								});
+							});
+						}
+
 						switch (operator) {
 							case '>':
 								result = currentValue > comparedValue;
@@ -538,7 +559,6 @@
 								var result = compareByOperator(rule);
 								displayed = compareByRelation(relation, displayed, result);
 							}
-
 						});
 
 						return displayed;

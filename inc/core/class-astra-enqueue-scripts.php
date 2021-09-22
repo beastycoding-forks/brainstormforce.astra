@@ -144,6 +144,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			);
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+				$css_file = 'frontend';
+
+				if ( astra_apply_blog_grid_css() ) {
+					$css_file = 'main-grid';
+				} elseif ( Astra_Builder_Helper::apply_flex_based_css() ) {
+					$css_file = 'main';
+				}
 
 				$default_assets = array(
 					// handle => location ( in /assets/js/ ) ( without .js ext).
@@ -152,7 +159,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					),
 					// handle => location ( in /assets/css/ ) ( without .css ext).
 					'css' => array(
-						'astra-theme-css' => Astra_Builder_Helper::apply_flex_based_css() ? 'main' : 'frontend',
+						'astra-theme-css' => $css_file,
 					),
 				);
 
@@ -313,8 +320,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			$astra_localize = array(
-				'break_point' => astra_header_break_point(),    // Header Break Point.
-				'isRtl'       => is_rtl(),
+				'break_point'  => astra_header_break_point(),    // Header Break Point.
+				'stick_footer' => astra_isset_sticky_footer(),    // Is sticky footer enabled.
+				'isRtl'        => is_rtl(),
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );

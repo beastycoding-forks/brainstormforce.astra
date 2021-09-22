@@ -393,7 +393,6 @@
 	background: transparent;
 }
 
-
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;
   border-radius: 3px;
@@ -534,6 +533,10 @@
 
 .astra-color-picker-wrap.picker-open + span {
   display: none;
+}
+
+.ast-color-multiple-group-reset.ast-color-multiple-group-reset.ast-color-group-reset {
+  right: 112px;
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-wrap > div {

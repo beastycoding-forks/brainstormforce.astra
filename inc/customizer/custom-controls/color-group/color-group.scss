@@ -137,3 +137,10 @@
 .astra-color-picker-wrap.picker-open + span {
     display: none;
 }
+.ast-color-multiple-group-reset {
+	&.ast-color-multiple-group-reset {
+		&.ast-color-group-reset {
+    		right: 112px;
+		}
+	}
+}

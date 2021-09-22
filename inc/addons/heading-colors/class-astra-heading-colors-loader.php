@@ -88,6 +88,9 @@ class Astra_Heading_Colors_Loader {
 	 */
 	public function theme_defaults( $defaults ) {
 
+		$astra_settings             = get_option( ASTRA_THEME_SETTINGS );
+		$update_button_size_default = isset( $astra_settings['button-default-empty-font-size'] ) ? true : false;
+
 		/**
 		* Heading Tags <h1> to <h6>
 		*/
@@ -137,16 +140,27 @@ class Astra_Heading_Colors_Loader {
 		/**
 		 * Theme button Font Defaults
 		 */
-		$defaults['font-weight-button']    = 'inherit';
-		$defaults['font-family-button']    = 'inherit';
-		$defaults['font-size-button']      = array(
-			'desktop'      => '',
-			'tablet'       => '',
-			'mobile'       => '',
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
+		$defaults['font-weight-button'] = 'inherit';
+		$defaults['font-family-button'] = 'inherit';
+		if ( $update_button_size_default ) {
+			$defaults['font-size-button'] = array(
+				'desktop'      => '',
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+		} else {
+			$defaults['font-size-button'] = array(
+				'desktop'      => 15,
+				'tablet'       => '',
+				'mobile'       => '',
+				'desktop-unit' => 'px',
+				'tablet-unit'  => 'px',
+				'mobile-unit'  => 'px',
+			);
+		}
 		$defaults['text-transform-button'] = '';
 
 		/**

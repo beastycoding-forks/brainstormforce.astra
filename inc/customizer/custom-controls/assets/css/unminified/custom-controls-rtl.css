@@ -393,7 +393,6 @@
 	background: transparent;
 }
 
-
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;
   border-radius: 3px;
@@ -534,6 +533,10 @@
 
 .astra-color-picker-wrap.picker-open + span {
   display: none;
+}
+
+.ast-color-multiple-group-reset.ast-color-multiple-group-reset.ast-color-group-reset {
+  left: 112px;
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-wrap > div {
@@ -1617,7 +1620,6 @@
 	background: transparent;
 }
 
-
 .color-group-item .components-tooltip .components-popover__content {
   margin-bottom: 12px;
   border-radius: 3px;
@@ -1758,6 +1760,10 @@
 
 .astra-color-picker-wrap.picker-open + span {
   display: none;
+}
+
+.ast-color-multiple-group-reset.ast-color-multiple-group-reset.ast-color-group-reset {
+  left: 112px;
 }
 
 #customize-control-astra-color-palettes .ast-color-palette-wrap > div {
@@ -2629,7 +2635,7 @@ input[type="text"].select2-search__field {
 }
 
 /* Customizer - builder widget area's block gets round shapes in more-settings tab */
-.components-circular-option-picker__option::after {
+.customize-widgets-layout__inspector .components-circular-option-picker__option::after {
   box-shadow: none;
   position: unset;
 }

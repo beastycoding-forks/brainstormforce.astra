@@ -396,12 +396,13 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 		'ast-hf-menu-7',
 		'ast-hf-menu-8',
 		'ast-hf-menu-9',
-		'ast-hf-menu-10',       // Cloned builder menus.
-		'ast-hf-mobile-menu',   // Builder - Mobile Menu.
-		'ast-hf-account-menu',  // Builder - Login Account Menu.
-		'primary-menu',         // Old header - Primary Menu.
-		'above_header-menu',    // Old header - Above Menu.
-		'below_header-menu',    // Old header - Below Menu.
+		'ast-hf-menu-10',           // Cloned builder menus.
+		'ast-hf-mobile-menu',       // Builder - Mobile Menu.
+		'ast-desktop-toggle-menu',  // Builder - Toggle for Desktop Menu.
+		'ast-hf-account-menu',      // Builder - Login Account Menu.
+		'primary-menu',             // Old header - Primary Menu.
+		'above_header-menu',        // Old header - Above Menu.
+		'below_header-menu',        // Old header - Below Menu.
 	);
 
 	$load_svg_menu_icons = false;
@@ -776,3 +777,13 @@ function astra_clear_theme_addon_asset_cache() {
 }
 
 add_action( 'astra_theme_update_after', 'astra_clear_theme_addon_asset_cache', 10 );
+
+/**
+ * Check if Theme Global Colors need to be disable in Elementor global color settings.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_maybe_disable_global_color_in_elementor() {
+	return apply_filters( 'astra_disable_global_colors_in_elementor', false );
+}

@@ -3,8 +3,6 @@
  */
 import { get } from 'lodash';
 
-import fetch from 'node-fetch';
-
 /**
  * WordPress dependencies
  */
@@ -189,7 +187,7 @@ async function setupBrowser() {
  * Reset the site to default settings.
  */
 async function siteReset() {
-	await fetch( createURL( '/wp-json/astra/v1/e2e-utils/reset-site' ), {
+	await window.fetch( createURL( '/wp-json/astra/v1/e2e-utils/reset-site' ), {
 		method: 'DELETE',
 	} );
 }
@@ -207,6 +205,7 @@ beforeAll( async () => {
 	await setupBrowser();
 	await deactivatePlugin( 'gutenberg' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
 	await trashAllPosts();
+	await trashAllPosts( 'page' );
 	await siteReset();
 	await page.setDefaultNavigationTimeout( 10000 );
 	await page.setDefaultTimeout( 10000 );

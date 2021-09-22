@@ -5,7 +5,7 @@
  * @package Astra.
  */
 
-namespace Astra\REST;
+namespace Astra\E2E\REST;
 
 use WP_Rest_Server;
 use WP_Rest_Request;

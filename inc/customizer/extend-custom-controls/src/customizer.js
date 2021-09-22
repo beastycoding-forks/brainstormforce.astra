@@ -656,7 +656,7 @@
 			innerDoc.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
 			document.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
 
-			if( true === astra.customizer.isElementorActive ) {
+			if( true === astra.customizer.isElementorActive && ! astra.customizer.isGlobalColorElementorDisabled ) {
 				let paletteSlugs = astra.customizer.globalPaletteSlugs;
 				// Set css variables for Elementor style.
 				innerDoc.documentElement.style.setProperty( '--e-global-color-' + paletteSlugs[ index ].replace(/-/g, ""), paletteItem[1] );

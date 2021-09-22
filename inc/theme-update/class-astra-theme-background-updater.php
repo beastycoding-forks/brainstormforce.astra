@@ -114,6 +114,9 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.7.0' => array(
 				'astra_global_color_compatibility',
 			),
+			'3.7.3' => array(
+				'astra_improve_gutenberg_editor_ui',
+			),
 		);
 
 		/**

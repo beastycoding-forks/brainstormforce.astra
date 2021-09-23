@@ -14123,6 +14123,388 @@ namespace {
     {
     }
     /**
+     * Function to get Body Font Family
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    function astra_body_font_family()
+    {
+    }
+    /**
+     * Function to Add Header Breakpoint Style
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+     * @since 1.5.2 Remove ob_start, ob_get_clean and .main-header-bar-wrap::before{content} for our .ast-header-break-point class
+     * @since 1.0.0
+     */
+    function astra_header_breakpoint_style($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
+    /**
+     * Function filter comment form arguments
+     *
+     * @since 1.0.0
+     * @param array $layout     Comment form arguments.
+     * @return array
+     */
+    function astra_404_page_layout($layout)
+    {
+    }
+    /**
+     * Return current content layout
+     *
+     * @since 1.0.0
+     * @return boolean  content layout.
+     */
+    function astra_get_content_layout()
+    {
+    }
+    /**
+     * Function to check if it is Internet Explorer.
+     *
+     * @return true | false boolean
+     */
+    function astra_check_is_ie()
+    {
+    }
+    /**
+     * Replace header logo.
+     *
+     * @param array  $image Size.
+     * @param int    $attachment_id Image id.
+     * @param sting  $size Size name.
+     * @param string $icon Icon.
+     *
+     * @return array Size of image
+     */
+    function astra_replace_header_logo($image, $attachment_id, $size, $icon)
+    {
+    }
+    /**
+     * Strpos over an array.
+     *
+     * @since  1.2.4
+     * @param  String  $haystack The string to search in.
+     * @param  Array   $needles  Array of needles to be passed to strpos().
+     * @param  integer $offset   If specified, search will start this number of characters counted from the beginning of the string. If the offset is negative, the search will start this number of characters counted from the end of the string.
+     *
+     * @return bool            True if haystack if part of any of the $needles.
+     */
+    function astra_strposa($haystack, $needles, $offset = 0)
+    {
+    }
+    /**
+     * Get a specific property of an array without needing to check if that property exists.
+     *
+     * Provide a default value if you want to return a specific value if the property is not set.
+     *
+     * @since  1.2.7
+     * @access public
+     * @author Gravity Forms - Easiest Tool to Create Advanced Forms for Your WordPress-Powered Website.
+     * @link  https://www.gravityforms.com/
+     *
+     * @param array  $array   Array from which the property's value should be retrieved.
+     * @param string $prop    Name of the property to be retrieved.
+     * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
+     *
+     * @return null|string|mixed The value
+     */
+    function astra_get_prop($array, $prop, $default = \null)
+    {
+    }
+    /**
+     * Build list of attributes into a string and apply contextual filter on string.
+     *
+     * The contextual filter is of the form `astra_attr_{context}_output`.
+     *
+     * @since 1.6.2
+     * @credits - Genesis Theme By StudioPress.
+     *
+     * @param string $context    The context, to build filter name.
+     * @param array  $attributes Optional. Extra attributes to merge with defaults.
+     * @param array  $args       Optional. Custom data to pass to filter.
+     * @return string String of HTML attributes and values.
+     */
+    function astra_attr($context, $attributes = array(), $args = array())
+    {
+    }
+    /**
+     * Get the theme author details
+     *
+     * @since  3.1.0
+     * @return array            Return theme author URL and name.
+     */
+    function astra_get_theme_author_details()
+    {
+    }
+    /**
+     * Remove Base Color > Background Color option from the customize array.
+     *
+     * @since 2.4.0
+     * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+     * @return $wp_customize
+     */
+    function astra_remove_controls($wp_customize)
+    {
+    }
+    /**
+     * Add dropdown icon if menu item has children.
+     *
+     * @since 3.3.0
+     *
+     * @param string   $title The menu item title.
+     * @param WP_Post  $item All of our menu item data.
+     * @param stdClass $args All of our menu item args.
+     * @param int      $depth Depth of menu item.
+     * @return string The menu item.
+     */
+    function astra_dropdown_icon_to_menu_link($title, $item, $args, $depth)
+    {
+    }
+    /**
+     * Is theme existing header footer configs enable.
+     *
+     * @since 3.0.0
+     *
+     * @return boolean true/false.
+     */
+    function astra_existing_header_footer_configs()
+    {
+    }
+    /**
+     * Get Spacing value
+     *
+     * @param  array  $value        Responsive spacing value with unit.
+     * @param  string $operation    + | - | * | /.
+     * @param  string $from         Perform operation from the value.
+     * @param  string $from_unit    Perform operation from the value of unit.
+     *
+     * @since 3.0.0
+     * @return mixed
+     */
+    function astra_calculate_spacing($value, $operation = '', $from = '', $from_unit = '')
+    {
+    }
+    /**
+     * Generate HTML Open markup
+     *
+     * @param string $context unique markup key.
+     * @param array  $args {
+     *      Contains markup arguments.
+     *     @type array  attrs    Initial attributes to apply to `open` markup.
+     *     @type bool   echo    Flag indicating whether to echo or return the resultant string.
+     * }
+     * @since 3.3.0
+     * @return mixed
+     */
+    function astra_markup_open($context, $args = array())
+    {
+    }
+    /**
+     * Generate HTML close markup
+     *
+     * @param string $context unique markup key.
+     * @param array  $args {
+     *      Contains markup arguments.
+     *     @type string close   Closing HTML markup.
+     *     @type array  attrs    Initial attributes to apply to `open` markup.
+     *     @type bool   echo    Flag indicating whether to echo or return the resultant string.
+     * }
+     * @since 3.3.0
+     * @return mixed
+     */
+    function astra_markup_close($context, $args = array())
+    {
+    }
+    /**
+     * Provision to update display rules for visibility of Related Posts section in Astra.
+     *
+     * @since 3.4.0
+     * @return bool
+     */
+    function astra_target_rules_for_related_posts()
+    {
+    }
+    /**
+     * Check if elementor plugin is active on the site.
+     *
+     * @since 3.7.0
+     * @return bool
+     */
+    function astra_is_elemetor_active()
+    {
+    }
+    /**
+     * Check the Astra addon 3.5.0 version is using or not.
+     * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
+     *
+     * @since  3.5.0
+     */
+    function is_astra_addon_3_5_0_version()
+    {
+    }
+    /**
+     * Get a stylesheet URL for a webfont.
+     *
+     * @since 3.6.0
+     *
+     * @param string $url    The URL of the remote webfont.
+     * @param string $format The font-format. If you need to support IE, change this to "woff".
+     *
+     * @return string Returns the CSS.
+     */
+    function ast_get_webfont_url($url, $format = 'woff2')
+    {
+    }
+    /**
+     * Get the file preloads.
+     *
+     * @param string $url    The URL of the remote webfont.
+     * @param string $format The font-format. If you need to support IE, change this to "woff".
+     */
+    function ast_load_preload_local_fonts($url, $format = 'woff2')
+    {
+    }
+    /**
+     * Set flag to manage backward compatibility for v3.5.0 earlier users for the transparent header border bottom default value changed.
+     *
+     * @since 3.6.0
+     */
+    function astra_get_transparent_header_default_value()
+    {
+    }
+    /**
+     * Check compatibility for content background and typography options.
+     *
+     * @since 3.7.0
+     */
+    function astra_has_gcp_typo_preset_compatibility()
+    {
+    }
+    /**
+     * Check whether user is exising or new to apply the updated default values for button padding & support GB button paddings with global button padding options.
+     *
+     * @since 3.6.3
+     * @return string
+     */
+    function astra_button_default_padding_updated()
+    {
+    }
+    /**
+     * Sticking footer at bottom when content is less, stting up flag here to manage backward compatibility.
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_isset_sticky_footer()
+    {
+    }
+    /**
+     * Check is WordPress version is greater than or equal to beta 5.8 version.
+     *
+     * @since 3.6.5
+     * @return boolean
+     */
+    function astra_has_widgets_block_editor()
+    {
+    }
+    /**
+     * Check whether user is exising or new to apply the updated default values for default blog post layout..
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_apply_new_default_blog_values()
+    {
+    }
+    /**
+     * Get compatibility for Old user to apply the blog grid bse css changes.
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_apply_blog_grid_css()
+    {
+    }
+    /**
+     * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+     *
+     * @since 3.6.7
+     * @return boolean
+     */
+    function astra_can_remove_elementor_toc_margin_space()
+    {
+    }
+    /**
+     * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
+     *
+     * @since 3.7.0
+     * @return boolean false if it is an existing user, true for new user.
+     */
+    function astra_has_global_color_format_support()
+    {
+    }
+    /**
+     * Check whether widget specific config, dynamic CSS, preview JS needs to remove or not. Following cases considered while implementing this.
+     *
+     * 1. Is user is from old Astra setup.
+     * 2. Check if user is new but on lesser WordPress 5.8 versions.
+     * 3. User is new with block widget editor.
+     *
+     * @since 3.6.8
+     * @return boolean
+     */
+    function astra_remove_widget_design_options()
+    {
+    }
+    /**
+     * Get Global Color Palettes
+     *
+     * @return array color palettes array.
+     * @since 3.7.0
+     */
+    function astra_get_palette_colors()
+    {
+    }
+    /**
+     * Get typography presets data.
+     *
+     * @return array Typography Presets data array.
+     * @since 3.7.0
+     */
+    function astra_get_typography_presets()
+    {
+    }
+    /**
+     * Clear Astra + Astra Pro assets cache.
+     *
+     * @since 3.6.9
+     * @return void
+     */
+    function astra_clear_theme_addon_asset_cache()
+    {
+    }
+    /**
+     * Check whether user is exising or new to override the default margin space added to Elementor-TOC widget.
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_can_improve_gutenberg_blocks_ui()
+    {
+    }
+    /**
+     * Check if Theme Global Colors need to be disable in Elementor global color settings.
+     *
+     * @since x.x.x
+     * @return bool
+     */
+    function astra_maybe_disable_global_color_in_elementor()
+    {
+    }
+    /**
      * Create instance of Astra_WebFont_Loader class.
      *
      * @param string $font_url Google font URL to set data.

@@ -777,3 +777,13 @@ function astra_clear_theme_addon_asset_cache() {
 }
 
 add_action( 'astra_theme_update_after', 'astra_clear_theme_addon_asset_cache', 10 );
+
+/**
+ * Check if Theme Global Colors need to be disable in Elementor global color settings.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_maybe_disable_global_color_in_elementor() {
+	return apply_filters( 'astra_disable_global_colors_in_elementor', false );
+}

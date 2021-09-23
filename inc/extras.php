@@ -824,6 +824,7 @@ function astra_can_improve_gutenberg_blocks_ui() {
 	$astra_settings                         = get_option( ASTRA_THEME_SETTINGS );
 	$astra_settings['improve-gutenberg-ui'] = isset( $astra_settings['improve-gutenberg-ui'] ) ? false : true;
 	return apply_filters( 'astra_improve_gutenberg_blocks_ui', $astra_settings['improve-gutenberg-ui'] );
+}
 
 /**
  * Check if Theme Global Colors need to be disable in Elementor global color settings.

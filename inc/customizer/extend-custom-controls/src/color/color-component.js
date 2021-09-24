@@ -16,7 +16,7 @@ const ColorComponent = props => {
 	useEffect( () => {
 		// If settings are changed externally.
 		if( state.value !== value ) {
-			setState(value);
+			setState({...state, value: value});
 		}
 	}, [props]);
 

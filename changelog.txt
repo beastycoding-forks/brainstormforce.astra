@@ -14,6 +14,7 @@ v3.7.3 (Unreleased)
 - Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.
 - Fix: Global color palette - customizer preview for Elementor pages not working.
 - Fix: Button Preset preview not working for an edge case.
+- Fix: Fix: Gutenberg editor and frontend font weight was not the same for heading typographies.
 
 v3.7.2
 - Fix: Incorrect Site Background Color on pages with Full Width layout.

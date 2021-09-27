@@ -1,5 +1,5 @@
 import { setCustomize } from '../../../utils/set-customize';
-import {createURL, createNewPost, publishPost} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 describe( 'Default position of the Sidebar for pages under the Customizer', () => {
 	it( 'position of sidebar for page as LEFT should apply correctly', async () => {
         const pageSidebar = {
@@ -14,7 +14,7 @@ describe( 'Default position of the Sidebar for pages under the Customizer', () =
         await page.goto( createURL( 'test-page' ), {
             waitUntil: 'networkidle0',
         } );
-        await page.waitForSelector('.ast-separate-container.ast-left-sidebar #secondary');
+        await page.waitForSelector( '.ast-separate-container.ast-left-sidebar #secondary' );
         await expect( {
             selector: '.ast-separate-container.ast-left-sidebar #secondary',
             property: '',
@@ -28,7 +28,7 @@ describe( 'Default position of the Sidebar for pages under the Customizer', () =
         await page.goto( createURL( 'test-page' ), {
             waitUntil: 'networkidle0',
         } );
-        await page.waitForSelector('.ast-separate-container.ast-right-sidebar #secondary');
+        await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary' );
         await expect( {
             selector: '.ast-separate-container.ast-right-sidebar #secondary',
             property: '',
@@ -60,7 +60,7 @@ describe( 'Default position of the Sidebar for pages under the Customizer', () =
         await page.goto( createURL( 'test-page' ), {
             waitUntil: 'networkidle0',
         } );
-        await page.waitForSelector('.ast-separate-container.ast-left-sidebar #secondary');
+        await page.waitForSelector( '.ast-separate-container.ast-left-sidebar #secondary' );
         await expect( {
             selector: '.ast-separate-container.ast-left-sidebar #secondary',
             property: '',

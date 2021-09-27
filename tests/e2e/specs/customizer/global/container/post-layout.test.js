@@ -39,8 +39,8 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 		} ).cssValueToBe( `` );
     } );
     it( 'layout for single post as content boxed should apply correctly', async () => {
-        	const contentLayout = {
-			'single-post-content-layout': 'content-boxed-container',
+        const contentLayout = {
+            'single-post-content-layout': 'content-boxed-container',
 		};
 		await setCustomize( contentLayout );
 		await page.goto( createURL( 'blogPost-layout' ), {

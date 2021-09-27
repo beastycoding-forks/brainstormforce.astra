@@ -38,7 +38,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			property: '',
 		} ).cssValueToBe( `` );
     } );
-    it( 'layout for single post should apply correctly', async () => {
+    it( 'layout for single post as content boxed should apply correctly', async () => {
         	const contentLayout = {
 			'single-post-content-layout': 'content-boxed-container',
 		};
@@ -52,7 +52,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			property: '',
 		} ).cssValueToBe( `` );
     } );
-	it( 'layout for single post should apply correctly', async () => {
+	it( 'layout for single post as boxed container should apply correctly', async () => {
 		const defLayout = {
 			'single-post-content-layout': 'default',
 			'site-content-layout': 'boxed-container',

@@ -7,74 +7,74 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 		};
 		await setCustomize( postLayout );
         await createNewPost( {
-			postType: 'post',
-			title: 'blogPost-layout',
-		} );
-		await publishPost();
-		await page.goto( createURL( 'blogPost-layout' ), {
+            postType: 'post',
+            title: 'blogPost-layout',
+        } );
+        await publishPost();
+        await page.goto( createURL( 'blogPost-layout' ), {
 			waitUntil: 'networkidle0',
-		} );
+        } );
+        await page.waitForSelector('.site-content .ast-container');
+        await expect( {
+            selector: '.site-content .ast-container',
+            property: '',
+        } ).cssValueToBe( `` );
+    } );
+    it( 'layout for single post should apply correctly', async () => {
+        const containedLayout = {
+            'single-post-content-layout': 'plain-container',
+        };
+        await setCustomize( containedLayout );
+        await page.goto( createURL( 'blogPost-layout' ), {
+            waitUntil: 'networkidle0',
+        } );
 		await page.waitForSelector('.site-content .ast-container');
-		await expect( {
-			selector: '.site-content .ast-container',
-			property: '',
-		} ).cssValueToBe( `` );
+        await expect( {
+            selector: '.site-content .ast-container',
+            property: '',
+        } ).cssValueToBe( `` );
 	} );
     it( 'layout for single post should apply correctly', async () => {
-		const containedLayout = {
-			'single-post-content-layout': 'plain-container',
+        const contentLayout = {
+            'single-post-content-layout': 'content-boxed-container',
 		};
-		await setCustomize( containedLayout );
-		await page.goto( createURL( 'blogPost-layout' ), {
-			waitUntil: 'networkidle0',
+        await setCustomize( contentLayout );
+        await page.goto( createURL( 'blogPost-layout' ), {
+            waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector('.site-content .ast-container');
-		await expect( {
-			selector: '.site-content .ast-container',
-			property: '',
-		} ).cssValueToBe( `` );
-	} );
+        await page.waitForSelector('.site-content .ast-container');
+        await expect( {
+            selector: '.site-content .ast-container',
+            property: '',
+        } ).cssValueToBe( `` );
+    } );
     it( 'layout for single post should apply correctly', async () => {
-		const contentLayout = {
-			'single-post-content-layout': 'content-boxed-container',
-		};
-		await setCustomize( contentLayout );
-		await page.goto( createURL( 'blogPost-layout' ), {
-			waitUntil: 'networkidle0',
-		} );
-		await page.waitForSelector('.site-content .ast-container');
-		await expect( {
-			selector: '.site-content .ast-container',
-			property: '',
-		} ).cssValueToBe( `` );
-	} );
-    it( 'layout for single post should apply correctly', async () => {
-		const defLayout = {
-			'single-post-content-layout': 'default',
+        const defLayout = {
+            'single-post-content-layout': 'default',
             'site-content-layout':'boxed-container',
 		};
-		await setCustomize( defLayout );
-		await page.goto( createURL( 'blogPost-layout' ), {
+        await setCustomize( defLayout );
+        await page.goto( createURL( 'blogPost-layout' ), {
 			waitUntil: 'networkidle0',
-		} );
-		await page.waitForSelector('.site-content .ast-container');
-		await expect( {
+        } );
+        await page.waitForSelector('.site-content .ast-container');
+        await expect( {
 			selector: '.site-content .ast-container',
 			property: '',
 		} ).cssValueToBe( `` );
 	} );
     it( 'layout for single post should apply correctly', async () => {
-		const containedLayout = {
-			'single-post-content-layout': 'page-builder',
-		};
-		await setCustomize( containedLayout );
-		await page.goto( createURL( 'blogPost-layout' ), {
-			waitUntil: 'networkidle0',
+        const containedLayout = {
+            'single-post-content-layout': 'page-builder',
+        };
+        await setCustomize( containedLayout );
+        await page.goto( createURL( 'blogPost-layout' ), {
+            waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector('.site-content .ast-container');
-		await expect( {
-			selector: '.site-content .ast-container',
-			property: '',
+        await page.waitForSelector('.site-content .ast-container');
+        await expect( {
+            selector: '.site-content .ast-container',
+            property: '',
 		} ).cssValueToBe( `` );
 	} );
 } ); 

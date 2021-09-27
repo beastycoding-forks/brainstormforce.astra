@@ -19,7 +19,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			selector: '.site-content .ast-container',
 			property: '',
 		} ).cssValueToBe( `` );
-	});
+	} );
     it( 'Layout for single post should apply correctly', async () => {
 		const containedLayout = {
 			'single-post-content-layout': 'plain-container',
@@ -33,7 +33,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			selector: '.site-content .ast-container',
 			property: '',
 		} ).cssValueToBe( `` );
-	});
+	} );
     it( 'Layout for single post should apply correctly', async () => {
 		const contentLayout = {
 			'single-post-content-layout': 'content-boxed-container',
@@ -47,7 +47,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			selector: '.site-content .ast-container',
 			property: '',
 		} ).cssValueToBe( `` );
-	});
+	} );
     it( 'Layout for single post should apply correctly', async () => {
 		const defLayout = {
 			'single-post-content-layout': 'default',
@@ -62,7 +62,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			selector: '.site-content .ast-container',
 			property: '',
 		} ).cssValueToBe( `` );
-	});
+	} );
     it( 'Layout for single post should apply correctly', async () => {
 		const containedLayout = {
 			'single-post-content-layout': 'page-builder',
@@ -76,5 +76,5 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			selector: '.site-content .ast-container',
 			property: '',
 		} ).cssValueToBe( `` );
-	});
-}); 
+	} );
+} ); 

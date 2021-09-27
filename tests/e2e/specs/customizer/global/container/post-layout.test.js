@@ -1,7 +1,7 @@
-import { createURL,createNewPost,publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/set-customize';
 describe( 'Blog post layout setting from Global option under the Customizer', () => {
-	it( 'Layout for blog post  should apply correctly', async () => {
+	it( 'layout for blog post  should apply correctly', async () => {
 		const postLayout = {
 			'single-post-content-layout': 'boxed-container',
 		};
@@ -20,7 +20,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			property: '',
 		} ).cssValueToBe( `` );
 	} );
-    it( 'Layout for single post should apply correctly', async () => {
+    it( 'layout for single post should apply correctly', async () => {
 		const containedLayout = {
 			'single-post-content-layout': 'plain-container',
 		};
@@ -34,7 +34,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			property: '',
 		} ).cssValueToBe( `` );
 	} );
-    it( 'Layout for single post should apply correctly', async () => {
+    it( 'layout for single post should apply correctly', async () => {
 		const contentLayout = {
 			'single-post-content-layout': 'content-boxed-container',
 		};
@@ -48,7 +48,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			property: '',
 		} ).cssValueToBe( `` );
 	} );
-    it( 'Layout for single post should apply correctly', async () => {
+    it( 'layout for single post should apply correctly', async () => {
 		const defLayout = {
 			'single-post-content-layout': 'default',
             'site-content-layout':'boxed-container',
@@ -63,7 +63,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			property: '',
 		} ).cssValueToBe( `` );
 	} );
-    it( 'Layout for single post should apply correctly', async () => {
+    it( 'layout for single post should apply correctly', async () => {
 		const containedLayout = {
 			'single-post-content-layout': 'page-builder',
 		};

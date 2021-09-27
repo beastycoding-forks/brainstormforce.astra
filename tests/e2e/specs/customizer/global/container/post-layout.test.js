@@ -37,8 +37,8 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 			selector: '.site-content .ast-container',
 			property: '',
 		} ).cssValueToBe( `` );
-    } );
-    it( 'layout for single post as content boxed should apply correctly', async () => {
+	} );
+	it( 'layout for single post as content boxed should apply correctly', async () => {
         const contentLayout = {
             'single-post-content-layout': 'content-boxed-container',
 		};

@@ -5,7 +5,7 @@ import {
 } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/set-customize';
 describe( 'Blog post layout setting from Global option under the Customizer', () => {
-	it( 'layout for blog post  should apply correctly', async () => {
+	it( 'layout for blog post should apply correctly', async () => {
 		const postLayout = {
 			'single-post-content-layout': 'boxed-container',
 		};
@@ -39,7 +39,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
 		} ).cssValueToBe( `` );
     } );
     it( 'layout for single post should apply correctly', async () => {
-		const contentLayout = {
+        	const contentLayout = {
 			'single-post-content-layout': 'content-boxed-container',
 		};
 		await setCustomize( contentLayout );

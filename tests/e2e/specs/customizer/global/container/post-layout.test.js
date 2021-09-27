@@ -12,7 +12,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
         } );
         await publishPost();
         await page.goto( createURL( 'blogPost-layout' ), {
-			waitUntil: 'networkidle0',
+            waitUntil: 'networkidle0',
         } );
         await page.waitForSelector('.site-content .ast-container');
         await expect( {
@@ -21,7 +21,7 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
         } ).cssValueToBe( `` );
     } );
     it( 'layout for single post should apply correctly', async () => {
-        const containedLayout = {
+    const containedLayout = {
             'single-post-content-layout': 'plain-container',
         };
         await setCustomize( containedLayout );
@@ -77,4 +77,5 @@ describe( 'Blog post layout setting from Global option under the Customizer', ()
             property: '',
 		} ).cssValueToBe( `` );
 	} );
+
 } ); 

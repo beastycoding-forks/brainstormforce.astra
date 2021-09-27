@@ -5,22 +5,22 @@
  * @package Astra
  */
 
+$astra_header_component_args = array();
+$astra_header_component_slug = get_query_var( 'type' );
 if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {
-	$component_args = wp_parse_args(
+	$astra_header_component_args = wp_parse_args(
 		$args,
 		array(
 			'type'   => '',
 			'device' => '',
 		)
 	);
-	$component_slug = $component_args['type'];
-} else {
-	$component_slug = get_query_var( 'type' );
+	$astra_header_component_slug = isset( $astra_header_component_args['type'] ) ? $astra_header_component_args['type'] : '';
 }
 
-$device = $component_args['device'];
+$astra_active_device = isset( $astra_header_component_args['device'] ) ? $astra_header_component_args['device'] : '';
 
-switch ( $component_slug ) {
+switch ( $astra_header_component_slug ) {
 
 	case 'logo':
 		?>
@@ -57,7 +57,7 @@ switch ( $component_slug ) {
 	case 'mobile-menu':
 		?>
 		<div class="ast-builder-menu-mobile ast-builder-menu ast-builder-menu-mobile-focus-item ast-builder-layout-element site-header-focus-item" data-section="section-header-mobile-menu">
-			<?php do_action( 'astra_header_menu_mobile', $device ); ?>
+			<?php do_action( 'astra_header_menu_mobile', $astra_active_device ); ?>
 		</div>
 		<?php
 		break;
@@ -95,7 +95,7 @@ switch ( $component_slug ) {
 		break;
 
 	case 'mobile-trigger':
-		if ( 'desktop' === $device && ! defined( 'ASTRA_EXT_VER' ) ) {
+		if ( 'desktop' === $astra_active_device && ! defined( 'ASTRA_EXT_VER' ) ) {
 			break;
 		}
 		?>
@@ -188,7 +188,7 @@ switch ( $component_slug ) {
 		break;
 
 	default:
-		do_action( 'astra_render_header_components', $component_slug );
+		do_action( 'astra_render_header_components', $astra_header_component_slug );
 		break;
 
 }

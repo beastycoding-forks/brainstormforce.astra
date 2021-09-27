@@ -38,11 +38,11 @@ describe( 'Default position of the Sidebar for pages under the Customizer', () =
 			'.ast-separate-container.ast-right-sidebar #secondary',
 		);
 		await expect( {
-			selector: '.ast-separate-container.ast-right-sidebar #secondary',
+            selector: '.ast-separate-container.ast-right-sidebar #secondary',
 			property: '',
 		} ).cssValueToBe( `` );
-	} );
-	it( 'position of Sidebar for pages as NO-Sidebar should apply correctly', async () => {
+    } );
+    it( 'position of Sidebar for pages as NO-Sidebar should apply correctly', async () => {
 		const pageSidebar = {
 			'single-page-sidebar-layout': 'no-sidebar',
 		};

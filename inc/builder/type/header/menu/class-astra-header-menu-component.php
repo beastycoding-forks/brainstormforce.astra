@@ -58,7 +58,7 @@ class Astra_Header_Menu_Component {
 
 		$_prefix = 'menu' . $index;
 
-		$submenu_class         = apply_filters( 'secondary_submenu_border_class', ' submenu-with-border' );
+		$submenu_class         = apply_filters( 'astra_secondary_submenu_border_class', ' submenu-with-border' );
 		$stack_on_mobile_class = 'inline-on-mobile';
 
 		if ( astra_get_option( 'header-' . $_prefix . '-menu-stack-on-mobile' ) ) {

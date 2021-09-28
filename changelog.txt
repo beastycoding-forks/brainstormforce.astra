@@ -11,8 +11,8 @@ v3.7.3 (Unreleased)
 - Improvement: Renamed action `asta_register_admin_menu` to `astra_register_admin_menu`. It is recommended to change to the new action.
 - Fix: Gutenberg Editor content area showing white background color when Full screen mode is active.
 - Fix: Color picker tooltip appear on hover of selection area & it's palette.
-- Fix: W3C HTML validation - Duplicate ID: ast-hf-mobile-menu.
-- Fix: W3C HTML validation - Duplicate ID: Layer_1.
+- Fix: W3C HTML validation - Duplicate ID: ast-hf-mobile-menu. This change may break CSS if you have used custom CSS on ast-hf-mobile-menu HTML ID.
+- Fix: W3C HTML validation - Duplicate ID: Layer_1. This change may break CSS if you have used custom CSS on Layer_1 HTML ID.
 - Fix: The default "Add Widget" text alignment issue in header.
 - Fix: W3 validator - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validator - CSS parse error for '.menu-link' & '.wp-block-button__link'.

@@ -5,7 +5,7 @@
  * @package Astra
  */
 
-namespace Elementor;// phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound
+namespace Elementor;// phpcs:ignore PHPCompatibility.Keywords.NewKeywords.t_namespaceFound, WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedNamespaceFound
 
 // @codingStandardsIgnoreStart PHPCompatibility.Keywords.NewKeywords.t_useFound
 use Astra_Global_Palette;

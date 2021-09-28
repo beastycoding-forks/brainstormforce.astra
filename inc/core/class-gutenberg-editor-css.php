@@ -20,7 +20,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 	/**
 	 * Admin Helper
 	 */
+	// @codingStandardsIgnoreStart WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
 	class Gutenberg_Editor_CSS {
+		// @codingStandardsIgnoreEnd WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedClassFound
 
 		/**
 		 * Get dynamic CSS  required for the block editor to make editing experience similar to how it looks on frontend.

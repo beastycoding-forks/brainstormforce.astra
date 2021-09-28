@@ -1511,7 +1511,7 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
  * @since 3.0.1
  * @return boolean
  */
-function is_astra_pagination_enabled() {
+function astra_check_pagination_enabled() {
 	global  $wp_query;
 
 	return ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) );
@@ -1523,7 +1523,7 @@ function is_astra_pagination_enabled() {
  * @since 3.0.1
  * @return boolean
  */
-function is_current_post_comment_enabled() {
+function astra_check_current_post_comment_enabled() {
 	return ( is_singular() && comments_open() );
 }
 

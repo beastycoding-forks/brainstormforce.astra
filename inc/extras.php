@@ -580,7 +580,7 @@ function astra_is_elemetor_active() {
  *
  * @since  3.5.0
  */
-function is_astra_addon_3_5_0_version() {
+function astra_addon_has_3_5_0_version() {
 	return defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.5.0', '<' );
 }
 
@@ -594,7 +594,7 @@ function is_astra_addon_3_5_0_version() {
  *
  * @return string Returns the CSS.
  */
-function ast_get_webfont_url( $url, $format = 'woff2' ) {
+function astra_get_webfont_url( $url, $format = 'woff2' ) {
 
 	// Check if already Google font URL present or not. Basically avoiding 'Astra_WebFont_Loader' class rendering.
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -615,7 +615,7 @@ function ast_get_webfont_url( $url, $format = 'woff2' ) {
  * @param string $url    The URL of the remote webfont.
  * @param string $format The font-format. If you need to support IE, change this to "woff".
  */
-function ast_load_preload_local_fonts( $url, $format = 'woff2' ) {
+function astra_load_preload_local_fonts( $url, $format = 'woff2' ) {
 
 	// Check if cached font files data preset present or not. Basically avoiding 'Astra_WebFont_Loader' class rendering.
 	$astra_local_font_files = get_site_option( 'astra_local_font_files', false );
@@ -648,7 +648,7 @@ function astra_get_transparent_header_default_value() {
 }
 
 /**
- * Check compatibility for content background and typography options. 
+ * Check compatibility for content background and typography options.
  *
  * @since 3.7.0
  */
@@ -777,3 +777,13 @@ function astra_clear_theme_addon_asset_cache() {
 }
 
 add_action( 'astra_theme_update_after', 'astra_clear_theme_addon_asset_cache', 10 );
+
+/**
+ * Check if Theme Global Colors need to be disable in Elementor global color settings.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_maybe_disable_global_color_in_elementor() {
+	return apply_filters( 'astra_disable_global_colors_in_elementor', false );
+}

@@ -249,7 +249,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		public function primary_header() {
 
 			$display = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
-			$display = apply_filters( 'ast_main_header_display', $display );
+			$display = apply_filters( 'astra_main_header_display', $display );
 
 			if ( 'disabled' !== $display ) {
 				if ( astra_wp_version_compare( '5.4.99', '>=' ) ) {

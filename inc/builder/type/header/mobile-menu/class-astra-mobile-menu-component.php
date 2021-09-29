@@ -48,7 +48,7 @@ class Astra_Mobile_Menu_Component {
 	public static function menu_markup( $device = 'mobile' ) {
 
 		$theme_location        = 'mobile_menu';
-		$submenu_class         = apply_filters( 'secondary_submenu_border_class', ' submenu-with-border' );
+		$submenu_class         = apply_filters( 'astra_secondary_submenu_border_class', ' submenu-with-border' );
 		$stack_on_mobile_class = 'stack-on-mobile';
 
 		// Menu Animation.

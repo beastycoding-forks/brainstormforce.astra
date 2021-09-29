@@ -2562,7 +2562,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css             .= astra_parse_css( $min_site_container_css, '', astra_get_tablet_breakpoint() );
 			}
 
-			if ( is_astra_addon_3_5_0_version() ) {
+			if ( astra_addon_has_3_5_0_version() ) {
 				$mega_menu_css = array(
 					'.ast-desktop .main-header-menu .astra-full-megamenu-wrapper .sub-menu, .ast-desktop .main-header-menu .astra-megamenu .sub-menu' => array(
 						'box-shadow' => 'none',
@@ -3430,7 +3430,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		public static function gtn_image_group_css_comp() {
 			$astra_settings                                = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['gtn-full-wide-image-grp-css'] = isset( $astra_settings['gtn-full-wide-image-grp-css'] ) ? false : true;
-			return apply_filters( 'gtn_image_group_css_comp', $astra_settings['gtn-full-wide-image-grp-css'] );
+			return apply_filters( 'astra_gutenberg_image_group_style_support', $astra_settings['gtn-full-wide-image-grp-css'] );
 		}
 
 		/**

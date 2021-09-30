@@ -268,6 +268,39 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		}
 
 		/**
+		 * Callback for partial rendering mode switcher.
+		 *
+		 * @since x.x.x
+		 */
+		public static function render_mode_switcher() {
+
+			$switcher_icon  = astra_get_option( 'mode-switcher-icon-type' );
+			$switcher_label = astra_get_option( 'mode-switcher-label' );
+
+			?>
+				<div class="ast-header-mode-switcher-wrap">
+					<?php
+						if ( is_customize_preview() ) {
+							self::render_customizer_edit_button();
+						}
+					?>
+					<div class="ast-mode-switcher-container">
+						<span class="ast-mode-switcher-trigger">
+							<?php
+								echo self::fetch_svg_icon( $switcher_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								if( '' !== $switcher_label ) {
+									?>
+										<span class="ast-mode-switcher-label"> <?php echo esc_html( $switcher_label ); ?> </span>
+									<?php
+								}
+							?>
+						</span>
+					</div>
+				</div>
+			<?php
+		}
+
+		/**
 		 * Render Mobile Cart Flyout Markup.
 		 *
 		 * @since 3.1.0

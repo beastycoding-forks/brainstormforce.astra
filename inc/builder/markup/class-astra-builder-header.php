@@ -93,6 +93,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 				add_action( 'astra_header_edd_cart', array( $this, 'header_edd_cart' ) );
 				add_action( 'astra_header_account', array( $this, 'header_account' ) );
 				add_action( 'astra_header_mobile_trigger', array( $this, 'header_mobile_trigger' ) );
+				add_action( 'astra_header_mode_switcher', array( $this, 'header_mode_switcher' ) );
 
 				// Load Cart Flyout Markup on Footer.
 				add_action( 'astra_footer', array( $this, 'mobile_cart_flyout' ) );
@@ -184,6 +185,15 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function header_account() {
 			Astra_Builder_UI_Controller::render_account();
+		}
+
+		/**
+		 * Render builder's medo switcher element.
+		 *
+		 * @since x.x.x
+		 */
+		public function header_mode_switcher() {
+			Astra_Builder_UI_Controller::render_mode_switcher();
 		}
 
 		/**

@@ -26,7 +26,7 @@ class Astra_Header_Mode_Switcher_Loader {
 	 * @since x.x.x
 	 */
 	public function __construct() {
-		// add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
+		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
 	}
 
 	/**

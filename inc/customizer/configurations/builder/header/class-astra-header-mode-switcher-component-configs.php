@@ -63,21 +63,89 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			),
 
 			/**
-			 * Option: Dummy heading
+			 * Option: Icon Type
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[header-mode-switcher-heading]',
-				'type'        => 'control',
-				'control'     => 'ast-heading',
-				'section'     => $_section,
-				'priority'    => 1,
-				'title'       => __( 'Mode Swticher', 'astra' ),
-				'settings'    => array(),
-				'input_attrs' => array(
-					'class' => 'ast-control-reduce-top-space',
+				'name'       => ASTRA_THEME_SETTINGS . '[mode-switcher-icon-type]',
+				'default'    => astra_get_option( 'mode-switcher-icon-type' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'section'    => $_section,
+				'priority'   => 10,
+				'title'      => __( 'Select Icon', 'astra' ),
+				'choices'    => array(
+					'switcher-1' => 'switcher-1',
+					'switcher-2' => 'switcher-2',
+					'switcher-3' => 'switcher-3',
+					'switcher-4' => 'switcher-4',
 				),
+				'transport'  => 'postMessage',
+				'partial'    => array(
+					'selector'        => '.ast-header-mode-switcher',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mode_switcher' ),
+				),
+				'context'    => Astra_Builder_Helper::$general_tab,
+				'responsive' => false,
+				'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
+			),
+
+			/**
+			 * Option: Icon Size
+			 */
+			array(
+				'name'              => ASTRA_THEME_SETTINGS . '[mode-switcher-icon-size]',
+				'section'           => $_section,
+				'priority'          => 15,
+				'transport'         => 'postMessage',
+				'default'           => astra_get_option( 'mode-switcher-icon-size' ),
+				'title'             => __( 'Icon Size', 'astra' ),
+				'type'              => 'control',
+				'suffix'            => 'px',
+				'control'           => 'ast-responsive-slider',
+				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+				'input_attrs'       => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 200,
+				),
+				'context'   => Astra_Builder_Helper::$design_tab,
+			),
+
+			/**
+			 * Option: Switcher Custom Label
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[mode-switcher-label]',
+				'transport' => 'postMessage',
+				'partial'    => array(
+					'selector'        => '.ast-header-mode-switcher',
+					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mode_switcher' ),
+				),
+				'default'   => astra_get_option( 'mode-switcher-label' ),
+				'section'   => $_section,
+				'priority'  => 30,
+				'title'     => __( 'Label', 'astra' ),
+				'type'      => 'control',
+				'control'   => 'text',
+				'context'   => Astra_Builder_Helper::$general_tab,
+				'divider'   => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
 			),
 		);
+
+		$required_condition = array(
+			Astra_Builder_Helper::$design_tab_config,
+			array(
+				'setting'  => ASTRA_THEME_SETTINGS . '[mode-switcher-label]',
+				'operator' => '!=',
+				'value'    => '',
+			),
+		);
+
+		// Added typography settings for switcher label.
+		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_typography_options( $_section, $required_condition ) );
+
+		// Added advanced (margin|padding) settings for switcher element.
+		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
 
 		return array_merge( $configurations, $_configs );
 	}

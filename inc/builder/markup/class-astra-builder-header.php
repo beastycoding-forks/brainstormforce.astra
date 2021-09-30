@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		}
 
 		/**
-		 * Render builder's medo switcher element.
+		 * Render light|dark mode switcher element.
 		 *
 		 * @since x.x.x
 		 */

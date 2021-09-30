@@ -652,6 +652,12 @@ final class Astra_Builder_Helper {
 					'section' => 'title_tagline',
 					'delete'  => false,
 				),
+				'mode-switcher'  => array(
+					'name'    => __( 'Mode Switcher', 'astra' ),
+					'icon'    => 'dashicons-art',
+					'section' => 'section-mode-switcher',
+					'delete'  => false,
+				),
 				'search'  => array(
 					'name'    => __( 'Search', 'astra' ),
 					'icon'    => 'search',
@@ -713,6 +719,11 @@ final class Astra_Builder_Helper {
 					'name'    => __( 'Site Title & Logo', 'astra' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
+				),
+				'mode-switcher'  => array(
+					'name'    => __( 'Mode Switcher', 'astra' ),
+					'icon'    => 'dashicons-art',
+					'section' => 'section-mode-switcher',
 				),
 				'search'         => array(
 					'name'    => __( 'Search', 'astra' ),

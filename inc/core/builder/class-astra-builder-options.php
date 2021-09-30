@@ -1032,6 +1032,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-account-type-text-color'] = '';
 	$defaults['header-account-woo-menu']        = false;
 
+	/**
+	 * Mode Switcher element.
+	*/
+
 	$defaults['cloned-component-track'] = Astra_Builder_Helper::$component_count_array;
 
 	return $defaults;

@@ -113,6 +113,14 @@ switch ( $astra_header_component_slug ) {
 		<?php
 		break;
 
+	case 'account':
+		?>
+			<div class="ast-builder-layout-element site-header-focus-item ast-header-mode-switcher" data-section="section-mode-switcher">
+				<?php do_action( 'astra_header_mode_switcher' ); ?>
+			</div>
+		<?php
+	break;
+
 	case 'woo-cart':
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			?>

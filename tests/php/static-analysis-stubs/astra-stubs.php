@@ -1117,6 +1117,14 @@ namespace {
         {
         }
         /**
+         * Callback for partial rendering mode switcher.
+         *
+         * @since x.x.x
+         */
+        public static function render_mode_switcher()
+        {
+        }
+        /**
          * Render Mobile Cart Flyout Markup.
          *
          * @since 3.1.0
@@ -1373,6 +1381,14 @@ namespace {
          * Render account icon.
          */
         public function header_account()
+        {
+        }
+        /**
+         * Render light|dark mode switcher element.
+         *
+         * @since x.x.x
+         */
+        public function header_mode_switcher()
         {
         }
         /**
@@ -2372,6 +2388,44 @@ namespace {
          * Constructor function that initializes required actions and hooks.
          */
         public function __construct()
+        {
+        }
+    }
+    /**
+     * Mode Switcher Initial Setup
+     *
+     * @since x.x.x
+     */
+    class Astra_Header_Mode_Switcher_Component
+    {
+        /**
+         * Constructor function that initializes required actions and hooks.
+         */
+        public function __construct()
+        {
+        }
+    }
+    /**
+     * Customizer Initialization
+     *
+     * @since x.x.x
+     */
+    class Astra_Header_Mode_Switcher_Loader
+    {
+        /**
+         * Constructor.
+         *
+         * @since x.x.x
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Customizer Preview.
+         *
+         * @since x.x.x
+         */
+        public function preview_scripts()
         {
         }
     }
@@ -8740,6 +8794,25 @@ namespace {
     /**
      * Register Builder Customizer Configurations.
      *
+     * @since x.x.x
+     */
+    class Astra_Header_Mode_Switcher_Component_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Builder Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Register Builder Customizer Configurations.
+     *
      * @since 3.0.0
      */
     class Astra_Header_Search_Component_Configs extends \Astra_Customizer_Config_Base
@@ -10616,6 +10689,64 @@ namespace {
         {
         }
     }
+    /*!
+     * ISC License
+     * 
+     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
+     *
+     * Permission to use, copy, modify, and/or distribute this software for any
+     * purpose with or without fee is hereby granted, provided that the above
+     * copyright notice and this permission notice appear in all copies.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+     * PERFORMANCE OF THIS SOFTWARE.
+     */
+    class FlattedString
+    {
+        public function __construct($value)
+        {
+        }
+    }
+    class Flatted
+    {
+        // public utilities
+        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
+        {
+        }
+        public static function stringify($value, $options = 0, $depth = 512)
+        {
+        }
+        // private helpers
+        private static function asString($value)
+        {
+        }
+        private static function index(&$known, &$input, &$value)
+        {
+        }
+        private static function keys(&$value)
+        {
+        }
+        private static function loop($obj, $keys, &$input, &$set, &$output)
+        {
+        }
+        private static function relate(&$known, &$input, &$value)
+        {
+        }
+        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
+        {
+        }
+        private static function transform(&$known, &$input, &$value)
+        {
+        }
+        private static function wrap($value)
+        {
+        }
+    }
     /**
      * Customizer Initialization
      *
@@ -12441,6 +12572,18 @@ namespace {
      * @since 3.0.0
      */
     function astra_mobile_trigger_row_setting($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
+    /**
+     * Dynamic CSS
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+     * @return String Generated dynamic CSS for Mode Switcher.
+     *
+     * @since x.x.x
+     */
+    function astra_mode_switcher_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
     /**

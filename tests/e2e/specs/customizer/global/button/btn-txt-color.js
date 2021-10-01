@@ -22,3 +22,4 @@ describe( 'global button presets, button text and background color setting under
 		} ).cssValueToBe( `${ btnColor[ 'button-bg-color' ] }` );
 	} );
 } );
+

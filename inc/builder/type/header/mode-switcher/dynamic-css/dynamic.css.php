@@ -33,10 +33,10 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$_section = 'section-mode-switcher';
 	$selector = '.ast-header-mode-switcher-wrap';
 
-	$icon_size = astra_get_option( 'mode-switcher-icon-size' );
+	$icon_size         = astra_get_option( 'mode-switcher-icon-size' );
 	$icon_size_desktop = ( ! empty( $icon_size['desktop'] ) ) ? $icon_size['desktop'] : 20;
-	$icon_size_tablet = ( ! empty( $icon_size['tablet'] ) ) ? $icon_size['tablet'] : 20;
-	$icon_size_mobile = ( ! empty( $icon_size['mobile'] ) ) ? $icon_size['mobile'] : 20;
+	$icon_size_tablet  = ( ! empty( $icon_size['tablet'] ) ) ? $icon_size['tablet'] : 20;
+	$icon_size_mobile  = ( ! empty( $icon_size['mobile'] ) ) ? $icon_size['mobile'] : 20;
 
 	/**
 	 * Mode Switcher - Desktop CSS.
@@ -75,7 +75,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	$dynamic_css .= $css_output;
 
-	if( ! empty( astra_get_option( 'mode-switcher-label' ) ) ) {
+	if ( ! empty( astra_get_option( 'mode-switcher-label' ) ) ) {
 		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector . ' .ast-mode-switcher-label' );
 	}
 

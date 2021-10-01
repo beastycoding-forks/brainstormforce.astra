@@ -93,22 +93,22 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Option: Icon Size
 			 */
 			array(
-				'name'              => ASTRA_THEME_SETTINGS . '[mode-switcher-icon-size]',
-				'section'           => $_section,
-				'priority'          => 15,
-				'transport'         => 'postMessage',
-				'default'           => astra_get_option( 'mode-switcher-icon-size' ),
-				'title'             => __( 'Icon Size', 'astra' ),
-				'type'              => 'control',
-				'suffix'            => 'px',
-				'control'           => 'ast-responsive-slider',
-				'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
-				'input_attrs'       => array(
+				'name'        => ASTRA_THEME_SETTINGS . '[mode-switcher-icon-size]',
+				'section'     => $_section,
+				'priority'    => 15,
+				'transport'   => 'postMessage',
+				'default'     => astra_get_option( 'mode-switcher-icon-size' ),
+				'title'       => __( 'Icon Size', 'astra' ),
+				'type'        => 'control',
+				'suffix'      => 'px',
+				'control'     => 'ast-responsive-slider',
+				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,
 					'max'  => 200,
 				),
-				'context'   => Astra_Builder_Helper::$design_tab,
+				'context'     => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -117,7 +117,7 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[mode-switcher-label]',
 				'transport' => 'postMessage',
-				'partial'    => array(
+				'partial'   => array(
 					'selector'        => '.ast-header-mode-switcher',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mode_switcher' ),
 				),

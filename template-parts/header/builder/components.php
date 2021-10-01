@@ -119,7 +119,7 @@ switch ( $astra_header_component_slug ) {
 				<?php do_action( 'astra_header_mode_switcher' ); ?>
 			</div>
 		<?php
-	break;
+		break;
 
 	case 'woo-cart':
 		if ( class_exists( 'Astra_Woocommerce' ) ) {

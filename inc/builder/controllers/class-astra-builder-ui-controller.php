@@ -280,19 +280,19 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			?>
 				<div class="ast-header-mode-switcher-wrap">
 					<?php
-						if ( is_customize_preview() ) {
-							self::render_customizer_edit_button();
-						}
+					if ( is_customize_preview() ) {
+						self::render_customizer_edit_button();
+					}
 					?>
 					<div class="ast-mode-switcher-container">
 						<span class="ast-mode-switcher-trigger">
 							<?php
 								echo self::fetch_svg_icon( $switcher_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								if( '' !== $switcher_label ) {
-									?>
+							if ( '' !== $switcher_label ) {
+								?>
 										<span class="ast-mode-switcher-label"> <?php echo esc_html( $switcher_label ); ?> </span>
 									<?php
-								}
+							}
 							?>
 						</span>
 					</div>

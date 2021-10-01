@@ -1036,14 +1036,14 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Mode Switcher element.
 	*/
 	$defaults['mode-switcher-icon-type'] = 'switcher-1';
-	$defaults['mode-switcher-label'] = '';
-	$defaults['mode-switcher-icon-size']       = array(
+	$defaults['mode-switcher-label']     = '';
+	$defaults['mode-switcher-icon-size'] = array(
 		'desktop' => 20,
 		'tablet'  => 20,
 		'mobile'  => 20,
 	);
 	// Label typography.
-	$defaults['font-size-section-mode-switcher']      = '';
+	$defaults['font-size-section-mode-switcher'] = '';
 
 	$defaults['cloned-component-track'] = Astra_Builder_Helper::$component_count_array;
 

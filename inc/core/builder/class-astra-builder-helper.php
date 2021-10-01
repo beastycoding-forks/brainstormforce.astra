@@ -654,7 +654,7 @@ final class Astra_Builder_Helper {
 				),
 				'mode-switcher'  => array(
 					'name'    => __( 'Mode Switcher', 'astra' ),
-					'icon'    => 'dashicons-art',
+					'icon'    => 'art',
 					'section' => 'section-mode-switcher',
 					'delete'  => false,
 				),
@@ -722,7 +722,7 @@ final class Astra_Builder_Helper {
 				),
 				'mode-switcher'  => array(
 					'name'    => __( 'Mode Switcher', 'astra' ),
-					'icon'    => 'dashicons-art',
+					'icon'    => 'art',
 					'section' => 'section-mode-switcher',
 				),
 				'search'         => array(

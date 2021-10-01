@@ -364,6 +364,15 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'background' => 'inherit !important',
 				);
 				$desktop_css['.ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper'] = $background_style_data;
+				$desktop_css['.wp-block[data-align=left]>*'] = array(
+					'float' => 'left',
+				);
+				$desktop_css['.wp-block[data-align=right]>*'] = array(
+					'float' => 'right',
+				);
+				$desktop_css['.wp-block[data-align=left], .wp-block[data-align=right]'] = array(
+					'float' => 'none !important',
+				);
 			}
 
 			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {

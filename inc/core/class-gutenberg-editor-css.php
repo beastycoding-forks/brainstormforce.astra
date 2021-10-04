@@ -315,10 +315,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			);
 
 			if ( false === $improve_gb_ui ) {
-				$desktop_css[ '.editor-post-title__block,.editor-default-block-appender,.block-editor-block-list__block' ]     = array(
+				$desktop_css['.editor-post-title__block,.editor-default-block-appender,.block-editor-block-list__block'] = array(
 					'max-width' => astra_get_css_value( $site_content_width, 'px' ),
 				);
-				$desktop_css[ '.block-editor-block-list__block[data-align=wide]' ]     = array(
+				$desktop_css['.block-editor-block-list__block[data-align=wide]'] = array(
 					'max-width' => astra_get_css_value( $site_content_width + 200, 'px' ),
 				);
 			}
@@ -331,18 +331,18 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			}
 			if ( astra_wp_version_compare( '5.7', '>=' ) ) {
 
-				if( true === $improve_gb_ui ) {
-					$desktop_css[ '.editor-styles-wrapper > .block-editor-block-list__layout' ]     = array(
-						'width'     => '100%',
-						'margin'    => '0 auto',
-						'padding'   => '0',
+				if ( true === $improve_gb_ui ) {
+					$desktop_css['.editor-styles-wrapper > .block-editor-block-list__layout'] = array(
+						'width'   => '100%',
+						'margin'  => '0 auto',
+						'padding' => '0',
 					);
 				} else {
-					$desktop_css['.edit-post-visual-editor'] = array(
+					$desktop_css['.edit-post-visual-editor']                        = array(
 						'padding'     => '20px',
 						'padding-top' => 'calc(2em + 20px)',
 					);
-					$desktop_css[ '.edit-post-visual-editor .editor-styles-wrapper' ]     = array(
+					$desktop_css['.edit-post-visual-editor .editor-styles-wrapper'] = array(
 						'max-width' => astra_get_css_value( $site_content_width - 56, 'px' ),
 						'width'     => '100%',
 						'margin'    => '0 auto',
@@ -817,7 +817,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 					'.ast-page-builder-template .block-editor-block-list__layout > .wp-block[data-align="wide"], .ast-plain-container .block-editor-block-list__layout > .wp-block[data-align="wide"]' => array(
 						'max-width' => '1200px',
-						'margin'  => '28px auto',
+						'margin'    => '28px auto',
 					),
 					'.block-editor-block-list__layout .wp-block-group, .block-editor-block-list__layout .wp-block-cover' => array(
 						'padding' => '4em',
@@ -827,7 +827,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 					'.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .wp-block[data-align=full]' => array(
 						'margin-left'  => '0',
-						'margin-right'  => '0',
+						'margin-right' => '0',
 					),
 					'.editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6, .editor-styles-wrapper p' => array(
 						'margin-top' => '0',
@@ -984,17 +984,17 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$css .= astra_parse_css( $aligned_full_content_css );
 
 			$boxed_editor_wrapper = '.ast-separate-container .block-editor-writing-flow, .ast-two-container .block-editor-writing-flow';
-			if( true === $improve_gb_ui ) {
+			if ( true === $improve_gb_ui ) {
 				$boxed_editor_wrapper = '.ast-separate-container .block-editor-block-list__layout.is-root-container, .ast-two-container .block-editor-block-list__layout.is-root-container, .ast-separate-container .editor-post-title, .ast-two-container .editor-post-title';
 			}
 
 			$boxed_container = array(
-				$boxed_editor_wrapper       => array(
+				$boxed_editor_wrapper => array(
 					'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
 					'margin'           => '0 auto',
 					'background-color' => '#fff',
 				),
-				'.ast-separate-container .gutenberg__editor, .ast-two-container .gutenberg__editor'         => array(
+				'.ast-separate-container .gutenberg__editor, .ast-two-container .gutenberg__editor' => array(
 					'background-color' => '#f5f5f5',
 				),
 
@@ -1021,10 +1021,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-right'  => 'calc( 6.67em - 28px )',
 				),
 
-				'.ast-separate-container .editor-post-title, .ast-two-container .editor-post-title'         => array(
+				'.ast-separate-container .editor-post-title, .ast-two-container .editor-post-title' => array(
 					'padding-bottom' => '0',
 				),
-				'.ast-separate-container .editor-block-list__block, .ast-two-container .editor-block-list__block'  => array(
+				'.ast-separate-container .editor-block-list__block, .ast-two-container .editor-block-list__block' => array(
 					'max-width' => 'calc(' . astra_get_css_value( $site_content_width, 'px' ) . ' - 6.67em)',
 				),
 				'.ast-separate-container .editor-block-list__block[data-align=wide], .ast-two-container .editor-block-list__block[data-align=wide]' => array(
@@ -1043,19 +1043,19 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$boxed_editor_content_area = '.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow';
 
-			if( true === $improve_gb_ui ) {
+			if ( true === $improve_gb_ui ) {
 				$boxed_editor_content_area = '.ast-separate-container .block-editor-block-list__layout.is-root-container, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-block-list__layout.is-root-container, .ast-separate-container .editor-post-title, .ast-two-container .editor-post-title';
 
 				$boxed_container = array(
-					$boxed_editor_wrapper       => array(
+					$boxed_editor_wrapper => array(
 						'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
 						'margin'           => '0 auto',
 						'background-color' => '#fff',
 					),
-					'.ast-separate-container .editor-post-title, .ast-two-container .editor-post-title'       => array(
+					'.ast-separate-container .editor-post-title, .ast-two-container .editor-post-title' => array(
 						'margin-bottom' => '-28px',
 					),
-					'.ast-separate-container .editor-post-title .editor-post-title__input, .ast-two-container .editor-post-title .editor-post-title__input'       => array(
+					'.ast-separate-container .editor-post-title .editor-post-title__input, .ast-two-container .editor-post-title .editor-post-title__input' => array(
 						'margin-bottom' => '20px',
 					),
 				);
@@ -1179,7 +1179,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					$gtn_full_wide_image_css['.ast-plain-container .wp-block[data-align="left"], .ast-plain-container .wp-block[data-align="right"], .ast-plain-container .wp-block[data-align="center"], .ast-plain-container .wp-block[data-align="full"]'] = array(
 						'max-width' => astra_get_css_value( $site_content_width, 'px' ),
 					);
-					$gtn_full_wide_image_css['.wp-block[data-align="center"]'] = array(
+					$gtn_full_wide_image_css['.wp-block[data-align="center"]']                                       = array(
 						'max-width' => '100%',
 						'width'     => '100%',
 					);
@@ -1189,7 +1189,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 						'max-width'    => 'unset',
 						'width'        => 'unset',
 					);
-					$gtn_full_wide_image_css['.ast-plain-container .wp-block[data-align="wide"]'] = array(
+					$gtn_full_wide_image_css['.ast-plain-container .wp-block[data-align="wide"]']                    = array(
 						'max-width' => astra_get_css_value( $site_content_width - 56, 'px' ),
 					);
 					$gtn_full_wide_image_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"], .ast-plain-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .wp-block[data-align="full"]'] = array(

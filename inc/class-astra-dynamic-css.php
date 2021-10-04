@@ -2285,7 +2285,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 					'.entry-content .alignfull' => array(
 						'max-width' => '100%',
-						'width' => '100%',
+						'width'     => '100%',
 					),
 				);
 

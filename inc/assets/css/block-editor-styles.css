@@ -477,9 +477,7 @@ html {
   }
 }
 
-.editor-post-title__block,
-.editor-default-block-appender,
-.block-editor-block-list__block {
+.editor-post-title__block {
   max-width: 1256px;
 }
 

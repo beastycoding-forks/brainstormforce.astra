@@ -904,7 +904,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			*/
 			if ( self::gtn_image_group_css_comp() ) {
 
-				if ( 'content-boxed-container' == $ast_container_layout || 'boxed-container' == $ast_container_layout ) {
+				if ( false === $improve_gb_ui && ( 'content-boxed-container' == $ast_container_layout || 'boxed-container' == $ast_container_layout ) ) {
 					$parse_css .= astra_parse_css(
 						array(
 							'.ast-separate-container.ast-right-sidebar .entry-content .wp-block-image.alignfull,.ast-separate-container.ast-left-sidebar .entry-content .wp-block-image.alignfull,.ast-separate-container.ast-right-sidebar .entry-content .wp-block-cover.alignfull,.ast-separate-container.ast-left-sidebar .entry-content .wp-block-cover.alignfull' => array(
@@ -2263,10 +2263,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $core_blocks_width_desktop_ui_css );
 
 				$core_blocks_min_width_tablet_ui_css = array(
-					'.wp-block-archives:not(.alignwide):not(.alignfull), .wp-block-categories:not(.alignwide):not(.alignfull), .wp-block-columns:not(.alignwide):not(.alignfull), .wp-block-cover:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-embed:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-gallery:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-group:not(.has-background):not(.alignwide):not(.alignfull), .wp-block-image:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.aligncenter), .wp-block-latest-comments:not(.aligncenter):not(.alignleft):not(.alignright), .wp-block-latest-posts:not(.aligncenter):not(.alignleft):not(.alignright), .wp-block-media-text:not(.alignwide):not(.alignfull), .wp-block-preformatted, .wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright), .wp-block-quote, .wp-block-quote.is-large, .wp-block-quote.is-style-large, .wp-block-verse, .wp-block-video:not(.alignwide):not(.alignfull), .entry-content > .alignwide:not(.wp-block-group.has-background), .entry-content > .alignfull:not(.wp-block-group.has-background)' => array(
-						'margin-top'    => '2em',
-						'margin-bottom' => '2em',
-					),
 					'.entry-content > .alignwide:not(.wp-block-group.has-background), .entry-content > .alignfull:not(.wp-block-group.has-background)' => array(
 						'padding' => '1em',
 					),
@@ -2284,6 +2280,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.entry-content > .wp-block-group.alignwide.has-background, .entry-content > .wp-block-group.alignfull.has-background' => array(
 						'padding' => '6em 4em',
 					),
+					'.ast-page-builder-template .entry-content .alignwide' => array(
+						'max-width' => astra_get_css_value( $site_content_width, 'px' ),
+					),
+					'.entry-content .alignfull' => array(
+						'max-width' => '100%',
+						'width' => '100%',
+					),
 				);
 
 				/* Parse CSS from array -> min-width( 1200px ) */
@@ -2291,7 +2294,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$core_blocks_min_width_mobile_ui_css = array(
 					'.site-main .entry-content > .alignwide' => array(
-						'margin' => '2em auto',
+						'margin' => '0 auto',
 					),
 					'.wp-block-group.has-background' => array(
 						'padding'       => '4em',

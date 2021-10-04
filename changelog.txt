@@ -3,6 +3,7 @@ v3.7.4 (Unreleased)
 - Improvement: Gutenberg editor core blocks UI/UX improvement. ( Needs Doc )
 - Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( Needs Doc )
 - Improvement: Gutenberg frontend blocks UI improvement.
+- Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.
 - Fix: Gutenberg Editor content area showing white background color when Full screen mode is active.
 - Fix: Color picker tooltip appear on hover of selection area & it's palette.
 - Fix: W3C HTML validation - Duplicate ID: ast-hf-mobile-menu. This change may break CSS if you have used custom CSS on ast-hf-mobile-menu HTML ID.

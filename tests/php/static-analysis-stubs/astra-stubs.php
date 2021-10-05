@@ -1613,7 +1613,7 @@ namespace {
          *
          * @param string $section_id section id.
          * @param string $selector selector.
-         * @return array
+         * @return string $css_output Parsed CSS
          */
         public static function prepare_advanced_margin_padding_css($section_id, $selector)
         {
@@ -1623,7 +1623,7 @@ namespace {
          *
          * @param string $section_id section id.
          * @param string $selector selector.
-         * @return array
+         * @return string $css_output Parsed CSS.
          */
         public static function prepare_advanced_typography_css($section_id, $selector)
         {

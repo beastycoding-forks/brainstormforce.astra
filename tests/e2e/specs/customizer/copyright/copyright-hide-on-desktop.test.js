@@ -1,4 +1,4 @@
-import { createURL, setBrowserViewport } from "@wordpress/e2e-test-utils";
+import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/set-customize';
 describe( 'copyright hide on desktop settings in the customizer', () => {
     it( 'copyright hide on desktop setting should apply correctly', async () => {

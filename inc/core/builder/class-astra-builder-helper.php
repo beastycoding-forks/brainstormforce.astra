@@ -653,7 +653,7 @@ final class Astra_Builder_Helper {
 					'delete'  => false,
 				),
 				'mode-switcher' => array(
-					'name'    => __( 'Mode Switcher', 'astra' ),
+					'name'    => __( 'Dark Mode Switcher', 'astra' ),
 					'icon'    => 'art',
 					'section' => 'section-mode-switcher',
 					'delete'  => false,

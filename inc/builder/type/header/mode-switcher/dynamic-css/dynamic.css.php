@@ -30,8 +30,25 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		return $dynamic_css;
 	}
 
+	$astra_mode_switcher_static_css = '
+		.ast-mode-switcher-label {
+			vertical-align: text-bottom;
+		}
+		.ast-mode-switcher-trigger {
+			cursor: pointer;
+		}
+		.ast-mode-switcher-icon {
+			margin-right: 5px;
+		}
+		.ast-mode-switcher-trigger .ahfb-svg-iconset {
+			vertical-align: text-top;
+		}
+	';
+
+	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
+
 	$_section = 'section-mode-switcher';
-	$selector = '.ast-header-mode-switcher-wrap';
+	$selector = '.ast-mode-switcher-trigger';
 
 	$icon_size         = astra_get_option( 'mode-switcher-icon-size' );
 	$icon_size_desktop = ( ! empty( $icon_size['desktop'] ) ) ? $icon_size['desktop'] : 20;
@@ -42,7 +59,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	 * Mode Switcher - Desktop CSS.
 	 */
 	$css_output_desktop = array(
-		$selector . ' svg' => array(
+		$selector . ' .ast-mode-switcher-icon' => array(
 			'height' => astra_get_css_value( $icon_size_desktop, 'px' ),
 			'width'  => astra_get_css_value( $icon_size_desktop, 'px' ),
 		),
@@ -52,7 +69,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	 * Mode Switcher - Tablet CSS.
 	 */
 	$css_output_tablet = array(
-		$selector . ' svg' => array(
+		$selector . ' .ast-mode-switcher-icon' => array(
 			'height' => astra_get_css_value( $icon_size_tablet, 'px' ),
 			'width'  => astra_get_css_value( $icon_size_tablet, 'px' ),
 		),
@@ -62,7 +79,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	 * Mode Switcher - Mobile CSS.
 	 */
 	$css_output_mobile = array(
-		$selector . ' svg' => array(
+		$selector . ' .ast-mode-switcher-icon' => array(
 			'height' => astra_get_css_value( $icon_size_mobile, 'px' ),
 			'width'  => astra_get_css_value( $icon_size_mobile, 'px' ),
 		),
@@ -76,7 +93,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$dynamic_css .= $css_output;
 
 	if ( ! empty( astra_get_option( 'mode-switcher-label' ) ) ) {
-		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector . ' .ast-mode-switcher-label' );
+		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 	}
 
 	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector );

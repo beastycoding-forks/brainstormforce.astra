@@ -1043,7 +1043,14 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 20,
 	);
 	// Label typography.
-	$defaults['font-size-section-mode-switcher'] = '';
+	$defaults['font-size-section-mode-switcher'] = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
 
 	$defaults['cloned-component-track'] = Astra_Builder_Helper::$component_count_array;
 

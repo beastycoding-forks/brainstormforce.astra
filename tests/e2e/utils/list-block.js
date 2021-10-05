@@ -1,5 +1,4 @@
-export const LIST_BLOCK = `<!-- wp:paragraph -->
-<!-- wp:list -->
+export const LIST_BLOCK = `<!-- wp:list -->
 <ul><li>list</li><li>list_item2</li></ul>
 <!-- /wp:list -->
 

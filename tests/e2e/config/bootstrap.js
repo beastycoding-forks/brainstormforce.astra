@@ -217,6 +217,7 @@ beforeAll( async () => {
 	enablePageDialogAccept();
 	observeConsoleLogging();
 	await setupBrowser();
+	
 	await trashAllPosts();
 	await trashAllPosts( 'page' );
 	await siteReset();

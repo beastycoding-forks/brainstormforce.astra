@@ -1,5 +1,4 @@
-export const HEADING_BLOCK = `<!-- wp:paragraph -->
-<!-- wp:heading {"level":1} -->
+export const HEADING_BLOCK = `<!-- wp:heading {"level":1} -->
 <h1>Automation testing</h1>
 <!-- /wp:heading -->
 

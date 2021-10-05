@@ -1,4 +1,3 @@
-export const PAGE_BREAK_BLOCK = `<!-- wp:paragraph -->
-<!-- wp:nextpage -->
+export const PAGE_BREAK_BLOCK = `<!-- wp:nextpage -->
 <!--nextpage-->
 <!-- /wp:nextpage -->`;

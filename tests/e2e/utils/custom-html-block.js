@@ -1,5 +1,4 @@
-export const GUTENBERG_CUSTOM_HTML_BLOCK = `<!-- wp:image {"align":"wide","sizeSlug":"large"} -->
-<!-- wp:html -->
+export const GUTENBERG_CUSTOM_HTML_BLOCK = `<!-- wp:html -->
 <html>
 <head>
 </head>

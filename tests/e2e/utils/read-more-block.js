@@ -1,4 +1,3 @@
-export const READ_MORE_BLOCK = `<!-- wp:paragraph -->
-<!-- wp:more -->
+export const READ_MORE_BLOCK = `<!-- wp:more -->
 <!--more-->
 <!-- /wp:more -->`;

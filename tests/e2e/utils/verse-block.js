@@ -1,4 +1,3 @@
-export const VERSE_BLOCK = `<!-- wp:paragraph -->
-<!-- wp:verse -->
+export const VERSE_BLOCK = `<!-- wp:verse -->
 <pre class="wp-block-verse"></pre>
 <!-- /wp:verse -->`;

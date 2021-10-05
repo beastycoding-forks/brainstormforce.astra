@@ -48,13 +48,13 @@ describe( 'To test Left Sidebar size in the customizer ', () => {
         } ).cssValueToBe( `${ pageLeftSidebarSize[ 'inspector-input-control-0' ] }` );
     });
 
-    it( 'Left Sidebar size should apply correctly on archive archive posts', async () => {
+    it( 'Left Sidebar size should apply correctly on  archive posts', async () => {
         const archiveLeftSidebarSize = {
             'site-sidebar-layout': 'left-sidebar',
             'archive-post-sidebar-layout': 'left-sidebar',
             'inspector-input-control-0' : '35%'
         };
-        await setCustomize( pageLeftSidebarSize );
+        await setCustomize( archiveLeftSidebarSize );
         await page.goto( createURL( '/category/uncategorized' ), {
             waitUntil: 'networkidle0',
         } );

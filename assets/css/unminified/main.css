@@ -505,10 +505,6 @@ blockquote {
   position: relative;
 }
 
-blockquote p:last-child {
-  margin: 0;
-}
-
 address {
   margin: 0 0 1.5em;
 }
@@ -599,7 +595,6 @@ th {
 
 th, td {
   padding: 8px;
-  text-align: left;
   border-width: 0 1px 1px 0;
 }
 
@@ -1406,7 +1401,7 @@ body {
   margin-left: auto;
 }
 
-#site-navigation {
+.site-navigation {
   height: 100%;
 }
 
@@ -2344,9 +2339,9 @@ body .entry-content .wp-block-latest-posts li {
 }
 
 /**
- * 10 - Submenu container box shadow 
+ * 10 - Submenu container box shadow
  */
-.ast-desktop .main-header-menu:not(#ast-hf-mobile-menu) .sub-menu {
+.ast-desktop .main-header-menu.ast-menu-shadow .sub-menu {
   box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
 }
 

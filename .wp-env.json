@@ -3,7 +3,8 @@
   "themes": ["."],
   "plugins": [
     "./tests/e2e/e2e-plugin",
-    "https://gutenbergtimes.com/wp-content/uploads/2020/11/gutenberg.zip"
+    "https://gutenbergtimes.com/wp-content/uploads/2020/11/gutenberg.zip",
+    "https://downloads.wordpress.org/plugin/reset-astra-customizer.zip"
   ],
   "config": {
     "WP_DEBUG_LOG": true

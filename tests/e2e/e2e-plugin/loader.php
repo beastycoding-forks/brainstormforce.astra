@@ -9,8 +9,10 @@
  * @package Astra
  */
 
-namespace Astra\REST;
+namespace Astra\E2E;
 
 require_once __DIR__ . '/rest-api/namespace.php';
+require_once __DIR__ . '/customizer-settings/namespace.php';
 
-bootstrap();
+REST\bootstrap();
+Customizer_Settings\bootstrap();

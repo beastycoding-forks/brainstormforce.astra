@@ -1,6 +1,6 @@
 {
   "name": "astra",
-  "version": "3.6.9",
+  "version": "3.7.3",
   "description": "A very lightweight and beautiful theme made to work with Page Builders.",
   "main": "Gruntfile.js",
   "repository": {
@@ -45,9 +45,9 @@
     "kind-of": ">=6.0.3",
     "lodash": "^4.17.21",
     "minimist": ">=1.2.3",
-    "node-fetch": "^2.6.1",
     "node-sass": "^6.0.1",
-    "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build"
+    "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
+    "puppeteer": "^10.4.0"
   },
   "scripts": {
     "pree2etests": "cross-env sh ./bin/scripts/pre-e2e-tests.sh",

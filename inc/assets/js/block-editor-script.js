@@ -47,4 +47,19 @@ function astra_onload_function() {
 		});
 	}
 
-  }
+	wp.data.subscribe(function () {
+		setTimeout( function () {
+			var spacerBlocks = document.querySelectorAll( '.wp-block.wp-block-spacer' );
+
+			for ( var item = 0;  item < spacerBlocks.length; item++ ) {
+
+				var block = spacerBlocks[item];
+
+				let style = getComputedStyle(block),
+					height = parseInt(style.height) || 0;
+
+				block.querySelector( '.components-resizable-box__container' ).setAttribute( 'data-spaceheight', height + 'px' );
+			}
+		}, 1 );
+	});
+}

@@ -1,6 +1,49 @@
-v3.7.1 (Unreleased)
+v3.7.4 (Unreleased)
 - New: Breadcrumb compatibility with SEOPress. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
+- Improvement: Gutenberg editor core blocks UI/UX improvement. ( Needs Doc )
+- Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( Needs Doc )
+- Improvement: Gutenberg frontend blocks UI improvement.
+- Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.
+- Fix: Gutenberg Editor content area showing white background color when Full screen mode is active.
+- Fix: Color picker tooltip appear on hover of selection area & it's palette.
+- Fix: W3C HTML validation - Duplicate ID: ast-hf-mobile-menu. This change may break CSS if you have used custom CSS on ast-hf-mobile-menu HTML ID.
+- Fix: W3C HTML validation - Duplicate ID: Layer_1. This change may break CSS if you have used custom CSS on Layer_1 HTML ID.
 - Fix: The default "Add Widget" text alignment issue in header.
+- Fix: W3 validator - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
+- Fix: W3 validator - CSS parse error for '.menu-link' & '.wp-block-button__link'.
+- Fix: Image and Text blocks alignment not working properly with Image size - Medium in the editor.
+
+v3.7.3
+- Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.
+- Fix: Full Size & Wide Size block layout options missing from core/image block.
+- Fix: Button Preset preview not working for an edge case.
+- Fix: Global color palette - customizer preview for Elementor pages not working.
+- Fix: Customizer - Block Settings area getting irrelevant round shapes.
+
+v3.7.2
+- Fix: Incorrect Site Background Color on pages with Full Width layout.
+
+v3.7.1
+- Fix: Gutenberg - Group Block appearing full width on frontend.
+
+v3.7.0
+- New: Global Color Palette compatibility for Block editor using theme.json. (https://wpastra.com/astra-3-7/)
+- Improvement: Updated labels for Global Palette colors.
+- Improvement: Global Color Palette preview time optimized.
+- Improvement: Footer - Copyright text color compatibility with Global Color Palette.
+- Improvement: Added tooltip for palette inside colorpicker control.
+- Fix: Color Palette options appearing outside control container.
+
+v3.7.0-beta.1
+- New: Introduced Global Color Palette Feature. (https://wpastra.com/docs/astra-global-color-palette-settings/)
+- New: Introduced Typography Presets Feature. (https://wpastra.com/docs/astra-typography-presets/)
+- New: Introduced Button Presets Feature. (https://wpastra.com/docs/astra-button-styles-presets/)
+- New: Added Heading Typography options for H4-H6 also.
+- New: Content background color option.
+- Fix: Heading color option not working for Sidebar, Footer widget title.
+- Fix: Heading color option not working for the Archive page title.
+- Fix: Live preview for content background option not working.
+- Fix: Content background image not working for related posts section.
 
 v3.6.9
 - Improvement: In the font size option, users cannot set the value '0'.

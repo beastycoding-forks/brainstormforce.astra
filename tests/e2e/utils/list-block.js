@@ -1,0 +1,8 @@
+export const LIST_BLOCK = `<!-- wp:paragraph -->
+<!-- wp:list -->
+<ul><li>list</li><li>list_item2</li></ul>
+<!-- /wp:list -->
+
+<!-- wp:list {"ordered":true} -->
+<ol><li>list_item1</li><li>list_item2</li></ol>
+<!-- /wp:list -->`;

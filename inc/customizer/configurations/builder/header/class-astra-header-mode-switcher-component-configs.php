@@ -46,7 +46,7 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 				'name'     => $_section,
 				'type'     => 'section',
 				'priority' => 90,
-				'title'    => __( 'Mode Switcher', 'astra' ),
+				'title'    => __( 'Dark Mode Switcher', 'astra' ),
 				'panel'    => 'panel-header-builder-group',
 			),
 

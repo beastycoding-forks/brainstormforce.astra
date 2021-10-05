@@ -1145,16 +1145,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'margin' => '2rem 0 1rem 0',
 						),
 					);
-				} else {
-					$middle_screen_min_gb_css = array(
-						// Group & Column block > align compatibility (min-width:1200px) CSS.
-						'.wp-block-cover__inner-container, .alignwide .wp-block-group__inner-container, .alignfull .wp-block-group__inner-container' => array(
-							'max-width' => '1200px',
-						),
-					);
+					/* Parse CSS from array() -> min-width: (1200)px CSS */
+					$parse_css .= astra_parse_css( $middle_screen_min_gb_css, '1200' );
 				}
-				/* Parse CSS from array() -> min-width: (1200)px CSS */
-				$parse_css .= astra_parse_css( $middle_screen_min_gb_css, '1200' );
 
 				$middle_screen_max_gb_css = array(
 					// Group & Column block (max-width:1200px) CSS.
@@ -2257,6 +2250,21 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container' => array(
 						'padding' => '2em 0',
 					),
+					'.entry-content [class*="__inner-container"] > .alignfull' => array(
+						'max-width' => '100%',
+						'margin-left' => 0,
+						'margin-right' => 0,
+					),
+					'.entry-content [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)' => array(
+						'margin-left' => 'auto',
+						'margin-right' => 'auto',
+					),
+					'.entry-content [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide)' => array(
+						'max-width' => '58rem',
+						'width' => '100%',
+						'margin-left' => 'auto',
+						'margin-right' => 'auto',
+					),
 				);
 
 				/* Parse CSS from array -> Desktop CSS. */
@@ -2286,6 +2294,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.entry-content .alignfull' => array(
 						'max-width' => '100%',
 						'width'     => '100%',
+					),
+					'.entry-content [class*="__inner-container"] > .alignwide' => array(
+						'max-width'    => astra_get_css_value( $site_content_width, 'px' ),
 					),
 				);
 

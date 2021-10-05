@@ -31,9 +31,6 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	}
 
 	$astra_mode_switcher_static_css = '
-		.ast-mode-switcher-label {
-			vertical-align: text-bottom;
-		}
 		.ast-mode-switcher-trigger {
 			cursor: pointer;
 		}
@@ -41,7 +38,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			margin-right: 5px;
 		}
 		.ast-mode-switcher-trigger .ahfb-svg-iconset {
-			vertical-align: text-top;
+			vertical-align: middle;
 		}
 	';
 
@@ -51,17 +48,14 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$selector = '.ast-mode-switcher-trigger';
 
 	$icon_size         = astra_get_option( 'mode-switcher-icon-size' );
-	$icon_size_desktop = ( ! empty( $icon_size['desktop'] ) ) ? $icon_size['desktop'] : 20;
-	$icon_size_tablet  = ( ! empty( $icon_size['tablet'] ) ) ? $icon_size['tablet'] : 20;
-	$icon_size_mobile  = ( ! empty( $icon_size['mobile'] ) ) ? $icon_size['mobile'] : 20;
 
 	/**
 	 * Mode Switcher - Desktop CSS.
 	 */
 	$css_output_desktop = array(
 		$selector . ' .ast-mode-switcher-icon' => array(
-			'height' => astra_get_css_value( $icon_size_desktop, 'px' ),
-			'width'  => astra_get_css_value( $icon_size_desktop, 'px' ),
+			'height' => astra_get_css_value( $icon_size['desktop'], 'px' ),
+			'width'  => astra_get_css_value( $icon_size['desktop'], 'px' ),
 		),
 	);
 
@@ -70,8 +64,8 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	 */
 	$css_output_tablet = array(
 		$selector . ' .ast-mode-switcher-icon' => array(
-			'height' => astra_get_css_value( $icon_size_tablet, 'px' ),
-			'width'  => astra_get_css_value( $icon_size_tablet, 'px' ),
+			'height' => astra_get_css_value( $icon_size['tablet'], 'px' ),
+			'width'  => astra_get_css_value( $icon_size['tablet'], 'px' ),
 		),
 	);
 
@@ -80,8 +74,8 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	 */
 	$css_output_mobile = array(
 		$selector . ' .ast-mode-switcher-icon' => array(
-			'height' => astra_get_css_value( $icon_size_mobile, 'px' ),
-			'width'  => astra_get_css_value( $icon_size_mobile, 'px' ),
+			'height' => astra_get_css_value( $icon_size['mobile'], 'px' ),
+			'width'  => astra_get_css_value( $icon_size['mobile'], 'px' ),
 		),
 	);
 

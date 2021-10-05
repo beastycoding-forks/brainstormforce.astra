@@ -1,14 +1,9 @@
 v3.7.4 (Unreleased)
 - New: Breadcrumb compatibility with SEOPress. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
 - Improvement: Gutenberg editor core blocks UI/UX improvement. ( Needs Doc )
+- Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( Needs Doc )
 - Improvement: Gutenberg frontend blocks UI improvement.
-- Improvement: Renamed filter `ast_footer_bar_display` to `astra_footer_bar_display`. The older filter will keep working but it is recommended to change to the new filter.
-- Improvement: Renamed filter `ast_main_header_display` to `astra_main_header_display`. The older filter will keep working but it is recommended to change to the new filter.
-- Improvement: Renamed filter `secondary_submenu_border_class` to `astra_secondary_submenu_border_class`. The older filter will keep working but it is recommended to change to the new filter.
-- Improvement: Renamed filter `gtn_image_group_css_comp` to `astra_gutenberg_image_group_style_support`. The older filter will keep working but it is recommended to change to the new filter.
-- Improvement: Renamed filter `ast_footer_sml_layout` to `astra_footer_sml_layout`. The older filter will keep working but it is recommended to change to the new filter.
-- Improvement: Renamed filter `primary_submenu_border_class` to `astra_primary_submenu_border_class`. The older filter will keep working but it is recommended to change to the new filter.
-- Improvement: Renamed action `asta_register_admin_menu` to `astra_register_admin_menu`. It is recommended to change to the new action.
+- Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.
 - Fix: Gutenberg Editor content area showing white background color when Full screen mode is active.
 - Fix: Color picker tooltip appear on hover of selection area & it's palette.
 - Fix: W3C HTML validation - Duplicate ID: ast-hf-mobile-menu. This change may break CSS if you have used custom CSS on ast-hf-mobile-menu HTML ID.
@@ -16,6 +11,7 @@ v3.7.4 (Unreleased)
 - Fix: The default "Add Widget" text alignment issue in header.
 - Fix: W3 validator - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validator - CSS parse error for '.menu-link' & '.wp-block-button__link'.
+- Fix: Image and Text blocks alignment not working properly with Image size - Medium in the editor.
 
 v3.7.3
 - Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.

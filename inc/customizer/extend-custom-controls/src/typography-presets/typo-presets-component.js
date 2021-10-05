@@ -20,34 +20,51 @@ const TypoPresetControl = ( props ) => {
 		}
 	};
 
-	const onPresetClick = (presetKey) => {
-		const bodyFontFamily = options[presetKey]["body-font-family"];
-		const headingsFontFamily = options[presetKey]["headings-font-family"];
-		const bodyFontVariant = options[presetKey]["body-font-variant"];
-		const headingFontVariant = options[presetKey]["headings-font-variant"];
-		const bodyFontWeight = options[presetKey]["body-font-weight"];
-		const headingFontWeight = options[presetKey]["headings-font-weight"];
+	const onPresetClick = ( presetKey ) => {
+		const bodyFontWeight = options[ presetKey ][ 'body-font-weight' ];
+		const headingFontWeight = options[ presetKey ][ 'headings-font-weight' ];
 
-		AstTypography.setOption(
-			"astra-settings[body-font-family]",
-			bodyFontFamily,
-			true
-		);
-		AstTypography.setOption(
-			"astra-settings[headings-font-family]",
-			headingsFontFamily,
-			true
-		);
-		AstTypography.setOption(
-			"astra-settings[body-font-variant]",
-			bodyFontVariant,
-			true
-		);
-		AstTypography.setOption(
-			"astra-settings[headings-font-variant]",
-			headingFontVariant,
-			true
-		);
+		const fontDropdownOptions = [
+			'body-font-family',
+			'headings-font-family',
+			'body-font-variant',
+			'headings-font-variant',
+			'font-family-h1',
+			'font-family-h2',
+			'font-family-h3',
+			'font-family-h4',
+			'font-family-h5',
+			'font-family-h6',
+			'font-weight-h1',
+			'font-weight-h2',
+			'font-weight-h3',
+			'font-weight-h4',
+			'font-weight-h5',
+			'font-weight-h6',
+			'text-transform-h1',
+			'text-transform-h2',
+			'text-transform-h3',
+			'text-transform-h4',
+			'text-transform-h5',
+			'text-transform-h6',
+		];
+
+		fontDropdownOptions.forEach( function( option ) {
+			// As inherit option value is blank for text transform options, set value to blank for them. For rest options, inherit value will work.
+			let optionVal = option.includes( 'text-transform' ) ? '' : 'inherit';
+
+			if ( 'undefined' !== typeof options[ presetKey ][ option ] ) {
+				optionVal = options[ presetKey ][ option ];
+			}
+
+			AstTypography.setOption(
+				'astra-settings[' + option + ']',
+				optionVal,
+				true
+			);
+
+			props.customizer.control( 'astra-settings[' + option + ']' ).setting.set( optionVal );
+		} );
 
 		const typoOptions = [
 			"body-font-family",

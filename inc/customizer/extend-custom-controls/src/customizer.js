@@ -199,16 +199,14 @@
 					let val = api(cloneFromId).get();
 					if (val) {
 						api(id).set(val);
-
-						if( -1 !== id.indexOf('sticky') ){
-							api.control(id).renderContent();
-							api.control(id).deferred.embedded.resolve(); // This triggers control.ready().
-
-							// Fire event after control is initialized.
-							api.control(id).container.trigger('init');
-						}
-
 					}
+					if( -1 !== id.indexOf('sticky') ){
+						api.control(id).renderContent();
+						api.control(id).deferred.embedded.resolve(); // This triggers control.ready().
+						// Fire event after control is initialized.
+						api.control(id).container.trigger('init');
+					}
+
 				}
 			}
 

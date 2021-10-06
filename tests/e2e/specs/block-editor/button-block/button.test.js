@@ -12,13 +12,12 @@ describe( 'Button in gutenberg editor', () => {
 			() => !! document.activeElement.closest( '.block-editor-url-input' ),
 		);
 		await page.keyboard.type( 'https://google.com' );
-	    await page.keyboard.press( 'Enter' );
+		await page.keyboard.press( 'Enter' );
 		await page.waitForSelector( '.edit-post-visual-editor .block-editor-block-list__block' );
 		await expect( {
 			selector: '.wp-block-buttons',
 			property: 'display',
 		} ).cssValueToBe( `flex` );
-
 		await page.waitForSelector( '.wp-block-buttons .wp-block-button .wp-block-button__link' );
 		await expect( {
 			selector: '.wp-block-buttons .wp-block-button .wp-block-button__link',
@@ -39,7 +38,6 @@ describe( 'Button in gutenberg editor', () => {
 			selector: '.wp-block-buttons .wp-block-button .wp-block-button__link',
 			property: 'padding-left',
 		} ).cssValueToBe( `20px` );
-
 		await page.waitForSelector( '.wp-block-buttons .wp-block-button .wp-block-button__link' );
 		await expect( {
 			selector: '.wp-block-buttons .wp-block-button .wp-block-button__link',

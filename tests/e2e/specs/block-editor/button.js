@@ -1,11 +1,11 @@
 import { setPostContent, createNewPost } from '@wordpress/e2e-test-utils';
 
 import { GUTENBERG_TEST_BUTTON_BLOCK } from '../../utils/button-block';
-describe( 'Heading in gutenberg editor', () => {
-	it( 'button should working', async () => {
+describe( 'Button in gutenberg editor', () => {
+	it( 'login logout button should display', async () => {
 		await createNewPost( {
 			postType: 'post',
-			title: 'Test Gutenberg btn',
+			title: 'test Gutenberg button',
 		} );
 
 		await setPostContent( GUTENBERG_TEST_BUTTON_BLOCK );

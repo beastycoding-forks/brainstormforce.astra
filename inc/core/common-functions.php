@@ -26,6 +26,8 @@ if ( ! function_exists( 'astra_get_foreground_color' ) ) {
 	 */
 	function astra_get_foreground_color( $hex ) {
 
+		$hex = apply_filters( 'astra_before_foreground_color_generation', $hex );
+
 		// bail early if color's not set.
 		if ( 'transparent' == $hex || 'false' == $hex || '#' == $hex || empty( $hex ) ) {
 			return 'transparent';
@@ -465,9 +467,9 @@ if ( ! function_exists( 'astra_get_option' ) ) {
 	 * Return Theme options.
 	 *
 	 * @param  string $option       Option key.
-	 * @param  string $default      Option default value.
+	 * @param  mixed  $default      Option default value.
 	 * @param  string $deprecated   Option default value.
-	 * @return Mixed               Return option value.
+	 * @return mixed               Return option value.
 	 */
 	function astra_get_option( $option, $default = '', $deprecated = '' ) {
 
@@ -1509,7 +1511,7 @@ function astra_get_responsive_background_obj( $bg_obj_res, $device ) {
  * @since 3.0.1
  * @return boolean
  */
-function is_astra_pagination_enabled() {
+function astra_check_pagination_enabled() {
 	global  $wp_query;
 
 	return ( $wp_query->max_num_pages > 1 && apply_filters( 'astra_pagination_enabled', true ) );
@@ -1521,7 +1523,7 @@ function is_astra_pagination_enabled() {
  * @since 3.0.1
  * @return boolean
  */
-function is_current_post_comment_enabled() {
+function astra_check_current_post_comment_enabled() {
 	return ( is_singular() && comments_open() );
 }
 
@@ -1537,3 +1539,14 @@ function astra_zero_font_size_case() {
 	return apply_filters( 'astra_zero_font_size_case', $astra_settings['astra-zero-font-size-case-css'] );
 }
 
+/**
+ * Check the WordPress version.
+ *
+ * @since  2.5.4
+ * @param string $version   WordPress version to compare with the current version.
+ * @param mixed  $compare   Comparison value i.e > or < etc.
+ * @return bool|null            True/False based on the  $version and $compare value.
+ */
+function astra_wp_version_compare( $version, $compare ) {
+	return version_compare( get_bloginfo( 'version' ), $version, $compare );
+}

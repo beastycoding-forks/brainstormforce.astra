@@ -550,7 +550,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( apply_filters( 'astra_dashboard_admin_menu', true ) ) {
 				add_theme_page( $page_title, $page_title, $capability, $page_menu_slug, $page_menu_func );
 			} else {
-				do_action( 'asta_register_admin_menu', $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
+				do_action( 'astra_register_admin_menu', $parent_page, $page_title, $capability, $page_menu_slug, $page_menu_func );
 			}
 		}
 
@@ -656,7 +656,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		 */
 		public static function get_starter_templates_title() {
 
-			$astra_sites_name = __( '150+ Starter Templates', 'astra' );
+			$astra_sites_name = __( '180+ Starter Templates', 'astra' );
 
 			if ( method_exists( 'Astra_Ext_White_Label_Markup', 'get_whitelabel_string' ) ) {
 				$white_labelled_astra_sites_name = Astra_Ext_White_Label_Markup::get_whitelabel_string( 'astra-sites', 'name' );
@@ -702,7 +702,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</p>
 					<p>
 						<?php
-							esc_html_e( 'Choose from over 150 beautiful templates and kickstart your project!', 'astra' );
+							esc_html_e( 'Choose from over 180 beautiful templates and kickstart your project!', 'astra' );
 						?>
 					</p>
 						<?php

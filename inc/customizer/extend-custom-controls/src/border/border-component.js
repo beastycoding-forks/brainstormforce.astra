@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import {__} from '@wordpress/i18n';
-import {useState, useEffect} from 'react';
+import {useState,useEffect} from 'react';
 
 const BorderComponent = props => {
 
@@ -13,6 +13,25 @@ const BorderComponent = props => {
 			setPropsValue(value);
 		}
 	}, [props]);
+
+	useEffect( () => {
+
+		let value = props.control.setting.get();
+		setPropsValue( value );
+
+	}, [props]);
+
+	const linkRemoteUpdate = () => {
+
+		document.addEventListener( 'AstRemoteUpdateState', function( e ) {
+			if ( e.detail === 'btn-preset' ) {
+				let value = props.control.setting.get();
+				setPropsValue( value );
+			}
+		} );
+	}
+
+	linkRemoteUpdate();
 
 	const onBorderChange = (key) => {
 		const {

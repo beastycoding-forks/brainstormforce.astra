@@ -17,11 +17,15 @@ describe( 'to test Right Sidebar size in the customizer', () => {
 		await page.goto( createURL( '/sidebar-post/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary' );
+		await page.waitForSelector(
+			'.ast-separate-container.ast-right-sidebar #secondary',
+		);
 		await expect( {
 			selector: '#secondary',
 			property: 'width',
-		} ).cssValueToBe( `${ postRightSidebarSize[ 'inspector-input-control-0' ] }` );
+		} ).cssValueToBe(
+			`${ postRightSidebarSize[ 'inspector-input-control-0' ] }`,
+		);
 	} );
 	it( 'right Sidebar size should apply correctly on page', async () => {
 		const pageRightSidebarSize = {
@@ -35,11 +39,15 @@ describe( 'to test Right Sidebar size in the customizer', () => {
 		await page.goto( createURL( '/sidebar-page/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary' );
+		await page.waitForSelector(
+			'.ast-separate-container.ast-right-sidebar #secondary',
+		);
 		await expect( {
 			selector: '#secondary',
 			property: 'width',
-		} ).cssValueToBe( `${ pageRightSidebarSize[ 'inspector-input-control-0' ] }` );
+		} ).cssValueToBe(
+			`${ pageRightSidebarSize[ 'inspector-input-control-0' ] }`,
+		);
 	} );
 	it( 'right Sidebar size should apply correctly on archive archive posts', async () => {
 		const archiveRightSidebarSize = {
@@ -51,11 +59,14 @@ describe( 'to test Right Sidebar size in the customizer', () => {
 		await page.goto( createURL( '/category/uncategorized' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-separate-container.ast-right-sidebar #secondary' );
+		await page.waitForSelector(
+			'.ast-separate-container.ast-right-sidebar #secondary',
+		);
 		await expect( {
 			selector: '#secondary',
 			property: 'width',
 		} ).cssValueToBe(
-			`${ archiveRightSidebarSize[ 'inspector-input-control-0' ] }` );
+			`${ archiveRightSidebarSize[ 'inspector-input-control-0' ] }`,
+		);
 	} );
 } );

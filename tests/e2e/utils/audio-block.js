@@ -1,0 +1,3 @@
+export const GUTENBERG_TEST_AUDIO_BLOCK = `<!-- wp:audio -->
+<figure class="wp-block-audio"><audio controls src="https://www.spotify.com/in-en/?date=1609718400080"></audio></figure>
+<!-- /wp:audio -->`;

@@ -192,10 +192,11 @@
 				api.control.add(new Constructor(id, options));
 			}
 
-			if (false !== is_cloning_index) {
+			if ( false !== is_cloning_index ) {
 				let cloneFromId = id;
+				let componentType = sessionStorage.getItem('ast-clone-element-type');
 				cloneFromId = cloneFromId.replace(/[0-9]+/g, is_cloning_index); // Replace random numeric with valid clone index.
-				if (api.control(cloneFromId) && -1 !==id.indexOf( to_cloning_index ) ) {
+				if (api.control(cloneFromId) && -1 !==id.indexOf( to_cloning_index ) && ( -1 !==id.indexOf( componentType ) || null === componentType ) ) {
 					let val = api(cloneFromId).get();
 					if (val) {
 						api(id).set(val);

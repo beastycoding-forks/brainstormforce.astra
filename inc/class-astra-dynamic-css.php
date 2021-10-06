@@ -2288,15 +2288,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.entry-content > .wp-block-group.alignwide.has-background, .entry-content > .wp-block-group.alignfull.has-background' => array(
 						'padding' => '6em 4em',
 					),
-					'.ast-page-builder-template .entry-content .alignwide' => array(
-						'max-width' => astra_get_css_value( $site_content_width, 'px' ),
-					),
 					'.entry-content .alignfull' => array(
 						'max-width' => '100%',
 						'width'     => '100%',
 					),
-					'.entry-content [class*="__inner-container"] > .alignwide' => array(
-						'max-width'    => astra_get_css_value( $site_content_width, 'px' ),
+					'.ast-page-builder-template .entry-content .alignwide, .entry-content [class*="__inner-container"] > .alignwide' => array(
+						'max-width' => astra_get_css_value( $site_content_width, 'px' ),
 					),
 				);
 

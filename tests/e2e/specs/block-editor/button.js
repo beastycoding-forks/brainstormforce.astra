@@ -12,8 +12,8 @@ describe( 'Button in gutenberg editor', () => {
 
 		await page.waitForSelector( '.edit-post-visual-editor .block-editor-block-list__block' );
 		await expect( {
-			selector: 'wp-block-buttons',
-			property: '',
-		} ).cssValueToBe( `` );
+			selector: '.wp-block-buttons',
+			property: 'display',
+		} ).cssValueToBe( `flex` );
 	} );
 } );

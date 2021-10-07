@@ -1,6 +1,6 @@
 import { insertBlock, createNewPost } from '@wordpress/e2e-test-utils';
 describe( 'Heading in gutenberg editor', () => {
-	it( 'heading property should apply correctly', async () => {
+	it( 'assert padding property of the heading in the block editor', async () => {
 		await createNewPost( {
 			postType: 'post',
 			title: 'test Heading',

@@ -801,7 +801,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			}
 		} else {
 
-			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
+			$submenu_class = apply_filters( 'astra_primary_submenu_border_class', ' submenu-with-border' );
 
 			// Menu Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );

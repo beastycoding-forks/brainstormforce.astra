@@ -104,6 +104,16 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$h3_line_height    = astra_get_option( 'line-height-h3' );
 			$h3_text_transform = astra_get_option( 'text-transform-h3' );
 
+			if ( 'inherit' === $h1_font_weight ) {
+				$h1_font_weight = 'normal';
+			}
+			if ( 'inherit' === $h2_font_weight ) {
+				$h2_font_weight = 'normal';
+			}
+			if ( 'inherit' === $h3_font_weight ) {
+				$h3_font_weight = 'normal';
+			}
+
 			$single_post_title       = astra_get_option( 'blog-single-post-structure' );
 			$title_enabled_from_meta = get_post_meta( $post_id, 'site-post-title', true );
 
@@ -219,7 +229,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				'.edit-post-visual-editor.editor-styles-wrapper p,.block-editor-block-list__block p, .block-editor-block-list__layout, .editor-post-title' => array(
 					'font-size' => astra_responsive_font( $body_font_size, 'desktop' ),
 				),
-				'.edit-post-visual-editor.editor-styles-wrapper p,.block-editor-block-list__block p, .wp-block-latest-posts a,.editor-default-block-appender textarea.editor-default-block-appender__content, .block-editor-block-list__block, .editor-styles-wrapper h1, .editor-styles-wrapper h2, .editor-styles-wrapper h3, .editor-styles-wrapper h4, .editor-styles-wrapper h5, .editor-styles-wrapper h6, .edit-post-visual-editor .editor-styles-wrapper' => array(
+				'.edit-post-visual-editor.editor-styles-wrapper p,.block-editor-block-list__block p, .wp-block-latest-posts a,.editor-default-block-appender textarea.editor-default-block-appender__content, .block-editor-block-list__block, .block-editor-block-list__block h1, .block-editor-block-list__block h2, .block-editor-block-list__block h3, .block-editor-block-list__block h4, .block-editor-block-list__block h5, .block-editor-block-list__block h6, .edit-post-visual-editor .editor-styles-wrapper' => array(
 					'font-family'    => astra_get_font_family( $body_font_family ),
 					'font-weight'    => esc_attr( $body_font_weight ),
 					'font-size'      => astra_responsive_font( $body_font_size, 'desktop' ),

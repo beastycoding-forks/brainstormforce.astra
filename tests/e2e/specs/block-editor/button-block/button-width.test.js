@@ -1,6 +1,6 @@
 import { insertBlock, createNewPost, pressKeyWithModifier } from '@wordpress/e2e-test-utils';
 describe( 'Button in gutenberg editor', () => {
-	it( 'assert width of the button in the block editor', async () => {
+	it( 'login button property should apply correctly', async () => {
 		await createNewPost( {
 			postType: 'post',
 			title: 'test Gutenberg button',
@@ -17,6 +17,6 @@ describe( 'Button in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-buttons .wp-block-button .wp-block-button__link',
 			property: 'width',
-		} ).cssValueToBe( `103.383px` );
+		} ).cssValueToBe( `103.266px` );
 	} );
 } );

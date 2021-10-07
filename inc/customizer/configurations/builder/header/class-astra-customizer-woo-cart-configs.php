@@ -251,13 +251,11 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				// Option: Cart Background Color.
 				array(
-					'type'       => 'sub-control',
+					'type'       => 'control',
 					'control'    => 'ast-responsive-color',
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-colors]',
 					'section'    => $_section,
-					'control'    => 'ast-color',
 					'transport'  => 'postMessage',
-					'name'       => 'header-woo-cart-background-color',
+					'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-background-color]',
 					'default'    => astra_get_option( 'header-woo-cart-background-color' ),
 					'title'      => __( 'Background Color', 'astra' ),
 					'responsive' => true,

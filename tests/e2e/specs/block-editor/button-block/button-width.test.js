@@ -17,6 +17,6 @@ describe( 'Button in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-buttons .wp-block-button .wp-block-button__link',
 			property: 'width',
-		} ).cssValueToBe( `85.48px` );
+		} ).cssValueToBe( `103.383px` );
 	} );
 } );

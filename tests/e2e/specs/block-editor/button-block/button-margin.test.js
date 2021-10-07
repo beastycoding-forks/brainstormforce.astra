@@ -1,6 +1,6 @@
 import { insertBlock, createNewPost, pressKeyWithModifier } from '@wordpress/e2e-test-utils';
 describe( 'Button in gutenberg editor', () => {
-	it( 'login button property should apply correctly', async () => {
+	it( 'assert margin of the button in the block editor', async () => {
 		await createNewPost( {
 			postType: 'post',
 			title: 'test Gutenberg button',

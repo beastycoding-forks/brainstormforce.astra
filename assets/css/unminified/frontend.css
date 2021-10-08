@@ -1832,8 +1832,8 @@ body {
 }
 
 .ast-no-sidebar .entry-content .alignwide {
-  margin-left: -100px;
-  margin-right: -100px;
+  margin-left: calc(-41vw + 50%);
+  margin-right: calc(-41vw + 50%);
   max-width: unset;
   width: unset;
 }

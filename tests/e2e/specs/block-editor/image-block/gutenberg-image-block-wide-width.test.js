@@ -12,6 +12,7 @@ import {
 	insertBlock,
 	getEditedPostContent,
 	createNewPost,
+	clickBlockToolbarButton,
 } from '@wordpress/e2e-test-utils';
 
 async function upload( selector ) {
@@ -36,11 +37,11 @@ async function waitForImage( filename ) {
 		`.wp-block-image img[src$="${ filename }.png"]`,
 	);
 }
-describe( 'Image', () => {
+describe( 'Upload image, set alignment to wide width and check the width', () => {
 	beforeEach( async () => {
 		await createNewPost();
 	} );
-	it( 'image should be inserted and width value should match', async () => {
+	it( 'image should be inserted with wide width alignment and expected and received wide width values should match', async () => {
 		await insertBlock( 'Image' );
 		const filename = await upload( '.wp-block-image input[type="file"]' );
 		await waitForImage( filename );
@@ -48,12 +49,21 @@ describe( 'Image', () => {
 			`<!-- wp:image {"id":\\d+,"sizeSlug":"full","linkDestination":"none"} -->\\s*<figure class="wp-block-image size-full"><img src="[^"]+\\/${ filename }\\.png" alt="" class="wp-image-\\d+"/></figure>\\s*<!-- \\/wp:image -->`,
 		);
 		expect( await getEditedPostContent() ).toMatch( regex );
-		await page.waitForSelector(
-			'.edit-post-visual-editor .block-editor-block-list__block',
+		await clickBlockToolbarButton( 'Align' );
+		await page.waitForFunction( () =>
+			document.activeElement.classList.contains(
+				'components-dropdown-menu__menu-item',
+			),
 		);
+		await page.click(
+			'[aria-label="Align"] button:nth-child(4)',
+		);
+		await page.waitForSelector( '#editor .edit-post-visual-editor' );
 		await expect( {
 			selector: '.wp-block-image',
 			property: 'width',
-		} ).cssValueToBe( `974.906px` );
+		} ).cssValueToBe(
+			`958.1px`,
+		);
 	} );
 } );

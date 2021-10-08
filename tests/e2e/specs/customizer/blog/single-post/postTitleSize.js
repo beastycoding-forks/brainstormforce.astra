@@ -22,12 +22,10 @@ describe( 'post title size in the customizer', () => {
 		await page.goto( createURL( '/hello-world/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector(
-			'.ast-single-post .entry-title, .page-title',
-		);
+		await page.waitForSelector( '.ast-single-post .entry-title' );
 
 		await expect( {
-			selector: '.ast-single-post .entry-title, .page-title',
+			selector: '.ast-single-post .entry-title',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ postTitle[ 'font-size-entry-title' ].desktop }${ postTitle[ 'font-size-entry-title' ][ 'desktop-unit' ] }`,

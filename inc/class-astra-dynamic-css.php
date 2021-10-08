@@ -2249,12 +2249,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-left'  => 'auto',
 						'margin-right' => 'auto',
 					),
-					'.wp-block-cover-image .wp-block-cover__inner-container, .wp-block-cover .wp-block-cover__inner-container' => array(
-						'padding' => '2em 0',
-					),
-					'.wp-block-cover__inner-container h1, .wp-block-cover__inner-container h2, .wp-block-cover__inner-container h3, .wp-block-cover__inner-container h4, .wp-block-cover__inner-container h5, .wp-block-cover__inner-container h6' => array(
-						'margin-bottom' => 0,
-					),
 					'.entry-content [class*="__inner-container"] > .alignfull' => array(
 						'max-width' => '100%',
 						'margin-left' => 0,
@@ -2265,12 +2259,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-right' => 'auto',
 					),
 					'.entry-content [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide)' => array(
-						'max-width' => '58rem',
+						'max-width' => '50rem',
 						'width' => '100%',
-					),
-					'.entry-content .has-background .wp-block-group__inner-container > *:not(.alignfull)' => array(
-						'padding-left' => '4rem',
-						'padding-right' => '4rem',
 					),
 				);
 
@@ -2278,20 +2268,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $core_blocks_width_desktop_ui_css );
 
 				$core_blocks_min_width_tablet_ui_css = array(
-					'.entry-content > .wp-block-group.alignwide.has-background, .entry-content > .wp-block-group.alignfull.has-background' => array(
+					'.entry-content > .wp-block-group.alignwide.has-background, .entry-content > .wp-block-group.alignfull.has-background, .entry-content > .wp-block-cover.alignwide, .entry-content > .wp-block-cover.alignfull' => array(
 						'margin-top'    => '0',
 						'margin-bottom' => '0',
 						'padding'       => '6em 4em',
 					),
-					'.entry-content > .wp-block-cover.alignwide, .entry-content > .wp-block-cover.alignfull' => array(
-						'padding'       => '4em',
-					),
-					'.entry-content > .wp-block-cover.alignfull' => array(
-						'padding-left'  => '4em',
-						'padding-right'  => '4em',
-					),
 					'.entry-content > .wp-block-columns.has-background' => array(
-						'padding'  => '4em',
 						'margin-bottom' => '0',
 					),
 				);
@@ -2309,6 +2291,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-left' => '0',
 						'margin-right' => '0',
 					),
+					'.entry-content .alignfull [class*="__inner-container"] > .alignwide' => array(
+						'max-width' => '67rem',
+					),
 				);
 
 				/* Parse CSS from array -> min-width( 1200px ) */
@@ -2318,14 +2303,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.site-main .entry-content > .alignwide' => array(
 						'margin' => '0 auto',
 					),
-					'.wp-block-group.has-background' => array(
+					'.wp-block-group.has-background, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns' => array(
 						'padding'       => '4em',
 						'margin-top'    => '0',
 						'margin-bottom' => '0',
 					),
 				);
 
-				/* Parse CSS from array -> min-width(tablet-breakpoint + 1) */
+				/* Parse CSS from array -> min-width(mobile-breakpoint + 1) */
 				$parse_css .= astra_parse_css( $core_blocks_min_width_mobile_ui_css, astra_get_mobile_breakpoint( '', 1 ) );
 			}
 

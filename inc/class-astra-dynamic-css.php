@@ -2308,7 +2308,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top'    => '0',
 						'margin-bottom' => '0',
 					),
-					'.entry-content .wp-block-media-text .wp-block-media-text__content' => array(
+					'.entry-content .wp-block-media-text.alignfull .wp-block-media-text__content, .entry-content .wp-block-media-text.has-background .wp-block-media-text__content' => array(
 						'padding' => '0 8%',
 					),
 				);

@@ -2243,7 +2243,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( true === $improve_gb_ui ) {
 				$entry_content_selector = '.entry-content >';
 				$core_blocks_width_desktop_ui_css = array(
-					'.entry-content > .wp-block-group, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns' => array(
+					'.entry-content > .wp-block-group, .entry-content > .wp-block-media-text, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns' => array(
 						'max-width'    => '58em',
 						'width'        => 'calc(100% - 4em)',
 						'margin-left'  => 'auto',
@@ -2308,8 +2308,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top'    => '0',
 						'margin-bottom' => '0',
 					),
-					'.entry-content .wp-block-media-text.alignfull .wp-block-media-text__content' => array(
-						'padding-right' => '8%',
+					'.entry-content .wp-block-media-text .wp-block-media-text__content' => array(
+						'padding' => '0 8%',
 					),
 				);
 

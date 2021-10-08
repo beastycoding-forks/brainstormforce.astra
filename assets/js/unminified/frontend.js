@@ -470,13 +470,14 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		/**
 		 * Navigation Keyboard Navigation.
 		 */
-		var container, count;
+		var container_menu, container_button, count;
 
-		container = document.querySelectorAll( '.navigation-accessibility' );
+		container_menu = document.querySelectorAll( '.navigation-accessibility' );
+		container_button = document.querySelectorAll( '.ast-primary-header-bar' );
 
-		for ( count = 0; count <= container.length - 1; count++ ) {
-			if ( container[count] ) {
-				navigation_accessibility( container[count] );
+		for ( count = 0; count <= container_menu.length - 1; count++ ) {
+			if ( container_menu[count] ) {
+				navigation_accessibility( container_menu[count], container_button[count] );
 			}
 		}
 	});
@@ -795,20 +796,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	/**
 	 * Navigation Keyboard Navigation.
 	 */
-	function navigation_accessibility( container ) {
-		if ( ! container ) {
+	function navigation_accessibility( container_menu, container_button ) {
+		if ( ! container_menu ) {
 			return;
 		}
-
-		var button = container.getElementsByTagName( 'button' )[0];
+		var button = container_button.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
-			button = container.getElementsByTagName( 'a' )[0];
+			button = container_button.getElementsByTagName( 'a' )[0];
 			if ( 'undefined' === typeof button ) {
 				return;
 			}
 		}
-
-		var menu = container.getElementsByTagName( 'ul' )[0];
+		var menu = container_menu.getElementsByTagName( 'ul' )[0];
 
 		// Hide menu toggle button if menu is empty and return early.
 		if ( 'undefined' === typeof menu ) {
@@ -822,12 +821,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		button.onclick = function() {
-			if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-				container.className = container.className.replace( ' toggled', '' );
+			if ( -1 !== container_menu.className.indexOf( 'toggled' ) ) {
+				container_menu.className = container_menu.className.replace( ' toggled', '' );
 				button.setAttribute( 'aria-expanded', 'false' );
 				menu.setAttribute( 'aria-expanded', 'false' );
 			} else {
-				container.className += ' toggled';
+				container_menu.className += ' toggled';
 				button.setAttribute( 'aria-expanded', 'true' );
 				menu.setAttribute( 'aria-expanded', 'true' );
 			}

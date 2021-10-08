@@ -122,22 +122,22 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$h6_text_transform = astra_get_option( 'text-transform-h6' );
 
 			// Checking if font weight is different in GB editor.
-			if ( $h1_font_weight === 'inherit' ) {
+			if ( 'inherit' === $h1_font_weight ) {
 				$h1_font_weight = 'normal';
 			}
-			if ( $h2_font_weight === 'inherit' ) {
+			if ( 'inherit' === $h2_font_weight ) {
 				$h2_font_weight = 'normal';
 			}
-			if ( $h3_font_weight === 'inherit' ) {
+			if ( 'inherit' === $h3_font_weight ) {
 				$h3_font_weight = 'normal';
 			}
-			if ( $h4_font_weight === 'inherit' ) {
+			if ( 'inherit' === $h4_font_weight ) {
 				$h4_font_weight = 'normal';
 			}
-			if ( $h5_font_weight === 'inherit' ) {
+			if ( 'inherit' === $h5_font_weight ) {
 				$h5_font_weight = 'normal';
 			}
-			if ( $h6_font_weight === 'inherit' ) {
+			if ( 'inherit' === $h6_font_weight ) {
 				$h6_font_weight = 'normal';
 			}
 

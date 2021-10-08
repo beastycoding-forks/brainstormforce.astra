@@ -36,3 +36,6 @@ assets/dynamic-css.css
 
 # e2e test artifacts
 artifacts
+
+# ignore visual studio code
+.vscode

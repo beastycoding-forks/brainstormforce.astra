@@ -122,12 +122,24 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$h6_text_transform = astra_get_option( 'text-transform-h6' );
 
 			// Checking if font weight is different in GB editor.
-			$h1_font_weight === 'inherit' ? $h1_font_weight = 'normal' : '';
-			$h2_font_weight === 'inherit' ? $h2_font_weight = 'normal' : '';
-			$h3_font_weight === 'inherit' ? $h3_font_weight = 'normal' : '';
-			$h4_font_weight === 'inherit' ? $h4_font_weight = 'normal' : '';
-			$h5_font_weight === 'inherit' ? $h5_font_weight = 'normal' : '';
-			$h6_font_weight === 'inherit' ? $h6_font_weight = 'normal' : '';
+			if ( $h1_font_weight === 'inherit' ) {
+				$h1_font_weight = 'normal';
+			}
+			if ( $h2_font_weight === 'inherit' ) {
+				$h2_font_weight = 'normal';
+			}
+			if ( $h3_font_weight === 'inherit' ) {
+				$h3_font_weight = 'normal';
+			}
+			if ( $h4_font_weight === 'inherit' ) {
+				$h4_font_weight = 'normal';
+			}
+			if ( $h5_font_weight === 'inherit' ) {
+				$h5_font_weight = 'normal';
+			}
+			if ( $h6_font_weight === 'inherit' ) {
+				$h6_font_weight = 'normal';
+			}
 
 			$single_post_title       = astra_get_option( 'blog-single-post-structure' );
 			$title_enabled_from_meta = get_post_meta( $post_id, 'site-post-title', true );

@@ -257,9 +257,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		'#astra-mobile-cart-drawer:hover .widget_shopping_cart:before, #astra-mobile-cart-drawer:hover .widget_shopping_cart:after, .open-preview-woocommerce-cart #astra-mobile-cart-drawer .widget_shopping_cart:before' => array(
 			'border-bottom-color' => esc_attr( $cart_bg_color_mobile ),
 		),
-		'#astra-mobile-cart-drawer:hover .widget_shopping_cart:before, #astra-mobile-cart-drawer:hover .widget_shopping_cart:after, .open-preview-woocommerce-cart #astra-mobile-cart-drawer .widget_shopping_cart:before' => array(
-			'border-bottom-color' => esc_attr( $cart_h_bg_color_mobile ),
-		),
 		$responsive_selector . ' .widget_shopping_cart .mini_cart_item a.remove:hover,' . $responsive_selector . ' .widget_shopping_cart .mini_cart_item:hover > a.remove' => array(
 			'color'            => esc_attr( $cart_h_link_color_mobile ),
 			'border-color'     => esc_attr( $cart_h_link_color_mobile ),

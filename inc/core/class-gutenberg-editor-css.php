@@ -877,7 +877,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					padding: 0;
 				}';
 
-				$parse_css .= Astra_Enqueue_Scripts::trim_css( $block_editor_padding_css );
+				$css .= Astra_Enqueue_Scripts::trim_css( $block_editor_padding_css );
 			}
 
 			$tablet_css = array(

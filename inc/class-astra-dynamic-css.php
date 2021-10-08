@@ -2268,7 +2268,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $core_blocks_width_desktop_ui_css );
 
 				$core_blocks_min_width_tablet_ui_css = array(
-					'.entry-content > .wp-block-group.alignwide.has-background, .entry-content > .wp-block-group.alignfull.has-background, .entry-content > .wp-block-cover.alignwide, .entry-content > .wp-block-cover.alignfull' => array(
+					'.entry-content > .wp-block-group.alignwide.has-background, .entry-content > .wp-block-group.alignfull.has-background, .entry-content > .wp-block-cover.alignwide, .entry-content > .wp-block-cover.alignfull, .entry-content > .wp-block-columns.has-background.alignwide, .entry-content > .wp-block-columns.has-background.alignfull' => array(
 						'margin-top'    => '0',
 						'margin-bottom' => '0',
 						'padding'       => '6em 4em',
@@ -2303,7 +2303,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.site-main .entry-content > .alignwide' => array(
 						'margin' => '0 auto',
 					),
-					'.wp-block-group.has-background, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns' => array(
+					'.wp-block-group.has-background, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns.has-background' => array(
 						'padding'       => '4em',
 						'margin-top'    => '0',
 						'margin-bottom' => '0',

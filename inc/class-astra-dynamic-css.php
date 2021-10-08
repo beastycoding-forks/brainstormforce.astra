@@ -2308,6 +2308,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-top'    => '0',
 						'margin-bottom' => '0',
 					),
+					'.entry-content .wp-block-media-text.alignfull .wp-block-media-text__content' => array(
+						'padding-right' => '8%',
+					),
 				);
 
 				/* Parse CSS from array -> min-width(mobile-breakpoint + 1) */

@@ -335,12 +335,12 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 
 	for ( $index = 1; $index <= Astra_Builder_Helper::$component_limit; $index++ ) {
 
-		$defaults = prepare_button_defaults( $defaults, $index );
-		$defaults = prepare_html_defaults( $defaults, $index );
-		$defaults = prepare_social_icon_defaults( $defaults, $index );
-		$defaults = prepare_widget_defaults( $defaults, $index );
-		$defaults = prepare_menu_defaults( $defaults, $index );
-		$defaults = prepare_divider_defaults( $defaults, $index );
+		$defaults = astra_prepare_button_defaults( $defaults, absint( $index ) );
+		$defaults = astra_prepare_html_defaults( $defaults, absint( $index ) );
+		$defaults = astra_prepare_social_icon_defaults( $defaults, absint( $index ) );
+		$defaults = astra_prepare_widget_defaults( $defaults, absint( $index ) );
+		$defaults = astra_prepare_menu_defaults( $defaults, absint( $index ) );
+		$defaults = astra_prepare_divider_defaults( $defaults, absint( $index ) );
 	}
 
 	/**
@@ -1044,11 +1044,10 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
  * @param array   $defaults defaults.
  * @param integer $index index.
  */
-function prepare_divider_defaults( $defaults, $index ) {
+function astra_prepare_divider_defaults( $defaults, $index ) {
 
 	$defaults[ 'section-hb-divider-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
 	$defaults[ 'section-fb-divider-' . $index . '-margin' ] = Astra_Builder_Helper::$default_responsive_spacing;
-
 
 	return $defaults;
 }
@@ -1059,7 +1058,7 @@ function prepare_divider_defaults( $defaults, $index ) {
  * @param array   $defaults defaults.
  * @param integer $index index.
  */
-function prepare_button_defaults( $defaults, $index ) {
+function astra_prepare_button_defaults( $defaults, $index ) {
 
 	$_prefix = 'button' . $index;
 
@@ -1235,7 +1234,7 @@ function prepare_button_defaults( $defaults, $index ) {
  * @param array   $defaults defaults.
  * @param integer $index index.
  */
-function prepare_html_defaults( $defaults, $index ) {
+function astra_prepare_html_defaults( $defaults, $index ) {
 
 	$_section = 'section-hb-html-' . $index;
 
@@ -1327,7 +1326,7 @@ function prepare_html_defaults( $defaults, $index ) {
  * @param array   $defaults defaults.
  * @param integer $index index.
  */
-function prepare_social_icon_defaults( $defaults, $index ) {
+function astra_prepare_social_icon_defaults( $defaults, $index ) {
 
 	$defaults[ 'header-social-' . $index . '-space' ]          = array(
 		'desktop' => '',
@@ -1472,7 +1471,7 @@ function prepare_social_icon_defaults( $defaults, $index ) {
  * @param array   $defaults defaults.
  * @param integer $index index.
  */
-function prepare_widget_defaults( $defaults, $index ) {
+function astra_prepare_widget_defaults( $defaults, $index ) {
 
 	// Widget Header defaults.
 
@@ -1599,7 +1598,7 @@ function prepare_widget_defaults( $defaults, $index ) {
  * @param array   $defaults defaults.
  * @param integer $index index.
  */
-function prepare_menu_defaults( $defaults, $index ) {
+function astra_prepare_menu_defaults( $defaults, $index ) {
 
 	$_prefix = 'menu' . $index;
 

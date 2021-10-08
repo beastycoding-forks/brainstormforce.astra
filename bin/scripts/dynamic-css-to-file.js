@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-const puppeteer = require( 'puppeteer-core' );
 const fs = require( 'fs' );
+const puppeteer = require( 'puppeteer' );
 
 const url = process.argv[ 2 ];
 const stylesheetId = process.argv[ 3 ];

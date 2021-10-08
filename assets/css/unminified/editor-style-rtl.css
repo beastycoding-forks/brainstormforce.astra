@@ -1366,10 +1366,6 @@ blockquote {
   position: relative;
 }
 
-blockquote p:last-child {
-  margin: 0;
-}
-
 address {
   margin: 0 0 1.5em;
 }
@@ -1460,7 +1456,6 @@ th {
 
 th, td {
   padding: 8px;
-  text-align: right;
   border-width: 0 0 1px 1px;
 }
 

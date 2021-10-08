@@ -801,7 +801,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			}
 		} else {
 
-			$submenu_class = apply_filters( 'primary_submenu_border_class', ' submenu-with-border' );
+			$submenu_class = apply_filters( 'astra_primary_submenu_border_class', ' submenu-with-border' );
 
 			// Menu Animation.
 			$menu_animation = astra_get_option( 'header-main-submenu-container-animation' );
@@ -815,7 +815,7 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			 * @since  1.5.0
 			 * @var Array
 			 */
-			$primary_menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-nav-menu', 'ast-flex', 'ast-justify-content-flex-end', $submenu_class ) );
+			$primary_menu_classes = apply_filters( 'astra_primary_menu_classes', array( 'main-header-menu', 'ast-menu-shadow', 'ast-nav-menu', 'ast-flex', 'ast-justify-content-flex-end', $submenu_class ) );
 
 			// Fallback Menu if primary menu not set.
 			$fallback_menu_args = array(
@@ -832,8 +832,8 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 			$items_wrap .= astra_attr(
 				'site-navigation',
 				array(
-					'id'         => 'site-navigation',
-					'class'      => 'ast-flex-grow-1 navigation-accessibility',
+					'id'         => 'primary-site-navigation',
+					'class'      => 'site-navigation ast-flex-grow-1 navigation-accessibility',
 					'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 				)
 			);
@@ -867,10 +867,10 @@ if ( ! function_exists( 'astra_primary_navigation_markup' ) ) {
 						echo astra_attr(
 							'site-navigation',
 							array(
-								'id' => 'site-navigation',
+								'id' => 'primary-site-navigation',
 							)
 						);
-						echo ' class="ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
+						echo ' class="site-navigation ast-flex-grow-1 navigation-accessibility" aria-label="' . esc_attr__( 'Site Navigation', 'astra' ) . '">';
 							wp_page_menu( $fallback_menu_args );
 						echo '</nav>';
 					echo '</div>';

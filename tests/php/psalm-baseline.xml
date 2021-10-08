@@ -3716,13 +3716,13 @@
       <code>$row['row']</code>
     </PossiblyUndefinedStringArrayOffset>
     <TooManyArguments occurrences="7">
-      <code>Astra_Builder_Helper::has_mobile_center_column( $row, 'header', 'mobile' )</code>
-      <code>Astra_Builder_Helper::has_mobile_center_column( $row, 'header', 'mobile' )</code>
-      <code>Astra_Builder_Helper::has_mobile_center_column( $row, 'header', 'mobile' )</code>
-      <code>Astra_Builder_Helper::has_mobile_center_column( $row, 'header', 'mobile' )</code>
-      <code>Astra_Builder_Helper::has_mobile_side_columns( $row, 'header', 'mobile' )</code>
-      <code>Astra_Builder_Helper::has_mobile_side_columns( $row, 'header', 'mobile' )</code>
-      <code>Astra_Builder_Helper::has_mobile_side_columns( $row, 'header', 'mobile' )</code>
+      <code>Astra_Builder_Helper::has_mobile_center_column( $row )</code>
+      <code>Astra_Builder_Helper::has_mobile_center_column( $row )</code>
+      <code>Astra_Builder_Helper::has_mobile_center_column( $row )</code>
+      <code>Astra_Builder_Helper::has_mobile_center_column( $row )</code>
+      <code>Astra_Builder_Helper::has_mobile_side_columns( $row )</code>
+      <code>Astra_Builder_Helper::has_mobile_side_columns( $row )</code>
+      <code>Astra_Builder_Helper::has_mobile_side_columns( $row )</code>
     </TooManyArguments>
     <UndefinedGlobalVariable occurrences="1">
       <code>$args</code>

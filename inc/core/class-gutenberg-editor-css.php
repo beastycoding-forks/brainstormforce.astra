@@ -106,15 +106,13 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$h3_line_height    = astra_get_option( 'line-height-h3' );
 			$h3_text_transform = astra_get_option( 'text-transform-h3' );
 
-			if ( 'inherit' === $h1_font_weight ) {
-				$h1_font_weight = 'normal';
-			}
-			if ( 'inherit' === $h2_font_weight ) {
-				$h2_font_weight = 'normal';
-			}
-			if ( 'inherit' === $h3_font_weight ) {
-				$h3_font_weight = 'normal';
-			}
+			// Fixing font weight difference in GB editor
+			$h1_font_weight === 'inherit' ? $h1_font_weight = 'normal' : '';
+			$h2_font_weight === 'inherit' ? $h2_font_weight = 'normal' : '';
+			$h3_font_weight === 'inherit' ? $h3_font_weight = 'normal' : '';
+			$h4_font_weight === 'inherit' ? $h4_font_weight = 'normal' : '';
+			$h5_font_weight === 'inherit' ? $h5_font_weight = 'normal' : '';
+			$h6_font_weight === 'inherit' ? $h6_font_weight = 'normal' : '';
 
 			$single_post_title       = astra_get_option( 'blog-single-post-structure' );
 			$title_enabled_from_meta = get_post_meta( $post_id, 'site-post-title', true );
@@ -374,10 +372,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'background' => 'inherit !important',
 				);
 				$desktop_css['.ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper'] = $background_style_data;
-				$desktop_css['.wp-block[data-align=left]>*'] = array(
+				$desktop_css['.wp-block[data-align=left]>*']                            = array(
 					'float' => 'left',
 				);
-				$desktop_css['.wp-block[data-align=right]>*'] = array(
+				$desktop_css['.wp-block[data-align=right]>*']                           = array(
 					'float' => 'right',
 				);
 				$desktop_css['.wp-block[data-align=left], .wp-block[data-align=right]'] = array(

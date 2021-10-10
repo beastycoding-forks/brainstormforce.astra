@@ -5,8 +5,8 @@ describe( 'Below footer inner element layout setting in customizer', () => {
 		const innerelemetLayout = {
 			'hbb-stack': {
 				desktop: 'stack',
-		        tablet: 'stack',
-		        mobile: 'stack',
+				tablet: 'stack',
+				mobile: 'stack',
 			},
 		};
 		await setCustomize( innerelemetLayout );
@@ -28,8 +28,8 @@ describe( 'Below footer inner element layout setting in customizer', () => {
 		const innerelemetLayout = {
 			'hbb-stack': {
 				desktop: 'inline',
-		        tablet: 'inline',
-		        mobile: 'inline',
+				tablet: 'inline',
+				mobile: 'inline',
 			},
 		};
 		await setCustomize( innerelemetLayout );

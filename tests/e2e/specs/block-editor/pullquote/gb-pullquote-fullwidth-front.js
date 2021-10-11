@@ -28,7 +28,7 @@ describe( 'Pullquote in gutenberg editor', () => {
 		await expect( {
 			selector: 'blockquote',
 			property: 'width',
-		} ).cssValueToBe( `868.9px` );
+		} ).cssValueToBe( `868.906px` );
 		// to test the padding
 		await expect( {
 			selector: 'blockquote',

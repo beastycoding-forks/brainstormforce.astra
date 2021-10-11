@@ -34,4 +34,12 @@ describe( 'Button in gutenberg editor', () => {
 			property: 'padding-left',
 		} ).cssValueToBe( `30px` );
 	} );
+
+	it( 'assert margin of the button in the block editor', async () => {
+		await page.waitForSelector( '.edit-post-visual-editor .block-editor-block-list__block' );
+		await expect( {
+			selector: '.wp-block-buttons',
+			property: 'margin',
+		} ).cssValueToBe( `0px` );
+	} );
 } );

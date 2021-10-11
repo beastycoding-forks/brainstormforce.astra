@@ -63,7 +63,7 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			selector: '.wp-block-image',
 			property: 'width',
 		} ).cssValueToBe(
-			`958.1px`,
+			`415px`,
 		);
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>

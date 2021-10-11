@@ -192,7 +192,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'font-size' => astra_get_font_css_value( (int) $body_font_size_desktop * 6.25, '%' ),
 				),
 				':root'                                   => Astra_Global_Palette::generate_global_palette_style(),
-				'a'                                       => array(
+				'.block-editor-writing-flow a'            => array(
 					'color' => esc_attr( $link_color ),
 				),
 
@@ -364,6 +364,15 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'background' => 'inherit !important',
 				);
 				$desktop_css['.ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper'] = $background_style_data;
+				$desktop_css['.wp-block[data-align=left]>*'] = array(
+					'float' => 'left',
+				);
+				$desktop_css['.wp-block[data-align=right]>*'] = array(
+					'float' => 'right',
+				);
+				$desktop_css['.wp-block[data-align=left], .wp-block[data-align=right]'] = array(
+					'float' => 'none !important',
+				);
 			}
 
 			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {

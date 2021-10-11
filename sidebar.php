@@ -20,7 +20,6 @@ echo '<div ';
 		array(
 			'id'    => 'secondary',
 			'class' => join( ' ', astra_get_secondary_class() ),
-			'role'  => 'complementary',
 		)
 	);
 	echo '>';
@@ -28,10 +27,13 @@ echo '<div ';
 
 	<div class="sidebar-main" <?php /** @psalm-suppress TooManyArguments */ echo apply_filters( 'astra_sidebar_data_attrs', '', $astra_sidebar ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, Generic.Commenting.DocComment.MissingShort ?>>
 		<?php astra_sidebars_before(); ?>
+
 		<?php
+
 		if ( is_active_sidebar( $astra_sidebar ) ) :
 				dynamic_sidebar( $astra_sidebar );
-			endif;
+		endif;
+
 		astra_sidebars_after();
 		?>
 

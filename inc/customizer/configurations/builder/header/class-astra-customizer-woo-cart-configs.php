@@ -207,6 +207,30 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 
 				/**
+			 	* Option: account Size
+			 	*/
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-size]',
+					'section'           => $_section,
+					'priority'          => 4,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'header-woo-cart-icon-size' ),
+					'title'             => __( 'Icon Size', 'astra' ),
+					'type'              => 'control',
+					'suffix'            => 'px',
+					'control'           => 'ast-responsive-slider',
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'input_attrs'       => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 50,
+					),
+					'context'           => array(
+						Astra_Builder_Helper::$design_tab_config,
+					),
+				),
+				/**
 				 * Woo Cart Tabs
 				 */
 				array(

@@ -1,4 +1,4 @@
-import { insertBlock, createNewPost } from '@wordpress/e2e-test-utils';
+import { insertBlock, createNewPost, clickBlockToolbarButton } from '@wordpress/e2e-test-utils';
 describe( 'Heading in gutenberg editor', () => {
 	it( 'assert wide width of the heading in the block editor', async () => {
 		await createNewPost( {
@@ -8,11 +8,21 @@ describe( 'Heading in gutenberg editor', () => {
 		await insertBlock( 'Heading' );
 		await page.keyboard.type( 'Heading Block' );
 
+		await clickBlockToolbarButton( 'Align' );
+		await page.waitForFunction( () =>
+			document.activeElement.classList.contains(
+				'components-dropdown-menu__menu-item',
+			),
+		);
+		await page.click(
+			'[aria-label="Align"] button:nth-child(1)',
+		);
+
 		await page.waitForSelector( '.edit-post-visual-editor .wp-block-heading' );
 		await expect( {
 			selector: '.wp-block-heading',
-			property: 'max-width',
-		} ).cssValueToBe( `1200px` );
+			property: 'width',
+		} ).cssValueToBe( `975.235px` );
 	} );
 
 	it( 'assert padding of the heading in the block editor', async () => {
@@ -20,12 +30,12 @@ describe( 'Heading in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-heading',
 			property: 'padding-left',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `20px` );
 		await page.waitForSelector( '.edit-post-visual-editor .wp-block-heading' );
 		await expect( {
 			selector: '.wp-block-heading',
 			property: 'padding-right',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `20px` );
 		await page.waitForSelector( '.edit-post-visual-editor .wp-block-heading' );
 		await expect( {
 			selector: '.wp-block-heading',

@@ -80,7 +80,6 @@
 
 	// Added Background Color Hover
 	astra_color_responsive_css(
-		'woo-cart-colors',
 		'astra-settings[header-woo-cart-background-hover-color]',
 		'background-color',
 		'#ast-site-header-cart .widget_shopping_cart:hover, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item a.remove:hover, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item:hover > a.remove,' + responsive_selector + ',' + responsive_selector + ' .widget_shopping_cart .mini_cart_item a.remove:hover,' + responsive_selector + ' .widget_shopping_cart .mini_cart_item:hover > a.remove, #astra-mobile-cart-drawer' + responsive_selector

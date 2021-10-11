@@ -79,7 +79,7 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			selector: '.wp-block-image',
 			property: 'width',
 		} ).cssValueToBe(
-			`1122.1px`,
+			`974.906px`,
 		);
 	} );
 } );

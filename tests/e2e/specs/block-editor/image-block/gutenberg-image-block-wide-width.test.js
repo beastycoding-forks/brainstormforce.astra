@@ -63,7 +63,23 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			selector: '.wp-block-image',
 			property: 'width',
 		} ).cssValueToBe(
-			`415px`,
+			`958.1px`,
+		);
+		await clickBlockToolbarButton( 'Align' );
+		await page.waitForFunction( () =>
+			document.activeElement.classList.contains(
+				'components-dropdown-menu__menu-item',
+			),
+		);
+		await page.click(
+			'[aria-label="Align"] button:nth-child(5)',
+		);
+		await page.waitForSelector( '#editor .edit-post-visual-editor' );
+		await expect( {
+			selector: '.wp-block-image',
+			property: 'width',
+		} ).cssValueToBe(
+			`1122.1px`,
 		);
 	} );
 } );

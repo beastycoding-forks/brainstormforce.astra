@@ -12,7 +12,6 @@ v3.7.4 (Unreleased)
 - Fix: W3 validator - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validator - CSS parse error for '.menu-link' & '.wp-block-button__link'.
 - Fix: Image and Text blocks alignment not working properly with Image size - Medium in the editor.
-- Fix: Alignwide blocks getting horizontal scrollbar on tablet breakpoint & 1400px between devices. (Props - https://github.com/ZebulanStanphill)
 - Fix: Broken layout of WooCommerce's products shortcode grid on mobile view.
 
 v3.7.3

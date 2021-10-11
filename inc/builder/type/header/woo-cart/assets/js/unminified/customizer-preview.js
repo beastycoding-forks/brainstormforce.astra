@@ -16,24 +16,21 @@
 	// Icon Size.
 	wp.customize('astra-settings[header-woo-cart-icon-size]', function (value) {
 		value.bind(function (size) {
-			console.log(size);
-			console.log('---------size------------');
 			if (size.desktop != '' || size.tablet != '' || size.mobile != '') {
 				var dynamicStyle = '';
-				dynamicStyle += selector + ' .ast-cart-menu-wrap .count , ' + selector + ' .ast-cart-menu-wrap .count:after {';
+				dynamicStyle += selector + ' .ast-cart-menu-wrap .count , ' + selector + ' .ast-cart-menu-wrap .count:after, .ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg {';
 				dynamicStyle += 'height: ' + size.desktop + 'px' + ';';
 				dynamicStyle += 'width: ' + size.desktop + 'px' + ';';
 				dynamicStyle += '} ';
-
 				dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px) {';
-				dynamicStyle += selector + '.ast-site-header-cart .ast-cart-menu-wrap .count:after , .ast-site-header-cart .ast-cart-menu-wrap .count {';
+				dynamicStyle += selector + '.ast-site-header-cart .ast-cart-menu-wrap .count:after , .ast-site-header-cart .ast-cart-menu-wrap .count, .ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg {';
 				dynamicStyle += 'height: ' + size.tablet + 'px' + ';';
 				dynamicStyle += 'width: ' + size.tablet + 'px' + ';';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
 
 				dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
-				dynamicStyle += selector + '.ast-site-header-cart .ast-cart-menu-wrap .count:after span, .ast-site-header-cart .ast-cart-menu-wrap .count span {';
+				dynamicStyle += selector + '.ast-site-header-cart .ast-cart-menu-wrap .count:after span, .ast-site-header-cart .ast-cart-menu-wrap .count span, .ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg {';
 				dynamicStyle += 'height: ' + size.mobile + 'px' + ';';
 				dynamicStyle += 'width: ' + size.mobile + 'px' + ';';
 				dynamicStyle += '} ';

@@ -155,7 +155,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'            => esc_attr( $theme_h_color ),
 			'background-color' => esc_attr( $icon_color ),
 		),
-		$selector . '.ast-site-header-cart .ast-cart-menu-wrap .count, .ast-site-header-cart .ast-cart-menu-wrap .count:after' => array(
+		$selector . '.ast-site-header-cart .ast-cart-menu-wrap .count, .ast-site-header-cart .ast-cart-menu-wrap .count:after, .ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg' => array(
 			'height' => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
 			'width'  => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
 		),
@@ -278,7 +278,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$responsive_selector . ' .widget_shopping_cart_content a:not(.button):hover' => array(
 			'color' => esc_attr( $cart_h_link_color_mobile ),
 		),
-		$responsive_selector . ' .ast-site-header-cart .ast-cart-menu-wrap .count, .ast-site-header-cart .ast-cart-menu-wrap .count:after' => array(
+		$responsive_selector . ' .ast-site-header-cart .ast-cart-menu-wrap .count, .ast-site-header-cart .ast-cart-menu-wrap .count:after, .ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg' => array(
 			'height' => astra_get_css_value( $cart_icon_size_mobile, 'px' ),
 			'width'  => astra_get_css_value( $cart_icon_size_mobile, 'px' ),
 		),
@@ -342,7 +342,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$responsive_selector . ' .widget_shopping_cart_content a:not(.button):hover' => array(
 			'color' => esc_attr( $cart_h_link_color_tablet ),
 		),
-		$responsive_selector . '.ast-site-header-cart .ast-cart-menu-wrap .count, .ast-site-header-cart .ast-cart-menu-wrap .count:after' => array(
+		$responsive_selector . '.ast-site-header-cart .ast-cart-menu-wrap .count, .ast-site-header-cart .ast-cart-menu-wrap .count:after, , .ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg' => array(
 			'height' => astra_get_css_value( $cart_icon_size_tablet, 'px' ),
 			'width'  => astra_get_css_value( $cart_icon_size_tablet, 'px' ),
 		),

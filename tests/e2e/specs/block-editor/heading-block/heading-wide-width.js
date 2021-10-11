@@ -1,6 +1,6 @@
 import { insertBlock, createNewPost } from '@wordpress/e2e-test-utils';
 describe( 'Heading in gutenberg editor', () => {
-	it( 'assert wide width & padding, margin of the heading in the block editor', async () => {
+	it( 'assert wide width of the heading in the block editor', async () => {
 		await createNewPost( {
 			postType: 'post',
 			title: 'test Heading',
@@ -13,7 +13,9 @@ describe( 'Heading in gutenberg editor', () => {
 			selector: '.wp-block-heading',
 			property: 'max-width',
 		} ).cssValueToBe( `1200px` );
+	} );
 
+	it( 'assert padding of the heading in the block editor', async () => {
 		await page.waitForSelector( '.edit-post-visual-editor .wp-block-heading' );
 		await expect( {
 			selector: '.wp-block-heading',
@@ -34,7 +36,9 @@ describe( 'Heading in gutenberg editor', () => {
 			selector: '.wp-block-heading',
 			property: 'padding-bottom',
 		} ).cssValueToBe( `0px` );
+	} );
 
+	it( 'assert margin of the heading in the block editor', async () => {
 		await page.waitForSelector( '.edit-post-visual-editor .wp-block-heading' );
 		await expect( {
 			selector: '.wp-block-heading',

@@ -30,10 +30,12 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		return $dynamic_css;
 	}
 
-	$selector                = '.ast-site-header-cart';
-	$trans_header_selector   = '.ast-theme-transparent-header .ast-site-header-cart';
-	$theme_color             = astra_get_option( 'theme-color' );
-	$icon_color              = esc_attr( astra_get_option( 'header-woo-cart-icon-color', $theme_color ) );
+	$selector              = '.ast-site-header-cart';
+	$trans_header_selector = '.ast-theme-transparent-header .ast-site-header-cart';
+	$theme_color           = astra_get_option( 'theme-color' );
+	$icon_color            = esc_attr( astra_get_option( 'header-woo-cart-icon-color', $theme_color ) );
+	$icon_hover_color      = esc_attr( astra_get_option( 'header-woo-cart-icon-hover-color', $theme_color ) ); // icon cart hover color.
+
 	$header_cart_icon_radius = astra_get_option( 'woo-header-cart-icon-radius' );
 	$cart_h_color            = astra_get_foreground_color( $icon_color );
 	$header_cart_icon_style  = astra_get_option( 'woo-header-cart-icon-style' );
@@ -362,6 +364,18 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				'color'            => esc_attr( $cart_h_color ),
 				'background-color' => esc_attr( $icon_color ),
 			),
+
+			// Label icon hover Color.
+			$selector . ' .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap,' . $selector . ' .ast-site-header-cart .ast-site-header-cart-li:hover .ast-addon-cart-wrap' => array(
+				'color' => $icon_hover_color,
+			),
+
+			// Outline icon hover Color.
+			$selector . ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap .count, ' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
+				'color'        => $icon_hover_color,
+				'border-color' => $icon_hover_color,
+			),
+
 			// Outline icon colors.
 			'.ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-menu-cart-outline .ast-addon-cart-wrap' => array(
 				'color' => esc_attr( $icon_color ),

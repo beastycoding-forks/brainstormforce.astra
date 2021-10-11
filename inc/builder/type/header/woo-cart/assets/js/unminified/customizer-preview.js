@@ -27,6 +27,20 @@
 		selector + ' .ast-cart-menu-wrap .count, ' + selector + ' .ast-cart-menu-wrap .count:after'
 	);
 
+	// Icon Hover Color.
+	astra_css(
+		'astra-settings[header-woo-cart-icon-hover-color]',
+		'border-color',
+		selector + ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, ' + selector + ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count:after'
+	);
+
+	// Icon Color.
+	astra_css(
+		'astra-settings[header-woo-cart-icon-hover-color]',
+		'color',
+		selector + ' .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap,' + selector + ' .ast-site-header-cart .ast-site-header-cart-li:hover .ast-addon-cart-wrap'
+	);
+
 	// Icon BG Color.
 	astra_css(
 		'astra-settings[header-woo-cart-icon-color]',

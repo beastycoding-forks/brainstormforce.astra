@@ -40,7 +40,7 @@ describe( 'Image', () => {
 	beforeEach( async () => {
 		await createNewPost();
 	} );
-	it( 'image should be inserted and width value should match', async () => {
+	it( 'image should be inserted and width value, margin and padding should match', async () => {
 		await insertBlock( 'Image' );
 		const filename = await upload( '.wp-block-image input[type="file"]' );
 		await waitForImage( filename );
@@ -54,7 +54,7 @@ describe( 'Image', () => {
 		await expect( {
 			selector: '.wp-block-image',
 			property: 'width',
-		} ).cssValueToBe( `941.3px` );
+		} ).cssValueToBe( `974.906px` );
 		await expect( {
 			selector: '.wp-block-image',
 			property: 'margin-top',

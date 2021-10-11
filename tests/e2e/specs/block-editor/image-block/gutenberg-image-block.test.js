@@ -54,6 +54,38 @@ describe( 'Image', () => {
 		await expect( {
 			selector: '.wp-block-image',
 			property: 'width',
-		} ).cssValueToBe( `974.906px` );
+		} ).cssValueToBe( `941.3px` );
+		await expect( {
+			selector: '.wp-block-image',
+			property: 'margin-top',
+		} ).cssValueToBe( `30px` );
+		await expect( {
+			selector: '.wp-block-image',
+			property: 'margin-bottom',
+		} ).cssValueToBe( `30px` );
+		await expect( {
+			selector: '.wp-block-image',
+			property: 'margin-left',
+		} ).cssValueToBe( `0px` );
+		await expect( {
+			selector: '.wp-block-image',
+			property: 'margin-right',
+		} ).cssValueToBe( `0px` );
+		await expect( {
+			selector: '.wp-block-image',
+			property: 'padding-right',
+		} ).cssValueToBe( `0px` );
+		await expect( {
+			selector: '.wp-block-image',
+			property: 'padding-left',
+		} ).cssValueToBe( `0px` );
+		await expect( {
+			selector: '.wp-block-image',
+			property: 'padding-top',
+		} ).cssValueToBe( `0px` );
+		await expect( {
+			selector: '.wp-block-image',
+			property: 'padding-bottom',
+		} ).cssValueToBe( `0px` );
 	} );
 } );

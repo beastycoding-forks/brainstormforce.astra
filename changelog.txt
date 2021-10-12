@@ -12,6 +12,7 @@ v3.7.4 (Unreleased)
 - Fix: W3 validator - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validator - CSS parse error for '.menu-link' & '.wp-block-button__link'.
 - Fix: Image and Text blocks alignment not working properly with Image size - Medium in the editor.
+- Fix: Title is misaligned in Gutenberg editor when the Gutenberg plugin v11.4.1 and above is active.
 
 v3.7.3
 - Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.

@@ -186,7 +186,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$content_width_size = ( true === $improve_gb_ui ) ? '910px' : '1200px';
-			$css = ':root{ --ast-content-width-size: ' . $content_width_size . ' }';
+			$css                = ':root{ --ast-content-width-size: ' . $content_width_size . ' }';
 
 			$desktop_css = array(
 				'html'                                    => array(
@@ -820,7 +820,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.editor-styles-wrapper' => array(
 						'padding' => '0',
 					),
-					'.wp-block' => array(
+					'.wp-block'              => array(
 						'max-width' => '910px',
 					),
 					'.edit-post-visual-editor .editor-post-title__input' => array(
@@ -837,7 +837,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					),
 					'.wp-block [class*="__inner-container"] > .wp-block:not([data-align=wide]):not([data-align=full]):not([data-align=left]):not([data-align=right])' => array(
 						'max-width' => '45rem',
-						'width' => '100%',
+						'width'     => '100%',
 					),
 					'.block-editor-block-list__layout .wp-block-group, .block-editor-block-list__layout .wp-block-cover, .block-editor-block-list__layout .wp-block-columns' => array(
 						'padding' => '4em',
@@ -852,8 +852,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.editor-styles-wrapper .block-editor-block-list__layout h1, .editor-styles-wrapper .block-editor-block-list__layout h2, .editor-styles-wrapper .block-editor-block-list__layout h3, .editor-styles-wrapper .block-editor-block-list__layout h4, .editor-styles-wrapper .block-editor-block-list__layout h5, .editor-styles-wrapper .block-editor-block-list__layout h6' => array(
 						'margin-bottom' => '20px',
 					),
-					'.wp-block .wp-block' => array(
-						'margin-top' => '0',
+					'.wp-block .wp-block'    => array(
+						'margin-top'    => '0',
 						'margin-bottom' => '0',
 					),
 					'.block-editor-block-list__layout > .wp-block[data-align="wide"] .wp-block-group:not(.has-background), .block-editor-block-list__layout > .wp-block[data-align="full"] .wp-block-group:not(.has-background), .wp-block-group:not(.has-background)' => array(

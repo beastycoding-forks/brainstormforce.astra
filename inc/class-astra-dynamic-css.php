@@ -2241,7 +2241,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 */
 			$entry_content_selector = '.entry-content';
 			if ( true === $improve_gb_ui ) {
-				$entry_content_selector = '.entry-content >';
+				$entry_content_selector           = '.entry-content >';
 				$core_blocks_width_desktop_ui_css = array(
 					'.entry-content > .wp-block-group, .entry-content > .wp-block-media-text, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns' => array(
 						'max-width'    => '58em',
@@ -2250,17 +2250,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-right' => 'auto',
 					),
 					'.entry-content [class*="__inner-container"] > .alignfull' => array(
-						'max-width' => '100%',
-						'margin-left' => 0,
+						'max-width'    => '100%',
+						'margin-left'  => 0,
 						'margin-right' => 0,
 					),
 					'.entry-content [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)' => array(
-						'margin-left' => 'auto',
+						'margin-left'  => 'auto',
 						'margin-right' => 'auto',
 					),
 					'.entry-content [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide)' => array(
 						'max-width' => '50rem',
-						'width' => '100%',
+						'width'     => '100%',
 					),
 				);
 
@@ -2287,8 +2287,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'width'     => '100%',
 					),
 					'.ast-page-builder-template .entry-content .alignwide, .entry-content [class*="__inner-container"] > .alignwide' => array(
-						'max-width' => astra_get_css_value( $site_content_width, 'px' ),
-						'margin-left' => '0',
+						'max-width'    => astra_get_css_value( $site_content_width, 'px' ),
+						'margin-left'  => '0',
 						'margin-right' => '0',
 					),
 					'.entry-content .alignfull [class*="__inner-container"] > .alignwide' => array(

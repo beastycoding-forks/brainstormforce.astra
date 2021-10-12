@@ -31,14 +31,14 @@
 	astra_css(
 		'astra-settings[header-woo-cart-icon-hover-color]',
 		'border-color',
-		selector + ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, ' + selector + ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count:after'
+		selector + ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, ' + selector + ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap, ' + selector + ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count:after'
 	);
 
 	// Icon Color.
 	astra_css(
 		'astra-settings[header-woo-cart-icon-hover-color]',
 		'color',
-		selector + ' .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap,' + selector + ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap'
+		selector + ' .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap, .ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-addon-cart-wrap .ast-icon-shopping-cart:after'
 	);
 
 	// Icon BG Color.

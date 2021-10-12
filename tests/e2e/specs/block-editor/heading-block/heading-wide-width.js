@@ -10,6 +10,7 @@ describe( 'Heading in gutenberg editor', () => {
 
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>
+			// eslint-disable-next-line @wordpress/no-global-active-element
 			document.activeElement.classList.contains(
 				'components-dropdown-menu__menu-item',
 			),
@@ -17,12 +18,11 @@ describe( 'Heading in gutenberg editor', () => {
 		await page.click(
 			'[aria-label="Align"] button:nth-child(1)',
 		);
-
 		await page.waitForSelector( '.edit-post-visual-editor .wp-block-heading' );
 		await expect( {
 			selector: '.wp-block-heading',
 			property: 'width',
-		} ).cssValueToBe( `974.906px` );
+		} ).cssValueToBe( `975.235px` );
 	} );
 
 	it( 'assert padding of the heading in the block editor', async () => {

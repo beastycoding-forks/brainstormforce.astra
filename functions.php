@@ -175,9 +175,3 @@ require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
-
-
-/**
- * REMOVE THIS FILTRER FINALLY.
- */
-add_filter( 'astra_get_option_improve-gb-editor-ui', '__return_true' );

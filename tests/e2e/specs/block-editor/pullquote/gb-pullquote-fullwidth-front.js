@@ -32,7 +32,7 @@ describe( 'Pullquote in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-pullquote',
 			property: 'width',
-		} ).cssValueToBe( `265.25px` );
+		} ).cssValueToBe( `639.906px` );
 		// to test the padding
 		await expect( {
 			selector: '.wp-block-pullquote',

@@ -38,7 +38,7 @@
 	astra_css(
 		'astra-settings[header-woo-cart-icon-hover-color]',
 		'color',
-		selector + ' .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap, .ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-addon-cart-wrap .ast-icon-shopping-cart:after'
+		'.ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap, .ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap, .ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-addon-cart-wrap i.astra-icon'
 	);
 
 	// Icon BG Color.
@@ -49,12 +49,17 @@
 	);
 
 	// Icon BG hover Color.
+	/* astra_css(
+		'astra-settings[header-woo-cart-icon-hover-color]',
+		'background-color',
+		selector + ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap i.astra-icon:after, .ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-cart-menu-wrap, .ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-addon-cart-wrap i.astra-icon:after'
+	); */
+
 	astra_css(
 		'astra-settings[header-woo-cart-icon-hover-color]',
 		'background-color',
-		'.ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-cart-menu-wrap'
+		'.ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-addon-cart-wrap, .ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-addon-cart-wrap .ast-woo-header-cart-info-wrap, .ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-cart-menu-wrap, '+ selector + ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap i.astra-icon:after'
 	);
-
 
 
 	// WooCommerce Cart Colors.

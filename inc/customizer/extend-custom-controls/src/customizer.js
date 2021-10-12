@@ -10,6 +10,8 @@
 
 	var is_cloning_index = false;
 
+	var to_cloning_index = false;
+
 	/**
 	 * Resize Preview Frame when show / hide Builder.
 	 */
@@ -190,14 +192,22 @@
 				api.control.add(new Constructor(id, options));
 			}
 
-			if (false !== is_cloning_index) {
+			if ( false !== is_cloning_index ) {
 				let cloneFromId = id;
+				let componentType = sessionStorage.getItem('ast-clone-element-type');
 				cloneFromId = cloneFromId.replace(/[0-9]+/g, is_cloning_index); // Replace random numeric with valid clone index.
-				if (api.control(cloneFromId)) {
+				if (api.control(cloneFromId) && -1 !==id.indexOf( to_cloning_index ) && ( -1 !==id.indexOf( componentType ) || null === componentType ) ) {
 					let val = api(cloneFromId).get();
 					if (val) {
 						api(id).set(val);
 					}
+					if( -1 !== id.indexOf('sticky') ){
+						api.control(id).renderContent();
+						api.control(id).deferred.embedded.resolve(); // This triggers control.ready().
+						// Fire event after control is initialized.
+						api.control(id).container.trigger('init');
+					}
+
 				}
 			}
 
@@ -360,7 +370,7 @@
 					// Add controls to theme sections.
 					for (const [section_id, config] of Object.entries(sections)) {
 						AstCustomizerAPI.addSection(section_id, config);
-						AstCustomizerAPI.registerControlsBySection(api.section(section_id));
+						AstCustomizerAPI.registerControlsBySection(api.section(section_id), true);
 						delete controls[section_id];
 						await null;
 					}
@@ -461,9 +471,30 @@
 						if (undefined == operator || '=' == operator) {
 							operator = '==';
 						}
+
 						if(typeof currentValue === 'object' && undefined !== currentValue[rule['setting-key']]){
 							currentValue = currentValue[rule['setting-key']];
 						}
+
+						// Change Dynamic section for sticky header controls.
+						if( typeof currentValue === 'object' && undefined !== rule['sticky-header-item'] ) {
+							var headers = ['above','primary','below'];
+
+							$.each( headers, function( key, val ) {
+								$.each( currentValue[val] , function( key, zone ) {
+									if( zone.indexOf( comparedValue ) > -1 ){
+										header_type = (val == 'primary' ) ? 'main' : val;
+
+										let sticky_settings = getSetting( 'astra-settings[header-' + header_type + '-stick]');
+										// Check if sticky header is active or not.
+										if( true == sticky_settings.get() ) {
+											currentValue = comparedValue;
+										}
+									}
+								});
+							});
+						}
+
 						switch (operator) {
 							case '>':
 								result = currentValue > comparedValue;
@@ -538,7 +569,6 @@
 								var result = compareByOperator(rule);
 								displayed = compareByRelation(relation, displayed, result);
 							}
-
 						});
 
 						return displayed;
@@ -792,8 +822,14 @@
 
 				AstCustomizerAPI.addSection(clone_to_section, section_config);
 				is_cloning_index = clone_from_section.match(/\d+$/)[0];
+				to_cloning_index = clone_to_section.match(/\d+$/)[0];
 				Promise.all([ AstCustomizerAPI.registerControlsBySection(api.section(clone_to_section)) ]).then(function () {
+					
+				});
+
+				Promise.all([ AstCustomizerAPI.registerControlsBySection(api.section('section-sticky-header'), true ) ]).then(function () {
 					is_cloning_index = false;
+					to_cloning_index = false;
 				});
 
 				api.section(clone_to_section).expanded.bind(function (isExpanded) {

@@ -820,6 +820,21 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			menu.className += ' nav-menu';
 		}
 
+		if ( 'off-canvas' === mobileHeaderType ) {
+			var popupClose = document.getElementById( 'menu-toggle-close' );
+			popupClose.onclick = function() {
+				if ( -1 !== container_menu.className.indexOf( 'toggled' ) ) {
+					container_menu.className = container_menu.className.replace( ' toggled', '' );
+					button.setAttribute( 'aria-expanded', 'false' );
+					menu.setAttribute( 'aria-expanded', 'false' );
+				} else {
+					container_menu.className += ' toggled';
+					button.setAttribute( 'aria-expanded', 'true' );
+					menu.setAttribute( 'aria-expanded', 'true' );
+				}
+			};
+		}
+
 		button.onclick = function() {
 			if ( -1 !== container_menu.className.indexOf( 'toggled' ) ) {
 				container_menu.className = container_menu.className.replace( ' toggled', '' );

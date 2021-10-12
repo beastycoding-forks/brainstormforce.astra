@@ -371,6 +371,10 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 
 			// Outline icon hover Color.
+			$selector . ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count' => array(
+				'border-color' => $icon_hover_color,
+			),
+
 			$selector . ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap .count, ' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap .ast-icon-shopping-cart:after' => array(
 				'color'        => $icon_hover_color,
 				'border-color' => $icon_hover_color,
@@ -388,6 +392,12 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			// Fill icon Color.
 			'.ast-menu-cart-fill .ast-cart-menu-wrap .count,.ast-menu-cart-fill .ast-cart-menu-wrap, .ast-menu-cart-fill .ast-addon-cart-wrap .ast-woo-header-cart-info-wrap,.ast-menu-cart-fill .ast-addon-cart-wrap' => array(
 				'background-color' => esc_attr( $icon_color ),
+				'color'            => esc_attr( $cart_h_color ),
+			),
+
+			// Fill icon hover Color.
+			'.ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-cart-menu-wrap, .ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-addon-cart-wrap .ast-woo-header-cart-info-wrap,.ast-menu-cart-fill .ast-addon-cart-wrap' => array(
+				'background-color' => esc_attr( $icon_hover_color ),
 				'color'            => esc_attr( $cart_h_color ),
 			),
 

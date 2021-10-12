@@ -38,7 +38,7 @@
 	astra_css(
 		'astra-settings[header-woo-cart-icon-hover-color]',
 		'color',
-		selector + ' .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap,' + selector + ' .ast-site-header-cart .ast-site-header-cart-li:hover .ast-addon-cart-wrap'
+		selector + ' .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap,' + selector + ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap'
 	);
 
 	// Icon BG Color.
@@ -47,6 +47,15 @@
 		'border-color',
 		'.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-cart-menu-wrap'
 	);
+
+	// Icon BG hover Color.
+	astra_css(
+		'astra-settings[header-woo-cart-icon-hover-color]',
+		'background-color',
+		'.ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-cart-menu-wrap'
+	);
+
+
 
 	// WooCommerce Cart Colors.
 

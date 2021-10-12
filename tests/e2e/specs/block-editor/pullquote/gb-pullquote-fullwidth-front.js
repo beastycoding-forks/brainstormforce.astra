@@ -6,6 +6,7 @@ import {
 	createNewPost,
 	clickBlockToolbarButton,
 	publishPost,
+	createURL,
 } from '@wordpress/e2e-test-utils';
 
 describe( 'Pullquote in gutenberg editor', () => {

@@ -185,7 +185,8 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$improve_gb_ui = astra_get_option( 'improve-gb-editor-ui', true );
 			/** @psalm-suppress InvalidScalarArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
-			$css = '';
+			$content_width_size = ( true === $improve_gb_ui ) ? '910px' : '1200px';
+			$css = ':root{ --ast-content-width-size: ' . $content_width_size . ' }';
 
 			$desktop_css = array(
 				'html'                                    => array(
@@ -818,9 +819,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$gb_editor_core_blocks_ui_css = array(
 					'.editor-styles-wrapper' => array(
 						'padding' => '0',
-					),
-					'.wp-block' => array(
-						'max-width' => '910px',
 					),
 					'.edit-post-visual-editor .editor-post-title__input' => array(
 						'padding' => '20px',

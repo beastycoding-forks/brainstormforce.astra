@@ -150,10 +150,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color'            => esc_attr( $theme_h_color ),
 			'background-color' => esc_attr( $icon_hover_color ),
 		),
-		/* '.ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-addon-cart-wrap i.astra-icon:after' => array(
-			'color'            => esc_attr( $theme_h_color ),
-			'background-color' => esc_attr( $icon_hover_color ),
-		), */
+
 		/**
 		 * Transparent Header - Woo Cart icon color.
 		 */
@@ -403,11 +400,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			$selector . ' .ast-menu-cart-outline .ast-woo-header-cart-info-wrap' => array(
 				'color' => esc_attr( $icon_color ),
 			),
-
-/* 			$selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap i.astra-icon:after' => array(
-				'color'            => esc_attr( $theme_h_color ),
-				'background-color' => esc_attr( $icon_hover_color ),
-			), */
 
 			// Fill icon Color.
 			'.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-cart-menu-wrap, .ast-menu-cart-fill .ast-addon-cart-wrap .ast-woo-header-cart-info-wrap, .ast-menu-cart-fill .ast-addon-cart-wrap' => array(

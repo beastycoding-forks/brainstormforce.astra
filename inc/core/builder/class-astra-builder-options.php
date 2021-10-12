@@ -944,16 +944,20 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-title-display']          = true;
 
 	// Cart tray > General Color styles.
-	$defaults['header-woo-cart-text-color']       = '';
-	$defaults['header-woo-cart-link-color']       = '';
-	$defaults['header-woo-cart-background-color'] = '';
+	$defaults['header-woo-cart-text-color']             = '';
+	$defaults['header-woo-cart-link-color']             = '';
+	$defaults['header-woo-cart-background-color']       = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
 	$defaults['header-woo-cart-background-hover-color'] = array(
-				'desktop' => '',
-				'tablet'  => '',
-				'mobile'  => '',
-			);
-	$defaults['header-woo-cart-separator-color']  = '';
-	$defaults['header-woo-cart-link-hover-color'] = '';
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults['header-woo-cart-separator-color']        = '';
+	$defaults['header-woo-cart-link-hover-color']       = '';
 
 	// Cart tray > Cart Button styles.
 	$defaults['header-woo-cart-btn-text-color']       = '';

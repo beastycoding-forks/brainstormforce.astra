@@ -66,6 +66,6 @@ describe( 'Pullquote in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-pullquote',
 			property: 'margin-right',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `10px` );
 	} );
 } );

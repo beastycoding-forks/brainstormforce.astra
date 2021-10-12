@@ -23,7 +23,7 @@ describe( 'Button in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-button',
 			property: 'width',
-		} ).cssValueToBe( `103.383px` );
+		} ).cssValueToBe( `103.266px` );
 	} );
 
 	it( 'assert padding of the button in the block editor', async () => {

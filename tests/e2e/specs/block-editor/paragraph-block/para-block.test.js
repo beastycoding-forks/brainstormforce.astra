@@ -19,7 +19,7 @@ describe( 'Paragraph in gutenberg editor', () => {
 			property: 'width',
 		} ).cssValueToBe( `974.906px` );
 	} );
-	it( 'assert margin property of the paragraph in the block editor', async () => {	
+	it( 'assert margin property of the paragraph in the block editor', async () => {
 		await page.waitForSelector( '#editor .edit-post-visual-editor' );
 		await expect( {
 			selector: '.edit-post-visual-editor p',

@@ -10,7 +10,7 @@ import {
 } from '@wordpress/e2e-test-utils';
 
 describe( 'Pullquote in gutenberg editor', () => {
-	it( 'test of the pullquote in the block editor', async () => {
+	it( 'test of the pullquote on the front end', async () => {
 		await createNewPost( {
 			postType: 'post',
 			title: 'test Gutenberg Pullquote',
@@ -30,41 +30,41 @@ describe( 'Pullquote in gutenberg editor', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await expect( {
-			selector: '.wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)',
+			selector: '.wp-block-pullquote',
 			property: 'width',
-		} ).cssValueToBe( `999.900px` );
+		} ).cssValueToBe( `639.9px` );
 		// to test the padding
 		await expect( {
-			selector: '.wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)',
+			selector: '.wp-block-pullquote',
 			property: 'padding-top',
-		} ).cssValueToBe( `45px` );
+		} ).cssValueToBe( `15px` );
 		await expect( {
-			selector: '.wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)',
+			selector: '.wp-block-pullquote',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `45px` );
+		} ).cssValueToBe( `15px` );
 		await expect( {
-			selector: '.wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)',
+			selector: '.wp-block-pullquote',
 			property: 'padding-left',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `15px` );
 		await expect( {
-			selector: '.wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)',
+			selector: '.wp-block-pullquote',
 			property: 'padding-right',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `15px` );
 		//to test the margin
 		await expect( {
-			selector: '.wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)',
+			selector: '.wp-block-pullquote',
 			property: 'margin-top',
 		} ).cssValueToBe( `30px` );
 		await expect( {
-			selector: '.wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)',
+			selector: '.wp-block-pullquote',
 			property: 'margin-bottom',
 		} ).cssValueToBe( `30px` );
 		await expect( {
-			selector: '.wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)',
+			selector: '.wp-block-pullquote',
 			property: 'margin-left',
 		} ).cssValueToBe( `0px` );
 		await expect( {
-			selector: '.wp-block-pullquote:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright)',
+			selector: '.wp-block-pullquote',
 			property: 'margin-right',
 		} ).cssValueToBe( `0px` );
 	} );

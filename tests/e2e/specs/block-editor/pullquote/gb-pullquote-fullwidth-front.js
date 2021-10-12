@@ -25,6 +25,9 @@ describe( 'Pullquote in gutenberg editor', () => {
 		);
 		await page.click( '[aria-label="Align"] button:nth-child(4)' );
 		await publishPost();
+		await page.goto( createURL( '/test-gutenberg-pullquote' ), {
+			waitUntil: 'networkidle0',
+		} );
 		await expect( {
 			selector: 'blockquote',
 			property: 'width',

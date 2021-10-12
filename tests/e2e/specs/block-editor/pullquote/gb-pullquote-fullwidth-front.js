@@ -29,10 +29,6 @@ describe( 'Pullquote in gutenberg editor', () => {
 		await page.goto( createURL( '/test-gutenberg-pullquote' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await expect( {
-			selector: '.wp-block-pullquote',
-			property: 'width',
-		} ).cssValueToBe( `639.906px` );
 		// to test the padding
 		await expect( {
 			selector: '.wp-block-pullquote',

@@ -936,6 +936,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
+	$defaults['woo-header-cart-click-action']      = 'default';
+	$defaults['woo-desktop-cart-flyout-width']            = 30;
 	$defaults['woo-header-cart-icon-style']             = 'outline';
 	$defaults['header-woo-cart-icon-color']             = '';
 	$defaults['transparent-header-woo-cart-icon-color'] = '';

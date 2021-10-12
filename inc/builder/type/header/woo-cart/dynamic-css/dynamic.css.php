@@ -38,6 +38,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_h_color            = astra_get_foreground_color( $icon_color );
 	$header_cart_icon_style  = astra_get_option( 'woo-header-cart-icon-style' );
 	$theme_h_color           = astra_get_foreground_color( $theme_color );
+	$desktop_flyout_cart_width = astra_get_option( 'woo-desktop-cart-flyout-width' );
 
 	$transparent_header_icon_color   = esc_attr( astra_get_option( 'transparent-header-woo-cart-icon-color', $icon_color ) );
 	$transparent_header_cart_h_color = astra_get_foreground_color( $transparent_header_icon_color );
@@ -404,6 +405,11 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			// Border radius.
 			'.ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap, .ast-site-header-cart.ast-menu-cart-outline .ast-cart-menu-wrap .count, .ast-site-header-cart.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-outline .ast-woo-header-cart-info-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-woo-header-cart-info-wrap' => array(
 				'border-radius' => astra_get_css_value( $header_cart_icon_radius, 'px' ),
+			),
+
+			// Desktop flyout width.
+			'.ast-desktop .astra-cart-drawer.open-right' => array(
+				'width' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
 			),
 		);
 

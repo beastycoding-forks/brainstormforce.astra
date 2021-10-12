@@ -1,4 +1,4 @@
-import { insertBlock, createNewPost, pressKeyWithModifier, clickBlockToolbarButton } from '@wordpress/e2e-test-utils';
+import { insertBlock, createNewPost, clickBlockToolbarButton } from '@wordpress/e2e-test-utils';
 describe( 'Button in gutenberg editor', () => {
 	it( 'assert wide width of the button in the block editor', async () => {
 		await createNewPost( {
@@ -7,12 +7,7 @@ describe( 'Button in gutenberg editor', () => {
 		} );
 		await insertBlock( 'Buttons' );
 		await page.keyboard.type( 'Login' );
-		//await pressKeyWithModifier( 'primary', 'k' );
-		// await page.waitForFunction(
-		// 	() => !! document.activeElement.closest( '.block-editor-url-input' ),
-		// );
-		// await page.keyboard.type( 'https://google.com' );
-		// await page.keyboard.press( 'Enter' );
+
 		await clickBlockToolbarButton( 'Select Buttons' );
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>

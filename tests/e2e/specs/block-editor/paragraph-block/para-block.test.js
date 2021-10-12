@@ -4,20 +4,22 @@ import {
 } from '@wordpress/e2e-test-utils';
 
 describe( 'Paragraph in gutenberg editor', () => {
-	it( 'assert alignment property of the paragraph in the block editor', async () => {
+	it( 'assert width property of the paragraph in the block editor', async () => {
 		await createNewPost( {
 			postType: 'post',
 			title: 'test para',
 		} );
 
 		await insertBlock( 'Paragraph' );
-		await page.keyboard.type( 'para' );
+		await page.keyboard.type( 'paragraph' );
 
 		await page.waitForSelector( '#editor .edit-post-visual-editor' );
 		await expect( {
 			selector: '.edit-post-visual-editor p',
-			property: 'max-width',
-		} ).cssValueToBe( `1200px` );
+			property: 'width',
+		} ).cssValueToBe( `975.235px` );
+	} );
+	it( 'assert margin property of the paragraph in the block editor', async () => {	
 		await page.waitForSelector( '#editor .edit-post-visual-editor' );
 		await expect( {
 			selector: '.edit-post-visual-editor p',
@@ -38,6 +40,8 @@ describe( 'Paragraph in gutenberg editor', () => {
 			selector: '.edit-post-visual-editor p',
 			property: 'margin-bottom',
 		} ).cssValueToBe( `26.25px` );
+	} );
+	it( 'assert padding property of the paragraph in the block editor', async () => {
 		await page.waitForSelector( '#editor .edit-post-visual-editor' );
 		await expect( {
 			selector: '.edit-post-visual-editor p',

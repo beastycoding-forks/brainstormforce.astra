@@ -820,6 +820,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.editor-styles-wrapper' => array(
 						'padding' => '0',
 					),
+					'.wp-block' => array(
+						'max-width' => '910px',
+					),
 					'.edit-post-visual-editor .editor-post-title__input' => array(
 						'padding' => '20px',
 					),

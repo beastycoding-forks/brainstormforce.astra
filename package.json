@@ -21,7 +21,7 @@
     "@wordpress/eslint-plugin": "^9.1.1",
     "@wordpress/jest-puppeteer-axe": "^3.1.0",
     "@wordpress/scripts": "^18.0.0",
-    "autoprefixer": "^10.3.2",
+    "autoprefixer": "^10.3.7",
     "cross-env": "^7.0.3",
     "eslint-plugin-eslint-comments": "^3.2.0",
     "grunt": "^1.4.0",
@@ -45,9 +45,9 @@
     "kind-of": ">=6.0.3",
     "lodash": "^4.17.21",
     "minimist": ">=1.2.3",
-    "node-fetch": "^2.6.1",
     "node-sass": "^6.0.1",
-    "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build"
+    "postcss-flexibility": "git://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
+    "puppeteer": "^10.4.0"
   },
   "scripts": {
     "pree2etests": "cross-env sh ./bin/scripts/pre-e2e-tests.sh",

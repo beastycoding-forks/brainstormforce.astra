@@ -3,8 +3,6 @@
  */
 import { get } from 'lodash';
 
-import fetch from 'node-fetch';
-
 /**
  * WordPress dependencies
  */
@@ -168,11 +166,27 @@ function observeConsoleLogging() {
  * @return {?Promise} Promise resolving once Axe texts are finished.
  */
 async function runAxeTests() {
-	if ( true ) {
+	if ( await page.$( 'body.wp-admin' ) ) {
 		return;
 	}
 
-	await expect( page ).toPassAxeTests();
+	await expect( page ).toPassAxeTests( {
+		options: {
+			runOnly: {
+				type: 'tag',
+				values: [ 'wcag2a', 'wcag2aa' ],
+			},
+		},
+		exclude: [
+			[
+				[ '#wpadminbar' ],
+				[ '.skip-link' ], // Ignoring "region" requirement for the skip link, This is added to the markup already.
+			],
+		],
+		disabledRules: [
+			'landmark-unique', // Error appears in the markup from WordPress core related to individual widgets.
+		],
+	} );
 }
 
 /**
@@ -189,7 +203,7 @@ async function setupBrowser() {
  * Reset the site to default settings.
  */
 async function siteReset() {
-	await fetch( createURL( '/wp-json/astra/v1/e2e-utils/reset-site' ), {
+	await window.fetch( createURL( '/wp-json/astra/v1/e2e-utils/reset-site' ), {
 		method: 'DELETE',
 	} );
 }
@@ -207,6 +221,7 @@ beforeAll( async () => {
 	await setupBrowser();
 	await deactivatePlugin( 'gutenberg' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
 	await trashAllPosts();
+	await trashAllPosts( 'page' );
 	await siteReset();
 	await page.setDefaultNavigationTimeout( 10000 );
 	await page.setDefaultTimeout( 10000 );

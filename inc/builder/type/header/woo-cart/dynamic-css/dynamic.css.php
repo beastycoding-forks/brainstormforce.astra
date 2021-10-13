@@ -375,9 +375,9 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				'background-color' => esc_attr( $icon_color ),
 			),
 
-			// Label icon hover Color.
-			'.ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap,' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap' => array(
-				'color' => $icon_hover_color,
+			// Label/Fill icon hover Color.
+			'.ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap,' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap, .ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap' => array(
+				'color' => esc_attr( $icon_hover_color ),
 			),
 
 			// Outline icon hover Color.
@@ -409,11 +409,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-cart-menu-wrap, .ast-menu-cart-fill .ast-addon-cart-wrap .ast-woo-header-cart-info-wrap, .ast-menu-cart-fill .ast-addon-cart-wrap' => array(
 				'background-color' => esc_attr( $icon_color ),
 				'color'            => esc_attr( $cart_h_color ),
-			),
-
-			// Fill icon hover Color.
-			'.ast-menu-cart-fill .ast-site-header-cart-li:hover .ast-woo-header-cart-info-wrap' => array(
-				'color' => esc_attr( $icon_hover_color ),
 			),
 
 			// Fill icon hover Color.

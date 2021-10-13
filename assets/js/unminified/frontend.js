@@ -472,14 +472,22 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		 */
 		var container_menu, container_button, count;
 
-		container_menu = document.querySelectorAll( '.navigation-accessibility' );
-		container_button = document.querySelectorAll( '.ast-primary-header-bar' );
-
-		for ( count = 0; count <= container_menu.length - 1; count++ ) {
-			if ( container_menu[count] ) {
-				navigation_accessibility( container_menu[count], container_button[count] );
+		if ( body.classList.contains('ast-header-break-point') ) {
+			if ( 'off-canvas' === mobileHeaderType ) {
+				container_menu = document.querySelector( '.ast-mobile-popup-content .navigation-accessibility' );
+			} else if ( 'dropdown' === mobileHeaderType ) {
+				container_menu = document.querySelector( '#ast-mobile-header .navigation-accessibility' );
 			}
+			container_button = document.querySelector( '#ast-mobile-header .ast-primary-header-bar' );
+		} else {
+			if ( 'off-canvas' === mobileHeaderType ) {
+				container_menu = document.querySelector( '.ast-desktop-popup-content .navigation-accessibility' );
+			} else if ( 'dropdown' === mobileHeaderType ) {
+				container_menu = document.querySelector( '#ast-desktop-header .navigation-accessibility' );
+			}
+			container_button = document.querySelector( '#ast-desktop-header .ast-primary-header-bar' );
 		}
+		navigation_accessibility( container_menu, container_button );
 	});
 
 	var get_window_width = function () {

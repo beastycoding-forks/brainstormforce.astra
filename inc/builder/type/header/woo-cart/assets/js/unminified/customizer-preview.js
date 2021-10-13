@@ -61,21 +61,21 @@
 		'woo-cart-colors',
 		'astra-settings[header-woo-cart-background-color]',
 		'background-color',
-		'#ast-site-header-cart .widget_shopping_cart, #astra-mobile-cart-drawer' + responsive_selector
+		'#ast-site-header-cart .widget_shopping_cart, #astra-mobile-cart-drawer'
 	);
 
 	astra_color_responsive_css(
 		'woo-cart-border-color',
 		'astra-settings[header-woo-cart-background-color]',
 		'border-color',
-		'#ast-site-header-cart .widget_shopping_cart,' + responsive_selector + ' .widget_shopping_cart'
+		'#ast-site-header-cart .widget_shopping_cart, .widget_shopping_cart,.astra-cart-drawer'
 	);
 
 	astra_color_responsive_css(
 		'woo-cart-border-bottom-color',
 		'astra-settings[header-woo-cart-background-color]',
 		'border-bottom-color',
-		'#ast-site-header-cart .widget_shopping_cart, #astra-mobile-cart-drawer' + responsive_selector
+		'#ast-site-header-cart .widget_shopping_cart, #astra-mobile-cart-drawer, .astra-cart-drawer'
 	);
 
 	// Added Background Color Hover
@@ -83,21 +83,21 @@
 		'woo-cart-colors',
 		'astra-settings[header-woo-cart-background-hover-color]',
 		'background-color',
-		'#ast-site-header-cart .widget_shopping_cart:hover, #astra-mobile-cart-drawer' + responsive_selector + ':hover'
+		'#ast-site-header-cart .widget_shopping_cart:hover, #astra-mobile-cart-drawer:hover'
 	);
 
 	astra_color_responsive_css(
 		'woo-cart-border-color',
 		'astra-settings[header-woo-cart-background-hover-color]',
 		'border-color',
-		'#ast-site-header-cart .widget_shopping_cart:hover, #astra-mobile-cart-drawer' + responsive_selector + ':hover'
+		'#ast-site-header-cart .widget_shopping_cart:hover, #astra-mobile-cart-drawer:hover'
 	);
 
 	astra_color_responsive_css(
 		'woo-cart-border-bottom-color',
 		'astra-settings[header-woo-cart-background-hover-color]',
 		'border-bottom-color',
-		'#ast-site-header-cart .widget_shopping_cart:hover, #astra-mobile-cart-drawer' + responsive_selector + ':hover'
+		'#ast-site-header-cart .widget_shopping_cart:hover, #astra-mobile-cart-drawer:hover'
 	);
 	astra_color_responsive_css(
 		'woo-cart-colors',

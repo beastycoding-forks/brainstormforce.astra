@@ -24,7 +24,7 @@ describe( 'Separator in gutenberg editor', () => {
 		await page.click( '[aria-label="Align"] button:nth-child(2)' );
 		//to test width of separator
 		await expect( {
-			selector: '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > [data-align="wide"]',
+			selector: '.wp-block',
 			property: 'max-width',
 		} ).cssValueToBe( `1200px` );
 	} );

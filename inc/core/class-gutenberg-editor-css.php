@@ -845,7 +845,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.block-editor-block-list__layout.is-root-container > .wp-block' => array(
 						'margin' => '28px auto',
 					),
-					'.editor-styles-wrapper .block-editor-block-list__layout .wp-block [class*="__inner-container"] > .wp-block:not([data-align=wide]):not([data-align=full]):not([data-align=left]):not([data-align=right])' => array(
+					'.editor-styles-wrapper .block-editor-block-list__layout .wp-block [class*="__inner-container"] > .wp-block:not([data-align=wide]):not([data-align=full]):not([data-align=left]):not([data-align=right]):not(p.wp-block-paragraph)' => array(
 						'max-width' => '45rem',
 						'width'     => '100%',
 					),

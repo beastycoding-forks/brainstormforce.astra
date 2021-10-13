@@ -16,7 +16,7 @@ describe( 'Separator in gutenberg editor', () => {
 		} );
 		await insertBlock( 'Separator' );
 		await openDocumentSettingsSidebar();
-		await page.click( '.block-editor-block-styles__item.is-active .block-editor-block-styles__item-preview' );
+		await page.click( '.block-editor-block-styles__item[aria-label="Dots"]' );
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>
 			// eslint-disable-next-line @wordpress/no-global-active-element
@@ -24,11 +24,11 @@ describe( 'Separator in gutenberg editor', () => {
 				'components-dropdown-menu__menu-item',
 			),
 		);
-		await page.click( '[aria-label="Align"] button:nth-child(1)' );
+		await page.click( '[aria-label="Align"] button:nth-child(3)' );
 		//to test width of separator
 		await expect( {
-			selector: '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *',
-			property: 'max-width',
-		} ).cssValueToBe( `1200px` );
+			selector: '.wp-block',
+			property: 'width',
+		} ).cssValueToBe( '1119px' );
 	} );
 } );

@@ -177,10 +177,12 @@ async function runAxeTests() {
 				values: [ 'wcag2a', 'wcag2aa' ],
 			},
 		},
-		exclude: [ [
-			[ '#wpadminbar' ],
-			[ '.skip-link' ], // Ignoring "region" requirement for the skip link, This is added to the markup already.
-		] ],
+		exclude: [
+			[
+				[ '#wpadminbar' ],
+				[ '.skip-link' ], // Ignoring "region" requirement for the skip link, This is added to the markup already.
+			],
+		],
 		disabledRules: [
 			'landmark-unique', // Error appears in the markup from WordPress core related to individual widgets.
 		],

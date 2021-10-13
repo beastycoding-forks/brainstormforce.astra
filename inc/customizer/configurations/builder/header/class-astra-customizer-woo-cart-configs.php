@@ -207,8 +207,8 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 
 				/**
-			 	* Option: account Size
-			 	*/
+				* Option: account Size
+				*/
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-size]',
 					'section'           => $_section,

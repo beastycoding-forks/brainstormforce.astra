@@ -24,35 +24,9 @@ class Astra_Global_Palette {
 	 * @since 3.7.0
 	 */
 	public function __construct() {
-		/**
-		 * Support for overriding theme.json from the child theme
-		 *
-		 * If theme.json is not present in the child theme load Global Color Palette in the editor using add_theme_support( 'editor-color-palette', $editor_palette );.
-		 * This is a known issue in Gutenberg - If theme.json is not present in the child theme, it does fallback to the parent theme's theme.json file.
-		 * This will be fixed in the future updates of WordPress/Gutenberg.
-		 *
-		 * @see https://github.com/WordPress/gutenberg/pull/34354
-		 */
-		$get_stylesheet = get_stylesheet_directory();
-		$is_theme_json  = $get_stylesheet . '/theme.json';
-		if ( ( get_template_directory() !== $get_stylesheet && false === file_exists( $is_theme_json ) ) || astra_wp_version_compare( '5.8', '<' ) ) {
-			add_action( 'after_setup_theme', array( $this, 'support_editor_color_palette' ) );
-		}
 		add_filter( 'astra_theme_customizer_js_localize', array( $this, 'localize_variables' ) );
 		add_filter( 'astra_before_foreground_color_generation', array( $this, 'get_color_by_palette_variable' ) );
 		$this->includes();
-	}
-
-	/**
-	 * Modify color palette from Gutenberg.
-	 *
-	 * @since 3.7.0
-	 * @return void
-	 */
-	public function support_editor_color_palette() {
-		$global_palette = astra_get_option( 'global-color-palette' );
-		$editor_palette = $this->format_global_palette( $global_palette );
-		add_theme_support( 'editor-color-palette', $editor_palette );
 	}
 
 	/**

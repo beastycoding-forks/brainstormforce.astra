@@ -146,6 +146,10 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'background-color' => esc_attr( $icon_color ),
 		),
 
+		$selector . ' a.cart-container *' => array(
+			'transition' => 'none',
+		),
+
 		$selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap i.astra-icon:after' => array(
 			'color'            => esc_attr( $theme_h_color ),
 			'background-color' => esc_attr( $icon_hover_color ),
@@ -392,7 +396,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			),
 
 			// Outline icon hover colors.
-			'.ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-addon-cart-wrap .astra-icon' => array(
+			'.ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, .ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-addon-cart-wrap .astra-icon' => array(
 				'color' => esc_attr( $icon_hover_color ),
 			),
 

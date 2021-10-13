@@ -25,7 +25,7 @@ describe( 'Separator in gutenberg editor', () => {
 		//to test width of separator
 		await expect( {
 			selector: '.wp-block',
-			property: 'max-width',
-		} ).cssValueToBe( `1200px` );
+			property: 'width',
+		} ).cssValueToBe( `1119px` );
 	} );
 } );

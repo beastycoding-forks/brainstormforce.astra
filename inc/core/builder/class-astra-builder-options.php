@@ -936,7 +936,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
-	$defaults['header-woo-cart-icon-size']       = array(
+	$defaults['header-woo-cart-icon-size']              = array(
 		'desktop' => '',
 		'tablet'  => '',
 		'mobile'  => '',

@@ -50,7 +50,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/**
 	 * - WooCommerce cart styles.
 	 */
-	$cart_icon_size = astra_get_option( 'header-woo-cart-icon-size' );
+	$cart_icon_size       = astra_get_option( 'header-woo-cart-icon-size' );
 	$cart_text_color      = astra_get_option( 'header-woo-cart-text-color' );
 	$cart_link_color      = astra_get_option( 'header-woo-cart-link-color' );
 	$cart_bg_color        = astra_get_option( 'header-woo-cart-background-color' );

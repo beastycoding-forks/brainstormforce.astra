@@ -327,6 +327,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'section-footer-menu-margin',
 		'section-primary-footer-builder-padding',
 		'section-primary-footer-builder-margin',
+		'section-header-woo-cart-padding',
+		'section-header-woo-cart-margin',
 	);
 
 	foreach ( $margin_defaults as $margin_default ) {

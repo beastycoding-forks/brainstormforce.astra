@@ -820,11 +820,20 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.editor-styles-wrapper' => array(
 						'padding' => '0',
 					),
-					'.wp-block'              => array(
+					'.block-editor-block-list__layout > .wp-block-cover, .block-editor-block-list__layout > .wp-block-group, .block-editor-block-list__layout > .wp-block-columns, .block-editor-block-list__layout > .wp-block-media-text' => array(
 						'max-width' => '910px',
+					),
+					'.ast-page-builder-template .wp-block:not(.wp-block-cover):not(.wp-block-group):not(.wp-block-columns):not(.wp-block-media-text):not([data-align=wide]):not([data-align=full]):not([data-align=left]):not([data-align=right])' => array(
+						'max-width' => '100%',
+					),
+					'.wp-block[data-align=wide], .ast-plain-container .wp-block:not(.wp-block-cover):not(.wp-block-group):not(.wp-block-columns):not(.wp-block-media-text):not([data-align=wide]):not([data-align=full]):not([data-align=left]):not([data-align=right]):not(p.wp-block-paragraph)' => array(
+						'max-width' => astra_get_css_value( $site_content_width, 'px' ),
 					),
 					'.edit-post-visual-editor .editor-post-title__input' => array(
 						'padding' => '20px',
+					),
+					'p.wp-block-paragraph' => array(
+						'max-width'        => astra_get_css_value( $site_content_width - 56, 'px' ),
 					),
 					'.block-editor-block-list__layout > .wp-block-group, .block-editor-block-list__layout > .wp-block-cover, .wp-block[data-align=center] .wp-block-cover, .wp-block[data-align=center] .wp-block-group' => array(
 						'margin' => '0 auto',

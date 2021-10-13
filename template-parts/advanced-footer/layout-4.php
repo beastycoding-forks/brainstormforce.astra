@@ -23,7 +23,7 @@ if ( ! is_user_logged_in() ) {
 	}
 }
 
-$astra_footer_classes = array();
+$astra_footer_classes   = array();
 $astra_footer_classes[] = 'footer-adv';
 $astra_footer_classes[] = 'footer-adv-layout-4';
 $astra_footer_classes   = implode( ' ', $astra_footer_classes );

@@ -21,7 +21,7 @@ describe( 'Separator in gutenberg editor', () => {
 				'components-dropdown-menu__menu-item',
 			),
 		);
-		await page.click( '[aria-label="Align"] button:nth-child(2)' );
+		await page.click( '[aria-label="Align"] button:nth-child(3)' );
 		//to test width of separator
 		await expect( {
 			selector: '.wp-block',

@@ -2258,7 +2258,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-left'  => 'auto',
 						'margin-right' => 'auto',
 					),
-					'.entry-content [class*="__inner-container"] > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide)' => array(
+					'.entry-content [class*="__inner-container"] > *:not(.alignwide):not(p):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide)' => array(
 						'max-width' => '50rem',
 						'width'     => '100%',
 					),
@@ -2282,6 +2282,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= astra_parse_css( $core_blocks_min_width_tablet_ui_css, astra_get_tablet_breakpoint() );
 
 				$core_blocks_min_width_1200_ui_css = array(
+					'.entry-content .alignfull p' => array(
+						'max-width'    => astra_get_css_value( $site_content_width, 'px' ),
+					),
 					'.entry-content .alignfull' => array(
 						'max-width' => '100%',
 						'width'     => '100%',

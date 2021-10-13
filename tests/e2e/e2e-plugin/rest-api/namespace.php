@@ -87,4 +87,30 @@ function rest_route() : void {
 			),
 		)
 	);
+
+	register_rest_route(
+		REST_NAMESPACE,
+		REST_BASE . '/get-astra-settings',
+		array(
+			array(
+				'methods'             => WP_Rest_Server::READABLE,
+				'callback'            => function ( WP_Rest_Request $response ) {
+					return rest_ensure_response(
+						array(
+							'success' => true,
+							'settings' => astra_get_option( $response['key'] ),
+						)
+					);
+				},
+				'permission_callback' => '__return_true',
+				'args'                => array(
+					'key' => array(
+						'default'  => '',
+						'required' => true,
+						'sanitize_callback' => 'sanitize_text_field',
+					),
+				),
+			),
+		)
+	);
 }

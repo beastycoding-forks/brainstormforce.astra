@@ -39,11 +39,11 @@ describe( 'Pullquote in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-pullquote',
 			property: 'padding-left',
-		} ).cssValueToBe( `20px` );
+		} ).cssValueToBe( `0px` );
 		await expect( {
 			selector: '.wp-block-pullquote',
 			property: 'padding-right',
-		} ).cssValueToBe( `20px` );
+		} ).cssValueToBe( `0px` );
 		//to test the margin
 		await expect( {
 			selector: '.wp-block-pullquote',

@@ -8,8 +8,8 @@ import {
 	openDocumentSettingsSidebar,
 } from '@wordpress/e2e-test-utils';
 
-describe( 'Separator in gutenberg editor', () => {
-	it( 'test separartor in the block editor', async () => {
+describe( 'separator in gutenberg editor for wide line style ', () => {
+	it( 'test separartor in the block editor for center alignment', async () => {
 		await createNewPost( {
 			postType: 'post',
 			title: 'test separator',

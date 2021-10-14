@@ -1566,7 +1566,8 @@
       <code>astra_get_mobile_breakpoint()</code>
       <code>astra_get_tablet_breakpoint()</code>
     </InvalidArgument>
-    <InvalidOperand occurrences="1">
+    <InvalidOperand occurrences="2">
+	  <code>Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-header-woo-cart', '.ast-site-header-cart-li' )</code>
       <code>Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' )</code>
     </InvalidOperand>
     <InvalidScalarArgument occurrences="1">

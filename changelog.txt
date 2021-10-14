@@ -21,6 +21,7 @@ v3.7.4 (Unreleased)
 - Fix: Gutenberg editor and frontend font weight was not the same for heading typographies
 - Fix: The Gutenberg plugin v11.4.1 breaks the title / reduces the title space.
 - Fix: Broken layout of WooCommerce's products shortcode grid on mobile view.
+- Fix: The hamburger button is not changing its aria-expanded attribute to true on expanding.
 
 v3.7.3
 - Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.

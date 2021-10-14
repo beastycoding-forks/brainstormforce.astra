@@ -12,7 +12,7 @@ import {
 } from '@wordpress/e2e-test-utils';
 
 describe( 'Classic', () => {
-	it( 'should insert media & assert width', async () => {
+	beforeAll( async () => {
 		await createNewPost( {
 			postType: 'post',
 			title: 'classic block',
@@ -44,6 +44,9 @@ describe( 'Classic', () => {
 		await page.waitForSelector(
 			`.media-modal li[aria-label="${ filename }"]`,
 		);
+	} );
+
+	it( 'should insert media & assert width', async () => {
 		await page.click( '.media-modal button.media-button-gallery' );
 		await page.click( '.media-modal button.media-button-insert' );
 		await page.waitForSelector( '.mce-content-body img' );

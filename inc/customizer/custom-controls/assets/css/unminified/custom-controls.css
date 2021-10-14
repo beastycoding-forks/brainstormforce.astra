@@ -1494,7 +1494,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider > label.ast-divider-title, .ast-bottom-divider > label.ast-divider-title,
-.customize-control-ast-color-group > .ast-divider-title {
+.customize-control-ast-color-group > .ast-divider-title,
+.customize-control-ast-heading .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;

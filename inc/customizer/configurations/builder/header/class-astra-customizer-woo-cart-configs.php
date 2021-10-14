@@ -177,17 +177,18 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Icon color
+			 * Option: Icon color section
 			 */
 			array(
-				'name'              => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-color]',
-				'default'           => astra_get_option( 'header-woo-cart-icon-color' ),
-				'type'              => 'control',
-				'control'           => 'ast-color',
-				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				'transport'         => 'postMessage',
-				'title'             => __( 'Color', 'astra' ),
-				'context'           => array(
+				'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-colors]',
+				'default'    => astra_get_option( 'header-woo-cart-icon-colors' ),
+				'type'       => 'control',
+				'control'    => 'ast-color-group',
+				'title'      => __( 'Color', 'astra' ),
+				'section'    => $_section,
+				'transport'  => 'postMessage',
+				'priority'   => 45,
+				'context'    => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
@@ -195,8 +196,43 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 						'value'    => 'none',
 					),
 				),
-				'section'           => $_section,
-				'priority'          => 45,
+				'responsive' => false,
+			),
+
+			/**
+			 * Option: Icon Normal Color section
+			 */
+			array(
+				'type'       => 'sub-control',
+				'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-colors]',
+				'section'    => $_section,
+				'control'    => 'ast-responsive-color',
+				'transport'  => 'postMessage',
+				'name'       => 'header-woo-cart-icon-color',
+				'default'    => astra_get_option( 'header-woo-cart-icon-color' ),
+				'title'      => __( 'Normal', 'astra' ),
+				'responsive' => false,
+				'rgba'       => true,
+				'priority'   => 65,
+				'context'    => Astra_Builder_Helper::$design_tab,
+			),
+
+			/**
+			 * Option: Icon Hover Color section
+			 */
+			array(
+				'type'       => 'sub-control',
+				'control'    => 'ast-responsive-color',
+				'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-colors]',
+				'section'    => $_section,
+				'transport'  => 'postMessage',
+				'name'       => 'header-woo-cart-icon-hover-color',
+				'default'    => astra_get_option( 'header-woo-cart-icon-hover-color' ),
+				'title'      => __( 'Hover', 'astra' ),
+				'responsive' => false,
+				'rgba'       => true,
+				'priority'   => 65,
+				'context'    => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -250,6 +286,12 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'priority'          => 85,
 			),
 		);
+
+		/**
+		 * Adding the Margin and Padding option.
+		 * $_section: section-header-woo-cart.
+		 */
+		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
 
 		$configurations = array_merge( $configurations, $_configs );
 

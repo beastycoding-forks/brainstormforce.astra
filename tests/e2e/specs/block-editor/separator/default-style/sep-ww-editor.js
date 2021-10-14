@@ -6,7 +6,6 @@ import {
 	createNewPost,
 	clickBlockToolbarButton,
 } from '@wordpress/e2e-test-utils';
-
 describe( 'Separator in gutenberg editor for default style ', () => {
 	it( 'test separartor in the block editor for wide width alignment', async () => {
 		await createNewPost( {

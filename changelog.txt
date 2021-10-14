@@ -13,8 +13,13 @@ v3.7.4 (Unreleased)
 - Fix: W3 validator - Duplicate HTML id 'site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validator - CSS parse error for '.menu-link' & '.wp-block-button__link'.
 - Fix: Image and Text blocks alignment not working properly with Image size - Medium in the editor.
+- Fix: Alignwide blocks getting horizontal scrollbar on tablet breakpoint & 1400px between devices. (Props - https://github.com/ZebulanStanphill)
+- Fix: Inner container Gutenberg block's content width not affected by "Container Width" option. (Props - https://github.com/ZebulanStanphill)
 - Fix: WooCommerce - Broken grid layout on mobile view for products shortcode.
 - Fix: Title is misaligned in Gutenberg editor when the Gutenberg plugin v11.4.1 and above is active.
+- Fix: Gutenberg editor and frontend font weight was not the same for heading typographies
+- Fix: The Gutenberg plugin v11.4.1 breaks the title / reduces the title space.
+- Fix: Broken layout of WooCommerce's products shortcode grid on mobile view.
 
 v3.7.3
 - Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.

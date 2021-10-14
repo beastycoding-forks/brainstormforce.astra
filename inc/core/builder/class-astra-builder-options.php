@@ -1139,8 +1139,6 @@ function astra_prepare_button_defaults( $defaults, $index ) {
 
 	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = Astra_Builder_Helper::$default_responsive_spacing;
 	$defaults[ 'section-hb-button-' . $index . '-margin' ]    = Astra_Builder_Helper::$default_responsive_spacing;
-	$defaults[ 'sticky-header-button' . $index . '-padding' ] = Astra_Builder_Helper::$default_responsive_spacing;
-
 
 	$_prefix = 'button' . $index;
 

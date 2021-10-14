@@ -18,6 +18,10 @@ describe( 'Code', () => {
 		await page.waitForSelector( '.block-editor-block-list__block' );
 		await expect( {
 			selector: '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *',
+			property: 'width',
+		} ).cssValueToBe( `974.906px` );
+		await expect( {
+			selector: '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *',
 			property: 'margin-top',
 		} ).cssValueToBe( `15px` );
 		await expect( {

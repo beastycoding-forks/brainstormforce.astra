@@ -1,4 +1,4 @@
-import {createNewPost,insertBlock} from '@wordpress/e2e-test-utils';
+import { createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
 
 describe( 'Preformatted', () => {
 	beforeEach( async () => {

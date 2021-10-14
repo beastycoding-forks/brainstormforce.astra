@@ -473,19 +473,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var containerMenu, containerButton, count;
 
 		if ( body.classList.contains('ast-header-break-point') ) {
-			if ( 'off-canvas' === mobileHeaderType ) {
-				containerMenu = document.querySelector( '.ast-mobile-popup-content .navigation-accessibility' );
-			} else if ( 'dropdown' === mobileHeaderType ) {
-				containerMenu = document.querySelector( '#ast-mobile-header .navigation-accessibility' );
-			}
-			containerButton = document.querySelector( '#ast-mobile-header .ast-primary-header-bar' );
+			containerMenu = document.querySelector( '#ast-mobile-site-navigation' );
+			containerButton = document.querySelector( '#ast-mobile-header' );
 		} else {
-			if ( 'off-canvas' === mobileHeaderType ) {
-				containerMenu = document.querySelector( '.ast-desktop-popup-content .navigation-accessibility' );
-			} else if ( 'dropdown' === mobileHeaderType ) {
-				containerMenu = document.querySelector( '#ast-desktop-header .navigation-accessibility' );
-			}
-			containerButton = document.querySelector( '#ast-desktop-header .ast-primary-header-bar' );
+			containerMenu = document.querySelector( '#ast-desktop-site-navigation' );
+			containerButton = document.querySelector( '#ast-desktop-header' );
 		}
 		navigation_accessibility( containerMenu, containerButton );
 	});
@@ -832,10 +824,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			var popupClose = document.getElementById( 'menu-toggle-close' );
 			popupClose.onclick = function() {
 				if ( -1 !== containerMenu.className.indexOf( 'toggled' ) ) {
+					console.log('close false');
 					containerMenu.className = containerMenu.className.replace( ' toggled', '' );
 					button.setAttribute( 'aria-expanded', 'false' );
 					menu.setAttribute( 'aria-expanded', 'false' );
 				} else {
+					console.log('close true');
 					containerMenu.className += ' toggled';
 					button.setAttribute( 'aria-expanded', 'true' );
 					menu.setAttribute( 'aria-expanded', 'true' );
@@ -845,10 +839,12 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		button.onclick = function() {
 			if ( -1 !== containerMenu.className.indexOf( 'toggled' ) ) {
+				console.log('btn false');
 				containerMenu.className = containerMenu.className.replace( ' toggled', '' );
 				button.setAttribute( 'aria-expanded', 'false' );
 				menu.setAttribute( 'aria-expanded', 'false' );
 			} else {
+				console.log('btn true');
 				containerMenu.className += ' toggled';
 				button.setAttribute( 'aria-expanded', 'true' );
 				menu.setAttribute( 'aria-expanded', 'true' );

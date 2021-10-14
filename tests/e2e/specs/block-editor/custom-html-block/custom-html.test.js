@@ -15,7 +15,7 @@ describe( 'custom html block in the gutenberg editor', () => {
 		await expect( {
 			selector: '.block-library-html__edit .block-editor-plain-text',
 			property: 'width',
-		} ).cssValueToBe( `975.235px` );
+		} ).cssValueToBe( `974.906px` );
 	} );
 	it( 'assert margin of the custom html in the block editor', async () => {
 		await page.waitForSelector( '.block-library-html__edit .block-editor-plain-text' );

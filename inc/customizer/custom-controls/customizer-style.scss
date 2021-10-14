@@ -193,7 +193,20 @@ input[type="text"] {
 }
 
 /* Hiding this specific control on responsive devices.  */
-.preview-tablet #customize-control-astra-settings-woo-desktop-cart-flyout-width,
-.preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-width {
-    display: none;
+.preview-tablet {
+	#customize-control-astra-settings-woo-desktop-cart-flyout-width {
+		display: none;
+	}
+	#customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+		display: none;
+	}
 }
+.preview-mobile {
+	#customize-control-astra-settings-woo-desktop-cart-flyout-width {
+		display: none;
+	}
+	#customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+		display: none;
+	}
+}
+

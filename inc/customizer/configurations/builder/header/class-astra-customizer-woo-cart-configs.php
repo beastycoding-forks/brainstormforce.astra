@@ -86,7 +86,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
 				'default'    => astra_get_option( 'woo-header-cart-click-action' ),
 				'type'       => 'control',
-				'transport'  => 'postMessage',
 				'section'    => $_section,
 				'title'      => __( 'Cart Click Action', 'astra' ),
 				'control'    => 'ast-selector',
@@ -99,6 +98,34 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'renderAs'   => 'text',
 				'context'   => Astra_Builder_Helper::$desktop_general_tab,
 				'divider'  => array( 'ast_class' => 'ast-top-divider' ),
+			),
+
+			/**
+			 * Option: Woo sidebar Off-Canvas Slide-Out.
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-desktop-cart-flyout-direction]',
+				'default'    => astra_get_option( 'woo-desktop-cart-flyout-direction' ),
+				'type'       => 'control',
+				'transport'  => 'postMessage',
+				'control'    => 'ast-selector',
+				'section'    => $_section,
+				'priority'   => 65,
+				'title'      => __( 'Position', 'astra' ),
+				'choices'    => array(
+					'left'  => __( 'Left', 'astra' ),
+					'right' => __( 'Right', 'astra' ),
+				),
+				'context'     => array(
+					Astra_Builder_Helper::$desktop_general_tab,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
+						'operator' => '==',
+						'value'    => 'flyout',
+					),
+				),
+				'renderAs'   => 'text',
+				'responsive' => false,
 			),
 
 			/**
@@ -121,7 +148,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'title'       => __( 'Flyout Width', 'astra' ),
 				'control'     => 'ast-slider',
 				'suffix'      => '%',
-				'priority'    => 65,
+				'priority'    => 70,
 				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,

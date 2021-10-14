@@ -1,17 +1,9 @@
-/**
- * WordPress dependencies
- */
-import {
-	insertBlock,
-	createNewPost,
-} from '@wordpress/e2e-test-utils';
-
-describe( 'Code', () => {
+import { insertBlock, createNewPost } from '@wordpress/e2e-test-utils';
+describe( 'Code in gutenberg editor', () => {
 	beforeEach( async () => {
 		await createNewPost();
 	} );
-
-	it( 'can be created by three backticks and enter', async () => {
+	it( 'assert default width, padding and margin of the code in the block editor', async () => {
 		await insertBlock( 'Code' );
 		await page.keyboard.press( 'Enter' );
 		await page.keyboard.type( '<?php' );

@@ -2,7 +2,6 @@
  * WordPress dependencies
  */
 import {
-	insertBlock,
 	clickBlockAppender,
 	getEditedPostContent,
 	createNewPost,
@@ -24,7 +23,7 @@ describe( 'Code', () => {
 		await expect( {
 			selector: '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *',
 			property: 'margin-top',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `15px` );
 		await expect( {
 			selector: '.edit-post-visual-editor pre',
 			property: 'margin-bottom',

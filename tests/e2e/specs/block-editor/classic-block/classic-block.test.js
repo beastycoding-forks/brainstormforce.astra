@@ -11,6 +11,39 @@ import {
 	insertBlock,
 } from '@wordpress/e2e-test-utils';
 
+async function upload( selector ) {
+	await page.waitForSelector( selector );
+	await page.focus( selector );
+	await page.keyboard.type( 'test' );
+
+	await page.waitForSelector( 'div[aria-label^="Add Media"]' );
+	await page.click( 'div[aria-label^="Add Media"]' );
+
+	await page.click( '.media-menu-item#menu-item-gallery' );
+	await page.waitForSelector( '.media-modal input[type=file]' );
+	const inputElement = await page.$( '.media-modal input[type=file]' );
+	const testImagePath = path.join(
+		__dirname,
+		'..',
+		'..',
+		'..',
+		'assets',
+		'pic.png',
+	);
+	const filename = uuid();
+	const tmpFileName = path.join( os.tmpdir(), filename + '.png' );
+	fs.copyFileSync( testImagePath, tmpFileName );
+	await inputElement.uploadFile( tmpFileName );
+
+	return filename;
+}
+
+async function waitForImage( filename ) {
+	await page.waitForSelector(
+		`.media-modal li[aria-label="${ filename }"]`,
+	);
+}
+
 describe( 'Classic', () => {
 	beforeAll( async () => {
 		await createNewPost( {
@@ -18,32 +51,9 @@ describe( 'Classic', () => {
 			title: 'classic block',
 		} );
 		await insertBlock( 'Classic' );
-		await page.waitForSelector( '.mce-content-body' );
-		await page.focus( '.mce-content-body' );
-		await page.keyboard.type( 'test' );
 
-		await page.waitForSelector( 'div[aria-label^="Add Media"]' );
-		await page.click( 'div[aria-label^="Add Media"]' );
-
-		await page.click( '.media-menu-item#menu-item-gallery' );
-		await page.waitForSelector( '.media-modal input[type=file]' );
-		const inputElement = await page.$( '.media-modal input[type=file]' );
-		const testImagePath = path.join(
-			__dirname,
-			'..',
-			'..',
-			'..',
-			'assets',
-			'pic.png',
-		);
-		const filename = uuid();
-		const tmpFileName = path.join( os.tmpdir(), filename + '.png' );
-		fs.copyFileSync( testImagePath, tmpFileName );
-		await inputElement.uploadFile( tmpFileName );
-
-		await page.waitForSelector(
-			`.media-modal li[aria-label="${ filename }"]`,
-		);
+		const filename = await upload( '.mce-content-body' );
+		await waitForImage( filename );
 	} );
 
 	it( 'should insert media & assert width', async () => {

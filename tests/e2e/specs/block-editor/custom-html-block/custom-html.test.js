@@ -6,7 +6,11 @@ describe( 'custom html block in the gutenberg editor', () => {
 			title: 'html',
 		} );
 		await insertBlock( 'Custom HTML' );
-
+		await page.keyboard.type( '<p>Pythagorean theorem: ' );
+		await page.keyboard.press( 'Enter' );
+		await page.keyboard.type(
+			'<var>a</var><sup>2</sup> + <var>b</var><sup>2</sup> = <var>c</var><sup>2</sup> </p>',
+		);
 		await page.waitForSelector( '.block-library-html__edit .block-editor-plain-text' );
 		await expect( {
 			selector: '.block-library-html__edit .block-editor-plain-text',

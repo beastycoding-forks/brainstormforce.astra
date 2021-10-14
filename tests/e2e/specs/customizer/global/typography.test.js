@@ -4,7 +4,7 @@ import {
 	setPostContent,
 	publishPost,
 } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../utils/post';
 
 describe( 'Global Typography settings in the customizer', () => {

@@ -126,11 +126,6 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_button_bg_h_color_tablet  = ( ! empty( $cart_button_bg_h_color['tablet'] ) ) ? $cart_button_bg_h_color['tablet'] : '';
 
 	/**
-	 * Woo Cart Icon.
-	 */
-
-
-	/**
 	 * Woo Cart CSS.
 	 */
 	$css_output_desktop = array(

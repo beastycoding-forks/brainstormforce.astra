@@ -1,8 +1,4 @@
-import {
-	getEditedPostContent,
-	createNewPost,
-	insertBlock,
-} from '@wordpress/e2e-test-utils';
+import {createNewPost,insertBlock} from '@wordpress/e2e-test-utils';
 
 describe( 'Preformatted', () => {
 	beforeEach( async () => {
@@ -18,8 +14,6 @@ describe( 'Preformatted', () => {
 		await page.keyboard.type( '3' );
 		await page.keyboard.press( 'ArrowLeft' );
 		await page.keyboard.press( 'Backspace' );
-
-		expect( await getEditedPostContent() ).toMatchSnapshot();
 		await page.waitForSelector( '.block-editor-block-list__block' );
 		await expect( {
 			selector: '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *',

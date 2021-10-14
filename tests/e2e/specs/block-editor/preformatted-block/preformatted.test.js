@@ -1,10 +1,9 @@
 import { createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
-
-describe( 'Preformatted', () => {
+describe( 'Preformatted in gutenberg editor', () => {
 	beforeEach( async () => {
 		await createNewPost();
 	} );
-	it( 'should preserve white space when merging', async () => {
+	it( 'assert default width, margin and padding of the Preformatted in the block editor', async () => {
 		await insertBlock( 'Preformatted' );
 		await page.keyboard.type( '1' );
 		await page.keyboard.press( 'Enter' );

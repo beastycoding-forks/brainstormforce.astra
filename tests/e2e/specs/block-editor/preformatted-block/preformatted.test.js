@@ -1,4 +1,4 @@
-import {createNewPost,insertBlock} from '@wordpress/e2e-test-utils';
+import { createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
 
 describe( 'Preformatted', () => {
 	beforeEach( async () => {
@@ -15,6 +15,10 @@ describe( 'Preformatted', () => {
 		await page.keyboard.press( 'ArrowLeft' );
 		await page.keyboard.press( 'Backspace' );
 		await page.waitForSelector( '.block-editor-block-list__block' );
+		await expect( {
+			selector: '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *',
+			property: 'width',
+		} ).cssValueToBe( `974.9px` );
 		await expect( {
 			selector: '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *',
 			property: 'margin-top',

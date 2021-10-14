@@ -66,6 +66,11 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$checkout_button_text_h_color = astra_get_option( 'header-woo-checkout-btn-text-hover-color' );
 	$checkout_button_bg_h_color   = astra_get_option( 'header-woo-checkout-btn-bg-hover-color' );
 
+	/**
+	 * - Display Cart Badge
+	 */
+	$cart_badge_display = astra_get_option( 'woo-header-cart-badge-display' );
+
 	$header_cart_icon = '';
 
 	$cart_text_color_desktop = ( ! empty( $cart_text_color['desktop'] ) ) ? $cart_text_color['desktop'] : '';
@@ -422,6 +427,18 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		}
 
 		$css_output .= astra_parse_css( $header_cart_icon );
+	}
+
+	/**
+	 * Woo Cart Display Badge.
+	 */
+	if ( false === $cart_badge_display ) {
+		$css_badge_output = array(
+			'i.astra-icon.ast-icon-shopping-basket::after, i.astra-icon.ast-icon-shopping-cart::after, i.astra-icon.ast-icon-shopping-bag::after' => array(
+				'display' => 'none',
+			),
+		);
+		$css_output      .= astra_parse_css( $css_badge_output );
 	}
 
 	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' );

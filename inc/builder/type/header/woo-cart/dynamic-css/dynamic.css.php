@@ -11,8 +11,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Search
- */
+* Search
+*/
 add_filter( 'astra_dynamic_theme_css', 'astra_hb_woo_cart_dynamic_css' );
 
 /**
@@ -48,8 +48,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	}
 
 	/**
-	 * - WooCommerce cart styles.
-	 */
+	* - WooCommerce cart styles.
+	*/
 	$cart_text_color      = astra_get_option( 'header-woo-cart-text-color' );
 	$cart_link_color      = astra_get_option( 'header-woo-cart-link-color' );
 	$cart_bg_color        = astra_get_option( 'header-woo-cart-background-color' );
@@ -121,8 +121,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_button_bg_h_color_tablet  = ( ! empty( $cart_button_bg_h_color['tablet'] ) ) ? $cart_button_bg_h_color['tablet'] : '';
 
 	/**
-	 * Woo Cart CSS.
-	 */
+	* Woo Cart CSS.
+	*/
 	$css_output_desktop = array(
 
 		$selector . ' .ast-cart-menu-wrap, ' . $selector . ' .ast-addon-cart-wrap' => array(
@@ -144,8 +144,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'background-color' => esc_attr( $icon_color ),
 		),
 		/**
-		 * Transparent Header - Woo Cart icon color.
-		 */
+		* Transparent Header - Woo Cart icon color.
+		*/
 		$trans_header_selector . ' .ast-cart-menu-wrap, ' . $trans_header_selector . ' .ast-addon-cart-wrap' => array(
 			'color' => $transparent_header_icon_color,
 		),
@@ -165,8 +165,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'background-color' => esc_attr( $transparent_header_icon_color ),
 		),
 		/**
-		 * General Woo Cart tray color for widget
-		 */
+		* General Woo Cart tray color for widget
+		*/
 		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a:not(.button)' => array(
 			'color' => esc_attr( $cart_link_color_desktop ),
 		),
@@ -200,8 +200,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 		/**
-		 * Cart button color for widget
-		 */
+		* Cart button color for widget
+		*/
 		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a.button.wc-forward:not(.checkout)' => array(
 			'color'            => esc_attr( $cart_button_text_color_desktop ),
 			'background-color' => esc_attr( $cart_button_bg_color_desktop ),
@@ -212,8 +212,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 		/**
-		 * Checkout button color for widget
-		 */
+		* Checkout button color for widget
+		*/
 		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a.button.checkout.wc-forward' => array(
 			'color'            => esc_attr( $checkout_button_text_color_desktop ),
 			'border-color'     => esc_attr( $checkout_button_bg_color_desktop ),
@@ -262,8 +262,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color' => esc_attr( $cart_h_link_color_mobile ),
 		),
 		/**
-		 * Checkout button color for widget
-		 */
+		* Checkout button color for widget
+		*/
 		$responsive_selector . ' .widget_shopping_cart_content a.button.checkout.wc-forward' => array(
 			'color'            => esc_attr( $checkout_button_text_color_mobile ),
 			'border-color'     => esc_attr( $checkout_button_bg_color_mobile ),
@@ -275,8 +275,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 		/**
-		 * Cart button color for widget
-		 */
+		* Cart button color for widget
+		*/
 		$responsive_selector . ' .widget_shopping_cart_content a.button.wc-forward:not(.checkout)' => array(
 			'color'            => esc_attr( $cart_button_text_color_mobile ),
 			'background-color' => esc_attr( $cart_button_bg_color_mobile ),
@@ -321,8 +321,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'color' => esc_attr( $cart_h_link_color_tablet ),
 		),
 		/**
-		 * Checkout button color for widget
-		 */
+		* Checkout button color for widget
+		*/
 		$responsive_selector . ' .widget_shopping_cart_content a.button.checkout.wc-forward' => array(
 			'color'            => esc_attr( $checkout_button_text_color_tablet ),
 			'border-color'     => esc_attr( $checkout_button_bg_color_tablet ),
@@ -334,8 +334,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 
 		/**
-		 * Cart button color for widget
-		 */
+		* Cart button color for widget
+		*/
 		$responsive_selector . ' .widget_shopping_cart_content a.button.wc-forward:not(.checkout)' => array(
 			'color'            => esc_attr( $cart_button_text_color_tablet ),
 			'background-color' => esc_attr( $cart_button_bg_color_tablet ),
@@ -424,6 +424,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$css_output .= astra_parse_css( $header_cart_icon );
 	}
 
+	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-header-woo-cart', '.ast-site-header-cart-li' );
 	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' );
 
 	$dynamic_css .= $css_output;

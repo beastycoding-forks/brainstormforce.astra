@@ -382,12 +382,12 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 			// Outline icon hover Color.
 			$selector . ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count, .ast-menu-cart-outline .ast-site-header-cart-li:hover .ast-addon-cart-wrap' => array(
-				'border-color' => $icon_hover_color,
+				'border-color' => esc_attr( $icon_hover_color ),
 			),
 
 			$selector . ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap .count' => array(
-				'color'        => $icon_hover_color,
-				'border-color' => $icon_hover_color,
+				'color'        => esc_attr( $icon_hover_color ),
+				'border-color' => esc_attr( $icon_hover_color ),
 			),
 
 			// Outline icon colors.

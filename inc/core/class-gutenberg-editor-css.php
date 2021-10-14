@@ -364,10 +364,10 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'background' => 'inherit !important',
 				);
 				$desktop_css['.ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper'] = $background_style_data;
-				$desktop_css['.wp-block[data-align=left]>*'] = array(
+				$desktop_css['.wp-block[data-align=left]>*']                            = array(
 					'float' => 'left',
 				);
-				$desktop_css['.wp-block[data-align=right]>*'] = array(
+				$desktop_css['.wp-block[data-align=right]>*']                           = array(
 					'float' => 'right',
 				);
 				$desktop_css['.wp-block[data-align=left], .wp-block[data-align=right]'] = array(
@@ -1013,14 +1013,14 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'padding-right'  => 'calc( 6.67em - 28px )',
 				),
 				'.ast-separate-container .editor-post-title' => array(
-					'padding-top'    => 'calc( 5.34em - 19px)',
+					'padding-top'    => '62px',
 					'padding-bottom' => '5.34em',
-					'padding-left'   => 'calc( 6.67em - 28px )',
-					'padding-right'  => 'calc( 6.67em - 28px )',
+					'padding-left'   => '72px',
+					'padding-right'  => '72px',
 				),
 
 				'.ast-separate-container .editor-post-title, .ast-two-container .editor-post-title'         => array(
-					'padding-bottom' => '0',
+					'padding-bottom' => '20px',
 				),
 				'.ast-separate-container .editor-block-list__block, .ast-two-container .editor-block-list__block'  => array(
 					'max-width' => 'calc(' . astra_get_css_value( $site_content_width, 'px' ) . ' - 6.67em)',
@@ -1117,9 +1117,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$ast_gtn_mobile_css = array(
 				'.ast-separate-container .editor-post-title' => array(
-					'padding-top'   => 'calc( 2.34em - 19px)',
-					'padding-left'  => 'calc( 3.67em - 28px )',
-					'padding-right' => 'calc( 3.67em - 28px )',
+					'padding-top'   => '19px',
+					'padding-left'  => '28px',
+					'padding-right' => '28px',
 				),
 				'.ast-separate-container .block-editor-block-list__layout' => array(
 					'padding-bottom' => '2.34em',

@@ -26,7 +26,6 @@ async function upload( selector ) {
 		'assets',
 		'oreo.png',
 	);
-	const filename = uuid();
 	const tmpFileName = path.join( os.tmpdir(), filename + '.png' );
 	fs.copyFileSync( testImagePath, tmpFileName );
 	await inputElement.uploadFile( tmpFileName );
@@ -37,18 +36,24 @@ async function waitForImage( filename ) {
 		`.wp-block-image img[src$="${ filename }.png"]`,
 	);
 }
-describe( 'Upload image, set alignment to wide width and check the width', () => {
-	beforeEach( async () => {
-		await createNewPost();
+describe( 'Upload image', () => {
+	beforeAll( async () => {
+		beforeEach( async () => {
+			await createNewPost();
+		} );
+		it( 'image should be inserted successfully', async () => {
+			await insertBlock( 'Image' );
+			const filename = await upload( '.wp-block-image input[type="file"]' );
+			await waitForImage( filename );
+			const regex = new RegExp(
+				`<!-- wp:image {"id":\\d+,"sizeSlug":"full","linkDestination":"none"} -->\\s*<figure class="wp-block-image size-full"><img src="[^"]+\\/${ filename }\\.png" alt="" class="wp-image-\\d+"/></figure>\\s*<!-- \\/wp:image -->`,
+			);
+			expect( await getEditedPostContent() ).toMatch( regex );
+		} );
 	} );
-	it( 'image should be inserted with wide width alignment and expected and received wide width values should match', async () => {
-		await insertBlock( 'Image' );
-		const filename = await upload( '.wp-block-image input[type="file"]' );
-		await waitForImage( filename );
-		const regex = new RegExp(
-			`<!-- wp:image {"id":\\d+,"sizeSlug":"full","linkDestination":"none"} -->\\s*<figure class="wp-block-image size-full"><img src="[^"]+\\/${ filename }\\.png" alt="" class="wp-image-\\d+"/></figure>\\s*<!-- \\/wp:image -->`,
-		);
-		expect( await getEditedPostContent() ).toMatch( regex );
+} );
+describe( 'Set alignment to wide width and full width and check the width respectively', () => {
+	it( 'wide width and full width alignment should be set and the expected and received values should match', async () => {
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>
 			document.activeElement.classList.contains(

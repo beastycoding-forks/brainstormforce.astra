@@ -92,12 +92,12 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'priority'   => 60,
 				'choices'    => array(
 					'default' => __( 'Dropdown Cart', 'astra' ),
-					'flyout'    => __( 'Offcanvas Cart', 'astra' ),
+					'flyout'  => __( 'Offcanvas Cart', 'astra' ),
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',
-				'context'   => Astra_Builder_Helper::$desktop_general_tab,
-				'divider'  => array( 'ast_class' => 'ast-top-divider' ),
+				'context'    => Astra_Builder_Helper::$desktop_general_tab,
+				'divider'    => array( 'ast_class' => 'ast-top-divider' ),
 			),
 
 			/**
@@ -115,7 +115,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'left'  => __( 'Left', 'astra' ),
 					'right' => __( 'Right', 'astra' ),
 				),
-				'context'     => array(
+				'context'    => array(
 					Astra_Builder_Helper::$desktop_general_tab,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',

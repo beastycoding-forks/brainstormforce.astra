@@ -107,7 +107,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'name'       => ASTRA_THEME_SETTINGS . '[woo-desktop-cart-flyout-direction]',
 				'default'    => astra_get_option( 'woo-desktop-cart-flyout-direction' ),
 				'type'       => 'control',
-				'transport'  => 'postMessage',
 				'control'    => 'ast-selector',
 				'section'    => $_section,
 				'priority'   => 65,

@@ -3,7 +3,6 @@
  */
 import {
 	insertBlock,
-	getEditedPostContent,
 	createNewPost,
 } from '@wordpress/e2e-test-utils';
 
@@ -16,8 +15,6 @@ describe( 'Code', () => {
 		await insertBlock( 'Code' );
 		await page.keyboard.press( 'Enter' );
 		await page.keyboard.type( '<?php' );
-
-		expect( await getEditedPostContent() ).toMatchSnapshot();
 		await page.waitForSelector( '.block-editor-block-list__block' );
 		await expect( {
 			selector: '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *',

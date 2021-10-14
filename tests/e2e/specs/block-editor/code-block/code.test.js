@@ -3,7 +3,6 @@
  */
 import {
 	insertBlock,
-	clickBlockAppender,
 	getEditedPostContent,
 	createNewPost,
 } from '@wordpress/e2e-test-utils';
@@ -14,8 +13,7 @@ describe( 'Code', () => {
 	} );
 
 	it( 'can be created by three backticks and enter', async () => {
-		await clickBlockAppender();
-		await page.keyboard.type( '```' );
+		await insertBlock( 'Code' );
 		await page.keyboard.press( 'Enter' );
 		await page.keyboard.type( '<?php' );
 
@@ -24,7 +22,7 @@ describe( 'Code', () => {
 		await expect( {
 			selector: '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *',
 			property: 'margin-top',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `15px` );
 		await expect( {
 			selector: '.edit-post-visual-editor pre',
 			property: 'margin-bottom',

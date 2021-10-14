@@ -324,7 +324,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				'isRtl'       => is_rtl(),
 			);
 
-			wp_localize_script( 'astra-mobile-cart', 'astra', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );
+			wp_localize_script( 'astra-mobile-cart', 'astra_cart', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );
 		}
 
 		/**

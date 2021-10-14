@@ -98,7 +98,7 @@
 		if (undefined !== mobileHeader && '' !== mobileHeader && null !== mobileHeader) {
 
 			// Mobile Header Cart Flyout.
-			if( 'flyout' == astra.desktop_layout ) {
+			if( 'flyout' == astra_cart.desktop_layout ) {
 				var woo_carts = document.querySelectorAll('.ast-mobile-header-wrap .ast-header-woo-cart, #ast-desktop-header .ast-header-woo-cart');
 			} else {
 				var woo_carts = document.querySelectorAll('.ast-mobile-header-wrap .ast-header-woo-cart');

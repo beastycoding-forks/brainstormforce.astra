@@ -22,7 +22,7 @@ describe( 'Heading in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-heading',
 			property: 'width',
-		} ).cssValueToBe( `975.235px` );
+		} ).cssValueToBe( `974.906px` );
 	} );
 
 	it( 'assert padding of the heading in the block editor', async () => {

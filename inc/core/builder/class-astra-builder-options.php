@@ -942,6 +942,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-icon-radius']            = 3;
 	$defaults['woo-header-cart-total-display']          = true;
 	$defaults['woo-header-cart-title-display']          = true;
+	$defaults['woo-header-cart-badge-display']          = true;
 
 	// Cart tray > General Color styles.
 	$defaults['header-woo-cart-text-color']       = '';

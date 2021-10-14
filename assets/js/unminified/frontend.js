@@ -824,12 +824,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			var popupClose = document.getElementById( 'menu-toggle-close' );
 			popupClose.onclick = function() {
 				if ( -1 !== containerMenu.className.indexOf( 'toggled' ) ) {
-					console.log('close false');
 					containerMenu.className = containerMenu.className.replace( ' toggled', '' );
 					button.setAttribute( 'aria-expanded', 'false' );
 					menu.setAttribute( 'aria-expanded', 'false' );
 				} else {
-					console.log('close true');
 					containerMenu.className += ' toggled';
 					button.setAttribute( 'aria-expanded', 'true' );
 					menu.setAttribute( 'aria-expanded', 'true' );
@@ -839,12 +837,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		button.onclick = function() {
 			if ( -1 !== containerMenu.className.indexOf( 'toggled' ) ) {
-				console.log('btn false');
 				containerMenu.className = containerMenu.className.replace( ' toggled', '' );
 				button.setAttribute( 'aria-expanded', 'false' );
 				menu.setAttribute( 'aria-expanded', 'false' );
 			} else {
-				console.log('btn true');
 				containerMenu.className += ' toggled';
 				button.setAttribute( 'aria-expanded', 'true' );
 				menu.setAttribute( 'aria-expanded', 'true' );

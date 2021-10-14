@@ -1,5 +1,5 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
 describe( 'breadcrumb typography settings in the customizer', () => {
 	it( 'breadcrumb typography should apply corectly', async () => {
 		const beforebreadcrumbFont = {

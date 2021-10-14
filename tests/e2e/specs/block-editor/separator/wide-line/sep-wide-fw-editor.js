@@ -7,7 +7,6 @@ import {
 	clickBlockToolbarButton,
 	openDocumentSettingsSidebar,
 } from '@wordpress/e2e-test-utils';
-
 describe( 'separator in gutenberg editor for wide line style', () => {
 	it( 'test separartor in the block editor for full width alignment', async () => {
 		await createNewPost( {

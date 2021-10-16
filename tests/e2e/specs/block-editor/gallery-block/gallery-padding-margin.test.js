@@ -49,6 +49,10 @@ describe( 'Gallery in gutenberg editor for upload images', () => {
 		await page.waitForSelector( '.edit-post-visual-editor img' );
 		await expect( {
 			selector: '.edit-post-visual-editor img',
+			property: 'width',
+		} ).cssValueToBe( `974.906px` );
+		await expect( {
+			selector: '.edit-post-visual-editor img',
 			property: 'margin-top',
 		} ).cssValueToBe( `0px` );
 		await expect( {

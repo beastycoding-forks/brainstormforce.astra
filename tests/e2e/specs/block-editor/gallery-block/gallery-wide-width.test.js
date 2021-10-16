@@ -50,6 +50,6 @@ describe( 'Gallery in gutenberg editor for upload images', () => {
 		await expect( {
 			selector: '.edit-post-visual-editor img',
 			property: 'width',
-		} ).cssValueToBe( `958.1px` );
+		} ).cssValueToBe( `974.906px` );
 	} );
 } );

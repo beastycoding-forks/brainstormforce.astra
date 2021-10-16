@@ -50,7 +50,7 @@ describe( 'Upload image and check the properties', () => {
 		await expect( {
 			selector: '.edit-post-visual-editor img',
 			property: 'width',
-		} ).cssValueToBe( `958.1px` );
+		} ).cssValueToBe( `974.906px` );
 		await expect( {
 			selector: '.edit-post-visual-editor img',
 			property: 'margin-top',

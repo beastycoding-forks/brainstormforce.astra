@@ -30,11 +30,11 @@ async function upload( selector ) {
 	return filename;
 }
 
-describe( 'Gallery', () => {
+describe( 'Gallery in gutenberg editor for upload images', () => {
 	beforeEach( async () => {
 		await createNewPost();
 	} );
-	it( 'gallery caption can be edited', async () => {
+	it( 'test gallery in the block editor for full width', async () => {
 		const galleryCaption = 'Tested gallery caption';
 
 		await insertBlock( 'Gallery' );
@@ -50,39 +50,6 @@ describe( 'Gallery', () => {
 		await expect( {
 			selector: '.edit-post-visual-editor img',
 			property: 'width',
-		} ).cssValueToBe( `958.1px` );
-		await expect( {
-			selector: '.edit-post-visual-editor img',
-			property: 'margin-top',
-		} ).cssValueToBe( `0px` );
-		await expect( {
-			selector: '.edit-post-visual-editor img',
-			property: 'margin-bottom',
-		} ).cssValueToBe( `0px` );
-		await expect( {
-			selector: '.edit-post-visual-editor img',
-			property: 'margin-left',
-		} ).cssValueToBe( `0px` );
-		await expect( {
-			selector: '.edit-post-visual-editor img',
-			property: 'margin-right',
-		} ).cssValueToBe( `0px` );
-		await expect( {
-			selector: '.edit-post-visual-editor img',
-			property: 'padding-right',
-		} ).cssValueToBe( `0px` );
-		await expect( {
-			selector: '.edit-post-visual-editor img',
-			property: 'padding-left',
-		} ).cssValueToBe( `0px` );
-		await expect( {
-			selector: '.edit-post-visual-editor img',
-			property: 'padding-top',
-		} ).cssValueToBe( `0px` );
-		await expect( {
-			selector: '.edit-post-visual-editor img',
-			property: 'padding-bottom',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `974.906px` );
 	} );
 } );
-

@@ -30,11 +30,11 @@ async function upload( selector ) {
 	return filename;
 }
 
-describe( 'Gallery', () => {
+describe( 'Upload image and check the properties', () => {
 	beforeEach( async () => {
 		await createNewPost();
 	} );
-	it( 'gallery caption can be edited', async () => {
+	it( 'assert width, padding and margin of the gallery in the block editor', async () => {
 		const galleryCaption = 'Tested gallery caption';
 
 		await insertBlock( 'Gallery' );

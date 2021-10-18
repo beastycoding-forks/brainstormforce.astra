@@ -191,7 +191,6 @@
 		setting.bind(function (color) {
 			var dynamicStyle = '.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-cart-menu-wrap { background-color: ' + color + '; } ';
 			astra_add_dynamic_css('header-woo-cart-icon-color', dynamicStyle);
-			wp.customize.preview.send('refresh');
 		});
 	});
 
@@ -200,7 +199,6 @@
 	 */
 	wp.customize('astra-settings[woo-header-cart-badge-display]', function (setting) {
 		setting.bind(function (badge) {
-			console.log(badge);
 			if (!badge) {
 				var dynamicStyle = 'i.astra-icon.ast-icon-shopping-basket::after,i.astra-icon.ast-icon-shopping-cart::after, i.astra-icon.ast-icon-shopping-bag::after {  display:none; } ';
 			}

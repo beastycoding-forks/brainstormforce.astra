@@ -252,3 +252,7 @@
  .customize-control-ast-background .wp-picker-container {
  	display: block;
  }
+
+ .astra-icon.ast-icon-shopping-basket::after i {
+	display:none;
+  }

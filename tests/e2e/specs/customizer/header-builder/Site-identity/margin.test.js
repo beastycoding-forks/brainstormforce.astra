@@ -1,5 +1,5 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/set-customize';
+import { setCustomize } from '../../../../utils/customize';
 
 describe( 'Site Identity margin settings in the customizer', () => {
 	it( 'spacing should apply corectly', async () => {

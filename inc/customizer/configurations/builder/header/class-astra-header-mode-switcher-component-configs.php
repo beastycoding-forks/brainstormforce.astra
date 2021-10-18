@@ -134,20 +134,20 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Option: Color palette selection.
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[dark-mode-palette]',
-				'default'   => astra_get_option( 'dark-mode-palette' ),
-				'section'   => $_section,
-				'priority'  => 40,
-				'title'     => __( 'Dark Color Palette', 'astra' ),
-				'type'      => 'control',
-				'control'   => 'ast-select',
-				'choices'   => array(
+				'name'     => ASTRA_THEME_SETTINGS . '[dark-mode-palette]',
+				'default'  => astra_get_option( 'dark-mode-palette' ),
+				'section'  => $_section,
+				'priority' => 40,
+				'title'    => __( 'Dark Color Palette', 'astra' ),
+				'type'     => 'control',
+				'control'  => 'ast-select',
+				'choices'  => array(
 					'palette_1' => __( 'Palette 1', 'astra' ),
 					'palette_2' => __( 'Palette 2', 'astra' ),
 					'palette_3' => __( 'Palette 3', 'astra' ),
 				),
-				'context'   => astra_addon_builder_helper()->general_tab,
-				'divider'   => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
+				'context'  => astra_addon_builder_helper()->general_tab,
+				'divider'  => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 			),
 
 			/**
@@ -170,7 +170,7 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 				'name'     => ASTRA_THEME_SETTINGS . '[mode-os-aware-description]',
 				'type'     => 'control',
 				'control'  => 'ast-description',
-				'section'   => $_section,
+				'section'  => $_section,
 				'priority' => 51,
 				'label'    => '',
 				'help'     => __( 'Use users computer settings to choose default palette on site load.', 'astra' ),

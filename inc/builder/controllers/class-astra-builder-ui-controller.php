@@ -284,9 +284,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				<span class="ast-mode-switcher-trigger">
 					<?php
 						echo self::fetch_svg_icon( $switcher_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						if ( '' !== $switcher_label ) {
-							echo esc_html( $switcher_label );
-						}
+					if ( '' !== $switcher_label ) {
+						echo esc_html( $switcher_label );
+					}
 					?>
 				</span>
 			<?php

@@ -23,15 +23,15 @@ add_filter( 'astra_dynamic_theme_css', 'astra_mode_switcher_dynamic_css' );
  */
 function astra_generate_dark_palette_style() {
 
-	$variable_prefix  = Astra_Global_Palette::get_css_variable_prefix();
-	$dark_palette   = astra_get_option( 'dark-mode-palette', 'palette_2' );
+	$variable_prefix    = Astra_Global_Palette::get_css_variable_prefix();
+	$dark_palette       = astra_get_option( 'dark-mode-palette', 'palette_2' );
 	$ast_palette_config = astra_get_palette_colors();
-	$palette_style    = array();
-	$palette_css_vars = array();
-	$css = '';
+	$palette_style      = array();
+	$palette_css_vars   = array();
+	$css                = '';
 
-	if ( isset( $ast_palette_config[ 'palettes' ][ $dark_palette ] ) ) {
-		foreach ( $ast_palette_config[ 'palettes' ][ $dark_palette ] as $key => $color ) {
+	if ( isset( $ast_palette_config['palettes'][ $dark_palette ] ) ) {
+		foreach ( $ast_palette_config['palettes'][ $dark_palette ] as $key => $color ) {
 			$palette_key = str_replace( '--', '-', $variable_prefix ) . $key;
 
 			$palette_style[ ':root .ast-dark-site .has' . $palette_key . '-color' ] = array(
@@ -55,7 +55,7 @@ function astra_generate_dark_palette_style() {
 	}
 
 	$palette_style[':root .ast-dark-site'] = $palette_css_vars;
-	$css = astra_parse_css( $palette_style );
+	$css                                   = astra_parse_css( $palette_style );
 
 	return $css;
 }
@@ -94,7 +94,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$_section = 'section-mode-switcher';
 	$selector = '.ast-mode-switcher-trigger';
 
-	$icon_size         = astra_get_option( 'mode-switcher-icon-size' );
+	$icon_size = astra_get_option( 'mode-switcher-icon-size' );
 
 	/**
 	 * Mode Switcher - Desktop CSS.

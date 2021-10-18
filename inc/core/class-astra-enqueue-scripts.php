@@ -313,8 +313,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			$astra_localize = array(
-				'break_point' => astra_header_break_point(),    // Header Break Point.
-				'isRtl'       => is_rtl(),
+				'break_point'    => astra_header_break_point(),    // Header Break Point.
+				'isRtl'          => is_rtl(),
 				'carryOsPalette' => astra_get_option( 'mode-switcher-carry-os-palette', false ),
 			);
 

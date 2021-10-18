@@ -1035,11 +1035,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Mode Switcher element.
 	*/
-	$defaults['mode-switcher-icon-type'] = 'switcher-1';
-	$defaults['mode-switcher-label']     = '';
-	$defaults['dark-mode-palette']       = 'palette_2';
+	$defaults['mode-switcher-icon-type']        = 'switcher-1';
+	$defaults['mode-switcher-label']            = '';
+	$defaults['dark-mode-palette']              = 'palette_2';
 	$defaults['mode-switcher-carry-os-palette'] = false;
-	$defaults['mode-switcher-icon-size'] = array(
+	$defaults['mode-switcher-icon-size']        = array(
 		'desktop' => 20,
 		'tablet'  => 20,
 		'mobile'  => 20,

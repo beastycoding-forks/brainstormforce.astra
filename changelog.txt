@@ -1,5 +1,9 @@
 v3.7.4 (Unreleased)
 - New: Breadcrumb compatibility with SEOPress. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
+- New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
+- New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
+- New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
+- New: WooCommerce - Added cart icon hover color option.
 - New: WooCommerce - Added cart Margin and Padding spacing option.
 - Improvement: Gutenberg editor core blocks UI/UX improvement. ( Needs Doc )
 - Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( Needs Doc )
@@ -20,6 +24,7 @@ v3.7.4 (Unreleased)
 - Fix: Gutenberg editor and frontend font weight was not the same for heading typographies
 - Fix: The Gutenberg plugin v11.4.1 breaks the title / reduces the title space.
 - Fix: Broken layout of WooCommerce's products shortcode grid on mobile view.
+- Fix: The hamburger button is not changing its aria-expanded attribute to true on expanding.
 
 v3.7.3
 - Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.

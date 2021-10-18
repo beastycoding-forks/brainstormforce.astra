@@ -1,4 +1,4 @@
-import { createURL, createNewPost, publishPost} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/set-customize';
 describe( 'Post title font option under the customizer', () => {
 	it( 'post title font option should apply correctly', async () => {

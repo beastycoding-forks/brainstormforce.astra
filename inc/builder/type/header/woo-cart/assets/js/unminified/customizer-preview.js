@@ -200,10 +200,12 @@
 	wp.customize('astra-settings[woo-header-cart-badge-display]', function (setting) {
 		setting.bind(function (badge) {
 			if (!badge) {
-				var dynamicStyle = 'i.astra-icon.ast-icon-shopping-basket::after,i.astra-icon.ast-icon-shopping-cart::after, i.astra-icon.ast-icon-shopping-bag::after {  display:none; } ';
+				var dynamicStyle = 'i.astra-icon.astra-icon::after {  display:none; } ';
+			}
+			else {
+				var dynamicStyle = 'i.astra-icon.astra-icon::after {  display:block; } ';
 			}
 			astra_add_dynamic_css('woo-header-cart-badge-display', dynamicStyle);
-			wp.customize.preview.send('refresh');
 		});
 	});
 

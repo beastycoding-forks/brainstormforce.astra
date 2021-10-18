@@ -201,8 +201,7 @@
 		setting.bind(function (badge) {
 			if (!badge) {
 				var dynamicStyle = 'i.astra-icon.astra-icon::after {  display:none; } ';
-			}
-			else {
+			} else {
 				var dynamicStyle = 'i.astra-icon.astra-icon::after {  display:block; } ';
 			}
 			astra_add_dynamic_css('woo-header-cart-badge-display', dynamicStyle);

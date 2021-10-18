@@ -133,7 +133,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	$dynamic_css .= $css_output;
 
-	if ( ! empty( astra_get_option( 'mode-switcher-label' ) ) ) {
+	if ( '' !== astra_get_option( 'mode-switcher-label' ) ) {
 		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 	}
 

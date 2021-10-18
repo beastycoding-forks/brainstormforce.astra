@@ -223,7 +223,6 @@
 	 */
 	wp.customize('astra-settings[transparent-header-woo-cart-icon-color]', function (setting) {
 		setting.bind(function (cart_icon_color) {
-			wp.customize.preview.send('refresh');
 		});
 	});
 

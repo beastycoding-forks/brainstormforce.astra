@@ -80,7 +80,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Cart Title
+			 * Option: Cart product count badge.
 			 */
 			array(
 				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-badge-display]',

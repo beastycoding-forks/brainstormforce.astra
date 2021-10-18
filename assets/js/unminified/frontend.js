@@ -380,6 +380,33 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		accountPopupTrigger();
 
+		darkModeSwitcher();
+	}
+
+	// Introducing cookie setter for dark mode implementation.
+	var setCookie = function ( cookieName, cookieValue, expireDays ) {
+		const dateInstance = new Date();
+		dateInstance.setTime( dateInstance.getTime() + ( expireDays*24*60*60*1000 ) );
+		let expires = "expires="+ dateInstance.toUTCString();
+		document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+	}
+
+	// Frontend dark mode switcher toggle.
+	function darkModeSwitcher() {
+		var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' )[0];
+		if( undefined !== modeSwticherTrigger ) {
+			modeSwticherTrigger.onclick = function( event ) {
+				event.preventDefault();
+				event.stopPropagation();
+				if ( document.body.classList.contains( 'ast-dark-site' ) ) {
+					document.body.classList.remove( 'ast-dark-site' );
+					setCookie( 'astraPaletteCookie', 'light', 7 ); // Set 'light' as cookie value for next 7 days.
+				} else {
+					document.body.classList.add( 'ast-dark-site' );
+					setCookie( 'astraPaletteCookie', 'dark', 7 ); // Set 'dark' as cookie value for next 7 days.
+				}
+			};
+		}
 	}
 
 	function triggerToggleClose( event ) {

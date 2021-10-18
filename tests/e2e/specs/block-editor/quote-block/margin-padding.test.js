@@ -1,9 +1,6 @@
-/**
- * WordPress dependencies
- */
 import { createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
 
-describe( 'Quote', () => {
+describe( 'Quote block in gutenberg block editor', () => {
 	it( 'padding, margin should apply properly of the quote in the block editor', async () => {
 		await createNewPost( {
 			postType: 'post',
@@ -12,7 +9,12 @@ describe( 'Quote', () => {
 		await insertBlock( 'Quote' );
 		await page.keyboard.type( '> A quote' );
 
-		await page.waitForSelector( '.edit-post-visual-editor .block-editor-block-list__block' );
+		await page.waitForSelector( '.edit-post-visual-editor blockquote' );
+		await expect( {
+			selector: '.edit-post-visual-editor blockquote',
+			property: 'width',
+		} ).cssValueToBe( `974.9px` );
+
 		await expect( {
 			selector: '.edit-post-visual-editor blockquote',
 			property: 'padding-left',

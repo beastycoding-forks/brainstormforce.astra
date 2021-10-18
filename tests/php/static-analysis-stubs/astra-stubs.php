@@ -12575,6 +12575,15 @@ namespace {
     {
     }
     /**
+     * Generate dark palette CSS variable styles for the front end.
+     *
+     * @since x.x.x
+     * @return string
+     */
+    function astra_generate_dark_palette_style()
+    {
+    }
+    /**
      * Dynamic CSS
      *
      * @param  string $dynamic_css          Astra Dynamic CSS.

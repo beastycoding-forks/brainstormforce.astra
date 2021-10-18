@@ -1,7 +1,7 @@
 import { createNewPost, insertBlock } from '@wordpress/e2e-test-utils';
 
 describe( 'Quote block in gutenberg block editor', () => {
-	it( 'padding, margin should apply properly of the quote in the block editor', async () => {
+	it( 'padding, margin, default width should apply properly of the quote in the block editor', async () => {
 		await createNewPost( {
 			postType: 'post',
 			title: 'test Quote',
@@ -13,7 +13,7 @@ describe( 'Quote block in gutenberg block editor', () => {
 		await expect( {
 			selector: '.edit-post-visual-editor blockquote',
 			property: 'width',
-		} ).cssValueToBe( `974.9px` );
+		} ).cssValueToBe( `974.906px` );
 
 		await expect( {
 			selector: '.edit-post-visual-editor blockquote',

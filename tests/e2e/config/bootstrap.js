@@ -166,11 +166,27 @@ function observeConsoleLogging() {
  * @return {?Promise} Promise resolving once Axe texts are finished.
  */
 async function runAxeTests() {
-	if ( true ) {
+	if ( await page.$( 'body.wp-admin' ) ) {
 		return;
 	}
 
-	await expect( page ).toPassAxeTests();
+	await expect( page ).toPassAxeTests( {
+		options: {
+			runOnly: {
+				type: 'tag',
+				values: [ 'wcag2a', 'wcag2aa' ],
+			},
+		},
+		exclude: [
+			[
+				[ '#wpadminbar' ],
+				[ '.skip-link' ], // Ignoring "region" requirement for the skip link, This is added to the markup already.
+			],
+		],
+		disabledRules: [
+			'landmark-unique', // Error appears in the markup from WordPress core related to individual widgets.
+		],
+	} );
 }
 
 /**

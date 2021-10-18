@@ -102,7 +102,6 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 				'type'        => 'control',
 				'suffix'      => 'px',
 				'control'     => 'ast-responsive-slider',
-				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 				'input_attrs' => array(
 					'min'  => 0,
 					'step' => 1,

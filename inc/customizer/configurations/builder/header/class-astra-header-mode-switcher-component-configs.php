@@ -147,7 +147,34 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 					'palette_3' => __( 'Palette 3', 'astra' ),
 				),
 				'context'   => astra_addon_builder_helper()->general_tab,
-				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'   => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
+			),
+
+			/**
+			 * Option: OS Aware.
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[mode-switcher-carry-os-palette]',
+				'default'   => astra_get_option( 'mode-switcher-carry-os-palette' ),
+				'type'      => 'control',
+				'control'   => 'ast-toggle-control',
+				'section'   => $_section,
+				'priority'  => 50,
+				'title'     => __( 'OS Aware', 'astra' ),
+				'context'   => Astra_Builder_Helper::$general_tab,
+				'transport' => 'postMessage',
+			),
+
+			// Option: OS Aware help info.
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[mode-os-aware-description]',
+				'type'     => 'control',
+				'control'  => 'ast-description',
+				'section'   => $_section,
+				'priority' => 51,
+				'label'    => '',
+				'help'     => __( 'Use users computer settings to choose default palette on site load.', 'astra' ),
+				'context'  => Astra_Builder_Helper::$general_tab,
 			),
 		);
 

@@ -3,7 +3,7 @@ import {
 	createNewPost,
 	publishPost,
 } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/set-customize';
+import { setCustomize } from '../../../../utils/customize';
 describe( 'post title size in the customizer', () => {
 	it( 'page title size should apply corectly', async () => {
 		const postTitle = {

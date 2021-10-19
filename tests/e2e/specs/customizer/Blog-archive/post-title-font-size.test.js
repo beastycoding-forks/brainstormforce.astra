@@ -1,5 +1,7 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
+import { responsiveFontSize } from '../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../utils/set-browser-viewport';
 describe( 'Blog Archive option under the customizer', () => {
 	it( 'blog Archive post font size options should apply correctly', async () => {
 		const bposttitlefontsize = {
@@ -16,7 +18,6 @@ describe( 'Blog Archive option under the customizer', () => {
 		await createNewPost( {
 			postType: 'post',
 			title: 'sample-page',
-			image: 'Desktop/cat.png',
 
 		} );
 		await publishPost();
@@ -25,26 +26,35 @@ describe( 'Blog Archive option under the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} );
-
-		await page.waitForSelector( '.entry-title ' );
+		await page.waitForSelector( '.archive .entry-title' );
 		await expect( {
-			selector: '.entry-title  ',
+			selector: '.entry-title',
 			property: 'font-size',
 		} ).cssValueToBe( `${ bposttitlefontsize[ 'font-size-page-title' ].desktop }${ bposttitlefontsize[ 'font-size-page-title' ][ 'desktop-unit' ] }` );
 
-		await page.waitForSelector( '.entry-title ' );
-		await expect( {
-			selector: '.entry-title  ',
-			property: 'font-size',
-		} ).cssValueToBe( `${ bposttitlefontsize[ 'font-size-page-title' ].tablet }${ bposttitlefontsize[ 'font-size-page-title' ][ 'tablet-unit' ] }` );
+		await setBrowserViewport( 'medium' );
 
-		await page.waitForSelector( '.entry-title ' );
 		await expect( {
-			selector: '.entry-title  ',
+			selector: '.entry-title',
 			property: 'font-size',
-		} ).cssValueToBe( `${ bposttitlefontsize[ 'font-size-page-title' ].mobile }${ bposttitlefontsize[ 'font-size-page-title' ][ 'mobile-unit' ] }` );
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				bposttitlefontsize[ 'font-size-page-title' ].tablet,
+			) }${
+				bposttitlefontsize[ 'font-size-page-title' ][ 'tablet-unit' ]
+			}`,
+		);
+		await setBrowserViewport( 'small' );
+
+		await expect( {
+			selector: '.entry-title',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				bposttitlefontsize[ 'font-size-page-title' ].mobile,
+			) }${
+				bposttitlefontsize[ 'font-size-page-title' ][ 'mobile-unit' ]
+			}`,
+		);
 	} );
 } );

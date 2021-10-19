@@ -473,11 +473,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var containerMenu, containerButton, count;
 
 		if ( body.classList.contains('ast-header-break-point') ) {
-			containerMenu = document.querySelector( '#ast-mobile-site-navigation' );
-			containerButton = document.querySelector( '#ast-mobile-header' );
+			containerMenu = document.getElementById( 'ast-mobile-site-navigation' );
+			containerButton = document.getElementById( 'ast-mobile-header' );
 		} else {
-			containerMenu = document.querySelector( '#ast-desktop-site-navigation' );
-			containerButton = document.querySelector( '#ast-desktop-header' );
+			containerMenu = document.getElementById( 'ast-desktop-site-navigation' );
+			containerButton = document.getElementById( 'ast-desktop-header' );
 		}
 		navigation_accessibility( containerMenu, containerButton );
 	});

@@ -218,23 +218,7 @@ p.demo_store,
     }
 }
 
-.woocommerce {
-	.ast-desktop-cart-flyout.ast-site-header-cart {
-		&:focus {
-			.widget_shopping_cart {
-				opacity: 0;
-				visibility: hidden;
-			}
-		}
-		&:hover {
-			.widget_shopping_cart {
-				opacity: 0;
-				visibility: hidden;
-			}
-		}
-	}
-}
-.ast-desktop-cart-flyout.ast-site-header-cart {
+.ast-desktop-cart-flyout {
 	&:focus {
 		.widget_shopping_cart {
 			opacity: 0;

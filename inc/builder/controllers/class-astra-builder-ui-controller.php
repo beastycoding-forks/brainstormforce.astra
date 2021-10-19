@@ -243,8 +243,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 		/**
 		 * Site Identity.
+		 *
+		 * @param  string $device   Device name.
 		 */
-		public static function render_site_identity() {
+		public static function render_site_identity( $device ) {
 			?>
 				<?php
 				if ( is_customize_preview() ) {
@@ -261,9 +263,34 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					);
 				?>
 				>
-					<?php astra_logo(); ?>
+					<?php astra_logo( $device ); ?>
 				</div>
 			<!-- .site-branding -->
+			<?php
+		}
+
+		/**
+		 * Callback for partial rendering mode switcher.
+		 *
+		 * @since x.x.x
+		 */
+		public static function render_mode_switcher() {
+
+			$switcher_icon  = astra_get_option( 'mode-switcher-icon-type' );
+			$switcher_label = astra_get_option( 'mode-switcher-label' );
+
+			if ( is_customize_preview() ) {
+				self::render_customizer_edit_button();
+			}
+			?>
+				<span class="ast-mode-switcher-trigger">
+					<?php
+						echo self::fetch_svg_icon( $switcher_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					if ( '' !== $switcher_label ) {
+						echo esc_html( $switcher_label );
+					}
+					?>
+				</span>
 			<?php
 		}
 

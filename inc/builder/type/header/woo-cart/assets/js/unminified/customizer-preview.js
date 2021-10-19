@@ -255,7 +255,7 @@
 	});
 
 	// Advanced CSS Generation for cart padding and margin.
-	astra_builder_advanced_css( 'section-header-woo-cart', '.ast-site-header-cart-li' );
+	astra_builder_advanced_css( 'section-header-woo-cart', '.woocommerce .ast-header-woo-cart .ast-site-header-cart, .ast-header-woo-cart .ast-site-header-cart' );
 
 	// Advanced Visibility CSS Generation.
 	astra_builder_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' );

@@ -380,6 +380,72 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		accountPopupTrigger();
 
+		darkModeSwitcher();
+	}
+
+	// Cookie retriever for mode switcher implementation.
+	var getCookie = function ( cookieName ) {
+		let name = cookieName + "=";
+		let decodedCookie = decodeURIComponent( document.cookie );
+		let ca = decodedCookie.split(';');
+		for( let i = 0; i < ca.length; i++ ) {
+			let c = ca[i];
+			while (c.charAt(0) == ' ') {
+				c = c.substring(1);
+			}
+			if (c.indexOf(name) == 0) {
+				return c.substring(name.length, c.length);
+			}
+		}
+		return "";
+	}
+
+	// Cookie setter for mode switcher implementation.
+	var setCookie = function ( cookieName, cookieValue, expireDays ) {
+		const dateInstance = new Date();
+		dateInstance.setTime( dateInstance.getTime() + ( expireDays*24*60*60*1000 ) );
+		let expires = "expires="+ dateInstance.toUTCString();
+		document.cookie = cookieName + "=" + cookieValue + ";" + expires + ";path=/";
+	}
+
+	// Frontend dark mode switcher toggle.
+	function darkModeSwitcher() {
+
+		var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' )[0];
+
+		if( undefined !== modeSwticherTrigger ) {
+			// Check if astraPaletteCookie cookie is already set.
+			var paletteCookie = getCookie( 'astraPaletteCookie' );
+
+			if ( paletteCookie && ( 'dark' === paletteCookie || 'light' === paletteCookie ) ) {
+				if ( 'dark' === paletteCookie && ! document.body.classList.contains( 'ast-dark-site' ) ) {
+					document.body.classList.add( 'ast-dark-site' );
+				} else if ( 'light' === paletteCookie && document.body.classList.contains( 'ast-dark-site' ) ) {
+					document.body.classList.remove( 'ast-dark-site' );
+				}
+			} else if( '1' === astra.carryOsPalette ) {
+				// Logic for OS Aware option to showcase site on load with their set system scheme.
+				var hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
+				if ( hasDarkSchemeSupport.matches && ! document.body.classList.contains( 'ast-dark-site' ) ) {
+					document.body.classList.add( 'ast-dark-site' );
+				} else if ( ! hasDarkSchemeSupport.matches && document.body.classList.contains( 'ast-dark-site' ) ) {
+					document.body.classList.remove( 'ast-dark-site' );
+				}
+			}
+
+			// Click event for switcher.
+			modeSwticherTrigger.onclick = function( event ) {
+				event.preventDefault();
+				event.stopPropagation();
+				if ( document.body.classList.contains( 'ast-dark-site' ) ) {
+					document.body.classList.remove( 'ast-dark-site' );
+					setCookie( 'astraPaletteCookie', 'light', 7 ); // Set 'light' as cookie value for next 7 days.
+				} else {
+					document.body.classList.add( 'ast-dark-site' );
+					setCookie( 'astraPaletteCookie', 'dark', 7 ); // Set 'dark' as cookie value for next 7 days.
+				}
+			};
+		}
 	}
 
 	function triggerToggleClose( event ) {

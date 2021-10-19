@@ -1,8 +1,8 @@
 import { setCustomize } from '../../../../utils/customize';
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'Testing Global Color setting, under the customizer', () => {
-	it( 'global text color should apply correctly', async () => {
+describe( 'Testing Global Color setting under the customizer', () => {
+	it( 'text color should apply correctly', async () => {
 		const textColor = {
 			'text-color': 'rgb(205, 41, 41)',
 		};
@@ -50,7 +50,7 @@ describe( 'Testing Global Color setting, under the customizer', () => {
 			property: 'color',
 		} ).cssValueToBe( `${ linkColors[ 'link-color' ] }` );
 	} );
-	it( 'theme color the should apply correctly', async () => {
+	it( 'theme color should apply correctly', async () => {
 		const themeColor = {
 			'theme-color': 'rgb(163, 183, 1)',
 		};
@@ -64,7 +64,7 @@ describe( 'Testing Global Color setting, under the customizer', () => {
 			property: 'background-color',
 		} ).cssValueToBe( `${ themeColor[ 'theme-color' ] }` );
 	} );
-	it( 'site bg color the should apply correctly', async () => {
+	it( 'site bg color should apply correctly', async () => {
 		const sitebgColor = {
 			'site-layout-outside-bg-obj-responsive': {
 				desktop: 'linear-gradient(135deg,rgb(6,147,227) 28%,rgb(155,81,224) 59%)',

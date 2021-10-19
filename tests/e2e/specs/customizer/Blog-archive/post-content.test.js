@@ -1,5 +1,5 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
 describe( 'Blog Archive post content option under the customizer', () => {
 	it( 'blog Archive excerpt options should apply correctly', async () => {
 		const postcontent = {

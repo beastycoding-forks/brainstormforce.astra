@@ -97,7 +97,7 @@ function rest_route() : void {
 				'callback'            => function ( WP_Rest_Request $response ) {
 					return rest_ensure_response(
 						array(
-							'success' => true,
+							'success'  => true,
 							'settings' => astra_get_option( $response['key'] ),
 						)
 					);
@@ -105,8 +105,8 @@ function rest_route() : void {
 				'permission_callback' => '__return_true',
 				'args'                => array(
 					'key' => array(
-						'default'  => '',
-						'required' => true,
+						'default'           => '',
+						'required'          => true,
 						'sanitize_callback' => 'sanitize_text_field',
 					),
 				),

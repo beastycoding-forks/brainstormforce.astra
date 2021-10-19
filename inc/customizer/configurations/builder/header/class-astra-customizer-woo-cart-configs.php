@@ -92,6 +92,81 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'transport' => 'postMessage',
 				'control'   => 'ast-toggle-control',
 				'context'   => Astra_Builder_Helper::$general_tab,
+
+			/**
+			 * Option: Cart icon click action.
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
+				'default'    => astra_get_option( 'woo-header-cart-click-action' ),
+				'type'       => 'control',
+				'section'    => $_section,
+				'title'      => __( 'Cart Click Action', 'astra' ),
+				'control'    => 'ast-selector',
+				'priority'   => 60,
+				'choices'    => array(
+					'default' => __( 'Dropdown Cart', 'astra' ),
+					'flyout'  => __( 'Offcanvas Cart', 'astra' ),
+				),
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'context'    => Astra_Builder_Helper::$desktop_general_tab,
+				'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+			),
+
+			/**
+			 * Option: Woo sidebar Off-Canvas Slide-Out.
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-desktop-cart-flyout-direction]',
+				'default'    => astra_get_option( 'woo-desktop-cart-flyout-direction' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'section'    => $_section,
+				'priority'   => 65,
+				'title'      => __( 'Position', 'astra' ),
+				'choices'    => array(
+					'left'  => __( 'Left', 'astra' ),
+					'right' => __( 'Right', 'astra' ),
+				),
+				'context'    => array(
+					Astra_Builder_Helper::$desktop_general_tab,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
+						'operator' => '==',
+						'value'    => 'flyout',
+					),
+				),
+				'renderAs'   => 'text',
+				'responsive' => false,
+			),
+
+			/**
+			 * Option: Flyout width
+			 */
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[woo-desktop-cart-flyout-width]',
+				'default'     => astra_get_option( 'woo-desktop-cart-flyout-width' ),
+				'type'        => 'control',
+				'transport'   => 'postMessage',
+				'section'     => $_section,
+				'context'     => array(
+					Astra_Builder_Helper::$general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
+						'operator' => '==',
+						'value'    => 'flyout',
+					),
+				),
+				'title'       => __( 'Flyout Width', 'astra' ),
+				'control'     => 'ast-slider',
+				'suffix'      => '%',
+				'priority'    => 70,
+				'input_attrs' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 100,
+				),
 			),
 
 			/**
@@ -116,17 +191,18 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Icon color
+			 * Option: Icon color section
 			 */
 			array(
-				'name'              => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-color]',
-				'default'           => astra_get_option( 'header-woo-cart-icon-color' ),
-				'type'              => 'control',
-				'control'           => 'ast-color',
-				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				'transport'         => 'postMessage',
-				'title'             => __( 'Color', 'astra' ),
-				'context'           => array(
+				'name'       => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-colors]',
+				'default'    => astra_get_option( 'header-woo-cart-icon-colors' ),
+				'type'       => 'control',
+				'control'    => 'ast-color-group',
+				'title'      => __( 'Color', 'astra' ),
+				'section'    => $_section,
+				'transport'  => 'postMessage',
+				'priority'   => 45,
+				'context'    => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-style]',
@@ -134,8 +210,43 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 						'value'    => 'none',
 					),
 				),
-				'section'           => $_section,
-				'priority'          => 45,
+				'responsive' => false,
+			),
+
+			/**
+			 * Option: Icon Normal Color section
+			 */
+			array(
+				'type'       => 'sub-control',
+				'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-colors]',
+				'section'    => $_section,
+				'control'    => 'ast-responsive-color',
+				'transport'  => 'postMessage',
+				'name'       => 'header-woo-cart-icon-color',
+				'default'    => astra_get_option( 'header-woo-cart-icon-color' ),
+				'title'      => __( 'Normal', 'astra' ),
+				'responsive' => false,
+				'rgba'       => true,
+				'priority'   => 65,
+				'context'    => Astra_Builder_Helper::$design_tab,
+			),
+
+			/**
+			 * Option: Icon Hover Color section
+			 */
+			array(
+				'type'       => 'sub-control',
+				'control'    => 'ast-responsive-color',
+				'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-colors]',
+				'section'    => $_section,
+				'transport'  => 'postMessage',
+				'name'       => 'header-woo-cart-icon-hover-color',
+				'default'    => astra_get_option( 'header-woo-cart-icon-hover-color' ),
+				'title'      => __( 'Hover', 'astra' ),
+				'responsive' => false,
+				'rgba'       => true,
+				'priority'   => 65,
+				'context'    => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**
@@ -189,6 +300,12 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'priority'          => 85,
 			),
 		);
+
+		/**
+		 * Adding the Margin and Padding option.
+		 * $_section: section-header-woo-cart.
+		 */
+		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
 
 		$configurations = array_merge( $configurations, $_configs );
 

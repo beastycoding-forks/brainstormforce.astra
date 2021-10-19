@@ -116,7 +116,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'right' => __( 'Right', 'astra' ),
 				),
 				'context'    => array(
-					Astra_Builder_Helper::$desktop_general_tab,
+					Astra_Builder_Helper::$general_tab_config,
 					array(
 						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
 						'operator' => '==',

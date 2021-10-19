@@ -391,7 +391,7 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 	/**
 	 * Parse CSS
 	 *
-	 * @param  array      $css_output Array of CSS.
+	 * @param  array $css_output Array of CSS.
 	 * @param  mixed $min_media  Min Media breakpoint.
 	 * @param  mixed $max_media  Max Media breakpoint.
 	 * @return string             Generated CSS.

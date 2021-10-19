@@ -320,22 +320,12 @@ p.demo_store a,
   border-width: 1px;
 }
 
-.woocommerce .ast-desktop-cart-flyout.ast-site-header-cart:focus .widget_shopping_cart {
+.ast-desktop-cart-flyout:focus .widget_shopping_cart {
   opacity: 0;
   visibility: hidden;
 }
 
-.woocommerce .ast-desktop-cart-flyout.ast-site-header-cart:hover .widget_shopping_cart {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.ast-desktop-cart-flyout.ast-site-header-cart:focus .widget_shopping_cart {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.ast-desktop-cart-flyout.ast-site-header-cart:hover .widget_shopping_cart {
+.ast-desktop-cart-flyout:hover .widget_shopping_cart {
   opacity: 0;
   visibility: hidden;
 }

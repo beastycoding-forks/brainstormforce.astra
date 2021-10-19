@@ -9,11 +9,6 @@
  * @since       x.x.x
  */
 
-// No direct access, please.
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
-
 if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 	/**

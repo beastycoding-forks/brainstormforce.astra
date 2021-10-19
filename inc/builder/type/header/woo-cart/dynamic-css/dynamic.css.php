@@ -424,6 +424,14 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 		$css_output .= astra_parse_css( $header_cart_icon );
 	}
+	$css_badge_output = array(
+
+		'.ast-woo-header-cart-info-wrap' => array(
+			'float' => '2px solid ' . esc_attr($cart_total_label_postion),
+			'line-height'  => 'unset',
+		),
+	);
+	$css_output      .= astra_parse_css( $css_badge_output );
 
 	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' );
 

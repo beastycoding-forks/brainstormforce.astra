@@ -19,6 +19,7 @@ v3.7.4 (Unreleased)
 - Fix: Image and Text blocks alignment not working properly with Image size - Medium in the editor.
 - Fix: Alignwide blocks getting horizontal scrollbar on tablet breakpoint & 1400px between devices. (Props - https://github.com/ZebulanStanphill)
 - Fix: Inner container Gutenberg block's content width not affected by "Container Width" option. (Props - https://github.com/ZebulanStanphill)
+- Fix: Gutenberg - Font weight for the heading typography is appearing differently on the editor and frontend.
 - Fix: WooCommerce - Broken grid layout on mobile view for products shortcode.
 - Fix: Title is misaligned in Gutenberg editor when the Gutenberg plugin v11.4.1 and above is active.
 - Fix: Gutenberg editor and frontend font weight was not the same for heading typographies

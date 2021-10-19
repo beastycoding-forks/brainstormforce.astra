@@ -2633,6 +2633,23 @@ input[type="text"].select2-search__field {
   position: unset;
 }
 
+/* Hiding this specific control on responsive devices.  */
+.preview-tablet #customize-control-astra-settings-woo-desktop-cart-flyout-width {
+  display: none;
+}
+
+.preview-tablet #customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+  display: none;
+}
+
+.preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-width {
+  display: none;
+}
+
+.preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+  display: none;
+}
+
 .customize-control-ast-description .ast-description {
   font-style: italic;
 }
@@ -2701,7 +2718,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider > label.ast-divider-title, .ast-bottom-divider > label.ast-divider-title,
-.customize-control-ast-color-group > .ast-divider-title {
+.customize-control-ast-color-group > .ast-divider-title,
+.customize-control-ast-heading .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;
@@ -4470,6 +4488,23 @@ input[type="text"].select2-search__field {
   position: unset;
 }
 
+/* Hiding this specific control on responsive devices.  */
+.preview-tablet #customize-control-astra-settings-woo-desktop-cart-flyout-width {
+  display: none;
+}
+
+.preview-tablet #customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+  display: none;
+}
+
+.preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-width {
+  display: none;
+}
+
+.preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+  display: none;
+}
+
 .customize-control-ast-description .ast-description {
   font-style: italic;
 }
@@ -4538,7 +4573,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider > label.ast-divider-title, .ast-bottom-divider > label.ast-divider-title,
-.customize-control-ast-color-group > .ast-divider-title {
+.customize-control-ast-color-group > .ast-divider-title,
+.customize-control-ast-heading .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;

@@ -434,7 +434,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	 */
 	if ( false === $cart_badge_display ) {
 		$css_badge_output = array(
-			'i.astra-icon.astra-icon::after' => array(
+			'.astra-icon.astra-icon::after' => array(
 				'display' => 'none',
 			),
 		);

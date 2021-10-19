@@ -176,7 +176,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 	 * Return or echo site logo markup.
 	 *
 	 * @since 1.0.0
-	 * @param  string $device Device name.
+	 * @param  string  $device Device name.
 	 * @param  boolean $echo Echo markup.
 	 * @return mixed echo or return markup.
 	 */
@@ -228,7 +228,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
  * @since 2.2.0
  * @param boolean $display_site_title Site title enable or not.
  * @param boolean $display_site_tagline Site tagline enable or not.
- * @param  string $device   Device name.
+ * @param  string  $device   Device name.
  *
  * @return string return markup.
  */
@@ -240,7 +240,7 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 		// Site Title.
 		$tag = 'span';
 		if ( is_home() || is_front_page() ) {
-			if ( $device === 'desktop') {
+			if ( apply_filters( 'astra_show_site_title_h1_tag', true ) && $device === 'desktop' ) {
 				$tag = 'h1';
 			}
 		}

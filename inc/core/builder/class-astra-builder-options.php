@@ -937,6 +937,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Woo-Cart.
 	 */
 	$defaults['woo-header-cart-icon-style']             = 'outline';
+	$defaults['woo-header-cart-icon-total-label-position']       = '';
 	$defaults['header-woo-cart-icon-color']             = '';
 	$defaults['transparent-header-woo-cart-icon-color'] = '';
 	$defaults['woo-header-cart-icon-radius']            = 3;

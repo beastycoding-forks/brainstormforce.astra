@@ -66,8 +66,7 @@ describe( 'Testing Global Color setting, under the customizer', () => {
 	} );
 	it( 'site bg color the should apply correctly', async () => {
 		const sitebgColor = {
-			'[site-layout-outside-bg-obj-responsive]': {
-				'tab-panel-4-gradient': 'true',
+			'site-layout-outside-bg-obj-responsive': {
 				desktop: 'linear-gradient(135deg,rgb(6,147,227) 28%,rgb(155,81,224) 59%)',
 				tablet: 'rgb(222, 217, 140)',
 				mobile: 'rgb(222, 217, 140)',
@@ -82,21 +81,21 @@ describe( 'Testing Global Color setting, under the customizer', () => {
 			selector: '.ast-separate-container',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ sitebgColor[ '[site-layout-outside-bg-obj-responsive]' ].desktop }`,
+			`${ sitebgColor[ 'site-layout-outside-bg-obj-responsive' ].desktop }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-separate-container',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ sitebgColor[ '[site-layout-outside-bg-obj-responsive]' ].tablet }`,
+			`${ sitebgColor[ 'site-layout-outside-bg-obj-responsive' ].tablet }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-separate-container',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ sitebgColor[ '[site-layout-outside-bg-obj-responsive]' ].mobile }`,
+			`${ sitebgColor[ 'site-layout-outside-bg-obj-responsive' ].mobile }`,
 		);
 	} );
 } );

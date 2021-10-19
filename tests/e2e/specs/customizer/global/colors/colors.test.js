@@ -65,14 +65,14 @@ describe( 'Testing Global Color setting under the customizer', () => {
 		} ).cssValueToBe( `${ themeColor[ 'theme-color' ] }` );
 	} );
 	it( 'site bg color should apply correctly', async () => {
-		const sitebgColor = {
+		const sitebgColors = {
 			'site-layout-outside-bg-obj-responsive': {
 				desktop: 'linear-gradient(135deg,rgb(6,147,227) 28%,rgb(155,81,224) 59%)',
 				tablet: 'rgb(222, 217, 140)',
 				mobile: 'rgb(222, 217, 140)',
 			},
 		};
-		await setCustomize( sitebgColor );
+		await setCustomize( sitebgColors );
 		await page.goto( createURL( 'text-color' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -81,21 +81,21 @@ describe( 'Testing Global Color setting under the customizer', () => {
 			selector: '.ast-separate-container',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ sitebgColor[ 'site-layout-outside-bg-obj-responsive' ].desktop }`,
+			`${ sitebgColors[ 'site-layout-outside-bg-obj-responsive' ].desktop }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-separate-container',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ sitebgColor[ 'site-layout-outside-bg-obj-responsive' ].tablet }`,
+			`${ sitebgColors[ 'site-layout-outside-bg-obj-responsive' ].tablet }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-separate-container',
 			property: 'background-image',
 		} ).cssValueToBe(
-			`${ sitebgColor[ 'site-layout-outside-bg-obj-responsive' ].mobile }`,
+			`${ sitebgColors[ 'site-layout-outside-bg-obj-responsive' ].mobile }`,
 		);
 	} );
 } );

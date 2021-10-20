@@ -112,11 +112,12 @@ if ( is_admin() ) {
 	require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
 	require_once ASTRA_THEME_DIR . 'inc/lib/astra-notices/class-astra-notices.php';
 
-	/**
-	 * Metabox additions.
-	 */
-	require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-boxes.php';
 }
+
+/**
+ * Metabox additions.
+ */
+require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-boxes.php';
 
 require_once ASTRA_THEME_DIR . 'inc/metabox/class-astra-meta-box-operations.php';
 

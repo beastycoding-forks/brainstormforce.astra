@@ -174,7 +174,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				/* translators: 1: Cart Title Markup, 2: Cart Icon Markup */
 				printf(
-					'<div class="ast-addon-cart-wrap cart-position-%1$s">
+					'<div class="ast-addon-cart-wrap ast-cart-position-%1$s">
 							%2$s
 							%3$s
 					</div>',
@@ -1748,7 +1748,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since  1.0.0
 		 */
 		public function astra_get_cart_link() {
-
+			$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
 			$woo_cart_link = wc_get_cart_url();
@@ -1757,7 +1757,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$woo_cart_link = '#';
 			}
 			?>
-			<a class="cart-container" href="<?php echo esc_url( $woo_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
+			<a class="cart-container ast-cart-position-<?php echo esc_attr( $cart_total_label_postion ); ?>" href="<?php echo esc_url( $woo_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
 
 						<?php
 						do_action( 'astra_woo_header_cart_icons_before' );

@@ -105,7 +105,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			 */
 			array(
 				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-total-label-position]',
-				'default'    => astra_get_option( 'woo-header-cart-icon-tol-label-position' ),
+				'default'    => astra_get_option( 'woo-header-cart-icon-total-label-position' ),
 				'type'       => 'control',
 				'transport'  => 'postMessage',
 				'section'    => $_section,

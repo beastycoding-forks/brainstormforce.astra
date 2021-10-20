@@ -218,7 +218,7 @@
  */
 	wp.customize('astra-settings[woo-header-cart-icon-total-label-position]', function (setting) {
 		setting.bind(function (position) {
-			$('.ast-addon-cart-wrap').addClass('cart-position-' + position);
+			$('.ast-addon-cart-wrap').addClass('ast-cart-position-' + position);
 			$('.cart-container').addClass('cart-position-' + position);
 			$(document.body).trigger('wc_fragment_refresh');
 		});

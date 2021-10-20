@@ -78,13 +78,13 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$dynamic_css .= astra_generate_dark_palette_style();
 
 	$astra_mode_switcher_static_css = '
-		.ast-header-mode-switcher {
+		#ast-mode-switcher-trigger {
 			cursor: pointer;
 		}
 		.ast-mode-switcher-icon {
 			margin-right: 5px;
 		}
-		.ast-mode-switcher-trigger .ahfb-svg-iconset {
+		#ast-mode-switcher-trigger .ahfb-svg-iconset {
 			vertical-align: middle;
 		}
 	';
@@ -92,7 +92,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
 
 	$_section = 'section-mode-switcher';
-	$selector = '.ast-mode-switcher-trigger';
+	$selector = '#ast-mode-switcher-trigger';
 
 	$icon_size = astra_get_option( 'mode-switcher-icon-size' );
 

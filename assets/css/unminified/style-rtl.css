@@ -1409,7 +1409,7 @@ hr {
 
 .ast-button,
 .button,
-button,
+button:not(.components-button),
 input,
 select,
 textarea {
@@ -1745,7 +1745,6 @@ p {
 
 blockquote {
   margin: 1.5em 3em 1.5em 1em;
-  padding: 1.2em;
   font-size: 1.1em;
   line-height: inherit;
   position: relative;
@@ -3572,10 +3571,6 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 /* .alignwide & .alignfull CSS compatibility */
-.ast-no-sidebar {
-  /* Boxed & Content Boxed container alignment support */
-}
-
 .ast-no-sidebar .entry-content {
   /* Alignment while using the column block */
 }
@@ -3595,8 +3590,8 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
 }
 
 .ast-no-sidebar .entry-content .alignwide {
-  margin-right: -100px;
-  margin-left: -100px;
+  margin-right: calc(-41vw + 50%);
+  margin-left: calc(-41vw + 50%);
   max-width: unset;
   width: unset;
 }
@@ -3615,60 +3610,9 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   width: 100%;
 }
 
-.ast-no-sidebar.ast-separate-container .entry-content {
-  /* Alignment while using the column block */
-}
-
-.ast-no-sidebar.ast-separate-container .entry-content .alignfull {
-  margin-right: -6.67em;
-  margin-left: -6.67em;
-  width: auto;
-}
-
-@media (max-width: 1200px) {
-  .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
-    margin-right: -2.4em;
-    margin-left: -2.4em;
-  }
-}
-
-@media (max-width: 768px) {
-  .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
-    margin-right: -2.14em;
-    margin-left: -2.14em;
-  }
-}
-
-@media (max-width: 544px) {
-  .ast-no-sidebar.ast-separate-container .entry-content .alignfull {
-    margin-right: -1em;
-    margin-left: -1em;
-  }
-}
-
-.ast-no-sidebar.ast-separate-container .entry-content .alignwide {
-  margin-right: -20px;
-  margin-left: -20px;
-}
-
-.ast-no-sidebar.ast-separate-container .entry-content .wp-block-column .alignfull,
-.ast-no-sidebar.ast-separate-container .entry-content .wp-block-column .alignwide {
-  margin-right: auto;
-  margin-left: auto;
-  width: 100%;
-}
-
 .wp-block-gallery,
 .blocks-gallery-grid {
   margin: 0;
-}
-
-.wp-block-separator {
-  max-width: 100px;
-}
-
-.wp-block-separator.is-style-wide {
-  max-width: none;
 }
 
 .entry-content .has-2-columns .wp-block-column:first-child {

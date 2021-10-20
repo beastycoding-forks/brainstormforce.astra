@@ -4569,3 +4569,26 @@ button.pswp__button--zoom:hover {
     width: 60%;
   }
 }
+
+.ast-addon-cart-wrap {
+    display: flex;
+    align-items: var(--align-items, center);
+}
+.ast-addon-cart-wrap.cart-position-bottom.ast-addon-cart-wrap{
+flex-direction: column;
+}
+.ast-addon-cart-wrap.cart-position-bottom .ast-woo-header-cart-info-wrap {
+    order: 2;
+    line-height: 1;
+    margin-top: 0.5em;
+}
+.ast-addon-cart-wrap.cart-position-left .ast-woo-header-cart-info-wrap{
+    margin-right: 0.1em;
+}
+.ast-addon-cart-wrap.cart-position-right .ast-woo-header-cart-info-wrap{
+    order: 2;
+    margin-left: 0.7em;
+}
+.astra-icon{
+    line-height: 0.1;
+}

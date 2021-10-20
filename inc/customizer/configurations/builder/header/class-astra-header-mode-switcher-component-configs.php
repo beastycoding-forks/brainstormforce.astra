@@ -144,7 +144,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
-				 * Option: OS Aware.
+				 * Option: System Settings.
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[mode-switcher-carry-os-palette]',
@@ -153,12 +153,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'ast-toggle-control',
 					'section'   => $_section,
 					'priority'  => 50,
-					'title'     => __( 'OS Aware', 'astra' ),
+					'title'     => __( 'System Settings', 'astra' ),
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'transport' => 'postMessage',
 				),
 
-				// Option: OS Aware help info.
+				// Option: System Settings help info.
 				array(
 					'name'     => ASTRA_THEME_SETTINGS . '[mode-os-aware-description]',
 					'type'     => 'control',

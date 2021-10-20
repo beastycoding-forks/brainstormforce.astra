@@ -283,7 +283,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				self::render_customizer_edit_button();
 			}
 			?>
-				<span class="ast-mode-switcher-trigger">
+				<span id="ast-mode-switcher-trigger">
 					<?php
 						echo self::fetch_svg_icon( $switcher_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					if ( '' !== $switcher_label ) {

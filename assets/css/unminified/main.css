@@ -1925,7 +1925,8 @@ body .entry-content .wp-block-latest-posts li {
  * AST HF Builder - Grid related CSS.
  */
 .ast-builder-grid-row {
-  display: grid;
+  -js-display: flex;
+  display: flex;
   grid-template-columns: auto auto;
   align-items: center;
   grid-column-gap: 20px;
@@ -1934,6 +1935,7 @@ body .entry-content .wp-block-latest-posts li {
 
 .ast-builder-grid-row > .site-header-section {
   flex-wrap: nowrap;
+  flex-grow: 1;
 }
 
 .ast-builder-footer-grid-columns {

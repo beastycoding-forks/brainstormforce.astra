@@ -41,13 +41,16 @@ const CustomizerLinkComponent = props => {
 	let linkHtml = null;
 
 	if (linked && link_text && '' === is_button_link) {
-		linkHtml = <> {help} <a href="#" onClick={() => {
-			onLinkClick();
-		}} className="customizer-link" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}
-					  dangerouslySetInnerHTML={{
-						  __html: link_text
-					  }}>
-		</a> </>;
+		linkHtml = <>
+			{help}
+			<a href="#" onClick={() => {
+				onLinkClick();
+				}} className="customizer-link" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}
+					dangerouslySetInnerHTML={{
+						__html: link_text
+					}}>
+			</a>
+		</>;
 	} else {
 		linkHtml =
 		<>

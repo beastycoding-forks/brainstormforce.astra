@@ -1112,8 +1112,10 @@ namespace {
         }
         /**
          * Site Identity.
+         *
+         * @param  string $device   Device name.
          */
-        public static function render_site_identity()
+        public static function render_site_identity($device)
         {
         }
         /**
@@ -1401,8 +1403,10 @@ namespace {
         }
         /**
          * Render site logo.
+         *
+         * @param  string $device   Device name.
          */
-        public static function site_identity()
+        public static function site_identity($device = 'desktop')
         {
         }
         /**
@@ -14708,10 +14712,11 @@ namespace {
      * Return or echo site logo markup.
      *
      * @since 1.0.0
+     * @param  string  $device Device name.
      * @param  boolean $echo Echo markup.
      * @return mixed echo or return markup.
      */
-    function astra_logo($echo = \true)
+    function astra_logo($device = 'desktop', $echo = \true)
     {
     }
     /**
@@ -14720,10 +14725,11 @@ namespace {
      * @since 2.2.0
      * @param boolean $display_site_title Site title enable or not.
      * @param boolean $display_site_tagline Site tagline enable or not.
+     * @param  string  $device   Device name.
      *
      * @return string return markup.
      */
-    function astra_get_site_title_tagline($display_site_title, $display_site_tagline)
+    function astra_get_site_title_tagline($display_site_title, $display_site_tagline, $device = 'desktop')
     {
     }
     /**

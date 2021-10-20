@@ -10,6 +10,7 @@ v3.7.4 (Unreleased)
 - Improvement: Gutenberg frontend blocks UI improvement.
 - Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.
 - Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel.
+- Fix: W3C HTML validation - Getting duplicate H1 tag for site-title.
 - Fix: Gutenberg Editor content area showing white background color when Full screen mode is active.
 - Fix: Color picker tooltip appear on hover of selection area & it's palette.
 - Fix: W3C HTML validation - Duplicate ID: ast-hf-mobile-menu. This change may break CSS if you have used custom CSS on ast-hf-mobile-menu HTML ID.
@@ -23,7 +24,6 @@ v3.7.4 (Unreleased)
 - Fix: Gutenberg - Font weight for the heading typography is appearing differently on the editor and frontend.
 - Fix: WooCommerce - Broken grid layout on mobile view for products shortcode.
 - Fix: Title is misaligned in Gutenberg editor when the Gutenberg plugin v11.4.1 and above is active.
-- Fix: Gutenberg editor and frontend font weight was not the same for heading typographies
 - Fix: The Gutenberg plugin v11.4.1 breaks the title / reduces the title space.
 - Fix: Broken layout of WooCommerce's products shortcode grid on mobile view.
 - Fix: The hamburger button is not changing its aria-expanded attribute to true on expanding.

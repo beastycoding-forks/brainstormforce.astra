@@ -113,9 +113,9 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'control'    => 'ast-selector',
 				'priority'   => 45,
 				'choices'    => array(
-					'left' => __( 'Left', 'astra' ),
-					'right'    => __( 'Right', 'astra' ),
-					'bottom'    => __( 'Bottom', 'astra' ),
+					'left'   => __( 'Left', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
 
 				),
 				'responsive' => false,

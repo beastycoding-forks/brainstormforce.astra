@@ -213,16 +213,13 @@
 			wp.customize.preview.send('refresh');
 		});
 	});
-
 	/**
  * Cart icon style
  */
 	wp.customize('astra-settings[woo-header-cart-icon-total-label-position]', function (setting) {
 		setting.bind(function (position) {
-			var dynamicStyle = '.ast-woo-header-cart-info-wrap { float: ' + position + '; line-height:unset; } ';
-			astra_add_dynamic_css('woo-header-cart-icon-total-label-position', dynamicStyle);
-			console.log(position);
-
+			$('.ast-addon-cart-wrap').addClass('cart-position-' + position);
+			$(document.body).trigger('wc_fragment_refresh');
 		});
 	});
 

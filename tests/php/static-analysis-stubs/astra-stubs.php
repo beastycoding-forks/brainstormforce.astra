@@ -1112,8 +1112,10 @@ namespace {
         }
         /**
          * Site Identity.
+         *
+         * @param  string $device   Device name.
          */
-        public static function render_site_identity()
+        public static function render_site_identity($device)
         {
         }
         /**
@@ -1385,8 +1387,10 @@ namespace {
         }
         /**
          * Render site logo.
+         *
+         * @param  string $device   Device name.
          */
-        public static function site_identity()
+        public static function site_identity($device = 'desktop')
         {
         }
         /**
@@ -10616,6 +10620,64 @@ namespace {
         {
         }
     }
+    /*!
+     * ISC License
+     * 
+     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
+     *
+     * Permission to use, copy, modify, and/or distribute this software for any
+     * purpose with or without fee is hereby granted, provided that the above
+     * copyright notice and this permission notice appear in all copies.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+     * PERFORMANCE OF THIS SOFTWARE.
+     */
+    class FlattedString
+    {
+        public function __construct($value)
+        {
+        }
+    }
+    class Flatted
+    {
+        // public utilities
+        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
+        {
+        }
+        public static function stringify($value, $options = 0, $depth = 512)
+        {
+        }
+        // private helpers
+        private static function asString($value)
+        {
+        }
+        private static function index(&$known, &$input, &$value)
+        {
+        }
+        private static function keys(&$value)
+        {
+        }
+        private static function loop($obj, $keys, &$input, &$set, &$output)
+        {
+        }
+        private static function relate(&$known, &$input, &$value)
+        {
+        }
+        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
+        {
+        }
+        private static function transform(&$known, &$input, &$value)
+        {
+        }
+        private static function wrap($value)
+        {
+        }
+    }
     /**
      * Customizer Initialization
      *
@@ -14556,10 +14618,11 @@ namespace {
      * Return or echo site logo markup.
      *
      * @since 1.0.0
+     * @param  string  $device Device name.
      * @param  boolean $echo Echo markup.
      * @return mixed echo or return markup.
      */
-    function astra_logo($echo = \true)
+    function astra_logo($device = 'desktop', $echo = \true)
     {
     }
     /**
@@ -14568,10 +14631,11 @@ namespace {
      * @since 2.2.0
      * @param boolean $display_site_title Site title enable or not.
      * @param boolean $display_site_tagline Site tagline enable or not.
+     * @param  string  $device   Device name.
      *
      * @return string return markup.
      */
-    function astra_get_site_title_tagline($display_site_title, $display_site_tagline)
+    function astra_get_site_title_tagline($display_site_title, $display_site_tagline, $device = 'desktop')
     {
     }
     /**

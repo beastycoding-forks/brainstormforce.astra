@@ -68,13 +68,13 @@ describe( 'Testing Global Color setting under the customizer', () => {
 		const sitebgColors = {
 			'site-layout-outside-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'rgb(41, 5, 5)',
+					'background-color': 'rgb(255, 255, 255)',
 				},
 				tablet: {
-					'background-color': 'rgb(41, 5, 5)',
+					'background-color': 'rgb(255, 255, 255)',
 				},
 				mobile: {
-					'background-color': 'rgb(41, 5, 5)',
+					'background-color': 'rgb(255, 255, 255)',
 				},
 			},
 		};
@@ -108,13 +108,13 @@ describe( 'Testing Global Color setting under the customizer', () => {
 		const contentColors = {
 			'content-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'rgb(208, 193, 66)',
+					'background-color': 'rgb(255, 255, 255)',
 				},
 				tablet: {
-					'background-color': 'rgb(208, 193, 66)',
+					'background-color': 'rgb(255, 255, 255)',
 				},
 				mobile: {
-					'background-color': 'rgb(208, 193, 66)',
+					'background-color': 'rgb(255, 255, 255)',
 				},
 			},
 		};

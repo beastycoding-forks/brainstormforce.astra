@@ -33,7 +33,6 @@ describe( 'Below footer margin setting in customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		
 		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"]' );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );

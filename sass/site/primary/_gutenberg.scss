@@ -16,8 +16,8 @@
 		}
 
 		.alignwide {
-			margin-left: -100px;
-			margin-right: -100px;
+			margin-left: calc(-41vw + 50%);
+			margin-right: calc(-41vw + 50%);
 			max-width: unset;
 			width: unset;
 			.alignfull,
@@ -38,57 +38,12 @@
 			}
 		}
 	}
-
-	/* Boxed & Content Boxed container alignment support */
-	&.ast-separate-container{
-		.entry-content {
-			.alignfull{
-				margin-left: - 6.67em;
-				margin-right: - 6.67em;
-				width: auto;
-				@media (max-width: $mx-col-xl) {
-					margin-left: - 2.4em;
-					margin-right: - 2.4em;
-				}
-				@media (max-width: $mx-col-md) {
-					margin-left: - 2.14em;
-					margin-right: - 2.14em;
-				}
-				@media (max-width: $mx-col-sm) {				
-					margin-left: - 1em;
-					margin-right: - 1em;
-				}
-			}
-			.alignwide {
-				margin-left: -20px;
-				margin-right: -20px;
-			}
-			/* Alignment while using the column block */
-			.wp-block-column {
-				.alignfull,
-				.alignwide {
-					margin-left: auto;
-					margin-right: auto;
-					width: 100%;
-				}
-			}
-		}
-	}
 }
 
 // Removing margin from wp block gallery element.
 .wp-block-gallery,
 .blocks-gallery-grid {
     margin: 0;
-}
-
-.wp-block-separator {
-	max-width: 100px;
-	
-
-	&.is-style-wide {
-		max-width: none;
-	}
 }
 
 .entry-content {

@@ -823,11 +823,9 @@
 				AstCustomizerAPI.addSection(clone_to_section, section_config);
 				is_cloning_index = clone_from_section.match(/\d+$/)[0];
 				to_cloning_index = clone_to_section.match(/\d+$/)[0];
-				Promise.all([ AstCustomizerAPI.registerControlsBySection(api.section(clone_to_section)) ]).then(function () {
-					
-				});
 
-				Promise.all([ AstCustomizerAPI.registerControlsBySection(api.section('section-sticky-header'), true ) ]).then(function () {
+				Promise.all([ AstCustomizerAPI.registerControlsBySection( api.section(clone_to_section) ) ]);
+				Promise.all([ AstCustomizerAPI.registerControlsBySection( api.section('section-sticky-header'), true ) ]).then(function () {
 					is_cloning_index = false;
 					to_cloning_index = false;
 				});

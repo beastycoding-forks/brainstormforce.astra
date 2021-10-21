@@ -97,7 +97,7 @@
 		'woo-cart-border-bottom-color',
 		'astra-settings[header-woo-cart-background-hover-color]',
 		'border-bottom-color',
-		'#ast-site-header-cart .widget_shopping_cart:hover,site-header-cart .widget_shopping_cart:hover:after, #astra-mobile-cart-drawer:hover'
+		'#ast-site-header-cart .widget_shopping_cart:hover,site-header-cart .widget_shopping_cart:hover:after, #astra-mobile-cart-drawer:hover,#ast-site-header-cart:hover .widget_shopping_cart:hover:before, #ast-site-header-cart:hover .widget_shopping_cart:hover:after, .open-preview-woocommerce-cart #ast-site-header-cart .widget_shopping_cart:hover:before'
 	);
 	astra_color_responsive_css(
 		'woo-cart-colors',

@@ -1,5 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
+import { setBrowserViewport } from '../../../utils/set-browser-viewport';
+import { scrollToElement } from '../../../utils/scroll-to-element';
 describe( 'Below footer border size setting in customizer', () => {
 	it( 'top border size should apply correctly', async () => {
 		const topborderSize = {
@@ -10,10 +12,10 @@ describe( 'Below footer border size setting in customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} );
 		await page.waitForSelector( '.site-below-footer-wrap[data-section="section-below-footer-builder"]' );
+		await setBrowserViewport( 'large' );
+
+		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '.site-below-footer-wrap[data-section="section-below-footer-builder"]',
 			property: 'border-top-width',

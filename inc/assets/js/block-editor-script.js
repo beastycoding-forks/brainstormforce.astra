@@ -37,6 +37,10 @@ function astra_onload_function() {
 		var titleCheckbox = document.getElementById('site-post-title'),
 			titleBlock = document.querySelector('.editor-post-title__block');
 
+		if( null === titleCheckbox ) {
+			titleCheckbox = document.querySelector('.site-post-title input');
+		}
+
 		titleCheckbox.addEventListener('change',function() {
 
 			if( titleCheckbox.checked ){

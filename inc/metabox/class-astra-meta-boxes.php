@@ -54,11 +54,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			global $pagenow;
 			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( astra_wp_version_compare( '5.0', '<' ) && is_admin() ) {
-				add_action( 'load-post.php', array( $this, 'init_metabox' ) );
-				add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
-				add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
-			}
+			
+			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
+			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
+			add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
 
 			add_action( 'init', array( $this, 'register_script' ) );
 			add_action( 'init', array( $this, 'register_meta_settings' ) );
@@ -190,7 +189,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						array( $this, 'markup_meta_box' ),      // Callback.
 						$type,                                  // Post_type.
 						'side',                                 // Context.
-						'default'                               // Priority.
+						'default',                               // Priority.
+						array(
+							'__back_compat_meta_box' => true,
+						)
 					);
 				}
 			}
@@ -515,11 +517,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function get_content_layout_options() {
 			return array(
-				'default'                  => __( 'Customizer Setting', 'astra' ),
-				'boxed-container'          => __( 'Boxed', 'astra' ),
-				'content-boxed-containerr' => __( 'Content Boxed', 'astra' ),
-				'plain-container'          => __( 'Full Width / Contained', 'astra' ),
-				'page-builder'             => __( 'Full Width / Stretched', 'astra' ),
+				'default'                 => __( 'Customizer Setting', 'astra' ),
+				'boxed-container'         => __( 'Boxed', 'astra' ),
+				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
+				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			);
 		}
 

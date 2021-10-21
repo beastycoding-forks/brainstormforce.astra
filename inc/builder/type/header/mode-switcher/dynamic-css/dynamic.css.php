@@ -34,19 +34,19 @@ function astra_generate_dark_palette_style() {
 		foreach ( $ast_palette_config['palettes'][ $dark_palette ] as $key => $color ) {
 			$palette_key = str_replace( '--', '-', $variable_prefix ) . $key;
 
-			$palette_style[ ':root .ast-dark-site .has' . $palette_key . '-color' ] = array(
+			$palette_style[ 'html.ast-dark-site .has' . $palette_key . '-color' ] = array(
 				'color' => 'var(' . $variable_prefix . $key . ')',
 			);
 
-			$palette_style[ ':root .ast-dark-site .has' . $palette_key . '-background-color' ] = array(
+			$palette_style[ 'html.ast-dark-site .has' . $palette_key . '-background-color' ] = array(
 				'background-color' => 'var(' . $variable_prefix . $key . ')',
 			);
 
-			$palette_style[ ':root .ast-dark-site .wp-block-button .has' . $palette_key . '-color' ] = array(
+			$palette_style[ 'html.ast-dark-site .wp-block-button .has' . $palette_key . '-color' ] = array(
 				'color' => 'var(' . $variable_prefix . $key . ')',
 			);
 
-			$palette_style[ ':root .ast-dark-site .wp-block-button .has' . $palette_key . '-background-color' ] = array(
+			$palette_style[ 'html.ast-dark-site .wp-block-button .has' . $palette_key . '-background-color' ] = array(
 				'background-color' => 'var(' . $variable_prefix . $key . ')',
 			);
 
@@ -54,7 +54,7 @@ function astra_generate_dark_palette_style() {
 		}
 	}
 
-	$palette_style[':root .ast-dark-site'] = $palette_css_vars;
+	$palette_style['html.ast-dark-site'] = $palette_css_vars;
 	$css                                   = astra_parse_css( $palette_style );
 
 	return $css;
@@ -78,13 +78,17 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$dynamic_css .= astra_generate_dark_palette_style();
 
 	$astra_mode_switcher_static_css = '
-		#ast-mode-switcher-trigger {
+		.ast-mode-switcher-trigger, .ast-mode-switcher-trigger:hover, .ast-mode-switcher-trigger:focus, .ast-mode-switcher-trigger:active {
 			cursor: pointer;
+			background: none;
+			border: none;
+			padding: unset;
+			margin: unset;
 		}
 		.ast-mode-switcher-icon {
 			margin-right: 5px;
 		}
-		#ast-mode-switcher-trigger .ahfb-svg-iconset {
+		.ast-mode-switcher-trigger .ahfb-svg-iconset {
 			vertical-align: middle;
 		}
 	';
@@ -92,7 +96,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
 
 	$_section = 'section-mode-switcher';
-	$selector = '#ast-mode-switcher-trigger';
+	$selector = '.ast-mode-switcher-trigger';
 
 	$icon_size = astra_get_option( 'mode-switcher-icon-size' );
 

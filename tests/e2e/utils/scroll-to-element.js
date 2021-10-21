@@ -4,7 +4,7 @@
  * @param {string} element - The HTML selector where you want to scroll to.
  * @return {void}
  */
- export const scrollToElement = async ( element ) => {
+export const scrollToElement = async ( element ) => {
 	const selectedElement = await page.$( element );
 	await page.evaluate(
 		( el ) => el.scrollIntoView(),

@@ -4603,11 +4603,11 @@ button.pswp__button--zoom:hover {
 }
 
 .cart-container.ast-cart-position-left .ast-woo-header-cart-info-wrap {
-  margin-left: 0.1em;
+  margin-left: 0.5em;
 }
 
 .ast-addon-cart-wrap.ast-cart-position-left .ast-woo-header-cart-info-wrap {
-  margin-left: 0.1em;
+  margin-left: 0.5em;
 }
 
 .cart-container.ast-cart-position-right .ast-woo-header-cart-info-wrap {
@@ -4617,7 +4617,7 @@ button.pswp__button--zoom:hover {
 
 .ast-addon-cart-wrap.ast-cart-position-right .ast-woo-header-cart-info-wrap {
   order: 2;
-  margin-right: 0.7em;
+  margin-right: 0.5em;
 }
 
 .astra-icon {

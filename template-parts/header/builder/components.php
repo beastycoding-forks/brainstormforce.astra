@@ -25,7 +25,7 @@ switch ( $astra_header_component_slug ) {
 	case 'logo':
 		?>
 		<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="title_tagline">
-			<?php do_action( 'astra_site_identity' ); ?>
+			<?php do_action( 'astra_site_identity', $astra_active_device ); ?>
 		</div>
 		<?php
 		break;
@@ -110,6 +110,15 @@ switch ( $astra_header_component_slug ) {
 		<div class="ast-builder-layout-element site-header-focus-item ast-header-account" data-section="section-header-account">
 			<?php do_action( 'astra_header_account' ); ?>
 		</div>
+		<?php
+		break;
+
+	case 'mode-switcher':
+		$astra_customizer_focus_class = is_customize_preview() ? ' site-header-focus-item ' : ' '; // Class needed in customizer because pencil shortcut icon CSS is based on that.
+		?>
+			<div class="ast-builder-layout-element<?php echo $astra_customizer_focus_class; ?>ast-header-mode-switcher" data-section="section-mode-switcher">
+				<?php do_action( 'astra_header_mode_switcher' ); ?>
+			</div>
 		<?php
 		break;
 

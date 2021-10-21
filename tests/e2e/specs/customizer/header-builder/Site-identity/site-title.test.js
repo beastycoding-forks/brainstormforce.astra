@@ -1,5 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/set-customize';
+import { setCustomize } from '../../../../utils/customize';
+import { responsiveFontSize } from '../../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 
 describe( 'Site Title Typography settings and color settings in the customizer', () => {
 	it( 'site title typography and color should apply corectly', async () => {
@@ -29,17 +31,43 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 		await page.waitForSelector( '#ast-desktop-header .site-title a' );
 
 		await expect( {
+			selector: '#ast-desktop-header .site-title a',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ sitetitleTypography[ 'header-color-site-title' ] }`,
+		);
+
+		await expect( {
 			selector: '.site-title',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ sitetitleTypography[ 'font-size-site-title' ].desktop }${ sitetitleTypography[ 'font-size-site-title' ][ 'desktop-unit' ] }`,
 		);
 
+		await setBrowserViewport( 'medium' );
+
 		await expect( {
-			selector: '#ast-desktop-header .site-title a',
-			property: 'color',
+			selector: '.site-title',
+			property: 'font-size',
 		} ).cssValueToBe(
-			`${ sitetitleTypography[ 'header-color-site-title' ] }`,
+			`${ await responsiveFontSize(
+				sitetitleTypography[ 'font-size-site-title' ].tablet,
+			) }${
+				sitetitleTypography[ 'font-size-site-title' ][ 'tablet-unit' ]
+			}`,
+		);
+
+		await setBrowserViewport( 'small' );
+
+		await expect( {
+			selector: '.site-title',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				sitetitleTypography[ 'font-size-site-title' ].mobile,
+			) }${
+				sitetitleTypography[ 'font-size-site-title' ][ 'mobile-unit' ]
+			}`,
 		);
 	} );
 } );

@@ -176,10 +176,11 @@ if ( ! function_exists( 'astra_logo' ) ) {
 	 * Return or echo site logo markup.
 	 *
 	 * @since 1.0.0
+	 * @param  string  $device Device name.
 	 * @param  boolean $echo Echo markup.
 	 * @return mixed echo or return markup.
 	 */
-	function astra_logo( $echo = true ) {
+	function astra_logo( $device = 'desktop', $echo = true ) {
 
 		$site_tagline         = astra_get_option( 'display-site-tagline-responsive' );
 		$display_site_tagline = ( $site_tagline['desktop'] || $site_tagline['tablet'] || $site_tagline['mobile'] ) ? true : false;
@@ -206,7 +207,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			}
 		}
 
-		$html .= astra_get_site_title_tagline( $display_site_title, $display_site_tagline );
+		$html .= astra_get_site_title_tagline( $display_site_title, $display_site_tagline, $device );
 
 		$html = apply_filters( 'astra_logo', $html, $display_site_title, $display_site_tagline );
 
@@ -227,10 +228,11 @@ if ( ! function_exists( 'astra_logo' ) ) {
  * @since 2.2.0
  * @param boolean $display_site_title Site title enable or not.
  * @param boolean $display_site_tagline Site tagline enable or not.
+ * @param  string  $device   Device name.
  *
  * @return string return markup.
  */
-function astra_get_site_title_tagline( $display_site_title, $display_site_tagline ) {
+function astra_get_site_title_tagline( $display_site_title, $display_site_tagline, $device = 'desktop' ) {
 	$html = '';
 
 	if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
@@ -238,7 +240,9 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 		// Site Title.
 		$tag = 'span';
 		if ( is_home() || is_front_page() ) {
-			$tag = 'h1';
+			if ( apply_filters( 'astra_show_site_title_h1_tag', true ) && 'desktop' === $device ) {
+				$tag = 'h1';
+			}
 		}
 
 		/**

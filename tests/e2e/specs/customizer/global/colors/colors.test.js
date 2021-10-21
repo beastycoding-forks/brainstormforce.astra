@@ -21,7 +21,7 @@ describe( 'Testing Global Color setting under the customizer', () => {
 			selector: 'body, h1, .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'color',
 		} ).cssValueToBe( `${ textColor[ 'text-color' ] }` );
-	 } );
+	} );
 	it( 'the color for Heading should apply correctly', async () => {
 		const headingColor = {
 			'heading-base-color': 'rgb(81, 29, 236)',

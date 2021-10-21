@@ -4,7 +4,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 describe( 'global button presets, button text and background color setting under the Customizer', () => {
 	it( 'button text color should apply correctly', async () => {
 		const btntextColor = {
-			'button-color': 'rgb(10, 10, 10)',
+			'button-color': 'rgb(245, 245, 245)',
 		};
 		await setCustomize( btntextColor );
 		await page.goto( createURL( '/' ), {
@@ -18,7 +18,7 @@ describe( 'global button presets, button text and background color setting under
 	} );
 	it( 'button background color should apply correctly', async () => {
 		const btnbgColor = {
-			'button-bg-color': 'rgb(209, 237, 255)',
+			'button-bg-color': 'rgb(4, 7, 11)',
 		};
 		await setCustomize( btnbgColor );
 		await page.goto( createURL( '/' ), {
@@ -63,7 +63,7 @@ describe( 'global button presets, button text and background color setting under
 	} );
 	it( 'button border color should apply correctly', async () => {
 		const borderColor = {
-			'theme-button-border-group-border-color': 'rgb(235, 208, 208)',
+			'theme-button-border-group-border-color': 'rgb(4, 7, 11)',
 		};
 		await setCustomize( borderColor );
 		await page.goto( createURL( '/' ), {

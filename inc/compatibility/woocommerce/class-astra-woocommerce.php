@@ -37,7 +37,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since 1.0
 		 * @var array $cart_total_label_postion
 		 */
-		public static $cart_total_label_postion ='';
+		public static $cart_total_label_postion = '';
 
 		/**
 		 * Initiator

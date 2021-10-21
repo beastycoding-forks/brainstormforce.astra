@@ -213,6 +213,7 @@
 			wp.customize.preview.send('refresh');
 		});
 	});
+
 	/**
  * Cart icon style
  */

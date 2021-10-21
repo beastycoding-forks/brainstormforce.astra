@@ -32,6 +32,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		private static $instance;
 
 		/**
+		 * Cart total label position.
+		 *
+		 * @since 1.0
+		 * @var array $cart_total_label_postion
+		 */
+		public static $cart_total_label_postion ='';
+
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -106,7 +114,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_action( 'astra_woo_header_cart_icons_before', array( $this, 'header_cart_icon_markup' ) );
 
 			add_action( 'astra_cart_in_menu_class', array( $this, 'header_cart_icon_class' ), 99 );
-
 		}
 
 		/**
@@ -125,8 +132,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$cart_count_display       = apply_filters( 'astra_header_cart_count', true );
 			$cart_title_display       = astra_get_option( 'woo-header-cart-title-display' );
 			$cart_title               = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
-			$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
-
 			$cart_title_markup = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
 			$cart_total_markup = '';
 			if ( null !== WC()->cart ) {
@@ -168,7 +173,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
 			} else {
-
 				// Remove Default cart icon added by theme.
 				add_filter( 'astra_woo_default_header_cart_icon', '__return_false' );
 
@@ -178,7 +182,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							%2$s
 							%3$s
 					</div>',
-					( $cart_total_label_postion ) ? $cart_total_label_postion : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					( Astra_Woocommerce::$cart_total_label_postion ) ? Astra_Woocommerce::$cart_total_label_postion : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					( $cart_title_display || $cart_total_display ) ? $cart_info_markup : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					( $cart_icon ) ? $cart_icon : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
@@ -1748,7 +1752,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since  1.0.0
 		 */
 		public function astra_get_cart_link() {
-			$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
 			$woo_cart_link = wc_get_cart_url();
@@ -1756,8 +1759,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
+			Astra_Woocommerce::$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
+
 			?>
-			<a class="cart-container ast-cart-position-<?php echo esc_attr( $cart_total_label_postion ); ?>" href="<?php echo esc_url( $woo_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
+			<a class="cart-container ast-cart-position-<?php echo esc_attr( Astra_Woocommerce::$cart_total_label_postion ); ?>" href="<?php echo esc_url( $woo_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
 
 						<?php
 						do_action( 'astra_woo_header_cart_icons_before' );

@@ -4,12 +4,12 @@ import {useState,useEffect} from 'react';
 
 const BorderComponent = props => {
 
-	let value = props.control.setting.get();
-	const [props_value, setPropsValue] = useState( value );
-	
+	const value = props.control.setting.get();
+	const [propsValue, setPropsValue] = useState( value );
+
 	useEffect( () => {
 		// If settings are changed externally.
-		if( props_value !== value ) {
+		if( propsValue !== value ) {
 			setPropsValue(value);
 		}
 	}, [props]);
@@ -39,7 +39,7 @@ const BorderComponent = props => {
 		} = props.control.params;
 
 		let updateState = {
-			...props_value
+			...propsValue
 		};
 
 		if (!event.target.classList.contains('connected')) {
@@ -109,7 +109,7 @@ const BorderComponent = props => {
 		if (choices[choiceID]) {
 			var html = <li {...inputAttrs} key={choiceID} className='ast-border-input-item'>
 				<input type='number' className='ast-border-input ast-border-desktop connected' data-id={choiceID}
-					   data-name={name} onChange={() => onBorderChange(choiceID)} value={props_value[choiceID]}
+					   data-name={name} onChange={() => onBorderChange(choiceID)} value={propsValue[choiceID]}
 					   data-element-connect={id}/>
 				<span className="ast-border-title">{choices[choiceID]}</span>
 			</li>;
@@ -135,4 +135,4 @@ BorderComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default BorderComponent;
+export default React.memo( BorderComponent );

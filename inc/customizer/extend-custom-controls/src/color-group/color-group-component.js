@@ -56,16 +56,16 @@ const ColorGroupComponent = props => {
 
 	useEffect(()=>{
 		setTimeout(() => {
-			let linkedSubColors1 = AstraBuilderCustomizerData.js_configs.sub_controls[name];
-			Object.entries( linkedSubColors1 ).map( ( [ key,value ] ) => {
+			let linkedSubColor = AstraBuilderCustomizerData.js_configs.sub_controls[name];
+			Object.entries( linkedSubColor ).map( ( [ key,value ] ) => {
 				colorGroup[value.name] = wp.customize.control( value.name ).setting.get();
 				colorGroupDefaults[value.name] = value.default;
 				tooltips[value.name] = value.title;
 				colorGroupType[value.name] = value.control_type;
-			});	
+			});
 			setState(colorGroup);
 		}, 0);
-		
+
 	},[props]);
 
 	const handleChangeComplete = ( key, color='', device='', backgroundType='' ) => {
@@ -406,4 +406,4 @@ ColorGroupComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default  ColorGroupComponent ;
+export default React.memo( ColorGroupComponent );

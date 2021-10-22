@@ -13,6 +13,7 @@ import {
 	getEditedPostContent,
 	createNewPost,
 	clickBlockToolbarButton,
+	publishPost,
 } from '@wordpress/e2e-test-utils';
 
 async function upload( selector ) {
@@ -49,6 +50,8 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			`<!-- wp:image {"id":\\d+,"sizeSlug":"full","linkDestination":"none"} -->\\s*<figure class="wp-block-image size-full"><img src="[^"]+\\/${ filename }\\.png" alt="" class="wp-image-\\d+"/></figure>\\s*<!-- \\/wp:image -->`,
 		);
 		expect( await getEditedPostContent() ).toMatch( regex );
+
+		// Set wide width for the image.
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>
 			document.activeElement.classList.contains(
@@ -59,12 +62,15 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			'[aria-label="Align"] button:nth-child(4)',
 		);
 		await page.waitForSelector( '#editor .edit-post-visual-editor' );
+
 		await expect( {
 			selector: '.wp-block-image',
 			property: 'width',
 		} ).cssValueToBe(
-			`415px`,
+			`974.906px`,
 		);
+
+		// Set full width for the image.
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>
 			document.activeElement.classList.contains(
@@ -79,7 +85,9 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			selector: '.wp-block-image',
 			property: 'width',
 		} ).cssValueToBe(
-			`974.906px`,
+			`1138.91px`,
 		);
+
+		await publishPost();
 	} );
 } );

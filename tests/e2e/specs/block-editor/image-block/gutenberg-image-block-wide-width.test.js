@@ -40,7 +40,12 @@ async function waitForImage( filename ) {
 }
 describe( 'Upload image, set alignment to wide width and check the width', () => {
 	beforeEach( async () => {
-		await createNewPost();
+		await createNewPost(
+			{
+				postType: 'post',
+				title: 'image-block',
+			},
+		);
 	} );
 	it( 'image should be inserted with wide width alignment and expected and received wide width values should match', async () => {
 		await insertBlock( 'Image' );
@@ -67,7 +72,7 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			selector: '.wp-block-image',
 			property: 'width',
 		} ).cssValueToBe(
-			`974.906px`,
+			`1119px`,
 		);
 
 		// Set full width for the image.
@@ -85,7 +90,7 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			selector: '.wp-block-image',
 			property: 'width',
 		} ).cssValueToBe(
-			`1138.91px`,
+			`1263.15px`,
 		);
 
 		await publishPost();

@@ -1,5 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/set-customize';
+import { setCustomize } from '../../../../utils/customize';
+import { responsiveFontSize } from '../../../../utils/responsive-utils';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 
 describe( 'Site Tagline Typography settings and color settings in the customizer', () => {
 	it( 'site tagline typography and color should apply corectly', async () => {
@@ -14,7 +16,7 @@ describe( 'Site Tagline Typography settings and color settings in the customizer
 			'body-font-weight': '800',
 			'body-text-transform': 'uppercase',
 			'font-size-site-tagline': {
-				desktop: 22,
+				desktop: 50,
 				tablet: 20,
 				mobile: 18,
 				'desktop-unit': 'px',
@@ -35,13 +37,6 @@ describe( 'Site Tagline Typography settings and color settings in the customizer
 
 		await expect( {
 			selector: '.site-header .site-description',
-			property: 'font-size',
-		} ).cssValueToBe(
-			`${ siteTagline[ 'font-size-site-tagline' ].desktop }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
-		);
-
-		await expect( {
-			selector: '.site-header .site-description',
 			property: 'color',
 		} ).cssValueToBe( `${ siteTagline[ 'header-color-site-tagline' ] }` );
 
@@ -49,5 +44,34 @@ describe( 'Site Tagline Typography settings and color settings in the customizer
 			selector: '.site-header .site-description',
 			property: 'font-family',
 		} ).cssValueToBe( `${ siteTagline[ 'body-font-family' ] }` );
+
+		await expect( {
+			selector: '.site-header .site-description',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ siteTagline[ 'font-size-site-tagline' ].desktop }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
+		);
+
+		await setBrowserViewport( 'medium' );
+
+		await expect( {
+			selector: '.site-header .site-description',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				siteTagline[ 'font-size-site-tagline' ].tablet,
+			) }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
+		);
+
+		await setBrowserViewport( 'small' );
+
+		await expect( {
+			selector: '.site-header .site-description',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				siteTagline[ 'font-size-site-tagline' ].mobile,
+			) }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
+		);
 	} );
 } );

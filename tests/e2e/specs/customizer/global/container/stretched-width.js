@@ -4,8 +4,8 @@ describe( 'to test content box container width in the customizer', () => {
 	it( 'content boxed container width should apply correctly on post', async () => {
 		const postContainerSize = {
 			'site-content-width': 900,
-			'site-content-layout': 'content-boxed-container',
-			'single-post-content-layout': 'content-boxed-container',
+			'site-content-layout': 'page-builder',
+			'single-post-content-layout': 'page-builder',
 		};
 		await setCustomize( postContainerSize );
 		await createNewPost( { postType: 'post', title: 'container post' } );
@@ -30,8 +30,8 @@ describe( 'to test content box container width in the customizer', () => {
 	it( 'content box container width should apply correctly on page', async () => {
 		const pageContainerSize = {
 			'site-content-width': 900,
-			'site-content-layout': 'content-boxed-container',
-			'single-page-content-layout': 'content-boxed-container',
+			'site-content-layout': 'page-builder',
+			'single-page-content-layout': 'page-builder',
 		};
 		await setCustomize( pageContainerSize );
 		await createNewPost( { postType: 'page', title: 'container page' } );
@@ -55,8 +55,8 @@ describe( 'to test content box container width in the customizer', () => {
 	it( 'content box container width should apply correctly on  archive posts', async () => {
 		const archiveContainerSize = {
 			'site-content-width': 900,
-			'site-content-layout': 'content-boxed-container',
-			'archive-post-content-layout': 'content-boxed-container',
+			'site-content-layout': 'page-builder',
+			'archive-post-content-layout': 'page-builder',
 		};
 		await setCustomize( archiveContainerSize );
 		await page.goto( createURL( '/category/uncategorized' ), {

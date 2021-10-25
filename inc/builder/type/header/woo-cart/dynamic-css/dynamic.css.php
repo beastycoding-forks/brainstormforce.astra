@@ -146,7 +146,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'background-color' => esc_attr( $icon_color ),
 		),
 
-		$selector . ' a.cart-container *' => array(
+		$selector . ' a.cart-container *'             => array(
 			'transition' => 'none',
 		),
 

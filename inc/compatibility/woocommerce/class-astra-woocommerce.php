@@ -121,17 +121,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		function astra_woocommerce_store_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-			$store_notice_color = astra_get_option( 'store-notice-text-color' );
-			$store_notice_bg_color = astra_get_option( 'store-notice-background-color' );
-
-			if( is_store_notice_showing() ) {
+			if ( is_store_notice_showing() ) {
+				$store_notice_color    = astra_get_option( 'store-notice-text-color' );
+				$store_notice_bg_color = astra_get_option( 'store-notice-background-color' );
 				/**
 				 * WooCommerce store CSS.
 				 */
 				$css_output_desktop = array(
 					'body p.demo_store, body .woocommerce-store-notice, body p.demo_store a, body .woocommerce-store-notice a' => array(
-						'color' => esc_attr( $store_notice_color ),
-						'background-color'  => esc_attr( $store_notice_bg_color ),
+						'color'            => esc_attr( $store_notice_color ),
+						'background-color' => esc_attr( $store_notice_bg_color ),
 					),
 				);
 
@@ -437,7 +436,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['enable-cart-upsells'] = true;
 
 			/* Store Notice */
-			$defaults['store-notice-text-color'] = '';
+			$defaults['store-notice-text-color']       = '';
 			$defaults['store-notice-background-color'] = '';
 
 			$defaults['shop-archive-width']     = 'default';

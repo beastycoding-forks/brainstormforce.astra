@@ -5268,6 +5268,18 @@ namespace {
         {
         }
         /**
+         * Dynamic CSS
+         *
+         * @param  string $dynamic_css          Astra Dynamic CSS.
+         * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+         * @return String Generated dynamic CSS for WooCommerce store.
+         *
+         * @since x.x.x
+         */
+        function astra_woocommerce_store_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+        {
+        }
+        /**
          * Header Cart Extra Icons markup
          *
          * @return void;
@@ -5639,6 +5651,23 @@ namespace {
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
          * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Customizer WooCommerece store notice - customizer config initial setup.
+     */
+    class Astra_Woo_Store_Notice_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Astra-WooCommerce Shop Cart Layout Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -10617,6 +10646,64 @@ namespace {
          * @return void
          */
         public function save_meta_box($post_id)
+        {
+        }
+        /**
+         * Register Script for Meta options
+         */
+        public function register_script()
+        {
+        }
+        /**
+         * Enqueue Script for Meta settings.
+         *
+         * @return void
+         */
+        public function load_scripts()
+        {
+        }
+        /**
+         * Get all Sidebar Options.
+         */
+        public function get_sidebar_options()
+        {
+        }
+        /**
+         * Get Contenr Layout Options.
+         */
+        public function get_content_layout_options()
+        {
+        }
+        /**
+         * Get disable section fields.
+         */
+        public function get_disable_section_fields()
+        {
+        }
+        /**
+         * Get sticky header options.
+         */
+        public function get_sticky_header_options()
+        {
+        }
+        /**
+         * Get all transparet and sticky header options.
+         */
+        public function get_header_enabled_options()
+        {
+        }
+        /**
+         * Get page header Options.
+         */
+        public function get_page_header_options()
+        {
+        }
+        /**
+         * Register Post Meta options for react based fields.
+         *
+         * @since x.x.x
+         */
+        public function register_meta_settings()
         {
         }
     }

@@ -42,7 +42,7 @@ class Astra_Woo_Store_Notice_Configs extends Astra_Customizer_Config_Base {
 				'section'   => 'woocommerce_store_notice',
 				'transport' => 'postMessage',
 				'priority'  => 100,
-				'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 			),
 
 			// Option: Text Color.

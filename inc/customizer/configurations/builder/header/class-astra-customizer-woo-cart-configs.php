@@ -40,6 +40,19 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		$_configs = array(
 
 			/**
+			 * Notice for Display Cart label.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display-notice]',
+				'type'     => 'control',
+				'control'  => 'ast-description',
+				'section'  => $_section,
+				'priority' => 50,
+				'context'  => Astra_Builder_Helper::$general_tab,
+				'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>The Cart Label on the page will be displayed by using the shortcodes. Please click the refer the article <a href="#">here</a>.</p></div>',
+			),
+
+			/**
 			 * Option: Cart Label
 			 */
 			array(

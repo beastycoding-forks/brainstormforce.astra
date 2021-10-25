@@ -1602,6 +1602,14 @@ body {
   margin: 0;
 }
 
+.wp-block-separator {
+  max-width: 100px;
+}
+
+.wp-block-separator.is-style-wide {
+  max-width: none;
+}
+
 .entry-content .has-2-columns .wp-block-column:first-child {
   padding-left: 10px;
 }

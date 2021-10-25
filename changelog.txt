@@ -20,6 +20,8 @@ v3.7.4 (Unreleased)
 - Fix: WooCommerce - Broken grid layout on mobile view for products shortcode.
 - Fix: Title is misaligned in Gutenberg editor when the Gutenberg plugin v11.4.1 and above is active.
 - Fix: The hamburger button is not changing its aria-expanded attribute to true on expanding.
+- Fix : Fixed color cart tray option in not working on the Frontend.
+- Fix:- Fixed desktop colors are not inheriting on responsive devices.
 
 v3.7.3
 - Fix: Builder - Offcanvas content directly visible on frontend even 'Toggle Button' component is not added in builder area.

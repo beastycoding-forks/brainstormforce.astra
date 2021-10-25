@@ -398,19 +398,19 @@ h6{
 .block-editor-block-list__layout .wp-block.block-editor-block-list__block:not([contenteditable]):focus {
 	box-shadow: none;
 }
-.edit-post-visual-editor .components-button {
+.components-button {
 	color: #1e1e1e;
 }
-.edit-post-visual-editor .components-button.is-pressed {
+.components-button.is-pressed {
 	color: #ffffff;
 }
 .components-dropdown__content .components-popover__content {
 	min-width: 290px;
 }
-.wp-block-buttons .wp-block.wp-block-button {
+.wp-block-buttons > .wp-block.wp-block-button {
 	padding-right: 0;
 }
-.wp-block-buttons .wp-block-button:not(:first-child), ul.wp-block-categories__list {
+.wp-block .wp-block-categories__list {
 	padding-left: 0;
 }
 .wp-block-latest-comments .wp-block-latest-comments {

@@ -1119,14 +1119,6 @@ namespace {
         {
         }
         /**
-         * Callback for partial rendering mode switcher.
-         *
-         * @since x.x.x
-         */
-        public static function render_mode_switcher()
-        {
-        }
-        /**
          * Render Mobile Cart Flyout Markup.
          *
          * @since 3.1.0

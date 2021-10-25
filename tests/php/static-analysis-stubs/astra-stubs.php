@@ -5268,15 +5268,16 @@ namespace {
         {
         }
         /**
-         * Dynamic CSS
+         * Dynamic CSS for store notice config.
+         *
+         * @since x.x.x
          *
          * @param  string $dynamic_css          Astra Dynamic CSS.
          * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
-         * @return String Generated dynamic CSS for WooCommerce store.
          *
-         * @since x.x.x
+         * @return string $dynamic_css Generated dynamic CSS for WooCommerce store.
          */
-        function astra_woocommerce_store_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+        public function astra_woocommerce_store_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
         {
         }
         /**

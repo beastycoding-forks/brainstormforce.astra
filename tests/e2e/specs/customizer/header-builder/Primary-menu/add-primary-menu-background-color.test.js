@@ -63,7 +63,7 @@ describe( 'Primary menu color settings in the customizer', () => {
 			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ menuColor[ 'header-menu1-bg-obj-responsive' ].desktop[ 'background-color'] }`,
+			`${ menuColor[ 'header-menu1-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
@@ -78,7 +78,7 @@ describe( 'Primary menu color settings in the customizer', () => {
 			selector: '.ast-header-break-point .main-header-menu',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ menuColor[ 'header-menu1-bg-obj-responsive' ].tablet[ 'background-color'] }`,
+			`${ menuColor[ 'header-menu1-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
 		);
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
@@ -93,7 +93,7 @@ describe( 'Primary menu color settings in the customizer', () => {
 			selector: '.ast-header-break-point .main-header-menu',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ menuColor[ 'header-menu1-bg-obj-responsive' ].mobile[ 'background-color'] }`,
+			`${ menuColor[ 'header-menu1-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
 		);
 	} );
 } );

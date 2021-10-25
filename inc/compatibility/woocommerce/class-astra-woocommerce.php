@@ -439,6 +439,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Store Notice */
 			$defaults['store-notice-text-color']       = '';
 			$defaults['store-notice-background-color'] = '';
+			$defaults['store-notice-position']         = 'default';
 
 			$defaults['shop-archive-width']     = 'default';
 			$defaults['shop-archive-max-width'] = 1200;
@@ -519,6 +520,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			if ( 'woocommerce' === $rt_section ) {
 				$classes[] = 'ast-woocommerce-cart-menu';
+			}
+
+			$store_notice_position = astra_get_option( 'store-notice-position' );
+			if ( '' !== $store_notice_position ) {
+				$classes[] = 'ast-woo-store-notice-at-' . esc_attr( $store_notice_position );
 			}
 
 			return $classes;

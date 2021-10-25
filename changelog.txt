@@ -3,6 +3,7 @@ v3.7.4 (Unreleased)
 - New: WooCommerce - Added cart icon hover color option.
 - New: WooCommerce - Added cart Margin and Padding spacing option.
 - New: WooCommerce - Added store notice color & background-color options.
+- New: WooCommerce - Added store notice position option.
 - Improvement: Gutenberg editor core blocks UI/UX improvement. ( Needs Doc )
 - Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( Needs Doc )
 - Improvement: Gutenberg frontend blocks UI improvement.

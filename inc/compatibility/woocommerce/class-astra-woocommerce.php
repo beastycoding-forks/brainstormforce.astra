@@ -124,8 +124,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$cart_count_display = apply_filters( 'astra_header_cart_count', true );
 			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
 
-			$cart_title_markup = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
-			$cart_total_markup = '';
+			$cart_title_markup      = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
+			$cart_total_markup      = '';
+			$cart_total_only_markup = '';
 			if ( null !== WC()->cart ) {
 				$cart_total_markup = '<span class="ast-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
 

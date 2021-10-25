@@ -379,7 +379,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		accountPopupTrigger();
-
 	}
 
 	function triggerToggleClose( event ) {

@@ -940,8 +940,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-woo-cart-icon-color']             = '';
 	$defaults['transparent-header-woo-cart-icon-color'] = '';
 	$defaults['woo-header-cart-icon-radius']            = 3;
-	$defaults['woo-header-cart-total-display']          = true;
-	$defaults['woo-header-cart-title-display']          = true;
+	// Woo Cart - Dynamic label default value.
+	$defaults['woo-header-cart-label-display'] = '{cart_title}/{cart_total_currency_symbol}';
 
 	// Cart tray > General Color styles.
 	$defaults['header-woo-cart-text-color']       = '';

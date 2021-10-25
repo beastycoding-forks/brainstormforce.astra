@@ -40,11 +40,11 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		$_configs = array(
 
 			/**
-			 * Option: Header cart total
+			 * Option: Cart Label
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-total-display]',
-				'default'   => astra_get_option( 'woo-header-cart-total-display' ),
+				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display]',
+				'default'   => astra_get_option( 'woo-header-cart-label-display' ),
 				'type'      => 'control',
 				'section'   => $_section,
 				'transport' => 'postMessage',
@@ -53,29 +53,9 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'container_inclusive' => false,
 					'render_callback'     => array( 'Astra_Builder_Header', 'header_woo_cart' ),
 				),
-				'title'     => __( 'Display Cart Total', 'astra' ),
 				'priority'  => 50,
-				'control'   => 'ast-toggle-control',
-				'context'   => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			 * Option: Cart Title
-			 */
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-title-display]',
-				'default'   => astra_get_option( 'woo-header-cart-title-display' ),
-				'type'      => 'control',
-				'section'   => $_section,
-				'title'     => __( 'Display Cart Title', 'astra' ),
-				'priority'  => 55,
-				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'            => '.ast-header-woo-cart',
-					'container_inclusive' => false,
-					'render_callback'     => array( 'Astra_Builder_Header', 'header_woo_cart' ),
-				),
-				'control'   => 'ast-toggle-control',
+				'title'     => __( 'Display Cart Label', 'astra-addon' ),
+				'control'   => 'text',
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 

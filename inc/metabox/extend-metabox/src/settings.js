@@ -41,6 +41,7 @@ const MetaSettings = props => {
 			label = { value['label']}
 			value = { sectionValue }
 			key = { key }
+			name = { value['key'] }
 			onChange = { ( val ) => {
 				props.setMetaFieldValue( val, value['key'] );
 			} }
@@ -55,6 +56,7 @@ const MetaSettings = props => {
 			label = { value['label']}
 			value = { stickyValue }
 			key = { key }
+			name = { value['key'] }
 			onChange = { ( val ) => {
 				props.setMetaFieldValue( val, value['key'] );
 			} }
@@ -79,7 +81,7 @@ const MetaSettings = props => {
 				title={ astMetaParams.title }
 			>
 			
-				<div className="ast-sidebar-container components-panel__body is-opened">
+				<div className="ast-sidebar-container components-panel__body is-opened" id="astra_settings_meta_box">
 					{/* Sidebar Setting */}
 					<Title 
 						option={{
@@ -112,6 +114,7 @@ const MetaSettings = props => {
 							onChange={ ( val ) => {
 								props.setMetaFieldValue( val, 'site-content-layout' );
 							} }
+							id = "site-content-layout"
 						/>
 					</div>
 					

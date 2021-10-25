@@ -2454,6 +2454,11 @@
 .customize-control-ast-customizer-link:empty {
   display:none;
 }
+
+.customize-control .ast-link-remove-font-style {
+    font-style: normal;
+}
+
 /* Customizer Scroll CSS */
 .accordion-section-content::-webkit-scrollbar, .wp-full-overlay-sidebar-content::-webkit-scrollbar {
   width: 6px;
@@ -2633,6 +2638,23 @@ input[type="text"].select2-search__field {
   position: unset;
 }
 
+/* Hiding this specific control on responsive devices.  */
+.preview-tablet #customize-control-astra-settings-woo-desktop-cart-flyout-width {
+  display: none;
+}
+
+.preview-tablet #customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+  display: none;
+}
+
+.preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-width {
+  display: none;
+}
+
+.preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+  display: none;
+}
+
 .customize-control-ast-description .ast-description {
   font-style: italic;
 }
@@ -2701,7 +2723,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider > label.ast-divider-title, .ast-bottom-divider > label.ast-divider-title,
-.customize-control-ast-color-group > .ast-divider-title {
+.customize-control-ast-color-group > .ast-divider-title,
+.customize-control-ast-heading .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;
@@ -4291,6 +4314,11 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 .customize-control-ast-customizer-link:empty {
   display:none;
 }
+
+.customize-control .ast-link-remove-font-style {
+    font-style: normal;
+}
+
 /* Customizer Scroll CSS */
 .accordion-section-content::-webkit-scrollbar, .wp-full-overlay-sidebar-content::-webkit-scrollbar {
   width: 6px;
@@ -4470,6 +4498,23 @@ input[type="text"].select2-search__field {
   position: unset;
 }
 
+/* Hiding this specific control on responsive devices.  */
+.preview-tablet #customize-control-astra-settings-woo-desktop-cart-flyout-width {
+  display: none;
+}
+
+.preview-tablet #customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+  display: none;
+}
+
+.preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-width {
+  display: none;
+}
+
+.preview-mobile #customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+  display: none;
+}
+
 .customize-control-ast-description .ast-description {
   font-style: italic;
 }
@@ -4538,7 +4583,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider > label.ast-divider-title, .ast-bottom-divider > label.ast-divider-title,
-.customize-control-ast-color-group > .ast-divider-title {
+.customize-control-ast-color-group > .ast-divider-title,
+.customize-control-ast-heading .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;

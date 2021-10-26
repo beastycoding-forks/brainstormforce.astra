@@ -49,7 +49,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'section'  => $_section,
 				'priority' => 50,
 				'context'  => Astra_Builder_Helper::$general_tab,
-				'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>The Cart Label on the page will be displayed by using the shortcodes. Please click the refer the article <a href="#">here</a>.</p></div>',
+				'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>' . __( 'The Cart Label on the page will be displayed by using the shortcodes. Please click the refer the article ' ) . '<a href="#">' . __( 'here' ) . '</a>.</p></div>',
 			),
 
 			/**
@@ -67,7 +67,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'render_callback'     => array( 'Astra_Builder_Header', 'header_woo_cart' ),
 				),
 				'priority'  => 50,
-				'title'     => __( 'Display Cart Label', 'astra-addon' ),
+				'title'     => __( 'Display Cart Label', 'astra' ),
 				'control'   => 'text',
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),

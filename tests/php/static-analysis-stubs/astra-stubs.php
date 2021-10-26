@@ -1378,6 +1378,14 @@ namespace {
         {
         }
         /**
+         * Render light|dark mode switcher element.
+         *
+         * @since x.x.x
+         */
+        public function header_mode_switcher()
+        {
+        }
+        /**
          * Render Search icon.
          *
          * @param  string $device   Device name.
@@ -1601,7 +1609,7 @@ namespace {
          *
          * @param string $section_id section id.
          * @param string $selector selector.
-         * @return string
+         * @return string $css_output Parsed CSS
          */
         public static function prepare_advanced_margin_padding_css($section_id, $selector)
         {
@@ -1611,7 +1619,7 @@ namespace {
          *
          * @param string $section_id section id.
          * @param string $selector selector.
-         * @return array
+         * @return string $css_output Parsed CSS.
          */
         public static function prepare_advanced_typography_css($section_id, $selector)
         {
@@ -2376,6 +2384,44 @@ namespace {
          * Constructor function that initializes required actions and hooks.
          */
         public function __construct()
+        {
+        }
+    }
+    /**
+     * Mode Switcher Initial Setup
+     *
+     * @since x.x.x
+     */
+    class Astra_Header_Mode_Switcher_Component
+    {
+        /**
+         * Constructor function that initializes required actions and hooks.
+         */
+        public function __construct()
+        {
+        }
+    }
+    /**
+     * Customizer Initialization
+     *
+     * @since x.x.x
+     */
+    class Astra_Header_Mode_Switcher_Loader
+    {
+        /**
+         * Constructor.
+         *
+         * @since x.x.x
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Customizer Preview.
+         *
+         * @since x.x.x
+         */
+        public function preview_scripts()
         {
         }
     }
@@ -8785,6 +8831,25 @@ namespace {
     /**
      * Register Builder Customizer Configurations.
      *
+     * @since x.x.x
+     */
+    class Astra_Header_Mode_Switcher_Component_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Builder Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Register Builder Customizer Configurations.
+     *
      * @since 3.0.0
      */
     class Astra_Header_Search_Component_Configs extends \Astra_Customizer_Config_Base
@@ -10777,6 +10842,64 @@ namespace {
         {
         }
     }
+    /*!
+     * ISC License
+     *
+     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
+     *
+     * Permission to use, copy, modify, and/or distribute this software for any
+     * purpose with or without fee is hereby granted, provided that the above
+     * copyright notice and this permission notice appear in all copies.
+     *
+     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
+     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+     * PERFORMANCE OF THIS SOFTWARE.
+     */
+    class FlattedString
+    {
+        public function __construct($value)
+        {
+        }
+    }
+    class Flatted
+    {
+        // public utilities
+        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
+        {
+        }
+        public static function stringify($value, $options = 0, $depth = 512)
+        {
+        }
+        // private helpers
+        private static function asString($value)
+        {
+        }
+        private static function index(&$known, &$input, &$value)
+        {
+        }
+        private static function keys(&$value)
+        {
+        }
+        private static function loop($obj, $keys, &$input, &$set, &$output)
+        {
+        }
+        private static function relate(&$known, &$input, &$value)
+        {
+        }
+        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
+        {
+        }
+        private static function transform(&$known, &$input, &$value)
+        {
+        }
+        private static function wrap($value)
+        {
+        }
+    }
     /**
      * Customizer Initialization
      *
@@ -12605,6 +12728,27 @@ namespace {
     {
     }
     /**
+     * Generate dark palette CSS variable styles for the front end.
+     *
+     * @since x.x.x
+     * @return string
+     */
+    function astra_generate_dark_palette_style()
+    {
+    }
+    /**
+     * Dynamic CSS
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+     * @return String Generated dynamic CSS for Mode Switcher.
+     *
+     * @since x.x.x
+     */
+    function astra_mode_switcher_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
+    /**
      * Off Canvas Row - Dynamic CSS
      *
      * @param  string $dynamic_css          Astra Dynamic CSS.
@@ -13093,9 +13237,9 @@ namespace {
     /**
      * Parse CSS
      *
-     * @param  array  $css_output Array of CSS.
-     * @param  string $min_media  Min Media breakpoint.
-     * @param  string $max_media  Max Media breakpoint.
+     * @param  array      $css_output Array of CSS.
+     * @param  mixed $min_media  Min Media breakpoint.
+     * @param  mixed $max_media  Max Media breakpoint.
      * @return string             Generated CSS.
      */
     function astra_parse_css($css_output = array(), $min_media = '', $max_media = '')

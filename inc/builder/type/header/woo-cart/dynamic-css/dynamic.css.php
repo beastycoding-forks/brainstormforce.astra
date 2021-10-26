@@ -237,6 +237,25 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 	);
 
+	// Desktop offcanvas cart.
+	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
+
+		$desktop_flyout_cart_width                                        = astra_get_option( 'woo-desktop-cart-flyout-width' );
+		$desktop_flyout_cart_direction                                    = astra_get_option( 'woo-desktop-cart-flyout-direction' );
+		$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right'] = array(
+			'width' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+		);
+		if ( 'left' === $desktop_flyout_cart_direction ) {
+			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right']        = array(
+				'width' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+				'left'  => '-' . astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+			);
+			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right.active'] = array(
+				'left' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+			);
+		}
+	}
+
 	/* Parse CSS from array() */
 	$css_output          = astra_parse_css( $css_output_desktop );
 	$responsive_selector = '.astra-cart-drawer.woocommerce-active';

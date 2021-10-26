@@ -326,6 +326,16 @@ p.demo_store[data-position="bottom"],
   border-width: 1px;
 }
 
+.ast-desktop-cart-flyout:focus .widget_shopping_cart {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ast-desktop-cart-flyout:hover .widget_shopping_cart {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .ast-above-header-wrap .ast-site-header-cart .widget_shopping_cart .cart_list a.remove,
 .main-header-bar-wrap .ast-site-header-cart .widget_shopping_cart .cart_list a.remove,
 .ast-below-header .ast-site-header-cart .widget_shopping_cart .cart_list a.remove {

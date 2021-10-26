@@ -171,11 +171,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				return;
 			}
 
-			$icon               = astra_get_option( 'woo-header-cart-icon' );
-			$cart_total_display = astra_get_option( 'woo-header-cart-total-display' );
-			$cart_count_display = apply_filters( 'astra_header_cart_count', true );
-			$cart_title_display = astra_get_option( 'woo-header-cart-title-display' );
-			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
+			$icon                     = astra_get_option( 'woo-header-cart-icon' );
+			$cart_total_display       = astra_get_option( 'woo-header-cart-total-display' );
+			$cart_count_display       = apply_filters( 'astra_header_cart_count', true );
+			$cart_title_display       = astra_get_option( 'woo-header-cart-title-display' );
+			$cart_title               = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
+			$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 
 			$cart_title_markup = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
 			$cart_total_markup = '';
@@ -224,10 +225,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				/* translators: 1: Cart Title Markup, 2: Cart Icon Markup */
 				printf(
-					'<div class="ast-addon-cart-wrap">
-							%1$s
+					'<div class="ast-addon-cart-wrap cart-position-%1$s">
 							%2$s
+							%3$s
 					</div>',
+					( $cart_total_label_postion ) ? $cart_total_label_postion : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					( $cart_title_display || $cart_total_display ) ? $cart_info_markup : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					( $cart_icon ) ? $cart_icon : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
@@ -1761,7 +1763,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$class = '';
 			}
 
-			$cart_menu_classes = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border' ) );
+			$desktop_cart_flyout = 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ? 'ast-desktop-cart-flyout' : '';
+			$cart_menu_classes   = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border', $desktop_cart_flyout ) );
 
 			ob_start();
 			if ( is_customize_preview() && true === Astra_Builder_Helper::$is_header_footer_builder_active ) {

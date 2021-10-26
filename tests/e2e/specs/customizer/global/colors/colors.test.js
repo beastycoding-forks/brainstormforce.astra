@@ -63,23 +63,4 @@ describe( 'Testing Global Color setting under the customizer', () => {
 			property: 'background-color',
 		} ).cssValueToBe( `${ themeColor[ 'theme-color' ] }` );
 	} );
-	it( 'link hover color should apply correctly', async () => {
-		const linkHColor = {
-			'link-h-color': 'rgb(1, 112, 185)',
-		};
-		await setCustomize( linkHColor );
-		await createNewPost( {
-			postType: 'page',
-			title: 'Hover',
-		} );
-		await publishPost();
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} );
-		await page.waitForSelector( '.main-header-menu .menu-link, .main-header-menu > a' );
-		await expect( {
-			selector: '.main-header-menu .menu-link, .main-header-menu > a',
-			property: 'color',
-		} ).cssValueToBe( `${ linkHColor[ 'link-h-color' ] }` );
-	} );
 } );

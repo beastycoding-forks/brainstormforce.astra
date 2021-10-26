@@ -117,13 +117,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @since x.x.x
 		 *
-		 * @param  string $notice Store notice markup
-		 * @return string $notice Store notice markup
+		 * @param  string $notice Store notice markup.
+		 * @return string $notice Store notice markup.
 		 */
 		public function astra_woocommerce_update_store_notice_atts( $notice ) {
 
 			$store_notice_position = astra_get_option( 'store-notice-position' );
-			$notice = str_replace( 'data-notice-id', 'data-position="' . $store_notice_position . '" data-notice-id', $notice );
+			$notice                = str_replace( 'data-notice-id', 'data-position="' . $store_notice_position . '" data-notice-id', $notice );
 
 			return $notice;
 		}

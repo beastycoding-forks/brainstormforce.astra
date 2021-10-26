@@ -82,6 +82,7 @@ class Astra_Woo_Store_Notice_Configs extends Astra_Customizer_Config_Base {
 				'type'       => 'control',
 				'control'    => 'ast-selector',
 				'section'    => 'woocommerce_store_notice',
+				'transport'         => 'postMessage',
 				'priority'   => 60,
 				'title'      => __( 'Notice Position', 'astra' ),
 				'choices'    => array(

@@ -85,9 +85,8 @@ class Astra_Woo_Store_Notice_Configs extends Astra_Customizer_Config_Base {
 				'priority'   => 60,
 				'title'      => __( 'Notice Position', 'astra' ),
 				'choices'    => array(
-					'default' => __( 'Hang Over Top', 'astra' ),
-					'above'   => __( 'Above', 'astra' ),
-					'below'   => __( 'Below', 'astra' ),
+					'top' => __( 'Top', 'astra' ),
+					'bottom'   => __( 'Bottom', 'astra' ),
 				),
 				'renderAs'   => 'text',
 				'responsive' => false,

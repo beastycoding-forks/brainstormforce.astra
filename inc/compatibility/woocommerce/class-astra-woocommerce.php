@@ -34,7 +34,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Cart total label position.
 		 *
-		 * @since 1.0
+		 * @since x.x.x
 		 * @var array $cart_total_label_postion
 		 */
 		public static $cart_total_label_postion = array();

@@ -4572,41 +4572,22 @@ button.pswp__button--zoom:hover {
 /**
  * Added for the Cart total label badge position
  */
-.cart-container {
+.cart-container, .ast-addon-cart-wrap {
   display: flex;
-  align-items: var(--align-items, center);
+  align-items: center;
 }
 
-.ast-addon-cart-wrap {
-  display: flex;
-  align-items: var(--align-items, center);
-}
-
-.cart-container.ast-cart-position-bottom {
+.cart-container.ast-cart-position-bottom, .ast-addon-cart-wrap.ast-cart-position-bottom {
   flex-direction: column;
 }
 
-.cart-container.ast-cart-position-bottom .ast-woo-header-cart-info-wrap {
+.cart-container.ast-cart-position-bottom .ast-woo-header-cart-info-wrap, .ast-addon-cart-wrap.ast-cart-position-bottom .ast-woo-header-cart-info-wrap {
   order: 2;
   line-height: 1;
   margin-top: 0.5em;
 }
 
-.ast-addon-cart-wrap.ast-cart-position-bottom {
-  flex-direction: column;
-}
-
-.ast-addon-cart-wrap.ast-cart-position-bottom .ast-woo-header-cart-info-wrap {
-  order: 2;
-  line-height: 1;
-  margin-top: 0.5em;
-}
-
-.cart-container.ast-cart-position-left .ast-woo-header-cart-info-wrap {
-  margin-left: 0.5em;
-}
-
-.ast-addon-cart-wrap.ast-cart-position-left .ast-woo-header-cart-info-wrap {
+.cart-container.ast-cart-position-left .ast-woo-header-cart-info-wrap, .ast-addon-cart-wrap.ast-cart-position-left .ast-woo-header-cart-info-wrap {
   margin-left: 0.5em;
 }
 

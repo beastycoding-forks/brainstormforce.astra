@@ -85,7 +85,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		}
 
 		/**
-		 * Compatibility CSS for Elementor Pro's WooCommerce widgets releasing in their v3.5.0
+		 * Compatibility CSS for Elementor Pro's WooCommerce widgets releasing in their v3.6.0
 		 *
 		 * @param  string $dynamic_css Astra Dynamic CSS.
 		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.

@@ -2283,9 +2283,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$core_blocks_min_width_1200_ui_css = array(
 					'.entry-content .alignfull p' => array(
-						'max-width'    => astra_get_css_value( $site_content_width, 'px' ),
+						'max-width' => astra_get_css_value( $site_content_width, 'px' ),
 					),
-					'.entry-content .alignfull' => array(
+					'.entry-content .alignfull'   => array(
 						'max-width' => '100%',
 						'width'     => '100%',
 					),

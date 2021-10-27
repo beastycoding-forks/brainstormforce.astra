@@ -81,25 +81,26 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			 *
 			 * @since  x.x.x
 			 */
-			add_filter( 'astra_dynamic_theme_css', array( $this, 'elementor_wc_widgets_compatibility_styles' ) );
+			add_filter( 'astra_theme_woocommerce_dynamic_css', array( $this, 'elementor_wc_widgets_compatibility_styles' ) );
 		}
 
 		/**
 		 * Compatibility CSS for Elementor Pro's WooCommerce widgets releasing in their v3.6.0
 		 *
-		 * @param  string $dynamic_css Astra Dynamic CSS.
-		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
-		 * @return string $dynamic_css Generated CSS.
+		 * @param  string $css_output CSS stylesheet.
+		 * @return string $css_output CSS stylesheet.
 		 *
 		 * @since  x.x.x
 		 */
-		public function elementor_wc_widgets_compatibility_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
+		public function elementor_wc_widgets_compatibility_styles( $css_output ) {
 
-			if ( astra_check_elementor_pro_3_6_version() ) {
-
+			if ( ! astra_check_elementor_pro_3_6_version() ) {
+				return $css_output;
 			}
 
-			return $dynamic_css;
+			// Code goes here.
+
+			return $css_output;
 		}
 
 		/**

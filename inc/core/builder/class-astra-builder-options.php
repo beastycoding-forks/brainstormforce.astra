@@ -327,6 +327,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'section-footer-menu-margin',
 		'section-primary-footer-builder-padding',
 		'section-primary-footer-builder-margin',
+		'section-header-woo-cart-padding',
+		'section-header-woo-cart-margin',
 	);
 
 	foreach ( $margin_defaults as $margin_default ) {
@@ -939,6 +941,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-icon-style']             = 'outline';
 	$defaults['header-woo-cart-icon-color']             = '';
 	$defaults['transparent-header-woo-cart-icon-color'] = '';
+	$defaults['header-woo-cart-icon-hover-color']       = '';
 	$defaults['woo-header-cart-icon-radius']            = 3;
 	// Woo Cart - Dynamic label default value.
 	$defaults['woo-header-cart-label-display'] = '{cart_title}/{cart_total_currency_symbol}';

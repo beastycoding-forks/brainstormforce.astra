@@ -1,5 +1,4 @@
-v3.7.4 (Unreleased)
-- New: Breadcrumb compatibility with SEOPress plugin. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
+v3.8.0 (woocomerce-improvements) (Unreleased)
 - New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
 - New: WooCommerce - Added cart icon hover color option.
@@ -7,12 +6,14 @@ v3.7.4 (Unreleased)
 - New: WooCommerce - Added store notice color & background-color options.
 - New: WooCommerce - Added store notice position option.
 - New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
-- Improvement: Gutenberg frontend blocks UI improvement. ( Needs Doc )
+
+v3.7.4
+- New: Breadcrumb compatibility with SEOPress plugin. ( https://wpastra.com/docs/add-breadcrumbs-with-astra/#support-for-third-party-plugins )
+- Improvement: Gutenberg editor core blocks UI/UX improvement. ( https://wpastra.com/docs/gutenberg-ui-improvements-with-astra/ )
+- Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( https://wpastra.com/docs/deprecated-astra-hooks/ )
+- Improvement: Gutenberg frontend blocks UI improvement. ( https://wpastra.com/docs/gutenberg-ui-improvements-with-astra/ )
 - Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.
-- Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( Blog Link )
-- Improvement: Gutenberg editor core blocks UI/UX improvement. ( Needs Doc )
-- Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( Needs Doc )
-- Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( Blog Link )
+- Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( https://wpastra.com/astra-3-7-4/ )
 - Fix: W3 validation - Getting duplicate H1 tag for site-title.
 - Fix: W3 validation - Duplicate HTML id '#site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validation - CSS parse error for '.menu-link' & '.wp-block-button__link'.
@@ -27,8 +28,6 @@ v3.7.4 (Unreleased)
 - Fix: Gutenberg - Font weight for the heading typography is appearing differently on the editor and frontend.
 - Fix: WooCommerce - Broken grid layout on mobile view for products shortcode.
 - Fix: Title is misaligned in Gutenberg editor when the Gutenberg plugin v11.4.1 and above is active.
-- Fix: The Gutenberg plugin v11.4.1 breaks the title / reduces the title space.
-- Fix: Broken layout of WooCommerce's products shortcode grid on mobile view.
 - Fix: The hamburger button is not changing its aria-expanded attribute to true on expanding.
 
 v3.7.3

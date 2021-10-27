@@ -99,6 +99,9 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 
 			$widgets_css = array(
+				'.elementor-widget-woocommerce-checkout-page .select2-container .select2-selection--single' => array(
+					'padding'        => '0',
+				),
 				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link' => array(
 					'border' => '0px',
 				),

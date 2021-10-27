@@ -12,6 +12,7 @@ v3.7.4 (Unreleased)
 - Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( Blog Link )
 - Improvement: Gutenberg editor core blocks UI/UX improvement. ( Needs Doc )
 - Improvement: Code refactor – Some filters, functions, hooks are deprecated and replaced with astra_ prefix NamingConvention. ( Needs Doc )
+- Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( Blog Link )
 - Fix: W3 validation - Getting duplicate H1 tag for site-title.
 - Fix: W3 validation - Duplicate HTML id '#site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validation - CSS parse error for '.menu-link' & '.wp-block-button__link'.

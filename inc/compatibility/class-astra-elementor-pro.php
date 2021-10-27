@@ -98,7 +98,14 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				return $css_output;
 			}
 
-			// Code goes here.
+			$woo_widgets_desktop_css = array(
+				'.elementor-widget-woocommerce-checkout-page .select2-container .select2-selection--single' => array(
+					'padding'        => '0',
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$css_output .= astra_parse_css( $woo_widgets_desktop_css );
 
 			return $css_output;
 		}

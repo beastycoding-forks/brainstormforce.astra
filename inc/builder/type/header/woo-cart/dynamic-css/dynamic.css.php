@@ -67,7 +67,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$checkout_button_bg_h_color   = astra_get_option( 'header-woo-checkout-btn-bg-hover-color' );
 
 	/**
-	 * - Display Cart Badge
+	 * - Display Cart Badge.
 	 */
 	$cart_badge_display = astra_get_option( 'woo-header-cart-badge-display' );
 

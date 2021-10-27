@@ -96,7 +96,13 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		public function elementor_wc_widgets_compatibility_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 			if ( astra_check_elementor_pro_3_6_version() ) {
-
+				$widgets_css = array(
+					'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link' => array(
+						'border' => '0px',
+					),
+				);
+				
+				$dynamic_css .= astra_parse_css( $widgets_css );
 			}
 
 			return $dynamic_css;

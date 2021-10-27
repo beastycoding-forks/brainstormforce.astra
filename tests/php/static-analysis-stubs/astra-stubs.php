@@ -5314,6 +5314,17 @@ namespace {
         {
         }
         /**
+         * Update WooCommerce store notice. Extending this function to add custom data-attr as per Astra's configuration.
+         *
+         * @since x.x.x
+         *
+         * @param  string $notice Store notice markup.
+         * @return string $notice Store notice markup.
+         */
+        public function astra_woocommerce_update_store_notice_atts($notice)
+        {
+        }
+        /**
          * Dynamic CSS for store notice config.
          *
          * @since x.x.x

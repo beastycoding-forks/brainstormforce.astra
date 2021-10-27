@@ -107,7 +107,25 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'astra_cart_in_menu_class', array( $this, 'header_cart_icon_class' ), 99 );
 
+			add_filter( 'woocommerce_demo_store', array( $this, 'astra_woocommerce_update_store_notice_atts' ) );
+
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'astra_woocommerce_store_dynamic_css' ) );
+		}
+
+		/**
+		 * Update WooCommerce store notice. Extending this function to add custom data-attr as per Astra's configuration.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param  string $notice Store notice markup.
+		 * @return string $notice Store notice markup.
+		 */
+		public function astra_woocommerce_update_store_notice_atts( $notice ) {
+
+			$store_notice_position = astra_get_option( 'store-notice-position' );
+			$notice                = str_replace( 'data-notice-id', 'data-position="' . $store_notice_position . '" data-notice-id', $notice );
+
+			return $notice;
 		}
 
 		/**
@@ -441,6 +459,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/* Store Notice */
 			$defaults['store-notice-text-color']       = '';
 			$defaults['store-notice-background-color'] = '';
+			$defaults['store-notice-position']         = 'top';
 
 			$defaults['shop-archive-width']     = 'default';
 			$defaults['shop-archive-max-width'] = 1200;

@@ -4,6 +4,8 @@ v3.7.4 (Unreleased)
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
 - New: WooCommerce - Added cart icon hover color option.
 - New: WooCommerce - Added cart Margin and Padding spacing option.
+- New: WooCommerce - Added store notice color & background-color options.
+- New: WooCommerce - Added store notice position option.
 - New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
 - Improvement: Gutenberg frontend blocks UI improvement. ( Needs Doc )
 - Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.

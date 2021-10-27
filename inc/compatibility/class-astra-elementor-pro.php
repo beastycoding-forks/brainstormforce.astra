@@ -98,7 +98,29 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				return $css_output;
 			}
 
-			// Code goes here.
+			$woo_widgets_desktop_css = array(
+				'.elementor-widget-woocommerce-cart .woocommerce a.remove' => array(
+					'border' => '0px',
+				),
+				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals > h2' => array(
+					'background-color' => 'inherit',
+					'border-bottom'    => '0px',
+					'margin'           => '0px',
+				),
+				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals' => array(
+					'padding'       => '0',
+					'border-color'  => 'inherit',
+					'border-radius' => '0',
+					'margin-bottom' => '0px',
+					'border-width'  => '0px',
+				),
+				'.elementor-widget-woocommerce-cart .woocommerce-cart-form .e-apply-coupon' => array(
+					'line-height' => 'initial',
+				),
+
+			);
+			
+			$css_output .= astra_parse_css( $woo_widgets_desktop_css );
 
 			return $css_output;
 		}

@@ -99,11 +99,11 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 			
 			$widget_css = array(
-				'.woocommerce table.shop_table thead, .woocommerce-page table.shop_table thead' => array(
+				'.elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead' => array(
 					'background-color' => 'inherit',
 				),
-				'.woocommerce-account .woocommerce-MyAccount-content .woocommerce-Address-title h3' => array(
-					'margin-bottom' => 'var(--myaccount-section-title-spacing, 45px)',
+				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content .woocommerce-Address-title h3' => array(
+					'margin-bottom' => 'var(--myaccount-section-title-spacing, 0px)',
 				),
 			);
 

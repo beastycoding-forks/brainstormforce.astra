@@ -75,6 +75,31 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			add_filter( 'post_class', array( $this, 'render_post_class' ), 99 );
 			// Override post meta.
 			add_action( 'wp', array( $this, 'override_meta' ), 0 );
+
+			/**
+			 * Compatibility for Elementor Pro's upcoming WooCommerce widget.
+			 *
+			 * @since  x.x.x
+			 */
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'elementor_wc_widgets_compatibility_styles' ) );
+		}
+
+		/**
+		 * Compatibility CSS for Elementor Pro's WooCommerce widgets releasing in their v3.5.0
+		 *
+		 * @param  string $dynamic_css Astra Dynamic CSS.
+		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+		 * @return string $dynamic_css Generated CSS.
+		 *
+		 * @since  x.x.x
+		 */
+		public function elementor_wc_widgets_compatibility_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
+
+			if ( astra_check_elementor_pro_3_6_version() ) {
+
+			}
+
+			return $dynamic_css;
 		}
 
 		/**

@@ -102,6 +102,12 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link' => array(
 					'border' => '0px',
 				),
+				'.elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead' => array(
+					'background-color' => 'inherit',
+				),
+				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content .woocommerce-Address-title h3' => array(
+					'margin-bottom' => 'var(--myaccount-section-title-spacing, 0px)',
+				),
 			);
 			$css_output .= astra_parse_css( $widgets_css );
 

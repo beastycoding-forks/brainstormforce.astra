@@ -1762,7 +1762,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 						if ( apply_filters( 'astra_woo_default_header_cart_icon', true ) ) {
 							?>
-							<div class="ast-cart-menu-wrap">
+							<!-- <div class="ast-cart-menu-wrap">
 								<span class="count">
 									<?php
 									if ( apply_filters( 'astra_woo_header_cart_total', true ) && null != WC()->cart ) {
@@ -1770,7 +1770,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 									}
 									?>
 								</span>
-							</div>
+							</div> -->
 							<?php
 						}
 

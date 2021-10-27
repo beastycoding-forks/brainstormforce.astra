@@ -98,14 +98,19 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				return $css_output;
 			}
 
-			$woo_widgets_desktop_css = array(
+			$widget_css = array(
 				'.elementor-widget-woocommerce-checkout-page .select2-container .select2-selection--single' => array(
 					'padding'        => '0',
 				),
+				'.elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead' => array(
+					'background-color' => 'inherit',
+				),
+				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content .woocommerce-Address-title h3' => array(
+					'margin-bottom' => 'var(--myaccount-section-title-spacing, 0px)',
+				),
 			);
 
-			/* Parse CSS from array()*/
-			$css_output .= astra_parse_css( $woo_widgets_desktop_css );
+			$css_output .= astra_parse_css( $widget_css );
 
 			return $css_output;
 		}

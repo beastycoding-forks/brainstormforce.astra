@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 */
 		public function elementor_wc_widgets_compatibility_styles( $css_output ) {
 
-			if ( ! astra_check_elementor_pro_3_6_version() ) {
+			if ( ! astra_check_elementor_pro_3_5_version() ) {
 				return $css_output;
 			}
 
@@ -128,6 +128,9 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				),
 				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content .woocommerce-Address-title h3' => array(
 					'margin-bottom' => 'var(--myaccount-section-title-spacing, 0px)',
+				),
+				'.elementor-widget-woocommerce-cart td.product-name dl.variation dt' => array(
+					'font-weight' => 'inherit',
 				),
 
 			);

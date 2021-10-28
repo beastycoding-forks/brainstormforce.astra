@@ -938,17 +938,13 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
-	$defaults['woo-header-cart-click-action']              = 'default';
-	$defaults['woo-desktop-cart-flyout-width']             = 30;
-	$defaults['woo-header-cart-icon-style']                = 'outline';
-	$defaults['woo-header-cart-icon-total-label-position'] = '';
-	$defaults['woo-desktop-cart-flyout-direction']         = 'right';
-	$defaults['header-woo-cart-icon-color']                = '';
-	$defaults['transparent-header-woo-cart-icon-color']    = '';
-	$defaults['header-woo-cart-icon-hover-color']          = '';
-	$defaults['woo-header-cart-icon-radius']               = 3;
-	$defaults['woo-header-cart-total-display']             = true;
-	$defaults['woo-header-cart-title-display']             = true;
+	$defaults['woo-header-cart-icon-style']             = 'outline';
+	$defaults['header-woo-cart-icon-color']             = '';
+	$defaults['transparent-header-woo-cart-icon-color'] = '';
+	$defaults['header-woo-cart-icon-hover-color']       = '';
+	$defaults['woo-header-cart-icon-radius']            = 3;
+	// Woo Cart - Dynamic label default value.
+	$defaults['woo-header-cart-label-display'] = '{cart_title}/{cart_total_currency_symbol}';
 
 	// Cart tray > General Color styles.
 	$defaults['header-woo-cart-text-color']       = '';

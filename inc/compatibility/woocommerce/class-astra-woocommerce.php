@@ -171,29 +171,41 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				return;
 			}
 
-			$icon                     = astra_get_option( 'woo-header-cart-icon' );
-			$cart_total_display       = astra_get_option( 'woo-header-cart-total-display' );
-			$cart_count_display       = apply_filters( 'astra_header_cart_count', true );
-			$cart_title_display       = astra_get_option( 'woo-header-cart-title-display' );
-			$cart_title               = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
-			$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
+			$icon               = astra_get_option( 'woo-header-cart-icon' );
+			$cart_count_display = apply_filters( 'astra_header_cart_count', true );
+			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
 
-			$cart_title_markup = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
-			$cart_total_markup = '';
+			$cart_title_markup      = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
+			$cart_total_markup      = '';
+			$cart_total_only_markup = '';
 			if ( null !== WC()->cart ) {
 				$cart_total_markup = '<span class="ast-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
+
+				$cart_total_only_markup = '<span class="ast-woo-header-cart-total-only">' . WC()->cart->get_cart_contents_total() . '</span>';
 			}
 
+			$cart_cur_name_markup = '';
+			if ( function_exists( 'get_woocommerce_currency' ) ) {
+				$cart_cur_name_markup = '<span class="ast-woo-header-cart-cur-name">' . get_woocommerce_currency() . '</span>';
+			}
+
+			$cart_cur_sym_markup = '';
+			if ( function_exists( 'get_woocommerce_currency_symbol' ) ) {
+				$cart_cur_sym_markup = '<span class="ast-woo-header-cart-cur-symbol">' . get_woocommerce_currency_symbol() . '</span>';
+			}
+			$display_cart_label = astra_get_option( 'woo-header-cart-label-display' );
+
+			$shortcode_label       = array( '{cart_total_currency_symbol}', '{cart_title}', '{cart_total}', '{cart_currency_name}', '{cart_currency_symbol}' );
+			$shortcode_label_value = array( $cart_total_markup, $cart_title_markup, $cart_total_only_markup, $cart_cur_name_markup, $cart_cur_sym_markup );
+
+			$cart_label_markup = '';
+			$cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, $display_cart_label );
 			// Cart Title & Cart Cart total markup.
 			$cart_info_markup = sprintf(
 				'<span class="ast-woo-header-cart-info-wrap">
 						%1$s
-						%2$s
-						%3$s
 					</span>',
-				( $cart_title_display ) ? $cart_title_markup : '',
-				( $cart_total_display && $cart_title_display ) ? '/' : '',
-				( $cart_total_display ) ? $cart_total_markup : ''
+				$cart_label_markup
 			);
 
 			$cart_contents_count = 0;
@@ -215,7 +227,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			// Theme's default icon with cart title and cart total.
 			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
 				// Cart Total or Cart Title enable then only add markup.
-				if ( $cart_title_display || $cart_total_display ) {
+				if ( '' !== $cart_label_markup ) {
 					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
 			} else {
@@ -229,8 +241,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							%2$s
 							%3$s
 					</div>',
-					( $cart_total_label_postion ) ? $cart_total_label_postion : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					( $cart_title_display || $cart_total_display ) ? $cart_info_markup : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					$cart_info_markup, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					( $cart_icon ) ? $cart_icon : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}

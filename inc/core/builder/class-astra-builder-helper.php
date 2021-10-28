@@ -646,19 +646,25 @@ final class Astra_Builder_Helper {
 		self::$header_desktop_items = apply_filters(
 			'astra_header_desktop_items',
 			array(
-				'logo'    => array(
+				'logo'          => array(
 					'name'    => __( 'Site Title & Logo', 'astra' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
 					'delete'  => false,
 				),
-				'search'  => array(
+				'mode-switcher' => array(
+					'name'    => __( 'Dark Mode Switcher', 'astra' ),
+					'icon'    => 'art',
+					'section' => 'section-mode-switcher',
+					'delete'  => false,
+				),
+				'search'        => array(
 					'name'    => __( 'Search', 'astra' ),
 					'icon'    => 'search',
 					'section' => 'section-header-search',
 					'delete'  => false,
 				),
-				'account' => array(
+				'account'       => array(
 					'name'    => __( 'Account', 'astra' ),
 					'icon'    => 'admin-users',
 					'section' => 'section-header-account',
@@ -713,6 +719,11 @@ final class Astra_Builder_Helper {
 					'name'    => __( 'Site Title & Logo', 'astra' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
+				),
+				'mode-switcher'  => array(
+					'name'    => __( 'Mode Switcher', 'astra' ),
+					'icon'    => 'art',
+					'section' => 'section-mode-switcher',
 				),
 				'search'         => array(
 					'name'    => __( 'Search', 'astra' ),

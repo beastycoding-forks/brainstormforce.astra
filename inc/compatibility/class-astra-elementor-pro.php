@@ -132,6 +132,9 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				'.elementor-widget-woocommerce-cart td.product-name dl.variation dt' => array(
 					'font-weight' => 'inherit',
 				),
+				'.elementor-widget-woocommerce-cart table.shop_table thead' => array(
+					'background-color' => 'inherit',
+				),
 
 			);
 			

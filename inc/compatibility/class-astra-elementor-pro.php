@@ -98,7 +98,12 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				return $css_output;
 			}
 
-			// Code goes here.
+			$widgets_css = array(
+				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link' => array(
+					'border' => '0px',
+				),
+			);
+			$css_output .= astra_parse_css( $widgets_css );
 
 			return $css_output;
 		}

@@ -99,11 +99,11 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 			
 			$woo_widgets_desktop_css = array(
-				'.elementor-widget-woocommerce-cart .woocommerce td.product-name dl.variation dt' => array(
+				'.elementor-widget-woocommerce-cart td.product-name dl.variation dt' => array(
 					'font-weight' => 'inherit',
 				),
 			);
-			
+
 			$css_output .= astra_parse_css( $woo_widgets_desktop_css );
 
 			return $css_output;

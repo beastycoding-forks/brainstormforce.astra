@@ -97,13 +97,23 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			if ( ! astra_check_elementor_pro_3_5_version() ) {
 				return $css_output;
 			}
-
-			$widgets_css = array(
+			
+			$widget_css = array(
+				'.elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead, .elementor-widget-woocommerce-cart table.shop_table thead' => array(
+					'background-color' => 'inherit',
+				),
+				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content .woocommerce-Address-title h3' => array(
+					'margin-bottom' => 'var(--myaccount-section-title-spacing, 0px)',
+				),
+				'.elementor-widget-woocommerce-my-account .woocommerce-Addresses .woocommerce-Address-title' => array(
+					'background' => 'inherit',
+				),
 				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link' => array(
 					'border' => '0px',
 				),
 			);
-			$css_output .= astra_parse_css( $widgets_css );
+
+			$css_output .= astra_parse_css( $widget_css );
 
 			return $css_output;
 		}

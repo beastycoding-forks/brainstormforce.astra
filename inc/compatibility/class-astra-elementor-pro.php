@@ -117,6 +117,9 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				'.elementor-widget-woocommerce-cart .woocommerce-cart-form .e-apply-coupon' => array(
 					'line-height' => 'initial',
 				),
+				'.elementor-widget-woocommerce-cart table.shop_table thead' => array(
+					'background-color' => 'inherit',
+				),
 
 			);
 			

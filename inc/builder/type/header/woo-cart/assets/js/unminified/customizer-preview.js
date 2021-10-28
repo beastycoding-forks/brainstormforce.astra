@@ -61,21 +61,21 @@
 		'woo-cart-colors',
 		'astra-settings[header-woo-cart-background-color]',
 		'background-color',
-		'#ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer .astra-cart-drawer'
+		'#ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer'
 	);
 
 	astra_color_responsive_css(
 		'woo-cart-border-color',
 		'astra-settings[header-woo-cart-background-color]',
 		'border-color',
-		'#ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer .widget_shopping_cart,'
+		'#ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer'
 	);
 
 	astra_color_responsive_css(
 		'woo-cart-border-bottom-color',
 		'astra-settings[header-woo-cart-background-color]',
 		'border-bottom-color',
-		'#ast-site-header-cart .widget_shopping_cart, #astra-mobile-cart-drawer, .astra-cart-drawer'
+		'#ast-site-header-cart .widget_shopping_cart:before, #ast-site-header-cart .widget_shopping_cart:after, .open-preview-woocommerce-cart #ast-site-header-cart .widget_shopping_cart:before, #astra-mobile-cart-drawer, .astra-cart-drawer'
 	);
 
 	// Added Background Color Hover

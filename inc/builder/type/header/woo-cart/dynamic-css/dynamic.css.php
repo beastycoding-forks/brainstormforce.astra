@@ -182,11 +182,11 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		'.ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart_content a:not(.button):hover' => array(
 			'color' => esc_attr( $cart_h_link_color_desktop ),
 		),
-		'.astra-cart-drawer .widget_shopping_cart' => array(
+		'#ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer' => array(
 			'background-color' => esc_attr( $cart_bg_color_desktop ),
 			'border-color'     => esc_attr( $cart_bg_color_desktop ),
 		),
-		'.astra-cart-drawer .widget_shopping_cart:hover' => array(
+		'#ast-site-header-cart .widget_shopping_cart:hover, .astra-cart-drawer:hover' => array(
 			'background-color' => esc_attr( $cart_h_bg_color_desktop ),
 			'border-color'     => esc_attr( $cart_h_bg_color_desktop ),
 		),

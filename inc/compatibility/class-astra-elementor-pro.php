@@ -75,6 +75,66 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			add_filter( 'post_class', array( $this, 'render_post_class' ), 99 );
 			// Override post meta.
 			add_action( 'wp', array( $this, 'override_meta' ), 0 );
+
+			/**
+			 * Compatibility for Elementor Pro's upcoming WooCommerce widget.
+			 *
+			 * @since  x.x.x
+			 */
+			add_filter( 'astra_theme_woocommerce_dynamic_css', array( $this, 'elementor_wc_widgets_compatibility_styles' ) );
+		}
+
+		/**
+		 * Compatibility CSS for Elementor Pro's WooCommerce widgets releasing in their v3.6.0
+		 *
+		 * @param  string $css_output CSS stylesheet.
+		 * @return string $css_output CSS stylesheet.
+		 *
+		 * @since  x.x.x
+		 */
+		public function elementor_wc_widgets_compatibility_styles( $css_output ) {
+
+			if ( ! astra_check_elementor_pro_3_6_version() ) {
+				return $css_output;
+			}
+
+			$woo_widgets_desktop_css = array(
+				'.elementor-widget-woocommerce-cart .woocommerce a.remove' => array(
+					'border' => '0px',
+				),
+				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals > h2' => array(
+					'background-color' => 'inherit',
+					'border-bottom'    => '0px',
+					'margin'           => '0px',
+				),
+				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals' => array(
+					'padding'       => '0',
+					'border-color'  => 'inherit',
+					'border-radius' => '0',
+					'margin-bottom' => '0px',
+					'border-width'  => '0px',
+				),
+				'.elementor-widget-woocommerce-cart .woocommerce-cart-form .e-apply-coupon' => array(
+					'line-height' => 'initial',
+				),
+				'.elementor-widget-woocommerce-checkout-page .select2-container .select2-selection--single' => array(
+					'padding' => '0',
+				),
+				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link' => array(
+					'border' => '0px',
+				),
+				'.elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead' => array(
+					'background-color' => 'inherit',
+				),
+				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content .woocommerce-Address-title h3' => array(
+					'margin-bottom' => 'var(--myaccount-section-title-spacing, 0px)',
+				),
+
+			);
+			
+			$css_output .= astra_parse_css( $woo_widgets_desktop_css );
+
+			return $css_output;
 		}
 
 		/**

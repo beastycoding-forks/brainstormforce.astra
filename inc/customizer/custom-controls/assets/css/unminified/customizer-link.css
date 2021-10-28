@@ -6,3 +6,7 @@
 .customize-control-ast-customizer-link:empty {
   display:none;
 }
+
+.customize-control .ast-link-remove-font-style {
+    font-style: normal;
+}

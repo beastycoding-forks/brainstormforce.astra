@@ -40,11 +40,24 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		$_configs = array(
 
 			/**
-			 * Option: Header cart total
+			 * Notice for Display Cart label.
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-total-display]',
-				'default'   => astra_get_option( 'woo-header-cart-total-display' ),
+				'name'     => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display-notice]',
+				'type'     => 'control',
+				'control'  => 'ast-description',
+				'section'  => $_section,
+				'priority' => 50,
+				'context'  => Astra_Builder_Helper::$general_tab,
+				'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>' . __( 'The Cart Label on the page will be displayed by using the shortcodes. For more information, please refer to the article ' ) . '<a href="#">' . __( 'here' ) . '</a>.</p></div>',
+			),
+
+			/**
+			 * Option: Cart Label
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display]',
+				'default'   => astra_get_option( 'woo-header-cart-label-display' ),
 				'type'      => 'control',
 				'section'   => $_section,
 				'transport' => 'postMessage',
@@ -53,30 +66,86 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'container_inclusive' => false,
 					'render_callback'     => array( 'Astra_Builder_Header', 'header_woo_cart' ),
 				),
-				'title'     => __( 'Display Cart Total', 'astra' ),
 				'priority'  => 50,
-				'control'   => 'ast-toggle-control',
+				'title'     => __( 'Cart Label', 'astra' ),
+				'control'   => 'text',
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
-			 * Option: Cart Title
+			 * Option: Cart icon click action.
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-title-display]',
-				'default'   => astra_get_option( 'woo-header-cart-title-display' ),
-				'type'      => 'control',
-				'section'   => $_section,
-				'title'     => __( 'Display Cart Title', 'astra' ),
-				'priority'  => 55,
-				'transport' => 'postMessage',
-				'partial'   => array(
-					'selector'            => '.ast-header-woo-cart',
-					'container_inclusive' => false,
-					'render_callback'     => array( 'Astra_Builder_Header', 'header_woo_cart' ),
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
+				'default'    => astra_get_option( 'woo-header-cart-click-action' ),
+				'type'       => 'control',
+				'section'    => $_section,
+				'title'      => __( 'Cart Click Action', 'astra' ),
+				'control'    => 'ast-selector',
+				'priority'   => 60,
+				'choices'    => array(
+					'default' => __( 'Dropdown Cart', 'astra' ),
+					'flyout'  => __( 'Offcanvas Cart', 'astra' ),
 				),
-				'control'   => 'ast-toggle-control',
-				'context'   => Astra_Builder_Helper::$general_tab,
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'context'    => Astra_Builder_Helper::$desktop_general_tab,
+				'divider'    => array( 'ast_class' => 'ast-top-divider' ),
+			),
+
+			/**
+			 * Option: Woo sidebar Off-Canvas Slide-Out.
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-desktop-cart-flyout-direction]',
+				'default'    => astra_get_option( 'woo-desktop-cart-flyout-direction' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'section'    => $_section,
+				'priority'   => 65,
+				'title'      => __( 'Position', 'astra' ),
+				'choices'    => array(
+					'left'  => __( 'Left', 'astra' ),
+					'right' => __( 'Right', 'astra' ),
+				),
+				'context'    => array(
+					Astra_Builder_Helper::$general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
+						'operator' => '==',
+						'value'    => 'flyout',
+					),
+				),
+				'renderAs'   => 'text',
+				'responsive' => false,
+			),
+
+			/**
+			 * Option: Flyout width
+			 */
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[woo-desktop-cart-flyout-width]',
+				'default'     => astra_get_option( 'woo-desktop-cart-flyout-width' ),
+				'type'        => 'control',
+				'transport'   => 'postMessage',
+				'section'     => $_section,
+				'context'     => array(
+					Astra_Builder_Helper::$general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
+						'operator' => '==',
+						'value'    => 'flyout',
+					),
+				),
+				'title'       => __( 'Flyout Width', 'astra' ),
+				'control'     => 'ast-slider',
+				'suffix'      => '%',
+				'priority'    => 70,
+				'input_attrs' => array(
+					'min'  => 0,
+					'step' => 1,
+					'max'  => 100,
+				),
 			),
 
 			/**
@@ -101,6 +170,30 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			 * Option: Icon total label position.
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-total-label-position]',
+				'default'    => astra_get_option( 'woo-header-cart-icon-tol-label-position' ),
+				'type'       => 'control',
+				'transport'  => 'postMessage',
+				'section'    => $_section,
+				'title'      => __( 'Cart Total Position', 'astra' ),
+				'control'    => 'ast-selector',
+				'priority'   => 45,
+				'choices'    => array(
+					'left'   => __( 'Left', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+
+				),
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'context'    => Astra_Builder_Helper::$design_tab,
+			),
+
+			/**
+			 * Option: Icon color
 			 * Option: Icon color section
 			 */
 			array(

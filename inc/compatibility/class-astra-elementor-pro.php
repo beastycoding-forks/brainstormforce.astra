@@ -100,11 +100,11 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 
 			$widget_css = array(
 				'.woocommerce.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #customer_details.col2-set, .woocommerce-page.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #customer_details.col2-set' => array(
-					'width'        => '100%',
+					'width' => '100%',
 				),
 				'.woocommerce.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #order_review, .woocommerce.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #order_review_heading, .woocommerce-page.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #order_review, .woocommerce-page.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #order_review_heading' => array(
-					'width'        => '100%',
-					'float'        => 'inherit',
+					'width' => '100%',
+					'float' => 'inherit',
 				),
 				'.elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead, .elementor-widget-woocommerce-cart table.shop_table thead' => array(
 					'background-color' => 'inherit',

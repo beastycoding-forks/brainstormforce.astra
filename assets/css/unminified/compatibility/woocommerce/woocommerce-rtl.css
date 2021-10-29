@@ -2312,13 +2312,6 @@ p.demo_store[data-position="bottom"],
   padding: 0;
 }
 
-.woocommerce ul#shipping_method li {
-  margin: 0;
-  padding: 0.25em 22px 0.25em 0;
-  text-indent: -22px;
-  list-style: none outside;
-}
-
 .woocommerce ul#shipping_method li input {
   margin: 3px 0.5ex;
 }

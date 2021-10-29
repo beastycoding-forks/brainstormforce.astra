@@ -97,8 +97,26 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			if ( ! astra_check_elementor_pro_3_5_version() ) {
 				return $css_output;
 			}
-			
-			$widget_css = array(
+
+			$woo_widgets_desktop_css = array(
+				'.elementor-widget-woocommerce-cart .woocommerce a.remove' => array(
+					'border' => '0px',
+				),
+				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals > h2' => array(
+					'background-color' => 'inherit',
+					'border-bottom'    => '0px',
+					'margin'           => '0px',
+				),
+				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals' => array(
+					'padding'       => '0',
+					'border-color'  => 'inherit',
+					'border-radius' => '0',
+					'margin-bottom' => '0px',
+					'border-width'  => '0px',
+				),
+				'.elementor-widget-woocommerce-cart .woocommerce-cart-form .e-apply-coupon' => array(
+					'line-height' => 'initial',
+				),
 				'.elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead, .elementor-widget-woocommerce-cart table.shop_table thead' => array(
 					'background-color' => 'inherit',
 				),
@@ -111,9 +129,10 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link' => array(
 					'border' => '0px',
 				),
-			);
 
-			$css_output .= astra_parse_css( $widget_css );
+			);
+			
+			$css_output .= astra_parse_css( $woo_widgets_desktop_css );
 
 			return $css_output;
 		}

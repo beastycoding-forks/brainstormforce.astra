@@ -109,8 +109,14 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				'.elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead, .elementor-widget-woocommerce-cart table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-Addresses .woocommerce-Address-title' => array(
 					'background' => 'inherit',
 				),
-				'.elementor-widget-woocommerce-cart .woocommerce a.remove' => array(
-					'border' => '0px',
+				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link, .elementor-widget-woocommerce-cart a.remove' => array(
+					'border' => 'none',
+				),
+				'.elementor-widget-woocommerce-cart .e-apply-coupon, .elementor-widget-woocommerce-cart #coupon_code, .elementor-widget-woocommerce-checkout-page .e-apply-coupon, .elementor-widget-woocommerce-checkout-page #coupon_code' => array(
+					'height' => '100%',
+				),
+				'.elementor-widget-woocommerce-cart .select2-container .select2-selection--single' => array(
+					'padding' => '0',
 				),
 				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals > h2' => array(
 					'background-color' => 'inherit',

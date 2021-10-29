@@ -876,6 +876,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
 
 			$css_output = array(
+				'ul#shipping_method li:not(.elementor-widget-woocommerce-cart #shipping_method li)' => array(
+					'margin'      => '0',
+					'padding'     => '0.25em 0 0.25em 22px',
+					'text-indent' => '-22px',
+					'list-style'  => 'none outside',
+				),
 				'.woocommerce span.onsale, .wc-block-grid__product .wc-block-grid__product-onsale' => array(
 					'background-color' => $theme_color,
 					'color'            => astra_get_foreground_color( $theme_color ),

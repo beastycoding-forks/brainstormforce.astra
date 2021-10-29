@@ -98,7 +98,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				return $css_output;
 			}
 
-			$woo_widgets_desktop_css = array(
+			$widget_css = array(
 				'.woocommerce.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #customer_details.col2-set, .woocommerce-page.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #customer_details.col2-set' => array(
 					'width'        => '100%',
 				),
@@ -106,10 +106,21 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 					'width'        => '100%',
 					'float'        => 'inherit',
 				),
+				'.elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead, .elementor-widget-woocommerce-cart table.shop_table thead' => array(
+					'background-color' => 'inherit',
+				),
+				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content .woocommerce-Address-title h3' => array(
+					'margin-bottom' => 'var(--myaccount-section-title-spacing, 0px)',
+				),
+				'.elementor-widget-woocommerce-my-account .woocommerce-Addresses .woocommerce-Address-title' => array(
+					'background' => 'inherit',
+				),
+				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link' => array(
+					'border' => '0px',
+				),
 			);
 
-			/* Parse CSS from array()*/
-			$css_output .= astra_parse_css( $woo_widgets_desktop_css );
+			$css_output .= astra_parse_css( $widget_css );
 
 			return $css_output;
 		}

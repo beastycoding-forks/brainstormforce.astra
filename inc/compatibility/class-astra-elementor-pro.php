@@ -98,7 +98,18 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 				return $css_output;
 			}
 
-			// Code goes here.
+			$woo_widgets_desktop_css = array(
+				'.woocommerce.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #customer_details.col2-set, .woocommerce-page.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #customer_details.col2-set' => array(
+					'width'        => '100%',
+				),
+				'.woocommerce.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #order_review, .woocommerce.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #order_review_heading, .woocommerce-page.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #order_review, .woocommerce-page.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #order_review_heading' => array(
+					'width'        => '100%',
+					'float'        => 'inherit',
+				),
+			);
+
+			/* Parse CSS from array()*/
+			$css_output .= astra_parse_css( $woo_widgets_desktop_css );
 
 			return $css_output;
 		}

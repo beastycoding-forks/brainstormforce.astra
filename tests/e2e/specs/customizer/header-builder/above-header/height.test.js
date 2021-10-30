@@ -4,10 +4,17 @@ import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Above header height setting in customizer', () => {
 	it( 'height should apply correctly', async () => {
 		const aboveheaderHeight = {
+			'header-desktop-items': {
+				above: {
+					above_left: {
+						0: 'widget-1',
+					},
+				},
+			},
 			'hba-header-height': {
-				desktop: 50,
-				tablet: 40,
-				mobile: 40,
+				desktop:90,
+				tablet: 70,
+				mobile: 50,
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
@@ -18,11 +25,11 @@ describe( 'Above header height setting in customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'site-above-header-wrap' );
+		await page.waitForSelector( '.ast-above-header-bar .site-above-header-wrap' );
 		await expect( {
-			selector: 'site-above-header-wrap',
+			selector: '.ast-above-header-bar .site-above-header-wrap',
 			property: 'min-height',
-		} ).cssValueToBe( `${ aboveheaderHeight[ 'hba-header-height' ].desktop }${ aboveheaderHeight[ 'hba-header-height' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe( `${ aboveheaderHeight[ 'hba-header-height' ].desktop }${ aboveheaderHeight[ 'hba-header-height' ]['desktop-unit'] }`,
 		);
 
 		await setBrowserViewport( 'medium' );

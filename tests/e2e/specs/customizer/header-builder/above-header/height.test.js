@@ -12,7 +12,7 @@ describe( 'Above header height setting in customizer', () => {
 				},
 			},
 			'hba-header-height': {
-				desktop:90,
+				desktop: 90,
 				tablet: 70,
 				mobile: 50,
 				'desktop-unit': 'px',

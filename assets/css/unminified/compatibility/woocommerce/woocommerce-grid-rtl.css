@@ -4568,39 +4568,3 @@ button.pswp__button--zoom:hover {
     width: 60%;
   }
 }
-
-/**
- * Added for the Cart total label badge position
- */
-.cart-container, .ast-addon-cart-wrap {
-  display: flex;
-  align-items: center;
-}
-
-.cart-container.ast-cart-position-bottom, .ast-addon-cart-wrap.ast-cart-position-bottom {
-  flex-direction: column;
-}
-
-.cart-container.ast-cart-position-bottom .ast-woo-header-cart-info-wrap, .ast-addon-cart-wrap.ast-cart-position-bottom .ast-woo-header-cart-info-wrap {
-  order: 2;
-  line-height: 1;
-  margin-top: 0.5em;
-}
-
-.cart-container.ast-cart-position-left .ast-woo-header-cart-info-wrap, .ast-addon-cart-wrap.ast-cart-position-left .ast-woo-header-cart-info-wrap {
-  margin-left: 0.5em;
-}
-
-.cart-container.ast-cart-position-right .ast-woo-header-cart-info-wrap {
-  order: 2;
-  margin-right: 0.7em;
-}
-
-.ast-addon-cart-wrap.ast-cart-position-right .ast-woo-header-cart-info-wrap {
-  order: 2;
-  margin-right: 0.5em;
-}
-
-.astra-icon {
-  line-height: 0.1;
-}

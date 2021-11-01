@@ -49,7 +49,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'section'  => $_section,
 				'priority' => 50,
 				'context'  => Astra_Builder_Helper::$general_tab,
-				'help'     => '<div class="ast-customizer-notice wp-ui-highlight"><p>' . __( 'The Cart Label on the page will be displayed by using the shortcodes. For more information, please refer to the article ' ) . '<a href="#">' . __( 'here' ) . '</a>.</p></div>',
+				'help'     => '<p>' . __( 'Note: The Cart Label on the page will be displayed by using the shortcodes. For more information, please refer to the article ' ) . '<a href="#">' . __( 'here' ) . '</a>.</p>',
 			),
 
 			/**

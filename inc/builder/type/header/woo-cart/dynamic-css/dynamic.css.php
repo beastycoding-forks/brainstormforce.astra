@@ -67,7 +67,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$checkout_button_bg_color     = astra_get_option( 'header-woo-checkout-btn-background-color' );
 	$checkout_button_text_h_color = astra_get_option( 'header-woo-checkout-btn-text-hover-color' );
 	$checkout_button_bg_h_color   = astra_get_option( 'header-woo-checkout-btn-bg-hover-color' );
-	$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );
+	$cart_total_label_position    = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 
 	$header_cart_icon = '';
 
@@ -147,7 +147,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'background-color' => esc_attr( $icon_color ),
 		),
 
-		$selector . ' a.cart-container *' => array(
+		$selector . ' a.cart-container *'             => array(
 			'transition' => 'none',
 		),
 
@@ -465,53 +465,53 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	 */
 	
 	$css_total_position_common_selector = array(
-		'.cart-container, .ast-addon-cart-wrap'  => array(
-			'display' => 'flex',
-			'align-items'=> 'center',
-			),
-			'.astra-icon' => array(
-				'line-height' => 0.1,
-			),
-		);
-	$css_total_position_output_bottom = array(
+		'.cart-container, .ast-addon-cart-wrap' => array(
+			'display'     => 'flex',
+			'align-items' => 'center',
+		),
+		'.astra-icon'                           => array(
+			'line-height' => 0.1,
+		),
+	);
+	$css_total_position_output_bottom   = array(
 		'.cart-container.ast-cart-position-bottom, .ast-addon-cart-wrap.ast-cart-position-bottom' => array(
-			'flex-direction'=> 'column',
+			'flex-direction' => 'column',
 		),
 		
 		'.cart-container.ast-cart-position-bottom .ast-woo-header-cart-info-wrap, .ast-addon-cart-wrap.ast-cart-position-bottom .ast-woo-header-cart-info-wrap' => array(
-			'order' => 2,
+			'order'       => 2,
 			'line-height' => 1,
-			'margin-top' => 0.5.'em',
+			'margin-top'  => 0.5 . 'em',
 		),
 		
 	);
-	$css_total_position_output_left = array(	
+	$css_total_position_output_left  = array(    
 		'.cart-container.ast-cart-position-left .ast-woo-header-cart-info-wrap, .ast-addon-cart-wrap.ast-cart-position-left .ast-woo-header-cart-info-wrap' => array(
-			'margin-right'=> 0.5.'em',
+			'margin-right' => 0.5 . 'em',
 		),
 	);
 	$css_total_position_output_right = array(
 		'.cart-container.ast-cart-position-right .ast-woo-header-cart-info-wrap' => array(
-			'order'=> 2,
-			'margin-left' => 0.7.'em',
+			'order'       => 2,
+			'margin-left' => 0.7 . 'em',
 		),
 		
 		'.ast-addon-cart-wrap.ast-cart-position-right .ast-woo-header-cart-info-wrap' => array(
-			'order'=> 2,
-			'margin-left'=> 0.5.'em',
+			'order'       => 2,
+			'margin-left' => 0.5 . 'em',
 		),
 	);
-	$css_output      .= astra_parse_css( $css_total_position_common_selector);
-		if ( 'bottom' === $cart_total_label_position || is_customize_preview()) {
-			$css_output      .= astra_parse_css( $css_total_position_output_bottom );
-		} 
-		 if ('right' === $cart_total_label_position || is_customize_preview() ){
-			$css_output      .= astra_parse_css($css_total_position_output_right );
-		} 
-		if ('left' === $cart_total_label_position || is_customize_preview() ) {
-			$css_output      .= astra_parse_css( $css_total_position_output_left );
+	$css_output .= astra_parse_css( $css_total_position_common_selector );
+	if ( 'bottom' === $cart_total_label_position || is_customize_preview() ) {
+		$css_output .= astra_parse_css( $css_total_position_output_bottom );
+	} 
+	if ( 'right' === $cart_total_label_position || is_customize_preview() ) {
+		$css_output .= astra_parse_css( $css_total_position_output_right );
+	} 
+	if ( 'left' === $cart_total_label_position || is_customize_preview() ) {
+		$css_output .= astra_parse_css( $css_total_position_output_left );
 			
-		}
+	}
 
 	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-header-woo-cart', '.woocommerce .ast-header-woo-cart .ast-site-header-cart, .ast-header-woo-cart .ast-site-header-cart' );
 	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_visibility_css( 'section-header-woo-cart', '.ast-header-woo-cart' );

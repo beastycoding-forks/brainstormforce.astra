@@ -3248,17 +3248,19 @@ function astra_remove_responsive_account_menu_colors_support() {
 function astra_display_cart_total_title_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
+	if ( isset( $theme_options['woo-header-cart-label-display'] ) ) {
+		return;
+	}
+
 	// Set the Display Cart Label toggle values with shortcodes.
-	if ( ! isset( $theme_options['woo-header-cart-label-display'] ) ) {
-		if ( $theme_options['woo-header-cart-total-display'] && $theme_options['woo-header-cart-title-display'] ) {
-			$theme_options['woo-header-cart-label-display'] = '{cart_title} / {cart_total_currency_symbol}';
-		} elseif ( $theme_options['woo-header-cart-total-display'] ) {
-			$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
-		} elseif ( $theme_options['woo-header-cart-title-display'] ) {
-			$theme_options['woo-header-cart-label-display'] = '{cart_title}';
-		} else {
-			$theme_options['woo-header-cart-label-display'] = '';
-		}
+	if ( $theme_options['woo-header-cart-total-display'] && $theme_options['woo-header-cart-title-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_title} / {cart_total_currency_symbol}';
+	} elseif ( $theme_options['woo-header-cart-total-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
+	} elseif ( $theme_options['woo-header-cart-title-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_title}';
+	} else {
+		$theme_options['woo-header-cart-label-display'] = '';
 	}
 
 	update_option( 'astra-settings', $theme_options );

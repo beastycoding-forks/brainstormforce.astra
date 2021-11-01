@@ -63,4 +63,19 @@ describe( 'Testing Global Color setting under the customizer', () => {
 			property: 'background-color',
 		} ).cssValueToBe( `${ themeColor[ 'theme-color' ] }` );
 	} );
+	it( 'link hover color should apply correctly', async () => {
+		const linkhoverColor = {
+			'link-h-color': 'rgb(205, 41, 41)',
+		};
+		await setCustomize( linkhoverColor );
+		await page.goto( createURL( 'color-test' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.hover( '.wp-block-group__inner-container :last-child' );
+		await page.waitForSelector( '.entry-title' );
+		await expect( {
+			selector: '.wp-block-group__inner-container :last-child',
+			property: 'color',
+		} ).cssValueToBe( `${ linkhoverColor[ 'link-h-color' ] }` );
+	} );
 } );

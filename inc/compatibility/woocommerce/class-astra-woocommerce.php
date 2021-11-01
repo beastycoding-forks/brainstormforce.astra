@@ -1760,7 +1760,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$woo_cart_link = '#';
 			}
 			self::$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
-
 			?>
 			<a class="cart-container ast-cart-position-<?php echo esc_attr( self::$cart_total_label_postion ); ?>" href="<?php echo esc_url( $woo_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
 

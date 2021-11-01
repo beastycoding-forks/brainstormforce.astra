@@ -240,17 +240,22 @@
 	/**
      * Cart total label position.
      */
-	wp.customize('astra-settings[woo-header-cart-icon-total-label-position]', function (setting) {
+	 wp.customize('astra-settings[woo-header-cart-icon-total-label-position]', function (setting) {
 		setting.bind(function (position) {
 			var defaultCart = $(document).find('.cart-container');
 			if($(selector).find('.ast-addon-cart-wrap').length){
-				defaultCart = $(document).find('.ast-addon-cart-wrap');
+				iconCart = $(document).find('.ast-addon-cart-wrap');
+				iconCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
+				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
+				iconCart.addClass('ast-cart-position-' + position);	
 			}
+			else{
 			defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
 			defaultCart.addClass('ast-cart-position-' + position);
+
+			}
 		});
 	});
-
 	// Advanced CSS Generation for cart padding and margin.
 	astra_builder_advanced_css( 'section-header-woo-cart', '.woocommerce .ast-header-woo-cart .ast-site-header-cart, .ast-header-woo-cart .ast-site-header-cart' );
 

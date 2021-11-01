@@ -3,6 +3,9 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
 - New: WooCommerce - Added cart icon hover color option.
 - New: WooCommerce - Added cart Margin and Padding spacing option.
+- New: WooCommerce - Added store notice color & background-color options.
+- New: WooCommerce - Added store notice position option.
+- New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
 - Improvement: WooCommerce - Modify the Cart label section via Shortcodes. (Needs Doc)
 
 v3.7.4

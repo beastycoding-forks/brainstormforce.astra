@@ -794,8 +794,8 @@ function astra_maybe_disable_global_color_in_elementor() {
  * @since x.x.x
  * @return boolean
  */
-function astra_check_elementor_pro_3_6_version() {
-	if ( defined( 'ELEMENTOR_PRO_VERSION' ) && version_compare( ELEMENTOR_PRO_VERSION, '3.6', '>=' ) ) {
+function astra_check_elementor_pro_3_5_version() {
+	if ( defined( 'ELEMENTOR_PRO_VERSION' ) && version_compare( ELEMENTOR_PRO_VERSION, '3.5', '>=' ) ) {
 		return true;
 	}
 	return false;

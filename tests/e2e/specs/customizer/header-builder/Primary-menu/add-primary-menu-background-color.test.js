@@ -2,13 +2,16 @@ import {
 	createURL,
 	createNewPost,
 	publishPost,
-	setBrowserViewport } from '@wordpress/e2e-test-utils';
+} from '@wordpress/e2e-test-utils';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../../utils/customize';
 describe( 'Primary menu color settings in the customizer', () => {
 	it( 'primary menu color should apply corectly', async () => {
 		const menuColor = {
 			'header-menu1-color-responsive': {
 				desktop: 'rgb(255, 255, 255)',
+			},
+			'header-mobile-menu-color-responsive': {
 				tablet: 'rgb(255, 255, 255)',
 				mobile: 'rgb(255, 255, 255)',
 			},
@@ -16,6 +19,8 @@ describe( 'Primary menu color settings in the customizer', () => {
 				desktop: {
 					'background-color': 'rgb(167, 1, 118)',
 				},
+			},
+			'header-mobile-menu-bg-obj-responsive': {
 				tablet: {
 					'background-color': 'rgb(167, 1, 118)',
 				},
@@ -29,24 +34,6 @@ describe( 'Primary menu color settings in the customizer', () => {
 			postType: 'page',
 			title: 'Home',
 			content: 'This is a home page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'About Us',
-			content: 'This is about us page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'Our Services',
-			content: 'This is our services page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'Contact Us',
-			content: 'This is a contact us page',
 		} );
 		await publishPost();
 		await page.goto( createURL( '/' ), {
@@ -72,13 +59,13 @@ describe( 'Primary menu color settings in the customizer', () => {
 			selector: '.page_item a',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ menuColor[ 'header-menu1-color-responsive' ].tablet }`,
+			`${ menuColor[ 'header-mobile-menu-color-responsive' ].tablet }`,
 		);
 		await expect( {
 			selector: '.ast-header-break-point .main-header-menu',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ menuColor[ 'header-menu1-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
+			`${ menuColor[ 'header-mobile-menu-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
 		);
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
@@ -87,13 +74,51 @@ describe( 'Primary menu color settings in the customizer', () => {
 			selector: '.page_item a',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ menuColor[ 'header-menu1-color-responsive' ].mobile }`,
+			`${ menuColor[ 'header-mobile-menu-color-responsive' ].mobile }`,
 		);
 		await expect( {
 			selector: '.ast-header-break-point .main-header-menu',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ menuColor[ 'header-menu1-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
+			`${ menuColor[ 'header-mobile-menu-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
+		);
+	} );
+	it( 'primary menu background active color should apply corectly', async () => {
+		const menuColor = {
+			'header-menu1-a-bg-color-responsive': {
+				desktop: 'rgb(0, 0, 255)',
+			},
+			'header-mobile-menu-a-bg-color-responsive': {
+				tablet: 'rgb(0, 0, 255)',
+				mobile: 'rgb(0, 0, 255)',
+			},
+		};
+		await setCustomize( menuColor );
+		await page.click( '.menu-link' );
+		await page.waitForSelector( '#ast-desktop-header' );
+		await expect( {
+			selector: '#primary-site-navigation #ast-hf-menu-1 .main-header-menu .menu-link',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ menuColor[ 'header-menu1-a-bg-color-responsive' ].desktop }`,
+		);
+		await setBrowserViewport( 'medium' );
+		await page.click( '.main-header-menu-toggle' );
+		await page.waitForSelector( '#ast-hf-mobile-menu .menu-item' );
+		await expect( {
+			selector: '.page_item a',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ menuColor[ 'header-mobile-menu-a-bg-color-responsive' ].tablet }`,
+		);
+		await setBrowserViewport( 'small' );
+		await page.click( '.main-header-menu-toggle' );
+		await page.waitForSelector( '#ast-hf-mobile-menu .menu-item' );
+		await expect( {
+			selector: '.page_item a',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ menuColor[ 'header-mobile-menu-a-bg-color-responsive' ].mobile }`,
 		);
 	} );
 } );

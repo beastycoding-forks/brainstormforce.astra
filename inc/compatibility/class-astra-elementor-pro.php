@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			/**
 			 * Compatibility for Elementor Pro's upcoming WooCommerce widget.
 			 *
-			 * @since  x.x.x
+			 * @since  3.7.5
 			 */
 			add_filter( 'astra_theme_woocommerce_dynamic_css', array( $this, 'elementor_wc_widgets_compatibility_styles' ) );
 		}
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 * @param  string $css_output CSS stylesheet.
 		 * @return string $css_output CSS stylesheet.
 		 *
-		 * @since  x.x.x
+		 * @since  3.7.5
 		 */
 		public function elementor_wc_widgets_compatibility_styles( $css_output ) {
 
@@ -99,21 +99,6 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			}
 
 			$woo_widgets_desktop_css = array(
-				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals > h2' => array(
-					'background-color' => 'inherit',
-					'border-bottom'    => '0',
-					'margin'           => '0',
-				),
-				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals' => array(
-					'padding'       => '0',
-					'border-color'  => 'inherit',
-					'border-radius' => '0',
-					'margin-bottom' => '0',
-					'border-width'  => '0',
-				),
-				'.elementor-widget-woocommerce-cart .woocommerce-cart-form .e-apply-coupon, .elementor-widget-woocommerce-checkout-page .e-apply-coupon' => array(
-					'line-height' => 'initial',
-				),
 				'.woocommerce.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #customer_details.col2-set, .woocommerce-page.woocommerce-checkout .elementor-widget-woocommerce-checkout-page #customer_details.col2-set' => array(
 					'width' => '100%',
 				),
@@ -121,37 +106,39 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 					'width' => '100%',
 					'float' => 'inherit',
 				),
-				'.elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead, .elementor-widget-woocommerce-cart table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-Addresses .woocommerce-Address-title' => array(
-					'background' => 'inherit',
-				),
-				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link, .elementor-widget-woocommerce-cart a.remove, .elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link' => array(
-					'border' => 'none',
-				),
-				'.elementor-widget-woocommerce-cart .e-apply-coupon, .elementor-widget-woocommerce-cart #coupon_code, .elementor-widget-woocommerce-checkout-page .e-apply-coupon, .elementor-widget-woocommerce-checkout-page #coupon_code' => array(
-					'height' => '100%',
-				),
-				'.elementor-widget-woocommerce-cart .select2-container .select2-selection--single, .elementor-widget-woocommerce-checkout-page .select2-container .select2-selection--single' => array(
+				'.elementor-widget-woocommerce-checkout-page .select2-container .select2-selection--single, .elementor-widget-woocommerce-cart .select2-container .select2-selection--single' => array(
 					'padding' => '0',
+				),
+				'.elementor-widget-woocommerce-checkout-page .woocommerce form .woocommerce-additional-fields, .elementor-widget-woocommerce-checkout-page .woocommerce form .shipping_address, .elementor-widget-woocommerce-my-account .woocommerce-MyAccount-navigation-link, .elementor-widget-woocommerce-cart .woocommerce a.remove' => array(
+					'border' => 'none',
 				),
 				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals > h2' => array(
 					'background-color' => 'inherit',
-					'border-bottom'    => '0',
-					'margin'           => '0',
+					'border-bottom'    => '0px',
+					'margin'           => '0px',
 				),
 				'.elementor-widget-woocommerce-cart .cart-collaterals .cart_totals' => array(
 					'padding'       => '0',
 					'border-color'  => 'inherit',
 					'border-radius' => '0',
-					'margin-bottom' => '0',
-					'border-width'  => '0',
+					'margin-bottom' => '0px',
+					'border-width'  => '0px',
+				),
+				'.elementor-widget-woocommerce-cart .woocommerce-cart-form .e-apply-coupon' => array(
+					'line-height' => 'initial',
 				),
 				'.elementor-widget-woocommerce-my-account .woocommerce-MyAccount-content .woocommerce-Address-title h3' => array(
 					'margin-bottom' => 'var(--myaccount-section-title-spacing, 0px)',
 				),
+				'.elementor-widget-woocommerce-my-account .woocommerce-Addresses .woocommerce-Address-title, .elementor-widget-woocommerce-my-account table.shop_table thead, .elementor-widget-woocommerce-my-account .woocommerce-page table.shop_table thead, .elementor-widget-woocommerce-cart table.shop_table thead' => array(
+					'background' => 'inherit',
+				),
+				'.elementor-widget-woocommerce-cart .e-apply-coupon, .elementor-widget-woocommerce-cart #coupon_code, .elementor-widget-woocommerce-checkout-page .e-apply-coupon, .elementor-widget-woocommerce-checkout-page #coupon_code' => array(
+					'height' => '100%',
+				),
 				'.elementor-widget-woocommerce-cart td.product-name dl.variation dt' => array(
 					'font-weight' => 'inherit',
 				),
-
 			);
 
 			$css_output .= astra_parse_css( $woo_widgets_desktop_css );

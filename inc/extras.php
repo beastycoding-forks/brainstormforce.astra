@@ -781,7 +781,7 @@ add_action( 'astra_theme_update_after', 'astra_clear_theme_addon_asset_cache', 1
 /**
  * Check if Theme Global Colors need to be disable in Elementor global color settings.
  *
- * @since x.x.x
+ * @since 3.7.4
  * @return bool
  */
 function astra_maybe_disable_global_color_in_elementor() {
@@ -789,9 +789,9 @@ function astra_maybe_disable_global_color_in_elementor() {
 }
 
 /**
- * Check is Elementor Pro version is greater than or equal to beta 3.6 version.
+ * Check is Elementor Pro version is greater than or equal to beta 3.5 version.
  *
- * @since x.x.x
+ * @since 3.7.5
  * @return boolean
  */
 function astra_check_elementor_pro_3_5_version() {

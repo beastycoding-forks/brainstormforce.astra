@@ -945,12 +945,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
 
 			$css_output = array(
-				'ul#shipping_method li:not(.elementor-widget-woocommerce-cart #shipping_method li)' => array(
-					'margin'      => '0',
-					'padding'     => '0.25em 0 0.25em 22px',
-					'text-indent' => '-22px',
-					'list-style'  => 'none outside',
-				),
 				'#customer_details h3:not(.elementor-widget-woocommerce-checkout-page h3)' => array(
 					'font-size'     => '1.2rem',
 					'padding'       => '20px 0 14px',
@@ -970,6 +964,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-width' => '0 2px 2px',
 					'border-style' => 'solid',
 					'border-color' => '#ebebeb',
+				),
+				'ul#shipping_method li:not(.elementor-widget-woocommerce-cart #shipping_method li)' => array(
+					'margin'      => '0',
+					'padding'     => '0.25em 0 0.25em 22px',
+					'text-indent' => '-22px',
+					'list-style'  => 'none outside',
 				),
 				'.woocommerce span.onsale, .wc-block-grid__product .wc-block-grid__product-onsale' => array(
 					'background-color' => $theme_color,

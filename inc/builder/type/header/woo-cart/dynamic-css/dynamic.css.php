@@ -242,6 +242,10 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 		$desktop_flyout_cart_width                                        = astra_get_option( 'woo-desktop-cart-flyout-width' );
 		$desktop_flyout_cart_direction                                    = astra_get_option( 'woo-desktop-cart-flyout-direction' );
+		$css_output_desktop['.ast-desktop-cart-flyout.ast-site-header-cart:focus .widget_shopping_cart, .ast-desktop-cart-flyout.ast-site-header-cart:hover .widget_shopping_cart'] = array(
+			'opacity' => '0',
+			'visibility' => 'hidden',
+		);
 		$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right'] = array(
 			'width' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
 		);
@@ -252,6 +256,22 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			);
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right.active'] = array(
 				'left' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+			);
+		}
+	} else {
+		if ( is_rtl() ) {
+			$css_output_desktop['.woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons a'] = array(
+				'display'     => 'inline-block',
+				'width'       => 'calc( 50% - 5px)',
+				'margin-left' => '5px',
+				'text-align'  => 'center',
+			);
+		} else {
+			$css_output_desktop['.woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons a'] = array(
+				'display'      => 'inline-block',
+				'width'        => 'calc( 50% - 5px)',
+				'margin-right' => '5px',
+				'text-align'   => 'center',
 			);
 		}
 	}

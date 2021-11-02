@@ -238,6 +238,7 @@ final class Astra_Builder_Customizer {
 		require_once $header_components_path . '/widget/class-astra-header-widget-component.php';
 		require_once $header_components_path . '/mobile-trigger/class-astra-mobile-trigger.php';
 		require_once $header_components_path . '/mobile-menu/class-astra-mobile-menu-component.php';
+		require_once $header_components_path . '/mode-switcher/class-astra-header-mode-switcher-component.php';
 
 		require_once $header_components_path . '/above-header/class-astra-above-header.php';
 		require_once $header_components_path . '/below-header/class-astra-below-header.php';
@@ -312,6 +313,7 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-account-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
+		require_once $header_config_path . '/class-astra-header-mode-switcher-component-configs.php';
 
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			require_once $header_config_path . '/class-astra-customizer-woo-cart-configs.php';

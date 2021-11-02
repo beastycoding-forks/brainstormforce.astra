@@ -460,7 +460,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * @return void
 		 */
 		public function load_scripts() {
-			$post_type    = get_post_type();
+			$post_type = get_post_type();
+
+			if ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $post_type ) {
+				return;
+			}
+			
 			$metabox_name = sprintf(
 				// Translators: %s is the theme name.
 				__( '%s Settings', 'astra' ),
@@ -537,6 +542,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'key'   => 'ast-main-header-display',
 					'label' => __( 'Disable Primary Header', 'astra' ),
+				),
+				array(
+					'key'   => 'ast-hfb-below-header-display',
+					'label' => __( 'Disable Below Header', 'astra' ),
 				),
 				array(
 					'key'   => 'ast-hfb-mobile-header-display',
@@ -651,6 +660,16 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			register_post_meta(
 				'',
 				'ast-hfb-above-header-display',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);
+			register_post_meta(
+				'',
+				'ast-hfb-below-header-display',
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,

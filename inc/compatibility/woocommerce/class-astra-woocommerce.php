@@ -148,7 +148,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( null !== WC()->cart ) {
 				$cart_contents_count = WC()->cart->get_cart_contents_count();
 			}
-
 			// Cart Icon markup with total number of items.
 			$cart_icon = sprintf(
 				'<i class="astra-icon ast-icon-shopping-%1$s %2$s"
@@ -1771,11 +1770,33 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 									?>
 								</span>
 							</div> -->
+							
 							<?php
-						}
-
+					
+							$cart_contents_count = 0;
+							if ( null !== WC()->cart ) {
+							$cart_contents_count = WC()->cart->get_cart_contents_count();
+							}
+							$icon               = 'default';
+							$cart_count_display = apply_filters( 'astra_header_cart_count', true );
+							$test = ( $icon ) ? ( ( false !== Astra_Icons::is_svg_icons() ) ? Astra_Icons::get_icons( $icon ) : '' ) : '';
+							$cart_icon = sprintf(
+								'<i class="astra-icon ast-icon-shopping-%1$s %2$s"
+											%3$s
+										>%4$s</i>',
+								( $icon ) ? $icon : '',
+								( $cart_count_display ) ? '' : 'no-cart-total',
+								( $cart_count_display ) ? 'data-cart-total="' . $cart_contents_count . '"' : '',
+								( $icon ) ? ( ( false !== Astra_Icons::is_svg_icons() ) ? Astra_Icons::get_icons( $icon ) : '' ) : ''
+							);
+							printf(
+								'<div class="ast-cart-menu-wrap">
+										%1$s
+								</div>',
+								( $cart_icon ) ? $cart_icon : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							);
+					}
 						do_action( 'astra_woo_header_cart_icons_after' );
-
 						?>
 			</a>
 			<?php

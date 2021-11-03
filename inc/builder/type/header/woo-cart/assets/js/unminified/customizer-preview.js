@@ -270,7 +270,6 @@
 			else {
 				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
 				defaultCart.addClass('ast-cart-position-' + position);
-
 			}
 		});
 	});

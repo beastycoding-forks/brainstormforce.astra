@@ -1,3 +1,6 @@
+v3.8.0 (Unreleased)
+- Fix: Mobile menu does not close when you click a one page navigation link inside them.
+
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
 - Fix: WPForms submit button not inheriting global button text color.

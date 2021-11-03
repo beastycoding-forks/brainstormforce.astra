@@ -138,7 +138,7 @@ describe( 'Primary menu background normal color settings in the customizer', () 
 		await page.hover( '.menu-link' );
 		await page.waitForSelector( '#ast-desktop-header' );
 		await expect( {
-			selector: '#ast-hf-menu-1 .main-header-menu .menu-link',
+			selector: '#ast-hf-menu-1 .menu-link',
 			property: 'background-color',
 		} ).cssValueToBe(
 			`${ menuBgColorHover[ 'header-menu1-h-bg-color-responsive' ].desktop }`,

@@ -145,3 +145,4 @@ describe( 'Primary menu background normal color settings in the customizer', () 
 		);
 	} );
 } );
+

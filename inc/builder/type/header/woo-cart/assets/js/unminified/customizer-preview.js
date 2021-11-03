@@ -249,13 +249,14 @@
 				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
 				iconCart.addClass('ast-cart-position-' + position);	
 			}
-			else{
-			defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
-			defaultCart.addClass('ast-cart-position-' + position);
+			else {
+				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
+				defaultCart.addClass('ast-cart-position-' + position);
 
 			}
 		});
 	});
+
 	// Advanced CSS Generation for cart padding and margin.
 	astra_builder_advanced_css( 'section-header-woo-cart', '.woocommerce .ast-header-woo-cart .ast-site-header-cart, .ast-header-woo-cart .ast-site-header-cart' );
 

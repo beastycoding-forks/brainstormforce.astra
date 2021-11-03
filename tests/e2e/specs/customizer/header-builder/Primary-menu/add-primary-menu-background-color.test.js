@@ -5,8 +5,8 @@ import {
 } from '@wordpress/e2e-test-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'Primary menu background normal color settings in the customizer', () => {
-	it( 'primary menu background normal color should apply corectly', async () => {
+describe( 'Primary menu background color settings in the customizer', () => {
+	it( 'primary menu background normal color and hover color should apply corectly', async () => {
 		const menuColor = {
 			'header-menu1-color-responsive': {
 				desktop: 'rgb(255, 255, 255)',
@@ -62,7 +62,7 @@ describe( 'Primary menu background normal color settings in the customizer', () 
 		await page.hover( '.menu-link' );
 		await page.waitForSelector( '#ast-desktop-header' );
 		await expect( {
-			selector: '.menu-link',
+			selector: '#ast-hf-menu-1 > ul > li > a',
 			property: 'background-color',
 		} ).cssValueToBe(
 			`${ menuColor[ 'header-menu1-h-bg-color-responsive' ].desktop }`,
@@ -136,27 +136,4 @@ describe( 'Primary menu background normal color settings in the customizer', () 
 			`${ menuColor[ 'header-mobile-menu-a-bg-color-responsive' ].mobile }`,
 		);
 	} );
-	/*it( 'primary menu background hover color should apply corectly', async () => {
-		const menuBgColorHover = {
-			'header-menu1-h-bg-color-responsive': {
-				desktop: 'rgb(0, 0, 0)',
-			},
-			'header-mobile-menu-h-bg-color-responsive': {
-				tablet: 'rgb(0, 0, 0)',
-				mobile: 'rgb(0, 0, 0)',
-			},
-		};
-		await setCustomize( menuBgColorHover );
-		await page.goto( createURL( '/' ), {
-			waitUntil: 'networkidle0',
-		} );
-		await page.hover( '.menu-link' );
-		await page.waitForSelector( '#ast-desktop-header' );
-		await expect( {
-			selector: '.menu-link',
-			property: 'background-color',
-		} ).cssValueToBe(
-			`${ menuBgColorHover[ 'header-menu1-h-bg-color-responsive' ].desktop }`,
-		);
-	} );*/
 } );

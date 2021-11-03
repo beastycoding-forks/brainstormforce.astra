@@ -28,13 +28,6 @@ describe( 'Primary menu background normal color settings in the customizer', () 
 					'background-color': 'rgb(167, 1, 118)',
 				},
 			},
-			'header-menu1-h-bg-color-responsive': {
-				desktop: 'rgb(0, 0, 0)',
-			},
-			'header-mobile-menu-h-bg-color-responsive': {
-				tablet: 'rgb(0, 0, 0)',
-				mobile: 'rgb(0, 0, 0)',
-			},
 		};
 		await setCustomize( menuColor );
 		await createNewPost( {
@@ -58,14 +51,6 @@ describe( 'Primary menu background normal color settings in the customizer', () 
 			property: 'background-color',
 		} ).cssValueToBe(
 			`${ menuColor[ 'header-menu1-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
-		);
-		await page.hover( '.menu-link' );
-		await page.waitForSelector( '#ast-desktop-header' );
-		await expect( {
-			selector: '.menu-link',
-			property: 'background-color',
-		} ).cssValueToBe(
-			`${ menuColor[ 'header-menu1-h-bg-color-responsive' ].desktop }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
@@ -136,7 +121,7 @@ describe( 'Primary menu background normal color settings in the customizer', () 
 			`${ menuColor[ 'header-mobile-menu-a-bg-color-responsive' ].mobile }`,
 		);
 	} );
-	/*it( 'primary menu background hover color should apply corectly', async () => {
+	it( 'primary menu background hover color should apply corectly', async () => {
 		const menuBgColorHover = {
 			'header-menu1-h-bg-color-responsive': {
 				desktop: 'rgb(0, 0, 0)',
@@ -153,10 +138,10 @@ describe( 'Primary menu background normal color settings in the customizer', () 
 		await page.hover( '.menu-link' );
 		await page.waitForSelector( '#ast-desktop-header' );
 		await expect( {
-			selector: '.menu-link',
+			selector: '#ast-hf-menu-1 .menu-link',
 			property: 'background-color',
 		} ).cssValueToBe(
 			`${ menuBgColorHover[ 'header-menu1-h-bg-color-responsive' ].desktop }`,
 		);
-	} );*/
+	} );
 } );

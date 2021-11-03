@@ -79,7 +79,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 			/**
 			 * Compatibility for Elementor Pro's upcoming WooCommerce widget.
 			 *
-			 * @since  x.x.x
+			 * @since  3.7.5
 			 */
 			add_filter( 'astra_theme_woocommerce_dynamic_css', array( $this, 'elementor_wc_widgets_compatibility_styles' ) );
 		}
@@ -90,7 +90,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 * @param  string $css_output CSS stylesheet.
 		 * @return string $css_output CSS stylesheet.
 		 *
-		 * @since  x.x.x
+		 * @since  3.7.5
 		 */
 		public function elementor_wc_widgets_compatibility_styles( $css_output ) {
 

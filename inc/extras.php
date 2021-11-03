@@ -791,7 +791,7 @@ function astra_maybe_disable_global_color_in_elementor() {
 /**
  * Check is Elementor Pro version is greater than or equal to beta 3.5 version.
  *
- * @since x.x.x
+ * @since 3.7.5
  * @return boolean
  */
 function astra_check_elementor_pro_3_5_version() {

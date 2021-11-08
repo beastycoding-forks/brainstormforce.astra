@@ -384,7 +384,17 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 	                    			return \'&#\'+i.charCodeAt(0)+\';\';
 								});
 	                    	desc.remove();
-	                    	li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+							console.log("---------------------------------------------------------------------");
+							// console.log(desc);
+							console.log(ctrl["id"]);
+							if(ctrl["id"]){
+								li_wrapper.append( tooltip);
+							}else{
+								li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+							}
+
+	                    	
+							
 	                	}
 	            	});
 	        	});';

@@ -241,10 +241,10 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	// Desktop offcanvas cart.
 	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
 
-		$desktop_flyout_cart_width                                        = astra_get_option( 'woo-desktop-cart-flyout-width' );
-		$desktop_flyout_cart_direction                                    = astra_get_option( 'woo-desktop-cart-flyout-direction' );
+		$desktop_flyout_cart_width     = astra_get_option( 'woo-desktop-cart-flyout-width' );
+		$desktop_flyout_cart_direction = astra_get_option( 'woo-desktop-cart-flyout-direction' );
 		$css_output_desktop['.ast-desktop-cart-flyout.ast-site-header-cart:focus .widget_shopping_cart, .ast-desktop-cart-flyout.ast-site-header-cart:hover .widget_shopping_cart'] = array(
-			'opacity' => '0',
+			'opacity'    => '0',
 			'visibility' => 'hidden',
 		);
 		$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right'] = array(
@@ -535,7 +535,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'margin-left' => '0.7em',
 		),
 	);
-	$css_output .= astra_parse_css( $css_total_position_common_selector );
+	$css_output                     .= astra_parse_css( $css_total_position_common_selector );
 	if ( 'bottom' === $cart_total_label_position || is_customize_preview() ) {
 		$css_output .= astra_parse_css( $css_total_position_output_bottom );
 	} 

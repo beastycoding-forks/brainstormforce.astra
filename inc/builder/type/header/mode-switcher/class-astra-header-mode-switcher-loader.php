@@ -27,7 +27,7 @@ class Astra_Header_Mode_Switcher_Loader {
 	 */
 	public function __construct() {
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
-		add_action( 'wp_head', array( $this, 'mode_preference_script' ) );
+		add_action( 'wp_print_scripts', array( $this, 'mode_preference_script' ) );
 	}
 
 	/**
@@ -51,6 +51,9 @@ class Astra_Header_Mode_Switcher_Loader {
 	 * @since x.x.x
 	 */
 	public function mode_preference_script() {
+		if ( is_admin() ) {
+			return;
+		}
 		?>
 			<script type="text/javascript">
 				var siteView = localStorage.getItem( "astra-prefers-color" );

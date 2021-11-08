@@ -166,7 +166,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'  => $_section,
 					'priority' => 51,
 					'label'    => '',
-					'help'     => __( 'Use users computer settings to choose default palette on site load.', 'astra' ),
+					'help'     => __( 'Use users system settings to choose default palette on site load.', 'astra' ),
 					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 			);

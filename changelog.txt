@@ -4,6 +4,7 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
 - New: WooCommerce - Added cart icon hover color option.
 - New: WooCommerce - Added cart Margin and Padding spacing option.
+- Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
 
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.

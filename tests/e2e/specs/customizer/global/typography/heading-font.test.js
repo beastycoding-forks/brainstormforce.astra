@@ -1,11 +1,10 @@
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-import { insertBlock, createNewPost, createURL, publishPost } from '@wordpress/e2e-test-utils';
+import { createNewPost, createURL, publishPost } from '@wordpress/e2e-test-utils';
 import { responsiveFontSize } from '../../../../utils/responsive-utils';
 
 describe( 'Global Typography settings in the customizer', () => {
 	it( 'body typography should be applied correctly', async () => {
-		await insertBlock( 'Heading' );
 		const headingFontSize = {
 			'font-size-h1': {
 				desktop: '50',

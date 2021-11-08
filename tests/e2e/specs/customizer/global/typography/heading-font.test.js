@@ -1,8 +1,11 @@
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { insertBlock, createNewPost, createURL, publishPost } from '@wordpress/e2e-test-utils';
 import { responsiveFontSize } from '../../../../utils/responsive-utils';
+
 describe( 'Global Typography settings in the customizer', () => {
 	it( 'body typography should be applied correctly', async () => {
+		await insertBlock( 'Heading' );
 		const headingFontSize = {
 			'font-size-h1': {
 				desktop: '50',
@@ -16,9 +19,19 @@ describe( 'Global Typography settings in the customizer', () => {
 		};
 
 		await setCustomize( headingFontSize );
+		await createNewPost( {
+			postType: 'post',
+			title: 'heading-test',
+			content: 'Heading Font Size',
+		} );
+		await publishPost();
 
+		await page.goto( createURL( 'heading-test' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( 'h1, .entry-content h1' );
 		await expect( {
-			selector: '.site-header .site-description',
+			selector: 'h1, .entry-content h1',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ headingFontSize[ 'font-size-h1' ].desktop }${ headingFontSize[ 'font-size-h1' ][ 'desktop-unit' ] }`,
@@ -27,18 +40,16 @@ describe( 'Global Typography settings in the customizer', () => {
 		await setBrowserViewport( 'medium' );
 
 		await expect( {
-			selector: '.site-header .site-description',
+			selector: 'h1, .entry-content h1',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				headingFontSize[ 'font-size-h1' ].tablet,
-			) }${ headingFontSize[ 'font-size-h1' ][ 'tablet-unit' ] }`,
+			`${ await responsiveFontSize[ headingFontSize[ 'font-size-h1' ].tablet ] }) }${ headingFontSize[ 'font-size-h1' ][ 'tablet-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'small' );
 
 		await expect( {
-			selector: '.site-header .site-description',
+			selector: 'h1, .entry-content h1',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(

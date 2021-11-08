@@ -270,6 +270,31 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		}
 
 		/**
+		 * Callback for partial rendering mode switcher.
+		 *
+		 * @since x.x.x
+		 */
+		public static function render_mode_switcher() {
+
+			$switcher_icon  = astra_get_option( 'mode-switcher-icon-type' );
+			$switcher_label = astra_get_option( 'mode-switcher-label' );
+
+			if ( is_customize_preview() ) {
+				self::render_customizer_edit_button();
+			}
+			?>
+				<button class="ast-mode-switcher-trigger" aria-label="Switch to dark mode">
+					<?php
+						echo self::fetch_svg_icon( $switcher_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					if ( '' !== $switcher_label ) {
+						echo esc_html( $switcher_label );
+					}
+					?>
+				</button>
+			<?php
+		}
+
+		/**
 		 * Render Mobile Cart Flyout Markup.
 		 *
 		 * @since 3.1.0

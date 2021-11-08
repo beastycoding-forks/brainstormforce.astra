@@ -27,6 +27,7 @@ class Astra_Header_Mode_Switcher_Loader {
 	 */
 	public function __construct() {
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
+		add_action( 'wp_print_scripts', array( $this, 'mode_preference_script' ) );
 	}
 
 	/**
@@ -41,9 +42,31 @@ class Astra_Header_Mode_Switcher_Loader {
 		/* Directory and Extension */
 		$dir_name    = ( true === SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( true === SCRIPT_DEBUG ) ? '' : '.min';
-		/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		wp_enqueue_script( 'astra-builder-mode-switcher-customizer-preview-js', ASTRA_HEADER_MODE_SWITCHER_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
-		/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	}
+
+	/**
+	 * Adding head frontend script for avoiding jerk while landing on site initially.
+	 *
+	 * @since x.x.x
+	 */
+	public function mode_preference_script() {
+		if ( is_admin() ) {
+			return;
+		}
+		?>
+			<script type="text/javascript">
+				var siteView = localStorage.getItem( "astra-prefers-color" );
+
+				if ( siteView && siteView === "dark" ) {
+					document.documentElement.classList.add( "ast-dark-site" );
+				}
+
+				if ( siteView && siteView === "light" && document.documentElement.classList.contains( "ast-dark-site" ) ) {
+					document.documentElement.classList.remove( "ast-dark-site" );
+				}
+			</script>
+		<?php
 	}
 }
 

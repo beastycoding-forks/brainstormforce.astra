@@ -32,6 +32,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		private static $instance;
 
 		/**
+		 * Cart total label position.
+		 *
+		 * @since x.x.x
+		 * @var array $cart_total_label_postion
+		 */
+		public static $cart_total_label_postion = array();
+
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -231,17 +239,17 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
 			} else {
-
 				// Remove Default cart icon added by theme.
 				add_filter( 'astra_woo_default_header_cart_icon', '__return_false' );
 
 				/* translators: 1: Cart Title Markup, 2: Cart Icon Markup */
 				printf(
-					'<div class="ast-addon-cart-wrap cart-position-%1$s">
+					'<div class="ast-addon-cart-wrap ast-cart-position-%1$s">
 							%2$s
 							%3$s
 					</div>',
-					$cart_info_markup, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					( self::$cart_total_label_postion ) ? self::$cart_total_label_postion : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					( $cart_title_display || $cart_total_display ) ? $cart_info_markup : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					( $cart_icon ) ? $cart_icon : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
 			}
@@ -1843,7 +1851,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since  1.0.0
 		 */
 		public function astra_get_cart_link() {
-
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
 			$woo_cart_link = wc_get_cart_url();
@@ -1851,8 +1858,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
+			self::$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			?>
-			<a class="cart-container" href="<?php echo esc_url( $woo_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
+			<a class="cart-container ast-cart-position-<?php echo esc_attr( self::$cart_total_label_postion ); ?>" href="<?php echo esc_url( $woo_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
 
 						<?php
 						do_action( 'astra_woo_header_cart_icons_before' );

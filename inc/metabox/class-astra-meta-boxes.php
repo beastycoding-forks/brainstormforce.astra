@@ -54,11 +54,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			global $pagenow;
 			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( astra_wp_version_compare( '5.0', '<' ) && is_admin() ) {
-				add_action( 'load-post.php', array( $this, 'init_metabox' ) );
-				add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
-				add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
-			}
+
+			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
+			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
+			add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
+			add_filter( 'register_post_type_args', array( $this, 'custom_fields_support' ), 10, 2 );
 
 			add_action( 'init', array( $this, 'register_script' ) );
 			add_action( 'init', array( $this, 'register_meta_settings' ) );
@@ -66,6 +66,21 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			if ( 'widgets.php' !== $pagenow && ! is_customize_preview() ) {
 				add_action( 'enqueue_block_editor_assets', array( $this, 'load_scripts' ) );
 			}
+		}
+
+		/**
+		 * Register Post Meta options support.
+		 *
+		 * @since 3.7.5
+		 * @param array|mixed $args the post type args.
+		 * @param string      $post_type the post type.
+		 */
+		public function custom_fields_support( $args, $post_type ) {
+			if ( is_array( $args ) && isset( $args['public'] ) && $args['public'] && isset( $args['supports'] ) && is_array( $args['supports'] ) && ! in_array( 'custom-fields', $args['supports'], true ) ) {
+				$args['supports'][] = 'custom-fields';
+			}
+
+			return $args;
 		}
 
 		/**
@@ -190,7 +205,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						array( $this, 'markup_meta_box' ),      // Callback.
 						$type,                                  // Post_type.
 						'side',                                 // Context.
-						'default'                               // Priority.
+						'default',                               // Priority.
+						array(
+							'__back_compat_meta_box' => true,
+						)
 					);
 				}
 			}
@@ -458,7 +476,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * @return void
 		 */
 		public function load_scripts() {
-			$post_type    = get_post_type();
+			$post_type = get_post_type();
+
+			if ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $post_type ) {
+				return;
+			}
+			
 			$metabox_name = sprintf(
 				// Translators: %s is the theme name.
 				__( '%s Settings', 'astra' ),
@@ -515,11 +538,11 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 */
 		public function get_content_layout_options() {
 			return array(
-				'default'                  => __( 'Customizer Setting', 'astra' ),
-				'boxed-container'          => __( 'Boxed', 'astra' ),
-				'content-boxed-containerr' => __( 'Content Boxed', 'astra' ),
-				'plain-container'          => __( 'Full Width / Contained', 'astra' ),
-				'page-builder'             => __( 'Full Width / Stretched', 'astra' ),
+				'default'                 => __( 'Customizer Setting', 'astra' ),
+				'boxed-container'         => __( 'Boxed', 'astra' ),
+				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
+				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
+				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
 			);
 		}
 
@@ -535,6 +558,10 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'key'   => 'ast-main-header-display',
 					'label' => __( 'Disable Primary Header', 'astra' ),
+				),
+				array(
+					'key'   => 'ast-hfb-below-header-display',
+					'label' => __( 'Disable Below Header', 'astra' ),
 				),
 				array(
 					'key'   => 'ast-hfb-mobile-header-display',
@@ -613,7 +640,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		/**
 		 * Register Post Meta options for react based fields.
 		 *
-		 * @since x.x.x
+		 * @since 3.7.4
 		 */
 		public function register_meta_settings() {
 			register_post_meta(
@@ -649,6 +676,16 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			register_post_meta(
 				'',
 				'ast-hfb-above-header-display',
+				array(
+					'show_in_rest'  => true,
+					'single'        => true,
+					'type'          => 'string',
+					'auth_callback' => '__return_true',
+				)
+			);
+			register_post_meta(
+				'',
+				'ast-hfb-below-header-display',
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,

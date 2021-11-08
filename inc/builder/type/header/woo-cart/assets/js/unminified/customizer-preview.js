@@ -271,6 +271,22 @@
 				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
 				defaultCart.addClass('ast-cart-position-' + position);
 			}
+			var dynamicStyle = '.cart-container, .ast-addon-cart-wrap {display : flex; align-items : center;} '
+				dynamicStyle = '.astra-icon {line-height : 0.1;} '
+
+				switch(position){
+					case "bottom":
+					 dynamicStyle += '.ast-cart-position-bottom { flex-direction : column;} ';
+						dynamicStyle += '.ast-cart-position-bottom .ast-woo-header-cart-info-wrap { order : 2; line-height : 1; margin-top  : 0.5em; } '
+					break;
+					case "right":
+						dynamicStyle += '.ast-cart-position-right .ast-woo-header-cart-info-wrap { order :  2; margin-left : 0.7em;} ';
+					break;
+					case "left":
+						dynamicStyle += '.ast-cart-position-left .ast-woo-header-cart-info-wrap { margin-right : 0.5em;} ';
+					break;
+				}
+			astra_add_dynamic_css( 'woo-desktop-cart-flyout-width', dynamicStyle );
 		});
 	});
 

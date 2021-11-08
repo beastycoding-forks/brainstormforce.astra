@@ -512,40 +512,40 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'line-height' => 0.1,
 		),
 	);
-	$css_total_position_output_bottom   = array(
-		'.ast-cart-position-bottom' => array(
-			'flex-direction' => 'column',
-		),
-		
-		'.ast-cart-position-bottom .ast-woo-header-cart-info-wrap' => array(
-			'order'       => 2,
-			'line-height' => 1,
-			'margin-top'  => '0.5em',
-		),
-		
-	);
-	$css_total_position_output_left  = array(    
-		'ast-cart-position-left .ast-woo-header-cart-info-wrap' => array(
-			'margin-right' => '0.5em',
-		),
-	);
-	$css_total_position_output_right = array(
-		'ast-cart-position-right .ast-woo-header-cart-info-wrap' => array(
-			'order'       => 2,
-			'margin-left' => '0.7em',
-		),
-	);
 	$css_output .= astra_parse_css( $css_total_position_common_selector );
 
 
 	switch ($cart_total_label_position) {
 		case 'bottom':
+			$css_total_position_output_bottom   = array(
+				'.ast-cart-position-bottom' => array(
+					'flex-direction' => 'column',
+				),
+				
+				'.ast-cart-position-bottom .ast-woo-header-cart-info-wrap' => array(
+					'order'       => 2,
+					'line-height' => 1,
+					'margin-top'  => '0.5em',
+				),
+				
+			);
 			$css_output .= astra_parse_css( $css_total_position_output_bottom );
 		break;
 		case 'right':
+			$css_total_position_output_right = array(
+				'ast-cart-position-right .ast-woo-header-cart-info-wrap' => array(
+					'order'       => 2,
+					'margin-left' => '0.7em',
+				),
+			);
 			$css_output .= astra_parse_css( $css_total_position_output_right );
 		break;
 		case'left':
+			$css_total_position_output_left  = array(    
+				'ast-cart-position-left .ast-woo-header-cart-info-wrap' => array(
+					'margin-right' => '0.5em',
+				),
+			);
 			$css_output .= astra_parse_css( $css_total_position_output_left ); 
 		break;
 	}

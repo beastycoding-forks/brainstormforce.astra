@@ -384,7 +384,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 	                    			return \'&#\'+i.charCodeAt(0)+\';\';
 								});
 	                    	desc.remove();
-							console.log(ctrl["id"]);
 							if("woocommerce_demo_store_notice" === ctrl["id"]){
 								li_wrapper.append( tooltip);
 							} else {

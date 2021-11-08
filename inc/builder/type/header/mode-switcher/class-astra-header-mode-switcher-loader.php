@@ -51,6 +51,9 @@ class Astra_Header_Mode_Switcher_Loader {
 	 * @since x.x.x
 	 */
 	public function mode_preference_script() {
+		if( is_admin() ) {
+			return;
+		}
 		?>
 			<script type="text/javascript">
 				var siteView = localStorage.getItem( "astra-prefers-color" );

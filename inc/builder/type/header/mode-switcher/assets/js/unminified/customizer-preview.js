@@ -44,7 +44,7 @@
 	} );
 
 	// Label font settings.
-	astra_responsive_font_size( 'astra-settings[font-size-section-mode-switcher]', selector + ' #ast-mode-switcher-trigger' );
+	astra_responsive_font_size( 'astra-settings[font-size-section-mode-switcher]', selector + ' .ast-mode-switcher-trigger' );
 
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( section, selector );

@@ -27,7 +27,7 @@ class Astra_Header_Mode_Switcher_Loader {
 	 */
 	public function __construct() {
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
-		add_action( 'wp', array( $this, 'mode_preference_script' ) );
+		add_action( 'wp_print_scripts', array( $this, 'mode_preference_script' ) );
 	}
 
 	/**

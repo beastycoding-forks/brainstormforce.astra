@@ -55,7 +55,7 @@ function astra_generate_dark_palette_style() {
 	}
 
 	$palette_style['html.ast-dark-site'] = $palette_css_vars;
-	$css                                   = astra_parse_css( $palette_style );
+	$css                                 = astra_parse_css( $palette_style );
 
 	return $css;
 }

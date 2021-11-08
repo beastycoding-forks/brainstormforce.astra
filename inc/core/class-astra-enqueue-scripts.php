@@ -317,16 +317,16 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			$astra_localize = array(
-				'break_point'    => astra_header_break_point(),    // Header Break Point.
-				'isRtl'          => is_rtl(),
+				'break_point' => astra_header_break_point(),    // Header Break Point.
+				'isRtl'       => is_rtl(),
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) ) {
 				$astra_mode_switcher_localize = array(
-					'carryOsPalette' => astra_get_option( 'mode-switcher-carry-os-palette', false ),
-					'switchToDarkMode' => __( 'Switch to dark mode', 'astra' ),
+					'carryOsPalette'    => astra_get_option( 'mode-switcher-carry-os-palette', false ),
+					'switchToDarkMode'  => __( 'Switch to dark mode', 'astra' ),
 					'switchToLightMode' => __( 'Switch to light mode', 'astra' ),
 				);
 				wp_localize_script( 'astra-theme-mode-switcher', 'astraModeSwitcher', apply_filters( 'astra_mode_switcher_localize', $astra_mode_switcher_localize ) );

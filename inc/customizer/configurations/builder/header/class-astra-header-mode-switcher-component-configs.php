@@ -299,7 +299,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'default'   => astra_get_option( 'mode-switcher-color-group-control' ),
 					'type'      => 'control',
 					'control'   => 'ast-color-group',
-					'title'     => __( 'Colors', 'astra-addon' ),
+					'title'     => __( 'Colors', 'astra' ),
 					'section'   => $_section,
 					'transport' => 'postMessage',
 					'priority'  => 9,
@@ -319,7 +319,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 1,
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
-					'title'     => __( 'Light', 'astra-addon' ),
+					'title'     => __( 'Light', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
@@ -335,7 +335,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'  => 2,
 					'transport' => 'postMessage',
 					'control'   => 'ast-color',
-					'title'     => __( 'Dark', 'astra-addon' ),
+					'title'     => __( 'Dark', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 			);

@@ -65,7 +65,7 @@ describe( 'Testing Global Color setting under the customizer', () => {
 	} );
 	it( 'link hover color should apply correctly', async () => {
 		const linkhoverColor = {
-			'link-h-color': 'rgb(93, 19, 114)',
+			'link-h-color': 'rgb(175, 13, 220)',
 		};
 		await setCustomize( linkhoverColor );
 		await page.goto( createURL( 'color-test' ), {

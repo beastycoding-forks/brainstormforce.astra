@@ -6,6 +6,8 @@ import {
 } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { responsiveFontSize } from '../../../../utils/responsive-utils';
 
 describe( 'Global typography settings in the customizer', () => {
 	it( 'preset settings should be applied correctly', async () => {
@@ -18,6 +20,14 @@ describe( 'Global typography settings in the customizer', () => {
 			'headings-font-family': 'Montserrat, sans-serif',
 			'headings-font-weight': '700',
 			'headings-text-transform': 'uppercase',
+			'font-size-body': {
+				desktop: '17',
+				tablet: '17',
+				mobile: '17',
+				'desktop-unit': 'px',
+				'tablet-unit': 'px',
+				'mobile-unit': 'px',
+			},
 		};
 
 		await setCustomize( presetFont );
@@ -61,5 +71,39 @@ describe( 'Global typography settings in the customizer', () => {
 			selector: 'body',
 			property: 'text-transform',
 		} ).cssValueToBe( `${ presetFont[ 'body-text-transform' ] }` );
+
+		await page.waitForSelector( 'body, button, input, select, textarea, .ast-button, .ast-custom-button' );
+		await expect( {
+			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ presetFont[ 'font-size-body' ].desktop }${ presetFont[ 'font-size-body' ][ 'desktop-unit' ] }`,
+		);
+
+		await page.waitForSelector( 'body, button, input, select, textarea, .ast-button, .ast-custom-button' );
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				presetFont[ 'font-size-body' ].tablet,
+			) }${
+				presetFont[ 'font-size-body' ][ 'tablet-unit' ]
+			}`,
+		);
+
+		await page.waitForSelector( 'body, button, input, select, textarea, .ast-button, .ast-custom-button' );
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ await responsiveFontSize(
+				presetFont[ 'font-size-body' ].mobile,
+			) }${
+				presetFont[ 'font-size-body' ][ 'mobile-unit' ]
+			}`,
+		);
 	} );
 } );

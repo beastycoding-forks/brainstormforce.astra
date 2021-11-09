@@ -111,7 +111,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	 * Mode Switcher - Desktop CSS.
 	 */
 	$css_output_desktop = array(
-		$selector . ', ' . $selector . ':hover' . ', ' . $selector . ':focus' . ', ' . $selector . ':active' => array(
+		'.ast-mode-switcher-trigger, .ast-mode-switcher-trigger:hover, .ast-mode-switcher-trigger:focus, .ast-mode-switcher-trigger:active' => array(
 			'color'            => esc_attr( $light_color ),
 			'background-color' => esc_attr( $dark_color ),
 		),

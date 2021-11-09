@@ -71,10 +71,10 @@ describe( 'Testing Global Color setting under the customizer', () => {
 		await page.goto( createURL( 'color-test' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.wp-block-group__inner-container a' );
-		await page.hover( '.wp-block-group__inner-container a' );
+		//await page.waitForSelector( '#block-3 > div > div > ul > li > a' );//.wp-block-group__inner-container a
+		await page.hover( '#block-3 > div > div > ul > li > a' );
 		await expect( {
-			selector: '.wp-block-group__inner-container a',
+			selector: '#block-3 > div > div > ul > li > a',
 			property: 'color',
 		} ).cssValueToBe( `${ linkhoverColor[ 'link-h-color' ] }` );
 	} );

@@ -290,6 +290,54 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'help'     => __( 'Use users system settings to choose default palette on site load.', 'astra' ),
 					'context'  => Astra_Builder_Helper::$general_tab,
 				),
+
+				/**
+				 * Option: Switcher Color.
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[mode-switcher-color-group-control]',
+					'default'   => astra_get_option( 'mode-switcher-color-group-control' ),
+					'type'      => 'control',
+					'control'   => 'ast-color-group',
+					'title'     => __( 'Colors', 'astra-addon' ),
+					'section'   => $_section,
+					'transport' => 'postMessage',
+					'priority'  => 9,
+					'context'   => Astra_Builder_Helper::$design_tab,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+				),
+
+				/**
+				 * Normal mode witcher light color.
+				 */
+				array(
+					'name'      => 'dark-mode-switcher-light-color',
+					'default'   => astra_get_option( 'dark-mode-switcher-light-color' ),
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[mode-switcher-color-group-control]',
+					'section'   => $_section,
+					'priority'  => 1,
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'title'     => __( 'Light', 'astra-addon' ),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
+				/**
+				 * Normal mode witcher dark color.
+				 */
+				array(
+					'name'      => 'dark-mode-switcher-dark-color',
+					'default'   => astra_get_option( 'dark-mode-switcher-dark-color' ),
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[mode-switcher-color-group-control]',
+					'section'   => $_section,
+					'priority'  => 2,
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'title'     => __( 'Dark', 'astra-addon' ),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
 			);
 
 			$required_condition = array(

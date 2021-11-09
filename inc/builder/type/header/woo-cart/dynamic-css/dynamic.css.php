@@ -548,7 +548,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			);
 			$css_output                    .= astra_parse_css( $css_total_position_output_left ); 
 			break;
-			default:
+		default:
 			break;
 	}
 

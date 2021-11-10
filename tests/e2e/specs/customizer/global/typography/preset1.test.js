@@ -10,6 +10,7 @@ import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 describe( 'Global heading settings in the customizer', () => {
 	it( 'heading font settings should be applied correctly', async () => {
 		const globaltypographyPreset1 = {
+			'typography-presets': 'Preset1',
 			'body-font-family': "'Open Sans', sans-serif",
 			'body-font-weight': '400',
 			'body-text-transform': 'uppercase',

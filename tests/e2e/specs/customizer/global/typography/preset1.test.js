@@ -40,32 +40,40 @@ describe( 'Global heading settings in the customizer', () => {
 		await expect( {
 			selector: 'body',
 			property: 'font-weight',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-font-weight' ] }` );
+		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-font-weight' ] }`,
+		);
+
 		await expect( {
 			selector: 'body',
 			property: 'text-transform',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-text-transform' ] }` );
+		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-text-transform' ] }`,
+		);
+
 		await expect( {
 			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'line-height',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-line-height' ] }` );
+		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-line-height' ] }`,
+		);
 
 		await expect( {
 			selector: 'h1, .entry-content h1',
 			property: 'font-family',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'headings-font-family' ] }` );
+		} ).cssValueToBe( `${ globaltypographyPreset1[ 'headings-font-family' ] }`,
+		);
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'font-weight',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'headings-font-weight' ] }` );
+		} ).cssValueToBe( `${ globaltypographyPreset1[ 'headings-font-weight' ] }`,
+		);
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'text-transform',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'headings-text-transform' ] }` );
-
+		} ).cssValueToBe( `${ globaltypographyPreset1[ 'headings-text-transform' ] }`,
+		);
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'line-height',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'headings-line-height' ] }` );
+		} ).cssValueToBe( `${ globaltypographyPreset1[ 'headings-line-height' ] }`,
+		);
 	} );
 } );

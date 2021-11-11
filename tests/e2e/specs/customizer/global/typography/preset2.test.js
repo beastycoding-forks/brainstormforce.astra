@@ -23,14 +23,13 @@ describe( 'Global typography preset-2 style in the customizer', () => {
 
 		await setCustomize( globaltypographyPreset2 );
 
-		await createNewPost( { postType: 'post', title: 'preset1' } );
+		await createNewPost( { postType: 'post', title: 'preset2' } );
 		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 		await publishPost();
-		await page.goto( createURL( 'preset1' ), {
+		await page.goto( createURL( 'preset2' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( 'body' );
-
 		await expect( {
 			selector: 'body',
 			property: 'font-family',
@@ -38,23 +37,20 @@ describe( 'Global typography preset-2 style in the customizer', () => {
 			`${ globaltypographyPreset2[ 'body-font-family' ] }`,
 		);
 		await expect( {
-			selector: 'body',
+			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ globaltypographyPreset2[ 'body-font-weight' ] }`,
 		);
-
 		await expect( {
 			selector: 'body',
 			property: 'text-transform',
 		} ).cssValueToBe( `${ globaltypographyPreset2[ 'body-text-transform' ] }`,
 		);
-
 		await expect( {
 			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'line-height',
 		} ).cssValueToBe( `${ globaltypographyPreset2[ 'body-line-height' ] }`,
 		);
-
 		await expect( {
 			selector: 'h1, .entry-content h1',
 			property: 'font-family',

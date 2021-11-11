@@ -23,11 +23,10 @@ describe( 'Global typography settings in the customizer', () => {
 			'body-font-weight': '400',
 			'body-text-transform': 'uppercase',
 			'body-line-height': '5px',
-			//'para-margin-bottom': '3px',
 			'headings-font-family': 'Montserrat, sans-serif', 
 			'headings-font-weight': '700',
 			'headings-text-transform': 'lowercase',
-			//'headings-line-height': '4',
+			'headings-line-height': '4px',
 		};
 
 		await setCustomize( presetFont );
@@ -81,31 +80,26 @@ describe( 'Global typography settings in the customizer', () => {
 			property: 'line-height',
 		} ).cssValueToBe( `${ presetFont[ 'body-line-height' ] }` );
 
-		// await expect( {
-		// 	selector: 'p, .entry-content p',
-		// 	property: 'margin-bottom',
-		// } ).cssValueToBe( `${ presetFont[ 'para-margin-bottom' ] }` );
-
 		await expect( {
-			selector: 'h1, .entry-content h1',
+			selector: '.entry-content h1',
 			property: 'font-family',
 		} ).cssValueToBe( `${ presetFont[ 'headings-font-family' ] }`,
 		);
 
 		await expect( {
-			selector: 'h1, .entry-content h1',
+			selector: '.entry-content h1',
 			property: 'font-weight',
-		} ).cssValueToBe( `${ presetFont[ 'body-font-weight' ] }`,
+		} ).cssValueToBe( `${ presetFont[ 'headings-font-weight' ] }`,
 		);
 
 		await expect( {
-			selector: 'h1, .entry-content h1',
+			selector: '.entry-content h1',
 			property: 'text-transform',
 		} ).cssValueToBe( `${ presetFont[ 'headings-text-transform' ] }` );
 
-		// await expect( {
-		// 	selector: 'h1, .entry-content h1',
-		// 	property: 'line-height',
-		// } ).cssValueToBe( `${ presetFont[ 'headings-line-height' ] }` );
+		await expect( {
+			selector: '.entry-content h1',
+			property: 'line-height',
+		} ).cssValueToBe( `${ presetFont[ 'headings-line-height' ] }` );
 	} );
 } );

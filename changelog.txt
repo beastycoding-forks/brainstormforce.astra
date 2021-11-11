@@ -1,3 +1,7 @@
+v3.8.0
+- Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
+- Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
+
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
 - Fix: WPForms submit button not inheriting global button text color.

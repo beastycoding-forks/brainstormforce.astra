@@ -471,6 +471,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			/* Single */
 			$defaults['single-product-breadcrumb-disable'] = false;
+			$defaults['single-product-cart-button-width']  = array(
+				'desktop' => '',
+				'tablet'  => '',
+				'mobile'  => '',
+			);
 
 			/* Cart */
 			$defaults['enable-cart-upsells'] = true;
@@ -1384,7 +1389,46 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 			}
 
-			$css_output .= astra_parse_css( $css_global_button_tablet, '', astra_get_tablet_breakpoint() );
+			$css_output                              .= astra_parse_css( $css_global_button_tablet, '', astra_get_tablet_breakpoint() );
+
+			/**
+			 * Single page cart buttion size.
+			 */
+
+			$single_product_cart_button_width = astra_get_option( 'single-product-cart-button-width' );
+
+			$single_product_cart_button_width_desktop = ( isset( $single_product_cart_button_width ) && isset( $single_product_cart_button_width['desktop'] ) && ! empty( $single_product_cart_button_width['desktop'] ) ) ? $single_product_cart_button_width['desktop'] : '';
+
+			$single_product_cart_button_width_tablet = ( isset( $single_product_cart_button_width ) && isset( $single_product_cart_button_width['tablet'] ) && ! empty( $single_product_cart_button_width['tablet'] ) ) ? $single_product_cart_button_width['tablet'] : '';
+
+			$single_product_cart_button_width_mobile = ( isset( $single_product_cart_button_width ) && isset( $single_product_cart_button_width['mobile'] ) && ! empty( $single_product_cart_button_width['mobile'] ) ) ? $single_product_cart_button_width['mobile'] : '';
+
+			$single_cart_button = '.single_add_to_cart_button';
+
+			$css_output_cart_button_width_desktop = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_desktop, '%' ),
+				),
+			);
+
+			$css_output .= astra_parse_css( $css_output_cart_button_width_desktop );
+
+			$css_output_cart_button_width_mobile = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_mobile, '%' ),
+				),
+			);
+
+			$css_output_cart_button_width_tablet = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_tablet, '%' ),
+				),
+			);
+			$css_output                         .= astra_parse_css( $css_output_cart_button_width_mobile, astra_get_mobile_breakpoint() );
+			$css_output                         .= astra_parse_css( $css_output_cart_button_width_tablet, astra_get_tablet_breakpoint() );
 
 			/**
 			 * Global button CSS - Mobile = max-width: (mobile-breakpoint)px.
@@ -1680,6 +1724,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			/* Parse CSS from array()*/
 			$css_output .= astra_parse_css( $woo_product_lang_direction_css, astra_get_tablet_breakpoint( '', 1 ) );
+			
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 

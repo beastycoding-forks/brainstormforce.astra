@@ -81,8 +81,8 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	/* Parse CSS from array() */
 	$css_output  = astra_parse_css( $css_output_desktop );
-	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
-	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+	$css_output .= astra_parse_css( $css_output_tablet, '', strval( astra_get_tablet_breakpoint() ) );
+	$css_output .= astra_parse_css( $css_output_mobile, '', strval( astra_get_mobile_breakpoint() ) );
 
 	$dynamic_css .= $css_output;
 

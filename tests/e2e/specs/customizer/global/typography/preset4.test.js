@@ -7,7 +7,6 @@ import {
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-
 describe( 'Global typography settings in the customizer', () => {
 	it( 'preset settings should be applied correctly', async () => {
 		const presetFont = {

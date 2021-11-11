@@ -1,7 +1,7 @@
 /**
  * File mode-switcher.js
  *
- * JS for Mode switcher element frontend rendering.
+ * JS for Mode switcher feature frontend rendering.
  *
  * @package Astra
  * @since x.x.x

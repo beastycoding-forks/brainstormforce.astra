@@ -76,27 +76,27 @@ describe( 'transparent  in the customizer', () => {
 		// 	`${ transparentElementSettings[ 'transparent-header-social-icons-color' ].mobile }`,
 		// );
 		//to test social icon background color
-		await setBrowserViewport( 'large' );
-		await expect( {
-			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
-			property: 'background',
-		} ).cssValueToBe(
-			`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].desktop }`,
-		);
-		await setBrowserViewport( 'medium' );
-		await expect( {
-			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
-			property: 'background',
-		} ).cssValueToBe(
-			`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].tablet }`,
-		);
-		await setBrowserViewport( 'small' );
-		await expect( {
-			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
-			property: 'background',
-		} ).cssValueToBe(
-			`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].mobile }`,
-		);
+		// await setBrowserViewport( 'large' );
+		// await expect( {
+		// 	selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
+		// 	property: 'background',
+		// } ).cssValueToBe(
+		// 	`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].desktop }`,
+		// );
+		// await setBrowserViewport( 'medium' );
+		// await expect( {
+		// 	selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
+		// 	property: 'background',
+		// } ).cssValueToBe(
+		// 	`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].tablet }`,
+		// );
+		// await setBrowserViewport( 'small' );
+		// await expect( {
+		// 	selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
+		// 	property: 'background',
+		// } ).cssValueToBe(
+		// 	`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].mobile }`,
+		// );
 		//to test search icon color
 		await setBrowserViewport( 'large' );
 		await expect( {

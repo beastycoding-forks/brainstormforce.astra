@@ -51,6 +51,9 @@
 	astra_css( 'astra-settings[dark-mode-switcher-dark-color]', 'background-color', selector + ', ' + selector + ':hover' );
 	astra_css( 'astra-settings[dark-mode-switcher-dark-color]', 'color', '.ast-dark-site ' + selector );
 
+	// Misc preview support.
+	astra_css( 'astra-settings[mode-switcher-toggle-border-radius]', 'border-radius', '.ast-mode-switcher-trigger' );
+
 	// Label font settings.
 	astra_responsive_font_size( 'astra-settings[font-size-section-mode-switcher]', selector );
 

@@ -87,7 +87,6 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			position: relative;
 		}
 		.ast-mode-switcher-icon {
-			margin-right: 5px;
 			fill: currentColor;
 		}
 		.ast-mode-switcher-trigger .ahfb-svg-iconset {
@@ -106,9 +105,11 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$_section = 'section-mode-switcher';
 	$selector = '.ast-mode-switcher-trigger';
 
-	$icon_size   = astra_get_option( 'mode-switcher-icon-size' );
 	$light_color = astra_get_option( 'dark-mode-switcher-light-color' );
 	$dark_color  = astra_get_option( 'dark-mode-switcher-dark-color' );
+
+	$icon_size   = astra_get_option( 'mode-switcher-icon-size' );
+	$border_radius = esc_attr( astra_get_option( 'mode-switcher-toggle-border-radius' ) );
 
 	/**
 	 * Mode Switcher - Desktop CSS.
@@ -125,6 +126,13 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		$selector . ' .ast-mode-switcher-icon' => array(
 			'height' => astra_get_css_value( $icon_size['desktop'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['desktop'], 'px' ),
+		),
+		'.ast-mode-switcher-trigger' => array(
+			'border-radius'    => astra_get_css_value( $border_radius, 'px' ),
+		),
+		'.ast-switcher-toggle-style:after' => array(
+			'width' => astra_calculate_spacing( $icon_size['desktop'] . 'px', '+', '0.5', 'em' ),
+			'height' => astra_calculate_spacing( $icon_size['desktop'] . 'px', '+', '0.5', 'em' ),
 		),
 	);
 

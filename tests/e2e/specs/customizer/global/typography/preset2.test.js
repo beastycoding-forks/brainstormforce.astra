@@ -6,6 +6,7 @@ import {
 } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Global typography preset-2 style in the customizer', () => {
 	it( 'body styling should be applied correctly', async () => {
 		const globaltypographyPreset2 = {
@@ -14,6 +15,14 @@ describe( 'Global typography preset-2 style in the customizer', () => {
 			'body-font-weight': '400',
 			'body-text-transform': 'capitalize',
 			'body-line-height': '25px',
+			'font-size-body': {
+				desktop: '16',
+				tablet: '16',
+				mobile: '16',
+				'desktop-unit': 'px',
+				'tablet-unit': 'px',
+				'mobile-unit': 'px',
+			},
 		};
 
 		await setCustomize( globaltypographyPreset2 );
@@ -45,6 +54,26 @@ describe( 'Global typography preset-2 style in the customizer', () => {
 			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'line-height',
 		} ).cssValueToBe( `${ globaltypographyPreset2[ 'body-line-height' ] }`,
+		);
+		await expect( {
+			selector: 'body',
+			property: 'font-size',
+		} ).cssValueToBe(
+			`${ globaltypographyPreset2[ 'font-size-body' ].desktop }${ globaltypographyPreset2[ 'font-size-body' ][ 'desktop-unit' ] }`,
+		);
+
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: 'body',
+			property: 'font-size',
+		} ).cssValueToBe( `${ globaltypographyPreset2[ 'font-size-body' ].tablet }${ globaltypographyPreset2[ 'font-size-body' ][ 'tablet-unit' ] }`,
+		);
+
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: 'body',
+			property: 'font-size',
+		} ).cssValueToBe( `${ globaltypographyPreset2[ 'font-size-body' ].mobile }${ globaltypographyPreset2[ 'font-size-body' ][ 'mobile-unit' ] }`,
 		);
 	} );
 	it( 'heading style should be applied correctly', async () => {

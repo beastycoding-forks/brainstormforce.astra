@@ -90,7 +90,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'    => 'ast-selector',
 					'section'    => $_section,
 					'priority'   => 10,
+					/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					'title'      => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) ) ? __( 'Light Mode Icon', 'astra' ) : __( 'Select Icon', 'astra' ),
+					/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					'choices'    => array(
 						'light-switcher-1' => 'light-switcher-1',
 						'light-switcher-2' => 'light-switcher-2',

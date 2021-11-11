@@ -63,14 +63,14 @@ describe( 'transparent  in the customizer', () => {
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg',
-			property: 'color',
+			property: 'fill',
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-social-icons-color' ].tablet }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg',
-			property: 'color',
+			property: 'fill',
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-social-icons-color' ].mobile }`,
 		);

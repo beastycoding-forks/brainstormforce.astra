@@ -947,7 +947,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['transparent-header-woo-cart-icon-color']    = '';
 	$defaults['header-woo-cart-icon-hover-color']          = '';
 	$defaults['woo-header-cart-icon-radius']               = 3;
-	
+
 	// Woo Cart - Dynamic label default value.
 	$defaults['woo-header-cart-label-display'] = '{cart_title}/{cart_total_currency_symbol}';
 	$defaults['woo-header-cart-total-display'] = true;
@@ -1045,7 +1045,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Mode Switcher element.
 	*/
-	$defaults['mode-switcher-icon-type']        = 'switcher-1';
+	$defaults['mode-switcher-icon-type']        = 'light-switcher-1';
 	$defaults['mode-switcher-label']            = '';
 	$defaults['dark-mode-palette']              = 'palette_2';
 	$defaults['mode-switcher-carry-os-palette'] = false;

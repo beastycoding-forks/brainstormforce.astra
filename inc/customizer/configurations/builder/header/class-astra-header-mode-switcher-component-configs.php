@@ -67,10 +67,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'   => 10,
 					'title'      => __( 'Select Icon', 'astra' ),
 					'choices'    => array(
-						'switcher-1' => 'switcher-1',
-						'switcher-2' => 'switcher-2',
-						'switcher-3' => 'switcher-3',
-						'switcher-4' => 'switcher-4',
+						'light-switcher-1' => 'light-switcher-1',
+						'light-switcher-2' => 'light-switcher-2',
+						'light-switcher-3' => 'light-switcher-3',
+						'light-switcher-4' => 'light-switcher-4',
 					),
 					'transport'  => 'postMessage',
 					'partial'    => array(
@@ -95,6 +95,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'        => 'control',
 					'suffix'      => 'px',
 					'control'     => 'ast-responsive-slider',
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -196,6 +197,3 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 	new Astra_Header_Mode_Switcher_Component_Configs();
 }
-
-
-

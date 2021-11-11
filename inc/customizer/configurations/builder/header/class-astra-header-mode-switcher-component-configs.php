@@ -56,18 +56,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
-				 * Option: Header Builder Tabs
-				 */
-				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[header-mode-switcher-tabs]',
-					'section'     => $_section,
-					'type'        => 'control',
-					'control'     => 'ast-builder-header-control',
-					'priority'    => 0,
-					'description' => '',
-				),
-
-				/**
 				 * Option: Icon Type
 				 */
 				array(
@@ -107,6 +95,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'        => 'control',
 					'suffix'      => 'px',
 					'control'     => 'ast-responsive-slider',
+					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,
@@ -133,53 +122,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'   => 'text',
 					'context'   => Astra_Builder_Helper::$general_tab,
 					'divider'   => array( 'ast_class' => 'ast-bottom-divider ast-top-divider' ),
-				),
-
-				/**
-				 * Option: Color palette selection.
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[dark-mode-palette]',
-					'default'  => astra_get_option( 'dark-mode-palette' ),
-					'section'  => $_section,
-					'priority' => 40,
-					'title'    => __( 'Dark Color Palette', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'ast-select',
-					'choices'  => array(
-						'palette_1' => __( 'Palette 1', 'astra' ),
-						'palette_2' => __( 'Palette 2', 'astra' ),
-						'palette_3' => __( 'Palette 3', 'astra' ),
-					),
-					'context'  => Astra_Builder_Helper::$general_tab,
-					'divider'  => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
-				),
-
-				/**
-				 * Option: OS Aware.
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[mode-switcher-carry-os-palette]',
-					'default'   => astra_get_option( 'mode-switcher-carry-os-palette' ),
-					'type'      => 'control',
-					'control'   => 'ast-toggle-control',
-					'section'   => $_section,
-					'priority'  => 50,
-					'title'     => __( 'OS Aware', 'astra' ),
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'transport' => 'postMessage',
-				),
-
-				// Option: OS Aware help info.
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[mode-os-aware-description]',
-					'type'     => 'control',
-					'control'  => 'ast-description',
-					'section'  => $_section,
-					'priority' => 51,
-					'label'    => '',
-					'help'     => __( 'Use users system settings to choose default palette on site load.', 'astra' ),
-					'context'  => Astra_Builder_Helper::$general_tab,
 				),
 			);
 
@@ -208,6 +150,3 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 	new Astra_Header_Mode_Switcher_Component_Configs();
 }
-
-
-

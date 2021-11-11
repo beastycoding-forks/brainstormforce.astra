@@ -109,6 +109,8 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$dark_color  = astra_get_option( 'dark-mode-switcher-dark-color' );
 
 	$icon_size   = astra_get_option( 'mode-switcher-icon-size' );
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$desktop_icon_size = astra_calculate_spacing( $icon_size['desktop'] . 'px', '+', '0.5', 'em' );
 	$border_radius = esc_attr( astra_get_option( 'mode-switcher-toggle-border-radius' ) );
 
 	/**
@@ -131,10 +133,8 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'border-radius'    => astra_get_css_value( $border_radius, 'px' ),
 		),
 		'.ast-switcher-toggle-style:after' => array(
-			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			'width' => astra_calculate_spacing( $icon_size['desktop'] . 'px', '+', '0.5', 'em' ),
-			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			'height' => astra_calculate_spacing( $icon_size['desktop'] . 'px', '+', '0.5', 'em' ),
+			'width' => $desktop_icon_size,
+			'height' => $desktop_icon_size,
 		),
 	);
 

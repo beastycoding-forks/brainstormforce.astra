@@ -91,6 +91,12 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		.ast-mode-switcher-trigger .ahfb-svg-iconset {
 			vertical-align: middle;
 		}
+		.ast-light-mode-wrap, .ast-dark-site .ast-dark-mode-wrap {
+			display: none;
+		}
+		.ast-dark-site .ast-light-mode-wrap {
+			display: block;
+		}
 	';
 
 	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
@@ -132,12 +138,12 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	/* Parse CSS from array() */
 	$css_output  = astra_parse_css( $css_output_desktop );
-	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
-	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
+	$css_output .= astra_parse_css( $css_output_tablet, '', strval( astra_get_tablet_breakpoint() ) );
+	$css_output .= astra_parse_css( $css_output_mobile, '', strval( astra_get_mobile_breakpoint() ) );
 
 	$dynamic_css .= $css_output;
 
-	if ( '' !== astra_get_option( 'mode-switcher-label' ) ) {
+	if ( '' !== astra_get_option( 'mode-switcher-light-label' ) && '' !== astra_get_option( 'mode-switcher-dark-label' ) ) {
 		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 	}
 

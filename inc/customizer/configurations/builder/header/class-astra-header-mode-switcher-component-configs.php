@@ -59,11 +59,11 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Color palette selection.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
-					'default'   => astra_get_option( 'dark-mode-switch-style' ),
+					'name'      => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
+					'default'   => astra_get_option( 'dark-mode-switch-type' ),
 					'section'   => $_section,
 					'priority'  => 5,
-					'title'     => __( 'Switch Style', 'astra' ),
+					'title'     => __( 'Switch Type', 'astra' ),
 					'type'      => 'control',
 					'control'   => 'ast-select',
 					'transport' => 'postMessage',
@@ -90,7 +90,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'control'    => 'ast-selector',
 					'section'    => $_section,
 					'priority'   => 10,
-					'title'      => defined( 'ASTRA_EXT_VER' ) ? __( 'Light Mode Icon', 'astra' ) : __( 'Select Icon', 'astra' ),
+					'title'      => ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) ) ? __( 'Light Mode Icon', 'astra' ) : __( 'Select Icon', 'astra' ),
 					'choices'    => array(
 						'light-switcher-1' => 'light-switcher-1',
 						'light-switcher-2' => 'light-switcher-2',
@@ -107,12 +107,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						array(
 							'relation' => 'OR',
 							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
+								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
 								'operator' => '==',
 								'value'    => 'icon',
 							),
 							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
+								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
 								'operator' => '==',
 								'value'    => 'icon-with-label',
 							),
@@ -145,16 +145,37 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						array(
 							'relation' => 'OR',
 							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
+								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
 								'operator' => '==',
 								'value'    => 'icon',
 							),
 							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
+								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
 								'operator' => '==',
 								'value'    => 'icon-with-label',
 							),
 						),
+					),
+				),
+
+				/**
+				 * Option: Button border radius.
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[mode-switcher-toggle-border-radius]',
+					'section'     => $_section,
+					'priority'    => 20,
+					'transport'   => 'postMessage',
+					'default'     => astra_get_option( 'mode-switcher-toggle-border-radius' ),
+					'title'       => __( 'Border Radius', 'astra' ),
+					'type'        => 'control',
+					'suffix'      => 'px',
+					'control'     => 'ast-slider',
+					'context'     => Astra_Builder_Helper::$design_tab,
+					'input_attrs' => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 200,
 					),
 				),
 
@@ -180,12 +201,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						array(
 							'relation' => 'OR',
 							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
+								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
 								'operator' => '==',
 								'value'    => 'label',
 							),
 							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
+								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
 								'operator' => '==',
 								'value'    => 'icon-with-label',
 							),
@@ -215,12 +236,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						array(
 							'relation' => 'OR',
 							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
+								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
 								'operator' => '==',
 								'value'    => 'label',
 							),
 							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
+								'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
 								'operator' => '==',
 								'value'    => 'icon-with-label',
 							),
@@ -291,6 +312,54 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'help'     => __( 'Use users system settings to choose default palette on site load.', 'astra' ),
 					'context'  => Astra_Builder_Helper::$general_tab,
 				),
+
+				/**
+				 * Option: Switcher Color.
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[mode-switcher-color-group-control]',
+					'default'   => astra_get_option( 'mode-switcher-color-group-control' ),
+					'type'      => 'control',
+					'control'   => 'ast-color-group',
+					'title'     => __( 'Colors', 'astra' ),
+					'section'   => $_section,
+					'transport' => 'postMessage',
+					'priority'  => 9,
+					'context'   => Astra_Builder_Helper::$design_tab,
+					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+				),
+
+				/**
+				 * Normal mode witcher light color.
+				 */
+				array(
+					'name'      => 'dark-mode-switcher-light-color',
+					'default'   => astra_get_option( 'dark-mode-switcher-light-color' ),
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[mode-switcher-color-group-control]',
+					'section'   => $_section,
+					'priority'  => 1,
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'title'     => __( 'Light', 'astra' ),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
+
+				/**
+				 * Normal mode witcher dark color.
+				 */
+				array(
+					'name'      => 'dark-mode-switcher-dark-color',
+					'default'   => astra_get_option( 'dark-mode-switcher-dark-color' ),
+					'type'      => 'sub-control',
+					'parent'    => ASTRA_THEME_SETTINGS . '[mode-switcher-color-group-control]',
+					'section'   => $_section,
+					'priority'  => 2,
+					'transport' => 'postMessage',
+					'control'   => 'ast-color',
+					'title'     => __( 'Dark', 'astra' ),
+					'context'   => Astra_Builder_Helper::$design_tab,
+				),
 			);
 
 			$required_condition = array(
@@ -299,12 +368,12 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				array(
 					'relation' => 'OR',
 					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
+						'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
 						'operator' => '==',
 						'value'    => 'label',
 					),
 					array(
-						'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
+						'setting'  => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
 						'operator' => '==',
 						'value'    => 'icon-with-label',
 					),

@@ -82,14 +82,15 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			cursor: pointer;
 			background: none;
 			border: none;
-			padding: unset;
-			margin: unset;
+		}
+		.ast-mode-switcher-trigger, .ast-mode-label {
+			position: relative;
 		}
 		.ast-mode-switcher-icon {
-			margin-right: 5px;
+			fill: currentColor;
 		}
 		.ast-mode-switcher-trigger .ahfb-svg-iconset {
-			vertical-align: middle;
+			vertical-align: text-bottom;
 		}
 		.ast-light-mode-wrap, .ast-dark-site .ast-dark-mode-wrap {
 			display: none;
@@ -104,15 +105,36 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$_section = 'section-mode-switcher';
 	$selector = '.ast-mode-switcher-trigger';
 
-	$icon_size = astra_get_option( 'mode-switcher-icon-size' );
+	$light_color = astra_get_option( 'dark-mode-switcher-light-color' );
+	$dark_color  = astra_get_option( 'dark-mode-switcher-dark-color' );
+
+	$icon_size   = astra_get_option( 'mode-switcher-icon-size' );
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	$desktop_icon_size = astra_calculate_spacing( $icon_size['desktop'] . 'px', '+', '0.5', 'em' );
+	$border_radius = esc_attr( astra_get_option( 'mode-switcher-toggle-border-radius' ) );
 
 	/**
 	 * Mode Switcher - Desktop CSS.
 	 */
 	$css_output_desktop = array(
+		'.ast-mode-switcher-trigger, .ast-mode-switcher-trigger:hover, .ast-mode-switcher-trigger:focus, .ast-mode-switcher-trigger:active' => array(
+			'color'            => esc_attr( $light_color ),
+			'background-color' => esc_attr( $dark_color ),
+		),
+		'.ast-dark-site ' . $selector          => array(
+			'color'            => esc_attr( $dark_color ),
+			'background-color' => esc_attr( $light_color ),
+		),
 		$selector . ' .ast-mode-switcher-icon' => array(
 			'height' => astra_get_css_value( $icon_size['desktop'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['desktop'], 'px' ),
+		),
+		'.ast-mode-switcher-trigger' => array(
+			'border-radius'    => astra_get_css_value( $border_radius, 'px' ),
+		),
+		'.ast-switcher-toggle-style:after' => array(
+			'width' => $desktop_icon_size,
+			'height' => $desktop_icon_size,
 		),
 	);
 

@@ -6,7 +6,6 @@ import {
 } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
-
 describe( 'Global typography preset 1 settings in the customizer', () => {
 	it( 'body and heading font style for preset 1 should be applied correctly', async () => {
 		const globaltypographyPreset1 = {

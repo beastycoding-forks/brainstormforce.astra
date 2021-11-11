@@ -32,6 +32,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		private static $instance;
 
 		/**
+		 * Cart total label position.
+		 *
+		 * @since x.x.x
+		 * @var array $cart_total_label_postion
+		 */
+		public static $cart_total_label_postion = array();
+
+		/**
 		 * Initiator
 		 */
 		public static function get_instance() {
@@ -171,29 +179,41 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				return;
 			}
 
-			$icon                     = astra_get_option( 'woo-header-cart-icon' );
-			$cart_total_display       = astra_get_option( 'woo-header-cart-total-display' );
-			$cart_count_display       = apply_filters( 'astra_header_cart_count', true );
-			$cart_title_display       = astra_get_option( 'woo-header-cart-title-display' );
-			$cart_title               = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
-			$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
+			$icon               = astra_get_option( 'woo-header-cart-icon' );
+			$cart_count_display = apply_filters( 'astra_header_cart_count', true );
+			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
 
-			$cart_title_markup = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
-			$cart_total_markup = '';
+			$cart_title_markup      = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
+			$cart_total_markup      = '';
+			$cart_total_only_markup = '';
 			if ( null !== WC()->cart ) {
 				$cart_total_markup = '<span class="ast-woo-header-cart-total">' . WC()->cart->get_cart_subtotal() . '</span>';
+
+				$cart_total_only_markup = '<span class="ast-woo-header-cart-total-only">' . WC()->cart->get_cart_contents_total() . '</span>';
 			}
 
+			$cart_cur_name_markup = '';
+			if ( function_exists( 'get_woocommerce_currency' ) ) {
+				$cart_cur_name_markup = '<span class="ast-woo-header-cart-cur-name">' . get_woocommerce_currency() . '</span>';
+			}
+
+			$cart_cur_sym_markup = '';
+			if ( function_exists( 'get_woocommerce_currency_symbol' ) ) {
+				$cart_cur_sym_markup = '<span class="ast-woo-header-cart-cur-symbol">' . get_woocommerce_currency_symbol() . '</span>';
+			}
+			$display_cart_label = astra_get_option( 'woo-header-cart-label-display' );
+
+			$shortcode_label       = array( '{cart_total_currency_symbol}', '{cart_title}', '{cart_total}', '{cart_currency_name}', '{cart_currency_symbol}' );
+			$shortcode_label_value = array( $cart_total_markup, $cart_title_markup, $cart_total_only_markup, $cart_cur_name_markup, $cart_cur_sym_markup );
+
+			$cart_label_markup = '';
+			$cart_label_markup = str_replace( $shortcode_label, $shortcode_label_value, $display_cart_label );
 			// Cart Title & Cart Cart total markup.
 			$cart_info_markup = sprintf(
 				'<span class="ast-woo-header-cart-info-wrap">
 						%1$s
-						%2$s
-						%3$s
 					</span>',
-				( $cart_title_display ) ? $cart_title_markup : '',
-				( $cart_total_display && $cart_title_display ) ? '/' : '',
-				( $cart_total_display ) ? $cart_total_markup : ''
+				$cart_label_markup
 			);
 
 			$cart_contents_count = 0;
@@ -215,21 +235,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			// Theme's default icon with cart title and cart total.
 			if ( 'default' == $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
 				// Cart Total or Cart Title enable then only add markup.
-				if ( $cart_title_display || $cart_total_display ) {
+				if ( '' !== $cart_label_markup ) {
 					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				}
 			} else {
-
 				// Remove Default cart icon added by theme.
 				add_filter( 'astra_woo_default_header_cart_icon', '__return_false' );
 
 				/* translators: 1: Cart Title Markup, 2: Cart Icon Markup */
 				printf(
-					'<div class="ast-addon-cart-wrap cart-position-%1$s">
+					'<div class="ast-addon-cart-wrap ast-cart-position-%1$s">
 							%2$s
 							%3$s
 					</div>',
-					( $cart_total_label_postion ) ? $cart_total_label_postion : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					( self::$cart_total_label_postion ) ? self::$cart_total_label_postion : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					( $cart_title_display || $cart_total_display ) ? $cart_info_markup : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					( $cart_icon ) ? $cart_icon : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
@@ -934,6 +953,32 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$btn_border_h_color               = astra_get_option( 'theme-button-border-group-border-h-color' );
 
 			$css_output = array(
+				'#customer_details h3:not(.elementor-widget-woocommerce-checkout-page h3)' => array(
+					'font-size'     => '1.2rem',
+					'padding'       => '20px 0 14px',
+					'margin'        => '0 0 20px',
+					'border-bottom' => '1px solid #ebebeb',
+				),
+				'form #order_review_heading:not(.elementor-widget-woocommerce-checkout-page #order_review_heading)' => array(
+					'border-width' => '2px 2px 0 2px',
+					'border-style' => 'solid',
+					'font-size'    => '1.2rem',
+					'margin'       => '0',
+					'padding'      => '1.5em 1.5em 1em',
+					'border-color' => '#ebebeb',
+				),
+				'form #order_review:not(.elementor-widget-woocommerce-checkout-page #order_review)' => array(
+					'padding'      => '0 2em',
+					'border-width' => '0 2px 2px',
+					'border-style' => 'solid',
+					'border-color' => '#ebebeb',
+				),
+				'ul#shipping_method li:not(.elementor-widget-woocommerce-cart #shipping_method li)' => array(
+					'margin'      => '0',
+					'padding'     => '0.25em 0 0.25em 22px',
+					'text-indent' => '-22px',
+					'list-style'  => 'none outside',
+				),
 				'.woocommerce span.onsale, .wc-block-grid__product .wc-block-grid__product-onsale' => array(
 					'background-color' => $theme_color,
 					'color'            => astra_get_foreground_color( $theme_color ),
@@ -1806,7 +1851,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since  1.0.0
 		 */
 		public function astra_get_cart_link() {
-
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
 			$woo_cart_link = wc_get_cart_url();
@@ -1814,8 +1858,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
+			self::$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			?>
-			<a class="cart-container" href="<?php echo esc_url( $woo_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
+			<a class="cart-container ast-cart-position-<?php echo esc_attr( self::$cart_total_label_postion ); ?>" href="<?php echo esc_url( $woo_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
 
 						<?php
 						do_action( 'astra_woo_header_cart_icons_before' );

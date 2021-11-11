@@ -2237,7 +2237,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			 * Added new compatibility & layout designs for core block layouts.
 			 * - Compatibility for alignwide, alignfull, default width.
 			 *
-			 * @since x.x.x
+			 * @since 3.7.4
 			 */
 			$entry_content_selector = '.entry-content';
 			if ( true === $improve_gb_ui ) {

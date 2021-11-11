@@ -283,14 +283,14 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				self::render_customizer_edit_button();
 			}
 			?>
-				<span id="ast-mode-switcher-trigger">
+				<button class="ast-mode-switcher-trigger" aria-label="Switch to dark mode">
 					<?php
 						echo self::fetch_svg_icon( $switcher_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					if ( '' !== $switcher_label ) {
 						echo esc_html( $switcher_label );
 					}
 					?>
-				</span>
+				</button>
 			<?php
 		}
 

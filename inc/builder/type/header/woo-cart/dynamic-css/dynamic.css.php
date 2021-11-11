@@ -67,6 +67,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$checkout_button_bg_color     = astra_get_option( 'header-woo-checkout-btn-background-color' );
 	$checkout_button_text_h_color = astra_get_option( 'header-woo-checkout-btn-text-hover-color' );
 	$checkout_button_bg_h_color   = astra_get_option( 'header-woo-checkout-btn-bg-hover-color' );
+	$cart_total_label_position    = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 
 	$header_cart_icon = '';
 
@@ -240,8 +241,12 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	// Desktop offcanvas cart.
 	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
 
-		$desktop_flyout_cart_width                                        = astra_get_option( 'woo-desktop-cart-flyout-width' );
-		$desktop_flyout_cart_direction                                    = astra_get_option( 'woo-desktop-cart-flyout-direction' );
+		$desktop_flyout_cart_width     = astra_get_option( 'woo-desktop-cart-flyout-width' );
+		$desktop_flyout_cart_direction = astra_get_option( 'woo-desktop-cart-flyout-direction' );
+		$css_output_desktop['.ast-desktop-cart-flyout.ast-site-header-cart:focus .widget_shopping_cart, .ast-desktop-cart-flyout.ast-site-header-cart:hover .widget_shopping_cart'] = array(
+			'opacity'    => '0',
+			'visibility' => 'hidden',
+		);
 		$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right'] = array(
 			'width' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
 		);
@@ -252,6 +257,22 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			);
 			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right.active'] = array(
 				'left' => astra_get_css_value( $desktop_flyout_cart_width, '%' ),
+			);
+		}
+	} else {
+		if ( is_rtl() ) {
+			$css_output_desktop['.woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons a'] = array(
+				'display'     => 'inline-block',
+				'width'       => 'calc( 50% - 5px)',
+				'margin-left' => '5px',
+				'text-align'  => 'center',
+			);
+		} else {
+			$css_output_desktop['.woocommerce .widget_shopping_cart .woocommerce-mini-cart__buttons a'] = array(
+				'display'      => 'inline-block',
+				'width'        => 'calc( 50% - 5px)',
+				'margin-right' => '5px',
+				'text-align'   => 'center',
 			);
 		}
 	}
@@ -475,6 +496,53 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		}
 
 		$css_output .= astra_parse_css( $header_cart_icon );
+	}
+
+	/**
+	 * Added for the Cart total label badge position
+	 */
+	
+	$css_total_position_common_selector = array(
+		'.cart-container, .ast-addon-cart-wrap' => array(
+			'display'     => 'flex',
+			'align-items' => 'center',
+		),
+		'.astra-icon'                           => array(
+			'line-height' => 0.1,
+		),
+	);
+	$css_total_position_output_bottom   = array(
+		'.cart-container.ast-cart-position-bottom, .ast-addon-cart-wrap.ast-cart-position-bottom' => array(
+			'flex-direction' => 'column',
+		),
+		
+		'.cart-container.ast-cart-position-bottom .ast-woo-header-cart-info-wrap, .ast-addon-cart-wrap.ast-cart-position-bottom .ast-woo-header-cart-info-wrap' => array(
+			'order'       => 2,
+			'line-height' => 1,
+			'margin-top'  => '0.5em',
+		),
+		
+	);
+	$css_total_position_output_left  = array(    
+		'.cart-container.ast-cart-position-left .ast-woo-header-cart-info-wrap, .ast-addon-cart-wrap.ast-cart-position-left .ast-woo-header-cart-info-wrap' => array(
+			'margin-right' => '0.5em',
+		),
+	);
+	$css_total_position_output_right = array(
+		'.cart-container.ast-cart-position-right .ast-woo-header-cart-info-wrap, .ast-addon-cart-wrap.ast-cart-position-right .ast-woo-header-cart-info-wrap' => array(
+			'order'       => 2,
+			'margin-left' => '0.7em',
+		),
+	);
+	$css_output                     .= astra_parse_css( $css_total_position_common_selector );
+	if ( 'bottom' === $cart_total_label_position || is_customize_preview() ) {
+		$css_output .= astra_parse_css( $css_total_position_output_bottom );
+	} 
+	if ( 'right' === $cart_total_label_position || is_customize_preview() ) {
+		$css_output .= astra_parse_css( $css_total_position_output_right );
+	} 
+	if ( 'left' === $cart_total_label_position || is_customize_preview() ) {
+		$css_output .= astra_parse_css( $css_total_position_output_left );      
 	}
 
 	$css_output .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( 'section-header-woo-cart', '.woocommerce .ast-header-woo-cart .ast-site-header-cart, .ast-header-woo-cart .ast-site-header-cart' );

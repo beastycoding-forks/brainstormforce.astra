@@ -4000,6 +4000,17 @@ namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport {
         {
         }
         /**
+         * Compatibility CSS for Elementor Pro's WooCommerce widgets releasing in their v3.6.0
+         *
+         * @param  string $css_output CSS stylesheet.
+         * @return string $css_output CSS stylesheet.
+         *
+         * @since  3.7.5
+         */
+        public function elementor_wc_widgets_compatibility_styles($css_output)
+        {
+        }
+        /**
          * Register Locations
          *
          * @since 1.2.7
@@ -10645,6 +10656,16 @@ namespace {
         {
         }
         /**
+         * Register Post Meta options support.
+         *
+         * @since 3.7.5
+         * @param array|mixed $args the post type args.
+         * @param string      $post_type the post type.
+         */
+        public function custom_fields_support($args, $post_type)
+        {
+        }
+        /**
          * Check if layout is bb themer's layout
          */
         public static function is_bb_themer_layout()
@@ -14712,6 +14733,15 @@ namespace {
      * @return bool
      */
     function astra_maybe_disable_global_color_in_elementor()
+    {
+    }
+    /**
+     * Check is Elementor Pro version is greater than or equal to beta 3.5 version.
+     *
+     * @since 3.7.5
+     * @return boolean
+     */
+    function astra_check_elementor_pro_3_5_version()
     {
     }
     /**

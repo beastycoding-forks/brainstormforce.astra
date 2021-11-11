@@ -16,8 +16,8 @@ describe( 'Global typography preset 1 settings in the customizer', () => {
 			'body-line-height': '25px',
 			'headings-font-family': "'Playfair Display,Georgia,serif'",
 			'headings-font-weight': '700',
-			'headings-text-transform': 'capitalize',
-			'headings-line-height': '20px',
+			'headings-text-transform': 'none',
+			'headings-line-height': '45px',
 		};
 
 		await setCustomize( globaltypographyPreset1 );
@@ -51,7 +51,7 @@ describe( 'Global typography preset 1 settings in the customizer', () => {
 		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-line-height' ] }`,
 		);
 		await expect( {
-			selector: 'h1, .entry-content h1',
+			selector: '.entry-content h1',
 			property: 'font-family',
 		} ).cssValueToBe( `${ globaltypographyPreset1[ 'headings-font-family' ] }`,
 		);

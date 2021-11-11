@@ -1,5 +1,5 @@
 import { setCustomize } from '../../../../utils/customize';
-import { createURL, createNewPost, publishPost, insertBlock } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 describe( 'Testing Global Color setting under the customizer', () => {
 	it( 'text color should apply correctly', async () => {
 		const textandheadingColor = {
@@ -12,8 +12,6 @@ describe( 'Testing Global Color setting under the customizer', () => {
 			title: 'color-test',
 			content: 'this is the text color test',
 		} );
-		await insertBlock( 'HTML' );
-		await page.keyboard.type( '<a href="url">Click Here</a>' );
 		await publishPost();
 		await page.goto( createURL( 'color-test' ), {
 			waitUntil: 'networkidle0',
@@ -66,10 +64,10 @@ describe( 'Testing Global Color setting under the customizer', () => {
 		await page.goto( createURL( 'color-test' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.entry-content > :last-child' );
-		await page.hover( '.entry-content > :last-child' );
+		await page.hover( '.wp-block-group__inner-container :last-child' );
+		await page.waitForSelector( '.entry-title' );
 		await expect( {
-			selector: '.entry-content > :last-child',
+			selector: '.wp-block-group__inner-container :last-child',
 			property: 'color',
 		} ).cssValueToBe( `${ linkhoverColor[ 'link-h-color' ] }` );
 	} );

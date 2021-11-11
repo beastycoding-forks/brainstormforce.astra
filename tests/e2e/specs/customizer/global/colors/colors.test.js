@@ -13,7 +13,7 @@ describe( 'Testing Global Color setting under the customizer', () => {
 			content: 'this is the text color test',
 		} );
 		await insertBlock( 'HTML' );
-		await page.keyboard.type( '<a href="url">Hover on this Link</a>' );
+		await page.keyboard.type( '<a href="url">Click Here</a>' );
 		await publishPost();
 		await page.goto( createURL( 'color-test' ), {
 			waitUntil: 'networkidle0',
@@ -60,7 +60,7 @@ describe( 'Testing Global Color setting under the customizer', () => {
 	} );
 	it( 'link hover color should apply correctly', async () => {
 		const linkhoverColor = {
-			'link-h-color': 'rgb(227, 11, 18)',
+			'link-h-color': 'rgb(205, 41, 41)',
 		};
 		await setCustomize( linkhoverColor );
 		await page.goto( createURL( 'color-test' ), {

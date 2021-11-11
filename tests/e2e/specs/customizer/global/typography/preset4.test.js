@@ -21,11 +21,11 @@ describe( 'Global typography settings in the customizer', () => {
 			},
 			'body-font-weight': '400',
 			'body-text-transform': 'uppercase',
-			'body-line-height': '5px',
-			'headings-font-family': 'Montserrat, sans-serif', 
+			'body-line-height': '25px',
+			'headings-font-family': 'Montserrat, sans-serif',
 			'headings-font-weight': '700',
 			'headings-text-transform': 'lowercase',
-			'headings-line-height': '4px',
+			'headings-line-height': '40px',
 		};
 
 		await setCustomize( presetFont );

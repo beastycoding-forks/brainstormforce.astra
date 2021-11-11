@@ -1035,7 +1035,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Mode Switcher element.
 	*/
-	$defaults['mode-switcher-icon-type'] = 'switcher-1';
+	$defaults['mode-switcher-icon-type'] = 'light-switcher-1';
 	$defaults['mode-switcher-label']     = '';
 	$defaults['mode-switcher-icon-size'] = array(
 		'desktop' => 20,

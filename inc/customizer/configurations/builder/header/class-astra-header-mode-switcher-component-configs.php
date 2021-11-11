@@ -74,10 +74,10 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 				'priority'   => 10,
 				'title'      => __( 'Select Icon', 'astra' ),
 				'choices'    => array(
-					'switcher-1' => 'switcher-1',
-					'switcher-2' => 'switcher-2',
-					'switcher-3' => 'switcher-3',
-					'switcher-4' => 'switcher-4',
+					'light-switcher-1' => 'light-switcher-1',
+					'light-switcher-2' => 'light-switcher-2',
+					'light-switcher-3' => 'light-switcher-3',
+					'light-switcher-4' => 'light-switcher-4',
 				),
 				'transport'  => 'postMessage',
 				'partial'    => array(

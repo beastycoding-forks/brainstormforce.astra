@@ -66,10 +66,10 @@ describe( 'Testing Global Color setting under the customizer', () => {
 		await page.goto( createURL( 'color-test' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-single-post .entry-content a' );
-		await page.hover( '.ast-single-post .entry-content a' );
+		await page.waitForSelector( '.entry-content > :last-child' );
+		await page.hover( '.entry-content > :last-child' );
 		await expect( {
-			selector: '.ast-single-post .entry-content a',
+			selector: '.entry-content > :last-child',
 			property: 'color',
 		} ).cssValueToBe( `${ linkhoverColor[ 'link-h-color' ] }` );
 	} );

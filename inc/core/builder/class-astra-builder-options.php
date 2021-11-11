@@ -1035,7 +1035,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Mode Switcher element.
 	*/
-	$defaults['mode-switcher-light-icon']       = 'switcher-1';
+	$defaults['mode-switcher-light-icon']       = 'light-switcher-1';
 	$defaults['mode-switcher-light-label']      = '';
 	$defaults['mode-switcher-dark-label']       = '';
 	$defaults['dark-mode-switcher-light-color'] = '';

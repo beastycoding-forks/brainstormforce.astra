@@ -92,10 +92,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'priority'   => 10,
 					'title'      => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) ) ? __( 'Light Mode Icon', 'astra' ) : __( 'Select Icon', 'astra' ),
 					'choices'    => array(
-						'switcher-1' => 'switcher-1',
-						'switcher-2' => 'switcher-2',
-						'switcher-3' => 'switcher-3',
-						'switcher-4' => 'switcher-4',
+						'light-switcher-1' => 'light-switcher-1',
+						'light-switcher-2' => 'light-switcher-2',
+						'light-switcher-3' => 'light-switcher-3',
+						'light-switcher-4' => 'light-switcher-4',
 					),
 					'transport'  => 'postMessage',
 					'partial'    => array(

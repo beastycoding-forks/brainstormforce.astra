@@ -4,7 +4,6 @@ describe( 'transparent  in the customizer', () => {
 	it( 'transparent header should apply correctly', async () => {
 		const transparentElementSettings = {
 			'transparent-header-enable': true,
-			'header-social-1-label-toggle': true,
 			'header-desktop-items': {
 				below: {
 					below_center: {
@@ -56,21 +55,21 @@ describe( 'transparent  in the customizer', () => {
 		} );
 		//to test social icon text color
 		await expect( {
-			selector: '.social-item-label',
-			property: 'color',
+			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg',
+			property: 'fill',
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-social-icons-color' ].desktop }`,
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.social-item-label',
+			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg',
 			property: 'color',
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-social-icons-color' ].tablet }`,
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '.social-item-label',
+			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg',
 			property: 'color',
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-social-icons-color' ].mobile }`,

@@ -98,13 +98,13 @@ describe( 'transparent  in the customizer', () => {
 		// 	`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].mobile }`,
 		// );
 		//to test search icon color
-		await setBrowserViewport( 'large' );
-		await expect( {
-			selector: '.ast-theme-transparent-header .ast-header-search .ast-icon',
-			property: 'color',
-		} ).cssValueToBe(
-			`${ transparentElementSettings[ 'transparent-header-search-icon-color' ] }`,
-		);
+		// await setBrowserViewport( 'large' );
+		// await expect( {
+		// 	selector: '.ast-theme-transparent-header .ast-header-search .ast-icon',
+		// 	property: 'color',
+		// } ).cssValueToBe(
+		// 	`${ transparentElementSettings[ 'transparent-header-search-icon-color' ] }`,
+		// );
 		//to test button text color
 		await expect( {
 			selector: '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button',

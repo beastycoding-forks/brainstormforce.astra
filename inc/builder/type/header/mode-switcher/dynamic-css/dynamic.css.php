@@ -133,6 +133,8 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		'.ast-switcher-toggle-style:after' => array(
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			'width' => astra_calculate_spacing( $icon_size['desktop'] . 'px', '+', '0.5', 'em' ),
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			'height' => astra_calculate_spacing( $icon_size['desktop'] . 'px', '+', '0.5', 'em' ),
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		),

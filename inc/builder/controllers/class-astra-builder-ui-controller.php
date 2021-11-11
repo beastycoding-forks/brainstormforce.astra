@@ -293,9 +293,9 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					<?php
 					switch ( $switcher_type ) {
 						case 'icon':
-							echo '<span class="ast-light-mode-wrap ast-mode-label" data-tooltip="' . esc_html( 'Light', 'astra' ) . '">' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo '<span class="ast-light-mode-wrap ast-mode-label" data-tooltip="' . esc_html( 'Light' ) . '">' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-							echo '<span class="ast-dark-mode-wrap ast-mode-label" data-tooltip="' . esc_html( 'Dark', 'astra' ) . '">' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo '<span class="ast-dark-mode-wrap ast-mode-label" data-tooltip="' . esc_html( 'Dark' ) . '">' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							break;
 
 						case 'label':

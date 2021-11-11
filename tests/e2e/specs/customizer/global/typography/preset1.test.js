@@ -7,15 +7,15 @@ import {
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 
-describe( 'Global heading settings in the customizer', () => {
-	it( 'heading font settings should be applied correctly', async () => {
+describe( 'Global typography preset 1 settings in the customizer', () => {
+	it( 'body and heading font style for preset 1 should be applied correctly', async () => {
 		const globaltypographyPreset1 = {
 			'typography-presets': 'Preset1',
-			'body-font-family': "'Open Sans', sans-serif",
+			'body-font-family': "'Open Sans,sans-serif'",
 			'body-font-weight': '400',
 			'body-text-transform': 'uppercase',
 			'body-line-height': '25px',
-			'headings-font-family': "'Playfair Display', Georgia, serif",
+			'headings-font-family': "'Playfair Display,Georgia,serif'",
 			'headings-font-weight': '700',
 			'headings-text-transform': 'capitalize',
 			'headings-line-height': '20px',
@@ -30,7 +30,6 @@ describe( 'Global heading settings in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( 'body' );
-
 		await expect( {
 			selector: 'body',
 			property: 'font-family',
@@ -38,23 +37,20 @@ describe( 'Global heading settings in the customizer', () => {
 			`${ globaltypographyPreset1[ 'body-font-family' ] }`,
 		);
 		await expect( {
-			selector: 'body',
+			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-font-weight' ] }`,
 		);
-
 		await expect( {
 			selector: 'body',
 			property: 'text-transform',
 		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-text-transform' ] }`,
 		);
-
 		await expect( {
 			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'line-height',
 		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-line-height' ] }`,
 		);
-
 		await expect( {
 			selector: 'h1, .entry-content h1',
 			property: 'font-family',

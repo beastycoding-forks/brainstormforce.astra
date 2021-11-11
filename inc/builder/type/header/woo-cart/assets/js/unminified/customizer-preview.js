@@ -11,7 +11,7 @@
 (function ($) {
 
 	var selector = '.ast-site-header-cart';
-	var responsive_selector = '.astra-cart-drawer.woocommerce-active';
+	var responsive_selector = '.astra-cart-drawer';
 
 
 	// Icon Color.

@@ -4977,7 +4977,7 @@ namespace {
         public function content_layout($layout)
         {
         }
-        /** 
+        /**
          * LearnDash Static CSS.
          *
          * @since 3.3.0
@@ -5330,6 +5330,30 @@ namespace {
          * Constructor
          */
         public function __construct()
+        {
+        }
+        /**
+         * Update WooCommerce store notice. Extending this function to add custom data-attr as per Astra's configuration.
+         *
+         * @since x.x.x
+         *
+         * @param  string $notice Store notice markup.
+         * @return string $notice Store notice markup.
+         */
+        public function astra_woocommerce_update_store_notice_atts($notice)
+        {
+        }
+        /**
+         * Dynamic CSS for store notice config.
+         *
+         * @since x.x.x
+         *
+         * @param  string $dynamic_css          Astra Dynamic CSS.
+         * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+         *
+         * @return string $dynamic_css Generated dynamic CSS for WooCommerce store.
+         */
+        public function astra_woocommerce_store_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
         {
         }
         /**
@@ -5704,6 +5728,23 @@ namespace {
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
          * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Customizer WooCommerece store notice - customizer config initial setup.
+     */
+    class Astra_Woo_Store_Notice_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Astra-WooCommerce Shop Cart Layout Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -6847,7 +6888,7 @@ namespace {
         public function __construct()
         {
         }
-        /** 
+        /**
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6857,7 +6898,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /** 
+        /**
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6867,7 +6908,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6877,7 +6918,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6887,7 +6928,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6897,7 +6938,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6907,7 +6948,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -6916,7 +6957,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /** 
+        /**
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -6961,16 +7002,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /** 
+        /**
          * Comment form grid classes.
          *
-         * @since 3.3.0 
+         * @since 3.3.0
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /** 
+        /**
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -6979,7 +7020,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /** 
+        /**
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -6987,7 +7028,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /** 
+        /**
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -6995,7 +7036,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /** 
+        /**
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -7003,7 +7044,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /** 
+        /**
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -7011,7 +7052,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /** 
+        /**
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -7019,7 +7060,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /** 
+        /**
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -7029,7 +7070,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7039,7 +7080,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7069,7 +7110,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -10772,64 +10813,6 @@ namespace {
         {
         }
     }
-    /*!
-     * ISC License
-     * 
-     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
-     *
-     * Permission to use, copy, modify, and/or distribute this software for any
-     * purpose with or without fee is hereby granted, provided that the above
-     * copyright notice and this permission notice appear in all copies.
-     *
-     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
-     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-     * PERFORMANCE OF THIS SOFTWARE.
-     */
-    class FlattedString
-    {
-        public function __construct($value)
-        {
-        }
-    }
-    class Flatted
-    {
-        // public utilities
-        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
-        {
-        }
-        public static function stringify($value, $options = 0, $depth = 512)
-        {
-        }
-        // private helpers
-        private static function asString($value)
-        {
-        }
-        private static function index(&$known, &$input, &$value)
-        {
-        }
-        private static function keys(&$value)
-        {
-        }
-        private static function loop($obj, $keys, &$input, &$set, &$output)
-        {
-        }
-        private static function relate(&$known, &$input, &$value)
-        {
-        }
-        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
-        {
-        }
-        private static function transform(&$known, &$input, &$value)
-        {
-        }
-        private static function wrap($value)
-        {
-        }
-    }
     /**
      * Customizer Initialization
      *
@@ -12626,7 +12609,7 @@ namespace {
     }
     /**
      * Load Menu hover style static CSS if any one of the menu hover style is selected.
-     * 
+     *
      * @return string
      * @since 3.5.0
      */
@@ -12734,7 +12717,7 @@ namespace {
     }
     /**
      * Search Component static CSS.
-     * 
+     *
      * @return string
      * @since 3.5.0
      */
@@ -14361,7 +14344,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css 
+     * @param string $dynamic_css
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)

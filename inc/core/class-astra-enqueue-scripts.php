@@ -323,6 +323,11 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
 
+			$astra_cart_localize_data = array(
+				'desktop_layout' => astra_get_option( 'woo-header-cart-click-action' ),    // WooCommerce sidebar flyout desktop.
+			);
+
+			wp_localize_script( 'astra-mobile-cart', 'astra_cart', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );
 			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) ) {
 				$astra_mode_switcher_localize = array(
 					'carryOsPalette'    => astra_get_option( 'mode-switcher-carry-os-palette', false ),

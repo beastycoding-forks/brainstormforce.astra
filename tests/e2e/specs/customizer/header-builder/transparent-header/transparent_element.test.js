@@ -33,21 +33,15 @@ describe( 'transparent  in the customizer', () => {
 			},
 			'transparent-header-social-icons-bg-color': {
 				desktop: 'rgb(125, 86, 86)',
-				tablet: 'rgb(122, 86, 85)',
-				mobile: 'rgb(127, 86, 84)',
+				tablet: 'rgb(234, 234, 234)',
+				mobile: 'rgb(234, 234, 234)',
 			},
-			// 'transparent-header-search-icon-color': 'rgb(227, 41, 41)',
+			'transparent-header-search-icon-color': 'rgb(1, 112, 185)',
 			'transparent-header-button-text-color': 'rgb(227, 41, 41)',
 			'transparent-header-button-bg-color': 'rgb(225, 187, 187)',
-			// 'transparent-account-icon-color': 'rgb(201, 54, 54)',
-			'header-account-login-style': 'text',
-			'transparent-account-type-text-color': 'rgb(227, 41, 41)',
-			//'mobile-header-toggle-btn-style': 'fill',
+			'transparent-account-icon-color': 'rgb(237, 40, 40)',
 			'transparent-header-toggle-btn-color': 'rgb(222, 28, 28)',
-			//'transparent-header-toggle-btn-bg-color': 'rgb(227, 41, 41)',
-			//'transparent-header-toggle-border-color': 'rgb(227, 41, 41)',
 			'transparent-header-html-text-color': 'rgb(75, 79, 88)',
-			//'transparent-header-html-link-color': 'rgb(227, 41, 41)',
 		};
 		await setCustomize( transparentElementSettings );
 		await page.goto( createURL( '/' ), {
@@ -75,35 +69,35 @@ describe( 'transparent  in the customizer', () => {
 			`${ transparentElementSettings[ 'transparent-header-social-icons-color' ].mobile }`,
 		);
 		//to test social icon background color
-		// await setBrowserViewport( 'large' );
-		// await expect( {
-		// 	selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
-		// 	property: 'background',
-		// } ).cssValueToBe(
-		// 	`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].desktop }`,
-		// );
-		// await setBrowserViewport( 'medium' );
-		// await expect( {
-		// 	selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
-		// 	property: 'background',
-		// } ).cssValueToBe(
-		// 	`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].tablet }`,
-		// );
-		// await setBrowserViewport( 'small' );
-		// await expect( {
-		// 	selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
-		// 	property: 'background',
-		// } ).cssValueToBe(
-		// 	`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].mobile }`,
-		// );
+		await setBrowserViewport( 'large' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].desktop }`,
+		);
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].tablet }`,
+		);
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].mobile }`,
+		);
 		//to test search icon color
-		// await setBrowserViewport( 'large' );
-		// await expect( {
-		// 	selector: '.ast-theme-transparent-header .ast-header-search .ast-icon',
-		// 	property: 'color',
-		// } ).cssValueToBe(
-		// 	`${ transparentElementSettings[ 'transparent-header-search-icon-color' ] }`,
-		// );
+		await setBrowserViewport( 'large' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-search .ast-icon',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ transparentElementSettings[ 'transparent-header-search-icon-color' ] }`,
+		);
 		//to test button text color
 		await expect( {
 			selector: '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button',
@@ -112,20 +106,20 @@ describe( 'transparent  in the customizer', () => {
 			`${ transparentElementSettings[ 'transparent-header-button-text-color' ] }`,
 		);
 		//to test button background color
-		// await expect( {
-		// 	selector: '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button',
-		// 	property: 'background',
-		// } ).cssValueToBe(
-		// 	`${ transparentElementSettings[ 'transparent-header-button-bg-color' ] }`,
-		// );
-		//to test account text color
-		// await expect( {
-		// 	selector: '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text',
-		// 	property: 'color',
-		// } ).cssValueToBe(
-		// 	`${ transparentElementSettings[ 'transparent-account-type-text-color' ] }`,
-		// );
-		// // to test toggle icon color
+		await expect( {
+			selector: '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ transparentElementSettings[ 'transparent-header-button-bg-color' ] }`,
+		);
+		//to test account icon color
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg path:not(.ast-hf-account-unfill), .ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg circle',
+			property: 'fill',
+		} ).cssValueToBe(
+			`${ transparentElementSettings[ 'transparent-account-icon-color' ] }`,
+		);
+		// to test toggle icon color
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg',
@@ -133,13 +127,6 @@ describe( 'transparent  in the customizer', () => {
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-toggle-btn-color' ] }`,
 		);
-		//to test toggle background color
-		// await expect( {
-		// 	selector: '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-fill',
-		// 	property: 'background',
-		// } ).cssValueToBe(
-		// 	`${ transparentElementSettings[ 'transparent-header-toggle-btn-bg-color' ] }`,
-		// );
 		//to test HTML text color
 		await setBrowserViewport( 'large' );
 		await expect( {

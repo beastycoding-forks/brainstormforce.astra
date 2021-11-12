@@ -1,7 +1,7 @@
 import { createURL, setBrowserViewport } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'transparent  in the customizer', () => {
-	it( 'transparent header should apply correctly', async () => {
+describe( 'transparent header element in the customizer', () => {
+	it( 'transparent header element should apply correctly', async () => {
 		const transparentElementSettings = {
 			'transparent-header-enable': true,
 			'header-desktop-items': {
@@ -134,6 +134,56 @@ describe( 'transparent  in the customizer', () => {
 			property: 'color',
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-html-text-color' ] }`,
+		);
+	} );
+	it( 'transparent header remaining element should apply correctly', async () => {
+		const transElementSettings = {
+			'transparent-header-enable': true,
+			'header-desktop-items': {
+				below: {
+					below_center: {
+						0: 'account',
+					},
+				},
+			},
+			'header-account-login-style': 'Text',
+			'transparent-account-type-text-color': 'rgb(201, 54, 54)',
+			'mobile-header-toggle-btn-style': 'fill',
+			'header-toggle-btn-bg-color': 'rgb(25, 219, 24)',
+		};
+		await setCustomize( transElementSettings );
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		//to test account text color
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ transElementSettings[ 'transparent-account-type-text-color' ] }`,
+		);
+		//to test toggle button background color
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ transElementSettings[ 'transparent-account-type-text-color' ] }`,
+		);
+	} );
+	it( 'transparent header account border should apply correctly', async () => {
+		const transElementSet = {
+			'transparent-header-enable': true,
+			'mobile-header-toggle-btn-style': 'outline',
+			'transparent-header-toggle-border-color': 'rgb(56, 212, 127)',
+		};
+		//to test toggle button border color
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-outline',
+			property: 'border-color',
+		} ).cssValueToBe(
+			`${ transElementSet[ 'transparent-header-toggle-border-color' ] }`,
 		);
 	} );
 } );

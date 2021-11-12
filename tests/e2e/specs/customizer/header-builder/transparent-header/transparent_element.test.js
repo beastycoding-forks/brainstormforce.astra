@@ -146,7 +146,7 @@ describe( 'transparent header element in the customizer', () => {
 					},
 				},
 			},
-			'header-account-login-style': 'Text',
+			'header-account-login-style': 'text',
 			'transparent-account-type-text-color': 'rgb(201, 54, 54)',
 			'mobile-header-toggle-btn-style': 'fill',
 			'header-toggle-btn-bg-color': 'rgb(25, 219, 24)',

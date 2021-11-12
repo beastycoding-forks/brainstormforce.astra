@@ -276,13 +276,13 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 */
 		public static function render_mode_switcher() {
 
-			$switcher_style       = astra_get_option( 'dark-mode-switch-style' );
+			$switcher_style       = astra_get_option( 'dark-mode-switch-style', 'icon' );
 			$switcher_light_icon  = astra_get_option( 'mode-switcher-light-icon' );
 			$switcher_dark_icon   = defined( 'ASTRA_EXT_VER' ) ? astra_get_option( 'mode-switcher-dark-icon' ) : $switcher_light_icon;
 			$switcher_dark_icon   = $switcher_light_icon; // Temp code for debugging, remove once 'mode-switcher-dark-icon' config added.
 			$switcher_light_label = astra_get_option( 'mode-switcher-light-label' );
 			$switcher_dark_label  = astra_get_option( 'mode-switcher-dark-label' );
-
+		
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
 			}

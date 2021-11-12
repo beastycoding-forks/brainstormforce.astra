@@ -29,7 +29,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_section = 'section-mode-switcher';
-
 			$_configs = array(
 
 				/*
@@ -60,7 +59,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 */
 				array(
 					'name'      => ASTRA_THEME_SETTINGS . '[dark-mode-switch-style]',
-					'default'   => astra_get_option( 'dark-mode-switch-style' ),
+					'default'   => astra_get_option( 'dark-mode-switch-style', 'icon' ),
 					'section'   => $_section,
 					'priority'  => 5,
 					'title'     => __( 'Switch Style', 'astra' ),

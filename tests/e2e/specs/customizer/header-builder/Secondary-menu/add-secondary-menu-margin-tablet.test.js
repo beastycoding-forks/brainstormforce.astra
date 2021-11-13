@@ -25,8 +25,8 @@ describe( 'Add secondary menu margin for tablet view', () => {
 		await setCustomize( secondaryMenuMargin );
 		await createNewPost( {
 			postType: 'page',
-			title: 'Test Page - desktop',
-			content: 'This is simple test page for desktop view',
+			title: 'Test Page',
+			content: 'This is simple test page',
 		} );
 		await publishPost();
 		await page.goto( createURL( '/' ), {

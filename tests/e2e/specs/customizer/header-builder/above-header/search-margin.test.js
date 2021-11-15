@@ -1,15 +1,15 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'Search-icon margin in the customizer', () => {
+describe( 'Search-icon margin in the above header section under the customizer', () => {
 	it( 'search icon margin for tablet should apply correctly', async () => {
 		const searchiconMargin = {
 			'section-header-search-margin': {
 				tablet: {
-					top: '5',
-					right: '6',
-					bottom: '5',
-					left: '6',
+					top: '50',
+					right: '60',
+					bottom: '50',
+					left: '60',
 				},
 				'tablet-unit': 'px',
 			},

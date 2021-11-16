@@ -197,9 +197,11 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 		/**
 		 * Render site logo.
+		 *
+		 * @param  string $device   Device name.
 		 */
-		public static function site_identity() {
-			Astra_Builder_UI_Controller::render_site_identity();
+		public static function site_identity( $device = 'desktop' ) {
+			Astra_Builder_UI_Controller::render_site_identity( $device );
 		}
 
 		/**

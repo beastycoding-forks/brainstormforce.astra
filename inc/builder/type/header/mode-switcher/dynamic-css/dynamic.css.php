@@ -77,6 +77,9 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	$dynamic_css .= astra_generate_dark_palette_style();
 
+	$ltr_left = is_rtl() ? 'right' : 'left';
+	$ltr_right = is_rtl() ? 'left' : 'right';
+
 	$astra_mode_switcher_static_css = '
 		.ast-mode-switcher-trigger, .ast-mode-switcher-trigger:hover, .ast-mode-switcher-trigger:focus, .ast-mode-switcher-trigger:active {
 			cursor: pointer;
@@ -97,6 +100,9 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		}
 		.ast-dark-site .ast-light-mode-wrap {
 			display: block;
+		}
+		.ast-switcher-icon-with-label-type .ast-mode-switcher-icon {
+			margin-' . esc_attr( $ltr_right ) . ': 5px;
 		}
 	';
 

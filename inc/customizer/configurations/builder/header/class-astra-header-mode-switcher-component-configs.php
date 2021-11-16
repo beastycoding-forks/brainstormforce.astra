@@ -29,7 +29,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			$_section = 'section-mode-switcher';
-
 			$_configs = array(
 
 				/*

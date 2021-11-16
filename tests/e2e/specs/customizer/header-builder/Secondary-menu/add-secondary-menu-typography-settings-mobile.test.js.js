@@ -39,7 +39,7 @@ describe( 'Add secondary menu typography settings for mobile view', () => {
 		} ).cssValueToBe( `${ secondaryMenuFont[ 'header-menu2-font-family' ] }`,
 		);
 		await expect( {
-			selector: '#ast-hf-menu-2 .menu-item .menu-link',
+			selector: '#ast-mobile-header #ast-hf-menu-2 .menu-item .menu-link',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(

@@ -47,7 +47,7 @@ describe( 'transparent header element in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		//to test social icon text color
+
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg',
 			property: 'fill',
@@ -68,7 +68,7 @@ describe( 'transparent header element in the customizer', () => {
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-social-icons-color' ].mobile }`,
 		);
-		//to test social icon background color
+
 		await setBrowserViewport( 'large' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element',
@@ -90,7 +90,7 @@ describe( 'transparent header element in the customizer', () => {
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].mobile }`,
 		);
-		//to test search icon color
+
 		await setBrowserViewport( 'large' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-search .ast-icon',
@@ -98,28 +98,28 @@ describe( 'transparent header element in the customizer', () => {
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-search-icon-color' ] }`,
 		);
-		//to test button text color
+
 		await expect( {
 			selector: '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button',
 			property: 'color',
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-button-text-color' ] }`,
 		);
-		//to test button background color
+
 		await expect( {
 			selector: '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button',
 			property: 'background-color',
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-button-bg-color' ] }`,
 		);
-		//to test account icon color
+
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg path:not(.ast-hf-account-unfill), .ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-type-icon .ahfb-svg-iconset svg circle',
 			property: 'fill',
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-account-icon-color' ] }`,
 		);
-		// to test toggle icon color
+
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg',
@@ -127,7 +127,7 @@ describe( 'transparent header element in the customizer', () => {
 		} ).cssValueToBe(
 			`${ transparentElementSettings[ 'transparent-header-toggle-btn-color' ] }`,
 		);
-		//to test HTML text color
+
 		await setBrowserViewport( 'large' );
 		await expect( {
 			selector: '.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element',
@@ -155,14 +155,14 @@ describe( 'transparent header element in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		//to test account text color
+
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text',
 			property: 'color',
 		} ).cssValueToBe(
 			`${ transElementSettings[ 'transparent-account-type-text-color' ] }`,
 		);
-		//to test toggle button background color
+
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-account-wrap .ast-header-account-text',
@@ -177,7 +177,7 @@ describe( 'transparent header element in the customizer', () => {
 			'mobile-header-toggle-btn-style': 'outline',
 			'transparent-header-toggle-border-color': 'rgb(56, 212, 127)',
 		};
-		//to test toggle button border color
+
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-outline',

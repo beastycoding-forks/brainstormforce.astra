@@ -58,24 +58,24 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				 * Option: Color palette selection.
 				 */
 				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
-					'default'   => astra_get_option( 'dark-mode-switch-type' ),
-					'section'   => $_section,
-					'priority'  => 5,
-					'title'     => __( 'Switch Type', 'astra' ),
-					'type'      => 'control',
-					'control'   => 'ast-select',
-					'partial'   => array(
+					'name'     => ASTRA_THEME_SETTINGS . '[dark-mode-switch-type]',
+					'default'  => astra_get_option( 'dark-mode-switch-type' ),
+					'section'  => $_section,
+					'priority' => 5,
+					'title'    => __( 'Switch Type', 'astra' ),
+					'type'     => 'control',
+					'control'  => 'ast-select',
+					'partial'  => array(
 						'selector'        => '.ast-header-mode-switcher',
 						'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mode_switcher' ),
 					),
-					'choices'   => array(
+					'choices'  => array(
 						'icon'            => __( 'Icon', 'astra' ),
 						'label'           => __( 'Label', 'astra' ),
 						'icon-with-label' => __( 'Icon with Label', 'astra' ),
 					),
-					'context'   => Astra_Builder_Helper::$general_tab,
-					'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+					'context'  => Astra_Builder_Helper::$general_tab,
+					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

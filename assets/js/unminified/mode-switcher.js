@@ -19,11 +19,31 @@ updateSwitcherAtts = function ( switchedTo ) {
 	}
 }
 
+// Update mode switcher flash message.
+updateSwitcherFlashMessages = function ( switchedTo ) {
+	var flashMessageWrap = document.querySelectorAll( '.ast-mode-flash-message' );
+
+	flashMessageWrap.forEach( function( item ) {
+		if( 'dark' === switchedTo ) {
+			item.textContent = astraModeSwitcher.darkModeFlashMessage;
+		} else {
+			item.textContent = astraModeSwitcher.lightModeFlashMessage;
+		}
+
+		item.classList.remove( 'hide' );
+	} );
+
+	setTimeout( function(){
+		flashMessageWrap.forEach( function( item ) {
+			item.classList.add( 'hide' );
+		} );
+	}, 1000 );
+}
+
 // Frontend dark mode switcher toggle.
 darkModeSwitcher = function () {
 
-	var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' ),
-		flashMessageWrap = document.querySelectorAll( '.ast-mode-flash-message' );
+	var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' );
 
 	if ( modeSwticherTrigger.length > 0 ) {
 
@@ -60,17 +80,17 @@ darkModeSwitcher = function () {
 					updateSwitcherAtts( 'light' );
 					document.documentElement.classList.remove( 'ast-dark-site' );
 					localStorage.setItem( 'astra-prefers-color', 'light' );
+					if( '1' === astraModeSwitcher.isDarkModeProActive ) {
+						updateSwitcherFlashMessages( 'light' );
+					}
 				} else {
 					updateSwitcherAtts( 'dark' );
 					document.documentElement.classList.add( 'ast-dark-site' );
 					localStorage.setItem( 'astra-prefers-color', 'dark' );
+					if( '1' === astraModeSwitcher.isDarkModeProActive ) {
+						updateSwitcherFlashMessages( 'dark' );
+					}
 				}
-
-				flashMessageWrap.forEach( x=>x.classList.remove( 'hide' ) );
-
-				setTimeout( function() {
-					flashMessageWrap.forEach( x=>x.classList.add( 'hide' ) );
-				}, 1000);
 			}
 		}
 	}

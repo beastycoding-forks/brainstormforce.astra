@@ -328,6 +328,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					'carryOsPalette'    => astra_get_option( 'mode-switcher-carry-os-palette', false ),
 					'switchToDarkMode'  => __( 'Switch to dark mode', 'astra' ),
 					'switchToLightMode' => __( 'Switch to light mode', 'astra' ),
+					'isDarkModeProActive' => ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) ),
 				);
 				wp_localize_script( 'astra-theme-mode-switcher', 'astraModeSwitcher', apply_filters( 'astra_mode_switcher_localize', $astra_mode_switcher_localize ) );
 			}

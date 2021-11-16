@@ -39,7 +39,7 @@ describe( 'Add secondary menu typography settings for tablet view', () => {
 		} ).cssValueToBe( `${ secondaryMenuFont[ 'header-menu2-font-family' ] }`,
 		);
 		await expect( {
-			selector: '#ast-hf-menu-2 .menu-link',
+			selector: '#ast-hf-menu-2 .menu-item .menu-link',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(

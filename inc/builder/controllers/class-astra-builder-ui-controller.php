@@ -278,7 +278,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 			$is_pro_dark_mode_active = ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) );
 			$switcher_type        = astra_get_option( 'dark-mode-switch-type' );
-			$switcher_style_class = $is_pro_dark_mode_active ? astra_get_option( 'dark-mode-switch-style', 'button' ) : '';
+			$switcher_style_class = $is_pro_dark_mode_active ? 'ast-switcher-' . astra_get_option( 'dark-mode-switch-style', 'button' ) . '-style' : '';
 			$switcher_light_icon  = astra_get_option( 'mode-switcher-light-icon' );
 			$switcher_dark_icon   = $is_pro_dark_mode_active ? astra_get_option( 'mode-switcher-dark-icon' ) : $switcher_light_icon;
 			$switcher_light_label = astra_get_option( 'mode-switcher-light-label' );

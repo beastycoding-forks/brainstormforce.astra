@@ -48,7 +48,7 @@ describe( 'Add secondary menu typography settings for tablet view', () => {
 		);
 		await page.waitForSelector( '#ast-mobile-header .main-navigation a' );
 		await expect( {
-			selector: '#ast-hf-menu-2 .main-header-menu',
+			selector: '#ast-mobile-header #ast-hf-menu-2 .main-header-menu',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ secondaryMenuFont[ 'header-menu2-font-weight' ] }`,
 		);

@@ -34,7 +34,7 @@ describe( 'Add secondary menu typography settings for mobile view', () => {
 		await setBrowserViewport( 'small' );
 		await page.waitForSelector( '#ast-mobile-header .main-navigation a' );
 		await expect( {
-			selector: '#ast-hf-menu-2 .main-header-menu',
+			selector: '#ast-mobile-header #ast-hf-menu-2 .main-header-menu',
 			property: 'font-family',
 		} ).cssValueToBe( `${ secondaryMenuFont[ 'header-menu2-font-family' ] }`,
 		);
@@ -46,7 +46,7 @@ describe( 'Add secondary menu typography settings for mobile view', () => {
 				secondaryMenuFont[ 'header-menu2-font-size' ].mobile,
 			) }${ secondaryMenuFont[ 'header-menu2-font-size' ][ 'mobile-unit' ] }`,
 		);
-		/*await page.waitForSelector( '#ast-mobile-header .main-navigation a' );
+		await page.waitForSelector( '#ast-mobile-header .main-navigation a' );
 		await expect( {
 			selector: '#ast-hf-menu-2 .main-header-menu',
 			property: 'font-weight',
@@ -63,6 +63,6 @@ describe( 'Add secondary menu typography settings for mobile view', () => {
 			property: 'line-height',
 		} ).cssValueToBe(
 			`${ secondaryMenuFont[ 'header-menu2-line-height' ] }`,
-		);*/
+		);
 	} );
 } );

@@ -47,7 +47,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$_section = 'section-mode-switcher';
 	$selector = '.ast-mode-switcher-trigger';
 
-	$icon_size         = astra_get_option( 'mode-switcher-icon-size' );
+	$icon_size = astra_get_option( 'mode-switcher-icon-size' );
 
 	/**
 	 * Mode Switcher - Desktop CSS.

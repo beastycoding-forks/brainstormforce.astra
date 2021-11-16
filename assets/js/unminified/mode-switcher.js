@@ -22,7 +22,8 @@ updateSwitcherAtts = function ( switchedTo ) {
 // Frontend dark mode switcher toggle.
 darkModeSwitcher = function () {
 
-	var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' );
+	var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' ),
+		flashMessageWrap = document.querySelectorAll( '.ast-mode-flash-message' );
 
 	if ( modeSwticherTrigger.length > 0 ) {
 
@@ -64,6 +65,12 @@ darkModeSwitcher = function () {
 					document.documentElement.classList.add( 'ast-dark-site' );
 					localStorage.setItem( 'astra-prefers-color', 'dark' );
 				}
+
+				flashMessageWrap.forEach( x=>x.classList.remove( 'hide' ) );
+
+				setTimeout( function() {
+					flashMessageWrap.forEach( x=>x.classList.add( 'hide' ) );
+				}, 1000);
 			}
 		}
 	}

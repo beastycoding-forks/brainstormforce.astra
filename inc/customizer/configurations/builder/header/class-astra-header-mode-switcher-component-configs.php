@@ -65,7 +65,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'     => __( 'Switch Type', 'astra' ),
 					'type'      => 'control',
 					'control'   => 'ast-select',
-					'transport' => 'postMessage',
 					'partial'   => array(
 						'selector'        => '.ast-header-mode-switcher',
 						'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_mode_switcher' ),

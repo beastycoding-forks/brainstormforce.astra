@@ -82,8 +82,6 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			cursor: pointer;
 			background: none;
 			border: none;
-			padding: unset;
-			margin: unset;
 		}
 		.ast-mode-switcher-icon {
 			margin-right: 5px;

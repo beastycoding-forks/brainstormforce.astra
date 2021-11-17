@@ -346,6 +346,7 @@ final class Astra_Builder_Customizer {
 		require_once $footer_config_path . '/class-astra-footer-html-component-configs.php';
 		require_once $footer_config_path . '/class-astra-footer-button-component-configs.php';
 		require_once $footer_config_path . '/class-astra-footer-widget-component-configs.php';
+		require_once $header_config_path . '/class-astra-footer-mode-switcher-component-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 

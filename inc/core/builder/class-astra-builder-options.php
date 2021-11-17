@@ -1035,16 +1035,16 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Mode Switcher element.
 	*/
-	$defaults['dark-mode-switch-type']          = 'icon';
-	$defaults['mode-switcher-light-icon']       = 'light-switcher-1';
-	$defaults['mode-switcher-light-label']      = __( 'Light', 'astra' );
-	$defaults['mode-switcher-dark-label']       = __( 'Dark', 'astra' );
-	$defaults['dark-mode-switcher-light-color'] = '#0170b9';
-	$defaults['dark-mode-switcher-dark-color']  = '#eeeeee';
+	$defaults['header-dark-mode-switch-type']          = 'icon';
+	$defaults['header-mode-switcher-light-icon']       = 'light-switcher-1';
+	$defaults['header-mode-switcher-light-label']      = __( 'Light', 'astra' );
+	$defaults['header-mode-switcher-dark-label']       = __( 'Dark', 'astra' );
+	$defaults['header-dark-mode-switcher-light-color'] = '#0170b9';
+	$defaults['header-dark-mode-switcher-dark-color']  = '#eeeeee';
 	$defaults['dark-mode-palette']              = 'palette_2';
 	$defaults['mode-switcher-carry-os-palette'] = false;
-	$defaults['mode-switcher-toggle-border-radius'] = 40;
-	$defaults['mode-switcher-icon-size']        = array(
+	$defaults['header-mode-switcher-border-radius'] = 40;
+	$defaults['header-mode-switcher-icon-size']        = array(
 		'desktop' => 20,
 		'tablet'  => 20,
 		'mobile'  => 20,

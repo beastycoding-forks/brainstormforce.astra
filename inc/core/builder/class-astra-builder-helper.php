@@ -655,7 +655,7 @@ final class Astra_Builder_Helper {
 				'mode-switcher' => array(
 					'name'    => __( 'Dark Mode Switcher', 'astra' ),
 					'icon'    => 'art',
-					'section' => 'section-mode-switcher',
+					'section' => 'header-section-mode-switcher',
 					'delete'  => false,
 				),
 				'search'        => array(
@@ -686,6 +686,12 @@ final class Astra_Builder_Helper {
 					'name'    => 'Footer Menu',
 					'icon'    => 'menu',
 					'section' => 'section-footer-menu',
+					'delete'  => false,
+				),
+				'mode-switcher' => array(
+					'name'    => __( 'Dark Mode Switcher', 'astra' ),
+					'icon'    => 'art',
+					'section' => 'footer-section-mode-switcher',
 					'delete'  => false,
 				),
 			)

@@ -1045,13 +1045,15 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Mode Switcher element.
 	*/
+	$defaults['dark-mode-switch-type']          = 'icon';
 	$defaults['mode-switcher-light-icon']       = 'light-switcher-1';
-	$defaults['mode-switcher-light-label']      = '';
-	$defaults['mode-switcher-dark-label']       = '';
-	$defaults['dark-mode-switcher-light-color'] = '';
-	$defaults['dark-mode-switcher-dark-color']  = '';
+	$defaults['mode-switcher-light-label']      = __( 'Light', 'astra' );
+	$defaults['mode-switcher-dark-label']       = __( 'Dark', 'astra' );
+	$defaults['dark-mode-switcher-light-color'] = '#0170b9';
+	$defaults['dark-mode-switcher-dark-color']  = '#eeeeee';
 	$defaults['dark-mode-palette']              = 'palette_2';
 	$defaults['mode-switcher-carry-os-palette'] = false;
+	$defaults['mode-switcher-toggle-border-radius'] = 40;
 	$defaults['mode-switcher-icon-size']        = array(
 		'desktop' => 20,
 		'tablet'  => 20,
@@ -1062,6 +1064,29 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+	$defaults['section-mode-switcher-padding'] = array(
+		'desktop'      => array(
+			'top'    => 12,
+			'right'  => 12,
+			'bottom' => 12,
+			'left'   => 12,
+		),
+		'tablet'       => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
+		'mobile'       => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
 		'desktop-unit' => 'px',
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',

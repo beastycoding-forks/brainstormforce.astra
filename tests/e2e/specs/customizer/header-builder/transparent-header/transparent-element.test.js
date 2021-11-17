@@ -1,9 +1,12 @@
-import { createURL, setBrowserViewport, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createNewPost, createURL, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'transparent header element in the customizer', () => {
-	it( 'transparent header element should apply correctly', async () => {
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+
+describe( 'transparent header elements colors in the customizer', () => {
+	it( 'transparent header element colors should apply correctly', async () => {
 		const transparentElementSettings = {
 			'transparent-header-enable': true,
+			'transparent-header-disable-page': false,
 			'transparent-header-disable-archive': false,
 			'transparent-header-disable-latest-posts-index': false,
 			'header-desktop-items': {
@@ -54,6 +57,8 @@ describe( 'transparent header element in the customizer', () => {
 		await page.goto( createURL( '/transparent-element' ), {
 			waitUntil: 'networkidle0',
 		} );
+
+		await page.waitForSelector( '.ast-below-header-bar .site-below-header-wrap' );
 
 		await expect( {
 			selector: '.ast-theme-transparent-header .ast-header-social-wrap .ast-social-color-type-custom .ast-builder-social-element svg',

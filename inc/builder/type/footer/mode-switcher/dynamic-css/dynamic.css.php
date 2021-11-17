@@ -42,7 +42,7 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
 
 	$_section = 'footer-section-mode-switcher';
-	$selector = '.ast-footer-mode-switcher .ast-mode-switcher-trigger';
+	$selector = '.ast-footer-mode-switcher';
 
 	$light_color = astra_get_option( 'footer-dark-mode-switcher-light-color' );
 	$dark_color  = astra_get_option( 'footer-dark-mode-switcher-dark-color' );
@@ -71,7 +71,7 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 		$selector           => array(
 			'border-radius' => astra_get_css_value( $border_radius, 'px' ),
 		),
-		'.ast-footer-mode-switcher .ast-switcher-toggle-style:after'     => array(
+		$selector . '.ast-switcher-toggle-style:after'     => array(
 			'width'  => $desktop_icon_size,
 			'height' => $desktop_icon_size,
 		),

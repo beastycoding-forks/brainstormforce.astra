@@ -42,7 +42,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
 
 	$_section = 'header-section-mode-switcher';
-	$selector = '.ast-header-mode-switcher .ast-mode-switcher-trigger';
+	$selector = '.ast-header-mode-switcher';
 
 	$light_color = astra_get_option( 'header-dark-mode-switcher-light-color' );
 	$dark_color  = astra_get_option( 'header-dark-mode-switcher-dark-color' );
@@ -71,7 +71,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		$selector           => array(
 			'border-radius' => astra_get_css_value( $border_radius, 'px' ),
 		),
-		'.ast-header-mode-switcher .ast-switcher-toggle-style:after'     => array(
+		$selector . '.ast-switcher-toggle-style:after'     => array(
 			'width'  => $desktop_icon_size,
 			'height' => $desktop_icon_size,
 		),

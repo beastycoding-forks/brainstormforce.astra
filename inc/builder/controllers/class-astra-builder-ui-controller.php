@@ -301,7 +301,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				<?php
 			}
 			?>
-				<button class="ast-mode-switcher-trigger ast-switcher-<?php echo esc_attr( $switcher_type ); ?>-type <?php echo esc_attr( $switcher_style_class ); ?>" aria-label="Switch to dark mode">
+				<button class="ast-mode-switcher-trigger ast-<?php echo esc_attr( $builder_type ); ?>-mode-switcher ast-switcher-<?php echo esc_attr( $switcher_type ); ?>-type <?php echo esc_attr( $switcher_style_class ); ?>" aria-label="Switch to dark mode">
 					<?php
 					switch ( $switcher_type ) {
 						case 'icon':

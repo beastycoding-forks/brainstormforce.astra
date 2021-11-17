@@ -82,7 +82,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'     => 'control',
 					'control'  => 'ast-select',
 					'partial'  => array(
-						'selector'        => '.ast-footer-mode-switcher',
+						'selector'        => '[data-section="footer-section-mode-switcher"]',
 						'render_callback' => array( 'Astra_Builder_Footer', 'footer_mode_switcher' ),
 					),
 					'choices'  => array(
@@ -113,7 +113,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					),
 					'transport'  => 'postMessage',
 					'partial'    => array(
-						'selector'        => '.ast-footer-mode-switcher',
+						'selector'        => '[data-section="footer-section-mode-switcher"]',
 						'render_callback' => array( 'Astra_Builder_Footer', 'footer_mode_switcher' ),
 					),
 					'context'    => array(
@@ -199,7 +199,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-light-label]',
 					'transport' => 'postMessage',
 					'partial'   => array(
-						'selector'        => '.ast-footer-mode-switcher',
+						'selector'        => '[data-section="footer-section-mode-switcher"]',
 						'render_callback' => array( 'Astra_Builder_Footer', 'footer_mode_switcher' ),
 					),
 					'default'   => astra_get_option( 'footer-mode-switcher-light-label' ),
@@ -234,7 +234,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'name'      => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-dark-label]',
 					'transport' => 'postMessage',
 					'partial'   => array(
-						'selector'        => '.ast-footer-mode-switcher',
+						'selector'        => '[data-section="footer-section-mode-switcher"]',
 						'render_callback' => array( 'Astra_Builder_Footer', 'footer_mode_switcher' ),
 					),
 					'default'   => astra_get_option( 'footer-mode-switcher-dark-label' ),

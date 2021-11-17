@@ -13,7 +13,7 @@
 	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544,
 		section = 'footer-section-mode-switcher',
-		selector = '.ast-footer-mode-switcher .ast-mode-switcher-trigger';
+		selector = '.ast-footer-mode-switcher';
 
 	// Icon Size.
 	wp.customize( 'astra-settings[footer-mode-switcher-icon-size]', function( value ) {

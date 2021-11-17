@@ -1037,8 +1037,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	*/
 	$defaults['dark-mode-switch-type']          = 'icon';
 	$defaults['mode-switcher-light-icon']       = 'light-switcher-1';
-	$defaults['mode-switcher-light-label']      = '';
-	$defaults['mode-switcher-dark-label']       = '';
+	$defaults['mode-switcher-light-label']      = __( 'Light', 'astra' );
+	$defaults['mode-switcher-dark-label']       = __( 'Dark', 'astra' );
 	$defaults['dark-mode-switcher-light-color'] = '#0170b9';
 	$defaults['dark-mode-switcher-dark-color']  = '#eeeeee';
 	$defaults['dark-mode-palette']              = 'palette_2';

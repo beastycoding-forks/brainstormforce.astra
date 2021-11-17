@@ -1033,8 +1033,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-account-woo-menu']        = false;
 
 	/**
-	 * Mode Switcher element.
-	*/
+	 * Header Mode Switcher element.
+	 */
 	$defaults['header-dark-mode-switch-type']          = 'icon';
 	$defaults['header-mode-switcher-light-icon']       = 'light-switcher-1';
 	$defaults['header-mode-switcher-light-label']      = __( 'Light', 'astra' );
@@ -1050,7 +1050,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 20,
 	);
 	// Label typography.
-	$defaults['font-size-section-mode-switcher'] = array(
+	$defaults['font-size-header-section-mode-switcher'] = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
@@ -1058,7 +1058,55 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults['section-mode-switcher-padding'] = array(
+	$defaults['header-section-mode-switcher-padding'] = array(
+		'desktop'      => array(
+			'top'    => 12,
+			'right'  => 12,
+			'bottom' => 12,
+			'left'   => 12,
+		),
+		'tablet'       => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
+		'mobile'       => array(
+			'top'    => '',
+			'right'  => '',
+			'bottom' => '',
+			'left'   => '',
+		),
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+
+	/**
+	 * Footer - Mode Switcher element.
+	 */
+	$defaults['footer-dark-mode-switch-type']          = 'icon';
+	$defaults['footer-mode-switcher-light-icon']       = 'light-switcher-1';
+	$defaults['footer-mode-switcher-light-label']      = __( 'Light', 'astra' );
+	$defaults['footer-mode-switcher-dark-label']       = __( 'Dark', 'astra' );
+	$defaults['footer-dark-mode-switcher-light-color'] = '#0170b9';
+	$defaults['footer-dark-mode-switcher-dark-color']  = '#eeeeee';
+	$defaults['footer-mode-switcher-border-radius'] = 40;
+	$defaults['footer-mode-switcher-icon-size']        = array(
+		'desktop' => 20,
+		'tablet'  => 20,
+		'mobile'  => 20,
+	);
+	// Label typography.
+	$defaults['font-size-footer-section-mode-switcher'] = array(
+		'desktop'      => '',
+		'tablet'       => '',
+		'mobile'       => '',
+		'desktop-unit' => 'px',
+		'tablet-unit'  => 'px',
+		'mobile-unit'  => 'px',
+	);
+	$defaults['footer-section-mode-switcher-padding'] = array(
 		'desktop'      => array(
 			'top'    => 12,
 			'right'  => 12,

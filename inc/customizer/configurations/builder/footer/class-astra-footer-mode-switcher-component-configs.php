@@ -23,7 +23,7 @@ if ( ! class_exists( 'Astra_Customizer_Config_Base' ) ) {
  *
  * @since x.x.x
  */
-class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Config_Base {
+class Astra_Footer_Mode_Switcher_Component_Configs extends Astra_Customizer_Config_Base {
 
 	/**
 	 * Register Builder Customizer Configurations.
@@ -35,25 +35,25 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
 
-		$_section = 'header-section-mode-switcher';
+		$_section = 'footer-section-mode-switcher';
 		$_configs = array(
 
 			/*
-			* Header Builder section
+			* Footer Builder section
 			*/
 			array(
 				'name'     => $_section,
 				'type'     => 'section',
 				'priority' => 90,
 				'title'    => __( 'Dark Mode Switcher', 'astra' ),
-				'panel'    => 'panel-header-builder-group',
+				'panel'    => 'panel-footer-builder-group',
 			),
 
 			/**
-			 * Option: Header Builder Tabs
+			 * Option: Footer Builder Tabs
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[header-mode-switcher-tabs]',
+				'name'        => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-tabs]',
 				'section'     => $_section,
 				'type'        => 'control',
 				'control'     => 'ast-builder-header-control',
@@ -65,8 +65,8 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Option: Global section quick link.
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[global-dark-section-header-link]',
-				'default'   => astra_get_option( 'global-dark-section-header-link' ),
+				'name'      => ASTRA_THEME_SETTINGS . '[global-dark-section-footer-link]',
+				'default'   => astra_get_option( 'global-dark-section-footer-link' ),
 				'type'      => 'control',
 				'control'   => 'ast-customizer-link',
 				'section'   => $_section,
@@ -81,16 +81,16 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Option: Color palette selection.
 			 */
 			array(
-				'name'     => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
-				'default'  => astra_get_option( 'header-dark-mode-switch-type' ),
+				'name'     => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
+				'default'  => astra_get_option( 'footer-dark-mode-switch-type' ),
 				'section'  => $_section,
 				'priority' => 5,
 				'title'    => __( 'Switch Type', 'astra' ),
 				'type'     => 'control',
 				'control'  => 'ast-select',
 				'partial'  => array(
-					'selector'        => '.ast-header-mode-switcher',
-					'render_callback' => array( 'Astra_Builder_Header', 'header_mode_switcher' ),
+					'selector'        => '.ast-footer-mode-switcher',
+					'render_callback' => array( 'Astra_Builder_Footer', 'footer_mode_switcher' ),
 				),
 				'choices'  => array(
 					'icon'            => __( 'Icon', 'astra' ),
@@ -98,15 +98,15 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 					'icon-with-label' => __( 'Icon with Label', 'astra' ),
 				),
 				'context'  => Astra_Builder_Helper::$general_tab,
-				'divider'  => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
+				'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
 			),
 
 			/**
 			 * Option: Icon Type
 			 */
 			array(
-				'name'       => ASTRA_THEME_SETTINGS . '[header-mode-switcher-light-icon]',
-				'default'    => astra_get_option( 'header-mode-switcher-light-icon' ),
+				'name'       => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-light-icon]',
+				'default'    => astra_get_option( 'footer-mode-switcher-light-icon' ),
 				'type'       => 'control',
 				'control'    => 'ast-selector',
 				'section'    => $_section,
@@ -120,20 +120,20 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 				),
 				'transport'  => 'postMessage',
 				'partial'    => array(
-					'selector'        => '.ast-header-mode-switcher',
-					'render_callback' => array( 'Astra_Builder_Header', 'header_mode_switcher' ),
+					'selector'        => '.ast-footer-mode-switcher',
+					'render_callback' => array( 'Astra_Builder_Footer', 'footer_mode_switcher' ),
 				),
 				'context'    => array(
 					Astra_Builder_Helper::$general_tab_config,
 					array(
 						'relation' => 'OR',
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
 							'operator' => '==',
 							'value'    => 'icon',
 						),
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
 							'operator' => '==',
 							'value'    => 'icon-with-label',
 						),
@@ -146,11 +146,11 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Option: Icon Size
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[header-mode-switcher-icon-size]',
+				'name'        => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-icon-size]',
 				'section'     => $_section,
 				'priority'    => 18,
 				'transport'   => 'postMessage',
-				'default'     => astra_get_option( 'header-mode-switcher-icon-size' ),
+				'default'     => astra_get_option( 'footer-mode-switcher-icon-size' ),
 				'title'       => __( 'Icon Size', 'astra' ),
 				'type'        => 'control',
 				'suffix'      => 'px',
@@ -165,12 +165,12 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 					array(
 						'relation' => 'OR',
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
 							'operator' => '==',
 							'value'    => 'icon',
 						),
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
 							'operator' => '==',
 							'value'    => 'icon-with-label',
 						),
@@ -182,11 +182,11 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Option: Button border radius.
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[header-mode-switcher-border-radius]',
+				'name'        => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-border-radius]',
 				'section'     => $_section,
 				'priority'    => 20,
 				'transport'   => 'postMessage',
-				'default'     => astra_get_option( 'header-mode-switcher-border-radius' ),
+				'default'     => astra_get_option( 'footer-mode-switcher-border-radius' ),
 				'title'       => __( 'Border Radius', 'astra' ),
 				'type'        => 'control',
 				'suffix'      => 'px',
@@ -203,13 +203,13 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Option: Switcher Custom Light Mode Label
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-mode-switcher-light-label]',
+				'name'      => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-light-label]',
 				'transport' => 'postMessage',
 				'partial'   => array(
-					'selector'        => '.ast-header-mode-switcher',
-					'render_callback' => array( 'Astra_Builder_Header', 'header_mode_switcher' ),
+					'selector'        => '.ast-footer-mode-switcher',
+					'render_callback' => array( 'Astra_Builder_Footer', 'footer_mode_switcher' ),
 				),
-				'default'   => astra_get_option( 'header-mode-switcher-light-label' ),
+				'default'   => astra_get_option( 'footer-mode-switcher-light-label' ),
 				'section'   => $_section,
 				'priority'  => 30,
 				'title'     => __( 'Light Mode Label', 'astra' ),
@@ -221,12 +221,12 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 					array(
 						'relation' => 'OR',
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
 							'operator' => '==',
 							'value'    => 'label',
 						),
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
 							'operator' => '==',
 							'value'    => 'icon-with-label',
 						),
@@ -238,13 +238,13 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Option: Switcher Custom Dark Mode Label
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-mode-switcher-dark-label]',
+				'name'      => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-dark-label]',
 				'transport' => 'postMessage',
 				'partial'   => array(
-					'selector'        => '.ast-header-mode-switcher',
-					'render_callback' => array( 'Astra_Builder_Header', 'header_mode_switcher' ),
+					'selector'        => '.ast-footer-mode-switcher',
+					'render_callback' => array( 'Astra_Builder_Footer', 'footer_mode_switcher' ),
 				),
-				'default'   => astra_get_option( 'header-mode-switcher-dark-label' ),
+				'default'   => astra_get_option( 'footer-mode-switcher-dark-label' ),
 				'section'   => $_section,
 				'priority'  => 31,
 				'title'     => __( 'Dark Mode Label', 'astra' ),
@@ -256,12 +256,12 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 					array(
 						'relation' => 'OR',
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
 							'operator' => '==',
 							'value'    => 'label',
 						),
 						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
+							'setting'  => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
 							'operator' => '==',
 							'value'    => 'icon-with-label',
 						),
@@ -273,8 +273,8 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Option: Switcher Color.
 			 */
 			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[header-mode-switcher-color-group-control]',
-				'default'   => astra_get_option( 'header-mode-switcher-color-group-control' ),
+				'name'      => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-color-group-control]',
+				'default'   => astra_get_option( 'footer-mode-switcher-color-group-control' ),
 				'type'      => 'control',
 				'control'   => 'ast-color-group',
 				'title'     => __( 'Colors', 'astra' ),
@@ -289,10 +289,10 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Normal mode witcher light color.
 			 */
 			array(
-				'name'      => 'header-dark-mode-switcher-light-color',
-				'default'   => astra_get_option( 'header-dark-mode-switcher-light-color' ),
+				'name'      => 'footer-dark-mode-switcher-light-color',
+				'default'   => astra_get_option( 'footer-dark-mode-switcher-light-color' ),
 				'type'      => 'sub-control',
-				'parent'    => ASTRA_THEME_SETTINGS . '[header-mode-switcher-color-group-control]',
+				'parent'    => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-color-group-control]',
 				'section'   => $_section,
 				'priority'  => 1,
 				'transport' => 'postMessage',
@@ -305,10 +305,10 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			 * Normal mode witcher dark color.
 			 */
 			array(
-				'name'      => 'header-dark-mode-switcher-dark-color',
-				'default'   => astra_get_option( 'header-dark-mode-switcher-dark-color' ),
+				'name'      => 'footer-dark-mode-switcher-dark-color',
+				'default'   => astra_get_option( 'footer-dark-mode-switcher-dark-color' ),
 				'type'      => 'sub-control',
-				'parent'    => ASTRA_THEME_SETTINGS . '[header-mode-switcher-color-group-control]',
+				'parent'    => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-color-group-control]',
 				'section'   => $_section,
 				'priority'  => 2,
 				'transport' => 'postMessage',
@@ -324,12 +324,12 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 			array(
 				'relation' => 'OR',
 				array(
-					'setting'  => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
+					'setting'  => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
 					'operator' => '==',
 					'value'    => 'label',
 				),
 				array(
-					'setting'  => ASTRA_THEME_SETTINGS . '[header-dark-mode-switch-type]',
+					'setting'  => ASTRA_THEME_SETTINGS . '[footer-dark-mode-switch-type]',
 					'operator' => '==',
 					'value'    => 'icon-with-label',
 				),
@@ -349,4 +349,4 @@ class Astra_Header_Mode_Switcher_Component_Configs extends Astra_Customizer_Conf
 /**
  * Kicking this off by creating object of this class.
  */
-new Astra_Header_Mode_Switcher_Component_Configs();
+new Astra_Footer_Mode_Switcher_Component_Configs();

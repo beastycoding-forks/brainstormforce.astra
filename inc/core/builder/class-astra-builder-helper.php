@@ -727,9 +727,9 @@ final class Astra_Builder_Helper {
 					'section' => 'title_tagline',
 				),
 				'mode-switcher'  => array(
-					'name'    => __( 'Mode Switcher', 'astra' ),
+					'name'    => __( 'Dark Mode Switcher', 'astra' ),
 					'icon'    => 'art',
-					'section' => 'section-mode-switcher',
+					'section' => 'header-section-mode-switcher',
 				),
 				'search'         => array(
 					'name'    => __( 'Search', 'astra' ),

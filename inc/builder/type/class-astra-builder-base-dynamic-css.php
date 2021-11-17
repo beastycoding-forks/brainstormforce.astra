@@ -42,8 +42,11 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 		 */
 		public function __construct() {
 
+			add_action( 'wp_print_scripts', array( $this, 'mode_preference_script' ) );
+
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'footer_dynamic_css' ) );
 			add_filter( 'astra_dynamic_theme_css', array( $this, 'mobile_header_logo_css' ) );
+			add_filter( 'astra_dynamic_theme_css', array( $this, 'dark_color_palette_css' ) );
 		}
 
 		/**
@@ -453,6 +456,116 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 
 			return $css_output;
+		}
+
+		/**
+		 * Generate dark palette CSS variable styles for the front end.
+		 *
+		 * @since x.x.x
+		 * @return string
+		 */
+		public static function astra_generate_dark_palette_style() {
+
+			$variable_prefix    = Astra_Global_Palette::get_css_variable_prefix();
+			$dark_palette       = astra_get_option( 'dark-mode-palette', 'palette_2' );
+			$ast_palette_config = astra_get_palette_colors();
+			$palette_style      = array();
+			$palette_css_vars   = array();
+			$css                = '';
+
+			if ( isset( $ast_palette_config['palettes'][ $dark_palette ] ) ) {
+				foreach ( $ast_palette_config['palettes'][ $dark_palette ] as $key => $color ) {
+					$palette_key = str_replace( '--', '-', $variable_prefix ) . $key;
+
+					$palette_style[ 'html.ast-dark-site .has' . $palette_key . '-color' ] = array(
+						'color' => 'var(' . $variable_prefix . $key . ')',
+					);
+
+					$palette_style[ 'html.ast-dark-site .has' . $palette_key . '-background-color' ] = array(
+						'background-color' => 'var(' . $variable_prefix . $key . ')',
+					);
+
+					$palette_style[ 'html.ast-dark-site .wp-block-button .has' . $palette_key . '-color' ] = array(
+						'color' => 'var(' . $variable_prefix . $key . ')',
+					);
+
+					$palette_style[ 'html.ast-dark-site .wp-block-button .has' . $palette_key . '-background-color' ] = array(
+						'background-color' => 'var(' . $variable_prefix . $key . ')',
+					);
+
+					$palette_css_vars[ $variable_prefix . $key ] = $color;
+				}
+			}
+
+			$palette_style['html.ast-dark-site'] = $palette_css_vars;
+			$css                                 = astra_parse_css( $palette_style );
+
+			return $css;
+		}
+
+		/**
+		 * Render dark mode color palette CSS.
+		 *
+		 * @since x.x.x
+		 *
+		 * @param string $dynamic_css Appended dynamic CSS.
+		 * @param string $dynamic_css_filtered Filtered dynamic CSS.
+		 * @return string $dynamic_css Appended dynamic CSS.
+		 */
+		public static function dark_color_palette_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+
+			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'footer' ) ) {
+
+				$astra_mode_switcher_static_css = '
+					.ast-mode-switcher-trigger, .ast-mode-switcher-trigger:hover, .ast-mode-switcher-trigger:focus, .ast-mode-switcher-trigger:active {
+						cursor: pointer;
+						background: none;
+						border: none;
+					}
+					.ast-mode-switcher-trigger, .ast-mode-label {
+						position: relative;
+					}
+					.ast-mode-switcher-icon {
+						fill: currentColor;
+					}
+					.ast-mode-switcher-trigger .ahfb-svg-iconset {
+						vertical-align: text-bottom;
+					}
+					.ast-light-mode-wrap, .ast-dark-site .ast-dark-mode-wrap {
+						display: none;
+					}
+					.ast-dark-site .ast-light-mode-wrap {
+						display: block;
+					}
+				';
+
+				$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
+
+				$dynamic_css .= self::astra_generate_dark_palette_style();
+			}
+
+			return $dynamic_css;
+		}
+
+		/**
+		 * Adding head frontend script for avoiding jerk while landing on site initially.
+		 *
+		 * @since x.x.x
+		 */
+		public function mode_preference_script() {
+			?>
+				<script type="text/javascript">
+					var siteView = localStorage.getItem( "astra-prefers-color" );
+
+					if ( siteView && siteView === "dark" ) {
+						document.documentElement.classList.add( "ast-dark-site" );
+					}
+
+					if ( siteView && siteView === "light" && document.documentElement.classList.contains( "ast-dark-site" ) ) {
+						document.documentElement.classList.remove( "ast-dark-site" );
+					}
+				</script>
+			<?php
 		}
 	}
 

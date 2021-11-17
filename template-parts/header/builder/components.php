@@ -116,7 +116,7 @@ switch ( $astra_header_component_slug ) {
 	case 'mode-switcher':
 		$astra_customizer_focus_class = is_customize_preview() ? ' site-header-focus-item ' : ' '; // Class needed in customizer because pencil shortcut icon CSS is based on that.
 		?>
-			<div class="ast-builder-layout-element<?php echo esc_attr( $astra_customizer_focus_class ); ?>ast-header-mode-switcher" data-section="section-mode-switcher">
+			<div class="ast-builder-layout-element<?php echo esc_attr( $astra_customizer_focus_class ); ?>ast-header-mode-switcher" data-section="header-section-mode-switcher">
 				<?php do_action( 'astra_header_mode_switcher' ); ?>
 			</div>
 		<?php

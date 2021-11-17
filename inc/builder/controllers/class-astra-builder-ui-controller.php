@@ -273,19 +273,20 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 * Callback for partial rendering mode switcher.
 		 *
 		 * @since x.x.x
+		 * @param string $builder_type the type of the builder.
 		 */
-		public static function render_mode_switcher() {
+		public static function render_mode_switcher( $builder_type = 'header' ) {
 
 			$is_pro_dark_mode_active = ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) );
 
-			$switcher_type        = astra_get_option( 'header-dark-mode-switch-type' );
+			$switcher_type        = astra_get_option( esc_attr( $builder_type ) . '-dark-mode-switch-type' );
 			$switcher_style_class = $is_pro_dark_mode_active ? 'ast-switcher-' . astra_get_option( 'dark-mode-switch-style', 'button' ) . '-style' : '';
 
-			$switcher_light_icon = astra_get_option( 'header-mode-switcher-light-icon' );
+			$switcher_light_icon = astra_get_option( esc_attr( $builder_type ) . '-mode-switcher-light-icon' );
 			$switcher_dark_icon  = $is_pro_dark_mode_active ? astra_get_option( 'mode-switcher-dark-icon' ) : $switcher_light_icon;
 
-			$switcher_light_label = astra_get_option( 'header-mode-switcher-light-label' );
-			$switcher_dark_label  = astra_get_option( 'header-mode-switcher-dark-label' );
+			$switcher_light_label = astra_get_option( esc_attr( $builder_type ) . '-mode-switcher-light-label' );
+			$switcher_dark_label  = astra_get_option( esc_attr( $builder_type ) . '-mode-switcher-dark-label' );
 
 			$is_flash_message_active = astra_get_option( 'mode-switcher-show-flash-message', false );
 			$switcher_light_message  = astra_get_option( 'mode-switcher-light-flash-message' );

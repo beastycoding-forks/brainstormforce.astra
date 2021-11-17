@@ -430,6 +430,12 @@ module.exports = function (grunt) {
                         ],
                         dest: 'inc/builder/type/header/mode-switcher/assets/js/minified/customizer-preview.min.js',
                     },
+					{
+                        src: [
+                            'inc/builder/type/footer/mode-switcher/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/builder/type/footer/mode-switcher/assets/js/minified/customizer-preview.min.js',
+                    },
                 ]
             }
         },

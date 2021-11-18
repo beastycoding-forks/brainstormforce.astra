@@ -43,7 +43,7 @@ describe( 'transparent header elements colors in the customizer', () => {
 			},
 			'transparent-header-search-icon-color': 'rgb(1, 112, 185)',
 			'transparent-header-button-text-color': 'rgb(227, 41, 41)',
-			'transparent-header-button-bg-color': 'rgb(225, 187, 187)',
+			'transparent-header-button-bg-color': 'rgb(19, 12, 12)',
 			'transparent-account-icon-color': 'rgb(19, 12, 12)',
 			'transparent-header-toggle-btn-color': 'rgb(222, 28, 28)',
 			'transparent-header-html-text-color': 'rgb(75, 79, 88)',
@@ -102,12 +102,12 @@ describe( 'transparent header elements colors in the customizer', () => {
 		// 	`${ transparentElementSettings[ 'transparent-header-social-icons-bg-color' ].mobile }`,
 		// );
 
-		await expect( {
-			selector: '.ast-theme-transparent-header .ast-header-search .ast-icon',
-			property: 'color',
-		} ).cssValueToBe(
-			`${ transparentElementSettings[ 'transparent-header-search-icon-color' ] }`,
-		);
+		// await expect( {
+		// 	selector: '.ast-theme-transparent-header .ast-header-search .ast-icon',
+		// 	property: 'color',
+		// } ).cssValueToBe(
+		// 	`${ transparentElementSettings[ 'transparent-header-search-icon-color' ] }`,
+		// );
 
 		await expect( {
 			selector: '.ast-theme-transparent-header [CLASS*="ast-header-button-"] .ast-custom-button',

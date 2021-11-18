@@ -1,3 +1,6 @@
+v3.9.0
+- Fix: Guteneberg separator dots not appearing properly on frontend.
+
 v3.8.0
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
 - Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.

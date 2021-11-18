@@ -44,7 +44,7 @@ describe( 'transparent header elements colors in the customizer', () => {
 			'transparent-header-search-icon-color': 'rgb(1, 112, 185)',
 			'transparent-header-button-text-color': 'rgb(227, 41, 41)',
 			'transparent-header-button-bg-color': 'rgb(225, 187, 187)',
-			'transparent-account-icon-color': 'rgb(237, 40, 40)',
+			'transparent-account-icon-color': 'rgb(19, 12, 12)',
 			'transparent-header-toggle-btn-color': 'rgb(222, 28, 28)',
 			'transparent-header-html-text-color': 'rgb(75, 79, 88)',
 		};

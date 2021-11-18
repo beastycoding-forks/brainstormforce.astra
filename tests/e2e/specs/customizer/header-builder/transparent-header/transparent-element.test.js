@@ -35,9 +35,9 @@ describe( 'transparent header elements colors in the customizer', () => {
 				tablet: 'rgb(53, 198, 80)',
 				mobile: 'rgb(53, 198, 80)',
 			},
-			'transparent-header-button-text-color': 'rgb(227, 41, 41)',
-			'transparent-header-button-bg-color': 'rgb(252, 252, 252)',
-			'transparent-account-icon-color': 'rgb(19, 12, 12)',
+			'transparent-header-button-text-color': 'rgb(255, 255, 255)',
+			'transparent-header-button-bg-color': 'rgb(0, 0, 255)',
+			'transparent-account-icon-color': 'rgb(32, 227, 155)',
 		};
 		await setCustomize( transparentElementSettings );
 		await createNewPost( {

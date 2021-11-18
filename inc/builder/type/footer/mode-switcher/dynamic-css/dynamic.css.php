@@ -60,18 +60,18 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 			'color'            => esc_attr( $light_color ),
 			'background-color' => esc_attr( $dark_color ),
 		),
-		'.ast-dark-site ' . $selector          => array(
+		'.ast-dark-site ' . $selector                  => array(
 			'color'            => esc_attr( $dark_color ),
 			'background-color' => esc_attr( $light_color ),
 		),
-		$selector . ' .ast-mode-switcher-icon' => array(
+		$selector . ' .ast-mode-switcher-icon'         => array(
 			'height' => astra_get_css_value( $icon_size['desktop'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['desktop'], 'px' ),
 		),
-		$selector           => array(
+		$selector                                      => array(
 			'border-radius' => astra_get_css_value( $border_radius, 'px' ),
 		),
-		$selector . '.ast-switcher-toggle-style:after'     => array(
+		$selector . '.ast-switcher-toggle-style:after' => array(
 			'width'  => $desktop_icon_size,
 			'height' => $desktop_icon_size,
 		),

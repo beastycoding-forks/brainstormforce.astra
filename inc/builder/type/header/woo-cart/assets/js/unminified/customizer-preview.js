@@ -11,7 +11,8 @@
 (function ($) {
 
 	var selector = '.ast-site-header-cart';
-	var responsive_selector = '.astra-cart-drawer.woocommerce-active';
+	var responsive_selector = '.astra-cart-drawer';
+
 
 	// Icon Color.
 	astra_css(
@@ -83,7 +84,7 @@
 		'woo-cart-colors',
 		'astra-settings[header-woo-cart-background-color]',
 		'background-color',
-		'#ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer'
+		'#ast-site-header-cart .widget_shopping_cart, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item a.remove:hover, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item:hover > a.remove,' + responsive_selector + ',' + responsive_selector + ' .widget_shopping_cart .mini_cart_item a.remove:hover,' + responsive_selector + ' .widget_shopping_cart .mini_cart_item:hover > a.remove, #astra-mobile-cart-drawer' + responsive_selector
 	);
 
 	astra_color_responsive_css(
@@ -246,6 +247,24 @@
 	} );
 
 	/**
+	 * Desktop cart offcanvas width.
+	 */
+	 wp.customize( 'astra-settings[woo-desktop-cart-flyout-width]', function( setting ) {
+		setting.bind( function( width ) {
+			var offcanvasPosition = wp.customize( 'astra-settings[woo-desktop-cart-flyout-direction]' ).get();
+
+			if( 'left' == offcanvasPosition ) {
+				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + width + '%; left: -' + width + '%; } ';
+					dynamicStyle += '.ast-desktop .astra-cart-drawer.open-right.active { left: ' + width + '%; } ';
+			} else {
+				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + width + '%; left: 100%; } ';
+			}
+
+			astra_add_dynamic_css( 'woo-desktop-cart-flyout-width', dynamicStyle );
+		} );
+	} );
+
+	/**
 	 * Cart icon style
 	 */
 	wp.customize('astra-settings[header-woo-cart-icon-color]', function (setting) {
@@ -272,6 +291,25 @@
 	wp.customize('astra-settings[transparent-header-woo-cart-icon-color]', function (setting) {
 		setting.bind(function (cart_icon_color) {
 			wp.customize.preview.send('refresh');
+		});
+	});
+
+	/**
+     * Cart total label position.
+     */
+	 wp.customize('astra-settings[woo-header-cart-icon-total-label-position]', function (setting) {
+		setting.bind(function (position) {
+			var defaultCart = $(document).find('.cart-container');
+			if($(selector).find('.ast-addon-cart-wrap').length){
+				iconCart = $(document).find('.ast-addon-cart-wrap');
+				iconCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
+				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
+				iconCart.addClass('ast-cart-position-' + position);	
+			}
+			else {
+				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
+				defaultCart.addClass('ast-cart-position-' + position);
+			}
 		});
 	});
 

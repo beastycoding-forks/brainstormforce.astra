@@ -278,30 +278,31 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		public static function render_mode_switcher( $builder_type = 'header' ) {
 
 			$is_pro_dark_mode_active = ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) );
+			$builder_type            = esc_attr( $builder_type );
 
-			$switcher_type        = astra_get_option( esc_attr( $builder_type ) . '-dark-mode-switch-type' );
-			$switcher_style_class = $is_pro_dark_mode_active ? 'ast-switcher-' . astra_get_option( 'dark-mode-switch-style', 'button' ) . '-style' : '';
+			$switcher_type        = astra_get_option( $builder_type . '-dark-mode-switch-type' );
+			$switcher_style_class = $is_pro_dark_mode_active ? 'ast-switcher-' . astra_get_option( $builder_type .'-dark-mode-switch-style', 'button' ) . '-style' : '';
 
-			$switcher_light_icon = astra_get_option( esc_attr( $builder_type ) . '-mode-switcher-light-icon' );
-			$switcher_dark_icon  = $is_pro_dark_mode_active ? astra_get_option( 'mode-switcher-dark-icon' ) : $switcher_light_icon;
+			$switcher_light_icon = astra_get_option( $builder_type . '-mode-switcher-light-icon' );
+			$switcher_dark_icon  = $is_pro_dark_mode_active ? astra_get_option( $builder_type . '-mode-switcher-dark-icon' ) : $switcher_light_icon;
 
-			$switcher_light_label = astra_get_option( esc_attr( $builder_type ) . '-mode-switcher-light-label' );
-			$switcher_dark_label  = astra_get_option( esc_attr( $builder_type ) . '-mode-switcher-dark-label' );
+			$switcher_light_label = astra_get_option( $builder_type . '-mode-switcher-light-label' );
+			$switcher_dark_label  = astra_get_option( $builder_type . '-mode-switcher-dark-label' );
 
-			$is_flash_message_active = astra_get_option( 'mode-switcher-show-flash-message', false );
+			$is_flash_message_active = astra_get_option( $builder_type . '-mode-switcher-show-flash-message', false );
+			$flash_message_position  = astra_get_option( $builder_type . '-mode-switcher-flash-message-position', 'left' );
 			$switcher_light_message  = astra_get_option( 'mode-switcher-light-flash-message' );
-			$flash_message_position  = astra_get_option( 'mode-switcher-flash-message-position', 'left' );
 
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
 			}
 			if ( $is_pro_dark_mode_active && $is_flash_message_active ) {
 				?>
-					<span class="ast-mode-flash-message hide" data-position="<?php echo esc_attr( $flash_message_position ); ?>"> <?php echo esc_html( $switcher_light_message ); ?> </span>
+					<span class="ast-mode-flash-message hide" data-flash-position="<?php echo esc_attr( $flash_message_position ); ?>"> <?php echo esc_html( $switcher_light_message ); ?> </span>
 				<?php
 			}
 			?>
-				<button class="ast-mode-switcher-trigger ast-<?php echo esc_attr( $builder_type ); ?>-mode-switcher ast-switcher-<?php echo esc_attr( $switcher_type ); ?>-type <?php echo esc_attr( $switcher_style_class ); ?>" aria-label="Switch to dark mode">
+				<button class="ast-mode-switcher-trigger ast-<?php echo $builder_type; ?>-mode-switcher ast-switcher-<?php echo esc_attr( $switcher_type ); ?>-type <?php echo esc_attr( $switcher_style_class ); ?>" aria-label="Switch to dark mode">
 					<?php
 					switch ( $switcher_type ) {
 						case 'icon':

@@ -525,11 +525,8 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 					.ast-mode-switcher-trigger, .ast-mode-label {
 						position: relative;
 					}
-					.ast-mode-switcher-icon {
-						fill: currentColor;
-					}
 					.ast-mode-switcher-trigger .ahfb-svg-iconset {
-						vertical-align: text-bottom;
+						vertical-align: middle;
 					}
 					.ast-light-mode-wrap, .ast-dark-site .ast-dark-mode-wrap {
 						display: none;

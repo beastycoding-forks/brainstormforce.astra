@@ -20,20 +20,20 @@
 		value.bind( function( size ) {
 			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
 				var dynamicStyle = '';
-				dynamicStyle += selector + ' .ast-mode-switcher-icon {';
+				dynamicStyle += '.ast-mode-switcher-footer-icon {';
 				dynamicStyle += 'height: ' + size.desktop + 'px' + ';';
 				dynamicStyle += 'width: ' + size.desktop + 'px' + ';';
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
-				dynamicStyle += selector + ' .ast-mode-switcher-icon {';
+				dynamicStyle += '.ast-mode-switcher-footer-icon {';
 				dynamicStyle += 'height: ' + size.tablet + 'px' + ';';
 				dynamicStyle += 'width: ' + size.tablet + 'px' + ';';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
 
 				dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
-				dynamicStyle += selector + ' .ast-mode-switcher-icon {';
+				dynamicStyle += '.ast-mode-switcher-footer-icon {';
 				dynamicStyle += 'height: ' + size.mobile + 'px' + ';';
 				dynamicStyle += 'width: ' + size.mobile + 'px' + ';';
 				dynamicStyle += '} ';

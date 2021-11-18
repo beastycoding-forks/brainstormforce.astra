@@ -1036,7 +1036,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Header Mode Switcher element.
 	 */
 	$defaults['header-dark-mode-switch-type']          = 'icon';
-	$defaults['header-mode-switcher-light-icon']       = 'light-switcher-1';
+	$defaults['header-mode-switcher-light-icon']       = 'header-light-switcher-1';
 	$defaults['header-mode-switcher-light-label']      = __( 'Light', 'astra' );
 	$defaults['header-mode-switcher-dark-label']       = __( 'Dark', 'astra' );
 	$defaults['header-dark-mode-switcher-light-color'] = '#0170b9';
@@ -1086,7 +1086,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 * Footer - Mode Switcher element.
 	 */
 	$defaults['footer-dark-mode-switch-type']          = 'icon';
-	$defaults['footer-mode-switcher-light-icon']       = 'light-switcher-1';
+	$defaults['footer-mode-switcher-light-icon']       = 'footer-light-switcher-1';
 	$defaults['footer-mode-switcher-light-label']      = __( 'Light', 'astra' );
 	$defaults['footer-mode-switcher-dark-label']       = __( 'Dark', 'astra' );
 	$defaults['footer-dark-mode-switcher-light-color'] = '#0170b9';

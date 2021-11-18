@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Mode Switcher
  */
-add_filter( 'astra_dynamic_theme_css', 'astra_footer_mode_switcher_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_footer_mode_switcher_dynamic_css', 11 );
 
 /**
  * Dynamic CSS
@@ -34,7 +34,7 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 	$ltr_right = is_rtl() ? 'left' : 'right';
 
 	$astra_mode_switcher_static_css = '
-		.ast-switcher-icon-with-label-type .ast-mode-switcher-icon {
+		.ast-switcher-icon-with-label-type .ast-mode-switcher-footer-icon {
 			margin-' . esc_attr( $ltr_right ) . ': 5px;
 		}
 	';
@@ -64,9 +64,10 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 			'color'            => esc_attr( $dark_color ),
 			'background-color' => esc_attr( $light_color ),
 		),
-		$selector . ' .ast-mode-switcher-icon' => array(
+		'.ast-mode-switcher-footer-icon' => array(
 			'height' => astra_get_css_value( $icon_size['desktop'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['desktop'], 'px' ),
+			'fill' => 'currentColor',
 		),
 		$selector           => array(
 			'border-radius' => astra_get_css_value( $border_radius, 'px' ),
@@ -81,7 +82,7 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 	 * Mode Switcher - Tablet CSS.
 	 */
 	$css_output_tablet = array(
-		$selector . ' .ast-mode-switcher-icon' => array(
+		'.ast-mode-switcher-footer-icon' => array(
 			'height' => astra_get_css_value( $icon_size['tablet'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['tablet'], 'px' ),
 		),
@@ -91,7 +92,7 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 	 * Mode Switcher - Mobile CSS.
 	 */
 	$css_output_mobile = array(
-		$selector . ' .ast-mode-switcher-icon' => array(
+		'.ast-mode-switcher-footer-icon' => array(
 			'height' => astra_get_css_value( $icon_size['mobile'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['mobile'], 'px' ),
 		),

@@ -172,7 +172,7 @@ class Astra_Social_Icon_Component_Configs {
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-social-' . $index . '-size]',
 					'section'           => $_section,
-					'priority'          => 1,
+					'priority'          => 5,
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( $builder_type . '-social-' . $index . '-size' ),
 					'title'             => __( 'Icon Size', 'astra' ),

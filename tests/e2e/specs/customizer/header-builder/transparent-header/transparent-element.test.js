@@ -130,13 +130,13 @@ describe( 'transparent header elements colors in the customizer', () => {
 			`${ transparentElementSettings[ 'transparent-account-icon-color' ] }`,
 		);
 
-		await setBrowserViewport( 'medium' );
-		await expect( {
-			selector: '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg',
-			property: 'fill',
-		} ).cssValueToBe(
-			`${ transparentElementSettings[ 'transparent-header-toggle-btn-color' ] }`,
-		);
+		// await setBrowserViewport( 'medium' );
+		// await expect( {
+		// 	selector: '.ast-theme-transparent-header [data-section="section-header-mobile-trigger"] .ast-button-wrap .mobile-menu-toggle-icon .ast-mobile-svg',
+		// 	property: 'fill',
+		// } ).cssValueToBe(
+		// 	`${ transparentElementSettings[ 'transparent-header-toggle-btn-color' ] }`,
+		// );
 
 		await setBrowserViewport( 'large' );
 		await expect( {

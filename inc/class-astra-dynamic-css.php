@@ -751,6 +751,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( get_theme_mod( 'custom_logo' )
 				|| astra_get_option( 'transparent-header-logo' )
 				|| astra_get_option( 'sticky-header-logo' )
+				|| astra_get_option( 'dark-mode-logo' )
 				|| $page_header_logo
 				|| is_customize_preview() ) {
 

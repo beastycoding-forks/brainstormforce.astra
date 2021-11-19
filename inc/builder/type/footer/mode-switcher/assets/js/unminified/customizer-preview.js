@@ -12,11 +12,11 @@
 
 	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544,
-		section = 'header-section-mode-switcher',
-		selector = '.ast-header-mode-switcher';
+		section = 'footer-section-mode-switcher',
+		selector = '.ast-footer-mode-switcher';
 
 	// Icon Size.
-	wp.customize( 'astra-settings[header-mode-switcher-icon-size]', function( value ) {
+	wp.customize( 'astra-settings[footer-mode-switcher-icon-size]', function( value ) {
 		value.bind( function( size ) {
 			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
 				var dynamicStyle = '';
@@ -38,24 +38,24 @@
 				dynamicStyle += 'width: ' + size.mobile + 'px' + ';';
 				dynamicStyle += '} ';
 				dynamicStyle += '} ';
-				astra_add_dynamic_css( 'header-mode-switcher-icon-size', dynamicStyle );
+				astra_add_dynamic_css( 'footer-mode-switcher-icon-size', dynamicStyle );
 			}
 		} );
 	} );
 
 	// Switch colors - Light color.
-	astra_css( 'astra-settings[header-dark-mode-switcher-light-color]', 'color', selector + ', ' + selector + ':hover' );
-	astra_css( 'astra-settings[header-dark-mode-switcher-light-color]', 'background-color', '.ast-dark-site ' + selector );
+	astra_css( 'astra-settings[footer-dark-mode-switcher-light-color]', 'color', selector + ', ' + selector + ':hover' );
+	astra_css( 'astra-settings[footer-dark-mode-switcher-light-color]', 'background-color', '.ast-dark-site ' + selector );
 
 	// Switch colors - Dark color.
-	astra_css( 'astra-settings[header-dark-mode-switcher-dark-color]', 'background-color', selector + ', ' + selector + ':hover' );
-	astra_css( 'astra-settings[header-dark-mode-switcher-dark-color]', 'color', '.ast-dark-site ' + selector );
+	astra_css( 'astra-settings[footer-dark-mode-switcher-dark-color]', 'background-color', selector + ', ' + selector + ':hover' );
+	astra_css( 'astra-settings[footer-dark-mode-switcher-dark-color]', 'color', '.ast-dark-site ' + selector );
 
 	// Misc preview support.
-	astra_css( 'astra-settings[header-mode-switcher-border-radius]', 'border-radius', selector, 'px' );
+	astra_css( 'astra-settings[footer-mode-switcher-border-radius]', 'border-radius', selector, 'px' );
 
 	// Label font settings.
-	astra_responsive_font_size( 'astra-settings[font-size-header-section-mode-switcher]', selector );
+	astra_responsive_font_size( 'astra-settings[font-size-footer-section-mode-switcher]', selector );
 
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( section, selector );

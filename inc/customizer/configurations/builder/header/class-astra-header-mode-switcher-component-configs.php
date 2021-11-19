@@ -323,7 +323,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'section'           => $_section,
 					'priority'          => 220,
 					'title'             => __( 'Margin', 'astra' ),
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),
 					'choices'           => array(

@@ -322,7 +322,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
 					'section'           => $_section,
 					'priority'          => 220,
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-divider' ),
 					'title'             => __( 'Margin', 'astra' ),
 					'linked_choices'    => true,
 					'unit_choices'      => array( 'px', 'em', '%' ),

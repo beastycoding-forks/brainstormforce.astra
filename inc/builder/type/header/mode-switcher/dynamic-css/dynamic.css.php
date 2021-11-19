@@ -47,9 +47,9 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$light_color = astra_get_option( 'header-dark-mode-switcher-light-color' );
 	$dark_color  = astra_get_option( 'header-dark-mode-switcher-dark-color' );
 
-	$icon_size = astra_get_option( 'header-mode-switcher-icon-size' );
-	$border_radius     = esc_attr( astra_get_option( 'header-mode-switcher-border-radius' ) );
-	$margin  = astra_get_option( $_section . '-margin' );
+	$icon_size     = astra_get_option( 'header-mode-switcher-icon-size' );
+	$border_radius = esc_attr( astra_get_option( 'header-mode-switcher-border-radius' ) );
+	$margin        = astra_get_option( $_section . '-margin' );
 
 	/**
 	 * Mode Switcher - Desktop CSS.
@@ -59,20 +59,20 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'color'            => esc_attr( $light_color ),
 			'background-color' => esc_attr( $dark_color ),
 		),
-		'.ast-dark-site ' . $selector                  => array(
+		'.ast-dark-site ' . $selector          => array(
 			'color'            => esc_attr( $dark_color ),
 			'background-color' => esc_attr( $light_color ),
 		),
-		$selector . ' .ast-mode-switcher-icon'         => array(
+		$selector . ' .ast-mode-switcher-icon' => array(
 			'height' => astra_get_css_value( $icon_size['desktop'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['desktop'], 'px' ),
 		),
-		$selector                                      => array(
+		$selector                              => array(
 			'border-radius' => astra_get_css_value( $border_radius, 'px' ),
-			'margin-top'     => astra_responsive_spacing( $margin, 'top', 'desktop' ),
-			'margin-bottom'  => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
-			'margin-left'    => astra_responsive_spacing( $margin, 'left', 'desktop' ),
-			'margin-right'   => astra_responsive_spacing( $margin, 'right', 'desktop' ),
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 		),
 	);
 
@@ -84,11 +84,11 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'height' => astra_get_css_value( $icon_size['tablet'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['tablet'], 'px' ),
 		),
-		$selector                                      => array(
-			'margin-top'     => astra_responsive_spacing( $margin, 'top', 'tablet' ),
-			'margin-bottom'  => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
-			'margin-left'    => astra_responsive_spacing( $margin, 'left', 'tablet' ),
-			'margin-right'   => astra_responsive_spacing( $margin, 'right', 'tablet' ),
+		$selector                              => array(
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 		),
 	);
 
@@ -100,11 +100,11 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'height' => astra_get_css_value( $icon_size['mobile'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['mobile'], 'px' ),
 		),
-		$selector                                      => array(
-			'margin-top'     => astra_responsive_spacing( $margin, 'top', 'mobile' ),
-			'margin-bottom'  => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
-			'margin-left'    => astra_responsive_spacing( $margin, 'left', 'mobile' ),
-			'margin-right'   => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+		$selector                              => array(
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 		),
 	);
 

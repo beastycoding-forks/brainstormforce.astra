@@ -181,6 +181,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'transport'   => 'postMessage',
 					'default'     => astra_get_option( 'header-mode-switcher-border-radius' ),
 					'title'       => __( 'Border Radius', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-top-divider' ),
 					'type'        => 'control',
 					'suffix'      => 'px',
 					'control'     => 'ast-slider',

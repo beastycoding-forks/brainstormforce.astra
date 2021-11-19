@@ -290,7 +290,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$switcher_light_label = astra_get_option( $builder_type . '-mode-switcher-light-label' );
 			$switcher_dark_label  = astra_get_option( $builder_type . '-mode-switcher-dark-label' );
 
-			$is_style_toggle   = ( $is_pro_dark_mode_active && 'toggle' === $switcher_style ) ? true : false;
+			$is_style_toggle = ( $is_pro_dark_mode_active && 'toggle' === $switcher_style ) ? true : false;
 
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();

@@ -19,7 +19,7 @@ describe( 'transparent header elements colors in the customizer', () => {
 					},
 				},
 			},
-			'header-html-1': '<p>HTML Text color |<a href="https://wpastra.com/" rel="nofollow noopener" target="_blank">Astra QA</a></p>',
+			'header-html-1': '<p>HTML Text color |<a href="https://wpastra.com/" rel="nofollow noopener" role="link" target="_blank">Astra QA</a></p>',
 			'header-mobile-items': {
 				below: {
 					below_center: {

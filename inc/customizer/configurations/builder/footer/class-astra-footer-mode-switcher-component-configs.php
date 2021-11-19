@@ -309,6 +309,31 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'title'     => __( 'Dark', 'astra' ),
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
+
+				/**
+				 * Option: Margin.
+				 */
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[' . $_section . '-margin]',
+					'default'           => astra_get_option( $_section . '-margin' ),
+					'type'              => 'control',
+					'transport'         => 'postMessage',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => $_section,
+					'priority'          => 220,
+					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+					'title'             => __( 'Margin', 'astra' ),
+					'linked_choices'    => true,
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
+					),
+					'context'           => Astra_Builder_Helper::$design_tab,
+				),
 			);
 
 			$required_condition = array(
@@ -331,9 +356,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			// Added typography settings for switcher label.
 			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_typography_options( $_section, $required_condition ) );
-
-			// Added advanced (margin|padding) settings for switcher element.
-			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
 
 			return array_merge( $configurations, $_configs );
 		}

@@ -48,9 +48,8 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 	$dark_color  = astra_get_option( 'footer-dark-mode-switcher-dark-color' );
 
 	$icon_size = astra_get_option( 'footer-mode-switcher-icon-size' );
-	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$desktop_icon_size = astra_calculate_spacing( $icon_size['desktop'] . 'px', '+', '0.5', 'em' );
 	$border_radius     = esc_attr( astra_get_option( 'footer-mode-switcher-border-radius' ) );
+	$margin  = astra_get_option( $_section . '-margin' );
 
 	/**
 	 * Mode Switcher - Desktop CSS.
@@ -70,10 +69,10 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 		),
 		$selector                                      => array(
 			'border-radius' => astra_get_css_value( $border_radius, 'px' ),
-		),
-		$selector . '.ast-switcher-toggle-style:after' => array(
-			'width'  => $desktop_icon_size,
-			'height' => $desktop_icon_size,
+			'margin-top'     => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+			'margin-bottom'  => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+			'margin-left'    => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+			'margin-right'   => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 		),
 	);
 
@@ -85,6 +84,12 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 			'height' => astra_get_css_value( $icon_size['tablet'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['tablet'], 'px' ),
 		),
+		$selector                                      => array(
+			'margin-top'     => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+			'margin-bottom'  => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+			'margin-left'    => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+			'margin-right'   => astra_responsive_spacing( $margin, 'right', 'tablet' ),
+		),
 	);
 
 	/**
@@ -94,6 +99,12 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 		$selector . ' .ast-mode-switcher-icon' => array(
 			'height' => astra_get_css_value( $icon_size['mobile'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['mobile'], 'px' ),
+		),
+		$selector                                      => array(
+			'margin-top'     => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+			'margin-bottom'  => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+			'margin-left'    => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+			'margin-right'   => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 		),
 	);
 
@@ -107,8 +118,6 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 	if ( '' !== astra_get_option( 'footer-mode-switcher-light-label' ) && '' !== astra_get_option( 'footer-mode-switcher-dark-label' ) ) {
 		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 	}
-
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector );
 
 	return $dynamic_css;
 }

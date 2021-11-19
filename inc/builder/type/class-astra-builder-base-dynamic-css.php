@@ -514,13 +514,14 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 		 */
 		public static function dark_color_palette_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'footer' ) ) {
+			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'footer' ) || true === astra_get_option( 'enable-fixed-switch-mode', false ) ) {
 
 				$astra_mode_switcher_static_css = '
 					.ast-mode-switcher-trigger, .ast-mode-switcher-trigger:hover, .ast-mode-switcher-trigger:focus, .ast-mode-switcher-trigger:active {
 						cursor: pointer;
 						background: none;
 						border: none;
+						padding: 0.6em;
 					}
 					.ast-mode-switcher-trigger, .ast-mode-label {
 						position: relative;

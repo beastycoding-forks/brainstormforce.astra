@@ -80,10 +80,9 @@ const MetaSettings = props => {
 				name="theme-meta-panel"
 				title={ astMetaParams.title }
 			>
-			
 				<div className="ast-sidebar-container components-panel__body is-opened" id="astra_settings_meta_box">
 					{/* Sidebar Setting */}
-					<Title 
+					<Title
 						option={{
 							label: __( 'Site Layout', 'astra' ),
 							elementType:'ast-first'
@@ -93,7 +92,7 @@ const MetaSettings = props => {
 						<p className="ast-sidebar-control-title post-attributes-label-wrapper">
 							<strong className="customize-control-title">{ astMetaParams.sidebar_title }</strong>
 						</p>
-						
+
 						<SelectControl
 							value={ ( undefined !== props.meta['site-sidebar-layout'] && ''!== props.meta['site-sidebar-layout'] ? props.meta['site-sidebar-layout'] : 'default' ) }
 							options={ sidebarOptions }
@@ -117,22 +116,22 @@ const MetaSettings = props => {
 							id = "site-content-layout"
 						/>
 					</div>
-					
+
 					<Divider />
-					
+
 					{/* Disable Section Setting */}
 					<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
-						<Title 
+						<Title
 							option={{
 								label: __( 'Page Elements', 'astra'),
 							}}
 						/>
 						{ disableSections }
 					</div>
-							
+
 					<Divider />
-					
-					<Title 
+
+					<Title
 						option={{
 							label: __( 'Header', 'astra' ),
 						}}

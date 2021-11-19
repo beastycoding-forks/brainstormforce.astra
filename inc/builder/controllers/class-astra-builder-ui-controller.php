@@ -291,10 +291,6 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$switcher_dark_label  = astra_get_option( $builder_type . '-mode-switcher-dark-label' );
 
 			$is_style_toggle   = ( $is_pro_dark_mode_active && 'toggle' === $switcher_style ) ? true : false;
-			$is_tooltip_enable = ( $is_pro_dark_mode_active && true === astra_get_option( $builder_type . '-mode-switcher-icon-tooltip', false ) ) ? true : false;
-
-			$light_tooltip_data_html = ( $is_tooltip_enable ) ? 'data-mode-tooltip=' . esc_html( astra_get_option( 'mode-switcher-light-tooltip-message' ) ) . '' : '';
-			$dark_tooltip_data_html  = ( $is_tooltip_enable ) ? ' data-mode-tooltip=' . esc_html( astra_get_option( 'mode-switcher-dark-tooltip-message' ) ) . '' : '';
 
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
@@ -307,27 +303,27 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					<?php
 					switch ( $switcher_type ) {
 						case 'icon':
-							echo '<span class="ast-light-mode-wrap ast-mode-label" ' . esc_attr( $light_tooltip_data_html ) . '>' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							echo '<span class="ast-dark-mode-wrap ast-mode-label" ' . esc_attr( $dark_tooltip_data_html ) . '>' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo '<span class="ast-light-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo '<span class="ast-dark-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							break;
 
 						case 'label':
 							if ( $is_style_toggle ) {
-								echo '<span class="ast-light-mode-wrap ast-mode-label" ' . esc_attr( $light_tooltip_data_html ) . '></span>';
-								echo '<span class="ast-dark-mode-wrap ast-mode-label" ' . esc_attr( $dark_tooltip_data_html ) . '></span>';
+								echo '<span class="ast-light-mode-wrap ast-mode-label"></span>';
+								echo '<span class="ast-dark-mode-wrap ast-mode-label"></span>';
 							} else {
-								echo '<span class="ast-light-mode-wrap ast-mode-label" ' . esc_attr( $light_tooltip_data_html ) . '>' . esc_html( $switcher_light_label ) . '</span>';
-								echo '<span class="ast-dark-mode-wrap ast-mode-label" ' . esc_attr( $dark_tooltip_data_html ) . '>' . esc_html( $switcher_dark_label ) . '</span>';
+								echo '<span class="ast-light-mode-wrap ast-mode-label">' . esc_html( $switcher_light_label ) . '</span>';
+								echo '<span class="ast-dark-mode-wrap ast-mode-label">' . esc_html( $switcher_dark_label ) . '</span>';
 							}
 							break;
 
 						case 'icon-with-label':
 							if ( $is_style_toggle ) {
-								echo '<span class="ast-light-mode-wrap ast-mode-label" ' . esc_attr( $light_tooltip_data_html ) . '>' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								echo '<span class="ast-dark-mode-wrap ast-mode-label" ' . esc_attr( $dark_tooltip_data_html ) . '>' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo '<span class="ast-light-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo '<span class="ast-dark-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							} else {
-								echo '<span class="ast-light-mode-wrap ast-mode-label" ' . esc_attr( $light_tooltip_data_html ) . '>' . self::fetch_svg_icon( $switcher_light_icon ) . esc_html( $switcher_light_label ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								echo '<span class="ast-dark-mode-wrap ast-mode-label" ' . esc_attr( $dark_tooltip_data_html ) . '>' . self::fetch_svg_icon( $switcher_dark_icon ) . esc_html( $switcher_dark_label ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo '<span class="ast-light-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_light_icon ) . esc_html( $switcher_light_label ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo '<span class="ast-dark-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_dark_icon ) . esc_html( $switcher_dark_label ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							}
 							break;
 					}

@@ -93,7 +93,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			fill: currentColor;
 		}
 		.ast-mode-switcher-trigger .ahfb-svg-iconset {
-			vertical-align: text-bottom;
+			vertical-align: middle;
 		}
 		.ast-light-mode-wrap, .ast-dark-site .ast-dark-mode-wrap {
 			display: none;

@@ -526,6 +526,9 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 					.ast-mode-switcher-trigger, .ast-mode-label {
 						position: relative;
 					}
+					[data-section="header-section-mode-switcher"], [data-section="footer-section-mode-switcher"], .ast-fixed-switch-wrapper {
+						display: flex;
+					}
 					.ast-mode-switcher-icon {
 						fill: currentColor;
 					}

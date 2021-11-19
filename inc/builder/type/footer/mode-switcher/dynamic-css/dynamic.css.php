@@ -13,7 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Mode Switcher
  */
-add_filter( 'astra_dynamic_theme_css', 'astra_mode_switcher_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_footer_mode_switcher_dynamic_css' );
 
 /**
  * Dynamic CSS
@@ -24,9 +24,9 @@ add_filter( 'astra_dynamic_theme_css', 'astra_mode_switcher_dynamic_css' );
  *
  * @since x.x.x
  */
-function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) ) {
+	if ( ! Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'footer' ) ) {
 		return $dynamic_css;
 	}
 
@@ -37,14 +37,14 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
 
-	$_section = 'header-section-mode-switcher';
-	$selector = '.ast-header-mode-switcher';
+	$_section = 'footer-section-mode-switcher';
+	$selector = '.ast-footer-mode-switcher';
 
-	$light_color = astra_get_option( 'header-dark-mode-switcher-light-color' );
-	$dark_color  = astra_get_option( 'header-dark-mode-switcher-dark-color' );
+	$light_color = astra_get_option( 'footer-dark-mode-switcher-light-color' );
+	$dark_color  = astra_get_option( 'footer-dark-mode-switcher-dark-color' );
 
-	$icon_size     = astra_get_option( 'header-mode-switcher-icon-size' );
-	$border_radius = esc_attr( astra_get_option( 'header-mode-switcher-border-radius' ) );
+	$icon_size     = astra_get_option( 'footer-mode-switcher-icon-size' );
+	$border_radius = esc_attr( astra_get_option( 'footer-mode-switcher-border-radius' ) );
 	$margin        = astra_get_option( $_section . '-margin' );
 
 	/**
@@ -111,7 +111,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	$dynamic_css .= $css_output;
 
-	if ( '' !== astra_get_option( 'header-mode-switcher-light-label' ) && '' !== astra_get_option( 'header-mode-switcher-dark-label' ) ) {
+	if ( '' !== astra_get_option( 'footer-mode-switcher-light-label' ) && '' !== astra_get_option( 'footer-mode-switcher-dark-label' ) ) {
 		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
 	}
 

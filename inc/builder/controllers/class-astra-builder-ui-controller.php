@@ -281,7 +281,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$builder_type            = esc_attr( $builder_type );
 
 			$switcher_type        = astra_get_option( $builder_type . '-dark-mode-switch-type' );
-			$switcher_style_class = $is_pro_dark_mode_active ? 'ast-switcher-' . astra_get_option( $builder_type . '-dark-mode-switch-style', 'button' ) . '-style' : '';
+			$switcher_style       = astra_get_option( $builder_type . '-dark-mode-switch-style', 'button' );
+			$switcher_style_class = $is_pro_dark_mode_active ? 'ast-switcher-' . esc_attr( $switcher_style ) . '-style' : '';
 
 			$switcher_light_icon = astra_get_option( $builder_type . '-mode-switcher-light-icon' );
 			$switcher_dark_icon  = $is_pro_dark_mode_active ? astra_get_option( $builder_type . '-mode-switcher-dark-icon' ) : $switcher_light_icon;
@@ -292,6 +293,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$is_flash_message_active = astra_get_option( $builder_type . '-mode-switcher-show-flash-message', false );
 			$flash_message_position  = astra_get_option( $builder_type . '-mode-switcher-flash-message-position', 'left' );
 			$switcher_light_message  = astra_get_option( 'mode-switcher-light-flash-message' );
+
+			$show_tooltip            = ( true === astra_get_option( $builder_type . '-mode-switcher-icon-tooltip', false ) && 'button' === $switcher_style && 'icon' === $switcher_type );
+			$light_tooltip_data_html = $show_tooltip ? 'data-mode-tooltip=' . apply_filters( 'astra_light_mode_icon_tooltip', __( 'Light', 'astra' ) ) . '' : '';
+			$dark_tooltip_data_html  = $show_tooltip ? ' data-mode-tooltip=' . apply_filters( 'astra_dark_mode_icon_tooltip', __( 'Dark', 'astra' ) ) . '' : '';
 
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
@@ -306,8 +311,8 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					<?php
 					switch ( $switcher_type ) {
 						case 'icon':
-							echo '<span class="ast-light-mode-wrap ast-mode-label" data-tooltip="' . apply_filters( 'astra_light_mode_icon_tooltip', __( 'Light', 'astra' ) ) . '">' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							echo '<span class="ast-dark-mode-wrap ast-mode-label" data-tooltip="' . apply_filters( 'astra_dark_mode_icon_tooltip', __( 'Dark', 'astra' ) ) . '">' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo '<span class="ast-light-mode-wrap ast-mode-label" ' . esc_attr( $light_tooltip_data_html ) . '>' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo '<span class="ast-dark-mode-wrap ast-mode-label" ' . esc_attr( $dark_tooltip_data_html ) . '>' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							break;
 
 						case 'label':

@@ -27,7 +27,6 @@ class Astra_Header_Mode_Switcher_Loader {
 	 */
 	public function __construct() {
 		add_action( 'customize_preview_init', array( $this, 'preview_scripts' ), 110 );
-		add_action( 'wp_print_scripts', array( $this, 'mode_preference_script' ) );
 	}
 
 	/**
@@ -48,30 +47,6 @@ class Astra_Header_Mode_Switcher_Loader {
 			'isDarkModeProActive' => ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) ),
 		);
 		wp_localize_script( 'astra-header-mode-switcher-preview-js', 'astraHeaderModeSwitcherPreview', apply_filters( 'astra_header_mode_switcher_preview_localize', $astra_mode_switcher_localize ) );
-	}
-
-	/**
-	 * Adding head frontend script for avoiding jerk while landing on site initially.
-	 *
-	 * @since x.x.x
-	 */
-	public function mode_preference_script() {
-		if ( is_admin() ) {
-			return;
-		}
-		?>
-			<script type="text/javascript">
-				var siteView = localStorage.getItem( "astra-prefers-color" );
-
-				if ( siteView && siteView === "dark" ) {
-					document.documentElement.classList.add( "ast-dark-site" );
-				}
-
-				if ( siteView && siteView === "light" && document.documentElement.classList.contains( "ast-dark-site" ) ) {
-					document.documentElement.classList.remove( "ast-dark-site" );
-				}
-			</script>
-		<?php
 	}
 }
 

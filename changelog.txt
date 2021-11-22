@@ -1,3 +1,6 @@
+v3.9.0
+- Fix: Guteneberg separator dots not appearing properly on frontend.
+
 v3.8.0 (woocomerce-improvements) (Unreleased)
 - New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
 - New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.

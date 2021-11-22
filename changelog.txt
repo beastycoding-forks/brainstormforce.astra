@@ -2,6 +2,7 @@ v3.8.0
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
 - Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
 - Fix: Removed unwanted title and desc tag present for search icon.
+- Fix: JS console error when Custom Layout is added for header.
 
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.

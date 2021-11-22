@@ -154,6 +154,17 @@ switch ( $astra_component_slug ) {
 		<?php
 		break;
 
+	case 'mode-switcher':
+		$astra_footer_tooltip_enabled   = ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) && true === astra_get_option( 'footer-mode-switcher-icon-tooltip', false ) ) ? true : false;
+		$astra_footer_tooltip_data_html = ( $astra_footer_tooltip_enabled ) ? 'data-light-tooltip-message=' . esc_html( astra_get_option( 'mode-switcher-light-tooltip-message' ) ) . ' data-dark-tooltip-message=' . esc_html( astra_get_option( 'mode-switcher-dark-tooltip-message' ) ) . ' data-tooltip-direction=' . esc_html( astra_get_option( 'footer-mode-switcher-flash-message-position', 'left' ) ) . ' ' : '';
+		$astra_switcher_classes         = ( $astra_footer_tooltip_enabled ) ? ' ast-mode-switcher-tooltip ' : '';
+		$astra_switcher_classes         = is_customize_preview() ? $astra_switcher_classes . ' site-footer-focus-item ' : $astra_switcher_classes; // Class needed in customizer because pencil shortcut icon CSS is based on that.
+		?>
+			<div class="ast-builder-layout-element<?php echo esc_attr( $astra_switcher_classes ); ?>" data-section="footer-section-mode-switcher" <?php echo esc_attr( $astra_footer_tooltip_data_html ); ?>>
+				<?php do_action( 'astra_footer_mode_switcher' ); ?>
+			</div>
+		<?php
+		break;
 
 	default:
 		do_action( 'astra_render_footer_components', $astra_component_slug );

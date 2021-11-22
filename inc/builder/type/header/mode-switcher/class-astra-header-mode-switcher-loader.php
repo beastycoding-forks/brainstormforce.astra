@@ -42,7 +42,12 @@ class Astra_Header_Mode_Switcher_Loader {
 		/* Directory and Extension */
 		$dir_name    = ( true === SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( true === SCRIPT_DEBUG ) ? '' : '.min';
-		wp_enqueue_script( 'astra-builder-mode-switcher-customizer-preview-js', ASTRA_HEADER_MODE_SWITCHER_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+		wp_enqueue_script( 'astra-header-mode-switcher-preview-js', ASTRA_HEADER_MODE_SWITCHER_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+
+		$astra_mode_switcher_localize = array(
+			'isDarkModeProActive' => ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) ),
+		);
+		wp_localize_script( 'astra-header-mode-switcher-preview-js', 'astraHeaderModeSwitcherPreview', apply_filters( 'astra_header_mode_switcher_preview_localize', $astra_mode_switcher_localize ) );
 	}
 
 	/**

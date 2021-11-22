@@ -75,38 +75,41 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		return $dynamic_css;
 	}
 
-	$dynamic_css .= astra_generate_dark_palette_style();
+	$_section      = 'header-section-mode-switcher';
+	$selector      = '.ast-header-mode-switcher';
+	$data_selector = '[data-section="header-section-mode-switcher"]';
 
-	$astra_mode_switcher_static_css = '
-		.ast-mode-switcher-trigger, .ast-mode-switcher-trigger:hover, .ast-mode-switcher-trigger:focus, .ast-mode-switcher-trigger:active {
-			cursor: pointer;
-			background: none;
-			border: none;
-			padding: unset;
-			margin: unset;
-		}
-		.ast-mode-switcher-icon {
-			margin-right: 5px;
-		}
-		.ast-mode-switcher-trigger .ahfb-svg-iconset {
-			vertical-align: middle;
-		}
-	';
+	$light_color = astra_get_option( 'header-dark-mode-switcher-light-color' );
+	$dark_color  = astra_get_option( 'header-dark-mode-switcher-dark-color' );
 
-	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
-
-	$_section = 'section-mode-switcher';
-	$selector = '.ast-mode-switcher-trigger';
-
-	$icon_size = astra_get_option( 'mode-switcher-icon-size' );
+	$icon_size     = astra_get_option( 'header-mode-switcher-icon-size' );
+	$border_radius = esc_attr( astra_get_option( 'header-mode-switcher-border-radius' ) );
+	$margin        = astra_get_option( $_section . '-margin' );
 
 	/**
 	 * Mode Switcher - Desktop CSS.
 	 */
 	$css_output_desktop = array(
+		$selector . ', ' . $selector . ':hover, ' . $selector . ':focus, ' . $selector . ':active' => array(
+			'color'            => esc_attr( $light_color ),
+			'background-color' => esc_attr( $dark_color ),
+		),
+		'.ast-dark-mode ' . $selector          => array(
+			'color'            => esc_attr( $dark_color ),
+			'background-color' => esc_attr( $light_color ),
+		),
 		$selector . ' .ast-mode-switcher-icon' => array(
 			'height' => astra_get_css_value( $icon_size['desktop'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['desktop'], 'px' ),
+		),
+		$selector                              => array(
+			'border-radius' => astra_get_css_value( $border_radius, 'px' ),
+		),
+		$data_selector                         => array(
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 		),
 	);
 
@@ -118,6 +121,12 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'height' => astra_get_css_value( $icon_size['tablet'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['tablet'], 'px' ),
 		),
+		$data_selector                         => array(
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
+		),
 	);
 
 	/**
@@ -128,6 +137,12 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'height' => astra_get_css_value( $icon_size['mobile'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['mobile'], 'px' ),
 		),
+		$data_selector                         => array(
+			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+		),
 	);
 
 	/* Parse CSS from array() */
@@ -137,11 +152,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	$dynamic_css .= $css_output;
 
-	if ( '' !== astra_get_option( 'mode-switcher-label' ) ) {
-		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
-	}
-
-	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_margin_padding_css( $_section, $selector );
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $data_selector );
 
 	return $dynamic_css;
 }

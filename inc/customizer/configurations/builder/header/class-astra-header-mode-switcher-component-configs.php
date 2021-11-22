@@ -148,7 +148,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'        => 'control',
 					'suffix'      => 'px',
 					'control'     => 'ast-responsive-slider',
-					'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
 					'input_attrs' => array(
 						'min'  => 0,
 						'step' => 1,

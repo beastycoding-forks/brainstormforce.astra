@@ -1049,8 +1049,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-mode-switcher-light-icon']       = 'light-switcher-1';
 	$defaults['header-mode-switcher-light-label']      = __( 'Light', 'astra' );
 	$defaults['header-mode-switcher-dark-label']       = __( 'Dark', 'astra' );
-	$defaults['header-dark-mode-switcher-light-color'] = '#0170b9';
-	$defaults['header-dark-mode-switcher-dark-color']  = '#eeeeee';
+	$defaults['header-dark-mode-switcher-light-color'] = 'var(' . $palette_css_var_prefix . '0)';
+	$defaults['header-dark-mode-switcher-dark-color']  = 'var(' . $palette_css_var_prefix . '6)';
 	$defaults['dark-mode-palette']                     = 'palette_2';
 	$defaults['mode-switcher-carry-os-palette']        = false;
 	$defaults['header-mode-switcher-border-radius']    = 40;
@@ -1099,8 +1099,13 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['footer-mode-switcher-light-icon']       = 'light-switcher-1';
 	$defaults['footer-mode-switcher-light-label']      = __( 'Light', 'astra' );
 	$defaults['footer-mode-switcher-dark-label']       = __( 'Dark', 'astra' );
-	$defaults['footer-dark-mode-switcher-light-color'] = '#0170b9';
-	$defaults['footer-dark-mode-switcher-dark-color']  = '#eeeeee';
+	$defaults['footer-dark-mode-switcher-light-color'] = 'var(' . $palette_css_var_prefix . '0)';
+	$defaults['footer-dark-mode-switcher-dark-color']  = 'var(' . $palette_css_var_prefix . '6)';
+	$defaults['footer-mode-switcher-alignment']        = array(
+		'desktop' => 'center',
+		'tablet'  => 'center',
+		'mobile'  => 'center',
+	);
 	$defaults['footer-mode-switcher-border-radius']    = 40;
 	$defaults['footer-mode-switcher-icon-size']        = array(
 		'desktop' => 20,

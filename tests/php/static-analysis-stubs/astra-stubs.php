@@ -1677,7 +1677,7 @@ namespace {
          * @since x.x.x
          * @return string
          */
-        public static function astra_generate_dark_palette_style()
+        public static function generate_dark_palette_style()
         {
         }
         /**

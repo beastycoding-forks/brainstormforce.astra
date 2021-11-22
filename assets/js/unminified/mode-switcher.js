@@ -8,7 +8,7 @@
  */
 
 // Update mode switcher atts - aria-label.
-updateSwitcherAtts = function ( switchedTo ) {
+astraUpdateSwitcherAtts = function ( switchedTo ) {
 	var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' );
 	for ( var count = 0; count < modeSwticherTrigger.length; count++ ) {
 		if( 'dark' === switchedTo ) {
@@ -20,32 +20,32 @@ updateSwitcherAtts = function ( switchedTo ) {
 }
 
 // Frontend dark mode switcher toggle.
-darkModeSwitcher = function () {
+astraDarkModeSwitcher = function () {
 
 	var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' );
 
 	if ( modeSwticherTrigger.length > 0 ) {
 
-		// Check if 'astra-prefers-color' local storage is already set.
-		var siteView = localStorage.getItem( 'astra-prefers-color' );
+		// Check if 'astra-color-mode' local storage is already set.
+		var siteView = localStorage.getItem( 'astra-color-mode' );
 
 		if ( siteView && '' !== siteView ) {
-			if ( 'dark' === siteView && ! document.documentElement.classList.contains( 'ast-dark-site' ) ) {
-				updateSwitcherAtts( 'dark' );
-				document.documentElement.classList.add( 'ast-dark-site' );
-			} else if ( 'light' === siteView && document.documentElement.classList.contains( 'ast-dark-site' ) ) {
-				updateSwitcherAtts( 'light' );
-				document.documentElement.classList.remove( 'ast-dark-site' );
+			if ( 'dark' === siteView && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+				astraUpdateSwitcherAtts( 'dark' );
+				document.documentElement.classList.add( 'ast-dark-mode' );
+			} else if ( 'light' === siteView && document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+				astraUpdateSwitcherAtts( 'light' );
+				document.documentElement.classList.remove( 'ast-dark-mode' );
 			}
 		} else if( '1' === astraModeSwitcher.carryOsPalette ) {
 			// Logic for OS Aware option to showcase site on load with their set system scheme.
 			var hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
-			if ( hasDarkSchemeSupport.matches && ! document.documentElement.classList.contains( 'ast-dark-site' ) ) {
-				updateSwitcherAtts( 'dark' );
-				document.documentElement.classList.add( 'ast-dark-site' );
-			} else if ( ! hasDarkSchemeSupport.matches && document.documentElement.classList.contains( 'ast-dark-site' ) ) {
-				updateSwitcherAtts( 'light' );
-				document.documentElement.classList.remove( 'ast-dark-site' );
+			if ( hasDarkSchemeSupport.matches && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+				astraUpdateSwitcherAtts( 'dark' );
+				document.documentElement.classList.add( 'ast-dark-mode' );
+			} else if ( ! hasDarkSchemeSupport.matches && document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+				astraUpdateSwitcherAtts( 'light' );
+				document.documentElement.classList.remove( 'ast-dark-mode' );
 			}
 		}
 
@@ -55,14 +55,14 @@ darkModeSwitcher = function () {
 				event.preventDefault();
 				event.stopPropagation();
 
-				if ( document.documentElement.classList.contains( 'ast-dark-site' ) ) {
-					updateSwitcherAtts( 'light' );
-					document.documentElement.classList.remove( 'ast-dark-site' );
-					localStorage.setItem( 'astra-prefers-color', 'light' );
+				if ( document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+					astraUpdateSwitcherAtts( 'light' );
+					document.documentElement.classList.remove( 'ast-dark-mode' );
+					localStorage.setItem( 'astra-color-mode', 'light' );
 				} else {
-					updateSwitcherAtts( 'dark' );
-					document.documentElement.classList.add( 'ast-dark-site' );
-					localStorage.setItem( 'astra-prefers-color', 'dark' );
+					astraUpdateSwitcherAtts( 'dark' );
+					document.documentElement.classList.add( 'ast-dark-mode' );
+					localStorage.setItem( 'astra-color-mode', 'dark' );
 				}
 			}
 		}
@@ -70,5 +70,5 @@ darkModeSwitcher = function () {
 }
 
 window.addEventListener( 'load', function () {
-	darkModeSwitcher();
+	astraDarkModeSwitcher();
 });

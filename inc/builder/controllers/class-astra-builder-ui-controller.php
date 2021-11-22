@@ -291,39 +291,42 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			$switcher_dark_label  = astra_get_option( $builder_type . '-mode-switcher-dark-label' );
 
 			$is_style_toggle = ( $is_pro_dark_mode_active && 'toggle' === $switcher_style ) ? true : false;
+			$light_mode_span = '<span class="ast-light-mode-wrap ast-mode-label">';
+			$dark_mode_span  = '<span class="ast-dark-mode-wrap ast-mode-label">';
+			$closing_span    = '</span>';
 
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
 			}
 			if ( 'icon' !== $switcher_type && $is_style_toggle ) {
-				echo '<span class="ast-mode-label">' . esc_html( $switcher_light_label ) . '</span>';
+				echo '<span class="ast-mode-label">' . esc_html( $switcher_light_label ) . $closing_span;
 			}
 			?>
 				<button class="ast-mode-switcher-trigger ast-<?php echo $builder_type; ?>-mode-switcher ast-switcher-<?php echo esc_attr( $switcher_type ); ?>-type <?php echo esc_attr( $switcher_style_class ); ?>" aria-label="Switch to dark mode">
 					<?php
 					switch ( $switcher_type ) {
 						case 'icon':
-							echo '<span class="ast-light-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-							echo '<span class="ast-dark-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo $light_mode_span . self::fetch_svg_icon( $switcher_light_icon ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo $dark_mode_span . self::fetch_svg_icon( $switcher_dark_icon ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							break;
 
 						case 'label':
 							if ( $is_style_toggle ) {
-								echo '<span class="ast-light-mode-wrap ast-mode-label"></span>';
-								echo '<span class="ast-dark-mode-wrap ast-mode-label"></span>';
+								echo $light_mode_span . $closing_span;
+								echo $dark_mode_span . $closing_span;
 							} else {
-								echo '<span class="ast-light-mode-wrap ast-mode-label">' . esc_html( $switcher_light_label ) . '</span>';
-								echo '<span class="ast-dark-mode-wrap ast-mode-label">' . esc_html( $switcher_dark_label ) . '</span>';
+								echo $light_mode_span . esc_html( $switcher_light_label ) . $closing_span;
+								echo $dark_mode_span . esc_html( $switcher_dark_label ) . $closing_span;
 							}
 							break;
 
 						case 'icon-with-label':
 							if ( $is_style_toggle ) {
-								echo '<span class="ast-light-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								echo '<span class="ast-dark-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo $light_mode_span . self::fetch_svg_icon( $switcher_light_icon ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo $dark_mode_span . self::fetch_svg_icon( $switcher_dark_icon ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							} else {
-								echo '<span class="ast-light-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_light_icon ) . esc_html( $switcher_light_label ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								echo '<span class="ast-dark-mode-wrap ast-mode-label">' . self::fetch_svg_icon( $switcher_dark_icon ) . esc_html( $switcher_dark_label ) . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo $light_mode_span . self::fetch_svg_icon( $switcher_light_icon ) . esc_html( $switcher_light_label ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo $dark_mode_span . self::fetch_svg_icon( $switcher_dark_icon ) . esc_html( $switcher_dark_label ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							}
 							break;
 					}
@@ -331,7 +334,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 				</button>
 			<?php
 			if ( 'icon' !== $switcher_type && $is_style_toggle ) {
-				echo '<span class="ast-mode-label">' . esc_html( $switcher_dark_label ) . '</span>';
+				echo '<span class="ast-mode-label">' . esc_html( $switcher_dark_label ) . $closing_span;
 			}
 		}
 

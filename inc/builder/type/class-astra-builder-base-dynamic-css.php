@@ -464,7 +464,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 * @return string
 		 */
-		public static function astra_generate_dark_palette_style() {
+		public static function generate_dark_palette_style() {
 
 			$variable_prefix    = Astra_Global_Palette::get_css_variable_prefix();
 			$dark_palette       = astra_get_option( 'dark-mode-palette', 'palette_2' );
@@ -477,19 +477,19 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 				foreach ( $ast_palette_config['palettes'][ $dark_palette ] as $key => $color ) {
 					$palette_key = str_replace( '--', '-', $variable_prefix ) . $key;
 
-					$palette_style[ 'html.ast-dark-site .has' . $palette_key . '-color' ] = array(
+					$palette_style[ '.ast-dark-mode .has' . $palette_key . '-color' ] = array(
 						'color' => 'var(' . $variable_prefix . $key . ')',
 					);
 
-					$palette_style[ 'html.ast-dark-site .has' . $palette_key . '-background-color' ] = array(
+					$palette_style[ '.ast-dark-mode .has' . $palette_key . '-background-color' ] = array(
 						'background-color' => 'var(' . $variable_prefix . $key . ')',
 					);
 
-					$palette_style[ 'html.ast-dark-site .wp-block-button .has' . $palette_key . '-color' ] = array(
+					$palette_style[ '.ast-dark-mode .wp-block-button .has' . $palette_key . '-color' ] = array(
 						'color' => 'var(' . $variable_prefix . $key . ')',
 					);
 
-					$palette_style[ 'html.ast-dark-site .wp-block-button .has' . $palette_key . '-background-color' ] = array(
+					$palette_style[ '.ast-dark-mode .wp-block-button .has' . $palette_key . '-background-color' ] = array(
 						'background-color' => 'var(' . $variable_prefix . $key . ')',
 					);
 
@@ -497,7 +497,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 				}
 			}
 
-			$palette_style['html.ast-dark-site'] = $palette_css_vars;
+			$palette_style['.ast-dark-mode'] = $palette_css_vars;
 			$css                                 = astra_parse_css( $palette_style );
 
 			return $css;
@@ -538,17 +538,17 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 					.ast-mode-switcher-trigger .ahfb-svg-iconset {
 						vertical-align: middle;
 					}
-					.ast-light-mode-wrap, .ast-dark-site .ast-dark-mode-wrap {
+					.ast-light-mode-wrap, .ast-dark-mode .ast-dark-mode-wrap {
 						display: none;
 					}
-					.ast-dark-site .ast-light-mode-wrap {
+					.ast-dark-mode .ast-light-mode-wrap {
 						display: block;
 					}
 				';
 
 				$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
 
-				$dynamic_css .= self::astra_generate_dark_palette_style();
+				$dynamic_css .= self::generate_dark_palette_style();
 			}
 
 			return $dynamic_css;
@@ -562,14 +562,14 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 		public function mode_preference_script() {
 			?>
 				<script type="text/javascript">
-					var siteView = localStorage.getItem( "astra-prefers-color" );
+					var siteView = localStorage.getItem( "astra-color-mode" );
 
 					if ( siteView && siteView === "dark" ) {
-						document.documentElement.classList.add( "ast-dark-site" );
+						document.documentElement.classList.add( "ast-dark-mode" );
 					}
 
-					if ( siteView && siteView === "light" && document.documentElement.classList.contains( "ast-dark-site" ) ) {
-						document.documentElement.classList.remove( "ast-dark-site" );
+					if ( siteView && siteView === "light" && document.documentElement.classList.contains( "ast-dark-mode" ) ) {
+						document.documentElement.classList.remove( "ast-dark-mode" );
 					}
 				</script>
 			<?php

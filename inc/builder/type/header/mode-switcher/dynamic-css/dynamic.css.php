@@ -30,15 +30,8 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		return $dynamic_css;
 	}
 
-	$ltr_left  = is_rtl() ? 'right' : 'left';
-	$ltr_right = is_rtl() ? 'left' : 'right';
-
-	$astra_mode_switcher_static_css = '';
-
-	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $astra_mode_switcher_static_css );
-
-	$_section = 'header-section-mode-switcher';
-	$selector = '.ast-header-mode-switcher';
+	$_section      = 'header-section-mode-switcher';
+	$selector      = '.ast-header-mode-switcher';
 	$data_selector = '[data-section="header-section-mode-switcher"]';
 
 	$light_color = astra_get_option( 'header-dark-mode-switcher-light-color' );
@@ -56,7 +49,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'color'            => esc_attr( $light_color ),
 			'background-color' => esc_attr( $dark_color ),
 		),
-		'.ast-dark-site ' . $selector          => array(
+		'.ast-dark-mode ' . $selector          => array(
 			'color'            => esc_attr( $dark_color ),
 			'background-color' => esc_attr( $light_color ),
 		),
@@ -67,7 +60,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		$selector                              => array(
 			'border-radius' => astra_get_css_value( $border_radius, 'px' ),
 		),
-		$data_selector => array(
+		$data_selector                         => array(
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
@@ -83,7 +76,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'height' => astra_get_css_value( $icon_size['tablet'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['tablet'], 'px' ),
 		),
-		$data_selector => array(
+		$data_selector                         => array(
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
@@ -99,7 +92,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'height' => astra_get_css_value( $icon_size['mobile'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['mobile'], 'px' ),
 		),
-		$data_selector => array(
+		$data_selector                         => array(
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),

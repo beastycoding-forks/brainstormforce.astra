@@ -312,6 +312,27 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 				),
 
 				/**
+				 * Option: Element Alignment.
+				 */
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[footer-mode-switcher-alignment]',
+					'default'   => astra_get_option( 'footer-mode-switcher-alignment' ),
+					'type'      => 'control',
+					'control'   => 'ast-selector',
+					'section'   => $_section,
+					'priority'  => 50,
+					'title'     => __( 'Alignment', 'astra' ),
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'left'   => 'align-left',
+						'center' => 'align-center',
+						'right'  => 'align-right',
+					),
+					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+				),
+
+				/**
 				 * Option: Margin.
 				 */
 				array(

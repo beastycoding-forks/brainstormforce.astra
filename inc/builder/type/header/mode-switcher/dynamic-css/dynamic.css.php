@@ -39,6 +39,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	$_section = 'header-section-mode-switcher';
 	$selector = '.ast-header-mode-switcher';
+	$data_selector = '[data-section="header-section-mode-switcher"]';
 
 	$light_color = astra_get_option( 'header-dark-mode-switcher-light-color' );
 	$dark_color  = astra_get_option( 'header-dark-mode-switcher-dark-color' );
@@ -65,6 +66,8 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 		),
 		$selector                              => array(
 			'border-radius' => astra_get_css_value( $border_radius, 'px' ),
+		),
+		$data_selector => array(
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'desktop' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
@@ -80,7 +83,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'height' => astra_get_css_value( $icon_size['tablet'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['tablet'], 'px' ),
 		),
-		$selector                              => array(
+		$data_selector => array(
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'tablet' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
@@ -96,7 +99,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'height' => astra_get_css_value( $icon_size['mobile'], 'px' ),
 			'width'  => astra_get_css_value( $icon_size['mobile'], 'px' ),
 		),
-		$selector                              => array(
+		$data_selector => array(
 			'margin-top'    => astra_responsive_spacing( $margin, 'top', 'mobile' ),
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
@@ -111,9 +114,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 
 	$dynamic_css .= $css_output;
 
-	if ( '' !== astra_get_option( 'header-mode-switcher-light-label' ) && '' !== astra_get_option( 'header-mode-switcher-dark-label' ) ) {
-		$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $selector );
-	}
+	$dynamic_css .= Astra_Builder_Base_Dynamic_CSS::prepare_advanced_typography_css( $_section, $data_selector );
 
 	return $dynamic_css;
 }

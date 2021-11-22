@@ -1042,7 +1042,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-dark-mode-switcher-light-color'] = 'var(' . $palette_css_var_prefix . '0)';
 	$defaults['header-dark-mode-switcher-dark-color']  = 'var(' . $palette_css_var_prefix . '6)';
 	$defaults['dark-mode-palette']                     = 'palette_2';
-	$defaults['mode-switcher-carry-os-palette']        = false;
+	$defaults['mode-switcher-carry-os-palette']        = true;
 	$defaults['header-mode-switcher-border-radius']    = 40;
 	$defaults['header-mode-switcher-icon-size']        = array(
 		'desktop' => 20,

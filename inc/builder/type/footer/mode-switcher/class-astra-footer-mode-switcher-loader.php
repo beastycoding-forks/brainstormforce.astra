@@ -45,7 +45,7 @@ class Astra_Footer_Mode_Switcher_Loader {
 
 		$astra_mode_switcher_localize = array(
 			'isDarkModeProActive' => ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) ),
-			'isTooltipEnabled' => astra_get_option( 'footer-mode-switcher-icon-tooltip', false ),
+			'isTooltipEnabled'    => astra_get_option( 'footer-mode-switcher-icon-tooltip', false ),
 		);
 		wp_localize_script( 'astra-footer-mode-switcher-preview-js', 'astraFooterModeSwitcherPreview', apply_filters( 'astra_footer_mode_switcher_preview_localize', $astra_mode_switcher_localize ) );
 	}

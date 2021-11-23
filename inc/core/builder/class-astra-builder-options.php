@@ -1081,6 +1081,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
+	$defaults['transparent-header-mode-switcher-light-color']   = '';
+	$defaults['transparent-header-mode-switcher-dark-color']   = '';
 
 	/**
 	 * Footer - Mode Switcher element.

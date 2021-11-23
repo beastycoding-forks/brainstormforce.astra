@@ -13,6 +13,7 @@
 	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544,
 		isProDarkModeActive   = astraHeaderModeSwitcherPreview.isDarkModeProActive || false,
+		isTooltipEnabled   	  = astraHeaderModeSwitcherPreview.isTooltipEnabled,
 		section = 'header-section-mode-switcher',
 		selector = '.ast-header-mode-switcher';
 
@@ -66,7 +67,7 @@
 	// Switch colors - Light color.
 	wp.customize( 'astra-settings[header-dark-mode-switcher-light-color]', function( setting ) {
 		setting.bind( function( color ) {
-			if( isProDarkModeActive ) {
+			if( isProDarkModeActive && isTooltipEnabled ) {
 				wp.customize.preview.send( 'refresh' );
 			} else {
 				var dynamicStyle = '';
@@ -84,7 +85,7 @@
 	// Switch colors - Dark color.
 	wp.customize( 'astra-settings[header-dark-mode-switcher-dark-color]', function( setting ) {
 		setting.bind( function( color ) {
-			if( isProDarkModeActive ) {
+			if( isProDarkModeActive && isTooltipEnabled ) {
 				wp.customize.preview.send( 'refresh' );
 			} else {
 				var dynamicStyle = '';

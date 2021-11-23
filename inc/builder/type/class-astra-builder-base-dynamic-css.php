@@ -516,6 +516,8 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'footer' ) || true === astra_get_option( 'enable-fixed-switch-mode', false ) ) {
 
+				$ltr_right = is_rtl() ? 'left' : 'right';
+
 				$astra_mode_switcher_static_css = '
 					.ast-mode-switcher-trigger, .ast-mode-switcher-trigger:hover, .ast-mode-switcher-trigger:focus, .ast-mode-switcher-trigger:active {
 						cursor: pointer;
@@ -526,8 +528,8 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 					.ast-mode-switcher-trigger, .ast-mode-label {
 						position: relative;
 					}
-					.ast-switcher-icon-with-label-type, .ast-switcher-label-type {
-						margin: 0 10px;
+					.ast-switcher-icon-with-label-type:not(.ast-switcher-toggle-style) .ast-mode-switcher-icon {
+						margin-' . esc_attr( $ltr_right ) . ': 5px;
 					}
 					[data-section="header-section-mode-switcher"], [data-section="footer-section-mode-switcher"], .ast-fixed-switch-wrapper {
 						display: flex;

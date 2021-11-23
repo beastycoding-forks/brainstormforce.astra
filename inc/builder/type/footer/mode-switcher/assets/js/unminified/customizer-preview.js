@@ -14,6 +14,7 @@
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544,
 		isProDarkModeActive   = astraFooterModeSwitcherPreview.isDarkModeProActive || false,
 		isTooltipEnabled   	  = astraFooterModeSwitcherPreview.isTooltipEnabled,
+		modeSwitcherStyle     = astraFooterModeSwitcherPreview.modeSwitcherStyle,
 		section = 'footer-section-mode-switcher',
 		selector = '.ast-footer-mode-switcher';
 
@@ -21,8 +22,7 @@
 	wp.customize( 'astra-settings[footer-mode-switcher-icon-size]', function( value ) {
 		value.bind( function( size ) {
 			if( size.desktop != '' || size.tablet != '' || size.mobile != '' ) {
-				var dynamicStyle = '',
-					modeSwitcherStyle = wp.customize( 'astra-settings[footer-dark-mode-switch-style]' ).get() || 'button';
+				var dynamicStyle = '';
 
 				dynamicStyle += selector + ' .ast-mode-switcher-icon {';
 				dynamicStyle += 'height: ' + size.desktop + 'px' + ';';

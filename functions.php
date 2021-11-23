@@ -66,7 +66,7 @@ require_once ASTRA_THEME_DIR . 'inc/dynamic-css/inline-on-mobile.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/content-background.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-dynamic-css.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-global-palette.php';
-
+require_once ASTRA_THEME_DIR . 'inc/dynamic-css/learndash-compatibility.php';
 /**
  * Custom template tags for this theme.
  */

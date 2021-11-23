@@ -498,7 +498,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			}
 
 			$palette_style['.ast-dark-mode'] = $palette_css_vars;
-			$css                                 = astra_parse_css( $palette_style );
+			$css                             = astra_parse_css( $palette_style );
 
 			return $css;
 		}

@@ -1052,7 +1052,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['header-dark-mode-switcher-light-color'] = 'var(' . $palette_css_var_prefix . '0)';
 	$defaults['header-dark-mode-switcher-dark-color']  = 'var(' . $palette_css_var_prefix . '6)';
 	$defaults['dark-mode-palette']                     = 'palette_2';
-	$defaults['mode-switcher-carry-os-palette']        = false;
+	$defaults['mode-switcher-carry-os-palette']        = true;
 	$defaults['header-mode-switcher-border-radius']    = 40;
 	$defaults['header-mode-switcher-icon-size']        = array(
 		'desktop' => 20,
@@ -1060,7 +1060,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 20,
 	);
 	// Label typography.
-	$defaults['font-size-header-section-mode-switcher'] = array(
+	$defaults['font-size-header-section-mode-switcher']       = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
@@ -1068,7 +1068,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults['header-section-mode-switcher-padding']   = array(
+	$defaults['header-section-mode-switcher-padding']         = array(
 		'desktop'      => array(
 			'top'    => 12,
 			'right'  => 12,
@@ -1091,6 +1091,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
+	$defaults['transparent-header-mode-switcher-light-color'] = '';
+	$defaults['transparent-header-mode-switcher-dark-color']  = '';
 
 	/**
 	 * Footer - Mode Switcher element.

@@ -104,7 +104,7 @@
 	astra_css( 'astra-settings[footer-mode-switcher-border-radius]', 'border-radius', selector, 'px' );
 
 	// Label font settings.
-	astra_responsive_font_size( 'astra-settings[font-size-footer-section-mode-switcher]', selector );
+	astra_responsive_font_size( 'astra-settings[font-size-footer-section-mode-switcher]', '[data-section="footer-section-mode-switcher"] .ast-mode-label' );
 
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( section, selector );

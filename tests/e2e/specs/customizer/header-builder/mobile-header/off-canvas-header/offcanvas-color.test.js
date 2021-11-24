@@ -6,9 +6,8 @@ describe( 'off canvas header background color and close icon color settings in t
 		const offcanvasColor = {
 			'mobile-header-type': 'full-width',
 			'off-canvas-background': {
-				'background-color': 'rgb(245, 219, 219)',
+				'background-color': 'rgb(234, 238, 180)',
 			},
-			'off-canvas-close-color': 'rgb(18, 1, 1)',
 		};
 		await setCustomize( offcanvasColor );
 
@@ -32,9 +31,5 @@ describe( 'off canvas header background color and close icon color settings in t
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner',
 			property: 'background-color',
 		} ).cssValueToBe( `${ offcanvasColor[ 'off-canvas-background' ][ 'background-color' ] }` );
-		await expect( {
-			selector: '.menu-toggle-close',
-			property: 'color',
-		} ).cssValueToBe( `${ offcanvasColor[ 'off-canvas-close-color' ] }` );
 	} );
 } );

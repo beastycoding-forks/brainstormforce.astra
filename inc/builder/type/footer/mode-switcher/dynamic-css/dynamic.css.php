@@ -44,28 +44,6 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 	$font_size     = astra_get_option( 'font-size-footer-section-mode-switcher' );
 
 	/**
-	 * Adjusting align CSS.
-	 */
-	$desktop_align_prop = 'float';
-	$desktop_align_val  = esc_attr( $alignment['desktop'] );
-	if ( 'center' === $alignment['desktop'] ) {
-		$desktop_align_prop = 'margin';
-		$desktop_align_val  = '0 auto';
-	}
-	$tablet_align_prop = 'float';
-	$tablet_align_val  = esc_attr( $alignment['tablet'] );
-	if ( 'center' === $alignment['tablet'] ) {
-		$tablet_align_prop = 'margin';
-		$tablet_align_val  = '0 auto';
-	}
-	$mobile_align_prop = 'float';
-	$mobile_align_val  = esc_attr( $alignment['mobile'] );
-	if ( 'center' === $alignment['mobile'] ) {
-		$mobile_align_prop = 'margin';
-		$mobile_align_val  = '0 auto';
-	}
-
-	/**
 	 * Mode Switcher - Desktop CSS.
 	 */
 	$css_output_desktop = array(
@@ -85,12 +63,11 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 			'border-radius' => astra_get_css_value( $border_radius, 'px' ),
 		),
 		$data_selector                         => array(
-			'width'             => 'fit-content',
-			$desktop_align_prop => $desktop_align_val,
-			'margin-top'        => astra_responsive_spacing( $margin, 'top', 'desktop' ),
-			'margin-bottom'     => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
-			'margin-left'       => astra_responsive_spacing( $margin, 'left', 'desktop' ),
-			'margin-right'      => astra_responsive_spacing( $margin, 'right', 'desktop' ),
+			'justify-content' => esc_attr( $alignment['desktop'] ),
+			'margin-top'      => astra_responsive_spacing( $margin, 'top', 'desktop' ),
+			'margin-bottom'   => astra_responsive_spacing( $margin, 'bottom', 'desktop' ),
+			'margin-left'     => astra_responsive_spacing( $margin, 'left', 'desktop' ),
+			'margin-right'    => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 		),
 		$data_selector . ' .ast-mode-label'    => array(
 			'font-size' => astra_responsive_font( $font_size, 'desktop' ),
@@ -106,11 +83,11 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 			'width'  => astra_get_css_value( $icon_size['tablet'], 'px' ),
 		),
 		$data_selector                         => array(
-			$tablet_align_prop => $tablet_align_val,
-			'margin-top'       => astra_responsive_spacing( $margin, 'top', 'tablet' ),
-			'margin-bottom'    => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
-			'margin-left'      => astra_responsive_spacing( $margin, 'left', 'tablet' ),
-			'margin-right'     => astra_responsive_spacing( $margin, 'right', 'tablet' ),
+			'justify-content' => esc_attr( $alignment['tablet'] ),
+			'margin-top'      => astra_responsive_spacing( $margin, 'top', 'tablet' ),
+			'margin-bottom'   => astra_responsive_spacing( $margin, 'bottom', 'tablet' ),
+			'margin-left'     => astra_responsive_spacing( $margin, 'left', 'tablet' ),
+			'margin-right'    => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 		),
 		$data_selector . ' .ast-mode-label'    => array(
 			'font-size' => astra_responsive_font( $font_size, 'tablet' ),
@@ -126,11 +103,11 @@ function astra_footer_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filt
 			'width'  => astra_get_css_value( $icon_size['mobile'], 'px' ),
 		),
 		$data_selector                         => array(
-			$mobile_align_prop => $mobile_align_val,
-			'margin-top'       => astra_responsive_spacing( $margin, 'top', 'mobile' ),
-			'margin-bottom'    => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
-			'margin-left'      => astra_responsive_spacing( $margin, 'left', 'mobile' ),
-			'margin-right'     => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+			'justify-content' => esc_attr( $alignment['mobile'] ),
+			'margin-top'      => astra_responsive_spacing( $margin, 'top', 'mobile' ),
+			'margin-bottom'   => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
+			'margin-left'     => astra_responsive_spacing( $margin, 'left', 'mobile' ),
+			'margin-right'    => astra_responsive_spacing( $margin, 'right', 'mobile' ),
 		),
 		$data_selector . ' .ast-mode-label'    => array(
 			'font-size' => astra_responsive_font( $font_size, 'mobile' ),

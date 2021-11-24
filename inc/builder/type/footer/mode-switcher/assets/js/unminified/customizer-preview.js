@@ -95,27 +95,21 @@
 	wp.customize( 'astra-settings[footer-mode-switcher-alignment]', function( value ) {
         value.bind( function( alignment ) {
             if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
-                var dynamicStyle = '',
-					desktopAlignProp = ( 'center' === alignment['desktop'] ) ? 'float: unset; margin' : 'float',
-					desktopAlignval = ( 'center' === alignment['desktop'] ) ? '0 auto' : alignment['desktop'],
-					tabletAlignProp = ( 'center' === alignment['tablet'] ) ? 'float: unset; margin' : 'float',
-					tabletAlignval = ( 'center' === alignment['tablet'] ) ? '0 auto' : alignment['tablet'],
-					mobileAlignProp = ( 'center' === alignment['mobile'] ) ? 'float: unset; margin' : 'float',
-					mobileAlignval = ( 'center' === alignment['mobile'] ) ? '0 auto' : alignment['mobile'];
+                var dynamicStyle = '';
 
                 dynamicStyle += '[data-section="footer-section-mode-switcher"] {';
-                dynamicStyle += desktopAlignProp + ': ' + desktopAlignval + ';';
+                dynamicStyle += 'justify-content: ' + alignment['desktop'] + ';';
                 dynamicStyle += '} ';
 
                 dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
                 dynamicStyle += '[data-section="footer-section-mode-switcher"] {';
-                dynamicStyle += tabletAlignProp + ': ' + tabletAlignval + ';';
+                dynamicStyle += 'justify-content: ' + alignment['tablet'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 
                 dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
                 dynamicStyle += '[data-section="footer-section-mode-switcher"] {';
-                dynamicStyle += mobileAlignProp + ': ' + mobileAlignval + ';';
+                dynamicStyle += 'justify-content: ' + alignment['mobile'] + ';';
                 dynamicStyle += '} ';
                 dynamicStyle += '} ';
 

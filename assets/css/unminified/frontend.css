@@ -1856,10 +1856,6 @@ body {
   margin: 0;
 }
 
-.wp-block-separator {
-  max-width: 100px;
-}
-
 .wp-block-separator.is-style-wide {
   max-width: none;
 }

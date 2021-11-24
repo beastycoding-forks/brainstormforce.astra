@@ -30,4 +30,3 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 		} ).cssValueToBe( `${ flyoutAlignment[ 'header-offcanvas-content-alignment' ] }` );
 	} );
 } );
-

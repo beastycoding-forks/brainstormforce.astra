@@ -7,14 +7,25 @@
  * @since x.x.x
  */
 
-// Update mode switcher atts - aria-label.
+// Update mode switcher atts.
 astraUpdateSwitcherAtts = function ( switchedTo ) {
+	// Update aria-label attr.
 	var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' );
 	for ( var count = 0; count < modeSwticherTrigger.length; count++ ) {
 		if( 'dark' === switchedTo ) {
 			modeSwticherTrigger[ count ].setAttribute( 'aria-label', astraModeSwitcher.switchToLightMode );
 		} else {
 			modeSwticherTrigger[ count ].setAttribute( 'aria-label', astraModeSwitcher.switchToDarkMode );
+		}
+	}
+
+	// Update title attr.
+	var modeSwticherIconButtons =  document.querySelectorAll( '.ast-switcher-icon-type.ast-switcher-button-style' );
+	for ( var count = 0; count < modeSwticherIconButtons.length; count++ ) {
+		if( 'dark' === switchedTo ) {
+			modeSwticherIconButtons[ count ].setAttribute( 'title', astraModeSwitcher.switchToLightMode );
+		} else {
+			modeSwticherIconButtons[ count ].setAttribute( 'title', astraModeSwitcher.switchToDarkMode );
 		}
 	}
 }
@@ -30,11 +41,10 @@ astraDarkModeSwitcher = function () {
 		var siteView = localStorage.getItem( 'astra-color-mode' );
 
 		if ( siteView && '' !== siteView ) {
+			astraUpdateSwitcherAtts( siteView );
 			if ( 'dark' === siteView && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
-				astraUpdateSwitcherAtts( 'dark' );
 				document.documentElement.classList.add( 'ast-dark-mode' );
 			} else if ( 'light' === siteView && document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
-				astraUpdateSwitcherAtts( 'light' );
 				document.documentElement.classList.remove( 'ast-dark-mode' );
 			}
 		} else if( '1' === astraModeSwitcher.carryOsPalette ) {

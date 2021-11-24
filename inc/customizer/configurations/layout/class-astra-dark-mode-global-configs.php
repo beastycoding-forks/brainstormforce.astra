@@ -97,6 +97,51 @@ class Astra_Dark_Mode_Global_Configs extends Astra_Customizer_Config_Base {
 				'help'     => __( 'Use users system settings to choose default palette on site load.', 'astra' ),
 				'context'  => Astra_Builder_Helper::$general_tab,
 			),
+
+			/**
+			 * Option: Tooltip message divider.
+			 */
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[dark-mode-tooltip-message-divider]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'title'    => __( 'Tooltip Messages', 'astra' ),
+				'priority' => 25,
+				'settings' => array(),
+				'context'  => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
+			 * Option: Switcher Custom Light Mode Tooltip Message
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[mode-switcher-light-tooltip-message]',
+				'transport' => 'postMessage',
+				'default'   => astra_get_option( 'mode-switcher-light-tooltip-message' ),
+				'section'   => $_section,
+				'priority'  => 30,
+				'title'     => __( 'Light Mode', 'astra' ),
+				'type'      => 'control',
+				'control'   => 'text',
+				'context'   => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
+			 * Option: Switcher Custom Dark Mode Tooltip Message
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[mode-switcher-dark-tooltip-message]',
+				'transport' => 'postMessage',
+				'default'   => astra_get_option( 'mode-switcher-dark-tooltip-message' ),
+				'section'   => $_section,
+				'priority'  => 35,
+				'title'     => __( 'Dark Mode', 'astra' ),
+				'type'      => 'control',
+				'control'   => 'text',
+				'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
+				'context'   => Astra_Builder_Helper::$general_tab,
+			),
 		);
 
 		return array_merge( $configurations, $_configs );

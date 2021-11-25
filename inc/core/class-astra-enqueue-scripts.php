@@ -325,10 +325,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) ) {
 				$astra_mode_switcher_localize = array(
-					'carryOsPalette'      => astra_get_option( 'mode-switcher-carry-os-palette', true ),
-					'switchToDarkMode'    => __( 'Switch to dark mode', 'astra' ),
-					'switchToLightMode'   => __( 'Switch to light mode', 'astra' ),
-					'isDarkModeProActive' => ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) ),
+					'carryOsPalette'    => astra_get_option( 'mode-switcher-carry-os-palette', true ),
+					'switchToLightMode' => astra_get_option( 'mode-switcher-light-tooltip-message' ),
+					'switchToDarkMode'  => astra_get_option( 'mode-switcher-dark-tooltip-message' ),
 				);
 				wp_localize_script( 'astra-theme-mode-switcher', 'astraModeSwitcher', apply_filters( 'astra_mode_switcher_localize', $astra_mode_switcher_localize ) );
 			}

@@ -5,7 +5,9 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 	it( 'flyout header alignment type should apply correctly', async () => {
 		const flyoutbackColor = {
 			'mobile-header-type': 'off-canvas',
-			'off-canvas-background': 'rgb(175, 237, 230)',
+			'off-canvas-background': {
+				'background-color': 'rgb(238, 249, 200)',
+			},
 		};
 		await setCustomize( flyoutbackColor );
 		await createNewPost( {
@@ -27,6 +29,6 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner',
 			property: 'background-color',
-		} ).cssValueToBe( `${ flyoutbackColor[ 'off-canvas-background' ] }` );
+		} ).cssValueToBe( `${ flyoutbackColor[ 'off-canvas-background' ][ 'background-color' ] }` );
 	} );
 } );

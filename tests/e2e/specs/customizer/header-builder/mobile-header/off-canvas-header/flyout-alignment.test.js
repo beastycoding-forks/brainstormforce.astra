@@ -2,7 +2,7 @@ import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'off canvas flyout header type settings in the customizer', () => {
-	it( 'flyout header alignment type should apply correctly', async () => {
+	it( 'flyout header alignment center type should apply correctly', async () => {
 		const flyoutAlignment = {
 			'mobile-header-type': 'off-canvas',
 			'header-offcanvas-content-alignment': 'center',
@@ -23,10 +23,10 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 		} );
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-builder-menu .main-navigation > ul' );
+		await page.waitForSelector( '.content-align-center .main-header-menu' );
 		await expect( {
-			selector: '.ast-builder-menu .main-navigation > ul',
-			property: 'align-self',
+			selector: '.content-align-center .main-header-menu',
+			property: 'text-align',
 		} ).cssValueToBe( `${ flyoutAlignment[ 'header-offcanvas-content-alignment' ] }` );
 	} );
 } );

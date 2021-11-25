@@ -3,6 +3,7 @@ v3.8.0 (Unreleased)
 - Fix: Mobile menu does not close when you click a one page navigation link inside them.
 - Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
 - Fix: Removed unwanted title and desc tag present for search icon.
+- Fix: WooCommerce Pagination markup misaligned on mobile devices.
 
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.

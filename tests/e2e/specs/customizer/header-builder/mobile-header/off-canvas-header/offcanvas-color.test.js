@@ -6,7 +6,7 @@ describe( 'Off-Canvas header background color setting in the customizer', () => 
 		const offCanvasColor = {
 			'mobile-header-type': 'full-width',
 			'off-canvas-background': {
-				'background-color': 'rgb(248, 248, 248)',
+				'background-color': 'rgb(255, 242, 242)',
 			},
 		};
 		await setCustomize( offCanvasColor );

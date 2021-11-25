@@ -5,7 +5,7 @@ describe( 'Off-Canvas header close icon color setting in the customizer', () => 
 	it( 'close icon color for Off-Canvas header should apply correctly', async () => {
 		const closeIconColor = {
 			'mobile-header-type': 'full-width',
-			'off-canvas-close-color': 'rgb(173, 0, 0)',
+			'off-canvas-close-color': 'rgb(21, 21, 21)',
 
 		};
 		await setCustomize( closeIconColor );

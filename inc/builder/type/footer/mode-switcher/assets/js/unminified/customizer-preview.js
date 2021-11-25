@@ -91,6 +91,33 @@
 		});
 	});
 
+	// Element alignment.
+	wp.customize( 'astra-settings[footer-mode-switcher-alignment]', function( value ) {
+        value.bind( function( alignment ) {
+            if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
+                var dynamicStyle = '';
+
+                dynamicStyle += '[data-section="footer-section-mode-switcher"] {';
+                dynamicStyle += 'justify-content: ' + alignment['desktop'] + ';';
+                dynamicStyle += '} ';
+
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+                dynamicStyle += '[data-section="footer-section-mode-switcher"] {';
+                dynamicStyle += 'justify-content: ' + alignment['tablet'] + ';';
+                dynamicStyle += '} ';
+                dynamicStyle += '} ';
+
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+                dynamicStyle += '[data-section="footer-section-mode-switcher"] {';
+                dynamicStyle += 'justify-content: ' + alignment['mobile'] + ';';
+                dynamicStyle += '} ';
+                dynamicStyle += '} ';
+
+                astra_add_dynamic_css( 'footer-mode-switcher-alignment', dynamicStyle );
+            }
+        } );
+    } );
+
 	// Misc preview support.
 	astra_css( 'astra-settings[footer-mode-switcher-border-radius]', 'border-radius', selector, 'px' );
 

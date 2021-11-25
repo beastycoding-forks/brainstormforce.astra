@@ -4,39 +4,40 @@ import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'off canvas menu design settings in the customizer', () => {
 	it( 'off canvas menu design settings should apply corectly for after header', async () => {
 		const offCanvasMenuDesign = {
-			'header-mobile-menu-color-responsive': {
-				tablet: 'rgb(25, 7, 0)',
-				mobile: 'rgb(25, 7, 0)',
+			'customize-control-astra-settings-mobile-header-type': 'dropdown',
+			'astra-settings[header-mobile-menu-color-responsive]': {
+				tablet: 'rgb(211, 83, 83)',
+				mobile: 'rgb(211, 83, 83)',
 			},
 			// 'header-mobile-menu-h-color-responsive': {
 			// 	tablet: 'rgb(2, 7, 100)',
 			// 	mobile: 'rgb(2, 7, 100)',
 			// },
-			'header-mobile-menu-a-color-responsive': {
-				tablet: 'rgb(252, 252, 252)',
-				mobile: 'rgb(252, 252, 252)',
+			'astra-settings[header-mobile-menu-a-color-responsive]': {
+				tablet: 'rgb(23, 46, 207)',
+				mobile: 'rgb(23, 46, 207)',
 			},
-			'header-mobile-menu-bg-obj-responsive': {
-				tablet: 'rgb(25, 7, 0)',
-				mobile: 'rgb(25, 7, 0)',
+			'astra-settings[header-mobile-menu-bg-obj-responsive]': {
+				tablet: 'rgb(199, 156, 156)',
+				mobile: 'rgb(199, 156, 156)',
 			},
 			// 'header-mobile-menu-h-bg-color-responsive': {
 			// 	tablet: 'rgb(25, 7, 0)',
 			// 	mobile: 'rgb(25, 7, 0)',
 			// },
-			'header-mobile-menu-a-bg-color-responsive': {
-				tablet: 'rgb(25, 7, 0)',
-				mobile: 'rgb(25, 7, 0)',
+			'astra-settings[header-mobile-menu-a-bg-color-responsive]': {
+				tablet: 'rgb(51, 24, 24)',
+				mobile: 'rgb(51, 24, 24)',
 			},
-			'header-mobile-menu-font-family': 'Raleway',
-			'header-mobile-menu-font-size': {
+			//'customize-control-header-mobile-menu-font-family': 'Segoe UI',
+			'customize-control-header-mobile-menu-font-size': {
 				tablet: 30,
 				mobile: 20,
 			},
-			'header-mobile-menu-font-weight': 900,
-			'header-mobile-menu-text-transform': 'uppercase',
-			'header-mobile-menu-line-height': 1,
-			'header-mobile-menu-menu-spacing': {
+			'customize-control-header-mobile-menu-font-weight': 900,
+			'customize-control-header-mobile-menu-text-transform': 'uppercase',
+			'customize-control-header-mobile-menu-line-height': 1,
+			'customize-control-astra-settings-header-mobile-menu-menu-spacing': {
 				tablet: {
 					top: 5,
 					right: 5,
@@ -52,7 +53,7 @@ describe( 'off canvas menu design settings in the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-			'section-header-mobile-menu-margin': {
+			'customize-control-astra-settings-section-header-mobile-menu-margin': {
 				tablet: {
 					top: 5,
 					right: 5,
@@ -90,7 +91,7 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-color-responsive' ].tablet }`,
+			`${ offCanvasMenuDesign[ 'astra-settings[header-mobile-menu-color-responsive]' ].tablet }`,
 		);
 		await setBrowserViewport( 'small' );
 		await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
@@ -98,7 +99,7 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-color-responsive' ].mobile }`,
+			`${ offCanvasMenuDesign[ 'astra-settings[header-mobile-menu-color-responsive]' ].mobile }`,
 		);
 
 		await setBrowserViewport( 'medium' );
@@ -107,7 +108,7 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-color-responsive' ].tablet }`,
+			`${ offCanvasMenuDesign[ 'astra-settings[header-mobile-menu-a-color-responsive]' ].tablet }`,
 		);
 		await setBrowserViewport( 'small' );
 		await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
@@ -115,7 +116,7 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-color-responsive' ].mobile }`,
+			`${ offCanvasMenuDesign[ 'astra-settings[header-mobile-menu-a-color-responsive]' ].mobile }`,
 		);
 
 		await setBrowserViewport( 'medium' );
@@ -124,7 +125,7 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-bg-obj-responsive' ].tablet }`,
+			`${ offCanvasMenuDesign[ 'astra-settings[header-mobile-menu-bg-obj-responsive]' ].tablet }`,
 		);
 		await setBrowserViewport( 'small' );
 		await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
@@ -132,7 +133,7 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-bg-obj-responsive' ].mobile }`,
+			`${ offCanvasMenuDesign[ 'astra-settings[header-mobile-menu-bg-obj-responsive]' ].mobile }`,
 		);
 
 		await setBrowserViewport( 'medium' );
@@ -141,7 +142,7 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].tablet }`,
+			`${ offCanvasMenuDesign[ 'astra-settings[header-mobile-menu-a-bg-color-responsive]' ].tablet }`,
 		);
 		await setBrowserViewport( 'small' );
 		await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
@@ -149,23 +150,23 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].mobile }`,
+			`${ offCanvasMenuDesign[ 'astra-settings[header-mobile-menu-a-bg-color-responsive]' ].mobile }`,
 		);
 
 		await setBrowserViewport( 'medium' );
-		await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
-		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
-			property: 'font-family',
-		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-family' ] }`,
-		);
+		// await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
+		// await expect( {
+		// 	selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+		// 	property: 'font-family',
+		// } ).cssValueToBe(
+		// 	`${ offCanvasMenuDesign[ 'customize-control-header-mobile-menu-font-family' ] }`,
+		// );
 
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-size' ].tablet }`,
+			`${ offCanvasMenuDesign[ 'customize-control-header-mobile-menu-font-size' ].tablet + 'px' }`,
 		);
 		await setBrowserViewport( 'small' );
 		await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
@@ -173,7 +174,7 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-size' ].mobile }`,
+			`${ offCanvasMenuDesign[ 'customize-control-header-mobile-menu-font-size' ].mobile + 'px' }`,
 		);
 
 		await setBrowserViewport( 'medium' );
@@ -182,39 +183,39 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation',
 			property: 'font-weight',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-weight' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-header-mobile-menu-font-weight' ] }`,
 		);
 
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
 			property: 'line-height',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-text-transform' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-header-mobile-menu-text-transform' ] }`,
 		);
 
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-top',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ].tablet.top }${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-right',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ].tablet.right }${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-bottom',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ].tablet.bottom }${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-left',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ].tablet.left }${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'small' );
@@ -223,52 +224,79 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-top',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ].mobile.top }${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-right',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ].mobile.right }${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-bottom',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ].mobile.bottom }${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
 		);
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-left',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ].mobile.left }${ offCanvasMenuDesign[ 'customize-control-astra-settings-header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'medium ' );
 		await page.click( '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link' );
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			property: 'padding-top',
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-top',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ].tablet.top }${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			property: 'padding-right',
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-right',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ].tablet.right }${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			property: 'padding-bottom',
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-bottom',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ].tablet.bottom }${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			property: 'padding-left',
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-left',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ].tablet.left }${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
+		);
+
+		await setBrowserViewport( 'small' );
+		await page.click( '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link' );
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-top',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ].mobile.top }${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-right',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ].mobile.right }${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-bottom',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.bottom }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-left',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ].mobile.left }${ offCanvasMenuDesign[ 'customize-control-astra-settings-section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
 		);
 	} );
 } );

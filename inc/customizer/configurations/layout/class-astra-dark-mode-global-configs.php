@@ -142,6 +142,18 @@ class Astra_Dark_Mode_Global_Configs extends Astra_Customizer_Config_Base {
 				'divider'   => array( 'ast_class' => 'ast-bottom-divider' ),
 				'context'   => Astra_Builder_Helper::$general_tab,
 			),
+
+			// Option: Tololtip message info.
+			array(
+				'name'     => ASTRA_THEME_SETTINGS . '[mode-icon-tooltip-description]',
+				'type'     => 'control',
+				'control'  => 'ast-description',
+				'section'  => $_section,
+				'priority' => 36,
+				'label'    => '',
+				'help'     => __( 'Tooltip message appears when Switch Type is set to Icon.', 'astra' ),
+				'context'  => Astra_Builder_Helper::$general_tab,
+			),
 		);
 
 		return array_merge( $configurations, $_configs );

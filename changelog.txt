@@ -5,6 +5,8 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 - New: WooCommerce - Added cart icon hover color option.
 - New: WooCommerce - Added cart Margin and Padding spacing option.
 - New: WooCommerce - Added cart total Label position option.
+- Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
+- Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
 
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
@@ -19,6 +21,7 @@ v3.7.4
 - Improvement: Gutenberg frontend blocks UI improvement. ( https://wpastra.com/docs/gutenberg-ui-improvements-with-astra/ )
 - Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.
 - Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( https://wpastra.com/astra-3-7-4/ )
+- Improvement: Added Background color and hover color for WooCommerce Cart.
 - Fix: W3 validation - Getting duplicate H1 tag for site-title.
 - Fix: W3 validation - Duplicate HTML id '#site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validation - CSS parse error for '.menu-link' & '.wp-block-button__link'.

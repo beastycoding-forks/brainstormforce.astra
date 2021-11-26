@@ -47,7 +47,8 @@
 }
 
 .wp-block-separator {
-	&.is-style-wide {
+	max-width: 100px;
+	&.is-style-wide, &.is-style-dots {
 		max-width: none;
 	}
 }

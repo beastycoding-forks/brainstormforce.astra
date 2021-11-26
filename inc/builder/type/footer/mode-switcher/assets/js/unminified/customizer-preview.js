@@ -12,8 +12,6 @@
 
 	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544,
-		isProDarkModeActive   = astraFooterModeSwitcherPreview.isDarkModeProActive || false,
-		isTooltipEnabled   	  = astraFooterModeSwitcherPreview.isTooltipEnabled,
 		modeSwitcherStyle     = astraFooterModeSwitcherPreview.modeSwitcherStyle,
 		section = 'footer-section-mode-switcher',
 		selector = '.ast-footer-mode-switcher';
@@ -29,7 +27,7 @@
 				dynamicStyle += 'width: ' + size.desktop + 'px' + ';';
 				dynamicStyle += '} ';
 				if( 'toggle' === modeSwitcherStyle ) {
-					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-switcher-toggle-style:not(.ast-switcher-label-type):after {';
+					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-toggle:after, [data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-with-label-toggle:after {';
 					dynamicStyle += 'width: calc( ' + size.desktop + 'px' + ' + 0.4em );';
 					dynamicStyle += 'height: calc( ' + size.desktop + 'px' + ' + 0.4em );';
 					dynamicStyle += '} ';
@@ -41,7 +39,7 @@
 				dynamicStyle += 'width: ' + size.tablet + 'px' + ';';
 				dynamicStyle += '} ';
 				if( 'toggle' === modeSwitcherStyle ) {
-					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-switcher-toggle-style:not(.ast-switcher-label-type):after {';
+					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-toggle:after, [data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-with-label-toggle:after {';
 					dynamicStyle += 'width: calc( ' + size.tablet + 'px' + ' + 0.4em );';
 					dynamicStyle += 'height: calc( ' + size.tablet + 'px' + ' + 0.4em );';
 					dynamicStyle += '} ';
@@ -54,7 +52,7 @@
 				dynamicStyle += 'width: ' + size.mobile + 'px' + ';';
 				dynamicStyle += '} ';
 				if( 'toggle' === modeSwitcherStyle ) {
-					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-switcher-toggle-style:not(.ast-switcher-label-type):after {';
+					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-toggle:after, [data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-with-label-toggle:after {';
 					dynamicStyle += 'width: calc( ' + size.mobile + 'px' + ' + 0.4em );';
 					dynamicStyle += 'height: calc( ' + size.mobile + 'px' + ' + 0.4em );';
 					dynamicStyle += '} ';
@@ -68,7 +66,7 @@
 	// Switch colors - Light color.
 	wp.customize( 'astra-settings[footer-dark-mode-switcher-light-color]', function( setting ) {
 		setting.bind( function( color ) {
-			if( isProDarkModeActive && isTooltipEnabled ) {
+			if( 'toggle' === modeSwitcherStyle ) {
 				wp.customize.preview.send( 'refresh' );
 			} else {
 				var dynamicStyle = '';
@@ -86,7 +84,7 @@
 	// Switch colors - Dark color.
 	wp.customize( 'astra-settings[footer-dark-mode-switcher-dark-color]', function( setting ) {
 		setting.bind( function( color ) {
-			if( isProDarkModeActive && isTooltipEnabled ) {
+			if( 'toggle' === modeSwitcherStyle ) {
 				wp.customize.preview.send( 'refresh' );
 			} else {
 				var dynamicStyle = '';
@@ -101,11 +99,38 @@
 		});
 	});
 
+	// Element alignment.
+	wp.customize( 'astra-settings[footer-mode-switcher-alignment]', function( value ) {
+        value.bind( function( alignment ) {
+            if( alignment.desktop != '' || alignment.tablet != '' || alignment.mobile != '' ) {
+                var dynamicStyle = '';
+
+                dynamicStyle += '[data-section="footer-section-mode-switcher"] {';
+                dynamicStyle += 'justify-content: ' + alignment['desktop'] + ';';
+                dynamicStyle += '} ';
+
+                dynamicStyle +=  '@media (max-width: ' + tablet_break_point + 'px) {';
+                dynamicStyle += '[data-section="footer-section-mode-switcher"] {';
+                dynamicStyle += 'justify-content: ' + alignment['tablet'] + ';';
+                dynamicStyle += '} ';
+                dynamicStyle += '} ';
+
+                dynamicStyle +=  '@media (max-width: ' + mobile_break_point + 'px) {';
+                dynamicStyle += '[data-section="footer-section-mode-switcher"] {';
+                dynamicStyle += 'justify-content: ' + alignment['mobile'] + ';';
+                dynamicStyle += '} ';
+                dynamicStyle += '} ';
+
+                astra_add_dynamic_css( 'footer-mode-switcher-alignment', dynamicStyle );
+            }
+        } );
+    } );
+
 	// Misc preview support.
 	astra_css( 'astra-settings[footer-mode-switcher-border-radius]', 'border-radius', selector, 'px' );
 
 	// Label font settings.
-	astra_responsive_font_size( 'astra-settings[font-size-footer-section-mode-switcher]', selector );
+	astra_responsive_font_size( 'astra-settings[font-size-footer-section-mode-switcher]', '[data-section="footer-section-mode-switcher"] .ast-mode-label' );
 
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( section, selector );

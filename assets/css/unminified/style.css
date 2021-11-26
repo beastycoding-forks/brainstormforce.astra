@@ -3615,7 +3615,11 @@ li.ast-masthead-custom-menu-items .ast-search-icon .astra-search-icon {
   margin: 0;
 }
 
-.wp-block-separator.is-style-wide {
+.wp-block-separator {
+  max-width: 100px;
+}
+
+.wp-block-separator.is-style-wide, .wp-block-separator.is-style-dots {
   max-width: none;
 }
 

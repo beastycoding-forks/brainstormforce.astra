@@ -12,8 +12,6 @@
 
 	var tablet_break_point    = astraBuilderPreview.tablet_break_point || 768,
 		mobile_break_point    = astraBuilderPreview.mobile_break_point || 544,
-		isProDarkModeActive   = astraHeaderModeSwitcherPreview.isDarkModeProActive || false,
-		isTooltipEnabled   	  = astraHeaderModeSwitcherPreview.isTooltipEnabled,
 		modeSwitcherStyle     = astraHeaderModeSwitcherPreview.modeSwitcherStyle,
 		section = 'header-section-mode-switcher',
 		selector = '.ast-header-mode-switcher';
@@ -28,7 +26,7 @@
 				dynamicStyle += 'width: ' + size.desktop + 'px' + ';';
 				dynamicStyle += '} ';
 				if( 'toggle' === modeSwitcherStyle ) {
-					dynamicStyle += '[data-section="header-section-mode-switcher"] .ast-switcher-toggle-style:not(.ast-switcher-label-type):after {';
+					dynamicStyle += '[data-section="header-section-mode-switcher"] .ast-mode-switcher-icon-toggle:after, [data-section="header-section-mode-switcher"] .ast-mode-switcher-icon-with-label-toggle:after {';
 					dynamicStyle += 'width: calc( ' + size.desktop + 'px' + ' + 0.4em );';
 					dynamicStyle += 'height: calc( ' + size.desktop + 'px' + ' + 0.4em );';
 					dynamicStyle += '} ';
@@ -40,7 +38,7 @@
 				dynamicStyle += 'width: ' + size.tablet + 'px' + ';';
 				dynamicStyle += '} ';
 				if( 'toggle' === modeSwitcherStyle ) {
-					dynamicStyle += '[data-section="header-section-mode-switcher"] .ast-switcher-toggle-style:not(.ast-switcher-label-type):after {';
+					dynamicStyle += '[data-section="header-section-mode-switcher"] .ast-mode-switcher-icon-toggle:after, [data-section="header-section-mode-switcher"] .ast-mode-switcher-icon-with-label-toggle:after {';
 					dynamicStyle += 'width: calc( ' + size.tablet + 'px' + ' + 0.4em );';
 					dynamicStyle += 'height: calc( ' + size.tablet + 'px' + ' + 0.4em );';
 					dynamicStyle += '} ';
@@ -53,7 +51,7 @@
 				dynamicStyle += 'width: ' + size.mobile + 'px' + ';';
 				dynamicStyle += '} ';
 				if( 'toggle' === modeSwitcherStyle ) {
-					dynamicStyle += '[data-section="header-section-mode-switcher"] .ast-switcher-toggle-style:not(.ast-switcher-label-type):after {';
+					dynamicStyle += '[data-section="header-section-mode-switcher"] .ast-mode-switcher-icon-toggle:after, [data-section="header-section-mode-switcher"] .ast-mode-switcher-icon-with-label-toggle:after {';
 					dynamicStyle += 'width: calc( ' + size.mobile + 'px' + ' + 0.4em );';
 					dynamicStyle += 'height: calc( ' + size.mobile + 'px' + ' + 0.4em );';
 					dynamicStyle += '} ';
@@ -67,7 +65,7 @@
 	// Switch colors - Light color.
 	wp.customize( 'astra-settings[header-dark-mode-switcher-light-color]', function( setting ) {
 		setting.bind( function( color ) {
-			if( isProDarkModeActive && isTooltipEnabled ) {
+			if( 'toggle' === modeSwitcherStyle ) {
 				wp.customize.preview.send( 'refresh' );
 			} else {
 				var dynamicStyle = '';
@@ -85,7 +83,7 @@
 	// Switch colors - Dark color.
 	wp.customize( 'astra-settings[header-dark-mode-switcher-dark-color]', function( setting ) {
 		setting.bind( function( color ) {
-			if( isProDarkModeActive && isTooltipEnabled ) {
+			if( 'toggle' === modeSwitcherStyle ) {
 				wp.customize.preview.send( 'refresh' );
 			} else {
 				var dynamicStyle = '';
@@ -104,7 +102,7 @@
 	astra_css( 'astra-settings[header-mode-switcher-border-radius]', 'border-radius', selector, 'px' );
 
 	// Label font settings.
-	astra_responsive_font_size( 'astra-settings[font-size-header-section-mode-switcher]', selector );
+	astra_responsive_font_size( 'astra-settings[font-size-header-section-mode-switcher]', '[data-section="header-section-mode-switcher"] .ast-mode-label' );
 
 	// Advanced CSS Generation.
 	astra_builder_advanced_css( section, selector );

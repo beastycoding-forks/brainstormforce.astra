@@ -27,7 +27,7 @@
 				dynamicStyle += 'width: ' + size.desktop + 'px' + ';';
 				dynamicStyle += '} ';
 				if( 'toggle' === modeSwitcherStyle ) {
-					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-switcher-toggle-style:not(.ast-switcher-label-type):after {';
+					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-toggle:after, [data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-with-label-toggle:after {';
 					dynamicStyle += 'width: calc( ' + size.desktop + 'px' + ' + 0.4em );';
 					dynamicStyle += 'height: calc( ' + size.desktop + 'px' + ' + 0.4em );';
 					dynamicStyle += '} ';
@@ -39,7 +39,7 @@
 				dynamicStyle += 'width: ' + size.tablet + 'px' + ';';
 				dynamicStyle += '} ';
 				if( 'toggle' === modeSwitcherStyle ) {
-					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-switcher-toggle-style:not(.ast-switcher-label-type):after {';
+					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-toggle:after, [data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-with-label-toggle:after {';
 					dynamicStyle += 'width: calc( ' + size.tablet + 'px' + ' + 0.4em );';
 					dynamicStyle += 'height: calc( ' + size.tablet + 'px' + ' + 0.4em );';
 					dynamicStyle += '} ';
@@ -52,7 +52,7 @@
 				dynamicStyle += 'width: ' + size.mobile + 'px' + ';';
 				dynamicStyle += '} ';
 				if( 'toggle' === modeSwitcherStyle ) {
-					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-switcher-toggle-style:not(.ast-switcher-label-type):after {';
+					dynamicStyle += '[data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-toggle:after, [data-section="footer-section-mode-switcher"] .ast-mode-switcher-icon-with-label-toggle:after {';
 					dynamicStyle += 'width: calc( ' + size.mobile + 'px' + ' + 0.4em );';
 					dynamicStyle += 'height: calc( ' + size.mobile + 'px' + ' + 0.4em );';
 					dynamicStyle += '} ';
@@ -66,28 +66,36 @@
 	// Switch colors - Light color.
 	wp.customize( 'astra-settings[footer-dark-mode-switcher-light-color]', function( setting ) {
 		setting.bind( function( color ) {
-			var dynamicStyle = '';
-			dynamicStyle += selector + ', ' + selector + ':hover {';
-			dynamicStyle += 'color: ' + color + ';';
-			dynamicStyle += '} ';
-			dynamicStyle += '.ast-dark-mode ' + selector + ' {';
-			dynamicStyle += 'background-color: ' + color + ';';
-			dynamicStyle += '} ';
-			astra_add_dynamic_css( 'footer-dark-mode-switcher-light-color', dynamicStyle );
+			if( 'toggle' === modeSwitcherStyle ) {
+				wp.customize.preview.send( 'refresh' );
+			} else {
+				var dynamicStyle = '';
+				dynamicStyle += selector + ', ' + selector + ':hover {';
+				dynamicStyle += 'color: ' + color + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '.ast-dark-mode ' + selector + ' {';
+				dynamicStyle += 'background-color: ' + color + ';';
+				dynamicStyle += '} ';
+				astra_add_dynamic_css( 'footer-dark-mode-switcher-light-color', dynamicStyle );
+			}
 		});
 	});
 
 	// Switch colors - Dark color.
 	wp.customize( 'astra-settings[footer-dark-mode-switcher-dark-color]', function( setting ) {
 		setting.bind( function( color ) {
-			var dynamicStyle = '';
-			dynamicStyle += selector + ', ' + selector + ':hover {';
-			dynamicStyle += 'background-color: ' + color + ';';
-			dynamicStyle += '} ';
-			dynamicStyle += '.ast-dark-mode ' + selector + ' {';
-			dynamicStyle += 'color: ' + color + ';';
-			dynamicStyle += '} ';
-			astra_add_dynamic_css( 'footer-dark-mode-switcher-dark-color', dynamicStyle );
+			if( 'toggle' === modeSwitcherStyle ) {
+				wp.customize.preview.send( 'refresh' );
+			} else {
+				var dynamicStyle = '';
+				dynamicStyle += selector + ', ' + selector + ':hover {';
+				dynamicStyle += 'background-color: ' + color + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '.ast-dark-mode ' + selector + ' {';
+				dynamicStyle += 'color: ' + color + ';';
+				dynamicStyle += '} ';
+				astra_add_dynamic_css( 'footer-dark-mode-switcher-dark-color', dynamicStyle );
+			}
 		});
 	});
 

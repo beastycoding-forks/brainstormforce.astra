@@ -20,7 +20,7 @@ astraUpdateSwitcherAtts = function ( switchedTo ) {
 	}
 
 	// Update title attr.
-	var modeSwticherIconButtons =  document.querySelectorAll( '.ast-switcher-icon-type.ast-switcher-button-style' );
+	var modeSwticherIconButtons =  document.querySelectorAll( '.ast-mode-switcher-icon-button, .ast-mode-switcher-icon-toggle' );
 	for ( var count = 0; count < modeSwticherIconButtons.length; count++ ) {
 		if( 'dark' === switchedTo ) {
 			modeSwticherIconButtons[ count ].setAttribute( 'title', astraModeSwitcher.switchToLightMode );

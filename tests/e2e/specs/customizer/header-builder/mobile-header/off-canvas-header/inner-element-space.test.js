@@ -5,7 +5,7 @@ describe( 'off canvas full-screen header type popup padding setting in the custo
 	it( 'padding should apply correctly', async () => {
 		const innerElementSpace = {
 			'mobile-header-type': 'full-width',
-			'header-mobile-items': {
+			'header-mobile-popup-items': {
 				popup: {
 					popup_content: {
 						0: 'account',

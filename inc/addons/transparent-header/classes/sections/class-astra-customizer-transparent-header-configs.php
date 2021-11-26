@@ -891,6 +891,59 @@ if ( ! class_exists( 'Astra_Customizer_Transparent_Header_Configs' ) ) {
 						'priority'  => 70,
 						'context'   => Astra_Builder_Helper::$design_tab,
 					),
+
+					/**
+					 * Group: Transparent Dark Mode Colors Group
+					 */
+					array(
+						'name'      => ASTRA_THEME_SETTINGS . '[transparent-header-mode-switcher-color-group]',
+						'default'   => astra_get_option( 'transparent-header-mode-switcher-color-group' ),
+						'type'      => 'control',
+						'control'   => 'ast-color-group',
+						'title'     => __( 'Colors', 'astra' ),
+						'section'   => 'section-transparent-header',
+						'transport' => 'postMessage',
+						'priority'  => 80,
+						'context'   => Astra_Builder_Helper::$design_tab,
+						'divider'   => array(
+							'ast_class' => 'ast-top-divider',
+							'ast_title' => __( 'Mode Switcher', 'astra' ),
+						),
+					),
+
+					/**
+					 * Option: Mode Switcher Light Color
+					 */
+					array(
+						'name'              => 'transparent-header-mode-switcher-light-color',
+						'transport'         => 'postMessage',
+						'default'           => astra_get_option( 'transparent-header-mode-switcher-light-color' ),
+						'type'              => 'sub-control',
+						'parent'            => ASTRA_THEME_SETTINGS . '[transparent-header-mode-switcher-color-group]',
+						'section'           => 'section-transparent-header',
+						'tab'               => __( 'Light', 'astra' ),
+						'control'           => 'ast-color',
+						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+						'priority'          => 5,
+						'title'             => __( 'Light', 'astra' ),
+					),
+
+					/**
+					 * Option: Mode Switcher Dark Color
+					 */
+					array(
+						'name'              => 'transparent-header-mode-switcher-dark-color',
+						'default'           => astra_get_option( 'transparent-header-mode-switcher-dark-color' ),
+						'transport'         => 'postMessage',
+						'type'              => 'sub-control',
+						'parent'            => ASTRA_THEME_SETTINGS . '[transparent-header-mode-switcher-color-group]',
+						'section'           => 'section-transparent-header',
+						'tab'               => __( 'Dark', 'astra' ),
+						'control'           => 'ast-color',
+						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+						'priority'          => 7,
+						'title'             => __( 'Dark', 'astra' ),
+					),
 				);
 
 				if ( ! astra_remove_widget_design_options() ) {

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import AstraColorPickerControl from "../common/astra-color-picker-control";
 import { useEffect, useState } from "react";
-import { Tooltip } from '@wordpress/components';
+import { Dashicon, Popover, Tooltip, Button } from '@wordpress/components';
 import { __ } from "@wordpress/i18n";
 
 const ColorPaletteComponent = (props) => {
@@ -153,6 +153,62 @@ const ColorPaletteComponent = (props) => {
 		</>
 	);
 
+	const toggleVisible = () => {
+		let updateState = {
+			...state,
+		};
+
+		updateState.isVisible = true;
+		updateValues(updateState);
+	};
+
+	const toggleClose = () => {
+		let updateState = {
+			...state,
+		};
+
+		if( updateState.isVisible = true ) {
+			updateState.isVisible = false;
+			updateValues(updateState);
+		}
+	};
+
+	var presetOptions = (
+		<>
+			<Popover position="bottom center" className="" onClose={toggleClose}>
+				<div className="">
+					{ Object.keys( state.presets ).map( ( paletteKey, index ) => {
+						return (
+							<Button
+								key={index}
+								onClick={ () => onPaletteChange( paletteKey ) }
+								className={
+									"ast-preset-palette-item " +
+									(paletteKey === state.currentPalette
+										? "active"
+										: "")
+								}
+							>
+								{ state.presets[paletteKey].map( ( color, index ) => {
+									return (
+										<div className="ast-palette-individual-item-wrap">
+											<span
+												key={index}
+												className='ast-palette-individual-item'
+												style={{ color: color }}
+												>
+											</span>
+										</div>
+									)
+								} ) }
+							</Button>
+						);
+					} ) }
+				</div>
+			</Popover>
+		</>
+	);
+
 	const updatePaletteVariables = (e) => {
 		clearTimeout(UpdatePaletteEvent);
 
@@ -173,6 +229,14 @@ const ColorPaletteComponent = (props) => {
 	return (
 		<>
 			<label className="customizer-text">{labelHtml}</label>
+			<Tooltip text={ __("Select Preset", "astra") } position="top center">
+				<Dashicon className="ast-palette-preset-trigger" icon='open-folder' onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } } />
+			</Tooltip>
+			<div className="ast-palette-presets-wrapper">
+				{ state.isVisible &&
+					presetOptions
+				}
+			</div>
 			<div className="ast-palette-selection-wrapper">
 				{paletteOptions}
 			</div>

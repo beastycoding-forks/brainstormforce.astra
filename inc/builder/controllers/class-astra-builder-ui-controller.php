@@ -314,10 +314,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 						case 'icon-with-label':
 							if ( $is_style_toggle ) {
-								echo '<span class="ast-light-switcher-knob">' . self::fetch_svg_icon( $switcher_light_icon ) . '</span>';
+								echo '<span class="ast-light-switcher-knob">' . self::fetch_svg_icon( $switcher_light_icon ) . $closing_span;
 								echo $light_mode_span . esc_html( $switcher_light_label ) . $closing_span;
 								echo $dark_mode_span . esc_html( $switcher_dark_label ) . $closing_span;
-								echo '<span class="ast-dark-switcher-knob">' . self::fetch_svg_icon( $switcher_dark_icon ) . '</span>';
+								echo '<span class="ast-dark-switcher-knob">' . self::fetch_svg_icon( $switcher_dark_icon ) . $closing_span;
 							} else {
 								echo $light_mode_span . self::fetch_svg_icon( $switcher_light_icon ) . esc_html( $switcher_light_label ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 								echo $dark_mode_span . self::fetch_svg_icon( $switcher_dark_icon ) . esc_html( $switcher_dark_label ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped

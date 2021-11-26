@@ -40,6 +40,7 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 	$icon_size     = astra_get_option( 'header-mode-switcher-icon-size' );
 	$border_radius = esc_attr( astra_get_option( 'header-mode-switcher-border-radius' ) );
 	$margin        = astra_get_option( $_section . '-margin' );
+	$font_size     = astra_get_option( 'font-size-header-section-mode-switcher' );
 
 	/**
 	 * Mode Switcher - Desktop CSS.
@@ -66,6 +67,9 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'desktop' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'desktop' ),
 		),
+		$data_selector . ' .ast-mode-label'    => array(
+			'font-size' => astra_responsive_font( $font_size, 'desktop' ),
+		),
 	);
 
 	/**
@@ -82,6 +86,9 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'tablet' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'tablet' ),
 		),
+		$data_selector . ' .ast-mode-label'    => array(
+			'font-size' => astra_responsive_font( $font_size, 'tablet' ),
+		),
 	);
 
 	/**
@@ -97,6 +104,9 @@ function astra_mode_switcher_dynamic_css( $dynamic_css, $dynamic_css_filtered = 
 			'margin-bottom' => astra_responsive_spacing( $margin, 'bottom', 'mobile' ),
 			'margin-left'   => astra_responsive_spacing( $margin, 'left', 'mobile' ),
 			'margin-right'  => astra_responsive_spacing( $margin, 'right', 'mobile' ),
+		),
+		$data_selector . ' .ast-mode-label'    => array(
+			'font-size' => astra_responsive_font( $font_size, 'mobile' ),
 		),
 	);
 

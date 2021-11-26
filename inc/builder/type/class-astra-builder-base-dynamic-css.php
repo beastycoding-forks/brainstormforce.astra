@@ -498,7 +498,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			}
 
 			$palette_style['.ast-dark-mode'] = $palette_css_vars;
-			$css                                 = astra_parse_css( $palette_style );
+			$css                             = astra_parse_css( $palette_style );
 
 			return $css;
 		}
@@ -516,18 +516,22 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 
 			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'footer' ) || true === astra_get_option( 'enable-fixed-switch-mode', false ) ) {
 
+				$ltr_right = is_rtl() ? 'left' : 'right';
+
 				$astra_mode_switcher_static_css = '
 					.ast-mode-switcher-trigger, .ast-mode-switcher-trigger:hover, .ast-mode-switcher-trigger:focus, .ast-mode-switcher-trigger:active {
 						cursor: pointer;
-						background: none;
 						border: none;
 						padding: 0.6em;
 					}
 					.ast-mode-switcher-trigger, .ast-mode-label {
 						position: relative;
 					}
-					.ast-switcher-icon-with-label-type, .ast-switcher-label-type {
-						margin: 0 10px;
+					[class^="ast-mode-switcher-"][class$="-button"] .ast-light-mode-wrap, .ast-dark-mode [class^="ast-mode-switcher-"][class$="-button"] .ast-dark-mode-wrap {
+						display: none;
+					}
+					.ast-dark-mode [class^="ast-mode-switcher-"][class$="-button"] .ast-light-mode-wrap {
+						display: block;
 					}
 					[data-section="header-section-mode-switcher"], [data-section="footer-section-mode-switcher"], .ast-fixed-switch-wrapper {
 						display: flex;
@@ -537,12 +541,6 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 					}
 					.ast-mode-switcher-trigger .ahfb-svg-iconset {
 						vertical-align: middle;
-					}
-					.ast-light-mode-wrap, .ast-dark-mode .ast-dark-mode-wrap {
-						display: none;
-					}
-					.ast-dark-mode .ast-light-mode-wrap {
-						display: block;
 					}
 				';
 

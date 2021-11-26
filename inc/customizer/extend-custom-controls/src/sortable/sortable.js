@@ -27,6 +27,7 @@ const SortableComponent = props => {
 			html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-value={choiceID}>
 				{choices[choiceID]}
 				<i className="dashicons dashicons-visibility visibility"></i>
+				<span className="ast-adv-toggle-icon dashicons visibility"></span>
 			</div>;
 		}
 		return html;

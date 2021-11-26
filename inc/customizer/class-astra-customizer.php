@@ -577,7 +577,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					);
 					break;
 				case 'ast-sortable':
+					$config = array();
 					$configuration['value'] = $val;
+					if ( isset( self::$group_configs[ $configuration['name'] ] ) ) {
+						$config = wp_list_sort( self::$group_configs[ $configuration['name'] ], 'priority' );
+					}
+					$configuration['ast_sortable_fields'] = $config;
 
 					break;
 
@@ -1103,6 +1108,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'default'              => null,
 					'selector'             => null,
 					'ast_fields'           => array(),
+					'ast_sortable_fields'  => array(),
 				)
 			);
 		}
@@ -1306,6 +1312,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					<ul class="ast-fields-wrap">
 					</ul>
 			</div>';
+			$sortable_dropdown = '<div class="ast-field-sortable-dropdown">
+					<ul class="ast-sortable-fields-wrap">
+					</ul>
+			</div>';
 
 			wp_localize_script(
 				'astra-customizer-controls-toggle-js',
@@ -1336,6 +1346,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 								'google_fonts' => $string,
 							),
 							'group_modal_tmpl' => $template,
+							'sortable_dropdown_tmpl' => $sortable_dropdown,
 							'is_pro'           => defined( 'ASTRA_EXT_VER' ),
 							'upgrade_link'     => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 							'is_block_widget'  => astra_has_widgets_block_editor(),

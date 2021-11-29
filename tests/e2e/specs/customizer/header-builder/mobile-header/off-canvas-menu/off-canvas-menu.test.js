@@ -30,6 +30,18 @@ describe( 'off canvas menu design settings in the customizer', () => {
 				tablet: 'rgb(255, 255, 255)',
 				mobile: 'rgb(255, 255, 255)',
 			},
+			'header-mobile-menu-font-family': 'Raleway, sans-serif',
+			'header-mobile-menu-font-size': {
+				desktop: 30,
+				tablet: 20,
+				mobile: 10,
+				'desktop-unit': 'px',
+				'tablet-unit': 'px',
+				'mobile-unit': 'px',
+			},
+			'header-mobile-menu-font-weight': 400,
+			'header-mobile-menu-text-transform': 'uppercase',
+			'header-mobile-menu-line-height': 4,
 			'header-mobile-menu-menu-spacing': {
 				desktop: {
 					top: 5,
@@ -120,6 +132,31 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			property: 'background-color',
 		} ).cssValueToBe(
 			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].tablet }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			property: 'font-family',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-family' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			property: 'font-weight',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-weight' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			property: 'text-transform',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-text-transform' ] }`,
+		);
+		offCanvasMenuDesign[ 'header-mobile-menu-line-height' ] = 4 * 18.24;
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			property: 'line-height',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-line-height' ] + 'px' }`,
 		);
 		await expect( {
 			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',

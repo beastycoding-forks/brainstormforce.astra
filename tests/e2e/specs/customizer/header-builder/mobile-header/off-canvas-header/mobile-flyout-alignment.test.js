@@ -28,5 +28,5 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 			selector: '.content-align-center .main-header-menu',
 			property: 'text-align',
 		} ).cssValueToBe( `${ flyoutAlignment[ 'header-offcanvas-content-alignment' ] }` );
-	} );
+	} ); 
 } );

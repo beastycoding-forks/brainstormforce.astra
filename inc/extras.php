@@ -800,3 +800,15 @@ function astra_check_elementor_pro_3_5_version() {
 	}
 	return false;
 }
+
+/**
+ * Check if backward flag is set before updating default colors to sync colors with palette.
+ *
+ * @since x.x.x
+ * @return bool $astra_backward_flag
+ */
+function astra_check_update_defaults_colors() {
+	$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
+	$astra_backward_flag = ( isset( $astra_settings['link-default-colors-with-palette'] ) && false === $astra_settings['link-default-colors-with-palette'] ) ? false : true;
+	return $astra_backward_flag;
+}

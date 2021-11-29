@@ -3276,7 +3276,7 @@ function astra_improve_gutenberg_editor_ui() {
 }
 
 /**
- * Migrate Footer Widget param to array.
+ * Add color-palette-preset support in astra-color-palettes.
  *
  * @since x.x.x
  *
@@ -3290,4 +3290,31 @@ function astra_add_color_palette_presets() {
 		$astra_color_palette['presets'] = astra_get_palette_presets();
 		update_option( 'astra-color-palettes', $astra_color_palette );
 	}
+}
+
+/**
+ * Display Cart Total and Title compatibility.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_display_cart_total_title_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( isset( $theme_options['woo-header-cart-label-display'] ) ) {
+		return;
+	}
+
+	// Set the Display Cart Label toggle values with shortcodes.
+	if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_title} / {cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_title}';
+	} else {
+		$theme_options['woo-header-cart-label-display'] = '';
+	}
+
+	update_option( 'astra-settings', $theme_options );
 }

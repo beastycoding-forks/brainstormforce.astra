@@ -327,6 +327,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'section-footer-menu-margin',
 		'section-primary-footer-builder-padding',
 		'section-primary-footer-builder-margin',
+		'section-header-woo-cart-padding',
+		'section-header-woo-cart-margin',
 	);
 
 	foreach ( $margin_defaults as $margin_default ) {
@@ -936,12 +938,20 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	/**
 	 * Woo-Cart.
 	 */
-	$defaults['woo-header-cart-icon-style']             = 'outline';
-	$defaults['header-woo-cart-icon-color']             = '';
-	$defaults['transparent-header-woo-cart-icon-color'] = '';
-	$defaults['woo-header-cart-icon-radius']            = 3;
-	$defaults['woo-header-cart-total-display']          = true;
-	$defaults['woo-header-cart-title-display']          = true;
+	$defaults['woo-header-cart-click-action']              = 'default';
+	$defaults['woo-desktop-cart-flyout-width']             = 30;
+	$defaults['woo-header-cart-icon-total-label-position'] = 'left';
+	$defaults['woo-header-cart-icon-style']                = 'outline';
+	$defaults['woo-desktop-cart-flyout-direction']         = 'right';
+	$defaults['header-woo-cart-icon-color']                = '';
+	$defaults['transparent-header-woo-cart-icon-color']    = '';
+	$defaults['header-woo-cart-icon-hover-color']          = '';
+	$defaults['woo-header-cart-icon-radius']               = 3;
+
+	// Woo Cart - Dynamic label default value.
+	$defaults['woo-header-cart-label-display'] = '{cart_title}/{cart_total_currency_symbol}';
+	$defaults['woo-header-cart-total-display'] = true;
+	$defaults['woo-header-cart-title-display'] = true;
 
 	// Cart tray > General Color styles.
 	$defaults['header-woo-cart-text-color']       = '';
@@ -1052,7 +1062,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'mobile'  => 20,
 	);
 	// Label typography.
-	$defaults['font-size-header-section-mode-switcher'] = array(
+	$defaults['font-size-header-section-mode-switcher']       = array(
 		'desktop'      => '',
 		'tablet'       => '',
 		'mobile'       => '',
@@ -1060,7 +1070,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
-	$defaults['header-section-mode-switcher-padding']   = array(
+	$defaults['header-section-mode-switcher-padding']         = array(
 		'desktop'      => array(
 			'top'    => 12,
 			'right'  => 12,
@@ -1083,6 +1093,8 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 		'tablet-unit'  => 'px',
 		'mobile-unit'  => 'px',
 	);
+	$defaults['transparent-header-mode-switcher-light-color'] = '';
+	$defaults['transparent-header-mode-switcher-dark-color']  = '';
 
 	/**
 	 * Footer - Mode Switcher element.
@@ -1240,10 +1252,8 @@ function astra_prepare_button_defaults( $defaults, $index ) {
 	);
 	$defaults[ 'header-' . $_prefix . '-border-radius' ]  = '';
 
-	$defaults[ 'section-hb-button-' . $index . '-padding' ]   = Astra_Builder_Helper::$default_responsive_spacing;
-	$defaults[ 'section-hb-button-' . $index . '-margin' ]    = Astra_Builder_Helper::$default_responsive_spacing;
-	$defaults[ 'sticky-header-button' . $index . '-padding' ] = Astra_Builder_Helper::$default_responsive_spacing;
-
+	$defaults[ 'section-hb-button-' . $index . '-padding' ] = Astra_Builder_Helper::$default_responsive_spacing;
+	$defaults[ 'section-hb-button-' . $index . '-margin' ]  = Astra_Builder_Helper::$default_responsive_spacing;
 
 	$_prefix = 'button' . $index;
 

@@ -3276,7 +3276,7 @@ function astra_improve_gutenberg_editor_ui() {
 }
 
 /**
- * Migrate Footer Widget param to array.
+ * Add color-palette-preset support in astra-color-palettes.
  *
  * @since x.x.x
  *

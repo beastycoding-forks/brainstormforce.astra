@@ -88,6 +88,16 @@ const ColorPaletteComponent = (props) => {
 		updateValues(updateState);
 	};
 
+	const handlePresetAssignment = (paletteKey) => {
+		if ( state.presets && state.presets[paletteKey] ) {
+			state.presets[paletteKey].map( ( item, index ) => {
+				if ( item.color ) {
+					handleChangeComplete( { hex: item.color }, false, '', index );
+				}
+			} );
+		}
+	};
+
 	var paletteColors = (
 		<>
 			<div className="ast-single-palette-wrap">
@@ -181,7 +191,7 @@ const ColorPaletteComponent = (props) => {
 						return (
 							<Button
 								key={index}
-								onClick={ () => onPaletteChange( paletteKey ) }
+								onClick={ () => handlePresetAssignment( paletteKey ) }
 								className={
 									"ast-preset-palette-item " +
 									(paletteKey === state.currentPalette

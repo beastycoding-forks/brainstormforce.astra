@@ -154,41 +154,7 @@ class Astra_Global_Palette {
 					'#000000',
 				),
 			),
-			'presets'       => array(
-				'palette_1' => array(
-					'#3a3a3a',
-					'#FFFFFF',
-					'#F5F5F5',
-					'#424242',
-					'#3a3a3a',
-					'#4B4F58',
-					'#000000',
-					'#0170B9',
-					'#F2F5F7',
-				),
-				'palette_2' => array(
-					'#3a3a3a',
-					'#3a3a3a',
-					'#FFFFFF',
-					'#000000',
-					'#F2F5F7',
-					'#0170B9',
-					'#4B4F58',
-					'#424242',
-					'#F5F5F5',
-				),
-				'palette_3' => array(
-					'#4B4F58',
-					'#3a3a3a',
-					'#0170B9',
-					'#F5F5F5',
-					'#FFFFFF',
-					'#3a3a3a',
-					'#424242',
-					'#F2F5F7',
-					'#000000',
-				),
-			),
+			'presets'       => astra_get_palette_presets(),
 		);
 	}
 

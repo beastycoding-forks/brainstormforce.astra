@@ -402,7 +402,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['hba-footer-bg-obj-responsive'] = array(
 		'desktop' => array(
-			'background-color'      => 'var(' . $palette_css_var_prefix . '6)',
+			'background-color'      => $astra_update_color_defaults ? 'var(' . $palette_css_var_prefix . '6)' : '#eeeeee',
 			'background-image'      => '',
 			'background-repeat'     => 'repeat',
 			'background-position'   => 'center center',
@@ -454,7 +454,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 	$defaults['hb-footer-bg-obj-responsive']  = array(
 		'desktop' => array(
-			'background-color'      => $astra_update_color_defaults ? 'var(' . $palette_css_var_prefix . '5)' : '#eeeeee',
+			'background-color'      => $astra_update_color_defaults ? 'var(' . $palette_css_var_prefix . '5)' : '#f9f9f9',
 			'background-image'      => '',
 			'background-repeat'     => 'repeat',
 			'background-position'   => 'center center',

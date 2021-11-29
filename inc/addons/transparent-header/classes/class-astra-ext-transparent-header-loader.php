@@ -202,6 +202,8 @@ if ( ! class_exists( 'Astra_Ext_Transparent_Header_Loader' ) ) {
 				array(
 					'is_astra_hf_builder_active' => Astra_Builder_Helper::$is_header_footer_builder_active,
 					'is_flex_based_css'          => Astra_Builder_Helper::apply_flex_based_css(),
+					'isDarkModeProActive'        => ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) ),
+					'isTooltipEnabled'           => astra_get_option( 'header-mode-switcher-icon-tooltip', false ),
 				)
 			);
 		}

@@ -333,4 +333,40 @@
 		'.ast-theme-transparent-header .ast-header-account-wrap .account-main-navigation .menu-item.current-menu-item > .menu-link'
 	);
 
+	// Switch colors - Transparent Header Light color.
+	wp.customize( 'astra-settings[transparent-header-mode-switcher-light-color]', function( setting ) {
+		setting.bind( function( color ) {
+			if( AstraBuilderTransparentData.isProDarkModeActive && AstraBuilderTransparentData.isTooltipEnabled ) {
+				wp.customize.preview.send( 'refresh' );
+			} else {
+				var dynamicStyle = '';
+				dynamicStyle += '.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover {';
+				dynamicStyle += 'color: ' + color + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher {';
+				dynamicStyle += 'background-color: ' + color + ';';
+				dynamicStyle += '} ';
+				astra_add_dynamic_css( 'transparent-header-mode-switcher-light-color', dynamicStyle );
+			}
+		});
+	});
+
+	// Switch colors - Transparent Header Dark color.
+	wp.customize( 'astra-settings[transparent-header-mode-switcher-dark-color]', function( setting ) {
+		setting.bind( function( color ) {
+			if( AstraBuilderTransparentData.isProDarkModeActive && AstraBuilderTransparentData.isTooltipEnabled ) {
+				wp.customize.preview.send( 'refresh' );
+			} else {
+				var dynamicStyle = '';
+				dynamicStyle += '.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover {';
+				dynamicStyle += 'background-color: ' + color + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher {';
+				dynamicStyle += 'color: ' + color + ';';
+				dynamicStyle += '} ';
+				astra_add_dynamic_css( 'transparent-header-mode-switcher-dark-color', dynamicStyle );
+			}
+		});
+	});
+
 } )( jQuery );

@@ -88,11 +88,11 @@ const ColorPaletteComponent = (props) => {
 		updateValues(updateState);
 	};
 
-	const handlePresetAssignment = (paletteKey) => {
-		if ( state.presets && state.presets[paletteKey] ) {
-			state.presets[paletteKey].map( ( item, index ) => {
-				if ( item.color ) {
-					handleChangeComplete( { hex: item.color }, false, '', index );
+	const handlePresetAssignment = (presetKey) => {
+		if ( state.presets && state.presets[presetKey] ) {
+			state.presets[presetKey].map( ( item, index ) => {
+				if ( item ) {
+					handleChangeComplete( index, { hex: item } );
 				}
 			} );
 		}
@@ -101,7 +101,7 @@ const ColorPaletteComponent = (props) => {
 	var paletteColors = (
 		<>
 			<div className="ast-single-palette-wrap">
-				{state.palettes[state.currentPalette].map((value, index) => {
+				{state.palettes && state.palettes[state.currentPalette].map((value, index) => {
 					const paletteLables = astra.customizer.globalPaletteLabels;
 					return (
 						<Tooltip key={index} text={paletteLables[index]} position="top center">
@@ -187,23 +187,18 @@ const ColorPaletteComponent = (props) => {
 		<>
 			<Popover position="bottom center" className="" onClose={toggleClose}>
 				<div className="">
-					{ Object.keys( state.presets ).map( ( paletteKey, index ) => {
+					{ Object.keys( state.presets ).map( ( presetKey, index ) => {
 						return (
 							<Button
 								key={index}
-								onClick={ () => handlePresetAssignment( paletteKey ) }
-								className={
-									"ast-preset-palette-item " +
-									(paletteKey === state.currentPalette
-										? "active"
-										: "")
-								}
+								onClick={ () => handlePresetAssignment( presetKey ) }
+								className={ 'ast-preset-palette-item' }
 							>
-								{ state.presets[paletteKey].map( ( color, index ) => {
+								{ state.presets[presetKey].map( ( color, subIndex ) => {
 									return (
 										<div className="ast-palette-individual-item-wrap">
 											<span
-												key={index}
+												key={subIndex}
 												className='ast-palette-individual-item'
 												style={{ color: color }}
 												>
@@ -248,7 +243,9 @@ const ColorPaletteComponent = (props) => {
 				}
 			</div>
 			<div className="ast-palette-selection-wrapper">
-				{paletteOptions}
+				{state.palettes &&
+					paletteOptions
+				}
 			</div>
 			<div className="ast-color-palette-wrapper">{paletteColors}</div>
 		</>

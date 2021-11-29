@@ -730,6 +730,12 @@
 	box-shadow: none;
 	outline: none;
 }
+.components-button.ast-preset-palette-item {
+	border: 1px solid transparent;
+}
+.components-button.ast-preset-palette-item:hover {
+	border-color: #777777;
+}
 
  /** Remove Button Color */
 
@@ -1981,6 +1987,12 @@
 .components-button.ast-preset-palette-item:focus, .components-button.ast-preset-palette-item, .components-button.ast-preset-palette-item:hover, .components-button.ast-preset-palette-item:active {
 	box-shadow: none;
 	outline: none;
+}
+.components-button.ast-preset-palette-item {
+	border: 1px solid transparent;
+}
+.components-button.ast-preset-palette-item:hover {
+	border-color: #777777;
 }
 
  /** Remove Button Color */

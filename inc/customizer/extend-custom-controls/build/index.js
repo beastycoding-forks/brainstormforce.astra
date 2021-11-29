@@ -2800,13 +2800,13 @@ const ColorPaletteComponent = props => {
     updateValues(updateState);
   };
 
-  const handlePresetAssignment = paletteKey => {
-    if (state.presets && state.presets[paletteKey]) {
-      state.presets[paletteKey].map((item, index) => {
-        if (item.color) {
-          handleChangeComplete({
-            hex: item.color
-          }, false, '', index);
+  const handlePresetAssignment = presetKey => {
+    if (state.presets && state.presets[presetKey]) {
+      state.presets[presetKey].map((item, index) => {
+        if (item) {
+          handleChangeComplete(index, {
+            hex: item
+          });
         }
       });
     }
@@ -2814,7 +2814,7 @@ const ColorPaletteComponent = props => {
 
   var paletteColors = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-single-palette-wrap"
-  }, state.palettes[state.currentPalette].map((value, index) => {
+  }, state.palettes && state.palettes[state.currentPalette].map((value, index) => {
     const paletteLables = astra.customizer.globalPaletteLabels;
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Tooltip, {
       key: index,
@@ -2874,16 +2874,16 @@ const ColorPaletteComponent = props => {
     onClose: toggleClose
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: ""
-  }, Object.keys(state.presets).map((paletteKey, index) => {
+  }, Object.keys(state.presets).map((presetKey, index) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Button, {
       key: index,
-      onClick: () => handlePresetAssignment(paletteKey),
-      className: "ast-preset-palette-item " + (paletteKey === state.currentPalette ? "active" : "")
-    }, state.presets[paletteKey].map((color, index) => {
+      onClick: () => handlePresetAssignment(presetKey),
+      className: 'ast-preset-palette-item'
+    }, state.presets[presetKey].map((color, subIndex) => {
       return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
         className: "ast-palette-individual-item-wrap"
       }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
-        key: index,
+        key: subIndex,
         className: "ast-palette-individual-item",
         style: {
           color: color
@@ -2916,7 +2916,7 @@ const ColorPaletteComponent = props => {
     className: "ast-palette-presets-wrapper"
   }, state.isVisible && presetOptions), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-palette-selection-wrapper"
-  }, paletteOptions), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, state.palettes && paletteOptions), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-color-palette-wrapper"
   }, paletteColors));
 };

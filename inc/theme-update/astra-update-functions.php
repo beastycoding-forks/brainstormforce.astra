@@ -3286,7 +3286,7 @@ function astra_add_color_palette_presets() {
 	$astra_color_palette = get_option( 'astra-color-palettes', array() );
 
 	// Check if Presets array is already set or not. If not then set it as array.
-	if ( ! isset( $astra_color_palette['presets'] ) && ! is_array( $theme_options['presets'] ) ) {
+	if ( ! isset( $astra_color_palette['presets'] ) && ! is_array( $astra_color_palette['presets'] ) ) {
 		$astra_color_palette['presets'] = astra_get_palette_presets();
 		update_option( 'astra-color-palettes', $astra_color_palette );
 	}

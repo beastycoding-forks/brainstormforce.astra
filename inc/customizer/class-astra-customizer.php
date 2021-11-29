@@ -384,10 +384,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 	                    			return \'&#\'+i.charCodeAt(0)+\';\';
 								});
 	                    	desc.remove();
-							if("woocommerce_demo_store_notice" === ctrl["id"]){
-								li_wrapper.append( tooltip);
+							if( "woocommerce_demo_store_notice" === ctrl["id"]){
+								li_wrapper.append( tooltip );
 							} else {
-								li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+								li_wrapper.append( " <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>" );
 							}	
 	                	}
 	            	});

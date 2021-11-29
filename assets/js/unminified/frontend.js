@@ -328,7 +328,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 			// Close Popup on # link click inside Popup.
 			for ( link = 0, len = popupLinks.length; link < len; link++ ) {
-				if( null !== popupLinks[link].getAttribute("href") && '#' == popupLinks[link].getAttribute("href") && !popupLinks[link].parentElement.classList.contains('menu-item-has-children')){
+				if( null !== popupLinks[link].getAttribute("href") && popupLinks[link].getAttribute("href").startsWith('#') && ( ! popupLinks[link].parentElement.classList.contains('menu-item-has-children') || ( popupLinks[link].parentElement.classList.contains('menu-item-has-children') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-icon') ) ) ){
 					popupLinks[link].addEventListener( 'click', triggerToggleClose, true );
 					popupLinks[link].headerType = 'off-canvas';
 				}
@@ -344,7 +344,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			if( mobileDropdownContent ) {
 				var mobileLinks = mobileDropdownContent.getElementsByTagName('a');
 				for ( link = 0, len = mobileLinks.length; link < len; link++ ) {
-					if( null !== mobileLinks[link].getAttribute("href") && '#' == mobileLinks[link].getAttribute("href") && !mobileLinks[link].parentElement.classList.contains('menu-item-has-children') ){
+					if( null !== mobileLinks[link].getAttribute("href") && mobileLinks[link].getAttribute("href").startsWith('#') && ( !mobileLinks[link].parentElement.classList.contains('menu-item-has-children') || ( mobileLinks[link].parentElement.classList.contains('menu-item-has-children') && document.querySelector('header.site-header').classList.contains('ast-builder-menu-toggle-icon') ) ) ){
 						mobileLinks[link].addEventListener( 'click', triggerToggleClose, true );
 						mobileLinks[link].headerType = 'dropdown';
 					}
@@ -605,7 +605,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	AstraToggleSetup = function () {
 
-		if( typeof astraAddon != 'undefined' ) {
+		if( typeof astraAddon != 'undefined' && undefined !== astraToggleSetupPro ) {
 			astraToggleSetupPro( mobileHeaderType, body, menu_click_listeners );
 		} else {
 
@@ -796,7 +796,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 * Navigation Keyboard Navigation.
 	 */
 	function navigation_accessibility( containerMenu, containerButton ) {
-		if ( ! containerMenu ) {
+		if ( ! containerMenu || ! containerButton ) {
 			return;
 		}
 		var button = containerButton.getElementsByTagName( 'button' )[0];

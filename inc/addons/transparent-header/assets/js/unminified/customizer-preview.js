@@ -336,14 +336,14 @@
 	// Switch colors - Transparent Header Light color.
 	wp.customize( 'astra-settings[transparent-header-mode-switcher-light-color]', function( setting ) {
 		setting.bind( function( color ) {
-			if( AstraBuilderTransparentData.isProDarkModeActive && AstraBuilderTransparentData.isTooltipEnabled ) {
+			if( 'toggle' === AstraBuilderTransparentData.modeSwitcherStyle ) {
 				wp.customize.preview.send( 'refresh' );
 			} else {
 				var dynamicStyle = '';
-				dynamicStyle += '.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover {';
+				dynamicStyle += '.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-theme-transparent-header .ast-header-mode-switcher:focus, .ast-theme-transparent-header .ast-header-mode-switcher:active {';
 				dynamicStyle += 'color: ' + color + ';';
 				dynamicStyle += '} ';
-				dynamicStyle += '.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher {';
+				dynamicStyle += '.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:focus {';
 				dynamicStyle += 'background-color: ' + color + ';';
 				dynamicStyle += '} ';
 				astra_add_dynamic_css( 'transparent-header-mode-switcher-light-color', dynamicStyle );
@@ -354,14 +354,14 @@
 	// Switch colors - Transparent Header Dark color.
 	wp.customize( 'astra-settings[transparent-header-mode-switcher-dark-color]', function( setting ) {
 		setting.bind( function( color ) {
-			if( AstraBuilderTransparentData.isProDarkModeActive && AstraBuilderTransparentData.isTooltipEnabled ) {
+			if( 'toggle' === AstraBuilderTransparentData.modeSwitcherStyle ) {
 				wp.customize.preview.send( 'refresh' );
 			} else {
 				var dynamicStyle = '';
-				dynamicStyle += '.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover {';
+				dynamicStyle += '.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-theme-transparent-header .ast-header-mode-switcher:focus, .ast-theme-transparent-header .ast-header-mode-switcher:active {';
 				dynamicStyle += 'background-color: ' + color + ';';
 				dynamicStyle += '} ';
-				dynamicStyle += '.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher {';
+				dynamicStyle += '.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:focus {';
 				dynamicStyle += 'color: ' + color + ';';
 				dynamicStyle += '} ';
 				astra_add_dynamic_css( 'transparent-header-mode-switcher-dark-color', dynamicStyle );

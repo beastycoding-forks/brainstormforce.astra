@@ -3276,6 +3276,23 @@ function astra_improve_gutenberg_editor_ui() {
 }
 
 /**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @todo Updating builder & their element's default colors or static colors to make them link with color palette colors.
+ * To work in sync with Dark mode switch.
+ * @since x.x.x
+ * @return void
+ */
+function astra_update_builders_default_colors() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['link-default-colors-with-palette'] ) ) {
+		$theme_options['link-default-colors-with-palette'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
  * Add color-palette-preset support in astra-color-palettes.
  *
  * @since x.x.x

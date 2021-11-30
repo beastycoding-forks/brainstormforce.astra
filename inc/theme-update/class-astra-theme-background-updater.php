@@ -117,6 +117,11 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			'3.7.4' => array(
 				'astra_improve_gutenberg_editor_ui',
 			),
+			'3.8.0' => array(
+				'astra_update_builders_default_colors',
+				'astra_add_color_palette_presets',
+				'astra_display_cart_total_title_compatibility',
+			),
 		);
 
 		/**

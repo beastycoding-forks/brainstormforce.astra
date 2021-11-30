@@ -284,4 +284,3 @@ describe( 'off canvas menu design settings in the customizer', () => {
 		);
 	} );
 } );
-

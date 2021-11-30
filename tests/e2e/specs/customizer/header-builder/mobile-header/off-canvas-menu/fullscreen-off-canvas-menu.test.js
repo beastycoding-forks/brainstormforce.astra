@@ -117,172 +117,171 @@ describe( 'off canvas menu design settings in the customizer', () => {
 			`${ offCanvasMenuDesign[ 'header-mobile-menu-color-responsive' ].tablet }`,
 		);
 		await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
-			            property: 'color',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-a-color-responsive' ].tablet }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-builder-menu-mobile .main-navigation .main-header-menu .sub-menu',
-			            property: 'background-color',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
-			            property: 'background-color',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].tablet }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
-			            property: 'font-family',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-font-family' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
-			            property: 'font-weight',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-font-weight' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
-			            property: 'text-transform',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-text-transform' ] }`,
-			        );
-			        offCanvasMenuDesign[ 'header-mobile-menu-line-height' ] = 4 * 18.24;
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
-			            property: 'line-height',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-line-height' ] + 'px' }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			            property: 'padding-top',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			            property: 'padding-right',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			            property: 'padding-bottom',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			            property: 'padding-left',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
-			            property: 'margin-top',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.top }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
-			            property: 'margin-right',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.right }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
-			            property: 'margin-bottom',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.bottom }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
-			            property: 'margin-left',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.left }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
-			        );
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-color-responsive' ].tablet }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-builder-menu-mobile .main-navigation .main-header-menu .sub-menu',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].tablet }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			property: 'font-family',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-family' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			property: 'font-weight',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-weight' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			property: 'text-transform',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-text-transform' ] }`,
+		);
+		offCanvasMenuDesign[ 'header-mobile-menu-line-height' ] = 4 * 18.24;
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			property: 'line-height',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-line-height' ] + 'px' }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			property: 'padding-top',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			property: 'padding-right',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			property: 'padding-bottom',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			property: 'padding-left',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-top',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.top }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-right',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.right }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-bottom',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.bottom }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-left',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.left }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
+		);
 
-			        await setBrowserViewport( 'small' );
-			        await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
-			        await page.waitForSelector( '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link' );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			            property: 'color',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-color-responsive' ].mobile }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
-			            property: 'color',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-a-color-responsive' ].mobile }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-builder-menu-mobile .main-navigation .main-header-menu .sub-menu',
-			            property: 'background-color',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
-			            property: 'background-color',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].mobile }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			            property: 'padding-top',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			            property: 'padding-right',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			            property: 'padding-bottom',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
-			            property: 'padding-left',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
-			            property: 'margin-top',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.top }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
-			            property: 'margin-right',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.right }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
-			            property: 'margin-bottom',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.bottom }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
-			        );
-			        await expect( {
-			            selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
-			            property: 'margin-left',
-			        } ).cssValueToBe(
-			            `${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.left }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
-			        );
+		await setBrowserViewport( 'small' );
+		await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
+		await page.waitForSelector( '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link' );
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-color-responsive' ].mobile }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-color-responsive' ].mobile }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-builder-menu-mobile .main-navigation .main-header-menu .sub-menu',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].mobile }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			property: 'padding-top',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			property: 'padding-right',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			property: 'padding-bottom',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			property: 'padding-left',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-top',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.top }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-right',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.right }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-bottom',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.bottom }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+		);
+		await expect( {
+			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			property: 'margin-left',
+		} ).cssValueToBe(
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.left }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+		);
 	} );
 } );
-

@@ -1,5 +1,6 @@
 v3.8.0 (Unreleased)
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
+- Improvement: Builder - Button - Added typography options from Astra Pro to free theme.
 - Fix: Mobile menu does not close when you click a one page navigation link inside them.
 - Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
 - Fix: Removed unwanted title and desc tag present for search icon.

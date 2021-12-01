@@ -99,7 +99,7 @@ class Astra_Button_Component_Dynamic_CSS {
 					'line-height'    => esc_attr( $button_line_height ),
 					'text-transform' => esc_attr( $button_text_transform ),
 					'letter-spacing' => astra_get_css_value( $button_letter_spacing, 'px' ),
-					'font-size' => astra_responsive_font( $button_font_size, 'desktop' ),
+					'font-size'      => astra_responsive_font( $button_font_size, 'desktop' ),
 				),
 
 				/**

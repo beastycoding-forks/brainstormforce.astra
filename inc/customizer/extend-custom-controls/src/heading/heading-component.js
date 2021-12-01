@@ -26,12 +26,12 @@ const HeadingComponent = props => {
 
   return <Fragment>
 				{htmlCaption}
-				<div className={`ast-heading-wrapper wp-ui-highlight ${astClass}`}>
+				{ undefined === props.control.params.heading_background && <div className={`ast-heading-wrapper wp-ui-highlight ${astClass}`}>
 					<label className="customizer-text">
 						{htmlLabel}
 						{htmlDescription}
 					</label>
-				</div>
+				</div>}
 			</Fragment>;
 };
 

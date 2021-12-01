@@ -10,23 +10,61 @@
 // Update mode switcher atts.
 astraUpdateSwitcherAtts = function ( switchedTo ) {
 	// Update aria-label attr.
-	var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' );
-	for ( var count = 0; count < modeSwticherTrigger.length; count++ ) {
+	let modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' );
+	for ( let triggerCount = 0; triggerCount < modeSwticherTrigger.length; triggerCount++ ) {
 		if( 'dark' === switchedTo ) {
-			modeSwticherTrigger[ count ].setAttribute( 'aria-label', astraModeSwitcher.switchToLightMode );
+			modeSwticherTrigger[ triggerCount ].setAttribute( 'aria-label', astraModeSwitcher.switchToLightMode );
 		} else {
-			modeSwticherTrigger[ count ].setAttribute( 'aria-label', astraModeSwitcher.switchToDarkMode );
+			modeSwticherTrigger[ triggerCount ].setAttribute( 'aria-label', astraModeSwitcher.switchToDarkMode );
 		}
 	}
 
 	// Update title attr.
-	var modeSwticherIconButtons =  document.querySelectorAll( '.ast-mode-switcher-icon-button, .ast-mode-switcher-icon-toggle' );
-	for ( var count = 0; count < modeSwticherIconButtons.length; count++ ) {
+	let modeSwticherIconButtons =  document.querySelectorAll( '.ast-mode-switcher-icon-button, .ast-mode-switcher-icon-toggle' );
+	for ( let buttonCount = 0; buttonCount < modeSwticherIconButtons.length; buttonCount++ ) {
 		if( 'dark' === switchedTo ) {
-			modeSwticherIconButtons[ count ].setAttribute( 'title', astraModeSwitcher.switchToLightMode );
+			modeSwticherIconButtons[ buttonCount ].setAttribute( 'title', astraModeSwitcher.switchToLightMode );
 		} else {
-			modeSwticherIconButtons[ count ].setAttribute( 'title', astraModeSwitcher.switchToDarkMode );
+			modeSwticherIconButtons[ buttonCount ].setAttribute( 'title', astraModeSwitcher.switchToDarkMode );
 		}
+	}
+}
+
+/**
+ * JS for updating toggled bubble translateX offset.
+ *
+ * Case: Due to some inconsistencies the toggled bubble look inappropriate, because we can't determine how button size (width) changes either of label font size or by icon size. That's why managing the bubble translateX offset through JS.
+ */
+astraUpdateToggleButtonSize = function() {
+	let iconWithToggle = document.querySelectorAll( '.ast-mode-switcher-icon-with-label-toggle .ast-dark-switcher-knob .ahfb-svg-iconset' );
+
+	if ( iconWithToggle.length > 0 ) {
+		let toggleAdjustCss = '',
+			styleSheet = document.createElement( 'style' );
+
+		for ( let toggleCount = 0; toggleCount < iconWithToggle.length; toggleCount++ ) {
+			let parentOffset = iconWithToggle[toggleCount].closest( '.ast-mode-switcher-trigger' );
+
+			if( parentOffset.classList.contains( 'ast-header-mode-switcher' ) ) {
+				toggleAdjustCss += '.ast-dark-mode .ast-header-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+			} else if( parentOffset.classList.contains( 'ast-footer-mode-switcher' ) ) {
+				toggleAdjustCss += '.ast-dark-mode .ast-footer-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+			} else {
+				toggleAdjustCss += '.ast-dark-mode .ast-fixed-switch-mode.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+			}
+		}
+
+		// Remove all existing stylesheets which loaded previously.
+		let exisitingToggleStyle = document.querySelectorAll( '#astra-icon-with-toggle-css' );
+		if ( exisitingToggleStyle.length > 0 ) {
+			for ( let stylesheetCount = 0; stylesheetCount < exisitingToggleStyle.length; stylesheetCount++ ) {
+				exisitingToggleStyle[stylesheetCount].remove();
+			}
+		}
+
+		styleSheet.id = 'astra-icon-with-toggle-css';
+		styleSheet.innerText = toggleAdjustCss;
+		document.head.appendChild( styleSheet );
 	}
 }
 
@@ -49,7 +87,7 @@ astraDarkModeSwitcher = function () {
 			}
 		} else if( '1' === astraModeSwitcher.carryOsPalette ) {
 			// Logic for OS Aware option to showcase site on load with their set system scheme.
-			var hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
+			let hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
 			if ( hasDarkSchemeSupport.matches && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
 				astraUpdateSwitcherAtts( 'dark' );
 				document.documentElement.classList.add( 'ast-dark-mode' );
@@ -76,9 +114,15 @@ astraDarkModeSwitcher = function () {
 				}
 			}
 		}
+
+		astraUpdateToggleButtonSize();
 	}
 }
 
-window.addEventListener( 'load', function () {
+document.addEventListener( 'DOMContentLoaded', function () {
 	astraDarkModeSwitcher();
 });
+
+window.addEventListener( 'resize', function () {
+	astraUpdateToggleButtonSize();
+} );

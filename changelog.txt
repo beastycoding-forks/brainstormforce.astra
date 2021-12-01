@@ -1,5 +1,18 @@
-v3.8.0 (Unreleased)
+v3.9.0
+- Fix: Guteneberg separator dots not appearing properly on frontend.
+
+v3.8.0 (woocomerce-improvements) (Unreleased)
+- New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
+- New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
+- New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
+- New: WooCommerce - Added cart icon hover color option.
+- New: WooCommerce - Added cart Margin and Padding spacing option.
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
+- New: WooCommerce - Added cart total Label position option.
+- New: WooCommerce - Added store notice color & background-color options.
+- New: WooCommerce - Added store notice position option.
+- New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
+- Improvement: WooCommerce - Modify the Cart label section via Shortcodes. (Needs Doc)
 - Fix: Mobile menu does not close when you click a one page navigation link inside them.
 - Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
 - Fix: Removed unwanted title and desc tag present for search icon.

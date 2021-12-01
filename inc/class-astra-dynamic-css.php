@@ -2789,11 +2789,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$astra_mode_switcher_dark_color  = astra_get_option( 'transparent-header-mode-switcher-dark-color' );
 
 				$transparent_header_builder_desktop_css = array(
-					'.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
+					'.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
 						'color'            => esc_attr( $astra_mode_switcher_light_color ),
 						'background-color' => esc_attr( $astra_mode_switcher_dark_color ),
 					),
-					'.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
+					'.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
 						'color'            => esc_attr( $astra_mode_switcher_dark_color ),
 						'background-color' => esc_attr( $astra_mode_switcher_light_color ),
 					),

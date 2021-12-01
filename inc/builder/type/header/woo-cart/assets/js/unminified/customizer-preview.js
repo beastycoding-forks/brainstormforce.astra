@@ -24,7 +24,13 @@
 	astra_css(
 		'astra-settings[header-woo-cart-icon-color]',
 		'border-color',
-		selector + ' .ast-cart-menu-wrap .count, ' + selector + ' .ast-cart-menu-wrap .count:after'
+		selector + ' .ast-cart-menu-wrap .count, ' + selector + ' .ast-cart-menu-wrap .count:after,' + selector + ' .ast-default-svg-main-part, .ast-default-svg-sub-part'
+	);
+
+	astra_css(
+		'astra-settings[header-woo-cart-icon-color]',
+		'stroke',
+		'.ast-default-svg-main-part, .ast-default-svg-main-part, .ast-default-svg-sub-part'
 	);
 
 	// Icon Hover Color.
@@ -212,8 +218,9 @@
 	wp.customize( 'astra-settings[header-woo-cart-icon-color]', function( setting ) {
 		setting.bind( function( color ) {
 			var dynamicStyle = '.ast-menu-cart-fill .ast-cart-menu-wrap .count, .ast-menu-cart-fill .ast-cart-menu-wrap { background-color: ' + color + '; } ';
+			dynamicStyle += '.ast-default-svg-main-part, .ast-default-svg-sub-part { stroke: ' + color + '; } ';
+
 			astra_add_dynamic_css( 'header-woo-cart-icon-color', dynamicStyle );
-			wp.customize.preview.send( 'refresh' );
 		} );
 	} );
 

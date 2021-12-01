@@ -100,7 +100,7 @@ class Astra_Icons {
 				</svg>';
 					break;
 				case 'default':
-					$output = "<svg width='20px' height='20px' id='ast-default-icon-svg' viewBox='0 0 133 179' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='826 837.5 140 121' enable-background='new 826 837.5 140 121' xml:space='preserve'> <path d='M4 50H129V162C129 169.18 123.18 175 116 175H18C10.268 175 4 168.732 4 161V50Z' stroke='black' stroke-width='8'/> <path d='M101 46C101 22.804 85.5538 4 66.5 4C47.4462 4 32 22.804 32 46' stroke='black' stroke-width='8'/></svg>";
+					$output = "<svg width='30px' height='30px' id='ast-default-icon-svg' viewBox='0 0 133 179' fill='none' xmlns='http://www.w3.org/2000/svg' viewBox='826 837.5 140 121' enable-background='new 826 837.5 140 121' xml:space='preserve'> <path d='M4 50H129V162C129 169.18 123.18 175 116 175H18C10.268 175 4 168.732 4 161V50Z' class = 'ast-default-svg-main-part stroke='black' stroke-width='8'/> <path d='M101 46C101 22.804 85.5538 4 66.5 4C47.4462 4 32 22.804 32 46' class = 'ast-default-svg-sub-part' stroke='black' stroke-width='8'/></svg>";
 					break;
 				default:
 					$output = '';

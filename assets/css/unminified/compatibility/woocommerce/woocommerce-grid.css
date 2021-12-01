@@ -4569,3 +4569,18 @@ button.pswp__button--zoom:hover {
     width: 60%;
   }
 }
+
+.ast-default-svg-main-part {
+  fill:#FFFFFF;
+}
+
+.ast-default-svg-sub-part {
+   fill:#FFFFFF;
+}
+
+.ast-site-header-cart i.astra-icon:after{
+  fill:#FFFFFF;
+}
+.ast-site-header-cart  i.astra-icon.ast-icon-shopping-default:after{
+  color:#FFFFFF;
+}

@@ -112,6 +112,8 @@ astraDarkModeSwitcher = function () {
 					document.documentElement.classList.add( 'ast-dark-mode' );
 					localStorage.setItem( 'astra-color-mode', 'dark' );
 				}
+
+				astraUpdateToggleButtonSize();
 			}
 		}
 

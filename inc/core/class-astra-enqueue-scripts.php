@@ -160,7 +160,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$default_assets['js']['astra-theme-js-pro'] = 'frontend-pro';
 				}
 
-				if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) ) {
+				if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'footer' ) || true === astra_get_option( 'enable-fixed-switch-mode', false ) ) {
 					$default_assets['js']['astra-theme-mode-switcher'] = 'mode-switcher';
 				}
 
@@ -329,7 +329,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			);
 
 			wp_localize_script( 'astra-mobile-cart', 'astra_cart', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );
-			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) ) {
+			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'footer' ) || true === astra_get_option( 'enable-fixed-switch-mode', false ) ) {
 				$astra_mode_switcher_localize = array(
 					'carryOsPalette' => astra_get_option( 'mode-switcher-carry-os-palette', false ),
 				);

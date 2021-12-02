@@ -13,7 +13,6 @@
 	var selector = '.ast-site-header-cart';
 	var responsive_selector = '.astra-cart-drawer';
 
-
 	// Icon Color.
 	astra_css(
 		'astra-settings[header-woo-cart-icon-color]',
@@ -304,7 +303,7 @@
 				iconCart = $(document).find('.ast-addon-cart-wrap');
 				iconCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
 				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
-				iconCart.addClass('ast-cart-position-' + position);	
+				iconCart.addClass('ast-cart-position-' + position);
 			}
 			else {
 				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');

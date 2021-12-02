@@ -7,6 +7,7 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
 - New: WooCommerce - Added cart icon hover color option.
 - New: WooCommerce - Added cart Margin and Padding spacing option.
+- New: WooCommerce - Added store notice text color & background color options.
 - New: WooCommerce - Added cart total Label position option.
 - New: WooCommerce - Added store notice color & background-color options.
 - New: WooCommerce - Added store notice position option.
@@ -21,6 +22,7 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 - Fix: WooCommerce Pagination markup misaligned on mobile devices.
 - Fix: Guteneberg separator dots not appearing properly on frontend.
 - Fix: JS console error when Custom Layout is added for header.
+- Fix: Accessibility - Tab navigation does not highlight menu with submenus.
 
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.

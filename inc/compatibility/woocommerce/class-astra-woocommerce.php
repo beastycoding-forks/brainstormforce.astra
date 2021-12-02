@@ -148,22 +148,25 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function astra_woocommerce_store_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-			if ( is_store_notice_showing() ) {
-				$store_notice_color    = astra_get_option( 'store-notice-text-color' );
-				$store_notice_bg_color = astra_get_option( 'store-notice-background-color' );
-				/**
-				 * WooCommerce store CSS.
-				 */
-				$css_output_desktop = array(
-					'body p.demo_store, body .woocommerce-store-notice, body p.demo_store a, body .woocommerce-store-notice a' => array(
-						'color'            => esc_attr( $store_notice_color ),
-						'background-color' => esc_attr( $store_notice_bg_color ),
-					),
-				);
-
-				/* Parse CSS from array() */
-				$dynamic_css .= astra_parse_css( $css_output_desktop );
+			if ( false === is_store_notice_showing() ) {
+				return $dynamic_css;
 			}
+
+			$store_notice_color    = astra_get_option( 'store-notice-text-color' );
+			$store_notice_bg_color = astra_get_option( 'store-notice-background-color' );
+			/**
+			 * WooCommerce store CSS.
+			 */
+			$css_output_desktop = array(
+				'body p.demo_store, body .woocommerce-store-notice, body p.demo_store a, body .woocommerce-store-notice a' => array(
+					'color'            => esc_attr( $store_notice_color ),
+					'background-color' => esc_attr( $store_notice_bg_color ),
+					'transition'       => 'none',
+				),
+			);
+
+			/* Parse CSS from array() */
+			$dynamic_css .= astra_parse_css( $css_output_desktop );
 
 			return $dynamic_css;
 		}

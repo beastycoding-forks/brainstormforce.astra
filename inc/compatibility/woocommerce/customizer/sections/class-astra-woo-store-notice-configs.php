@@ -41,8 +41,8 @@ class Astra_Woo_Store_Notice_Configs extends Astra_Customizer_Config_Base {
 				'title'     => __( 'Color', 'astra' ),
 				'section'   => 'woocommerce_store_notice',
 				'transport' => 'postMessage',
-				'priority'  => 100,
-				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+				'priority'  => 50,
+				'divider'   => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 			),
 
 			// Option: Text Color.
@@ -71,6 +71,26 @@ class Astra_Woo_Store_Notice_Configs extends Astra_Customizer_Config_Base {
 				'transport'         => 'postMessage',
 				'priority'          => 2,
 				'title'             => __( 'Background', 'astra' ),
+			),
+
+			/**
+			 * Option: Notice Position
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[store-notice-position]',
+				'default'    => astra_get_option( 'store-notice-position' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'section'    => 'woocommerce_store_notice',
+				'transport'  => 'postMessage',
+				'priority'   => 60,
+				'title'      => __( 'Notice Position', 'astra' ),
+				'choices'    => array(
+					'top'    => __( 'Top', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+				),
+				'renderAs'   => 'text',
+				'responsive' => false,
 			),
 		);
 

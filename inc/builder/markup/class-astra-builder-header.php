@@ -193,7 +193,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 * @since x.x.x
 		 */
 		public function header_mode_switcher() {
-			Astra_Builder_UI_Controller::render_mode_switcher();
+			Astra_Builder_UI_Controller::render_mode_switcher( 'header' );
 		}
 
 		/**

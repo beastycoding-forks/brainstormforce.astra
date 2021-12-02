@@ -41,9 +41,12 @@ class Astra_Header_Mode_Switcher_Loader {
 		/* Directory and Extension */
 		$dir_name    = ( true === SCRIPT_DEBUG ) ? 'unminified' : 'minified';
 		$file_prefix = ( true === SCRIPT_DEBUG ) ? '' : '.min';
-		/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		wp_enqueue_script( 'astra-builder-mode-switcher-customizer-preview-js', ASTRA_HEADER_MODE_SWITCHER_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
-		/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		wp_enqueue_script( 'astra-header-mode-switcher-preview-js', ASTRA_HEADER_MODE_SWITCHER_URI . '/assets/js/' . $dir_name . '/customizer-preview' . $file_prefix . '.js', array( 'customize-preview', 'astra-customizer-preview-js' ), ASTRA_THEME_VERSION, true );
+
+		$astra_mode_switcher_localize = array(
+			'modeSwitcherStyle' => astra_get_option( 'header-dark-mode-switch-style', 'button' ),
+		);
+		wp_localize_script( 'astra-header-mode-switcher-preview-js', 'astraHeaderModeSwitcherPreview', apply_filters( 'astra_header_mode_switcher_preview_localize', $astra_mode_switcher_localize ) );
 	}
 }
 

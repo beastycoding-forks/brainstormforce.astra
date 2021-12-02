@@ -273,24 +273,59 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		 * Callback for partial rendering mode switcher.
 		 *
 		 * @since x.x.x
+		 * @param string $builder_type the type of the builder.
 		 */
-		public static function render_mode_switcher() {
+		public static function render_mode_switcher( $builder_type = 'header' ) {
 
-			$switcher_icon  = astra_get_option( 'mode-switcher-icon-type' );
-			$switcher_label = astra_get_option( 'mode-switcher-label' );
+			$is_pro_dark_mode_active = ( class_exists( 'Astra_Ext_Extension' ) && Astra_Ext_Extension::is_active( 'dark-mode-switch' ) );
+			$builder_type            = esc_attr( $builder_type );
+
+			$switcher_type        = astra_get_option( $builder_type . '-dark-mode-switch-type' );
+			$switcher_style       = $is_pro_dark_mode_active ? astra_get_option( $builder_type . '-dark-mode-switch-style', 'button' ) : 'button';
+			$switcher_style_class = 'ast-mode-switcher-' . esc_attr( $switcher_type ) . '-' . esc_attr( $switcher_style ) . '';
+
+			$switcher_light_icon = astra_get_option( $builder_type . '-mode-switcher-light-icon' );
+			$switcher_dark_icon  = $is_pro_dark_mode_active ? astra_get_option( $builder_type . '-mode-switcher-dark-icon' ) : $switcher_light_icon;
+
+			$switcher_light_label = astra_get_option( $builder_type . '-mode-switcher-light-label' );
+			$switcher_dark_label  = astra_get_option( $builder_type . '-mode-switcher-dark-label' );
+
+			$is_style_toggle = ( $is_pro_dark_mode_active && 'toggle' === $switcher_style ) ? true : false;
+			$light_mode_span = '<span class="ast-light-mode-wrap ast-mode-label">';
+			$dark_mode_span  = '<span class="ast-dark-mode-wrap ast-mode-label">';
+			$closing_span    = '</span>';
 
 			if ( is_customize_preview() ) {
 				self::render_customizer_edit_button();
 			}
 			?>
-				<span id="ast-mode-switcher-trigger">
+				<button class="ast-mode-switcher-trigger ast-<?php echo $builder_type; ?>-mode-switcher <?php echo esc_attr( $switcher_style_class ); ?>" aria-label="Switch to dark mode">
 					<?php
-						echo self::fetch_svg_icon( $switcher_icon ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-					if ( '' !== $switcher_label ) {
-						echo esc_html( $switcher_label );
+					switch ( $switcher_type ) {
+						case 'icon':
+							echo $light_mode_span . self::fetch_svg_icon( $switcher_light_icon ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							echo $dark_mode_span . self::fetch_svg_icon( $switcher_dark_icon ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							break;
+
+						case 'label':
+								echo $light_mode_span . esc_html( $switcher_light_label ) . $closing_span;
+								echo $dark_mode_span . esc_html( $switcher_dark_label ) . $closing_span;
+							break;
+
+						case 'icon-with-label':
+							if ( $is_style_toggle ) {
+								echo '<span class="ast-light-switcher-knob">' . self::fetch_svg_icon( $switcher_light_icon ) . $closing_span;
+								echo $light_mode_span . esc_html( $switcher_light_label ) . $closing_span;
+								echo $dark_mode_span . esc_html( $switcher_dark_label ) . $closing_span;
+								echo '<span class="ast-dark-switcher-knob">' . self::fetch_svg_icon( $switcher_dark_icon ) . $closing_span;
+							} else {
+								echo $light_mode_span . self::fetch_svg_icon( $switcher_light_icon ) . esc_html( $switcher_light_label ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+								echo $dark_mode_span . self::fetch_svg_icon( $switcher_dark_icon ) . esc_html( $switcher_dark_label ) . $closing_span; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+							}
+							break;
 					}
 					?>
-				</span>
+				</button>
 			<?php
 		}
 

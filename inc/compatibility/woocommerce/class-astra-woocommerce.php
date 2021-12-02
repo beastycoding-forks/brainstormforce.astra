@@ -135,6 +135,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'body p.demo_store, body .woocommerce-store-notice, body p.demo_store a, body .woocommerce-store-notice a' => array(
 					'color'            => esc_attr( $store_notice_color ),
 					'background-color' => esc_attr( $store_notice_bg_color ),
+					'transition'       => 'none',
 				),
 			);
 

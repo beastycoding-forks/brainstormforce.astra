@@ -4,7 +4,7 @@ v3.9.0 (woocomerce-improvements) (Unreleased)
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
 - New: WooCommerce - Added cart icon hover color option.
 - New: WooCommerce - Added cart Margin and Padding spacing option.
-- New: WooCommerce - Added store notice color & background-color options.
+- New: WooCommerce - Added store notice text color & background color options.
 
 v3.8.0 (Unreleased)
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.

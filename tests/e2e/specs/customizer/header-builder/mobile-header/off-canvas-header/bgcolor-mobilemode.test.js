@@ -1,21 +1,29 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'Off-Canvas header background color setting for mobile mode in the customizer', () => {
-	it( 'header background color should apply correctly', async () => {
-		const offCanvasColorMobileMode = {
+describe( 'Off-Canvas header design setting in the customizer', () => {
+	it( 'header design settings for mobile should apply correctly', async () => {
+		const offCanvasColor = {
 			'mobile-header-type': 'full-width',
 			'off-canvas-background': {
 				'background-color': 'rgb(255, 242, 242)',
 			},
+			'off-canvas-close-color': 'rgb(21, 21, 21)',
 		};
-		await setCustomize( offCanvasColorMobileMode );
+		await setCustomize( offCanvasColor );
 
 		await createNewPost( {
 			postType: 'page',
-			title: 'testing',
+			title: 'sample-page',
 		} );
 		await publishPost();
+
+		await createNewPost( {
+			postType: 'page',
+			title: 'QA',
+		} );
+		await publishPost();
+
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -25,6 +33,63 @@ describe( 'Off-Canvas header background color setting for mobile mode in the cus
 		await expect( {
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner',
 			property: 'background-color',
-		} ).cssValueToBe( `${ offCanvasColorMobileMode[ 'off-canvas-background' ][ 'background-color' ] }` );
+		} ).cssValueToBe( `${ offCanvasColor[ 'off-canvas-background' ][ 'background-color' ] }` );
+		//close icon color
+		await page.waitForSelector( '.ast-mobile-popup-drawer.active .menu-toggle-close' );
+		await expect( {
+			selector: '.ast-mobile-popup-drawer.active .menu-toggle-close',
+			property: 'color',
+		} ).cssValueToBe( `${ offCanvasColor[ 'off-canvas-close-color' ] }` );
+	} );
+
+	//popup padding
+	it( 'padding should apply correctly', async () => {
+		const fullscreenPopupPadding = {
+			'mobile-header-type': 'full-width',
+			'off-canvas-padding': {
+				mobile: {
+					top: '50',
+					right: '40',
+					bottom: '65',
+					left: '40',
+				},
+				'mobile-unit': 'px',
+
+			},
+		};
+		await setCustomize( fullscreenPopupPadding );
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await setBrowserViewport( 'small' );
+		await page.click( '.main-header-menu-toggle' );
+		await page.waitForSelector( '.ast-mobile-popup-drawer.active .ast-mobile-popup-content' );
+		await expect( {
+			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-content',
+			property: 'padding-top',
+		} ).cssValueToBe(
+			`${ fullscreenPopupPadding[ 'off-canvas-padding' ].mobile.top }${ fullscreenPopupPadding[ 'off-canvas-padding' ][ 'mobile-unit' ] }`,
+		);
+
+		await expect( {
+			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-content',
+			property: 'padding-right',
+		} ).cssValueToBe(
+			`${ fullscreenPopupPadding[ 'off-canvas-padding' ].mobile.right }${ fullscreenPopupPadding[ 'off-canvas-padding' ][ 'mobile-unit' ] }`,
+		);
+
+		await expect( {
+			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-content',
+			property: 'padding-bottom',
+		} ).cssValueToBe(
+			`${ fullscreenPopupPadding[ 'off-canvas-padding' ].mobile.bottom }${ fullscreenPopupPadding[ 'off-canvas-padding' ][ 'mobile-unit' ] }`,
+		);
+
+		await expect( {
+			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-content',
+			property: 'padding-left',
+		} ).cssValueToBe(
+			`${ fullscreenPopupPadding[ 'off-canvas-padding' ].mobile.left }${ fullscreenPopupPadding[ 'off-canvas-padding' ][ 'mobile-unit' ] }`,
+		);
 	} );
 } );

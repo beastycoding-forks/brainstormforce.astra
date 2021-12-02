@@ -10,8 +10,8 @@
 // Update mode switcher atts.
 astraUpdateSwitcherAtts = function ( switchedTo ) {
 	// Update aria-label attr.
-	let modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' );
-	for ( let triggerCount = 0; triggerCount < modeSwticherTrigger.length; triggerCount++ ) {
+	var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' );
+	for ( var triggerCount = 0; triggerCount < modeSwticherTrigger.length; triggerCount++ ) {
 		if( 'dark' === switchedTo ) {
 			modeSwticherTrigger[ triggerCount ].setAttribute( 'aria-label', astraModeSwitcher.switchToLightMode );
 		} else {
@@ -20,8 +20,8 @@ astraUpdateSwitcherAtts = function ( switchedTo ) {
 	}
 
 	// Update title attr.
-	let modeSwticherIconButtons =  document.querySelectorAll( '.ast-mode-switcher-icon-button, .ast-mode-switcher-icon-toggle' );
-	for ( let buttonCount = 0; buttonCount < modeSwticherIconButtons.length; buttonCount++ ) {
+	var modeSwticherIconButtons =  document.querySelectorAll( '.ast-mode-switcher-icon-button, .ast-mode-switcher-icon-toggle' );
+	for ( var buttonCount = 0; buttonCount < modeSwticherIconButtons.length; buttonCount++ ) {
 		if( 'dark' === switchedTo ) {
 			modeSwticherIconButtons[ buttonCount ].setAttribute( 'title', astraModeSwitcher.switchToLightMode );
 		} else {
@@ -36,14 +36,14 @@ astraUpdateSwitcherAtts = function ( switchedTo ) {
  * Case: Due to some inconsistencies the toggled bubble look inappropriate, because we can't determine how button size (width) changes either of label font size or by icon size. That's why managing the bubble translateX offset through JS.
  */
 astraUpdateToggleButtonSize = function() {
-	let iconWithToggle = document.querySelectorAll( '.ast-mode-switcher-icon-with-label-toggle .ast-dark-switcher-knob .ahfb-svg-iconset' );
+	var iconWithToggle = document.querySelectorAll( '.ast-mode-switcher-icon-with-label-toggle .ast-dark-switcher-knob .ahfb-svg-iconset' );
 
 	if ( iconWithToggle.length > 0 ) {
-		let toggleAdjustCss = '',
+		var toggleAdjustCss = '',
 			styleSheet = document.createElement( 'style' );
 
-		for ( let toggleCount = 0; toggleCount < iconWithToggle.length; toggleCount++ ) {
-			let parentOffset = iconWithToggle[toggleCount].closest( '.ast-mode-switcher-trigger' );
+		for ( var toggleCount = 0; toggleCount < iconWithToggle.length; toggleCount++ ) {
+			var parentOffset = iconWithToggle[toggleCount].closest( '.ast-mode-switcher-trigger' );
 
 			if( parentOffset.classList.contains( 'ast-header-mode-switcher' ) ) {
 				toggleAdjustCss += '.ast-dark-mode .ast-header-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
@@ -55,9 +55,9 @@ astraUpdateToggleButtonSize = function() {
 		}
 
 		// Remove all existing stylesheets which loaded previously.
-		let exisitingToggleStyle = document.querySelectorAll( '#astra-icon-with-toggle-css' );
+		var exisitingToggleStyle = document.querySelectorAll( '#astra-icon-with-toggle-css' );
 		if ( exisitingToggleStyle.length > 0 ) {
-			for ( let stylesheetCount = 0; stylesheetCount < exisitingToggleStyle.length; stylesheetCount++ ) {
+			for ( var stylesheetCount = 0; stylesheetCount < exisitingToggleStyle.length; stylesheetCount++ ) {
 				exisitingToggleStyle[stylesheetCount].remove();
 			}
 		}
@@ -87,7 +87,7 @@ astraDarkModeSwitcher = function () {
 			}
 		} else if( '1' === astraModeSwitcher.carryOsPalette ) {
 			// Logic for OS Aware option to showcase site on load with their set system scheme.
-			let hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
+			var hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
 			if ( hasDarkSchemeSupport.matches && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
 				astraUpdateSwitcherAtts( 'dark' );
 				document.documentElement.classList.add( 'ast-dark-mode' );

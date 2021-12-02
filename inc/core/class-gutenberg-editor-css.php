@@ -898,7 +898,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			/**
 			 * Updating core block layouts in editor as well.
 			 *
-			 * @since x.x.x
+			 * @since 3.7.4
 			 */
 			if ( true === $improve_gb_ui ) {
 
@@ -915,10 +915,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.block-editor-block-list__layout.is-root-container > .wp-block:not([data-align=full]):not([data-align=wide]):not([data-align=left]):not([data-align=right]):not(p.wp-block-paragraph):not(.wp-block-cover):not(.wp-block-group):not(.wp-block-columns):not(.wp-block-media-text)' => array(
 						'max-width' => astra_get_css_value( $site_content_width, 'px' ),
 					),
-					'.edit-post-visual-editor .editor-post-title__input' => array(
-						'max-width' => astra_get_css_value( $site_content_width - 56, 'px' ),
-					),
-					'p.wp-block-paragraph, .wp-block[data-align="wide"]' => array(
+					'.edit-post-visual-editor .editor-post-title__input, p.wp-block-paragraph, .wp-block[data-align="wide"]' => array(
 						'max-width' => astra_get_css_value( $site_content_width - 56, 'px' ),
 					),
 					'.block-editor-block-list__layout > .wp-block-group, .block-editor-block-list__layout > .wp-block-cover, .wp-block[data-align=center] .wp-block-cover, .wp-block[data-align=center] .wp-block-group, .edit-post-visual-editor .editor-post-title__input' => array(

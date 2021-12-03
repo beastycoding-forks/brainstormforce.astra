@@ -38,7 +38,7 @@ const MetaSettings = props => {
 		let sectionValue = ( 'disabled' ===  props.meta[value['key']] || ( 'default' in value && 'disabled' === value[ 'default' ] ) ) ? true : false;
 		return (
 		<AstCheckboxControl
-			label = { value['label']}
+			label = { value['label'] }
 			value = { sectionValue }
 			key = { key }
 			name = { value['key'] }
@@ -53,7 +53,7 @@ const MetaSettings = props => {
 		let stickyValue =  ( 'disabled' ===  props.meta[value['key']] || ( 'default' in value && 'disabled' === value[ 'default' ] ) ) ? true : false;
 		return (
 		<AstCheckboxControl
-			label = { value['label']}
+			label = { value['label'] }
 			value = { stickyValue }
 			key = { key }
 			name = { value['key'] }

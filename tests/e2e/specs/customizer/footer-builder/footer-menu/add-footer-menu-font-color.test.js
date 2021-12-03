@@ -2,8 +2,8 @@ import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-describe( 'Add footer menu color settings', () => {
-	it( 'footer menu color settings should be added properly', async () => {
+describe( 'Add footer menu color settings in desktop view', () => {
+	it( 'footer menu color settings should be added properly in desktop view', async () => {
 		await createNewPost( {
 			postType: 'page',
 			title: 'Test Page',
@@ -52,12 +52,6 @@ describe( 'Add footer menu color settings', () => {
 			},
 		};
 		await setCustomize( footerMenuFontColor );
-		await createNewPost( {
-			postType: 'page',
-			title: 'Test Page',
-			content: 'This is simple test page',
-		} );
-		await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -82,3 +76,74 @@ describe( 'Add footer menu color settings', () => {
 		);
 	} );
 } );
+describe( 'Add footer menu color settings in tablet view', () => {
+	it( 'footer menu color settings should be added properly in tablet view', async () => {
+		const footerMenuFontColorTablet = {
+			'footer-menu-color-responsive': {
+				tablet: 'rgb(0, 0, 255)',
+			},
+			'footer-menu-a-color-responsive': {
+				tablet: 'rgb(0, 0, 0)',
+			},
+		};
+		await setCustomize( footerMenuFontColorTablet );
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( '.site-footer' );
+		//normal color test case
+		await setBrowserViewport( 'medium' );
+		await scrollToElement( '#colophon' );
+		await expect( {
+			selector: '#astra-footer-menu .menu-item .menu-link',
+			property: 'color',
+		} ).cssValueToBe( `${ footerMenuFontColorTablet[ 'footer-menu-color-responsive' ].tablet }`,
+		);
+		//active color test case
+		await page.click( '#astra-footer-menu .menu-link' );
+		await page.waitForSelector( '.site-footer' );
+		await scrollToElement( '#colophon' );
+		await expect( {
+			selector: '#astra-footer-menu .menu-item .menu-link',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ footerMenuFontColorTablet[ 'footer-menu-a-color-responsive' ].tablet }`,
+		);
+	} );
+} );
+describe( 'Add footer menu color settings in mobile view', () => {
+	it( 'footer menu color settings should be added properly in mobile view', async () => {
+		const footerMenuFontColorMobile = {
+			'footer-menu-color-responsive': {
+				mobile: 'rgb(0, 0, 0)',
+			},
+			'footer-menu-a-color-responsive': {
+				mobile: 'rgb(0, 0, 255)',
+			},
+		};
+		await setCustomize( footerMenuFontColorMobile );
+		await page.goto( createURL( '/' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( '.site-footer' );
+		//normal color test case
+		await setBrowserViewport( 'small' );
+		await scrollToElement( '#colophon' );
+		await expect( {
+			selector: '#astra-footer-menu .menu-item .menu-link',
+			property: 'color',
+		} ).cssValueToBe( `${ footerMenuFontColorMobile[ 'footer-menu-color-responsive' ].mobile }`,
+		);
+		//active color test case
+		await page.click( '#astra-footer-menu .menu-link' );
+		await page.waitForSelector( '.site-footer' );
+		await scrollToElement( '#colophon' );
+		await expect( {
+			selector: '#astra-footer-menu .menu-item .menu-link',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ footerMenuFontColorMobile[ 'footer-menu-a-color-responsive' ].mobile }`,
+		);
+	} );
+} );
+

@@ -128,7 +128,7 @@ describe( 'Footer menu background normal color settings in the customizer for ta
 		);
 	} );
 	//test case for active color setting
-	it( 'footer menu background active color should apply corectly in desktop', async () => {
+	it( 'footer menu background active color should apply corectly in tablet', async () => {
 		const footerMenuBackgroundColorTablet = {
 			'footer-menu-a-bg-color-responsive': {
 				tablet: 'rgb(207, 255, 148)',
@@ -147,7 +147,7 @@ describe( 'Footer menu background normal color settings in the customizer for ta
 		);
 	} );
 } );
-describe( 'Footer menu background normal color settings in the customizer for mobile', () => {
+describe( 'Footer menu background normal and active color settings in the customizer for mobile', () => {
 	//test case for normal color setting
 	it( 'footer menu background normal color should apply corectly in mobile', async () => {
 		const footerMenuBackgroundColorMobile = {
@@ -181,7 +181,7 @@ describe( 'Footer menu background normal color settings in the customizer for mo
 		);
 	} );
 	//test case for active color setting
-	it( 'footer menu background active color should apply corectly in desktop', async () => {
+	it( 'footer menu background active color should apply corectly in mobile', async () => {
 		const footerMenuBackgroundColorMobile = {
 			'footer-menu-a-bg-color-responsive': {
 				mobile: 'rgb(240, 214, 240)',

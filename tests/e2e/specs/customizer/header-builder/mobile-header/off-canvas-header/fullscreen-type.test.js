@@ -3,11 +3,11 @@ import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'off canvas full-screen header type and content alignment settings for tablet in the customizer', () => {
 	it( 'off canvas header general setting should apply correctly', async () => {
-		const offCanvasHeader = {
+		const offCanvasGeneralSetting = {
 			'mobile-header-type': 'full-width',
 			'header-offcanvas-content-alignment': 'flex-start',
 		};
-		await setCustomize( offCanvasHeader );
+		await setCustomize( offCanvasGeneralSetting );
 
 		await createNewPost( {
 			postType: 'page',
@@ -25,14 +25,14 @@ describe( 'off canvas full-screen header type and content alignment settings for
 		await expect( {
 			selector: '.content-align-flex-start .ast-builder-layout-element',
 			property: 'justify-content',
-		} ).cssValueToBe( `${ offCanvasHeader[ 'header-offcanvas-content-alignment' ] }` );
+		} ).cssValueToBe( `${ offCanvasGeneralSetting[ 'header-offcanvas-content-alignment' ] }` );
 	} );
 	it( 'off canvas header general setting should apply correctly for mobile mode', async () => {
-		const offCanvasHeader = {
+		const offCanvasGeneralSetting = {
 			'mobile-header-type': 'full-width',
 			'header-offcanvas-content-alignment': 'flex-end',
 		};
-		await setCustomize( offCanvasHeader );
+		await setCustomize( offCanvasGeneralSetting );
 
 		await createNewPost( {
 			postType: 'page',
@@ -50,6 +50,6 @@ describe( 'off canvas full-screen header type and content alignment settings for
 		await expect( {
 			selector: '.content-align-flex-end .ast-builder-layout-element',
 			property: 'justify-content',
-		} ).cssValueToBe( `${ offCanvasHeader[ 'header-offcanvas-content-alignment' ] }` );
+		} ).cssValueToBe( `${ offCanvasGeneralSetting[ 'header-offcanvas-content-alignment' ] }` );
 	} );
 } );

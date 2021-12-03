@@ -797,7 +797,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	 * Navigation Keyboard Navigation.
 	 */
 	function navigation_accessibility( containerMenu, containerButton ) {
-		if ( ! containerMenu ) {
+		if ( ! containerMenu || ! containerButton ) {
 			return;
 		}
 		var button = containerButton.getElementsByTagName( 'button' )[0];

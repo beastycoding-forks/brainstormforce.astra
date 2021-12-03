@@ -35,34 +35,36 @@ describe( 'Site Identity margin settings in the customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 
-		await page.waitForSelector( '.ast-builder-layout-element .ast-site-identity' );
+		await page.waitForSelector(
+			'.ast-builder-layout-element .ast-site-identity'
+		);
 
 		await expect( {
 			selector: '.ast-builder-layout-element .ast-site-identity',
 			property: 'margin-top',
 		} ).cssValueToBe(
-			`${ siteTaglineSpacing[ 'title_tagline-margin' ].desktop.top }${ siteTaglineSpacing[ 'title_tagline-margin' ][ 'desktop-unit' ] }`,
+			`${ siteTaglineSpacing[ 'title_tagline-margin' ].desktop.top }${ siteTaglineSpacing[ 'title_tagline-margin' ][ 'desktop-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-builder-layout-element .ast-site-identity',
 			property: 'margin-right',
 		} ).cssValueToBe(
-			`${ siteTaglineSpacing[ 'title_tagline-margin' ].desktop.right }${ siteTaglineSpacing[ 'title_tagline-margin' ][ 'desktop-unit' ] }`,
+			`${ siteTaglineSpacing[ 'title_tagline-margin' ].desktop.right }${ siteTaglineSpacing[ 'title_tagline-margin' ][ 'desktop-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-builder-layout-element .ast-site-identity',
 			property: 'margin-bottom',
 		} ).cssValueToBe(
-			`${ siteTaglineSpacing[ 'title_tagline-margin' ].desktop.bottom }${ siteTaglineSpacing[ 'title_tagline-margin' ][ 'desktop-unit' ] }`,
+			`${ siteTaglineSpacing[ 'title_tagline-margin' ].desktop.bottom }${ siteTaglineSpacing[ 'title_tagline-margin' ][ 'desktop-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-builder-layout-element .ast-site-identity',
 			property: 'margin-left',
 		} ).cssValueToBe(
-			`${ siteTaglineSpacing[ 'title_tagline-margin' ].desktop.left }${ siteTaglineSpacing[ 'title_tagline-margin' ][ 'desktop-unit' ] }`,
+			`${ siteTaglineSpacing[ 'title_tagline-margin' ].desktop.left }${ siteTaglineSpacing[ 'title_tagline-margin' ][ 'desktop-unit' ] }`
 		);
 	} );
 } );

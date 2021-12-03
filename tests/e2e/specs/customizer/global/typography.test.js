@@ -40,7 +40,7 @@ describe( 'Global Typography settings in the customizer', () => {
 			selector: '.entry-content p',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ globalTypegraphy[ 'font-size-body' ].desktop }${ globalTypegraphy[ 'font-size-body' ][ 'desktop-unit' ] }`,
+			`${ globalTypegraphy[ 'font-size-body' ].desktop }${ globalTypegraphy[ 'font-size-body' ][ 'desktop-unit' ] }`
 		);
 		await expect( {
 			selector: '.entry-content p',

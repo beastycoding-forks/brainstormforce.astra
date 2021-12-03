@@ -51,66 +51,78 @@ describe( 'Above header margin setting in customizer', () => {
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].desktop.top }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].desktop.top }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'desktop-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].desktop.right }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].desktop.right }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'desktop-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].desktop.bottom }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].desktop.bottom }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'desktop-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].desktop.left }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].desktop.left }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'desktop-unit' ] }`
 		);
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].tablet.top }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].tablet.top }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].tablet.right }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].tablet.right }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].tablet.bottom }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].tablet.bottom }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].tablet.left }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].tablet.left }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'tablet-unit' ] }`
 		);
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-top',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].mobile.top }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].mobile.top }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-right',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].mobile.right }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].mobile.right }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].mobile.bottom }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].mobile.bottom }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'margin-left',
-		} ).cssValueToBe( `${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].mobile.left }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderMargin[ 'section-above-header-builder-margin' ].mobile.left }${ aboveHeaderMargin[ 'section-above-header-builder-margin' ][ 'mobile-unit' ] }`
 		);
 	} );
 } );

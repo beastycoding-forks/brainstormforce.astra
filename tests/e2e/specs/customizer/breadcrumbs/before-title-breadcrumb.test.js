@@ -1,4 +1,8 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import {
+	createURL,
+	createNewPost,
+	publishPost,
+} from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
 import { responsiveFontSize } from '../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../utils/set-browser-viewport';
@@ -83,7 +87,7 @@ describe( 'breadcrumb typography settings in the customizer', () => {
 			selector: '.ast-breadcrumbs-wrapper, .ast-breadcrumbs-wrapper a',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-font-size' ].desktop }${ beforebreadcrumbFont[ 'breadcrumb-font-size' ][ 'desktop-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-font-size' ].desktop }${ beforebreadcrumbFont[ 'breadcrumb-font-size' ][ 'desktop-unit' ] }`
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
@@ -91,8 +95,10 @@ describe( 'breadcrumb typography settings in the customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				beforebreadcrumbFont[ 'breadcrumb-font-size' ].tablet,
-			) }${ beforebreadcrumbFont[ 'breadcrumb-font-size' ][ 'tablet-unit' ] }`,
+				beforebreadcrumbFont[ 'breadcrumb-font-size' ].tablet
+			) }${
+				beforebreadcrumbFont[ 'breadcrumb-font-size' ][ 'tablet-unit' ]
+			}`
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
@@ -100,8 +106,10 @@ describe( 'breadcrumb typography settings in the customizer', () => {
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				beforebreadcrumbFont[ 'breadcrumb-font-size' ].mobile,
-			) }${ beforebreadcrumbFont[ 'breadcrumb-font-size' ][ 'mobile-unit' ] }`,
+				beforebreadcrumbFont[ 'breadcrumb-font-size' ].mobile
+			) }${
+				beforebreadcrumbFont[ 'breadcrumb-font-size' ][ 'mobile-unit' ]
+			}`
 		);
 
 		await setBrowserViewport( 'large' );
@@ -109,89 +117,93 @@ describe( 'breadcrumb typography settings in the customizer', () => {
 			selector: '.ast-breadcrumbs-wrapper',
 			property: 'font-weight',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-font-weight' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-font-weight' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper',
 			property: 'line-height',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-line-height' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-line-height' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper',
 			property: 'text-transform',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-text-transform' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-text-transform' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper ',
 			property: 'font-family',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-font-family' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-font-family' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items .trail-end',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-active-color-responsive' ].desktop }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-active-color-responsive' ].desktop }`
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items .trail-end',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-active-color-responsive' ].tablet }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-active-color-responsive' ].tablet }`
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items .trail-end',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-active-color-responsive' ].mobile }`,
-		);
-
-		await setBrowserViewport( 'large' );
-		await expect( {
-			selector: '.ast-breadcrumbs-wrapper',
-			property: 'background-color',
-		} ).cssValueToBe( `${ beforebreadcrumbFont[ 'breadcrumb-bg-color' ].desktop }`,
-		);
-		await setBrowserViewport( 'medium' );
-		await expect( {
-			selector: '.ast-breadcrumbs-wrapper',
-			property: 'background-color',
-		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-bg-color' ].tablet }`,
-		);
-		await setBrowserViewport( 'small' );
-		await expect( {
-			selector: '.ast-breadcrumbs-wrapper',
-			property: 'background-color',
-		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-bg-color' ].mobile }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-active-color-responsive' ].mobile }`
 		);
 
 		await setBrowserViewport( 'large' );
 		await expect( {
+			selector: '.ast-breadcrumbs-wrapper',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ beforebreadcrumbFont[ 'breadcrumb-bg-color' ].desktop }`
+		);
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-breadcrumbs-wrapper',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ beforebreadcrumbFont[ 'breadcrumb-bg-color' ].tablet }`
+		);
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: '.ast-breadcrumbs-wrapper',
+			property: 'background-color',
+		} ).cssValueToBe(
+			`${ beforebreadcrumbFont[ 'breadcrumb-bg-color' ].mobile }`
+		);
+
+		await setBrowserViewport( 'large' );
+		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items a',
 			property: 'color',
-		} ).cssValueToBe( `${ beforebreadcrumbFont[ 'breadcrumb-text-color-responsive' ].desktop }`,
+		} ).cssValueToBe(
+			`${ beforebreadcrumbFont[ 'breadcrumb-text-color-responsive' ].desktop }`
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items a',
 			property: 'color',
-		} ).cssValueToBe( `${ beforebreadcrumbFont[ 'breadcrumb-text-color-responsive' ].tablet }`,
+		} ).cssValueToBe(
+			`${ beforebreadcrumbFont[ 'breadcrumb-text-color-responsive' ].tablet }`
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-breadcrumbs-wrapper .trail-items a',
 			property: 'color',
-		} ).cssValueToBe( `${ beforebreadcrumbFont[ 'breadcrumb-text-color-responsive' ].mobile }`,
+		} ).cssValueToBe(
+			`${ beforebreadcrumbFont[ 'breadcrumb-text-color-responsive' ].mobile }`
 		);
 		// GitHub action E2E fail case
 		// await setBrowserViewport( 'large' );
@@ -227,84 +239,84 @@ describe( 'breadcrumb typography settings in the customizer', () => {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-top',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].desktop.top }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'desktop-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].desktop.top }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'desktop-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-right',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].desktop.right }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'desktop-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].desktop.right }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'desktop-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-bottom',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].desktop.bottom }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'desktop-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].desktop.bottom }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'desktop-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-left',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].desktop.left }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'desktop-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].desktop.left }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'desktop-unit' ] }`
 		);
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-top',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].tablet.top }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'tablet-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].tablet.top }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'tablet-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-right',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].tablet.right }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'tablet-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].tablet.right }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'tablet-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-bottom',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].tablet.bottom }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'tablet-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].tablet.bottom }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'tablet-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-left',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].tablet.left }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'tablet-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].tablet.left }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'tablet-unit' ] }`
 		);
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-top',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].mobile.top }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'mobile-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].mobile.top }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'mobile-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-right',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].mobile.right }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'mobile-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].mobile.right }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'mobile-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-bottom',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].mobile.bottom }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'mobile-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].mobile.bottom }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'mobile-unit' ] }`
 		);
 
 		await expect( {
 			selector: '.ast-breadcrumbs-inner nav',
 			property: 'padding-left',
 		} ).cssValueToBe(
-			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].mobile.left }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'mobile-unit' ] }`,
+			`${ beforebreadcrumbFont[ 'breadcrumb-spacing' ].mobile.left }${ beforebreadcrumbFont[ 'breadcrumb-spacing' ][ 'mobile-unit' ] }`
 		);
 	} );
 } );

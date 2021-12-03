@@ -9,19 +9,21 @@ export const setCustomize = async ( data ) => {
 				'Content-Type': 'application/json',
 			},
 			body: JSON.stringify( { settings: data } ),
-		},
+		}
 	);
 };
 
 export const getCustomizerSettings = async ( key ) => {
-	return await window.fetch(
-		createURL( `/wp-json/astra/v1/e2e-utils/get-astra-settings` ) +
-			`?key=${ key }`,
-		{
-			method: 'GET',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-		},
-	).then( ( response ) => response.json() );
+	return await window
+		.fetch(
+			createURL( `/wp-json/astra/v1/e2e-utils/get-astra-settings` ) +
+				`?key=${ key }`,
+			{
+				method: 'GET',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}
+		)
+		.then( ( response ) => response.json() );
 };

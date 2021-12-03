@@ -1,4 +1,8 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import {
+	createURL,
+	createNewPost,
+	publishPost,
+} from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'off canvas menu design settings in the customizer', () => {
@@ -92,7 +96,6 @@ describe( 'off canvas menu design settings in the customizer', () => {
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',
 			},
-
 		};
 
 		await setCustomize( offCanvasMenuDesign );
@@ -111,62 +114,81 @@ describe( 'off canvas menu design settings in the customizer', () => {
 		} );
 
 		await setBrowserViewport( 'medium' );
-		await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-hfb-header .ast-builder-menu-mobile .main-header-menu' );
+		await page.click(
+			'.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle'
+		);
+		await page.waitForSelector(
+			'.ast-hfb-header .ast-builder-menu-mobile .main-header-menu'
+		);
 		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-popup-content .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-popup-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link',
+			selector:
+				'.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-popup-content .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-popup-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link',
 			property: 'border-bottom-width',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-submenu-item-b-size' ] + 'px' }`,
+			`${
+				offCanvasMenuDesign[
+					'header-mobile-menu-submenu-item-b-size'
+				] + 'px'
+			}`
 		);
-		await page.waitForSelector( '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link' );
+		await page.waitForSelector(
+			'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link'
+		);
 		await expect( {
-			selector: '.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-popup-content .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-popup-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link',
+			selector:
+				'.ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-header-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link, .ast-hfb-header .ast-mobile-popup-content .ast-builder-menu-mobile .main-navigation .menu-item .sub-menu .menu-link, .ast-hfb-header .ast-mobile-popup-content .ast-builder-menu-mobile .main-navigation .menu-item .menu-link',
 			property: 'border-color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-submenu-item-b-color' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-submenu-item-b-color' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-color-responsive' ].tablet }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-color-responsive' ].tablet }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-color-responsive' ].tablet }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-color-responsive' ].tablet }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-builder-menu-mobile .main-navigation .main-header-menu .sub-menu',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-builder-menu-mobile .main-navigation .main-header-menu .sub-menu',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-bg-obj-responsive' ].tablet[ 'background-color' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-bg-obj-responsive' ].tablet[ 'background-color' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].tablet }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].tablet }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
 			property: 'font-family',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-family' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-family' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
 			property: 'font-weight',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-weight' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-font-weight' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .menu-item > .menu-link',
 			property: 'text-transform',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-text-transform' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-text-transform' ] }`
 		);
 		// GitHub action E2E fail case
 		// offCanvasMenuDesign[ 'header-mobile-menu-line-height' ] = 4 * 18.24;
@@ -177,128 +199,152 @@ describe( 'off canvas menu design settings in the customizer', () => {
 		// 	`${ offCanvasMenuDesign[ 'header-mobile-menu-line-height' ] + 'px' }`,
 		// );
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-top',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'desktop-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-right',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-bottom',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-left',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].tablet.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			selector:
+				'.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-top',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.top }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.top }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			selector:
+				'.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-right',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.right }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.right }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			selector:
+				'.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-bottom',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.bottom }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.bottom }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			selector:
+				'.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-left',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.left }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].tablet.left }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'tablet-unit' ] }`
 		);
 
 		await setBrowserViewport( 'small' );
-		await page.click( '.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link' );
+		await page.click(
+			'.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle'
+		);
+		await page.waitForSelector(
+			'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link'
+		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-color-responsive' ].mobile }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-color-responsive' ].mobile }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-color-responsive' ].mobile }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-color-responsive' ].mobile }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-builder-menu-mobile .main-navigation .main-header-menu .sub-menu',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu, .ast-builder-menu-mobile .main-navigation .main-header-menu .sub-menu',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-bg-obj-responsive' ].mobile[ 'background-color' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-bg-obj-responsive' ].mobile[ 'background-color' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .menu-item.current-menu-item > .menu-link',
 			property: 'background-color',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].mobile }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-a-bg-color-responsive' ].mobile }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-top',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.top }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-right',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.right }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-bottom',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.bottom }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
+			selector:
+				'.ast-builder-menu-mobile .main-navigation .main-header-menu .menu-item > .menu-link',
 			property: 'padding-left',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ].mobile.left }${ offCanvasMenuDesign[ 'header-mobile-menu-menu-spacing' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			selector:
+				'.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-top',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.top }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.top }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			selector:
+				'.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-right',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.right }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.right }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			selector:
+				'.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-bottom',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.bottom }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.bottom }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
-			selector: '.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
+			selector:
+				'.ast-builder-menu-mobile .main-header-menu, .ast-header-break-point .ast-builder-menu-mobile .main-header-menu',
 			property: 'margin-left',
 		} ).cssValueToBe(
-			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.left }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`,
+			`${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ].mobile.left }${ offCanvasMenuDesign[ 'section-header-mobile-menu-margin' ][ 'mobile-unit' ] }`
 		);
 	} );
 } );

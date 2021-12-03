@@ -22,12 +22,15 @@ describe( 'Above header bottom border size and color setting in customizer', () 
 		await expect( {
 			selector: '.ast-above-header-bar',
 			property: 'border-bottom-width',
-		} ).cssValueToBe( `${ bottomBorder[ 'hba-header-separator' ] + 'px' }` );
+		} ).cssValueToBe(
+			`${ bottomBorder[ 'hba-header-separator' ] + 'px' }`
+		);
 
 		await expect( {
 			selector: '.ast-above-header-bar',
 			property: 'border-bottom-color',
-		} ).cssValueToBe( `${ bottomBorder[ 'hba-header-bottom-border-color' ] }`,
+		} ).cssValueToBe(
+			`${ bottomBorder[ 'hba-header-bottom-border-color' ] }`
 		);
 	} );
 } );

@@ -1,4 +1,8 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import {
+	createURL,
+	createNewPost,
+	publishPost,
+} from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
 describe( 'breadcrumb alignment settings in the customizer', () => {
 	it( 'breadcrumb center alignment should apply corectly for after header', async () => {
@@ -20,7 +24,7 @@ describe( 'breadcrumb alignment settings in the customizer', () => {
 			selector: '.ast-breadcrumbs-wrapper',
 			property: 'text-align',
 		} ).cssValueToBe(
-			`${ afterAlignmentCenter[ 'breadcrumb-alignment' ] }`,
+			`${ afterAlignmentCenter[ 'breadcrumb-alignment' ] }`
 		);
 	} );
 	it( 'breadcrumb left alignment should apply corectly for after header', async () => {
@@ -42,7 +46,7 @@ describe( 'breadcrumb alignment settings in the customizer', () => {
 			selector: '.ast-breadcrumbs-wrapper',
 			property: 'text-align',
 		} ).cssValueToBe(
-			`${ aftereAlignmentleft[ 'breadcrumb-alignment' ] }`,
+			`${ aftereAlignmentleft[ 'breadcrumb-alignment' ] }`
 		);
 	} );
 	it( 'breadcrumb alignment should apply corectly', async () => {
@@ -64,7 +68,7 @@ describe( 'breadcrumb alignment settings in the customizer', () => {
 			selector: '.ast-breadcrumbs-wrapper',
 			property: 'text-align',
 		} ).cssValueToBe(
-			`${ afterAlignmentRight[ 'breadcrumb-alignment' ] }`,
+			`${ afterAlignmentRight[ 'breadcrumb-alignment' ] }`
 		);
 	} );
 } );

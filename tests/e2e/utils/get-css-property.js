@@ -5,6 +5,6 @@ export const getCssProperty = async ( cssSelector, property ) => {
 			window
 				.getComputedStyle( el, pseudoEl || null )
 				.getPropertyValue( prop ),
-		property,
+		property
 	);
 };

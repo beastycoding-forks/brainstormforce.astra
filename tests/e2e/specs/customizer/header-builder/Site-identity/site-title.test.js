@@ -34,14 +34,14 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 			selector: '#ast-desktop-header .site-title a',
 			property: 'color',
 		} ).cssValueToBe(
-			`${ sitetitleTypography[ 'header-color-site-title' ] }`,
+			`${ sitetitleTypography[ 'header-color-site-title' ] }`
 		);
 
 		await expect( {
 			selector: '.site-title',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ sitetitleTypography[ 'font-size-site-title' ].desktop }${ sitetitleTypography[ 'font-size-site-title' ][ 'desktop-unit' ] }`,
+			`${ sitetitleTypography[ 'font-size-site-title' ].desktop }${ sitetitleTypography[ 'font-size-site-title' ][ 'desktop-unit' ] }`
 		);
 
 		await setBrowserViewport( 'medium' );
@@ -51,10 +51,10 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				sitetitleTypography[ 'font-size-site-title' ].tablet,
+				sitetitleTypography[ 'font-size-site-title' ].tablet
 			) }${
 				sitetitleTypography[ 'font-size-site-title' ][ 'tablet-unit' ]
-			}`,
+			}`
 		);
 
 		await setBrowserViewport( 'small' );
@@ -64,10 +64,10 @@ describe( 'Site Title Typography settings and color settings in the customizer',
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				sitetitleTypography[ 'font-size-site-title' ].mobile,
+				sitetitleTypography[ 'font-size-site-title' ].mobile
 			) }${
 				sitetitleTypography[ 'font-size-site-title' ][ 'mobile-unit' ]
-			}`,
+			}`
 		);
 	} );
 } );

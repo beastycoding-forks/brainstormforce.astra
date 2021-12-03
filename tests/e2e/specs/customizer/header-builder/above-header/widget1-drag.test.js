@@ -7,7 +7,6 @@ describe( 'Drag widget1 in the above header section and check it on frontend', (
 				above: {
 					above_left: {
 						0: 'widget-1',
-
 					},
 				},
 			},

@@ -61,7 +61,7 @@ describe( 'Typography in the block editor', () => {
 			selector: '.block-editor-writing-flow h1',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ headingTypography[ 'font-size-h1' ].desktop }${ headingTypography[ 'font-size-h1' ][ 'desktop-unit' ] }`,
+			`${ headingTypography[ 'font-size-h1' ].desktop }${ headingTypography[ 'font-size-h1' ][ 'desktop-unit' ] }`
 		);
 
 		// Test typography for h2.
@@ -79,7 +79,7 @@ describe( 'Typography in the block editor', () => {
 			selector: '.block-editor-writing-flow h2',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ headingTypography[ 'font-size-h2' ].desktop }${ headingTypography[ 'font-size-h2' ][ 'desktop-unit' ] }`,
+			`${ headingTypography[ 'font-size-h2' ].desktop }${ headingTypography[ 'font-size-h2' ][ 'desktop-unit' ] }`
 		);
 
 		// Test typography for h3.
@@ -97,7 +97,7 @@ describe( 'Typography in the block editor', () => {
 			selector: '.block-editor-writing-flow h3',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ headingTypography[ 'font-size-h3' ].desktop }${ headingTypography[ 'font-size-h3' ][ 'desktop-unit' ] }`,
+			`${ headingTypography[ 'font-size-h3' ].desktop }${ headingTypography[ 'font-size-h3' ][ 'desktop-unit' ] }`
 		);
 
 		// Test typography for h4.
@@ -115,7 +115,7 @@ describe( 'Typography in the block editor', () => {
 			selector: '.block-editor-writing-flow h4',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ headingTypography[ 'font-size-h4' ].desktop }${ headingTypography[ 'font-size-h4' ][ 'desktop-unit' ] }`,
+			`${ headingTypography[ 'font-size-h4' ].desktop }${ headingTypography[ 'font-size-h4' ][ 'desktop-unit' ] }`
 		);
 
 		// Test typography for h5.
@@ -133,7 +133,7 @@ describe( 'Typography in the block editor', () => {
 			selector: '.block-editor-writing-flow h5',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ headingTypography[ 'font-size-h5' ].desktop }${ headingTypography[ 'font-size-h5' ][ 'desktop-unit' ] }`,
+			`${ headingTypography[ 'font-size-h5' ].desktop }${ headingTypography[ 'font-size-h5' ][ 'desktop-unit' ] }`
 		);
 
 		// Test typography for h6.
@@ -151,7 +151,7 @@ describe( 'Typography in the block editor', () => {
 			selector: '.block-editor-writing-flow h6',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ headingTypography[ 'font-size-h6' ].desktop }${ headingTypography[ 'font-size-h6' ][ 'desktop-unit' ] }`,
+			`${ headingTypography[ 'font-size-h6' ].desktop }${ headingTypography[ 'font-size-h6' ][ 'desktop-unit' ] }`
 		);
 	} );
 } );

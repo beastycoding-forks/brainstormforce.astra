@@ -28,7 +28,7 @@ describe( 'post title size in the customizer', () => {
 			selector: '.ast-single-post .entry-title',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ postTitle[ 'font-size-entry-title' ].desktop }${ postTitle[ 'font-size-entry-title' ][ 'desktop-unit' ] }`,
+			`${ postTitle[ 'font-size-entry-title' ].desktop }${ postTitle[ 'font-size-entry-title' ][ 'desktop-unit' ] }`
 		);
 	} );
 } );

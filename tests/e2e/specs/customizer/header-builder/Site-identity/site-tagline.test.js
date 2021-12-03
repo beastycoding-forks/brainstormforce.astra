@@ -49,7 +49,7 @@ describe( 'Site Tagline Typography settings and color settings in the customizer
 			selector: '.site-header .site-description',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ siteTagline[ 'font-size-site-tagline' ].desktop }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
+			`${ siteTagline[ 'font-size-site-tagline' ].desktop }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`
 		);
 
 		await setBrowserViewport( 'medium' );
@@ -59,8 +59,8 @@ describe( 'Site Tagline Typography settings and color settings in the customizer
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				siteTagline[ 'font-size-site-tagline' ].tablet,
-			) }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
+				siteTagline[ 'font-size-site-tagline' ].tablet
+			) }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`
 		);
 
 		await setBrowserViewport( 'small' );
@@ -70,8 +70,8 @@ describe( 'Site Tagline Typography settings and color settings in the customizer
 			property: 'font-size',
 		} ).cssValueToBe(
 			`${ await responsiveFontSize(
-				siteTagline[ 'font-size-site-tagline' ].mobile,
-			) }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`,
+				siteTagline[ 'font-size-site-tagline' ].mobile
+			) }${ siteTagline[ 'font-size-site-tagline' ][ 'desktop-unit' ] }`
 		);
 	} );
 } );

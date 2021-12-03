@@ -52,66 +52,78 @@ describe( 'Above header padding setting in customizer', () => {
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-top',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].desktop.top }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].desktop.top }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'desktop-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-right',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].desktop.right }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].desktop.right }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'desktop-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].desktop.bottom }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].desktop.bottom }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'desktop-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-left',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].desktop.left }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'desktop-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].desktop.left }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'desktop-unit' ] }`
 		);
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-top',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].tablet.top }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].tablet.top }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-right',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].tablet.right }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].tablet.right }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].tablet.bottom }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].tablet.bottom }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'tablet-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-left',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].tablet.left }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].tablet.left }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'tablet-unit' ] }`
 		);
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-top',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].mobile.top }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].mobile.top }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-right',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].mobile.right }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].mobile.right }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].mobile.bottom }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].mobile.bottom }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'mobile-unit' ] }`
 		);
 		await expect( {
 			selector: '.ast-above-header.ast-above-header-bar',
 			property: 'padding-left',
-		} ).cssValueToBe( `${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].mobile.left }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ aboveHeaderPadding[ 'section-above-header-builder-padding' ].mobile.left }${ aboveHeaderPadding[ 'section-above-header-builder-padding' ][ 'mobile-unit' ] }`
 		);
 	} );
 } );

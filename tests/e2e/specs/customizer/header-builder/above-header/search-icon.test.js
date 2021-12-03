@@ -29,13 +29,14 @@ describe( 'Customizing search icon in the above header section', () => {
 			selector: '.astra-search-icon',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ searchIcon[ 'header-search-icon-space' ].desktop }${ searchIcon[ 'header-search-icon-space' ][ 'desktop-unit' ] }`,
+			`${ searchIcon[ 'header-search-icon-space' ].desktop }${ searchIcon[ 'header-search-icon-space' ][ 'desktop-unit' ] }`
 		);
 		//Search icon color for desktop
 		await expect( {
 			selector: '.ast-header-search .ast-icon',
 			property: 'color',
-		} ).cssValueToBe( `${ searchIcon[ 'header-search-icon-color' ].desktop }`,
+		} ).cssValueToBe(
+			`${ searchIcon[ 'header-search-icon-color' ].desktop }`
 		);
 	} );
 	it( 'search icon color and size for tablet should apply correctly', async () => {
@@ -63,13 +64,15 @@ describe( 'Customizing search icon in the above header section', () => {
 		await expect( {
 			selector: '.ast-icon',
 			property: 'color',
-		} ).cssValueToBe( `${ searchIcon[ 'header-search-icon-color' ].tablet }`,
+		} ).cssValueToBe(
+			`${ searchIcon[ 'header-search-icon-color' ].tablet }`
 		);
 		//Search icon size for tablet
 		await expect( {
 			selector: '.ast-header-search .astra-search-icon',
 			property: 'font-size',
-		} ).cssValueToBe( `${ searchIcon[ 'header-search-icon-space' ].tablet }${ searchIcon[ 'header-search-icon-space' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchIcon[ 'header-search-icon-space' ].tablet }${ searchIcon[ 'header-search-icon-space' ][ 'tablet-unit' ] }`
 		);
 	} );
 	it( 'search icon color and size for mobile should apply correctly', async () => {
@@ -97,13 +100,15 @@ describe( 'Customizing search icon in the above header section', () => {
 		await expect( {
 			selector: '.ast-icon',
 			property: 'color',
-		} ).cssValueToBe( `${ searchIcon[ 'header-search-icon-color' ].mobile }`,
+		} ).cssValueToBe(
+			`${ searchIcon[ 'header-search-icon-color' ].mobile }`
 		);
 		//Search icon size for mobile
 		await expect( {
 			selector: '.ast-header-search .astra-search-icon',
 			property: 'font-size',
-		} ).cssValueToBe( `${ searchIcon[ 'header-search-icon-space' ].mobile }${ searchIcon[ 'header-search-icon-space' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe(
+			`${ searchIcon[ 'header-search-icon-space' ].mobile }${ searchIcon[ 'header-search-icon-space' ][ 'mobile-unit' ] }`
 		);
 	} );
 } );

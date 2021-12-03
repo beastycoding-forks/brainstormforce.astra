@@ -147,7 +147,7 @@ function observeConsoleLogging() {
 		text = get(
 			message.args(),
 			[ 0, '_remoteObject', 'description' ],
-			text,
+			text
 		);
 
 		// Disable reason: We intentionally bubble up the console message

@@ -28,7 +28,7 @@ expect.extend( {
 				window
 					.getComputedStyle( el, pseudoEl || null )
 					.getPropertyValue( prop ),
-			css.property,
+			css.property
 		);
 
 		const sanitizedValue = sanitizeValue( css.property, value );

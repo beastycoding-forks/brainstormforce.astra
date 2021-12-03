@@ -80,7 +80,6 @@ const MetaSettings = props => {
 				name="theme-meta-panel"
 				title={ astMetaParams.title }
 			>
-
 				<div className="ast-sidebar-container components-panel__body is-opened" id="astra_settings_meta_box">
 					{/* Sidebar Setting */}
 					<Title

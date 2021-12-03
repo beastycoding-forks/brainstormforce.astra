@@ -35,10 +35,10 @@ const MetaSettings = props => {
 
 	// Checkbox control
 	const disableSections = Object.entries( astMetaParams.disable_sections ).map( ( [ key, value ] ) => {
-		let sectionValue = ( 'disabled' ===  props.meta[value['key']]  ) ? true : false;
+		let sectionValue = ( 'disabled' === props.meta[value['key']] || ( 'default' in value && 'disabled' === value[ 'default' ] ) ) ? true : false;
 		return (
 		<AstCheckboxControl
-			label = { value['label']}
+			label = { value['label'] }
 			value = { sectionValue }
 			key = { key }
 			name = { value['key'] }
@@ -50,10 +50,10 @@ const MetaSettings = props => {
 
 	// Checkbox control
 	const stickyHeadderOptions = Object.entries( astMetaParams.sticky_header_options ).map( ( [ key, value ] ) => {
-		let stickyValue =  ( 'disabled' ===  props.meta[value['key']]  ) ? true : false;
+		let stickyValue =  ( 'disabled' === props.meta[value['key']] || ( 'default' in value && 'disabled' === value[ 'default' ] ) ) ? true : false;
 		return (
 		<AstCheckboxControl
-			label = { value['label']}
+			label = { value['label'] }
 			value = { stickyValue }
 			key = { key }
 			name = { value['key'] }

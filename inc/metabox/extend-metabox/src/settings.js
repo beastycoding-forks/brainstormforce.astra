@@ -3,7 +3,7 @@
  */
 import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
 import { compose } from '@wordpress/compose';
-import {  withSelect, withDispatch } from '@wordpress/data';
+import { withSelect, withDispatch } from '@wordpress/data';
 import AstCheckboxControl from './ast-checkbox.js';
 import svgIcons from '../../../../assets/svg/svgs.json';
 import { SelectControl } from '@wordpress/components';

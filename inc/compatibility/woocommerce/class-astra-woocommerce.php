@@ -102,11 +102,43 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_filter( 'astra_schema_body', array( $this, 'remove_body_schema' ) );
 
-			// Header Cart Icon.
-			add_action( 'astra_woo_header_cart_icons_before', array( $this, 'header_cart_icon_markup' ) );
+			add_action( 'wp_footer', array( $this, 'minicart_checkout_refresh_script' ), 1 );
 
 			add_action( 'astra_cart_in_menu_class', array( $this, 'header_cart_icon_class' ), 99 );
 
+			// Header Cart Icon.
+			add_action( 'astra_woo_header_cart_icons_before', array( $this, 'header_cart_icon_markup' ), 10 );
+		}
+
+		/**
+		 * Update cart
+		 *
+		 * @return void
+		 */
+		public function minicart_checkout_refresh_script() {
+				?>
+					<script type="text/javascript">
+						( function ($) {
+							var cart_hash_key = '/astra/wp-admin/admin-ajax.php-wc_cart_hash';
+
+							function refresh_fragments() {
+								console.error( 'action script' );
+								// Better to put there 'blank' string then empty string
+								window.sessionStorage.setItem(cart_hash_key, 'blank');
+								var e = $.Event("storage");
+
+								e.originalEvent = {
+									key: cart_hash_key,
+								};
+
+								$(window).trigger(e);
+							}
+
+							refresh_fragments();
+							setInterval(refresh_fragments, 60000);
+						})(jQuery);
+					</script>
+				<?php
 		}
 
 		/**

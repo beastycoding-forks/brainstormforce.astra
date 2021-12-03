@@ -118,7 +118,24 @@
 				cart_close.addEventListener("click", cartFlyoutClose, false);
 			}
 		}
+	}
 
+	/**
+	 * Function to refresh cart-fragments.
+	 */
+	function refreshCartFragment() {
+		console.error( 'before - ' + substitutions.cart_hash_key );
+		// Better to put there 'blank' string then empty string
+		sessionStorage.setItem( substitutions.cart_hash_key, 'blank' );
+		console.error( 'after - ' + substitutions.cart_hash_key );
+
+		var event = new CustomEvent( "astRefreshWooCartFragments",
+			{
+				"detail": { 'key' : substitutions.cart_hash_key }
+			}
+		);
+
+		document.dispatchEvent( event );
 	}
 
 	window.addEventListener('resize', function () {
@@ -131,6 +148,7 @@
 
 	window.addEventListener('load', function () {
 		cartInit();
+		// refreshCartFragment();
 	});
 	document.addEventListener('astLayoutWidthChanged', function () {
 		cartInit();

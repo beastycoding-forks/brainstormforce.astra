@@ -318,6 +318,14 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
+
+			if ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
+				$translation_array = array(
+					'cart_hash_key' => WC()->ajax_url() . '-wc_cart_hash'
+				);
+
+				wp_localize_script( 'astra-mobile-cart', 'substitutions', $translation_array );
+			}
 		}
 
 		/**

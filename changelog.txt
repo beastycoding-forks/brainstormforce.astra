@@ -1,3 +1,5 @@
+Test Commit
+
 v3.8.0 (Unreleased)
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
 - Fix: Mobile menu does not close when you click a one page navigation link inside them.

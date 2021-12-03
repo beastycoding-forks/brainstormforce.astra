@@ -4,5 +4,8 @@ module.exports = {
 	parserOptions: {
 		requireConfigFile: false,
 	},
-	"plugins": ["jest"]
+	"plugins": ["jest"],
+	"env": {
+		"jest/globals": true
+	}
 };

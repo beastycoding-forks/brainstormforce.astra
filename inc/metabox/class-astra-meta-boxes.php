@@ -481,7 +481,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			if ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE === $post_type ) {
 				return;
 			}
-			
+
 			$metabox_name = sprintf(
 				// Translators: %s is the theme name.
 				__( '%s Settings', 'astra' ),

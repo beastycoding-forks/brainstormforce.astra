@@ -66,5 +66,8 @@
     "env:reset-site": "wp-env clean all",
     "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8888 '#astra-theme-css-inline-css'",
     "env": "wp-env"
+  },
+  "dependencies": {
+    "prettier": "^2.5.0"
   }
 }

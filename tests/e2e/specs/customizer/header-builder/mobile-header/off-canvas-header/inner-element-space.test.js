@@ -5,14 +5,15 @@ describe( 'off canvas full-screen header type popup padding setting in the custo
 	it( 'padding should apply correctly', async () => {
 		const innerElementSpace = {
 			'mobile-header-type': 'full-width',
-			'header-mobile-popup-items': {
+			'header-mobile-items': {
 				popup: {
 					popup_content: {
 						0: 'account',
-						1: 'social-icons-1'					},
+						1: 'social-icons-1',
+					},
 				},
-				'off-canvas-inner-spacing': '40',
 			},
+			'off-canvas-inner-spacing': '40',
 		};
 		await setCustomize( innerElementSpace );
 		await createNewPost( {

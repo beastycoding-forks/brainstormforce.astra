@@ -128,6 +128,10 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_button_bg_h_color_mobile  = ( ! empty( $cart_button_bg_h_color['mobile'] ) ) ? $cart_button_bg_h_color['mobile'] : '';
 	$cart_button_bg_h_color_tablet  = ( ! empty( $cart_button_bg_h_color['tablet'] ) ) ? $cart_button_bg_h_color['tablet'] : '';
 
+	$cart_label_position_desktop = ( ! empty( $cart_total_label_position['desktop'] ) ) ? $cart_total_label_position['desktop'] : '';
+	$cart_label_position_mobile  = ( ! empty( $cart_total_label_position['mobile'] ) ) ? $cart_total_label_position['mobile'] : '';
+	$cart_label_position_tablet  = ( ! empty( $cart_total_label_position['tablet'] ) ) ? $cart_total_label_position['tablet'] : '';
+
 	/**
 	* Woo Cart CSS.
 	*/
@@ -532,43 +536,59 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	);
 	$css_output                        .= astra_parse_css( $css_total_position_common_selector );
 
-
-	switch ( $cart_total_label_position ) {
-		case 'bottom':
-			$css_total_position_output_bottom = array(
-				'.ast-cart-position-bottom' => array(
-					'flex-direction' => 'column',
-				),
-				
-				'.ast-cart-position-bottom .ast-woo-header-cart-info-wrap' => array(
-					'order'       => 2,
-					'line-height' => 1,
-					'margin-top'  => '0.5em',
-				),
-				
-			);
-			$css_output .= astra_parse_css( $css_total_position_output_bottom );
-			break;
-		case 'right':
-			$css_total_position_output_right = array(
-				'.ast-cart-position-right .ast-woo-header-cart-info-wrap' => array(
-					'order'       => 2,
-					'margin-left' => '0.7em',
-				),
-			);
-			$css_output                     .= astra_parse_css( $css_total_position_output_right );
-			break;
-		case 'left':
-			$css_total_position_output_left = array(    
-				'.ast-cart-position-left .ast-woo-header-cart-info-wrap' => array(
-					'margin-right' => '0.5em',
-				),
-			);
-			$css_output                    .= astra_parse_css( $css_total_position_output_left ); 
-			break;
-		default:
-			break;
+	function ast_Cart_Position ($postion, $device) {
+		switch ($postion ) {
+			case 'bottom':
+				$css_total_position_output_bottom = array(
+					'.ast-cart-'.$device.'-position-bottom' => array(
+						'flex-direction' => 'column',
+					),
+					
+					'.ast-cart-'.$device.'-position-bottom .ast-woo-header-cart-info-wrap' => array(
+						'order'       => 2,
+						'line-height' => 1,
+						'margin-top'  => '0.5em',
+					),
+					
+				);
+				return $css_total_position_output_bottom;
+				break;
+			case 'right':
+				$css_total_position_output_right = array(
+					'.ast-cart-'.$device.'-position-right .ast-woo-header-cart-info-wrap' => array(
+						'order'       => 2,
+						'margin-left' => '0.7em',
+					),
+				);
+				return  $css_total_position_output_right;
+				break;
+			case 'left':
+				$css_total_position_output_left = array(    
+					'.ast-cart-'.$device.'-position-left .ast-woo-header-cart-info-wrap' => array(
+						'margin-right' => '0.5em',
+					),
+				);
+				return $css_total_position_output_left; 
+				break;
+			default:
+				break;
+		}
 	}
+	if($cart_label_position_desktop){
+		$cart_l_p_desktop = ast_Cart_Position($cart_label_position_desktop,'desktop');
+		$css_output .= astra_parse_css($cart_l_p_desktop);
+	}
+	if($cart_label_position_mobile){
+		$cart_l_p_mobile = ast_Cart_Position($cart_label_position_mobile,'mobile');
+	}
+	if($cart_label_position_tablet){
+		$cart_l_p_tablet = ast_Cart_Position($cart_label_position_tablet,'tablet');
+	}
+	$css_output .= astra_parse_css( $cart_l_p_tablet, '', astra_get_tablet_breakpoint());
+
+	$css_output .= astra_parse_css($cart_l_p_mobile, '', astra_get_mobile_breakpoint() );
+
+
 	$angle_transition = array(
 		'#ast-site-header-cart .widget_shopping_cart:before, #ast-site-header-cart .widget_shopping_cart:after' => array(
 			'transition'  => 'all 0.3s ease',

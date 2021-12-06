@@ -194,7 +194,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'bottom' => __( 'Bottom', 'astra' ),
 
 				),
-				'responsive' => false,
+				'responsive' => true,
 				'renderAs'   => 'text',
 				'context'    => Astra_Builder_Helper::$design_tab,
 			),

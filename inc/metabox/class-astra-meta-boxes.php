@@ -643,7 +643,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * @since 3.7.4
 		 */
 		public function register_meta_settings() {
-			$meta = self::$meta_option;
+			$meta = self::get_meta_option();
 
 			register_post_meta(
 				'', // Pass an empty string to register the meta key across all existing post types.
@@ -673,8 +673,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
-					// 'default' 		=> isset( $meta['ast-main-header-display']['default'] ) ? $meta['ast-main-header-display']['default'] : '',
-					'default'       => 'disabled',
+					'default' 		=> isset( $meta['ast-main-header-display']['default'] ) ? $meta['ast-main-header-display']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)

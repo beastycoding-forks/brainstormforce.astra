@@ -4,12 +4,9 @@ v3.9.0 (woocomerce-improvements) (Unreleased)
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
 - New: WooCommerce - Added cart icon hover color option.
 - New: WooCommerce - Added cart Margin and Padding spacing option.
-<<<<<<< HEAD
 - New: WooCommerce - Added cart total Label position option.
-=======
 
 v3.8.0 (Unreleased)
->>>>>>> 360286e60b1d51cc309c5952d23fc3a74ffe2c18
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
 - Fix: Mobile menu does not close when you click a one page navigation link inside them.
 - Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.

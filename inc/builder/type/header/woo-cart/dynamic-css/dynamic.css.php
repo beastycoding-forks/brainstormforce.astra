@@ -585,7 +585,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_l_p_tablet = '';
 	if ( $cart_label_position_desktop ) {
 		$cart_l_p_desktop = astra_cart_position( $cart_label_position_desktop, 'desktop' );
-		$css_output      .= astra_parse_css( $cart_l_p_desktop, '769' );
+		/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		$css_output      .= astra_parse_css( $cart_l_p_desktop, astra_get_tablet_breakpoint( '', '1') );
 	}
 	if ( $cart_label_position_mobile ) {
 		$cart_l_p_mobile = astra_cart_position( $cart_label_position_mobile, 'mobile' );
@@ -594,9 +595,9 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$cart_l_p_tablet = astra_cart_position( $cart_label_position_tablet, 'tablet' );
 	}
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$css_output .= astra_parse_css( $cart_l_p_tablet, '545', astra_get_tablet_breakpoint() );
+	$css_output .= astra_parse_css( $cart_l_p_tablet, astra_get_mobile_breakpoint( '', '1' ), astra_get_tablet_breakpoint() );
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	$css_output .= astra_parse_css( $cart_l_p_mobile, '', astra_get_mobile_breakpoint( '', 1 ) );
+	$css_output .= astra_parse_css( $cart_l_p_mobile, '', astra_get_mobile_breakpoint( '', '1' ) );
 
 
 	$angle_transition = array(

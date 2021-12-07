@@ -536,15 +536,23 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	);
 	$css_output                        .= astra_parse_css( $css_total_position_common_selector );
 
-	function ast_Cart_Position ($postion, $device) {
-		switch ($postion ) {
+	/**
+	 * Position markup
+	 *
+	 * @since x.x.x
+	 * @param  string $postion  Position.
+	 * @param  string $device Device type.
+	 * @return array
+	 */
+	function astra_cart_position( $postion, $device ) {
+		switch ( $postion ) {
 			case 'bottom':
 				$css_total_position_output_bottom = array(
-					'.ast-cart-'.$device.'-position-bottom' => array(
+					'.ast-cart-' . $device . '-position-bottom' => array(
 						'flex-direction' => 'column',
 					),
 					
-					'.ast-cart-'.$device.'-position-bottom .ast-woo-header-cart-info-wrap' => array(
+					'.ast-cart-' . $device . '-position-bottom .ast-woo-header-cart-info-wrap' => array(
 						'order'       => 2,
 						'line-height' => 1,
 						'margin-top'  => '0.5em',
@@ -552,41 +560,38 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 					
 				);
 				return $css_total_position_output_bottom;
-				break;
 			case 'right':
 				$css_total_position_output_right = array(
-					'.ast-cart-'.$device.'-position-right .ast-woo-header-cart-info-wrap' => array(
+					'.ast-cart-' . $device . '-position-right .ast-woo-header-cart-info-wrap' => array(
 						'order'       => 2,
 						'margin-left' => '0.7em',
 					),
 				);
-				return  $css_total_position_output_right;
-				break;
+				return $css_total_position_output_right;
 			case 'left':
 				$css_total_position_output_left = array(    
-					'.ast-cart-'.$device.'-position-left .ast-woo-header-cart-info-wrap' => array(
+					'.ast-cart-' . $device . '-position-left .ast-woo-header-cart-info-wrap' => array(
 						'margin-right' => '0.5em',
 					),
 				);
 				return $css_total_position_output_left; 
-				break;
 			default:
 				break;
 		}
 	}
-	if($cart_label_position_desktop){
-		$cart_l_p_desktop = ast_Cart_Position($cart_label_position_desktop,'desktop');
-		$css_output .= astra_parse_css($cart_l_p_desktop);
+	if ( $cart_label_position_desktop ) {
+		$cart_l_p_desktop = astra_cart_position( $cart_label_position_desktop, 'desktop' );
+		$css_output      .= astra_parse_css( $cart_l_p_desktop, '769' );
 	}
-	if($cart_label_position_mobile){
-		$cart_l_p_mobile = ast_Cart_Position($cart_label_position_mobile,'mobile');
+	if ( $cart_label_position_mobile ) {
+		$cart_l_p_mobile = astra_cart_position( $cart_label_position_mobile, 'mobile' );
 	}
-	if($cart_label_position_tablet){
-		$cart_l_p_tablet = ast_Cart_Position($cart_label_position_tablet,'tablet');
+	if ( $cart_label_position_tablet ) {
+		$cart_l_p_tablet = astra_cart_position( $cart_label_position_tablet, 'tablet' );
 	}
-	$css_output .= astra_parse_css( $cart_l_p_tablet, '', astra_get_tablet_breakpoint());
+	$css_output .= astra_parse_css( $cart_l_p_tablet, '545', astra_get_tablet_breakpoint() );
 
-	$css_output .= astra_parse_css($cart_l_p_mobile, '', astra_get_mobile_breakpoint() );
+	$css_output .= astra_parse_css( $cart_l_p_mobile, '', astra_get_mobile_breakpoint( '', 1 ) );
 
 
 	$angle_transition = array(

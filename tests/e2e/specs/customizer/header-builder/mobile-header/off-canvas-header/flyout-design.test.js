@@ -185,7 +185,7 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 	it( 'flyout close icon color should apply correctly', async () => {
 		const closeiconColor = {
 			'mobile-header-type': 'off-canvas',
-			'off-canvas-close-color': 'rgb(118, 29, 120 )',
+			'off-canvas-close-color': 'rgb(118, 29, 120)',
 		};
 		await setCustomize( closeiconColor );
 		await createNewPost( {

@@ -595,7 +595,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	}
 	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$css_output .= astra_parse_css( $cart_l_p_tablet, '545', astra_get_tablet_breakpoint() );
-	/* Parse CSS from array() -> min-width: (mobile-breakpoint + 1) px */
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$css_output .= astra_parse_css( $cart_l_p_mobile, '', astra_get_mobile_breakpoint( '', 1 ) );
 
 

@@ -1,7 +1,7 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'off canvas full-screen header type and content alignment settings for tablet in the customizer', () => {
+describe( 'off canvas header type and content alignment settings in the customizer', () => {
 	it( 'off canvas header general setting should apply correctly', async () => {
 		const offCanvasGeneralSetting = {
 			'mobile-header-type': 'full-width',

@@ -448,7 +448,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				}
 
 				$desktop_css['.ast-page-builder-template .edit-post-visual-editor'] = array(
-					'padding'     => '0',
+					'padding' => '0',
 				);
 				$desktop_css['.editor-styles-wrapper .block-editor-writing-flow']   = array(
 					'height'  => '100%',

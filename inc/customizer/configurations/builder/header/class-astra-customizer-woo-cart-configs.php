@@ -170,29 +170,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Icon total label position.
-			 */
-			array(
-				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-total-label-position]',
-				'default'    => astra_get_option( 'woo-header-cart-icon-total-label-position' ),
-				'type'       => 'control',
-				'transport'  => 'postMessage',
-				'section'    => $_section,
-				'title'      => __( 'Cart Total Position', 'astra' ),
-				'control'    => 'ast-selector',
-				'priority'   => 45,
-				'choices'    => array(
-					'left'   => __( 'Left', 'astra' ),
-					'right'  => __( 'Right', 'astra' ),
-					'bottom' => __( 'Bottom', 'astra' ),
-
-				),
-				'responsive' => true,
-				'renderAs'   => 'text',
-				'context'    => Astra_Builder_Helper::$design_tab,
-			),
-
-			/**
 			 * Option: Icon color
 			 * Option: Icon color section
 			 */
@@ -278,6 +255,29 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'step' => 1,
 					'max'  => 200,
 				),
+			),
+
+			/**
+			 * Option: Icon total label position.
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-total-label-position]',
+				'default'    => astra_get_option( 'woo-header-cart-icon-total-label-position' ),
+				'type'       => 'control',
+				'transport'  => 'postMessage',
+				'section'    => $_section,
+				'title'      => __( 'Cart Total Position', 'astra' ),
+				'control'    => 'ast-selector',
+				'priority'   => 47,
+				'choices'    => array(
+					'left'   => __( 'Left', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+
+				),
+				'responsive' => true,
+				'renderAs'   => 'text',
+				'context'    => Astra_Builder_Helper::$design_tab,
 			),
 
 			/**

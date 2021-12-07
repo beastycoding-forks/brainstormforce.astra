@@ -1,4 +1,19 @@
-v3.8.0 (Unreleased)
+v3.8.0 (woocomerce-improvements) (Unreleased)
+- New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
+- New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
+- New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
+- New: WooCommerce - Added cart icon hover color option.
+- New: WooCommerce - Added cart Margin and Padding spacing option.
+- New: WooCommerce - Added store notice text color & background color options.
+- New: WooCommerce - Added cart total Label position option.
+- New: WooCommerce - Added store notice color & background-color options.
+- New: WooCommerce - Added store notice position option.
+- New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
+- Improvement: Builder - Button - Added typography options from Astra Pro to free theme.
+- Improvement: WooCommerce - Modify the Cart label section via Shortcodes. (Needs Doc)
+- Fix: Global button design options are not working in customizer preview for WooCommerce buttons.
+
+v3.7.6 (Unreleased)
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
 - Fix: Mobile menu does not close when you click a one page navigation link inside them.
 - Fix: Responsive color options from 'color-group-control' are hiding when trying to set them in responsive devices.
@@ -7,6 +22,7 @@ v3.8.0 (Unreleased)
 - Fix: Guteneberg separator dots not appearing properly on frontend.
 - Fix: JS console error when Custom Layout is added for header.
 - Fix: Accessibility - Tab navigation does not highlight menu with submenus.
+- Fix: Filter to disable all Meta Settings of Page/Post by default is not working in Gutenberg based metabox. ( https://wpastra.com/docs/disable-all-meta-settings-of-page-post-by-default/ )
 
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.
@@ -21,6 +37,7 @@ v3.7.4
 - Improvement: Gutenberg frontend blocks UI improvement. ( https://wpastra.com/docs/gutenberg-ui-improvements-with-astra/ )
 - Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.
 - Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( https://wpastra.com/astra-3-7-4/ )
+- Improvement: Added Background color and hover color for WooCommerce Cart.
 - Fix: W3 validation - Getting duplicate H1 tag for site-title.
 - Fix: W3 validation - Duplicate HTML id '#site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validation - CSS parse error for '.menu-link' & '.wp-block-button__link'.

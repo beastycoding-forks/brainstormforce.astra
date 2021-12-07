@@ -187,9 +187,9 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$site_title           = astra_get_option( 'display-site-title-responsive' );
 		$display_site_title   = ( $site_title['desktop'] || $site_title['tablet'] || $site_title['mobile'] ) ? true : false;
 
-		$html = '';
-
+		$html            = '';
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
+		do_action( 'astra_before_logo_image', $device );
 
 		// Site logo.
 		if ( $has_custom_logo ) {

@@ -800,3 +800,81 @@ function astra_check_elementor_pro_3_5_version() {
 	}
 	return false;
 }
+
+/**
+ * Check if backward flag is set before updating default colors to sync colors with palette.
+ *
+ * @since x.x.x
+ * @return bool $astra_backward_flag
+ */
+function astra_check_update_defaults_colors() {
+	$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
+	$astra_backward_flag = ( isset( $astra_settings['link-default-colors-with-palette'] ) && false === $astra_settings['link-default-colors-with-palette'] ) ? false : true;
+	return $astra_backward_flag;
+}
+
+/**
+ * Get Global Color Palette's presets
+ *
+ * @return array color presets array.
+ * @since x.x.x
+ */
+function astra_get_palette_presets() {
+	return array(
+		'preset_1' => array(
+			'#2B6CB0',
+			'#215387',
+			'#222222',
+			'#3B3B3B',
+			'#515151',
+			'#626262',
+			'#E1E1E1',
+			'#F7F7F7',
+			'#FFFFFF',
+		),
+		'preset_2' => array(
+			'#255FDD',
+			'#00F2FF',
+			'#1A202C',
+			'#2D3748',
+			'#4A5568',
+			'#718096',
+			'#EDF2F7',
+			'#F7FAFC',
+			'#FFFFFF',
+		),
+		'preset_3' => array(
+			'#3296FF',
+			'#003174',
+			'#FFFFFF',
+			'#F7FAFC',
+			'#EDF2F7',
+			'#CBD2D9',
+			'#1A202C',
+			'#252C39',
+			'#2D3748',
+		),
+		'preset_4' => array(
+			'#E47B02',
+			'#ED8F0C',
+			'#1F2933',
+			'#3E4C59',
+			'#52606D',
+			'#7B8794',
+			'#F3F4F7',
+			'#F9F9FB',
+			'#FFFFFF',
+		),
+		'preset_5' => array(
+			'#DD6B20',
+			'#CF3033',
+			'#27241D',
+			'#423D33',
+			'#504A40',
+			'#625D52',
+			'#E8E6E1',
+			'#FAF9F7',
+			'#FFFFFF',
+		),
+	);
+}

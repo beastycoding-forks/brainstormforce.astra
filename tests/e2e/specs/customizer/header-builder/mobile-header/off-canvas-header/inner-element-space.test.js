@@ -13,6 +13,14 @@ describe( 'off canvas full-screen header type popup padding setting in the custo
 					},
 				},
 			},
+			'header-mobile-popup-items': {
+				popup: {
+					popup_content: {
+						0: 'account',
+						1: 'social-icons-1',
+					},
+				},
+			},
 			'off-canvas-inner-spacing': '40',
 		};
 		await setCustomize( innerElementSpace );
@@ -21,22 +29,22 @@ describe( 'off canvas full-screen header type popup padding setting in the custo
 			title: 'sample-page',
 		} );
 		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'test-page',
-		} );
-		await publishPost();
+		// await createNewPost( {
+		// 	postType: 'page',
+		// 	title: 'test-page',
+		// } );
+		// await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-mobile-popup-drawer .ast-mobile-popup-inner' );
+		await page.waitForSelector( '.ast-mobile-popup-content > *' );
 		await expect( {
-			selector: '.ast-mobile-popup-drawer .ast-mobile-popup-inner',
+			selector: '.ast-mobile-popup-content > *',
 			property: 'padding-top',
 		} ).cssValueToBe(
-			`${ innerElementSpace[ 'off-canvas-inner-spacing' ] }`,
+			`${ innerElementSpace[ 'off-canvas-inner-spacing' ] + 'px' }`,
 		);
 	} );
 } );

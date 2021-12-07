@@ -6,6 +6,7 @@ v3.8.0 (Unreleased)
 - Fix: WooCommerce Pagination markup misaligned on mobile devices.
 - Fix: Guteneberg separator dots not appearing properly on frontend.
 - Fix: JS console error when Custom Layout is added for header.
+- Fix: Accessibility - Tab navigation does not highlight menu with submenus.
 
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.

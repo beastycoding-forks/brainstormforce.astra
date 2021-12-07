@@ -26,7 +26,7 @@ describe( 'off canvas full-screen header type and content alignment settings for
 			selector: '.content-align-flex-start .ast-builder-layout-element',
 			property: 'justify-content',
 		} ).cssValueToBe( `${ offCanvasGeneralSetting[ 'header-offcanvas-content-alignment' ] }` );
-		
+
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
 
@@ -35,7 +35,6 @@ describe( 'off canvas full-screen header type and content alignment settings for
 			selector: '.content-align-flex-start .ast-builder-layout-element',
 			property: 'justify-content',
 		} ).cssValueToBe( `${ offCanvasGeneralSetting[ 'header-offcanvas-content-alignment' ] }` );
-
 	} );
 
 	it( 'off canvas header content alignment as center should apply correctly for mobile mode', async () => {
@@ -63,10 +62,8 @@ describe( 'off canvas full-screen header type and content alignment settings for
 			property: 'justify-content',
 		} ).cssValueToBe( `${ offCanvasGeneralSetting[ 'header-offcanvas-content-alignment' ] }` );
 
-
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
-
 		await page.waitForSelector( '.content-align-center .ast-builder-layout-element' );
 		await expect( {
 			selector: '.content-align-center .ast-builder-layout-element',
@@ -98,10 +95,8 @@ describe( 'off canvas full-screen header type and content alignment settings for
 			property: 'justify-content',
 		} ).cssValueToBe( `${ offCanvasGeneralSetting[ 'header-offcanvas-content-alignment' ] }` );
 
-
 		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
-
 		await page.waitForSelector( '.content-align-flex-end .ast-builder-layout-element' );
 		await expect( {
 			selector: '.content-align-flex-end .ast-builder-layout-element',

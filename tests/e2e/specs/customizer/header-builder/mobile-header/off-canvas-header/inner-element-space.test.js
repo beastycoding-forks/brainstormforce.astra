@@ -46,5 +46,5 @@ describe( 'off canvas full-screen header type popup padding setting in the custo
 		} ).cssValueToBe(
 			`${ innerElementSpace[ 'off-canvas-inner-spacing' ] + 'px' }`,
 		);
-	} );
+	} ); 
 } );

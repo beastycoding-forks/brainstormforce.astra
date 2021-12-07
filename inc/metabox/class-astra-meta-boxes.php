@@ -71,7 +71,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		/**
 		 * Register Post Meta options support.
 		 *
-		 * @since x.x.x
+		 * @since 3.7.6
 		 * @param array|mixed $args the post type args.
 		 * @param string      $post_type the post type.
 		 */

@@ -94,6 +94,11 @@ Astra icon font is based on IcoMoon-Free vector icon by Keyamoon.
 IcoMoon-Free vector icon destributed under trems of CC BY 4.0 or GPL. (https://creativecommons.org/licenses/by/4.0/ or https://www.gnu.org/licenses/gpl.html)
 Source: http://keyamoon.com/
 
+= Bootstrap Icons-Free =
+
+Mode Switcher Astra icon font is based on Bootstrap Icons-Free vector icon by Ismael Martínez.
+Licensed under MIT ( https://github.com/twbs/icons/blob/main/LICENSE.md )
+
 = Breadcrumb Trail =
 
 Astra default breadcrumb is based on Breadcrumb Trail by Justin Tadlock. (https://github.com/justintadlock/breadcrumb-trail)

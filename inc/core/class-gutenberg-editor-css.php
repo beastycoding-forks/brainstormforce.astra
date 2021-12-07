@@ -449,7 +449,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 				$desktop_css['.ast-page-builder-template .edit-post-visual-editor'] = array(
 					'padding'     => '0',
-					'padding-top' => '2em',
 				);
 				$desktop_css['.editor-styles-wrapper .block-editor-writing-flow']   = array(
 					'height'  => '100%',
@@ -1186,11 +1185,14 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$boxed_container_mobile = array();
 				$boxed_container_tablet = array();
 
-				$boxed_container[ $boxed_editor_content_area ] = astra_get_responsive_background_obj( $content_bg_obj, 'desktop' );
+				$astra_apply_content_background  = astra_get_option( 'apply-content-background-fullwidth-layouts', true );
+				$selector_for_content_background = ( true === $astra_apply_content_background ) ? $boxed_editor_content_area . ', .ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper, .ast-page-builder-template .edit-post-visual-editor, .ast-plain-container .edit-post-visual-editor' : $boxed_editor_content_area;
 
-				$boxed_container_tablet[ $boxed_editor_content_area ] = astra_get_responsive_background_obj( $content_bg_obj, 'tablet' );
+				$boxed_container[ $selector_for_content_background ] = astra_get_responsive_background_obj( $content_bg_obj, 'desktop' );
 
-				$boxed_container_mobile[ $boxed_editor_content_area ] = astra_get_responsive_background_obj( $content_bg_obj, 'mobile' );
+				$boxed_container_tablet[ $selector_for_content_background ] = astra_get_responsive_background_obj( $content_bg_obj, 'tablet' );
+
+				$boxed_container_mobile[ $selector_for_content_background ] = astra_get_responsive_background_obj( $content_bg_obj, 'mobile' );
 
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$css .= astra_parse_css( $boxed_container_tablet, '', astra_get_tablet_breakpoint() );

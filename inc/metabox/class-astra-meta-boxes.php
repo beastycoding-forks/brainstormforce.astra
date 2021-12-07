@@ -54,6 +54,53 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			global $pagenow;
 			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/**
+			 * Set metabox options
+			 *
+			 * @see https://php.net/manual/en/filter.filters.sanitize.php
+			 */
+			self::$meta_option = apply_filters(
+				'astra_meta_box_options',
+				array(
+					'ast-hfb-above-header-display'  => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-main-header-display'       => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-hfb-below-header-display'  => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-hfb-mobile-header-display' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'footer-sml-layout'             => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'footer-adv-display'            => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-post-title'               => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-sidebar-layout'           => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-content-layout'           => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-featured-img'              => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-breadcrumbs-content'       => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+				)
+			);
+
 			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
 			add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
@@ -126,52 +173,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 			add_action( 'add_meta_boxes', array( $this, 'setup_meta_box' ) );
 			add_action( 'save_post', array( $this, 'save_meta_box' ) );
-
-			/**
-			 * Set metabox options
-			 *
-			 * @see https://php.net/manual/en/filter.filters.sanitize.php
-			 */
-			self::$meta_option = apply_filters(
-				'astra_meta_box_options',
-				array(
-					'ast-hfb-above-header-display'  => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'ast-main-header-display'       => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'ast-hfb-below-header-display'  => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'ast-hfb-mobile-header-display' => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'footer-sml-layout'             => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'footer-adv-display'            => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'site-post-title'               => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'site-sidebar-layout'           => array(
-						'default'  => 'default',
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'site-content-layout'           => array(
-						'default'  => 'default',
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'ast-featured-img'              => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'ast-breadcrumbs-content'       => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-				)
-			);
 		}
 
 		/**
@@ -549,48 +550,38 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * Get disable section fields.
 		 */
 		public function get_disable_section_fields() {
-			$post_meta = self::get_meta_option();
-
 			return array(
 				array(
-					'key'     => 'ast-hfb-above-header-display',
-					'default' => isset( $post_meta['ast-hfb-above-header-display']['default'] ) ? $post_meta['ast-hfb-above-header-display']['default'] : '',
-					'label'   => __( 'Disable Above Header', 'astra' ),
+					'key'   => 'ast-hfb-above-header-display',
+					'label' => __( 'Disable Above Header', 'astra' ),
 				),
 				array(
-					'key'     => 'ast-main-header-display',
-					'default' => isset( $post_meta['ast-main-header-display']['default'] ) ? $post_meta['ast-main-header-display']['default'] : '',
-					'label'   => __( 'Disable Primary Header', 'astra' ),
+					'key'   => 'ast-main-header-display',
+					'label' => __( 'Disable Primary Header', 'astra' ),
 				),
 				array(
-					'key'     => 'ast-hfb-below-header-display',
-					'default' => isset( $post_meta['ast-hfb-below-header-display']['default'] ) ? $post_meta['ast-hfb-below-header-display']['default'] : '',
-					'label'   => __( 'Disable Below Header', 'astra' ),
+					'key'   => 'ast-hfb-below-header-display',
+					'label' => __( 'Disable Below Header', 'astra' ),
 				),
 				array(
-					'key'     => 'ast-hfb-mobile-header-display',
-					'default' => isset( $post_meta['ast-hfb-mobile-header-display']['default'] ) ? $post_meta['ast-hfb-mobile-header-display']['default'] : '',
-					'label'   => __( 'Disable Mobile Header', 'astra' ),
+					'key'   => 'ast-hfb-mobile-header-display',
+					'label' => __( 'Disable Mobile Header', 'astra' ),
 				),
 				array(
-					'key'     => 'site-post-title',
-					'default' => isset( $post_meta['site-post-title']['default'] ) ? $post_meta['site-post-title']['default'] : '',
-					'label'   => __( 'Disable Title', 'astra' ),
+					'key'   => 'site-post-title',
+					'label' => __( 'Disable Title', 'astra' ),
 				),
 				array(
-					'key'     => 'ast-breadcrumbs-content',
-					'default' => isset( $post_meta['ast-breadcrumbs-content']['default'] ) ? $post_meta['ast-breadcrumbs-content']['default'] : '',
-					'label'   => __( 'Disable Breadcrumb', 'astra' ),
+					'key'   => 'ast-breadcrumbs-content',
+					'label' => __( 'Disable Breadcrumb', 'astra' ),
 				),
 				array(
-					'key'     => 'ast-featured-img',
-					'default' => isset( $post_meta['ast-featured-img']['default'] ) ? $post_meta['ast-featured-img']['default'] : '',
-					'label'   => __( 'Disable Featured Image', 'astra' ),
+					'key'   => 'ast-featured-img',
+					'label' => __( 'Disable Featured Image', 'astra' ),
 				),
 				array(
-					'key'     => 'footer-sml-layout',
-					'default' => isset( $post_meta['footer-sml-layout']['default'] ) ? $post_meta['footer-sml-layout']['default'] : '',
-					'label'   => __( 'Disable Footer', 'astra' ),
+					'key'   => 'footer-sml-layout',
+					'label' => __( 'Disable Footer', 'astra' ),
 				),
 			);
 		}
@@ -599,23 +590,18 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * Get sticky header options.
 		 */
 		public function get_sticky_header_options() {
-			$post_meta = self::get_meta_option();
-
 			return array(
 				array(
-					'key'     => 'header-above-stick-meta',
-					'default' => isset( $post_meta['header-above-stick-meta']['default'] ) ? $post_meta['header-above-stick-meta']['default'] : '',
-					'label'   => __( 'Stick Above Header', 'astra' ),
+					'key'   => 'header-above-stick-meta',
+					'label' => __( 'Stick Above Header', 'astra' ),
 				),
 				array(
-					'key'     => 'header-main-stick-meta',
-					'default' => isset( $post_meta['header-main-stick-meta']['default'] ) ? $post_meta['header-main-stick-meta']['default'] : '',
-					'label'   => __( 'Disable Primary Header', 'astra' ),
+					'key'   => 'header-main-stick-meta',
+					'label' => __( 'Disable Primary Header', 'astra' ),
 				),
 				array(
-					'key'     => 'header-below-stick-meta',
-					'default' => isset( $post_meta['header-below-stick-meta']['default'] ) ? $post_meta['header-below-stick-meta']['default'] : '',
-					'label'   => __( 'Stick Below Header', 'astra' ),
+					'key'   => 'header-below-stick-meta',
+					'label' => __( 'Stick Below Header', 'astra' ),
 				),
 			);
 		}
@@ -657,12 +643,15 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 * @since 3.7.4
 		 */
 		public function register_meta_settings() {
+			$meta = self::get_meta_option();
+
 			register_post_meta(
 				'', // Pass an empty string to register the meta key across all existing post types.
 				'site-sidebar-layout',
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['site-sidebar-layout']['default'] ) ? $meta['site-sidebar-layout']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -673,6 +662,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['site-content-layout']['default'] ) ? $meta['site-content-layout']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -683,6 +673,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-main-header-display']['default'] ) ? $meta['ast-main-header-display']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -693,6 +684,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-hfb-above-header-display']['default'] ) ? $meta['ast-hfb-above-header-display']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -703,6 +695,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-hfb-below-header-display']['default'] ) ? $meta['ast-hfb-below-header-display']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -713,6 +706,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-hfb-mobile-header-display']['default'] ) ? $meta['ast-hfb-mobile-header-display']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -723,6 +717,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['site-post-title']['default'] ) ? $meta['site-post-title']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -733,6 +728,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-breadcrumbs-content']['default'] ) ? $meta['ast-breadcrumbs-content']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -743,6 +739,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['ast-featured-img']['default'] ) ? $meta['ast-featured-img']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -753,6 +750,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['footer-sml-layout']['default'] ) ? $meta['footer-sml-layout']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -794,6 +792,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['header-above-stick-meta']['default'] ) ? $meta['header-above-stick-meta']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -805,6 +804,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['header-main-stick-meta']['default'] ) ? $meta['header-main-stick-meta']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)
@@ -816,6 +816,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				array(
 					'show_in_rest'  => true,
 					'single'        => true,
+					'default'       => isset( $meta['header-below-stick-meta']['default'] ) ? $meta['header-below-stick-meta']['default'] : '',
 					'type'          => 'string',
 					'auth_callback' => '__return_true',
 				)

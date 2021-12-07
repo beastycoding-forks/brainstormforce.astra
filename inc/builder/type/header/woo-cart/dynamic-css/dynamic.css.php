@@ -550,6 +550,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				$css_total_position_output_bottom = array(
 					'.ast-cart-' . $device . '-position-bottom' => array(
 						'flex-direction' => 'column',
+						'padding-top'    => '7px', 
+						'padding-bottom' => '5px',
 					),
 					
 					'.ast-cart-' . $device . '-position-bottom .ast-woo-header-cart-info-wrap' => array(

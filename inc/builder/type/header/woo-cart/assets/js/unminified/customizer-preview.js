@@ -301,7 +301,7 @@
 			// var position_selector = '#ast-desktop-header';
 			// var position_responsive_selector = '#ast-mobile-header ';
 
-			var dynamicStyle = '.cart-container, .ast-addon-cart-wrap {display : flex; align-items : center;} ';
+			var dynamicStyle = '.cart-container, .ast-addon-cart-wrap {display : flex; align-items : center; padding-top: 7px; padding-bottom: 5px;} ';
 				dynamicStyle += '.astra-icon {line-height : 0.1;} ';
 				var tablet_break_point = astraBuilderPreview.tablet_break_point || 768,
 				mobile_break_point = astraBuilderPreview.mobile_break_point || 544;

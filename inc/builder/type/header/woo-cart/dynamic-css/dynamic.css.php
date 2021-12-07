@@ -581,6 +581,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				break;
 		}
 	}
+	$cart_l_p_mobile = '';
+	$cart_l_p_mobile = '';
 	if ( $cart_label_position_desktop ) {
 		$cart_l_p_desktop = astra_cart_position( $cart_label_position_desktop, 'desktop' );
 		$css_output      .= astra_parse_css( $cart_l_p_desktop, '769' );
@@ -591,8 +593,9 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	if ( $cart_label_position_tablet ) {
 		$cart_l_p_tablet = astra_cart_position( $cart_label_position_tablet, 'tablet' );
 	}
+	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$css_output .= astra_parse_css( $cart_l_p_tablet, '545', astra_get_tablet_breakpoint() );
-
+/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$css_output .= astra_parse_css( $cart_l_p_mobile, '', astra_get_mobile_breakpoint( '', 1 ) );
 
 

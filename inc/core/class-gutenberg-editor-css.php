@@ -908,7 +908,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.block-editor-block-list__layout > .wp-block-cover, .block-editor-block-list__layout > .wp-block-group, .block-editor-block-list__layout > .wp-block-columns, .block-editor-block-list__layout > .wp-block-media-text' => array(
 						'max-width' => '910px',
 					),
-					'.ast-page-builder-template .block-editor-block-list__layout.is-root-container > .wp-block:not(.wp-block-cover):not(.wp-block-group):not(.wp-block-columns):not(.wp-block-media-text):not([data-align=wide]):not([data-align=full]):not([data-align=left]):not([data-align=right]), .editor-post-title__block' => array(
+					'.ast-page-builder-template .block-editor-block-list__layout.is-root-container > .wp-block:not(.wp-block-cover):not(.wp-block-group):not(.wp-block-columns):not(.wp-block-media-text):not([data-align=wide]):not([data-align=full]):not([data-align=left]):not([data-align=right]), .editor-styles-wrapper .wp-block.editor-post-title__block' => array(
 						'max-width' => '100%',
 					),
 					'.block-editor-block-list__layout.is-root-container > .wp-block:not([data-align=full]):not([data-align=wide]):not([data-align=left]):not([data-align=right]):not(p.wp-block-paragraph):not(.wp-block-cover):not(.wp-block-group):not(.wp-block-columns):not(.wp-block-media-text)' => array(

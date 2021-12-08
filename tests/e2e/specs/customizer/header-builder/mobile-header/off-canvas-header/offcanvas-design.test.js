@@ -6,7 +6,7 @@ describe( 'Off-Canvas header background color & close icon color setting in the 
 		const offCanvasColor = {
 			'mobile-header-type': 'full-width',
 			'off-canvas-background': {
-				'background-color': 'rgb(255, 242, 242)',
+				'background-color': 'rgb(255, 255, 255)',
 			},
 			'off-canvas-close-color': 'rgb(21, 21, 21)',
 		};
@@ -90,7 +90,7 @@ describe( 'Off-Canvas header background color & close icon color setting in the 
 		const offCanvasColor = {
 			'mobile-header-type': 'full-width',
 			'off-canvas-background': {
-				'background-color': 'rgb(240, 255, 246)',
+				'background-color': 'rgb(255, 255, 255)',
 			},
 			'off-canvas-close-color': 'rgb(21, 21, 21)',
 		};

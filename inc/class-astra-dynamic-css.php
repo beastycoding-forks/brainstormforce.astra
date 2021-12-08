@@ -2229,8 +2229,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			}
 
+			$astra_spearate_container_selector = 'body, .ast-separate-container';
+			if ( astra_has_gcp_typo_preset_compatibility() && true === astra_get_option( 'apply-content-background-fullwidth-layouts', true ) ) {
+				$astra_spearate_container_selector = '.ast-separate-container';
+			}
+
 			$separate_container_css = array(
-				'body, .ast-separate-container' => astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ),
+				$astra_spearate_container_selector => astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ),
 			);
 			$parse_css             .= astra_parse_css( $separate_container_css );
 

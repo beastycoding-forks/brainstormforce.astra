@@ -256,7 +256,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$content_width_size = ( true === $improve_gb_ui ) ? '910px' : '1200px';
 			$css                = ':root{ --ast-content-width-size: ' . $content_width_size . ' }';
 
-			$astra_apply_content_background  = astra_get_option( 'apply-content-background-fullwidth-layouts', true );
+			$astra_apply_content_background = astra_get_option( 'apply-content-background-fullwidth-layouts', true );
 
 			$desktop_css = array(
 				'html'                                    => array(
@@ -460,7 +460,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			}
 
 			if ( astra_wp_version_compare( '5.8', '>=' ) ) {
-				$desktop_css['.edit-post-visual-editor__content-area > div'] = array(
+				$desktop_css['.edit-post-visual-editor__content-area > div']            = array(
 					'background' => 'inherit !important',
 				);
 				$desktop_css['.wp-block[data-align=left]>*']                            = array(
@@ -472,7 +472,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$desktop_css['.wp-block[data-align=left], .wp-block[data-align=right]'] = array(
 					'float' => 'none !important',
 				);
-				if( false === $astra_apply_content_background ) {
+				if ( false === $astra_apply_content_background ) {
 					$desktop_css['.ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper'] = $background_style_data;
 				}
 			}
@@ -1182,9 +1182,9 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( astra_has_gcp_typo_preset_compatibility() ) {
 
 				$boxed_editor_content_area = '.ast-separate-container .block-editor-writing-flow, .ast-max-width-layout.ast-plain-container .edit-post-visual-editor .block-editor-writing-flow';
-				$content_bg_obj         = astra_get_option( 'content-bg-obj-responsive' );
-				$boxed_container_mobile = array();
-				$boxed_container_tablet = array();
+				$content_bg_obj            = astra_get_option( 'content-bg-obj-responsive' );
+				$boxed_container_mobile    = array();
+				$boxed_container_tablet    = array();
 
 				$selector_for_content_background = ( true === $astra_apply_content_background ) ? '.edit-post-visual-editor .editor-styles-wrapper' : $boxed_editor_content_area;
 

@@ -1,39 +1,30 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
+import { themeUnitTest } from '../../../../../utils/dummy-data';
 describe( 'off canvas full-screen header type popup padding setting in the customizer', () => {
 	it( 'padding should apply correctly', async () => {
 		const innerElementSpace = {
-			'mobile-header-type': 'full-width',
 			'header-mobile-items': {
 				popup: {
 					popup_content: {
 						0: 'account',
 						1: 'social-icons-1',
+						2: 'search',
 					},
 				},
 			},
-			'header-mobile-popup-items': {
-				popup: {
-					popup_content: {
-						0: 'account',
-						1: 'social-icons-1',
-					},
-				},
-			},
-			'off-canvas-inner-spacing': '40',
+			'off-canvas-inner-spacing': '9',
+			'mobile-header-type': 'full-width',
 		};
+		await themeUnitTest();
 		await setCustomize( innerElementSpace );
 		await createNewPost( {
 			postType: 'page',
 			title: 'sample-page',
 		} );
 		await publishPost();
-		// await createNewPost( {
-		// 	postType: 'page',
-		// 	title: 'test-page',
-		// } );
-		// await publishPost();
+
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -46,5 +37,5 @@ describe( 'off canvas full-screen header type popup padding setting in the custo
 		} ).cssValueToBe(
 			`${ innerElementSpace[ 'off-canvas-inner-spacing' ] + 'px' }`,
 		);
-	} ); 
+	} );
 } );

@@ -16,7 +16,6 @@ describe( 'off canvas full-screen header type popup padding setting in the custo
 			'off-canvas-inner-spacing': '9',
 			'mobile-header-type': 'full-width',
 		};
-		await themeUnitTest();
 		await setCustomize( innerElementSpace );
 		await createNewPost( {
 			postType: 'page',

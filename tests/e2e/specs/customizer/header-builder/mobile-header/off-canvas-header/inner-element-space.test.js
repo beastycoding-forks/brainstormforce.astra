@@ -1,7 +1,6 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-import { themeUnitTest } from '../../../../../utils/dummy-data';
 describe( 'off canvas full-screen header type popup padding setting in the customizer', () => {
 	it( 'padding should apply correctly', async () => {
 		const innerElementSpace = {

@@ -9,7 +9,7 @@ import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Global typography preset 1 settings in the customizer', () => {
 	it( 'body font style for preset 1 should be applied correctly', async () => {
-		const globaltypographyPreset1 = {
+		const globalTypographyPreset1 = {
 			'typography-presets': 'Preset1',
 			'body-font-family': "'Open Sans,sans-serif'",
 			'body-font-weight': '400',
@@ -25,7 +25,7 @@ describe( 'Global typography preset 1 settings in the customizer', () => {
 			},
 		};
 
-		await setCustomize( globaltypographyPreset1 );
+		await setCustomize( globalTypographyPreset1 );
 
 		await createNewPost( { postType: 'post', title: 'preset1' } );
 		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
@@ -38,52 +38,52 @@ describe( 'Global typography preset 1 settings in the customizer', () => {
 			selector: 'body',
 			property: 'font-family',
 		} ).cssValueToBe(
-			`${ globaltypographyPreset1[ 'body-font-family' ] }`,
+			`${ globalTypographyPreset1[ 'body-font-family' ] }`,
 		);
 		await expect( {
 			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'font-weight',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-font-weight' ] }`,
+		} ).cssValueToBe( `${ globalTypographyPreset1[ 'body-font-weight' ] }`,
 		);
 		await expect( {
 			selector: 'body',
 			property: 'text-transform',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-text-transform' ] }`,
+		} ).cssValueToBe( `${ globalTypographyPreset1[ 'body-text-transform' ] }`,
 		);
 		await expect( {
 			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'line-height',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'body-line-height' ] }`,
+		} ).cssValueToBe( `${ globalTypographyPreset1[ 'body-line-height' ] }`,
 		);
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
 		} ).cssValueToBe(
-			`${ globaltypographyPreset1[ 'font-size-body' ].desktop }${ globaltypographyPreset1[ 'font-size-body' ][ 'desktop-unit' ] }`,
+			`${ globalTypographyPreset1[ 'font-size-body' ].desktop }${ globalTypographyPreset1[ 'font-size-body' ][ 'desktop-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'font-size-body' ].tablet }${ globaltypographyPreset1[ 'font-size-body' ][ 'tablet-unit' ] }`,
+		} ).cssValueToBe( `${ globalTypographyPreset1[ 'font-size-body' ].tablet }${ globalTypographyPreset1[ 'font-size-body' ][ 'tablet-unit' ] }`,
 		);
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
-		} ).cssValueToBe( `${ globaltypographyPreset1[ 'font-size-body' ].mobile }${ globaltypographyPreset1[ 'font-size-body' ][ 'mobile-unit' ] }`,
+		} ).cssValueToBe( `${ globalTypographyPreset1[ 'font-size-body' ].mobile }${ globalTypographyPreset1[ 'font-size-body' ][ 'mobile-unit' ] }`,
 		);
 	} );
 	it( 'heading font style for preset 1 should be applied correctly', async () => {
-		const globaltypographyPreset = {
+		const globalTypographyPreset1 = {
 			'headings-font-family': "'Playfair Display,Georgia,serif'",
 			'headings-font-weight': '700',
 			'headings-text-transform': 'none',
 			'headings-line-height': '45px',
 		};
-		await setCustomize( globaltypographyPreset );
+		await setCustomize( globalTypographyPreset1 );
 
 		await createNewPost( { postType: 'post', title: 'preset1' } );
 		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
@@ -95,22 +95,22 @@ describe( 'Global typography preset 1 settings in the customizer', () => {
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'font-family',
-		} ).cssValueToBe( `${ globaltypographyPreset[ 'headings-font-family' ] }`,
+		} ).cssValueToBe( `${ globalTypographyPreset1[ 'headings-font-family' ] }`,
 		);
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'font-weight',
-		} ).cssValueToBe( `${ globaltypographyPreset[ 'headings-font-weight' ] }`,
+		} ).cssValueToBe( `${ globalTypographyPreset1[ 'headings-font-weight' ] }`,
 		);
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'text-transform',
-		} ).cssValueToBe( `${ globaltypographyPreset[ 'headings-text-transform' ] }`,
+		} ).cssValueToBe( `${ globalTypographyPreset1[ 'headings-text-transform' ] }`,
 		);
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'line-height',
-		} ).cssValueToBe( `${ globaltypographyPreset[ 'headings-line-height' ] }`,
+		} ).cssValueToBe( `${ globalTypographyPreset1[ 'headings-line-height' ] }`,
 		);
 	} );
 } );

@@ -17,8 +17,8 @@ describe( 'Global typography preset-2 style in the customizer', () => {
 			'body-line-height': '25px',
 			'font-size-body': {
 				desktop: '16',
-				tablet: '16',
-				mobile: '16',
+				tablet: '15',
+				mobile: '10',
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',

@@ -16,8 +16,8 @@ describe( 'Global typography preset 1 settings in the customizer', () => {
 			'body-text-transform': 'uppercase',
 			'body-line-height': '25px',
 			'font-size-body': {
-				desktop: '16',
-				tablet: '16',
+				desktop: '30',
+				tablet: '20',
 				mobile: '16',
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',

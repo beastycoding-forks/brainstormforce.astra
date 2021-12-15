@@ -14940,7 +14940,9 @@ namespace {
      * @since x.x.x
      */
     function astra_get_palette_presets()
+	{
 
+	}
 	/**
      * Is Content BG settings need to apply on Fullwidth Contained/Stretched layout or not?
      *

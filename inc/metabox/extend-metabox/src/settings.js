@@ -3,7 +3,7 @@
  */
 import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
 import { compose } from '@wordpress/compose';
-import {  withSelect, withDispatch } from '@wordpress/data';
+import { withSelect, withDispatch } from '@wordpress/data';
 import AstCheckboxControl from './ast-checkbox.js';
 import svgIcons from '../../../../assets/svg/svgs.json';
 import { SelectControl } from '@wordpress/components';
@@ -35,7 +35,7 @@ const MetaSettings = props => {
 
 	// Checkbox control
 	const disableSections = Object.entries( astMetaParams.disable_sections ).map( ( [ key, value ] ) => {
-		let sectionValue = ( 'disabled' === props.meta[value['key']] || ( 'default' in value && 'disabled' === value[ 'default' ] ) ) ? true : false;
+		let sectionValue = ( 'disabled' === props.meta[value['key']] ) ? true : false;
 		return (
 		<AstCheckboxControl
 			label = { value['label'] }
@@ -50,7 +50,7 @@ const MetaSettings = props => {
 
 	// Checkbox control
 	const stickyHeadderOptions = Object.entries( astMetaParams.sticky_header_options ).map( ( [ key, value ] ) => {
-		let stickyValue =  ( 'disabled' === props.meta[value['key']] || ( 'default' in value && 'disabled' === value[ 'default' ] ) ) ? true : false;
+		let stickyValue =  ( 'disabled' === props.meta[value['key']] ) ? true : false;
 		return (
 		<AstCheckboxControl
 			label = { value['label'] }

@@ -256,7 +256,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$content_width_size = ( true === $improve_gb_ui ) ? '910px' : '1200px';
 			$css                = ':root{ --ast-content-width-size: ' . $content_width_size . ' }';
 
-			$astra_apply_content_background = astra_get_option( 'apply-content-background-fullwidth-layouts', true );
+			$astra_apply_content_background = astra_apply_content_background_fullwidth_layouts();
 
 			$desktop_css = array(
 				'html'                                    => array(

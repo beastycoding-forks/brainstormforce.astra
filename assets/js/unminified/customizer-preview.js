@@ -755,7 +755,7 @@ function hasWordPressWidgetBlockEditor() {
 			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'desktop' );
 			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'tablet' );
 			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', dynamicSelector, 'mobile' );
-		} else if ( astraCustomizer.apply_content_bg_fullwidth_layouts && ( 'plain-container' == content_layout || 'page-builder' == content_layout ) ) {
+		} else if ( astraCustomizer.apply_content_bg_fullwidth_layouts && ( 'ast-box-layout' == site_layout || 'ast-padded-layout' == site_layout ) && ( 'plain-container' == content_layout || 'page-builder' == content_layout ) ) {
 			var fullWidthLayoutSelector   = '.ast-plain-container, .ast-page-builder-template';
 			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', fullWidthLayoutSelector, 'desktop' );
 			astra_apply_responsive_background_css( 'astra-settings[content-bg-obj-responsive]', fullWidthLayoutSelector, 'tablet' );

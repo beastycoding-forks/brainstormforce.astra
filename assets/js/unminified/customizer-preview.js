@@ -1848,7 +1848,6 @@ function hasWordPressWidgetBlockEditor() {
 		
 		wp.customize('astra-settings[single-product-cart-button-width]', function (value) {
 			value.bind(function (size) {
-				console.log(size);
 				var tablet_break_point = astraBuilderPreview.tablet_break_point || 768,
 				mobile_break_point = astraBuilderPreview.mobile_break_point || 544;
 				if (size.desktop != '' || size.tablet != '' || size.mobile != '') {

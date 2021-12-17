@@ -8,6 +8,7 @@ v3.7.6
 - Fix: Gutenberg separator dots not appearing properly on frontend.
 - Fix: JS console error when Custom Layout is added for header.
 - Fix: Accessibility - Tab navigation does not highlight menu with submenus.
+- Fix: Filter to disable all Meta Settings of Page/Post by default is not working in Gutenberg based metabox. ( https://wpastra.com/docs/disable-all-meta-settings-of-page-post-by-default/ )
 
 v3.7.5
 - Improvement: Added compatibility for Elementor Pro v3.5.0 WooCommerce widgets.

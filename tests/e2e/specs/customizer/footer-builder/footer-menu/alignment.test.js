@@ -1,8 +1,8 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
-import { createNewMenu } from '../../../../utils/create-menu'
+import { createNewMenu } from '../../../../utils/create-menu';
 describe( 'Add footer menu spacing', () => {
 	it( 'footer menu center alignment should be added properly', async () => {
 		await createNewMenu();

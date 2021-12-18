@@ -3844,15 +3844,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					font-weight: bold;
 					box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.3);
 					font-size: 11px;
-					padding-right: 0px;
-					padding-left: 2px;
+					padding: 0;
 					line-height: 17px;
 					letter-spacing: -.5px;
 					height: 18px;
 					min-width: 18px;
 					border-radius: 99px;
 					text-align: center;
-					z-index: 3;
+					z-index: 4;
 				}
 				li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {
@@ -3901,15 +3900,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					font-weight: bold;
 					box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.3);
 					font-size: 11px;
-					padding-left: 0px;
-					padding-right: 2px;
+					padding: 0;
 					line-height: 17px;
 					letter-spacing: -.5px;
 					height: 18px;
 					min-width: 18px;
 					border-radius: 99px;
 					text-align: center;
-					z-index: 3;
+					z-index: 4;
 				}
 				li.woocommerce-custom-menu-item .ast-site-header-cart i.astra-icon:after,
 				li.edd-custom-menu-item .ast-edd-site-header-cart span.astra-icon:after {

@@ -968,7 +968,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						),
 					),
 					'dark-mode-switch'      => array(
-						'title'     => __( 'Dark Mode Switch', 'astra' ),
+						'title'     => __( 'Dark Mode', 'astra' ),
 						'class'     => 'ast-addon',
 						'title_url' => astra_get_pro_url( '#', 'welcome_page', 'features', 'astra_theme' ),
 						'links'     => array(

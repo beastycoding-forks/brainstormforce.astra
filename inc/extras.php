@@ -866,3 +866,33 @@ function astra_get_palette_presets() {
 		),
 	);
 }
+
+/**
+ * Check if backward flag is set before updating default colors to sync colors with palette.
+ *
+ * @since x.x.x
+ * @return bool $astra_backward_flag
+ */
+function astra_check_update_defaults_colors() {
+	$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
+	$astra_backward_flag = ( isset( $astra_settings['link-default-colors-with-palette'] ) && false === $astra_settings['link-default-colors-with-palette'] ) ? false : true;
+	return $astra_backward_flag;
+}
+
+/**
+ * Should Content BG settings apply to Fullwidth Contained/Stretched layout or not?
+ *
+ * Do not apply content background to fullwidth layouts in following cases -
+ * 1. For backward compatibility.
+ * 2. When site layout is Max-width.
+ * 3. When site layout is Padded.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_apply_content_background_fullwidth_layouts() {
+	$astra_site_layout              = astra_get_option( 'site-layout' );
+	$astra_apply_content_background = astra_get_option( 'apply-content-background-fullwidth-layouts', true );
+
+	return ( $astra_apply_content_background && 'ast-box-layout' !== $astra_site_layout && 'ast-padded-layout' !== $astra_site_layout );
+}

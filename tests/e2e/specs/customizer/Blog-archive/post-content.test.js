@@ -4,23 +4,22 @@ describe( 'Blog Archive post content option under the customizer', () => {
 	it( 'blog Archive excerpt options should apply correctly', async () => {
 		const postcontent = {
 			'blog-post-content': 'excerpt',
-
 		};
 		await setCustomize( postcontent );
 		await createNewPost( {
 			postType: 'post',
-			title: 'blog-post',
-			content: 'Full Content is applying properly',
-			excerpt: 'Excerpt is applying properly',
+			title: 'Post with excerpt content',
+			content: 'Full Content is applying properly.',
+			excerpt: 'Excerpt is applying properly.',
 		} );
 		await publishPost();
 
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-separate-container .ast-article-post  ' );
+		await page.waitForSelector( '.ast-separate-container .ast-article-post' );
 		await expect( {
-			selector: '.ast-separate-container .ast-article-post  ',
+			selector: '.ast-separate-container .ast-article-post',
 			property: '',
 		} ).cssValueToBe( `` );
 	} );
@@ -32,18 +31,18 @@ describe( 'Blog Archive post content option under the customizer', () => {
 		await setCustomize( postcontent );
 		await createNewPost( {
 			postType: 'post',
-			title: 'blog-post',
-			content: 'Full Content is applying properly',
-			excerpt: 'Excerpt is applying properly',
+			title: 'Post with full content',
+			content: 'Full Content is applying properly.',
+			excerpt: 'Excerpt is applying properly.',
 		} );
 		await publishPost();
 
 		await page.goto( createURL( '/author/admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-separate-container .ast-article-post  ' );
+		await page.waitForSelector( '.ast-separate-container .ast-article-post' );
 		await expect( {
-			selector: '.ast-separate-container .ast-article-post  ',
+			selector: '.ast-separate-container .ast-article-post',
 			property: '',
 		} ).cssValueToBe( `` );
 	} );

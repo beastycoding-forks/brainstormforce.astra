@@ -119,6 +119,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			),
 			'3.8.0' => array(
 				'astra_update_builders_default_colors',
+				'astra_fullwidth_layouts_apply_content_background',
 			),
 		);
 

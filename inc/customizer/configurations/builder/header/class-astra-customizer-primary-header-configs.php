@@ -70,6 +70,34 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'description' => '',
 				),
 
+				/**
+				 * Notice - Transparent meta header enabled on page.
+				 */
+				array(
+					'name'            => ASTRA_THEME_SETTINGS . '[ast-primary-header-transparent-header-callback-notice]',
+					'type'            => 'control',
+					'control'         => 'ast-description',
+					'section'         => $_section,
+					'priority'        => 1,
+					'active_callback' => array( Astra_Builder_Base_Configuration::get_instance(), 'is_transparent_header_enabled' ),
+					'help'            => '<div class="ast-customizer-notice wp-ui-highlight"><p>The header on this page is set from the Transparent Header.</p> <p> Please click the link below to customize Transparent Header </p></div>',
+				),
+
+				/**
+				 * Notice Link - Transparent meta header enabled on page.
+				 */
+				array(
+					'name'            => ASTRA_THEME_SETTINGS . '[ast-primary-header-transparent-header-callback-notice-link]',
+					'type'            => 'control',
+					'control'         => 'ast-customizer-link',
+					'section'         => $_section,
+					'priority'        => 1,
+					'link_type'       => 'section',
+					'linked'          => 'section-transparent-header',
+					'link_text'       => '<u>' . __( 'Customize Transparent Header.', 'astra' ) . '</u>',
+					'active_callback' => array( Astra_Builder_Base_Configuration::get_instance(), 'is_transparent_header_enabled' ),
+				),
+
 				// Section: Primary Header Height.
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[hb-header-height]',

@@ -43,6 +43,17 @@ final class Astra_Builder_Base_Configuration {
 	}
 
 	/**
+	 * Check if transparent header is enabled on the page being previewed.
+	 *
+	 * @since  x.x.x
+	 * @return boolean True - If Transparent Header is enabled, False if not.
+	 */
+	public function is_transparent_header_enabled() {
+		$status = Astra_Ext_Transparent_Header_Markup::is_transparent_header();
+		return ( true === $status ? true : false );
+	}
+
+	/**
 	 * Prepare Advance header configuration.
 	 *
 	 * @param string $section_id section id.

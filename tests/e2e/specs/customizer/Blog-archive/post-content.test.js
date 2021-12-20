@@ -4,7 +4,6 @@ describe( 'Blog Archive post content option under the customizer', () => {
 	it( 'blog Archive excerpt options should apply correctly', async () => {
 		const postcontent = {
 			'blog-post-content': 'excerpt',
-
 		};
 		await setCustomize( postcontent );
 		await createNewPost( {

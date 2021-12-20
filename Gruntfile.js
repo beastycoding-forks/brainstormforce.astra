@@ -557,6 +557,10 @@ module.exports = function (grunt) {
                         src: 'assets/css/unminified/galleries-rtl.css',
                         dest: 'assets/css/minified/galleries.min-rtl.css',
                     },
+                    {
+                        src: 'inc/metabox/extend-metabox/css/unminified/metabox.css',
+                        dest: 'inc/metabox/extend-metabox/css/minified/metabox.min.css',
+                    },
                 ]
             }
         },

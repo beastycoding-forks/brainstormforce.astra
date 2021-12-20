@@ -39,18 +39,18 @@ astraUpdateToggleButtonSize = function() {
 	var iconWithToggle = document.querySelectorAll( '.ast-mode-switcher-icon-with-label-toggle .ast-dark-switcher-knob .ahfb-svg-iconset' );
 
 	if ( iconWithToggle.length > 0 ) {
-		var toggleAdjustCss = '',
+		var toggleAdjustCSS = '',
 			styleSheet = document.createElement( 'style' );
 
 		for ( var toggleCount = 0; toggleCount < iconWithToggle.length; toggleCount++ ) {
-			var parentOffset = iconWithToggle[toggleCount].closest( '.ast-mode-switcher-trigger' );
+			var parentOffset = iconWithToggle[toggleCount].offsetParent;
 
 			if( parentOffset.classList.contains( 'ast-header-mode-switcher' ) ) {
-				toggleAdjustCss += '.ast-dark-mode .ast-header-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+				toggleAdjustCSS += '.ast-dark-mode .ast-header-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
 			} else if( parentOffset.classList.contains( 'ast-footer-mode-switcher' ) ) {
-				toggleAdjustCss += '.ast-dark-mode .ast-footer-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+				toggleAdjustCSS += '.ast-dark-mode .ast-footer-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
 			} else {
-				toggleAdjustCss += '.ast-dark-mode .ast-fixed-switch-mode.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+				toggleAdjustCSS += '.ast-dark-mode .ast-fixed-switch-mode.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
 			}
 		}
 
@@ -63,7 +63,7 @@ astraUpdateToggleButtonSize = function() {
 		}
 
 		styleSheet.id = 'astra-icon-with-toggle-css';
-		styleSheet.innerText = toggleAdjustCss;
+		styleSheet.innerText = toggleAdjustCSS;
 		document.head.appendChild( styleSheet );
 	}
 }

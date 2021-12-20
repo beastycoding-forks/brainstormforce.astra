@@ -8269,6 +8269,15 @@ namespace {
         {
         }
         /**
+         * Check if transparent header is enabled on the page being previewed.
+         *
+         * @since  x.x.x
+         * @return boolean True - If Transparent Header is enabled, False if not.
+         */
+        public function is_transparent_header_enabled()
+        {
+        }
+        /**
          * Prepare Advance header configuration.
          *
          * @param string $section_id section id.
@@ -14676,7 +14685,7 @@ namespace {
     {
     }
     /**
-     * Is Content BG settings need to apply on Fullwidth Contained/Stretched layout or not?
+     * Should Content BG settings apply to Fullwidth Contained/Stretched layout or not?
      *
      * Do not apply content background to fullwidth layouts in following cases -
      * 1. For backward compatibility.

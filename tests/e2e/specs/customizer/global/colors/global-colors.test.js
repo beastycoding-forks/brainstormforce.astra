@@ -9,11 +9,11 @@ describe( 'Testing global Color setting under the customizer', () => {
 		await setCustomize( textandheadingColor );
 		await createNewPost( {
 			postType: 'post',
-			title: 'color-test',
+			title: 'Global Colors Test',
 			content: 'this is the text color test',
 		} );
 		await publishPost();
-		await page.goto( createURL( 'color-test' ), {
+		await page.goto( createURL( 'global-colors-test' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( 'body, h1, .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' );
@@ -33,7 +33,7 @@ describe( 'Testing global Color setting under the customizer', () => {
 			'link-color': 'rgb(64, 24, 211)',
 		};
 		await setCustomize( linkColors );
-		await page.goto( createURL( 'color-test' ), {
+		await page.goto( createURL( 'global-colors-test' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.entry-meta *' );
@@ -47,7 +47,7 @@ describe( 'Testing global Color setting under the customizer', () => {
 			'theme-color': 'rgb(163, 183, 1)',
 		};
 		await setCustomize( themeColor );
-		await page.goto( createURL( 'color-test' ), {
+		await page.goto( createURL( 'global-colors-test' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '.wp-block-search__button' );
@@ -64,7 +64,7 @@ describe( 'Testing global Color setting under the customizer', () => {
 	// 		'link-h-color': 'rgb(205, 41, 41)',
 	// 	};
 	// 	await setCustomize( linkhoverColor );
-	// 	await page.goto( createURL( 'color-test' ), {
+	// 	await page.goto( createURL( 'global-colors-test' ), {
 	// 		waitUntil: 'networkidle0',
 	// 	} );
 	// 	await page.hover( '.wp-block-group__inner-container :last-child' );

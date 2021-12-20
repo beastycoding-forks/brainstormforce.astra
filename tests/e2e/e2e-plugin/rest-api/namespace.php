@@ -173,7 +173,7 @@ function rest_route() : void {
 					update_option( 'theme_mods_astra', $current_options );
 					return rest_ensure_response(
 						array(
-							'success'     => true,
+							'success' => true,
 						)
 					);
 

@@ -16,6 +16,7 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 - Improvement: Site Background is applying as background-CSS for Full-Width Contained/Stretched layouts instead of Content Background.
 - Fix: Global button design options are not working in customizer preview for WooCommerce buttons.
 - Fix: Fixed random option in order by releated posts.
+- Fix: Random orderby attribute not working correctly for Related Posts.
 
 v3.7.6
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.

@@ -189,7 +189,6 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 		$html            = '';
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
-		do_action( 'astra_before_logo_image', $device );
 
 		// Site logo.
 		if ( $has_custom_logo ) {

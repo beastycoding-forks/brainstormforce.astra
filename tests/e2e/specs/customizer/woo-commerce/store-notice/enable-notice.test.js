@@ -4,10 +4,10 @@ import {
 
 import { setCustomize } from '../../../../utils/customize';
 
-describe( 'Global typography H1 settings in the customizer', () => {
-	it( 'heading 1 font family settings should be applied correctly', async () => {
+describe( 'enable store notice of woo commerce', () => {
+	it( 'store notice should be enable', async () => {
 		const enableNotice = {
-			woocommerce_demo_store: 'yes',
+			woocommerce_demo_store: '',
 
 		};
 		await setCustomize( enableNotice );

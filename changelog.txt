@@ -17,6 +17,7 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 - Fix: Global button design options are not working in customizer preview for WooCommerce buttons.
 - Fix:- Fixed legend tag missing Wave accessibility issue for comment section.
 - Fix: W3 validation - legend HTML tag missing as fieldset tag is being used for comment section.
+- Fix: Random orderby attribute not working correctly for Related Posts.
 
 v3.7.6
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.

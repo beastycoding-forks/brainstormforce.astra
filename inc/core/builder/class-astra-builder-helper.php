@@ -646,19 +646,25 @@ final class Astra_Builder_Helper {
 		self::$header_desktop_items = apply_filters(
 			'astra_header_desktop_items',
 			array(
-				'logo'    => array(
+				'logo'          => array(
 					'name'    => __( 'Site Title & Logo', 'astra' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
 					'delete'  => false,
 				),
-				'search'  => array(
+				'mode-switcher' => array(
+					'name'    => __( 'Dark Mode Switcher', 'astra' ),
+					'icon'    => 'art',
+					'section' => 'header-section-mode-switcher',
+					'delete'  => false,
+				),
+				'search'        => array(
 					'name'    => __( 'Search', 'astra' ),
 					'icon'    => 'search',
 					'section' => 'section-header-search',
 					'delete'  => false,
 				),
-				'account' => array(
+				'account'       => array(
 					'name'    => __( 'Account', 'astra' ),
 					'icon'    => 'admin-users',
 					'section' => 'section-header-account',
@@ -670,16 +676,22 @@ final class Astra_Builder_Helper {
 		self::$footer_desktop_items = apply_filters(
 			'astra_footer_desktop_items',
 			array(
-				'copyright' => array(
+				'copyright'     => array(
 					'name'    => 'Copyright',
 					'icon'    => 'nametag',
 					'section' => 'section-footer-copyright',
 					'delete'  => false,
 				),
-				'menu'      => array(
+				'menu'          => array(
 					'name'    => 'Footer Menu',
 					'icon'    => 'menu',
 					'section' => 'section-footer-menu',
+					'delete'  => false,
+				),
+				'mode-switcher' => array(
+					'name'    => __( 'Dark Mode Switcher', 'astra' ),
+					'icon'    => 'art',
+					'section' => 'footer-section-mode-switcher',
 					'delete'  => false,
 				),
 			)
@@ -713,6 +725,11 @@ final class Astra_Builder_Helper {
 					'name'    => __( 'Site Title & Logo', 'astra' ),
 					'icon'    => 'admin-appearance',
 					'section' => 'title_tagline',
+				),
+				'mode-switcher'  => array(
+					'name'    => __( 'Dark Mode Switcher', 'astra' ),
+					'icon'    => 'art',
+					'section' => 'header-section-mode-switcher',
 				),
 				'search'         => array(
 					'name'    => __( 'Search', 'astra' ),

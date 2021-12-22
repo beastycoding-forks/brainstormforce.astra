@@ -82,6 +82,9 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 
 				// Navigation menu.
 				add_action( 'astra_footer_menu', array( $this, 'footer_menu' ) );
+
+				// Mode switcher.
+				add_action( 'astra_footer_mode_switcher', array( $this, 'footer_mode_switcher' ) );
 			}
 		}
 
@@ -273,6 +276,13 @@ if ( ! class_exists( 'Astra_Builder_Footer' ) ) {
 		 */
 		public function footer_menu() {
 			Astra_Footer_Menu_Component::menu_markup();
+		}
+
+		/**
+		 * Render Footer Mode Switcher.
+		 */
+		public function footer_mode_switcher() {
+			Astra_Builder_UI_Controller::render_mode_switcher( 'footer' );
 		}
 	}
 

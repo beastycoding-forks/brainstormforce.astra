@@ -221,7 +221,7 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 			property: 'color',
 		} ).cssValueToBe(
 			`${ aftbreadcrumbFont[ 'breadcrumb-separator-color' ].mobile }`,
-		// );
+		);
 
 		await setBrowserViewport( 'large' );
 		await expect( {

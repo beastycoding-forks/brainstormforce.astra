@@ -195,32 +195,32 @@ describe( 'breadcrumb Typography settings in the customizer', () => {
 		);
 		// GitHub action E2E fail case
 		//to test content link hover color
-		//await setBrowserViewport( 'large' );
-		//await page.hover( '.ast-breadcrumbs-wrapper .trail-items a' );
-		//await expect( {
-		//	selector: '.ast-breadcrumbs-wrapper .trail-items a',
-		//	property: 'color',
-		//} ).cssValueToBe( `${ aftbreadcrumbFont[ 'breadcrumb-hover-color-responsive' ].desktop }`,
-		//);
+		await setBrowserViewport( 'large' );
+		await page.hover( '.ast-breadcrumbs-wrapper .trail-items a' );
+		await expect( {
+			selector: '.ast-breadcrumbs-wrapper .trail-items a',
+			property: 'color',
+		} ).cssValueToBe( `${ aftbreadcrumbFont[ 'breadcrumb-hover-color-responsive' ].desktop }`,
+		);
 
-		// await expect( {
-		// 	selector: '.ast-breadcrumbs-wrapper .trail-items li::after',
-		// 	property: 'color',
-		// } ).cssValueToBe( `${ aftbreadcrumbFont[ 'breadcrumb-separator-color' ].desktop }`,
-		// );
-		// await setBrowserViewport( 'medium' );
-		// await expect( {
-		// 	selector: '.ast-breadcrumbs-wrapper .trail-items li::after',
-		// 	property: 'color',
-		// } ).cssValueToBe(
-		// 	`${ aftbreadcrumbFont[ 'breadcrumb-separator-color' ].tablet }`,
-		// );
-		// await setBrowserViewport( 'small' );
-		// await expect( {
-		// 	selector: '.ast-breadcrumbs-wrapper .trail-items li::after',
-		// 	property: 'color',
-		// } ).cssValueToBe(
-		// 	`${ aftbreadcrumbFont[ 'breadcrumb-separator-color' ].mobile }`,
+		await expect( {
+			selector: '.ast-breadcrumbs-wrapper .trail-items li::after',
+			property: 'color',
+		} ).cssValueToBe( `${ aftbreadcrumbFont[ 'breadcrumb-separator-color' ].desktop }`,
+		);
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.ast-breadcrumbs-wrapper .trail-items li::after',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ aftbreadcrumbFont[ 'breadcrumb-separator-color' ].tablet }`,
+		);
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: '.ast-breadcrumbs-wrapper .trail-items li::after',
+			property: 'color',
+		} ).cssValueToBe(
+			`${ aftbreadcrumbFont[ 'breadcrumb-separator-color' ].mobile }`,
 		// );
 
 		await setBrowserViewport( 'large' );

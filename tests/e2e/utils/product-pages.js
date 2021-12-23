@@ -1,5 +1,5 @@
 import { createURL } from '@wordpress/e2e-test-utils/build/create-url';
-export const productpage = async () => {
+export const wooCommercePage = async () => {
 	await page.goto( createURL( '/wp-admin' ), {
 		waitUntil: 'networkidle0',
 	} );

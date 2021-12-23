@@ -1840,6 +1840,31 @@ function hasWordPressWidgetBlockEditor() {
 				}
 			} );
 		} );
+		
+		wp.customize('astra-settings[single-product-cart-button-width]', function (value) {
+			value.bind(function (size) {
+				var tablet_break_point = astraBuilderPreview.tablet_break_point || 768,
+				mobile_break_point = astraBuilderPreview.mobile_break_point || 544;
+				if (size.desktop != '' || size.tablet != '' || size.mobile != '') {
+					var dynamicStyle = '';
+					dynamicStyle += '.single_add_to_cart_button {';
+					dynamicStyle += 'width: ' + size.desktop + '%' + ';';
+					dynamicStyle += '} ';
+					dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px) {';
+					dynamicStyle += '.single_add_to_cart_button {';
+					dynamicStyle += 'width: ' + size.tablet + '%' + ';';
+					dynamicStyle += '} ';
+					dynamicStyle += '} ';
+	
+					dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
+					dynamicStyle += '.single_add_to_cart_button {';
+					dynamicStyle += 'width: ' + size.mobile + '%' + ';';
+					dynamicStyle += '} ';
+					dynamicStyle += '} ';
+					astra_add_dynamic_css('header-woo-cart-icon-size', dynamicStyle);
+				}
+			});
+		});
 
 	}
 

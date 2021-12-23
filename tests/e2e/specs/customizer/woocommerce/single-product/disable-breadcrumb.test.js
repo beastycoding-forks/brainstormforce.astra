@@ -1,6 +1,5 @@
-import {
-	createURL,
-} from '@wordpress/e2e-test-utils';
+/* eslint-disable no-console */
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { wooCommercePage } from '../../../../utils/product-page';
 describe( 'disable breadcrumb on single product page', () => {
@@ -15,7 +14,7 @@ describe( 'disable breadcrumb on single product page', () => {
 		} );
 		const breadcrumbClass = await page.evaluate( () => {
 			// !! converts to boolean value
-			return !! document.querySelector( '.woocommerce-breadcrumb' ); 
+			return !! document.querySelector( '.woocommerce-breadcrumb' );
 		} );
 		if ( breadcrumbClass ) {
 			console.log( 'True' );
@@ -34,9 +33,10 @@ describe( 'disable breadcrumb on single product page', () => {
 		} );
 		const breadcrumbClass = await page.evaluate( () => {
 			// !! converts to boolean value
-			return !! document.querySelector( '.woocommerce-breadcrumb' ); 
+			return !! document.querySelector( '.woocommerce-breadcrumb' );
 		} );
 		if ( breadcrumbClass ) {
+			// eslint-disable-next-line no-console
 			console.log( 'True' );
 		} else {
 			console.log( 'False' );

@@ -3274,3 +3274,64 @@ function astra_improve_gutenberg_editor_ui() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_fullwidth_layouts_apply_content_background() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['apply-content-background-fullwidth-layouts'] ) ) {
+		$theme_options['apply-content-background-fullwidth-layouts'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @todo Updating builder & their element's default colors or static colors to make them link with color palette colors.
+ * To work in sync with Dark mode switch.
+ * @since x.x.x
+ * @return void
+ */
+function astra_update_builders_default_colors() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['link-default-colors-with-palette'] ) ) {
+		$theme_options['link-default-colors-with-palette'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Display Cart Total and Title compatibility.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_display_cart_total_title_compatibility() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( isset( $theme_options['woo-header-cart-label-display'] ) ) {
+		return;
+	}
+
+	// Set the Display Cart Label toggle values with shortcodes.
+	if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_title} / {cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_title}';
+	} else {
+		$theme_options['woo-header-cart-label-display'] = '';
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}

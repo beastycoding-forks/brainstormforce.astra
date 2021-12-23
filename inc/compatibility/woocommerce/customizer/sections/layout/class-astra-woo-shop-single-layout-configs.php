@@ -34,6 +34,35 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				* Option: button width option
+				*/
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[single-product-cart-button-width]',
+					'default'     => astra_get_option( 'single-product-cart-button-width' ),
+					'type'        => 'control',
+					'transport'   => 'postMessage',
+					'responsive'  => true,
+					'control'     => 'ast-responsive-slider',
+					'section'     => 'section-woo-shop-single',
+					'title'       => __( 'Button Width', 'astra-addon' ),
+					'suffix'      => '%',
+					'priority'    => 16,
+					'input_attrs' => array(
+						'min'     => 46,
+						'step'    => 1,
+						'max'     => 100,
+						'divider' => array( 'ast_class' => 'ast-bottom-divider' ),
+					),
+					'context'   => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+							'operator' => 'contains',
+							'value'    => 'add_cart',
+						),
+					),
+					
+				),
+				/**
 				* Option: Disable Breadcrumb
 				*/
 				array(

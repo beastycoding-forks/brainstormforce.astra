@@ -5,22 +5,23 @@ import { setCustomize } from '../../../../utils/customize';
 import { wooCommercePage } from '../../../../utils/product-page';
 describe( 'disable breadcrumb on single product page', () => {
 	it( 'breadcrumb should be disable on single product page', async () => {
-		const disableBreadcrumbs = {
+		const disableBreadcrumb = {
 			'single-product-breadcrumb-disable': 1,
 		};
-		await setCustomize( disableBreadcrumbs );
+		await setCustomize( disableBreadcrumb );
 		await wooCommercePage();
 		await page.goto( createURL( '/product/album' ), {
 			waitUntil: 'networkidle0',
 		} );
-		const breadcrumbClassPresent = await page.evaluate( () => {
-			return !! document.querySelector( '.woocommerce-breadcrumb' ); // !! converts anything to boolean
+		const breadcrumbClass = await page.evaluate( () => {
+			// !! converts to boolean value
+			return !! document.querySelector( '.woocommerce-breadcrumb' ); 
 		} );
-		if ( breadcrumbClassPresent ) { 
-			console.log( 'Ture' );
+		if ( breadcrumbClass ) {
+			console.log( 'True' );
 		} else {
 			console.log( 'False' );
 		}
-		await expect( breadcrumbClassPresent ).toBe( 'false' );
+		await expect( breadcrumbClass ).toBe( false );
 	} );
 } );

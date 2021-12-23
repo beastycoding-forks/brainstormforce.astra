@@ -4,7 +4,7 @@ import {
 import { setCustomize } from '../../../../utils/customize';
 import { wooCommercePage } from '../../../../utils/product-page';
 describe( 'disable breadcrumb on single product page', () => {
-	it( 'breadcrumb should be disable on single product page', async () => {
+	it( 'breadcrumb should be disable on single product', async () => {
 		const disableBreadcrumb = {
 			'single-product-breadcrumb-disable': 1,
 		};
@@ -23,5 +23,24 @@ describe( 'disable breadcrumb on single product page', () => {
 			console.log( 'False' );
 		}
 		await expect( breadcrumbClass ).toBe( false );
+	} );
+	it( 'breadcrumb should be enabled on single product', async () => {
+		const enableBreadcrumb = {
+			'single-product-breadcrumb-disable': 0,
+		};
+		await setCustomize( enableBreadcrumb );
+		await page.goto( createURL( '/product/album' ), {
+			waitUntil: 'networkidle0',
+		} );
+		const breadcrumbClass = await page.evaluate( () => {
+			// !! converts to boolean value
+			return !! document.querySelector( '.woocommerce-breadcrumb' ); 
+		} );
+		if ( breadcrumbClass ) {
+			console.log( 'True' );
+		} else {
+			console.log( 'False' );
+		}
+		await expect( breadcrumbClass ).toBe( true );
 	} );
 } );

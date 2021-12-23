@@ -36,7 +36,6 @@ describe( 'disable breadcrumb on single product page', () => {
 			return !! document.querySelector( '.woocommerce-breadcrumb' );
 		} );
 		if ( breadcrumbClass ) {
-			// eslint-disable-next-line no-console
 			console.log( 'True' );
 		} else {
 			console.log( 'False' );

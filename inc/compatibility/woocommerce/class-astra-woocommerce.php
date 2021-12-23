@@ -1776,6 +1776,49 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			
 
+				/**
+			 * Single page cart buttion size.
+			 */
+
+			$single_product_cart_button_width = astra_get_option( 'single-product-cart-button-width' );
+
+			$single_product_cart_button_width_desktop = ( ! empty( $single_product_cart_button_width['desktop'] ) ) ? $single_product_cart_button_width['desktop'] : '';
+
+			$single_product_cart_button_width_tablet = ( ! empty( $single_product_cart_button_width['tablet'] ) ) ? $single_product_cart_button_width['tablet'] : '';
+
+			$single_product_cart_button_width_mobile = ( ! empty( $single_product_cart_button_width['mobile'] ) ) ? $single_product_cart_button_width['mobile'] : '';
+
+			$single_cart_button = '.single_add_to_cart_button';
+
+			$css_output_cart_button_width_desktop = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_desktop, '%' ),
+				),
+			);
+
+			$css_output .= astra_parse_css( $css_output_cart_button_width_desktop );
+
+			$css_output_cart_button_width_mobile = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_mobile, '%' ),
+				),
+			);
+
+			$css_output_cart_button_width_tablet = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_tablet, '%' ),
+				),
+			);
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$css_output                         .= astra_parse_css( $css_output_cart_button_width_tablet, '', astra_get_tablet_breakpoint() );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$css_output                         .= astra_parse_css( $css_output_cart_button_width_mobile, '', astra_get_mobile_breakpoint() );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			
+
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 
 			/**

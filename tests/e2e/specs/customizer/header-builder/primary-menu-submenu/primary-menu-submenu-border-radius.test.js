@@ -21,9 +21,9 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 		await page.waitForSelector( '#primary-site-navigation' );
 		await expect( true ).toBe( true );
 	} );
-	it( 'border color to the submenu should be added correctly', async () => {
+	it( 'border radius to the submenu should be added correctly', async () => {
 		const submenuBorder = {
-			'header-menu1-submenu-b-color': 'rgb(242, 33, 217)',
+			'header-menu1-submenu-border-radius': 10,
 			'header-menu1-submenu-border': {
 				top: 10,
 				bottom: 10,
@@ -38,9 +38,9 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 		await page.hover( '.menu-link' );
 		await expect( {
 			selector: '.sub-menu',
-			property: 'border-color',
+			property: 'border-radius',
 		} ).cssValueToBe(
-			`${ submenuBorder[ 'header-menu1-submenu-b-color' ] }`,
+			`${ submenuBorder[ 'header-menu1-submenu-border-radius' ] + 'px' }`,
 		);
 	} );
 } );

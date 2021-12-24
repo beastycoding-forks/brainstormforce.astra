@@ -751,6 +751,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( get_theme_mod( 'custom_logo' )
 				|| astra_get_option( 'transparent-header-logo' )
 				|| astra_get_option( 'sticky-header-logo' )
+				|| astra_get_option( 'dark-mode-logo' )
 				|| $page_header_logo
 				|| is_customize_preview() ) {
 
@@ -2788,7 +2789,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$account_menu_color_active    = astra_get_option( 'transparent-account-menu-a-color' );
 				$account_menu_bg_color_active = astra_get_option( 'transparent-account-menu-a-bg-color' );
 
+				// Mode Switcher colors.
+				$astra_mode_switcher_light_color = astra_get_option( 'transparent-header-mode-switcher-light-color' );
+				$astra_mode_switcher_dark_color  = astra_get_option( 'transparent-header-mode-switcher-dark-color' );
+
 				$transparent_header_builder_desktop_css = array(
+					'.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
+						'color'            => esc_attr( $astra_mode_switcher_light_color ),
+						'background-color' => esc_attr( $astra_mode_switcher_dark_color ),
+					),
+					'.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
+						'color'            => esc_attr( $astra_mode_switcher_dark_color ),
+						'background-color' => esc_attr( $astra_mode_switcher_light_color ),
+					),
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' => array(
 						'color' => esc_attr( $html_text_color ),
 					),
@@ -3888,7 +3901,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 				.ast-header-break-point.ast-woocommerce-cart-menu.ast-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap,
 				.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-					width: 2em;
+					width: auto;
 					height: 2em;
 					font-size: 1.4em;
 					line-height: 2;
@@ -3945,7 +3958,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 				.ast-header-break-point.ast-woocommerce-cart-menu.ast-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap,
 				.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-					width: 2em;
+					width: auto;
 					height: 2em;
 					font-size: 1.4em;
 					line-height: 2;

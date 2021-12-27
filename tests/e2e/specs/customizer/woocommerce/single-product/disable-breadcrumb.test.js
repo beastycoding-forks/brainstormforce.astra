@@ -42,7 +42,7 @@ describe( 'disable breadcrumb on single product page', () => {
 		if ( breadcrumbClass ) {
 			loadClass = 'Breadcrumb_Enabled';
 		} else {
-
+			console.log( loadClass );
 		}
 		console.log( loadClass );
 		await expect( loadClass ).toBe( 'Breadcrumb_Enabled' );

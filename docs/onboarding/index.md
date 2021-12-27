@@ -8,7 +8,6 @@ We’re so glad to have you join the team! This guide is meant to provide team s
 # Table of contents
 
    * [Product And Process](#product-and-process)
-      * [Slack channels related to Astra that you should join](#-slack-channels-related-to-astra-that-you-should-join)
       * [Project Process](#-project-process)
       * [Important Meetings](#-important-meetings)
       * [Tools and Prerequisites](#-tools-and-prerequisites)

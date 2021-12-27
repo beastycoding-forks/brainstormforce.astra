@@ -4,6 +4,7 @@ v3.8.0(Unreleased)
 - Fix: W3 validation - legend HTML tag missing as fieldset tag is being used for comment section.
 - Fix: Related Posts - Post Query - Order by Random option not working as expected.
 - Fix: W3 validation - aria-label attribute is missing for cart offcanvas drawer.
+- Fix: W3 validation - Builder - Account - Duplicate IDs for account icons.
 
 v3.7.6
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( https://wpastra.com/docs/change-web-stories-position/ )

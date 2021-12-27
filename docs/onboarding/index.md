@@ -9,7 +9,6 @@ We’re so glad to have you join the team! This guide is meant to provide team s
 
    * [Product And Process](#product-and-process)
       * [Project Process](#-project-process)
-      * [Important Meetings](#-important-meetings)
       * [Tools and Prerequisites](#-tools-and-prerequisites)
    * [Onboarding Tasklist](#onboarding-tasklist)
       * [1](#-1)

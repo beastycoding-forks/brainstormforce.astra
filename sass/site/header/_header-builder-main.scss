@@ -189,17 +189,11 @@
 	.ast-primary-sticky-header-active {
 		&.ast-main-header-nav-open{
 			.ast-builder-menu{
-				.main-navigation ul{
+				.main-navigation{
 					overflow: scroll;
-					height: 55vh;
+					height: 70vh;
 				}
 			}
-		}
-	}
-	.ast-primary-sticky-header-active{
-		&.ast-main-header-nav-open {
-			overflow: scroll;
-			height: 10vh;
 		}
 	}
 }

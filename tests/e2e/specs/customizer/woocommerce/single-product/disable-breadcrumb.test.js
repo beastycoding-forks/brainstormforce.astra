@@ -8,6 +8,7 @@ describe( 'disable breadcrumb on single product page', () => {
 		const disableBreadcrumb = {
 			'single-product-breadcrumb-disable': 1,
 		};
+		let loadClass = null;
 		await setCustomize( disableBreadcrumb );
 		await wooCommercePage();
 		await page.goto( createURL( '/product/album' ), {
@@ -18,16 +19,18 @@ describe( 'disable breadcrumb on single product page', () => {
 			return !! document.querySelector( '.woocommerce-breadcrumb' );
 		} );
 		if ( breadcrumbClass ) {
-			console.log( 'True' );
+			console.log( loadClass );
 		} else {
-			console.log( 'False' );
+			loadClass = 'Breadcrumb_Disabled';
 		}
-		await expect( breadcrumbClass ).toBe( false );
+		console.log( loadClass );
+		await expect( loadClass ).toBe( 'Breadcrumb_Disabled' );
 	} );
 	it( 'breadcrumb should be enabled on single product', async () => {
 		const enableBreadcrumb = {
 			'single-product-breadcrumb-disable': 0,
 		};
+		let loadClass = null;
 		await setCustomize( enableBreadcrumb );
 		await page.goto( createURL( '/product/album' ), {
 			waitUntil: 'networkidle0',
@@ -37,10 +40,11 @@ describe( 'disable breadcrumb on single product page', () => {
 			return !! document.querySelector( '.woocommerce-breadcrumb' );
 		} );
 		if ( breadcrumbClass ) {
-			console.log( 'True' );
+			loadClass = 'Breadcrumb_Enabled';
 		} else {
-			console.log( 'False' );
+
 		}
-		await expect( breadcrumbClass ).toBe( true );
+		console.log( loadClass );
+		await expect( loadClass ).toBe( 'Breadcrumb_Enabled' );
 	} );
 } );

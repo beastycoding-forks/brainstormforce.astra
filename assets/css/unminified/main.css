@@ -2492,14 +2492,15 @@ body .entry-content .wp-block-latest-posts li {
   transform: translateY(-100%);
 }
 
-.ast-primary-sticky-header-active.ast-main-header-nav-open .ast-builder-menu .main-navigation ul {
-  overflow: scroll;
-  height: 55vh;
-}
-
-.ast-primary-sticky-header-active.ast-main-header-nav-open {
-  overflow: scroll;
-  height: 10vh;
+@media (max-width: 921px) {
+  .ast-primary-sticky-header-active.ast-main-header-nav-open .ast-builder-menu .main-navigation ul {
+    overflow: scroll;
+    height: 55vh;
+  }
+  .ast-primary-sticky-header-active.ast-main-header-nav-open {
+    overflow: scroll;
+    height: 10vh;
+  }
 }
 
 /*----------  Forms  ----------*/

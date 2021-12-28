@@ -68,7 +68,6 @@
 
 }
 
-
 /* Hide Mobile logo. */
 .custom-mobile-logo-link{
 	display: none;
@@ -183,3 +182,19 @@
 		transform: translateY(-100%);
 	}
 }
+
+// Sticky Main Menu Scrolling (Tablet, Mobile).
+@media (max-width: 921px) {
+	.ast-primary-sticky-header-active {
+		&.ast-main-header-nav-open{
+			.ast-builder-menu{
+				.main-navigation{
+					overflow: scroll;
+					height: 70vh;
+				}
+			}
+		}
+	}
+}
+
+

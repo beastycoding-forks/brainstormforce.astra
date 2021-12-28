@@ -2492,6 +2492,13 @@ body .entry-content .wp-block-latest-posts li {
   transform: translateY(-100%);
 }
 
+@media (max-width: 921px) {
+  .ast-primary-sticky-header-active.ast-main-header-nav-open .ast-builder-menu .main-navigation {
+    overflow: scroll;
+    height: 70vh;
+  }
+}
+
 /*----------  Forms  ----------*/
 /**
  * 	Form Fields

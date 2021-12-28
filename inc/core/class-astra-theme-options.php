@@ -96,7 +96,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 				return self::$defaults;
 			}
 
-			$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
+			$palette_css_var_prefix      = Astra_Global_Palette::get_css_variable_prefix();
+			$astra_update_color_defaults = astra_check_update_defaults_colors();
 			/**
 			 * Update Astra customizer default values. To not update directly on existing users site, added backwards.
 			 *
@@ -225,9 +226,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet'  => '',
 						'mobile'  => '',
 					),
-					'header-color-site-title'              => '',
-					'header-color-h-site-title'            => '',
-					'header-color-site-tagline'            => '',
+					'header-color-site-title'              => $astra_update_color_defaults ? 'var(' . $palette_css_var_prefix . '8)' : '',
+					'header-color-h-site-title'            => $astra_update_color_defaults ? 'var(' . $palette_css_var_prefix . '8)' : '',
+					'header-color-site-tagline'            => $astra_update_color_defaults ? 'var(' . $palette_css_var_prefix . '8)' : '',
 					'display-site-title-responsive'        => array(
 						'desktop' => 1,
 						'tablet'  => 1,

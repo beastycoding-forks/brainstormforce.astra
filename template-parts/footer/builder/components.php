@@ -154,6 +154,14 @@ switch ( $astra_component_slug ) {
 		<?php
 		break;
 
+	case 'mode-switcher':
+		$astra_switcher_classes = is_customize_preview() ? ' site-footer-focus-item ' : ''; // Class needed in customizer because pencil shortcut icon CSS is based on that.
+		?>
+			<div class="ast-builder-layout-element<?php echo esc_attr( $astra_switcher_classes ); ?>" data-section="footer-section-mode-switcher">
+				<?php do_action( 'astra_footer_mode_switcher' ); ?>
+			</div>
+		<?php
+		break;
 
 	default:
 		do_action( 'astra_render_footer_components', $astra_component_slug );

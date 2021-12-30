@@ -13,12 +13,12 @@ describe( 'off canvas header type and content alignment settings in the customiz
 			postType: 'page',
 			title: 'align-left',
 		} );
+		await setBrowserViewport( 'medium' );
 		await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
-		await setBrowserViewport( 'medium' );
+		
 		await page.click( '.main-header-menu-toggle' );
 
 		await page.waitForSelector( '.content-align-flex-start .ast-builder-layout-element' );
@@ -38,12 +38,12 @@ describe( 'off canvas header type and content alignment settings in the customiz
 			postType: 'page',
 			title: 'align-left',
 		} );
+		await setBrowserViewport( 'small' );
 		await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
-		await setBrowserViewport( 'small' );
+		
 		await page.click( '.main-header-menu-toggle' );
 
 		await page.waitForSelector( '.content-align-flex-start .ast-builder-layout-element' );
@@ -64,12 +64,12 @@ describe( 'off canvas header type and content alignment settings in the customiz
 			postType: 'page',
 			title: 'align-center',
 		} );
+		await setBrowserViewport( 'medium' );
 		await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
-		await setBrowserViewport( 'medium' );
+		
 		await page.click( '.main-header-menu-toggle' );
 
 		await page.waitForSelector( '.content-align-center .ast-builder-layout-element' );
@@ -89,11 +89,12 @@ describe( 'off canvas header type and content alignment settings in the customiz
 			postType: 'page',
 			title: 'align-center',
 		} );
+		await setBrowserViewport( 'small' );
 		await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await setBrowserViewport( 'small' );
+		
 		await page.click( '.main-header-menu-toggle' );
 		await page.waitForSelector( '.content-align-center .ast-builder-layout-element' );
 		await expect( {
@@ -112,12 +113,12 @@ describe( 'off canvas header type and content alignment settings in the customiz
 			postType: 'page',
 			title: 'align-right',
 		} );
+		await setBrowserViewport( 'medium' );
 		await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
 
-		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
 
 		await page.waitForSelector( '.content-align-flex-end .ast-builder-layout-element' );
@@ -137,12 +138,12 @@ describe( 'off canvas header type and content alignment settings in the customiz
 			postType: 'page',
 			title: 'align-right',
 		} );
+		await setBrowserViewport( 'small' );
 		await publishPost();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
 
-		await setBrowserViewport( 'small' );
 		await page.click( '.main-header-menu-toggle' );
 		await page.waitForSelector( '.content-align-flex-end .ast-builder-layout-element' );
 		await expect( {

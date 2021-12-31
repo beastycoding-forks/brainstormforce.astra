@@ -72,8 +72,8 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 		body .wp-block-file .wp-block-file__button {
 			text-decoration: none;
 		}
-		figure.wp-block-pullquote blockquote {
-			padding-top: 0;
+		blockquote {
+			padding: 0 1.2em 1.2em;
 		}
 		.wp-block-file {
 			display: flex;
@@ -124,9 +124,15 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
 				text-align: right;
 			}';
 		}
-
-		$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $editor_improvement_css );
+	} else {
+		$editor_improvement_css = '
+			blockquote {
+				padding: 1.2em;
+			}
+		';
 	}
+
+	$dynamic_css .= Astra_Enqueue_Scripts::trim_css( $editor_improvement_css );
 
 	return $dynamic_css;
 }

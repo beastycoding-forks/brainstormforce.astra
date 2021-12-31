@@ -243,8 +243,10 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 
 		/**
 		 * Site Identity.
+		 *
+		 * @param  string $device   Device name.
 		 */
-		public static function render_site_identity() {
+		public static function render_site_identity( $device ) {
 			?>
 				<?php
 				if ( is_customize_preview() ) {
@@ -261,7 +263,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 					);
 				?>
 				>
-					<?php astra_logo(); ?>
+					<?php astra_logo( $device ); ?>
 				</div>
 			<!-- .site-branding -->
 			<?php
@@ -277,7 +279,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 			<div class="astra-mobile-cart-overlay"></div>
 			<div id="astra-mobile-cart-drawer" class="astra-cart-drawer open-right">
 				<div class="astra-cart-drawer-header">
-					<button type="button" class="astra-cart-drawer-close">
+					<button type="button" class="astra-cart-drawer-close" aria-label="<?php echo esc_attr__( 'Close Cart Drawer', 'astra' ); ?>">
 							<?php echo self::fetch_svg_icon( 'close' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</button>
 					<div class="astra-cart-drawer-title">

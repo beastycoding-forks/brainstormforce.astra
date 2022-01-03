@@ -5,7 +5,7 @@ import path from 'path';
 import fs from 'fs';
 import os from 'os';
 import { v4 as uuid } from 'uuid';
-import { setBrowserViewport } from '@wordpress/e2e-test-utils';
+//import { setBrowserViewport } from '@wordpress/e2e-test-utils';
 /**
  * WordPress dependencies
  */
@@ -15,6 +15,7 @@ import {
 	createNewPost,
 	clickBlockToolbarButton,
 	publishPost,
+	setBrowserViewport,
 } from '@wordpress/e2e-test-utils';
 
 async function upload( selector ) {
@@ -55,7 +56,7 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 		const regex = new RegExp(
 			`<!-- wp:image {"id":\\d+,"sizeSlug":"full","linkDestination":"none"} -->\\s*<figure class="wp-block-image size-full"><img src="[^"]+\\/${ filename }\\.png" alt="" class="wp-image-\\d+"/></figure>\\s*<!-- \\/wp:image -->`,
 		);
-		expect( await getEditedPostContent() ).toMatch( regex );
+		await expect( getEditedPostContent() ).resolves.toMatch( regex );
 		await setBrowserViewport( 'large' );
 
 		// Set wide width for the image.

@@ -17,19 +17,19 @@ describe( 'Paragraph in gutenberg editor', () => {
 		await expect( {
 			selector: '.edit-post-visual-editor p',
 			property: 'width',
-		} ).cssValueToBe( `974.906px` );
+		} ).cssValueToBe( `910px` );
 	} );
 	it( 'assert margin property of the paragraph in the block editor', async () => {
 		await page.waitForSelector( '#editor .edit-post-visual-editor' );
 		await expect( {
 			selector: '.edit-post-visual-editor p',
 			property: 'margin-top',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `28px` );
 		await page.waitForSelector( '#editor .edit-post-visual-editor' );
 		await expect( {
 			selector: '.edit-post-visual-editor p',
 			property: 'margin-right',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `104.5px` );
 		await page.waitForSelector( '#editor .edit-post-visual-editor' );
 		await expect( {
 			selector: '.edit-post-visual-editor p',
@@ -39,13 +39,13 @@ describe( 'Paragraph in gutenberg editor', () => {
 		await expect( {
 			selector: '.edit-post-visual-editor p',
 			property: 'margin-bottom',
-		} ).cssValueToBe( `26.25px` );
+		} ).cssValueToBe( `28px` );
 	} );
 	it( 'assert padding property of the paragraph in the block editor', async () => {
 		await page.waitForSelector( '#editor .edit-post-visual-editor' );
 		await expect( {
 			selector: '.edit-post-visual-editor p',
 			property: 'padding',
-		} ).cssValueToBe( `0px` );
+		} ).cssValueToBe( `5px` );
 	} );
 } );

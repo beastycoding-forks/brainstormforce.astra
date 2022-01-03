@@ -5,6 +5,7 @@ import path from 'path';
 import fs from 'fs';
 import os from 'os';
 import { v4 as uuid } from 'uuid';
+import { setBrowserViewport } from '@wordpress/e2e-test-utils';
 /**
  * WordPress dependencies
  */
@@ -55,6 +56,7 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			`<!-- wp:image {"id":\\d+,"sizeSlug":"full","linkDestination":"none"} -->\\s*<figure class="wp-block-image size-full"><img src="[^"]+\\/${ filename }\\.png" alt="" class="wp-image-\\d+"/></figure>\\s*<!-- \\/wp:image -->`,
 		);
 		expect( await getEditedPostContent() ).toMatch( regex );
+		await setBrowserViewport( 'large' );
 
 		// Set wide width for the image.
 		await clickBlockToolbarButton( 'Align' );
@@ -72,7 +74,7 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			selector: '.wp-block-image',
 			property: 'width',
 		} ).cssValueToBe(
-			`1119px`,
+			`569.4px`,
 		);
 
 		// Set full width for the image.
@@ -90,7 +92,7 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 			selector: '.wp-block-image',
 			property: 'width',
 		} ).cssValueToBe(
-			`1263.15px`,
+			`713.55px`,
 		);
 
 		await publishPost();

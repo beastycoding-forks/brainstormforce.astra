@@ -109,7 +109,6 @@ describe( 'global button font setting under the Customizer', () => {
 	it( 'button font letter spacing should apply correctly', async () => {
 		const letterSpacing = {
 			'theme-btn-letter-spacing': 3,
-			'ast-range-unit': 'px',
 		};
 		await setCustomize( letterSpacing );
 		await page.goto( createURL( '/' ), {
@@ -119,6 +118,6 @@ describe( 'global button font setting under the Customizer', () => {
 		await expect( {
 			selector: '.wp-block-search__button',
 			property: 'letter-spacing',
-		} ).cssValueToBe( `${ letterSpacing[ 'theme-btn-letter-spacing' ] }${ letterSpacing[ 'ast-range-unit' ] }` );
+		} ).cssValueToBe( `${ letterSpacing[ 'theme-btn-letter-spacing' ] }px` );
 	} );
 } );

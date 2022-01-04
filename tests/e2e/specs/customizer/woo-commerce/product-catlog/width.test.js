@@ -1,7 +1,10 @@
-import { createURL } from '@wordpress/e2e-test-utils';
+import { createURL, activatePlugin } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { wooCommercePage } from '../../../../utils/product-pages';
 describe( 'setting shop archive width from customizer', () => {
+	beforeAll( async () => {
+		await activatePlugin( 'woocommerce' );
+	} );
 	it( 'default width for shop archive should apply', async () => {
 		const shopArchiveWidth = {
 			'shop-archive-width': 'custom',

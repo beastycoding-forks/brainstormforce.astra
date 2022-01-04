@@ -1,7 +1,5 @@
 import { insertBlock, createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-import { responsiveFontSize } from '../../../../utils/responsive-utils';
 describe( 'global button font setting under the Customizer', () => {
 	it( 'button font should apply correctly', async () => {
 		const btnFont = {

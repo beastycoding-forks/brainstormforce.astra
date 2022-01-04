@@ -1,7 +1,7 @@
 import { createURL, createNewPost, publishPost, insertBlock } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-describe( 'to test content box container width in the customizer', () => {
-	it( 'content boxed container width should apply correctly on post', async () => {
+describe( 'to test full width/contained container width in the customizer', () => {
+	it( 'full width/contained container width should apply correctly on post', async () => {
 		const postContainerSize = {
 			'site-content-width': 900,
 			'site-content-layout': 'plain-container',
@@ -27,7 +27,7 @@ describe( 'to test content box container width in the customizer', () => {
 		);
 	} );
 
-	it( 'content box container width should apply correctly on page', async () => {
+	it( 'full width/contained container width should apply correctly on page', async () => {
 		const pageContainerSize = {
 			'site-content-width': 900,
 			'site-content-layout': 'plain-container',
@@ -52,7 +52,7 @@ describe( 'to test content box container width in the customizer', () => {
 			`${ pageContainerSize[ 'site-content-width' ] }`,
 		);
 	} );
-	it( 'content box container width should apply correctly on  archive posts', async () => {
+	it( 'full width/contained container width should apply correctly on  archive posts', async () => {
 		const archiveContainerSize = {
 			'site-content-width': 900,
 			'site-content-layout': 'plain-container',

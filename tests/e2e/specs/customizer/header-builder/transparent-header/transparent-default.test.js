@@ -41,8 +41,6 @@ describe( 'transparent header settings in the customizer', () => {
 			},
 		};
 		await setCustomize( transparentColorBorder );
-		await createNewPost( { postType: 'page', title: 'test page' } );
-		await publishPost();
 		await createNewPost( { postType: 'page', title: 'transparent page' } );
 		await publishPost();
 		await page.goto( createURL( '/transparent-page' ), {

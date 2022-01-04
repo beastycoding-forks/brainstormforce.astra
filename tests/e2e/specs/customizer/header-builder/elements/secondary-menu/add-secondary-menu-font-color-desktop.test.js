@@ -1,6 +1,6 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/customize';
-import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { setCustomize } from '../../../../../utils/customize';
+import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'Add secondary menu color settings for desktop view', () => {
 	it( 'secondary menu color settings should be added properly in desktop view', async () => {
 		const secondaryMenuFontColor = {

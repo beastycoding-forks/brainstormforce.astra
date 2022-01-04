@@ -1,6 +1,6 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/customize';
-import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
+import { setCustomize } from '../../../../../utils/customize';
+import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'Add secondary menu color settings for tablet view', () => {
 	it( 'secondary menu color settings should be added properly in tablet view', async () => {
 		const secondaryMenuFontColor = {

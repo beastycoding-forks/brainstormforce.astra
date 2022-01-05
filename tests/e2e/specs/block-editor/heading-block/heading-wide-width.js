@@ -24,7 +24,6 @@ describe( 'Heading in gutenberg editor', () => {
 			property: 'width',
 		} ).cssValueToBe( `1119px` );
 	} );
- 
 	it( 'assert padding of the heading in the block editor', async () => {
 		await page.waitForSelector( '.block-editor-block-list__layout' );
 		await expect( {

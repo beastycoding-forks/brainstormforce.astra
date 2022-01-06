@@ -32,8 +32,8 @@ describe( 'Heading in gutenberg editor', () => {
 		} ).cssValueToBe( `0px` );
 		await page.waitForSelector( '.block-editor-block-list__layout' );
 		await expect( {
-			selector: '.wp-block-heading',
-			property: 'padding-right',
+			selector: '.wp-block-heading', 
+			property: 'padding-right', 
 		} ).cssValueToBe( `0px` );
 		await page.waitForSelector( '.block-editor-block-list__layout' );
 		await expect( {

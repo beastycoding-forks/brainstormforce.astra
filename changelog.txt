@@ -21,10 +21,10 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 - Fix: W3 validation - aria-label attribute is missing for cart offcanvas drawer.
 - Fix: Off-canvas - Dropdown menu displayed when flyout/fullscreen header type is selected in mobile/tablet customizer.
 - Fix: W3 validation - Builder - Account - Duplicate IDs for account icons.
-- Fix: Off-canvas - Dropdown menu displayed when flyout/fullscreen header type is selected in mobile/tablet customizer.
+- Fix: Elementor Pro - WooCommerce Grid layout support in WooCommerce Products Archive widget.
+- Fix: WooCommerce - Flyout shopping cart should not be displayed on checkout & cart page for mobile/tablet devices.
 
 v3.7.7(Unreleased)
-- Fix: Elementor Pro WooCommerce Grid layout glitch in WooCommerce Products Archive widget.
 
 v3.7.6
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( https://wpastra.com/docs/change-web-stories-position/ )

@@ -67,4 +67,3 @@ describe( 'Embed in gutenberg editor', () => {
 		} ).cssValueToBe( `0px` );
 	} );
 } );
- 

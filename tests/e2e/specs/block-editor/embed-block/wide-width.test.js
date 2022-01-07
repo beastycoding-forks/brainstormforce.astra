@@ -44,7 +44,6 @@ describe( 'Embed in gutenberg editor', () => {
 			property: 'padding-bottom',
 		} ).cssValueToBe( `0px` );
 	} );
-
 	it( 'assert margin of the embed in the block editor', async () => {
 		await page.waitForSelector( '.wp-block-embed' );
 		await expect( {

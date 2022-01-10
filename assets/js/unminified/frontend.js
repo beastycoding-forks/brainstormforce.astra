@@ -750,9 +750,8 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	    	M.splice(1,1,tem[1]);
 	    }
 
-	    var bodyElement = document.body;
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
-		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
+			document.body.classList.add( "ast-safari-browser-less-than-11" );
 	    }
 	}
 

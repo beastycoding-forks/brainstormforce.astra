@@ -22,6 +22,7 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 - Fix: Off-canvas - Dropdown menu displayed when flyout/fullscreen header type is selected in mobile/tablet customizer.
 - Fix: W3 validation - Builder - Account - Duplicate IDs for account icons.
 - Fix: Elementor Pro - WooCommerce Grid layout support in WooCommerce Products Archive widget.
+- Fix: JS Error - Uncaught ReferenceError: bodyElement is not defined.
 - Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
 - Fix: WooCommerce - Flyout shopping cart should not be displayed on checkout & cart page for mobile/tablet devices.
 

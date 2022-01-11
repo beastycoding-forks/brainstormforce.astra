@@ -22,7 +22,7 @@ describe( 'Global typography settings in the customizer', () => {
 			'body-font-weight': '400',
 			'body-text-transform': 'uppercase',
 			'body-line-height': '4px',
-			'headings-font-family': 'Rubik, sans-serif', 
+			'headings-font-family': 'Rubik, sans-serif',
 			'headings-font-weight': '700',
 			'headings-text-transform': 'lowercase',
 			'headings-line-height': '5px',

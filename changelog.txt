@@ -9,6 +9,8 @@ v3.8.0(Unreleased)
 - Fix: Elementor Pro - WooCommerce Grid layout support in WooCommerce Products Archive widget.
 - Fix: WooCommerce - Blank Flyout shopping cart appearing on checkout & cart page for mobile/tablet devices.
 - Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
+- Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
+
 
 v3.7.7(Unreleased)
 

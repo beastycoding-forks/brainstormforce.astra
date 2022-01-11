@@ -8,6 +8,8 @@ v3.8.0(Unreleased)
 - Fix: W3 validation - Builder - Account - Duplicate IDs for account icons.
 - Fix: Elementor Pro - WooCommerce Grid layout support in WooCommerce Products Archive widget.
 - Fix: Accessibility - Tab navigation does not highlight slider search Icon.
+- Fix: WooCommerce - Blank Flyout shopping cart appearing on checkout & cart page for mobile/tablet devices.
+- Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
 
 v3.7.7(Unreleased)
 

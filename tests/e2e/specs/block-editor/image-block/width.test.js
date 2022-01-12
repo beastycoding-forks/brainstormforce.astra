@@ -7,7 +7,6 @@ import {
 	getEditedPostContent,
 	createNewPost,
 	clickBlockToolbarButton,
-	publishPost,
 } from '@wordpress/e2e-test-utils';
 
 async function upload( selector ) {

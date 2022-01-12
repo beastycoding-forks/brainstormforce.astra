@@ -4569,3 +4569,46 @@ button.pswp__button--zoom:hover {
     width: 60%;
   }
 }
+
+.ast-default-svg-main-part {
+  fill:#FFFFFF;
+}
+
+.ast-default-svg-sub-part {
+   fill:#FFFFFF;
+}
+
+.ast-site-header-cart i.astra-icon:after{
+  fill:#FFFFFF;
+}
+/* .ast-site-header-cart i.astra-icon:after{
+  background-color:#0170b9
+}
+.ast-site-header-cart i.astra-icon:after{
+  color:#dee2e6
+} */
+.ast-menu-cart-fill .ast-default-svg-main-part{
+  fill:#0170b9;
+  stroke:#0170b9;
+}
+
+/* outline option */
+.ast-menu-cart-outline .ast-default-svg-main-part{
+  fill:#ffffff;
+  stroke:#0170b9
+}
+.ast-menu-cart-outline .ast-default-svg-sub-part{
+  fill:#ffffff;
+  stroke:#0170b9
+}
+
+
+/* Icon color hover */
+
+/* .ast-menu-cart-fill .ast-default-svg-main-part:hover{
+  fill:#0170b9;
+  stroke:#0170b9;
+}
+.ast-menu-cart-fill .ast-default-svg-sub-part:hover{
+  stroke:#0170b9;
+} */

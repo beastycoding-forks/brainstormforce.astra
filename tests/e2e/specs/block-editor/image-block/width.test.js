@@ -63,7 +63,7 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 		await expect( {
 			selector: '.wp-block-image',
 			property: 'width',
-		} ).cssValueToBe( `1119px` );
+		} ).cssValueToBe( `603px` );
 		await publishPost();
 	} );
 } );

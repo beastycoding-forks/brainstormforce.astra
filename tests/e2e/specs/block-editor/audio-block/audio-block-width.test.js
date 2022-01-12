@@ -32,7 +32,6 @@ describe( 'Audio block in gutenberg editor', () => {
 			document.activeElement.classList.contains( 'components-dropdown-menu__menu-item' ) );
 		await page.click( '[aria-label="Align"] button:nth-child(5)' );
 		await page.waitForSelector( '.wp-block-audio' );
-		await page.waitForSelector( '.wp-block-audio' );
 		await expect( {
 			selector: '.wp-block-audio',
 			property: 'width',

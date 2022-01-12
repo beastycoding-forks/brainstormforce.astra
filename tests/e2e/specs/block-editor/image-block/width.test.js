@@ -8,7 +8,6 @@ import {
 	createNewPost,
 	clickBlockToolbarButton,
 	publishPost,
-	setBrowserViewport,
 } from '@wordpress/e2e-test-utils';
 
 async function upload( selector ) {
@@ -35,14 +34,13 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 	beforeEach( async () => {
 		await createNewPost( { postType: 'post', title: 'image-block' } );
 	} );
-	it( 'image should be inserted with wide width alignment and expected and received wide width values should match', async () => {
+	it( 'wide, full and default width for image block should apply correctly', async () => {
+		await page.click( '[aria-label="Settings"]' );
 		await insertBlock( 'Image' );
 		const filename = await upload( '.wp-block-image input[type="file"]' );
 		await waitForImage( filename );
 		const regex = new RegExp( `<!-- wp:image {"id":\\d+,"sizeSlug":"full","linkDestination":"none"} -->\\s*<figure class="wp-block-image size-full"><img src="[^"]+\\/${ filename }\\.png" alt="" class="wp-image-\\d+"/></figure>\\s*<!-- \\/wp:image -->` );
 		await expect( getEditedPostContent() ).resolves.toMatch( regex );
-		await setBrowserViewport( 'large' );
-
 		// Set wide width for the image.
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>
@@ -52,7 +50,7 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 		await expect( {
 			selector: '.wp-block-image',
 			property: 'width',
-		} ).cssValueToBe( `375px` );
+		} ).cssValueToBe( `1200px` );
 
 		// Set full width for the image.
 		await clickBlockToolbarButton( 'Align' );
@@ -63,7 +61,17 @@ describe( 'Upload image, set alignment to wide width and check the width', () =>
 		await expect( {
 			selector: '.wp-block-image',
 			property: 'width',
-		} ).cssValueToBe( `1119px` );
-		await publishPost();
+		} ).cssValueToBe( `1399px` );
+
+		// Set default width for the image.
+		await clickBlockToolbarButton( 'Align' );
+		await page.waitForFunction( () =>
+			document.activeElement.classList.contains( 'components-dropdown-menu__menu-item' ) );
+		await page.click( '[aria-label="Align"] button:nth-child(5)' );
+		await page.waitForSelector( '#editor .edit-post-visual-editor' );
+		await expect( {
+			selector: '.wp-block-image',
+			property: 'width',
+		} ).cssValueToBe( `1256px` );
 	} );
 } );

@@ -363,7 +363,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'control'           => 'ast-responsive-slider',
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'priority'          => 49,
+					'priority'          => 48,
 					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,

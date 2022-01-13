@@ -10,12 +10,16 @@ const CustomizerLinkComponent = props => {
 		const {
 			linked,
 			link_type,
+			switch_design_tab,
 		} = props.control.params;
 
 		switch (link_type) {
 			case 'section':
 				var section = wp.customize.section(linked);
 				section.expand();
+				if( true === switch_design_tab ){
+					wp.customize.state('astra-customizer-tab').set('design');
+				}
 				break;
 
 			case 'control':
@@ -32,17 +36,21 @@ const CustomizerLinkComponent = props => {
 		link_text,
 		link_type,
 		is_button_link,
+		help
 	} = props.control.params;
 	let linkHtml = null;
 
 	if (linked && link_text && '' === is_button_link) {
-		linkHtml = <a href="#" onClick={() => {
-			onLinkClick();
-		}} className="customizer-link" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}
-					  dangerouslySetInnerHTML={{
-						  __html: link_text
-					  }}>
-		</a>;
+		linkHtml = <>
+			{help}
+			<a href="#" onClick={() => {
+				onLinkClick();
+				}} className="customizer-link" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}
+					dangerouslySetInnerHTML={{
+						__html: link_text
+					}}>
+			</a>
+		</>;
 	} else {
 		linkHtml =
 		<>

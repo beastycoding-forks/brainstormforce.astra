@@ -15,6 +15,7 @@
 	var tablet_break_point = astraBuilderPreview.tablet_break_point || 768,
 		mobile_break_point = astraBuilderPreview.mobile_break_point || 544;
 
+
 	// Icon Color.
 	astra_css(
 		'astra-settings[header-woo-cart-icon-color]',
@@ -85,7 +86,7 @@
 		'woo-cart-colors',
 		'astra-settings[header-woo-cart-background-color]',
 		'background-color',
-		'#ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer'
+		'#ast-site-header-cart .widget_shopping_cart, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item a.remove:hover, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item:hover > a.remove,' + responsive_selector + ',' + responsive_selector + ' .widget_shopping_cart .mini_cart_item a.remove:hover,' + responsive_selector + ' .widget_shopping_cart .mini_cart_item:hover > a.remove, #astra-mobile-cart-drawer' + responsive_selector
 	);
 
 	astra_color_responsive_css(
@@ -228,6 +229,24 @@
 			wp.customize.preview.send('refresh');
 		});
 	});
+
+	/**
+	 * Desktop cart offcanvas width.
+	 */
+	 wp.customize( 'astra-settings[woo-desktop-cart-flyout-width]', function( setting ) {
+		setting.bind( function( width ) {
+			var offcanvasPosition = wp.customize( 'astra-settings[woo-desktop-cart-flyout-direction]' ).get();
+
+			if( 'left' == offcanvasPosition ) {
+				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + width + '%; left: -' + width + '%; } ';
+					dynamicStyle += '.ast-desktop .astra-cart-drawer.open-right.active { left: ' + width + '%; } ';
+			} else {
+				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + width + '%; left: 100%; } ';
+			}
+
+			astra_add_dynamic_css( 'woo-desktop-cart-flyout-width', dynamicStyle );
+		} );
+	} );
 
 	/**
 	 * Desktop cart offcanvas width.

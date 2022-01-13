@@ -354,7 +354,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-size]',
 					'section'           => $_section,
-					'priority'          => 4,
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( 'header-woo-cart-icon-size' ),
 					'title'             => __( 'Icon Size', 'astra' ),

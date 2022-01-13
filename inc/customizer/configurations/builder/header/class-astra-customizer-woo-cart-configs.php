@@ -347,7 +347,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-size]',
 					'section'           => $_section,
-					'priority'          => 4,
 					'transport'         => 'postMessage',
 					'default'           => astra_get_option( 'header-woo-cart-icon-size' ),
 					'title'             => __( 'Icon Size', 'astra' ),
@@ -356,7 +355,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'control'           => 'ast-responsive-slider',
 					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'priority'          => 50,
+					'priority'          => 48,
 					'input_attrs'       => array(
 						'min'  => 0,
 						'step' => 1,

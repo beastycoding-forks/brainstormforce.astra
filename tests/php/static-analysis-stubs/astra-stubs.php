@@ -1119,6 +1119,15 @@ namespace {
         {
         }
         /**
+         * Callback for partial rendering mode switcher.
+         *
+         * @since x.x.x
+         * @param string $builder_type the type of the builder.
+         */
+        public static function render_mode_switcher($builder_type = 'header')
+        {
+        }
+        /**
          * Render Mobile Cart Flyout Markup.
          *
          * @since 3.1.0
@@ -1298,6 +1307,12 @@ namespace {
         public function footer_menu()
         {
         }
+        /**
+         * Render Footer Mode Switcher.
+         */
+        public function footer_mode_switcher()
+        {
+        }
     }
     /**
      * Class Astra_Builder_Header.
@@ -1375,6 +1390,14 @@ namespace {
          * Render account icon.
          */
         public function header_account()
+        {
+        }
+        /**
+         * Render light|dark mode switcher element.
+         *
+         * @since x.x.x
+         */
+        public function header_mode_switcher()
         {
         }
         /**
@@ -1601,7 +1624,7 @@ namespace {
          *
          * @param string $section_id section id.
          * @param string $selector selector.
-         * @return array
+         * @return string $css_output Parsed CSS
          */
         public static function prepare_advanced_margin_padding_css($section_id, $selector)
         {
@@ -1611,7 +1634,7 @@ namespace {
          *
          * @param string $section_id section id.
          * @param string $selector selector.
-         * @return array
+         * @return string $css_output Parsed CSS.
          */
         public static function prepare_advanced_typography_css($section_id, $selector)
         {
@@ -1646,6 +1669,35 @@ namespace {
          * @return array
          */
         public static function prepare_visibility_css($section_id, $selector, $default_property = 'flex', $mobile_tablet_default = '')
+        {
+        }
+        /**
+         * Generate dark palette CSS variable styles for the front end.
+         *
+         * @since x.x.x
+         * @return string
+         */
+        public static function generate_dark_palette_style()
+        {
+        }
+        /**
+         * Render dark mode color palette CSS.
+         *
+         * @since x.x.x
+         *
+         * @param string $dynamic_css Appended dynamic CSS.
+         * @param string $dynamic_css_filtered Filtered dynamic CSS.
+         * @return string $dynamic_css Appended dynamic CSS.
+         */
+        public static function dark_color_palette_css($dynamic_css, $dynamic_css_filtered = '')
+        {
+        }
+        /**
+         * Adding head frontend script for avoiding jerk while landing on site initially.
+         *
+         * @since x.x.x
+         */
+        public function mode_preference_script()
         {
         }
     }
@@ -1890,6 +1942,44 @@ namespace {
          * @since 3.0.0.
          */
         public static function menu_markup()
+        {
+        }
+    }
+    /**
+     * Mode Switcher Initial Setup
+     *
+     * @since x.x.x
+     */
+    class Astra_Footer_Mode_Switcher_Component
+    {
+        /**
+         * Constructor function that initializes required actions and hooks.
+         */
+        public function __construct()
+        {
+        }
+    }
+    /**
+     * Customizer Initialization
+     *
+     * @since x.x.x
+     */
+    class Astra_Footer_Mode_Switcher_Loader
+    {
+        /**
+         * Constructor.
+         *
+         * @since x.x.x
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Customizer Preview.
+         *
+         * @since x.x.x
+         */
+        public function preview_scripts()
         {
         }
     }
@@ -2392,6 +2482,44 @@ namespace {
          * Constructor function that initializes required actions and hooks.
          */
         public function __construct()
+        {
+        }
+    }
+    /**
+     * Mode Switcher Initial Setup
+     *
+     * @since x.x.x
+     */
+    class Astra_Header_Mode_Switcher_Component
+    {
+        /**
+         * Constructor function that initializes required actions and hooks.
+         */
+        public function __construct()
+        {
+        }
+    }
+    /**
+     * Customizer Initialization
+     *
+     * @since x.x.x
+     */
+    class Astra_Header_Mode_Switcher_Loader
+    {
+        /**
+         * Constructor.
+         *
+         * @since x.x.x
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Customizer Preview.
+         *
+         * @since x.x.x
+         */
+        public function preview_scripts()
         {
         }
     }
@@ -4939,7 +5067,7 @@ namespace {
         public function content_layout($layout)
         {
         }
-        /** 
+        /**
          * LearnDash Static CSS.
          *
          * @since 3.3.0
@@ -5292,6 +5420,30 @@ namespace {
          * Constructor
          */
         public function __construct()
+        {
+        }
+        /**
+         * Update WooCommerce store notice. Extending this function to add custom data-attr as per Astra's configuration.
+         *
+         * @since x.x.x
+         *
+         * @param  string $notice Store notice markup.
+         * @return string $notice Store notice markup.
+         */
+        public function astra_woocommerce_update_store_notice_atts($notice)
+        {
+        }
+        /**
+         * Dynamic CSS for store notice config.
+         *
+         * @since x.x.x
+         *
+         * @param  string $dynamic_css          Astra Dynamic CSS.
+         * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+         *
+         * @return string $dynamic_css Generated dynamic CSS for WooCommerce store.
+         */
+        public function astra_woocommerce_store_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
         {
         }
         /**
@@ -5666,6 +5818,23 @@ namespace {
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
          * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Customizer WooCommerece store notice - customizer config initial setup.
+     */
+    class Astra_Woo_Store_Notice_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Astra-WooCommerce Shop Cart Layout Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -6809,7 +6978,7 @@ namespace {
         public function __construct()
         {
         }
-        /** 
+        /**
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6819,7 +6988,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /** 
+        /**
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6829,7 +6998,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6839,7 +7008,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6849,7 +7018,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6859,7 +7028,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6869,7 +7038,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -6878,7 +7047,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /** 
+        /**
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -6923,16 +7092,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /** 
+        /**
          * Comment form grid classes.
          *
-         * @since 3.3.0 
+         * @since 3.3.0
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /** 
+        /**
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -6941,7 +7110,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /** 
+        /**
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -6949,7 +7118,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /** 
+        /**
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -6957,7 +7126,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /** 
+        /**
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -6965,7 +7134,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /** 
+        /**
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -6973,7 +7142,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /** 
+        /**
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -6981,7 +7150,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /** 
+        /**
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -6991,7 +7160,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7001,7 +7170,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7031,7 +7200,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -8488,6 +8657,25 @@ namespace {
     /**
      * Register Builder Customizer Configurations.
      *
+     * @since x.x.x
+     */
+    class Astra_Footer_Mode_Switcher_Component_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Builder Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Register Builder Customizer Configurations.
+     *
      * @since 3.0.0
      */
     class Astra_Footer_Widget_Component_Configs extends \Astra_Customizer_Config_Base
@@ -8771,6 +8959,25 @@ namespace {
     /**
      * Register Builder Customizer Configurations.
      *
+     * @since x.x.x
+     */
+    class Astra_Header_Mode_Switcher_Component_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Builder Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Register Builder Customizer Configurations.
+     *
      * @since 3.0.0
      */
     class Astra_Header_Search_Component_Configs extends \Astra_Customizer_Config_Base
@@ -8934,6 +9141,23 @@ namespace {
     {
         /**
          * Register Blog Single Layout Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Register Global Dark Mode Customizer Configurations.
+     */
+    class Astra_Dark_Mode_Global_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Global Dark Mode Customizer Configurations.
          *
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
@@ -10717,7 +10941,7 @@ namespace {
     }
     /*!
      * ISC License
-     * 
+     *
      * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
      *
      * Permission to use, copy, modify, and/or distribute this software for any
@@ -12441,6 +12665,18 @@ namespace {
      *
      * @param  string $dynamic_css          Astra Dynamic CSS.
      * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+     * @return String Generated dynamic CSS for Mode Switcher.
+     *
+     * @since x.x.x
+     */
+    function astra_footer_mode_switcher_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
+    /**
+     * Dynamic CSS
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
      * @return String Generated dynamic CSS for Primary Footer.
      *
      * @since 3.0.0
@@ -12569,7 +12805,7 @@ namespace {
     }
     /**
      * Load Menu hover style static CSS if any one of the menu hover style is selected.
-     * 
+     *
      * @return string
      * @since 3.5.0
      */
@@ -12598,6 +12834,18 @@ namespace {
      * @since 3.0.0
      */
     function astra_mobile_trigger_row_setting($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
+    /**
+     * Dynamic CSS
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+     * @return String Generated dynamic CSS for Mode Switcher.
+     *
+     * @since x.x.x
+     */
+    function astra_mode_switcher_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
     /**
@@ -12656,7 +12904,7 @@ namespace {
     }
     /**
      * Search Component static CSS.
-     * 
+     *
      * @return string
      * @since 3.5.0
      */
@@ -13089,9 +13337,9 @@ namespace {
     /**
      * Parse CSS
      *
-     * @param  array  $css_output Array of CSS.
-     * @param  string $min_media  Min Media breakpoint.
-     * @param  string $max_media  Max Media breakpoint.
+     * @param  array $css_output Array of CSS.
+     * @param  mixed $min_media  Min Media breakpoint.
+     * @param  mixed $max_media  Max Media breakpoint.
      * @return string             Generated CSS.
      */
     function astra_parse_css($css_output = array(), $min_media = '', $max_media = '')
@@ -14283,7 +14531,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css 
+     * @param string $dynamic_css
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -14676,6 +14924,26 @@ namespace {
     {
     }
     /**
+     * Check if backward flag is set before updating default colors to sync colors with palette.
+     *
+     * @since x.x.x
+     * @return bool $astra_backward_flag
+     */
+    function astra_check_update_defaults_colors()
+	{
+
+	}
+	/**
+     * Get Global Color Palette's presets
+     *
+     * @return array color presets array.
+     * @since x.x.x
+     */
+    function astra_get_palette_presets()
+	{
+
+	}
+	/**
      * Is Content BG settings need to apply on Fullwidth Contained/Stretched layout or not?
      *
      * Do not apply content background to fullwidth layouts in following cases -
@@ -15724,6 +15992,16 @@ namespace {
     /**
      * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      *
+     * @todo Updating builder & their element's default colors or static colors to make them link with color palette colors.
+     * To work in sync with Dark mode switch.
+     * @since x.x.x
+     * @return void
+     */
+    function astra_update_builders_default_colors()
+	{
+
+	}
+	/**
      * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
      *
      * @since x.x.x

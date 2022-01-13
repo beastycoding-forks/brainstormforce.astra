@@ -30,46 +30,67 @@ class Astra_Woo_Store_Notice_Configs extends Astra_Customizer_Config_Base {
 
 		$_configs = array(
 
-			// Option: Store Notice Text Color.
+			/**
+			 * Option: Transparent Header Builder - HTML Elements configs.
+			 */
 			array(
-				'name'              => ASTRA_THEME_SETTINGS . '[store-notice-text-color]',
-				'default'           => astra_get_option( 'store-notice-text-color' ),
-				'parent'            => ASTRA_THEME_SETTINGS . '[woo-store-notice-colors-group]',
-				'type'              => 'control',
-				'control'           => 'ast-color',
-				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
-				'section'           => 'woocommerce_store_notice',
-				'transport'         => 'postMessage',
-				'priority'          => 50,
-				'title'             => __( 'Text', 'astra' ),
-				'context'           => array(
-					array(
-						'setting'  => 'woocommerce_demo_store',
-						'operator' => '==',
-						'value'    => true,
-					),
-				),
+				'name'      => ASTRA_THEME_SETTINGS . '[woo-store-notice-colors-group]',
+				'default'   => astra_get_option( 'woo-store-notice-colors-group' ),
+				'type'      => 'control',
+				'control'   => 'ast-color-group',
+				'title'     => __( 'Color', 'astra' ),
+				'section'   => 'woocommerce_store_notice',
+				'transport' => 'postMessage',
+				'priority'  => 50,
+				'divider'   => array( 'ast_class' => 'ast-top-divider ast-bottom-divider' ),
 			),
 
-			// Option: Store Notice Background Color.
+			// Option: Text Color.
 			array(
-				'name'              => ASTRA_THEME_SETTINGS . '[store-notice-background-color]',
-				'default'           => astra_get_option( 'store-notice-background-color' ),
+				'name'              => 'store-notice-text-color',
+				'default'           => astra_get_option( 'store-notice-text-color' ),
 				'parent'            => ASTRA_THEME_SETTINGS . '[woo-store-notice-colors-group]',
-				'type'              => 'control',
+				'type'              => 'sub-control',
 				'control'           => 'ast-color',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
 				'section'           => 'woocommerce_store_notice',
 				'transport'         => 'postMessage',
-				'priority'          => 55,
+				'priority'          => 1,
+				'title'             => __( 'Text', 'astra' ),
+			),
+
+			// Option: Background Color.
+			array(
+				'name'              => 'store-notice-background-color',
+				'default'           => astra_get_option( 'store-notice-background-color' ),
+				'parent'            => ASTRA_THEME_SETTINGS . '[woo-store-notice-colors-group]',
+				'type'              => 'sub-control',
+				'control'           => 'ast-color',
+				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_alpha_color' ),
+				'section'           => 'woocommerce_store_notice',
+				'transport'         => 'postMessage',
+				'priority'          => 2,
 				'title'             => __( 'Background', 'astra' ),
-				'context'           => array(
-					array(
-						'setting'  => 'woocommerce_demo_store',
-						'operator' => '==',
-						'value'    => true,
-					),
+			),
+
+			/**
+			 * Option: Notice Position
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[store-notice-position]',
+				'default'    => astra_get_option( 'store-notice-position' ),
+				'type'       => 'control',
+				'control'    => 'ast-selector',
+				'section'    => 'woocommerce_store_notice',
+				'transport'  => 'postMessage',
+				'priority'   => 60,
+				'title'      => __( 'Notice Position', 'astra' ),
+				'choices'    => array(
+					'top'    => __( 'Top', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
 				),
+				'renderAs'   => 'text',
+				'responsive' => false,
 			),
 		);
 

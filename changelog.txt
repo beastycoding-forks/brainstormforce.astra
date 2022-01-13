@@ -28,6 +28,7 @@ v3.8.0 (woocomerce-improvements) (Unreleased)
 - Fix: WooCommerce - Flyout shopping cart should not be displayed on checkout & cart page for mobile/tablet devices.
 - Fix: WooCommerce - Blank Flyout shopping cart appearing on checkout & cart page for mobile/tablet devices.
 - Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
+- Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
 
 v3.7.7(Unreleased)
 

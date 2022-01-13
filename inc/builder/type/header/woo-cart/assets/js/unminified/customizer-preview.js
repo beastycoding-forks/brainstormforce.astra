@@ -12,7 +12,8 @@
 
 	var selector = '.ast-site-header-cart';
 	var responsive_selector = '.astra-cart-drawer';
-
+	var tablet_break_point = astraBuilderPreview.tablet_break_point || 768,
+		mobile_break_point = astraBuilderPreview.mobile_break_point || 544;
 
 	// Icon Color.
 	astra_css(
@@ -345,5 +346,51 @@
 
 	// Advanced Visibility CSS Generation.
 	astra_builder_visibility_css('section-header-woo-cart', '.ast-header-woo-cart');
+
+	// Icon Size.
+	wp.customize('astra-settings[header-woo-cart-icon-size]', function (value) {
+		value.bind(function (size) {
+			if (size.desktop != '' || size.tablet != '' || size.mobile != '') {
+				var dynamicStyle = '';
+				dynamicStyle += '.ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg {';
+				dynamicStyle += 'height: ' + size.desktop + 'px' + ';';
+				dynamicStyle += 'width: ' + size.desktop + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += '.ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg {';
+				dynamicStyle += 'height: ' + size.tablet + 'px' + ';';
+				dynamicStyle += 'width: ' + size.tablet + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += '.ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg {';
+				dynamicStyle += 'height: ' + size.mobile + 'px' + ';';
+				dynamicStyle += 'width: ' + size.mobile + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+				
+
+				dynamicStyle += '.ast-cart-menu-wrap {';
+				dynamicStyle += 'font-size: ' + size.desktop + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += '.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap {';
+				dynamicStyle += 'font-size: ' + size.tablet + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += '.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap {';
+				dynamicStyle += 'font-size:' + size.mobile + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+
+				
+				astra_add_dynamic_css('header-woo-cart-icon-size', dynamicStyle);
+			}
+		});
+	});
 
 })(jQuery);

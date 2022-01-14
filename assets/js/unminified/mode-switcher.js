@@ -45,12 +45,14 @@ astraUpdateToggleButtonSize = function() {
 		for ( var toggleCount = 0; toggleCount < iconWithToggle.length; toggleCount++ ) {
 			var parentOffset = iconWithToggle[toggleCount].offsetParent;
 
-			if( parentOffset.classList.contains( 'ast-header-mode-switcher' ) ) {
-				toggleAdjustCSS += '.ast-dark-mode .ast-header-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
-			} else if( parentOffset.classList.contains( 'ast-footer-mode-switcher' ) ) {
-				toggleAdjustCSS += '.ast-dark-mode .ast-footer-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
-			} else {
-				toggleAdjustCSS += '.ast-dark-mode .ast-fixed-switch-mode.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+			if( null !== parentOffset ) {
+				if( parentOffset.classList.contains( 'ast-header-mode-switcher' ) ) {
+					toggleAdjustCSS += '.ast-dark-mode .ast-header-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+				} else if( parentOffset.classList.contains( 'ast-footer-mode-switcher' ) ) {
+					toggleAdjustCSS += '.ast-dark-mode .ast-footer-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+				} else {
+					toggleAdjustCSS += '.ast-dark-mode .ast-fixed-switch-mode.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+				}
 			}
 		}
 

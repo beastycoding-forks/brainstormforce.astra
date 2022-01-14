@@ -88,12 +88,10 @@ astraDarkModeSwitcher = function () {
 		} else if( '1' === astraModeSwitcher.carryOsPalette ) {
 			// Logic for OS Aware option to showcase site on load with their set system scheme.
 			var hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
-			if ( hasDarkSchemeSupport.matches && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+			if ( hasDarkSchemeSupport.matches ) {
 				astraUpdateSwitcherAtts( 'dark' );
-				document.documentElement.classList.add( 'ast-dark-mode' );
-			} else if ( ! hasDarkSchemeSupport.matches && document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+			} else {
 				astraUpdateSwitcherAtts( 'light' );
-				document.documentElement.classList.remove( 'ast-dark-mode' );
 			}
 		}
 

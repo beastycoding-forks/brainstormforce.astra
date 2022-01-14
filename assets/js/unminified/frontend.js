@@ -182,7 +182,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			body.classList.add( 'ast-popup-nav-open' );
         }
 
-		if ( ! body.classList.contains( 'ast-main-header-nav-open' ) ) {
+		if ( ! body.classList.contains( 'ast-main-header-nav-open' ) && 'mobile' !== triggerType ) {
 			body.classList.add( 'ast-main-header-nav-open' );
 		}
 
@@ -750,7 +750,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	    }
 
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
-		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
+			document.body.classList.add( "ast-safari-browser-less-than-11" );
 	    }
 	}
 

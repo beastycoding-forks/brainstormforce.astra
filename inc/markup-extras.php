@@ -189,7 +189,6 @@ if ( ! function_exists( 'astra_logo' ) ) {
 
 		$html            = '';
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
-		do_action( 'astra_before_logo_image', $device );
 
 		// Site logo.
 		if ( $has_custom_logo ) {
@@ -405,14 +404,14 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	function astra_get_search( $option = '', $device = '' ) {
 		ob_start();
 		?>
-		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?> tabindex="-1">
+		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
 			<div class="ast-search-icon">
+			<?php astra_get_search_form(); ?>
 				<a class="slide-search astra-search-icon" aria-label="<?php esc_attr_e( 'Search icon link', 'astra' ); ?>" href="#">
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
 					<?php Astra_Icons::get_icons( 'search', true ); ?>
 				</a>
 			</div>
-			<?php astra_get_search_form(); ?>
 		</div>
 		<?php
 		$search_html = ob_get_clean();

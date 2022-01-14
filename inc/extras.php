@@ -880,6 +880,7 @@ function astra_check_update_defaults_colors() {
 
 /**
  * Should Content BG settings apply to Fullwidth Contained/Stretched layout or not?
+ * Is Content BG settings need to apply on Fullwidth Contained/Stretched layout or not?
  *
  * Do not apply content background to fullwidth layouts in following cases -
  * 1. For backward compatibility.

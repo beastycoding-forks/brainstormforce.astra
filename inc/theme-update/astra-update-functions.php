@@ -840,8 +840,9 @@ function astra_improve_gutenberg_editor_ui() {
 /**
  * Add color-palette-preset support in astra-color-palettes.
  *
- * @since x.x.x
+ * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
  *
+ * @since x.x.x
  * @return void
  */
 function astra_add_color_palette_presets() {
@@ -851,6 +852,23 @@ function astra_add_color_palette_presets() {
 	if ( ! isset( $astra_color_palette['presets'] ) && ! is_array( $astra_color_palette['presets'] ) ) {
 		$astra_color_palette['presets'] = astra_get_palette_presets();
 		update_option( 'astra-color-palettes', $astra_color_palette );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_fullwidth_layouts_apply_content_background() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['apply-content-background-fullwidth-layouts'] ) ) {
+		$theme_options['apply-content-background-fullwidth-layouts'] = false;
+		update_option( 'astra-settings', $theme_options );
 	}
 }
 
@@ -872,16 +890,28 @@ function astra_update_builders_default_colors() {
 }
 
 /**
- * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
+ * Display Cart Total and Title compatibility.
  *
  * @since x.x.x
  * @return void
  */
-function astra_fullwidth_layouts_apply_content_background() {
+function astra_display_cart_total_title_compatibility() {
 	$theme_options = get_option( 'astra-settings', array() );
 
-	if ( ! isset( $theme_options['apply-content-background-fullwidth-layouts'] ) ) {
-		$theme_options['apply-content-background-fullwidth-layouts'] = false;
-		update_option( 'astra-settings', $theme_options );
+	if ( isset( $theme_options['woo-header-cart-label-display'] ) ) {
+		return;
 	}
+
+	// Set the Display Cart Label toggle values with shortcodes.
+	if ( ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) && ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_title} / {cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-total-display'] ) && true === $theme_options['woo-header-cart-total-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_total_currency_symbol}';
+	} elseif ( isset( $theme_options['woo-header-cart-title-display'] ) && true === $theme_options['woo-header-cart-title-display'] ) {
+		$theme_options['woo-header-cart-label-display'] = '{cart_title}';
+	} else {
+		$theme_options['woo-header-cart-label-display'] = '';
+	}
+
+	update_option( 'astra-settings', $theme_options );
 }

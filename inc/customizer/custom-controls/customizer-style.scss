@@ -187,7 +187,16 @@ input[type="text"] {
 }
 
 /* Customizer - builder widget area's block gets round shapes in more-settings tab */
-.customize-widgets-layout__inspector .components-circular-option-picker__option::after {
-    box-shadow: none;
-    position: unset;
+.customize-widgets-layout__inspector .components-circular-option-picker__option{
+	&::after{
+		display: none;
+	}
+	&:focus::after{
+		display: none;
+	}
+}
+.components-circular-option-picker__option-wrapper{
+	&::before{
+		display: none;
+	}
 }

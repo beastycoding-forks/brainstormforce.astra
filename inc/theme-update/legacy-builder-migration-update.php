@@ -38,13 +38,37 @@ function astra_header_builder_migration() {
 
 	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options        = astra_primary_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options        = astra_below_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options        = astra_above_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options        = astra_footer_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options        = astra_footer_widgets_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options        = astra_primary_menu_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$options        = astra_sticky_header_builder_migration( $options['theme_options'], $options['used_elements'], $options['widget_options'] );
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$theme_options  = $options['theme_options'];
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$widget_options = $options['widget_options'];
 	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
@@ -52,7 +76,6 @@ function astra_header_builder_migration() {
 
 	update_option( 'astra-settings', $theme_options );
 	update_option( 'sidebars_widgets', $widget_options );
-
 }
 
 /**
@@ -72,27 +95,33 @@ function astra_sticky_header_builder_migration( $theme_options, $used_elements, 
 	$is_menu_in_below   = false;
 
 	if ( isset( $theme_options['header-desktop-items']['primary'] ) ) {
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		foreach ( $theme_options['header-desktop-items']['primary'] as $zone ) {
 			if ( false !== array_search( 'menu-1', $zone ) ) {
 				$is_menu_in_primary = true;
 			}
 		}
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	}
 
 	if ( isset( $theme_options['header-desktop-items']['above'] ) ) {
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
 			if ( false !== array_search( 'menu-1', $zone ) ) {
 				$is_menu_in_above = true;
 			}
 		}
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	}
 
 	if ( isset( $theme_options['header-desktop-items']['below'] ) ) {
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
 			if ( false !== array_search( 'menu-1', $zone ) ) {
 				$is_menu_in_below = true;
 			}
 		}
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	}
 
 	if ( $is_menu_in_primary ) {
@@ -358,16 +387,20 @@ function astra_sticky_header_builder_migration( $theme_options, $used_elements, 
 	$is_html_in_above = false;
 	$is_html_in_below = false;
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
 		if ( false !== array_search( 'html-3', $zone ) ) {
 			$is_html_in_above = true;
 		}
 	}
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
 		if ( false !== array_search( 'html-2', $zone ) ) {
 			$is_html_in_below = true;
 		}
 	}
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 	if ( $is_html_in_above ) {
 
@@ -386,16 +419,20 @@ function astra_sticky_header_builder_migration( $theme_options, $used_elements, 
 	$is_search_in_above = false;
 	$is_search_in_below = false;
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
 		if ( false !== array_search( 'search', $zone ) ) {
 			$is_search_in_above = true;
 		}
 	}
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
 		if ( false !== array_search( 'search', $zone ) ) {
 			$is_search_in_below = true;
 		}
 	}
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 	if ( $is_search_in_above ) {
 
@@ -414,16 +451,20 @@ function astra_sticky_header_builder_migration( $theme_options, $used_elements, 
 	$is_widget_in_above = false;
 	$is_widget_in_below = false;
 
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['above'] as $zone ) {
 		if ( false !== array_search( 'widget-3', $zone ) ) {
 			$is_widget_in_above = true;
 		}
 	}
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	foreach ( $theme_options['header-desktop-items']['below'] as $zone ) {
 		if ( false !== array_search( 'widget-2', $zone ) ) {
 			$is_widget_in_below = true;
 		}
 	}
+	/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 	if ( $is_widget_in_above ) {
 

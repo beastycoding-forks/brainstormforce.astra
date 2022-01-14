@@ -375,8 +375,8 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
  * @return string The menu item.
  */
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
-	$role     = 'presentation';
-	$icon     = '';
+	$role = 'presentation';
+	$icon = '';
 
 	/**
 	 * These menus are not overriden by the 'Astra_Custom_Nav_Walker' class present in Addon - Nav Menu module.
@@ -801,18 +801,6 @@ function astra_check_elementor_pro_3_5_version() {
 }
 
 /**
- * Check if backward flag is set before updating default colors to sync colors with palette.
- *
- * @since x.x.x
- * @return bool $astra_backward_flag
- */
-function astra_check_update_defaults_colors() {
-	$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
-	$astra_backward_flag = ( isset( $astra_settings['link-default-colors-with-palette'] ) && false === $astra_settings['link-default-colors-with-palette'] ) ? false : true;
-	return $astra_backward_flag;
-}
-
-/**
  * Get Global Color Palette's presets
  *
  * @return array color presets array.
@@ -879,6 +867,19 @@ function astra_get_palette_presets() {
 }
 
 /**
+ * Check if backward flag is set before updating default colors to sync colors with palette.
+ *
+ * @since x.x.x
+ * @return bool $astra_backward_flag
+ */
+function astra_check_update_defaults_colors() {
+	$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
+	$astra_backward_flag = ( isset( $astra_settings['link-default-colors-with-palette'] ) && false === $astra_settings['link-default-colors-with-palette'] ) ? false : true;
+	return $astra_backward_flag;
+}
+
+/**
+ * Should Content BG settings apply to Fullwidth Contained/Stretched layout or not?
  * Is Content BG settings need to apply on Fullwidth Contained/Stretched layout or not?
  *
  * Do not apply content background to fullwidth layouts in following cases -

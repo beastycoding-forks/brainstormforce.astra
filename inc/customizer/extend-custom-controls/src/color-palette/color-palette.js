@@ -54,16 +54,23 @@ const ColorPaletteComponent = (props) => {
 			flag: !props.control.setting.get().flag,
 		});
 
-		let globalPaletteControl = props.customizer.control(
-			"astra-settings[global-color-palette]"
-		);
+		let paletteControl;
+		if( 'astra-color-palettes' === props.control.id ) {
+			paletteControl = props.customizer.control(
+				"astra-settings[global-color-palette]"
+			);
+		} else {
+			paletteControl = props.customizer.control(
+				"astra-settings[dark-color-palette]"
+			);
+		}
 
-		var globalPalette = globalPaletteControl.setting.get();
+		var globalPalette = paletteControl.setting.get();
 
 		globalPalette.palette = stateObj.palettes[stateObj.currentPalette];
-		globalPaletteControl.setting.set({
+		paletteControl.setting.set({
 			...globalPalette,
-			flag: !globalPaletteControl.setting.get().flag,
+			flag: !paletteControl.setting.get().flag,
 		});
 	};
 
@@ -91,9 +98,7 @@ const ColorPaletteComponent = (props) => {
 	const handlePresetAssignment = (presetKey) => {
 		if ( state.presets && state.presets[presetKey] ) {
 			state.presets[presetKey].map( ( item, index ) => {
-				if ( item ) {
-					handleChangeComplete( index, { hex: item } );
-				}
+				handleChangeComplete( index, { hex: item } );
 			} );
 		}
 	};
@@ -185,31 +190,29 @@ const ColorPaletteComponent = (props) => {
 
 	var presetOptions = (
 		<>
-			<Popover position="bottom center" className="" onClose={toggleClose}>
-				<div className="">
-					{ Object.keys( state.presets ).map( ( presetKey, index ) => {
-						return (
-							<Button
-								key={index}
-								onClick={ () => handlePresetAssignment( presetKey ) }
-								className={ 'ast-preset-palette-item' }
-							>
-								{ state.presets[presetKey].map( ( color, subIndex ) => {
-									return (
-										<div className="ast-palette-individual-item-wrap">
-											<span
-												key={subIndex}
-												className='ast-palette-individual-item'
-												style={{ color: color }}
-												>
-											</span>
-										</div>
-									)
-								} ) }
-							</Button>
-						);
-					} ) }
-				</div>
+			<Popover position="bottom center" onClose={toggleClose}>
+				{ Object.keys( state.presets ).map( ( presetKey, index ) => {
+					return (
+						<Button
+							key={index}
+							onClick={ () => handlePresetAssignment( presetKey ) }
+							className={ 'ast-preset-palette-item' }
+						>
+							{ state.presets[presetKey].map( ( color, subIndex ) => {
+								return (
+									<div className="ast-palette-individual-item-wrap">
+										<span
+											key={subIndex}
+											className='ast-palette-individual-item'
+											style={{ color: color }}
+											>
+										</span>
+									</div>
+								)
+							} ) }
+						</Button>
+					);
+				} ) }
 			</Popover>
 		</>
 	);

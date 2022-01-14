@@ -36,39 +36,29 @@ class Astra_Dark_Mode_Global_Configs extends Astra_Customizer_Config_Base {
 
 		$_configs = array(
 
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[dark-color-palette]',
+				'type'      => 'control',
+				'control'   => 'ast-hidden',
+				'section'   => $_section,
+				'priority'  => 5,
+				'title'     => __( 'Dark Palette', 'astra' ),
+				'default'   => astra_get_option( 'dark-color-palette' ),
+				'transport' => 'postMessage',
+			),
+
 			/**
 			 * Option: Color palette selection.
 			 */
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[dark-mode-palette]',
-				'default'  => astra_get_option( 'dark-mode-palette' ),
+				'default'  => astra_get_palette_colors(),
 				'section'  => $_section,
 				'priority' => 5,
 				'title'    => __( 'Dark Color Palette', 'astra' ),
 				'type'     => 'control',
-				'control'  => 'ast-select',
-				'choices'  => array(
-					'palette_1' => __( 'Palette 1', 'astra' ),
-					'palette_2' => __( 'Palette 2', 'astra' ),
-					'palette_3' => __( 'Palette 3', 'astra' ),
-				),
+				'control'  => 'ast-color-palette',
 				'context'  => Astra_Builder_Helper::$general_tab,
-			),
-
-			/**
-			* Option: Colors section quick link.
-			*/
-			array(
-				'name'      => ASTRA_THEME_SETTINGS . '[color-palette-colors-section-link]',
-				'default'   => astra_get_option( 'color-palette-colors-section-link' ),
-				'type'      => 'control',
-				'control'   => 'ast-customizer-link',
-				'section'   => $_section,
-				'priority'  => 10,
-				'link_type' => 'control',
-				'linked'    => 'astra-color-palettes',
-				'link_text' => __( 'Configure Palette from Here.', 'astra' ),
-				'context'   => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -81,6 +71,7 @@ class Astra_Dark_Mode_Global_Configs extends Astra_Customizer_Config_Base {
 				'control'   => 'ast-toggle-control',
 				'section'   => $_section,
 				'priority'  => 15,
+				'divider'   => array( 'ast_class' => 'ast-top-divider' ),
 				'title'     => __( 'OS Aware', 'astra' ),
 				'context'   => Astra_Builder_Helper::$general_tab,
 				'transport' => 'postMessage',

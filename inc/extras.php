@@ -376,7 +376,6 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
  */
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	$role     = 'presentation';
-	$tabindex = '0';
 	$icon     = '';
 
 	/**
@@ -425,7 +424,7 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	}
 	foreach ( $item->classes as $value ) {
 		if ( 'menu-item-has-children' === $value ) {
-			$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" tabindex="' . esc_attr( $tabindex ) . '" >' . $icon . '</span>';
+			$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" >' . $icon . '</span>';
 		}
 	}
 	if ( 0 < $depth ) {

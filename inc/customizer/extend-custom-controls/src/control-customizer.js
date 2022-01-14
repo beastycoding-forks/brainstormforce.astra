@@ -116,7 +116,7 @@
 				const customizer_preview_container =  document.getElementById('customize-preview');
 				let iframe 						 = customizer_preview_container.getElementsByTagName('iframe')[0];
 				let htmlContent 				 = iframe.contentDocument || iframe.contentWindow.document;
-				
+
 				setTimeout(function () {
 					if( null !== htmlContent.querySelector('.transparent-custom-logo .astra-logo-svg') ) {
 						let existingValues 	    = api('astra-settings[transparent-header-logo-width]').get();
@@ -138,7 +138,7 @@
 						}
 						api('astra-settings[transparent-header-logo-width]').set( existingValues );
 					}
-				}, 250);	
+				}, 250);
 			});
 		});
 
@@ -177,6 +177,23 @@
 
 				let paletteUpdateEvent = new CustomEvent(
 					'AstPaletteUpdated', {
+						'detail': {
+							'data': palette,
+						}
+					});
+
+				document.dispatchEvent(paletteUpdateEvent);
+			});
+		});
+
+		/**
+		 * Pass data to previewer when dark-mode palette is modified.
+		 */
+		 api('astra-settings[dark-color-palette]', function (value) {
+			value.bind(function (palette) {
+
+				let paletteUpdateEvent = new CustomEvent(
+					'AstDarkPaletteUpdated', {
 						'detail': {
 							'data': palette,
 						}

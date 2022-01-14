@@ -661,7 +661,27 @@
 				// Set css variables for Elementor style.
 				innerDoc.documentElement.style.setProperty( '--e-global-color-' + paletteSlugs[ index ].replace(/-/g, ""), paletteItem[1] );
 			}
+		} );
+	}
 
+	const setDarkPaletteVariables = function() {
+
+		const darkPalette = wp.customize.control( 'astra-settings[dark-color-palette]' ).setting.get();
+
+		const customizerPreviewContainer =  document.getElementById('customize-preview')
+		const iframe = customizerPreviewContainer.getElementsByTagName('iframe')[0]
+		const innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+		let stylePrefix = astra.customizer.globalPaletteStylePrefix;
+
+		Object.entries( darkPalette.palette ).map( ( paletteItem, index ) => {
+			innerDoc.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
+			document.documentElement.style.setProperty( stylePrefix + index, paletteItem[1] );
+
+			if( true === astra.customizer.isElementorActive && ! astra.customizer.isGlobalColorElementorDisabled ) {
+				let paletteSlugs = astra.customizer.globalPaletteSlugs;
+				// Set css variables for Elementor style.
+				innerDoc.documentElement.style.setProperty( '--e-global-color-' + paletteSlugs[ index ].replace(/-/g, ""), paletteItem[1] );
+			}
 		} );
 	}
 
@@ -828,7 +848,6 @@
 				setPaletteVariables,
 				false
 			);
-
 		});
 
 	});

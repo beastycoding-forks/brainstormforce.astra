@@ -834,6 +834,23 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	/**
+	 * Dark Mode Palette.
+	 */
+	$defaults['dark-color-palette'] = array(
+		'palette' => array(
+			'#E47B02',
+			'#ED8F0C',
+			'#1F2933',
+			'#3E4C59',
+			'#52606D',
+			'#7B8794',
+			'#F3F4F7',
+			'#F9F9FB',
+			'#FFFFFF',
+		),
+	);
+
+	/**
 	* Mobile Menu
 	*/
 

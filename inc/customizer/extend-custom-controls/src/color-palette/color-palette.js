@@ -10,6 +10,7 @@ const ColorPaletteComponent = (props) => {
 	let labelHtml = null;
 	const { label } = props.control.params;
 	let UpdatePaletteEvent;
+	let UpdateDarkPaletteEvent;
 
 	const [state, setState] = value ? useState(value) : useState(defaultValue);
 
@@ -54,16 +55,23 @@ const ColorPaletteComponent = (props) => {
 			flag: !props.control.setting.get().flag,
 		});
 
-		let globalPaletteControl = props.customizer.control(
-			"astra-settings[global-color-palette]"
-		);
+		let paletteControl;
+		if( 'astra-color-palettes' === props.control.id ) {
+			paletteControl = props.customizer.control(
+				"astra-settings[global-color-palette]"
+			);
+		} else {
+			paletteControl = props.customizer.control(
+				"astra-settings[dark-color-palette]"
+			);
+		}
 
-		var globalPalette = globalPaletteControl.setting.get();
+		var globalPalette = paletteControl.setting.get();
 
 		globalPalette.palette = stateObj.palettes[stateObj.currentPalette];
-		globalPaletteControl.setting.set({
+		paletteControl.setting.set({
 			...globalPalette,
-			flag: !globalPaletteControl.setting.get().flag,
+			flag: !paletteControl.setting.get().flag,
 		});
 	};
 

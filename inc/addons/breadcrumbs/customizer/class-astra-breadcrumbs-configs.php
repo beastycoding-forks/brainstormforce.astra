@@ -386,12 +386,13 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						Astra_Builder_Helper::$general_tab_config,
 					),
 				);
+
 				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
 					'type'      => 'control',
-					'control'   => 'text',
+					'control'    => 'ast-selector',
 					'section'   => $_section,
-					'default'   => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
+					//'default'   => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
 					'priority'  => 15,
 					'title'     => __( 'Separator', 'astra' ),
 					'context'   => array(
@@ -402,8 +403,34 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 						Astra_Builder_Helper::$general_tab_config,
 					),
-					'transport' => 'postMessage',
+					'choices'    => array(
+						'type-1' => 'mobile_menu2',
+						'type-2' => 'breadcrumb-separator-1',
+						'type-3' => 'breadcrumb',
+					),
+
+					//'transport' => 'postMessage',
 				);
+
+
+				// $_configs[] = array(
+				// 	'name'      => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',
+				// 	'type'      => 'control',
+				// 	'control'   => 'text',
+				// 	'section'   => $_section,
+				// 	'default'   => astra_get_option( 'breadcrumb-separator' ) ? astra_get_option( 'breadcrumb-separator' ) : '\00bb',
+				// 	'priority'  => 15,
+				// 	'title'     => __( 'Separator', 'astra' ),
+				// 	'context'   => array(
+				// 		array(
+				// 			'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+				// 			'operator' => '!=',
+				// 			'value'    => 'none',
+				// 		),
+				// 		Astra_Builder_Helper::$general_tab_config,
+				// 	),
+				// 	'transport' => 'postMessage',
+				// );
 			}
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {

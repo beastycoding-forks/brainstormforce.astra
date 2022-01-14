@@ -10,7 +10,6 @@ const ColorPaletteComponent = (props) => {
 	let labelHtml = null;
 	const { label } = props.control.params;
 	let UpdatePaletteEvent;
-	let UpdateDarkPaletteEvent;
 
 	const [state, setState] = value ? useState(value) : useState(defaultValue);
 

@@ -185,24 +185,6 @@
 				document.dispatchEvent(paletteUpdateEvent);
 			});
 		});
-
-		/**
-		 * Pass data to previewer when dark-mode palette is modified.
-		 */
-		 api('astra-settings[dark-color-palette]', function (value) {
-			value.bind(function (palette) {
-
-				let paletteUpdateEvent = new CustomEvent(
-					'AstDarkPaletteUpdated', {
-						'detail': {
-							'data': palette,
-						}
-					});
-
-				document.dispatchEvent(paletteUpdateEvent);
-			});
-		});
-
 	});
 
 })(jQuery, wp.customize);

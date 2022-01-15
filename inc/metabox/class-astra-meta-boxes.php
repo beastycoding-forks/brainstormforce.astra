@@ -170,7 +170,46 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 *  Init Metabox
 		 */
 		public function init_metabox() {
-
+			self::$meta_option = apply_filters(
+				'astra_meta_box_options',
+				array(
+					'ast-hfb-above-header-display'  => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-main-header-display'       => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-hfb-below-header-display'  => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-hfb-mobile-header-display' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'footer-sml-layout'             => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'footer-adv-display'            => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-post-title'               => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-sidebar-layout'           => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-content-layout'           => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-featured-img'              => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-breadcrumbs-content'       => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+				)
+			);
 			add_action( 'add_meta_boxes', array( $this, 'setup_meta_box' ) );
 			add_action( 'save_post', array( $this, 'save_meta_box' ) );
 		}

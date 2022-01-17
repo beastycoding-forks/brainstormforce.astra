@@ -3,7 +3,7 @@ import {
 	createNewPost,
 	publishPost,
 } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../utils/set-customize';
+import { setCustomize } from '../../../utils/customize';
 describe( 'to test Right Sidebar size in the customizer', () => {
 	it( 'right Sidebar size should apply correctly on post', async () => {
 		const postRightSidebarSize = {

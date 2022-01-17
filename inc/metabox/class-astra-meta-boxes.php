@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 *
 			 * @see https://php.net/manual/en/filter.filters.sanitize.php
 			 */
-			self::post_meta_option();
+			self::post_meta_options();
 			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
 			add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
@@ -130,7 +130,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 *  Init Metabox
 		 */
 		public function init_metabox() {
-			self::post_meta_option();
+			self::post_meta_options();
 			add_action( 'add_meta_boxes', array( $this, 'setup_meta_box' ) );
 			add_action( 'save_post', array( $this, 'save_meta_box' ) );
 		}

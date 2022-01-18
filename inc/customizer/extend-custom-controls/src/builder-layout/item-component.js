@@ -76,7 +76,7 @@ const ItemComponent = props => {
 				{ choices[props.item]['clone'] && <span data-tooltip={__('Clone element', 'astra')}
 					  onClick={e => {
 						  e.stopPropagation();
-
+						  sessionStorage.setItem('ast-clone-element-type', choices[props.item].type);
 						  // Skip clone if already is in progress.
 						  if( sessionStorage.getItem('astra-builder-clone-in-progress') ) {
 							  return;

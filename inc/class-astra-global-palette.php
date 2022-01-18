@@ -154,6 +154,7 @@ class Astra_Global_Palette {
 					'#000000',
 				),
 			),
+			'presets'        => astra_get_palette_presets(),
 		);
 	}
 

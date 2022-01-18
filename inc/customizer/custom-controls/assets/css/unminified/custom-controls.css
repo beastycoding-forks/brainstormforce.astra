@@ -736,6 +736,9 @@
 .components-button.ast-preset-palette-item:hover {
 	border-color: #777777;
 }
+.ast-palette-presets-wrapper .components-popover__content {
+    margin-top: -15px;
+}
 
  /** Remove Button Color */
 

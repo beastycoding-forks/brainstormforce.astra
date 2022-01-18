@@ -191,7 +191,7 @@ const ColorPaletteComponent = (props) => {
 	var presetOptions = (
 		<>
 			<Popover position="bottom center" onClose={toggleClose}>
-				{ Object.keys( state.presets ).map( ( presetKey, index ) => {
+				{ state.presets && Object.keys( state.presets ).map( ( presetKey, index ) => {
 					return (
 						<Button
 							key={index}

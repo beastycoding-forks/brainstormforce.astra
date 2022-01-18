@@ -1,4 +1,5 @@
-v3.8.0 (woocomerce-improvements) (Unreleased)
+v3.8.0(Unreleased)
+- Improvement: Added a new filter 'astra_settings_metabox_register' to prevent loading of block based Astra Settings metabox. ( https://wpastra.com/docs/hide-astra-settings-for-user-roles/ )
 - New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
 - New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
 - New: Builder - WooCommerce cart - Option to change offcanvas flyout width.

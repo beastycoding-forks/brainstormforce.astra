@@ -785,7 +785,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		}
 
 		/**
-		 * Meta options 
+		 * Meta options
 		 */
 		public static function post_meta_options() {
 			self::$meta_option = apply_filters(

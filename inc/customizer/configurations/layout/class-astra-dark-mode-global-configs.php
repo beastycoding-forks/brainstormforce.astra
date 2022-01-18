@@ -62,6 +62,22 @@ class Astra_Dark_Mode_Global_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			* Option: Colors section quick link.
+			*/
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[color-palette-colors-section-link]',
+				'default'   => astra_get_option( 'color-palette-colors-section-link' ),
+				'type'      => 'control',
+				'control'   => 'ast-customizer-link',
+				'section'   => $_section,
+				'priority'  => 10,
+				'link_type' => 'control',
+				'linked'    => 'astra-color-palettes',
+				'link_text' => __( 'Configure Palette from Here.', 'astra' ),
+				'context'   => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
 			 * Option: OS Aware.
 			 */
 			array(

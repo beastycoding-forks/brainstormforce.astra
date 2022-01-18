@@ -200,3 +200,22 @@ input[type="text"] {
 		display: none;
 	}
 }
+
+/* Hiding this specific control on responsive devices.  */
+.preview-tablet {
+	#customize-control-astra-settings-woo-desktop-cart-flyout-width {
+		display: none;
+	}
+	#customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+		display: none;
+	}
+}
+.preview-mobile {
+	#customize-control-astra-settings-woo-desktop-cart-flyout-width {
+		display: none;
+	}
+	#customize-control-astra-settings-woo-desktop-cart-flyout-direction {
+		display: none;
+	}
+}
+

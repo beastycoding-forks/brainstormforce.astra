@@ -116,6 +116,10 @@ html {
 	}
 }
 
+.editor-post-title__block {
+    max-width: 1256px;
+}
+
 .block-editor-block-list__block[data-align=full] {
     max-width: none;
 
@@ -376,19 +380,19 @@ h6{
 .edit-post-visual-editor pre.wp-block, .edit-post-visual-editor .wp-block.wp-block-query-title {
     padding-left: 20px;
 }
-.block-editor-block-list__layout .block-editor-block-list__block.wp-block-button:not(:first-child) {
-	padding-left: 0;
-	padding-right: 0;
+.block-editor-block-list__layout .block-editor-block-list__block {
+	padding: 6px 0px 0px 6px;
 }
-.block-editor-block-list__layout .wp-block-heading {
-	margin-bottom: 20px;
+.block-editor-block-list__layout .block-editor-block-list__block.wp-block-button {
+    padding-left: 0;
+    padding-right: 0;
 }
 .block-editor-block-list__empty-block-inserter .block-editor-inserter__toggle.components-button.has-icon {
-	margin: 6px -2px 0 0;
+    margin: 5px -2px 0 0;
 	border-radius: 0;
 }
 .block-editor-block-list__layout .block-editor-block-list__block:hover {
-	box-shadow: 0 0 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color);
+	box-shadow: 0 0 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color) inset;
 	border-radius: 5px;
 }
 .block-editor-block-list__layout .wp-block.block-editor-block-list__block:not([contenteditable]):focus {
@@ -415,7 +419,7 @@ h6{
 .wp-block-quote.is-style-large cite {
     text-align: left;
 }
-.editor-styles-wrapper p {
+p.wp-block-paragraph {
 	line-height: 1.85714285714286;
 }
 .wp-block-paragraph.has-background {

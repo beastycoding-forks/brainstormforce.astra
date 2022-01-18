@@ -2229,8 +2229,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			}
 
+			$astra_spearate_container_selector = 'body, .ast-separate-container';
+			if ( astra_has_gcp_typo_preset_compatibility() && true === astra_apply_content_background_fullwidth_layouts() ) {
+				$astra_spearate_container_selector = '.ast-separate-container';
+			}
+
 			$separate_container_css = array(
-				'body, .ast-separate-container' => astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ),
+				$astra_spearate_container_selector => astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ),
 			);
 			$parse_css             .= astra_parse_css( $separate_container_css );
 
@@ -2789,11 +2794,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$astra_mode_switcher_dark_color  = astra_get_option( 'transparent-header-mode-switcher-dark-color' );
 
 				$transparent_header_builder_desktop_css = array(
-					'.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
+					'.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
 						'color'            => esc_attr( $astra_mode_switcher_light_color ),
 						'background-color' => esc_attr( $astra_mode_switcher_dark_color ),
 					),
-					'.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
+					'.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
 						'color'            => esc_attr( $astra_mode_switcher_dark_color ),
 						'background-color' => esc_attr( $astra_mode_switcher_light_color ),
 					),

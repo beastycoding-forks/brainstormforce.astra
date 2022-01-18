@@ -182,7 +182,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			body.classList.add( 'ast-popup-nav-open' );
         }
 
-		if ( ! body.classList.contains( 'ast-main-header-nav-open' ) ) {
+		if ( ! body.classList.contains( 'ast-main-header-nav-open' ) && 'mobile' !== triggerType ) {
 			body.classList.add( 'ast-main-header-nav-open' );
 		}
 
@@ -469,16 +469,17 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		/**
 		 * Navigation Keyboard Navigation.
 		 */
-		var containerMenu, containerButton, count;
-
+		var containerButton;
 		if ( body.classList.contains('ast-header-break-point') ) {
-			containerMenu = document.getElementById( 'ast-mobile-site-navigation' );
 			containerButton = document.getElementById( 'ast-mobile-header' );
 		} else {
-			containerMenu = document.getElementById( 'ast-desktop-site-navigation' );
 			containerButton = document.getElementById( 'ast-desktop-header' );
 		}
-		navigation_accessibility( containerMenu, containerButton );
+
+		if( null !== containerButton ) {
+			var containerMenu = containerButton.querySelector( '.navigation-accessibility' );
+			navigation_accessibility( containerMenu, containerButton );
+		}
 	});
 
 	var get_window_width = function () {
@@ -749,7 +750,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	    }
 
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
-		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
+			document.body.classList.add( "ast-safari-browser-less-than-11" );
 	    }
 	}
 

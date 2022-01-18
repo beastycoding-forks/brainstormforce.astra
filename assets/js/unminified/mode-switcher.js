@@ -11,22 +11,62 @@
 astraUpdateSwitcherAtts = function ( switchedTo ) {
 	// Update aria-label attr.
 	var modeSwticherTrigger =  document.querySelectorAll( '.ast-mode-switcher-trigger' );
-	for ( var count = 0; count < modeSwticherTrigger.length; count++ ) {
+	for ( var triggerCount = 0; triggerCount < modeSwticherTrigger.length; triggerCount++ ) {
 		if( 'dark' === switchedTo ) {
-			modeSwticherTrigger[ count ].setAttribute( 'aria-label', astraModeSwitcher.switchToLightMode );
+			modeSwticherTrigger[ triggerCount ].setAttribute( 'aria-label', astraModeSwitcher.switchToLightMode );
 		} else {
-			modeSwticherTrigger[ count ].setAttribute( 'aria-label', astraModeSwitcher.switchToDarkMode );
+			modeSwticherTrigger[ triggerCount ].setAttribute( 'aria-label', astraModeSwitcher.switchToDarkMode );
 		}
 	}
 
 	// Update title attr.
 	var modeSwticherIconButtons =  document.querySelectorAll( '.ast-mode-switcher-icon-button, .ast-mode-switcher-icon-toggle' );
-	for ( var count = 0; count < modeSwticherIconButtons.length; count++ ) {
+	for ( var buttonCount = 0; buttonCount < modeSwticherIconButtons.length; buttonCount++ ) {
 		if( 'dark' === switchedTo ) {
-			modeSwticherIconButtons[ count ].setAttribute( 'title', astraModeSwitcher.switchToLightMode );
+			modeSwticherIconButtons[ buttonCount ].setAttribute( 'title', astraModeSwitcher.switchToLightMode );
 		} else {
-			modeSwticherIconButtons[ count ].setAttribute( 'title', astraModeSwitcher.switchToDarkMode );
+			modeSwticherIconButtons[ buttonCount ].setAttribute( 'title', astraModeSwitcher.switchToDarkMode );
 		}
+	}
+}
+
+/**
+ * JS for updating toggled bubble translateX offset.
+ *
+ * Case: Due to some inconsistencies the toggled bubble look inappropriate, because we can't determine how button size (width) changes either of label font size or by icon size. That's why managing the bubble translateX offset through JS.
+ */
+astraUpdateToggleButtonSize = function() {
+	var iconWithToggle = document.querySelectorAll( '.ast-mode-switcher-icon-with-label-toggle .ast-dark-switcher-knob .ahfb-svg-iconset' );
+
+	if ( iconWithToggle.length > 0 ) {
+		var toggleAdjustCSS = '',
+			styleSheet = document.createElement( 'style' );
+
+		for ( var toggleCount = 0; toggleCount < iconWithToggle.length; toggleCount++ ) {
+			var parentOffset = iconWithToggle[toggleCount].offsetParent;
+
+			if( null !== parentOffset ) {
+				if( parentOffset.classList.contains( 'ast-header-mode-switcher' ) ) {
+					toggleAdjustCSS += '.ast-dark-mode .ast-header-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+				} else if( parentOffset.classList.contains( 'ast-footer-mode-switcher' ) ) {
+					toggleAdjustCSS += '.ast-dark-mode .ast-footer-mode-switcher.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+				} else {
+					toggleAdjustCSS += '.ast-dark-mode .ast-fixed-switch-mode.ast-mode-switcher-icon-with-label-toggle:after { transform: translateX(calc(' + iconWithToggle[toggleCount].offsetLeft + 'px - 0.8em)); }';
+				}
+			}
+		}
+
+		// Remove all existing stylesheets which loaded previously.
+		var exisitingToggleStyle = document.querySelectorAll( '#astra-icon-with-toggle-css' );
+		if ( exisitingToggleStyle.length > 0 ) {
+			for ( var stylesheetCount = 0; stylesheetCount < exisitingToggleStyle.length; stylesheetCount++ ) {
+				exisitingToggleStyle[stylesheetCount].remove();
+			}
+		}
+
+		styleSheet.id = 'astra-icon-with-toggle-css';
+		styleSheet.innerText = toggleAdjustCSS;
+		document.head.appendChild( styleSheet );
 	}
 }
 
@@ -50,12 +90,10 @@ astraDarkModeSwitcher = function () {
 		} else if( '1' === astraModeSwitcher.carryOsPalette ) {
 			// Logic for OS Aware option to showcase site on load with their set system scheme.
 			var hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
-			if ( hasDarkSchemeSupport.matches && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+			if ( hasDarkSchemeSupport.matches ) {
 				astraUpdateSwitcherAtts( 'dark' );
-				document.documentElement.classList.add( 'ast-dark-mode' );
-			} else if ( ! hasDarkSchemeSupport.matches && document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+			} else {
 				astraUpdateSwitcherAtts( 'light' );
-				document.documentElement.classList.remove( 'ast-dark-mode' );
 			}
 		}
 
@@ -74,11 +112,19 @@ astraDarkModeSwitcher = function () {
 					document.documentElement.classList.add( 'ast-dark-mode' );
 					localStorage.setItem( 'astra-color-mode', 'dark' );
 				}
+
+				astraUpdateToggleButtonSize();
 			}
 		}
+
+		astraUpdateToggleButtonSize();
 	}
 }
 
-window.addEventListener( 'load', function () {
+document.addEventListener( 'DOMContentLoaded', function () {
 	astraDarkModeSwitcher();
 });
+
+window.addEventListener( 'resize', function () {
+	astraUpdateToggleButtonSize();
+} );

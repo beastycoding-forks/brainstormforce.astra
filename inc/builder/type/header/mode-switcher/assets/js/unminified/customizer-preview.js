@@ -99,7 +99,7 @@
 	});
 
 	// Misc preview support.
-	astra_css( 'astra-settings[header-mode-switcher-border-radius]', 'border-radius', selector, 'px' );
+	astra_css( 'astra-settings[header-mode-switcher-border-radius]', 'border-radius', selector + ', ' + selector + '.ast-mode-switcher-icon-with-label-toggle:after', 'px' );
 
 	// Label font settings.
 	astra_responsive_font_size( 'astra-settings[font-size-header-section-mode-switcher]', '[data-section="header-section-mode-switcher"] .ast-mode-label' );

@@ -560,14 +560,23 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 		public function mode_preference_script() {
 			?>
 				<script type="text/javascript">
-					var siteView = localStorage.getItem( "astra-color-mode" );
+					var siteView = localStorage.getItem( 'astra-color-mode' ),
+						carryOsSetting = "<?php echo astra_get_option( 'mode-switcher-carry-os-palette', true ); ?>",
+						hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
 
-					if ( siteView && siteView === "dark" ) {
-						document.documentElement.classList.add( "ast-dark-mode" );
-					}
-
-					if ( siteView && siteView === "light" && document.documentElement.classList.contains( "ast-dark-mode" ) ) {
-						document.documentElement.classList.remove( "ast-dark-mode" );
+					if ( siteView && '' !== siteView ) {
+						if ( 'dark' === siteView && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+							document.documentElement.classList.add( 'ast-dark-mode' );
+						} else if ( 'light' === siteView && document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+							document.documentElement.classList.remove( 'ast-dark-mode' );
+						}
+					} else if( '1' === carryOsSetting ) {
+						// Logic for OS Aware option to showcase site on load with their set system scheme.
+						if ( hasDarkSchemeSupport.matches && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+							document.documentElement.classList.add( 'ast-dark-mode' );
+						} else if ( ! hasDarkSchemeSupport.matches && document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
+							document.documentElement.classList.remove( 'ast-dark-mode' );
+						}
 					}
 				</script>
 			<?php

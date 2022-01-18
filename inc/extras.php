@@ -376,7 +376,6 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
  */
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	$role     = 'presentation';
-	$tabindex = '0';
 	$icon     = '';
 
 	/**
@@ -425,7 +424,7 @@ function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
 	}
 	foreach ( $item->classes as $value ) {
 		if ( 'menu-item-has-children' === $value ) {
-			$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" tabindex="' . esc_attr( $tabindex ) . '" >' . $icon . '</span>';
+			$title = $title . '<span role="' . esc_attr( $role ) . '" class="dropdown-menu-toggle" >' . $icon . '</span>';
 		}
 	}
 	if ( 0 < $depth ) {
@@ -810,59 +809,89 @@ function astra_check_elementor_pro_3_5_version() {
 function astra_get_palette_presets() {
 	return array(
 		'preset_1' => array(
-			'#2B6CB0',
-			'#215387',
-			'#222222',
-			'#3B3B3B',
-			'#515151',
-			'#626262',
-			'#E1E1E1',
-			'#F7F7F7',
+			'#8E43F0',
+			'#6300E2',
+			'#150E1F',
+			'#584D66',
+			'#F3F1F6',
 			'#FFFFFF',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
 		),
 		'preset_2' => array(
-			'#255FDD',
-			'#00F2FF',
-			'#1A202C',
-			'#2D3748',
-			'#4A5568',
-			'#718096',
-			'#EDF2F7',
-			'#F7FAFC',
+			'#EF4D48',
+			'#D90700',
+			'#2B161B',
+			'#453E3E',
+			'#F7F3F5',
 			'#FFFFFF',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
 		),
 		'preset_3' => array(
-			'#3296FF',
-			'#003174',
+			'#FF6A97',
+			'#FA036B',
+			'#2B161B',
+			'#645659',
+			'#F8F3F5',
 			'#FFFFFF',
-			'#F7FAFC',
-			'#EDF2F7',
-			'#CBD2D9',
-			'#1A202C',
-			'#252C39',
-			'#2D3748',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
 		),
 		'preset_4' => array(
-			'#E47B02',
-			'#ED8F0C',
-			'#1F2933',
-			'#3E4C59',
-			'#52606D',
-			'#7B8794',
-			'#F3F4F7',
-			'#F9F9FB',
+			'#30C7B5',
+			'#00AC97',
 			'#FFFFFF',
+			'#F0EFEC',
+			'#1E1810',
+			'#4D4A46',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
 		),
 		'preset_5' => array(
-			'#DD6B20',
-			'#CF3033',
-			'#27241D',
-			'#423D33',
-			'#504A40',
-			'#625D52',
-			'#E8E6E1',
-			'#FAF9F7',
+			'#4175FC',
+			'#084AF3',
 			'#FFFFFF',
+			'#E8EBEC',
+			'#101218',
+			'#3B4244',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
 		),
 	);
+}
+
+/**
+ * Check if backward flag is set before updating default colors to sync colors with palette.
+ *
+ * @since x.x.x
+ * @return bool $astra_backward_flag
+ */
+function astra_check_update_defaults_colors() {
+	$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
+	$astra_backward_flag = ( isset( $astra_settings['link-default-colors-with-palette'] ) && false === $astra_settings['link-default-colors-with-palette'] ) ? false : true;
+	return $astra_backward_flag;
+}
+
+/**
+ * Should Content BG settings apply to Fullwidth Contained/Stretched layout or not?
+ *
+ * Do not apply content background to fullwidth layouts in following cases -
+ * 1. For backward compatibility.
+ * 2. When site layout is Max-width.
+ * 3. When site layout is Padded.
+ *
+ * @since x.x.x
+ * @return boolean
+ */
+function astra_apply_content_background_fullwidth_layouts() {
+	$astra_site_layout              = astra_get_option( 'site-layout' );
+	$astra_apply_content_background = astra_get_option( 'apply-content-background-fullwidth-layouts', true );
+
+	return ( $astra_apply_content_background && 'ast-box-layout' !== $astra_site_layout && 'ast-padded-layout' !== $astra_site_layout );
 }

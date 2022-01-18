@@ -324,6 +324,16 @@ p.demo_store[data-position="bottom"],
   border-width: 1px;
 }
 
+.ast-desktop-cart-flyout:focus .widget_shopping_cart {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.ast-desktop-cart-flyout:hover .widget_shopping_cart {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .ast-site-header-cart:focus .widget_shopping_cart, .ast-site-header-cart:hover .widget_shopping_cart {
   opacity: 1;
   visibility: visible;

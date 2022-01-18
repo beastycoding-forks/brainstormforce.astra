@@ -3241,14 +3241,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'transform'             => 'translate(0, -50%)',
 					),
 					'.astra-search-icon::before'        => array(
-						'content'                 => '"\e8b6"',
-						'font-family'             => 'Astra',
-						'font-style'              => 'normal',
-						'font-weight'             => 'normal',
-						'text-decoration'         => 'inherit',
-						'text-align'              => 'center',
-						'-webkit-font-smoothing'  => 'antialiased',
-						'-moz-osx-font-smoothing' => 'grayscale',
+						'content'                  => '"\e8b6"',
+						'font-family'              => 'Astra',
+						'font-style'               => 'normal',
+						'font-weight'              => 'normal',
+						'text-decoration'          => 'inherit',
+						'text-align'               => 'center',
+						'-webkit-font-smoothing'   => 'antialiased',
+						'-moz-osx-font-smoothing/' => 'grayscale',
+						'z-index'                  => '3',
 					),
 					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
 						'content'                 => '"\e900"',
@@ -3901,7 +3902,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 				.ast-header-break-point.ast-woocommerce-cart-menu.ast-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap,
 				.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-					width: 2em;
+					width: auto;
 					height: 2em;
 					font-size: 1.4em;
 					line-height: 2;
@@ -3958,7 +3959,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 				.ast-header-break-point.ast-woocommerce-cart-menu.ast-hfb-header .ast-cart-menu-wrap, .ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap,
 				.ast-header-break-point .ast-edd-site-header-cart-wrap .ast-edd-cart-menu-wrap {
-					width: 2em;
+					width: auto;
 					height: 2em;
 					font-size: 1.4em;
 					line-height: 2;

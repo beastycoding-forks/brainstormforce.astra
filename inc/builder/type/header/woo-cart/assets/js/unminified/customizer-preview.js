@@ -91,16 +91,37 @@
 		'woo-cart-border-color',
 		'astra-settings[header-woo-cart-background-color]',
 		'border-color',
-		'#ast-site-header-cart .widget_shopping_cart,' + responsive_selector + ' .widget_shopping_cart'
+		'#ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer'
 	);
 
 	astra_color_responsive_css(
 		'woo-cart-border-bottom-color',
 		'astra-settings[header-woo-cart-background-color]',
 		'border-bottom-color',
-		'#ast-site-header-cart:hover .widget_shopping_cart:before, #ast-site-header-cart:hover .widget_shopping_cart:after, .open-preview-woocommerce-cart #ast-site-header-cart .widget_shopping_cart:before, #astra-mobile-cart-drawer:hover .widget_shopping_cart:before, #astra-mobile-cart-drawer:hover .widget_shopping_cart:after, #astra-mobile-cart-drawer .widget_shopping_cart:before'
+		'#ast-site-header-cart .widget_shopping_cart:before, #ast-site-header-cart .widget_shopping_cart:after, .open-preview-woocommerce-cart #ast-site-header-cart .widget_shopping_cart:before, #astra-mobile-cart-drawer, .astra-cart-drawer'
 	);
 
+	// Added Background Color Hover
+	astra_color_responsive_css(
+		'woo-cart-colors',
+		'astra-settings[header-woo-cart-background-hover-color]',
+		'background-color',
+		'#ast-site-header-cart .widget_shopping_cart:hover, #astra-mobile-cart-drawer:hover'
+	);
+
+	astra_color_responsive_css(
+		'woo-cart-border-color',
+		'astra-settings[header-woo-cart-background-hover-color]',
+		'border-color',
+		'#ast-site-header-cart .widget_shopping_cart:hover, #astra-mobile-cart-drawer:hover'
+	);
+
+	astra_color_responsive_css(
+		'woo-cart-border-bottom-color',
+		'astra-settings[header-woo-cart-background-hover-color]',
+		'border-bottom-color',
+		'#ast-site-header-cart .widget_shopping_cart:hover,site-header-cart .widget_shopping_cart:hover:after, #astra-mobile-cart-drawer:hover,#ast-site-header-cart:hover .widget_shopping_cart:hover:before, #ast-site-header-cart:hover .widget_shopping_cart:hover:after, .open-preview-woocommerce-cart #ast-site-header-cart .widget_shopping_cart:hover:before'
+	);
 	astra_color_responsive_css(
 		'woo-cart-colors',
 		'astra-settings[header-woo-cart-separator-color]',
@@ -279,16 +300,61 @@
 	 wp.customize('astra-settings[woo-header-cart-icon-total-label-position]', function (setting) {
 		setting.bind(function (position) {
 			var defaultCart = $(document).find('.cart-container');
+			defaultPositionSelector = 'ast-cart-desktop-position-left ast-cart-desktop-position-right ast-cart-desktop-position-bottom ast-cart-mobile-position-left ast-cart-mobile-position-right ast-cart-mobile-position-bottom ast-cart-tablet-position-left ast-cart-tablet-position-right ast-cart-tablet-position-bottom';
 			if($(selector).find('.ast-addon-cart-wrap').length){
-				iconCart = $(document).find('.ast-addon-cart-wrap');
-				iconCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
-				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
-				iconCart.addClass('ast-cart-position-' + position);	
+				let iconCart = $(document).find('.ast-addon-cart-wrap');
+				iconCart.removeClass(defaultPositionSelector);
+				defaultCart.removeClass(defaultPositionSelector);
+				iconCart.addClass('ast-cart-desktop-position-' + position.desktop);	
+				iconCart.addClass('ast-cart-mobile-position-' + position.mobile);	
+				iconCart.addClass('ast-cart-tablet-position-' + position.tablet);	
 			}
 			else {
-				defaultCart.removeClass('ast-cart-position-left ast-cart-position-right ast-cart-position-bottom');
-				defaultCart.addClass('ast-cart-position-' + position);
+				defaultCart.removeClass(defaultPositionSelector);
+				defaultCart.addClass('ast-cart-desktop-position-' + position.desktop);
+				defaultCart.addClass('ast-cart-mobile-position-' + position.mobile);
+				defaultCart.addClass('ast-cart-tablet-position-' + position.tablet);
 			}
+
+			var dynamicStyle = '.cart-container, .ast-addon-cart-wrap {display : flex; align-items : center; padding-top: 7px; padding-bottom: 5px;} ';
+				dynamicStyle += '.astra-icon {line-height : 0.1;} ';
+				var tablet_break_point = astraBuilderPreview.tablet_break_point || 768,
+				mobile_break_point = astraBuilderPreview.mobile_break_point || 544;
+				if( position.desktop ){
+					dynamicStyle += '@media (min-width: ' + tablet_break_point + 'px) {';
+					dynamicStyle += cartPosition(position.desktop,'desktop');
+					dynamicStyle += '} ';
+				}
+				if( position.tablet ){
+					dynamicMobileStyle = cartPosition(position.tablet,'tablet');
+					dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px ) and ( min-width: ' + mobile_break_point + 'px) {';
+					dynamicStyle += dynamicMobileStyle;
+					dynamicStyle += '} ';
+				}
+				if( position.mobile ){
+					dynamictabletStyle = cartPosition(position.mobile,'mobile');
+					dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
+					dynamicStyle += dynamictabletStyle;
+					dynamicStyle += '} ';
+				}
+					
+				function cartPosition(position,device) {
+				switch(position){
+					case "bottom":
+					 	var dynamicStylePosition = '.ast-cart-'+ device +'-position-bottom { flex-direction : column;} ';
+						dynamicStylePosition += '.ast-cart-'+ device +'-position-bottom .ast-woo-header-cart-info-wrap { order : 2; line-height : 1; margin-top  : 0.5em; } ';
+						return dynamicStylePosition;
+					case "right":
+						dynamicStylePosition = '.ast-cart-'+ device +'-position-right .ast-woo-header-cart-info-wrap { order :  2; margin-left : 0.7em;} ';
+						return dynamicStylePosition;
+					case "left":
+						dynamicStylePosition = '.ast-cart-'+ device +'-position-left .ast-woo-header-cart-info-wrap { margin-right : 0.5em;} ';
+						return dynamicStylePosition;
+					default:
+					break;
+				}
+			}
+			astra_add_dynamic_css( 'woo-desktop-cart-flyout-width', dynamicStyle );
 		});
 	});
 

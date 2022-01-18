@@ -375,8 +375,8 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
  * @return string The menu item.
  */
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
-	$role     = 'presentation';
-	$icon     = '';
+	$role = 'presentation';
+	$icon = '';
 
 	/**
 	 * These menus are not overriden by the 'Astra_Custom_Nav_Walker' class present in Addon - Nav Menu module.
@@ -880,6 +880,7 @@ function astra_check_update_defaults_colors() {
 
 /**
  * Should Content BG settings apply to Fullwidth Contained/Stretched layout or not?
+ * Is Content BG settings need to apply on Fullwidth Contained/Stretched layout or not?
  *
  * Do not apply content background to fullwidth layouts in following cases -
  * 1. For backward compatibility.

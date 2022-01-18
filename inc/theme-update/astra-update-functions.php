@@ -840,8 +840,9 @@ function astra_improve_gutenberg_editor_ui() {
 /**
  * Add color-palette-preset support in astra-color-palettes.
  *
- * @since x.x.x
+ * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
  *
+ * @since x.x.x
  * @return void
  */
 function astra_add_color_palette_presets() {
@@ -851,6 +852,40 @@ function astra_add_color_palette_presets() {
 	if ( ! isset( $astra_color_palette['presets'] ) ) {
 		$astra_color_palette['presets'] = astra_get_palette_presets();
 		update_option( 'astra-color-palettes', $astra_color_palette );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_fullwidth_layouts_apply_content_background() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['apply-content-background-fullwidth-layouts'] ) ) {
+		$theme_options['apply-content-background-fullwidth-layouts'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
+ *
+ * @todo Updating builder & their element's default colors or static colors to make them link with color palette colors.
+ * To work in sync with Dark mode switch.
+ * @since x.x.x
+ * @return void
+ */
+function astra_update_builders_default_colors() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['link-default-colors-with-palette'] ) ) {
+		$theme_options['link-default-colors-with-palette'] = false;
+		update_option( 'astra-settings', $theme_options );
 	}
 }
 
@@ -879,36 +914,4 @@ function astra_display_cart_total_title_compatibility() {
 	}
 
 	update_option( 'astra-settings', $theme_options );
-}
-
-/**
- * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
- *
- * @todo Updating builder & their element's default colors or static colors to make them link with color palette colors.
- * To work in sync with Dark mode switch.
- * @since x.x.x
- * @return void
- */
-function astra_update_builders_default_colors() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['link-default-colors-with-palette'] ) ) {
-		$theme_options['link-default-colors-with-palette'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
- *
- * @since x.x.x
- * @return void
- */
-function astra_fullwidth_layouts_apply_content_background() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['apply-content-background-fullwidth-layouts'] ) ) {
-		$theme_options['apply-content-background-fullwidth-layouts'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
 }

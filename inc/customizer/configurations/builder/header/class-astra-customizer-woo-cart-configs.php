@@ -170,29 +170,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
-			 * Option: Icon total label position.
-			 */
-			array(
-				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-total-label-position]',
-				'default'    => astra_get_option( 'woo-header-cart-icon-total-label-position' ),
-				'type'       => 'control',
-				'transport'  => 'postMessage',
-				'section'    => $_section,
-				'title'      => __( 'Cart Total Position', 'astra' ),
-				'control'    => 'ast-selector',
-				'priority'   => 45,
-				'choices'    => array(
-					'left'   => __( 'Left', 'astra' ),
-					'right'  => __( 'Right', 'astra' ),
-					'bottom' => __( 'Bottom', 'astra' ),
-
-				),
-				'responsive' => false,
-				'renderAs'   => 'text',
-				'context'    => Astra_Builder_Helper::$design_tab,
-			),
-
-			/**
 			 * Option: Icon color
 			 * Option: Icon color section
 			 */
@@ -281,6 +258,29 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			 * Option: Icon total label position.
+			 */
+			array(
+				'name'       => ASTRA_THEME_SETTINGS . '[woo-header-cart-icon-total-label-position]',
+				'default'    => astra_get_option( 'woo-header-cart-icon-total-label-position' ),
+				'type'       => 'control',
+				'transport'  => 'postMessage',
+				'section'    => $_section,
+				'title'      => __( 'Cart Total Position', 'astra' ),
+				'control'    => 'ast-selector',
+				'priority'   => 47,
+				'choices'    => array(
+					'left'   => __( 'Left', 'astra' ),
+					'right'  => __( 'Right', 'astra' ),
+					'bottom' => __( 'Bottom', 'astra' ),
+
+				),
+				'responsive' => true,
+				'renderAs'   => 'text',
+				'context'    => Astra_Builder_Helper::$design_tab,
+			),
+
+			/**
 			 * Option: Icon color
 			 */
 			array(
@@ -310,7 +310,8 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		 */
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
 
-		$configurations = array_merge( $configurations, $_configs );
+		$configurations                    = array_merge( $configurations, $_configs );
+		$header_woo_cart_background_colors = 'header-woo-cart-background-colors';
 
 		$_configs = array(
 			/**
@@ -386,15 +387,43 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				// Option: Cart Background Color.
 				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[' . $header_woo_cart_background_colors . ']',
+					'default'    => astra_get_option( 'header-woo-cart-background-colors' ),
+					'type'       => 'control',
+					'control'    => 'ast-color-group',
+					'title'      => __( 'Background Color', 'astra' ),
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'priority'   => 65,
+					'context'    => Astra_Builder_Helper::$design_tab,
+					'responsive' => true,
+				),
+				// Option: Cart Background Color.
+				array(
 					'type'       => 'sub-control',
 					'control'    => 'ast-responsive-color',
-					'parent'     => ASTRA_THEME_SETTINGS . '[header-woo-cart-colors]',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $header_woo_cart_background_colors . ']',
 					'section'    => $_section,
-					'control'    => 'ast-color',
 					'transport'  => 'postMessage',
 					'name'       => 'header-woo-cart-background-color',
 					'default'    => astra_get_option( 'header-woo-cart-background-color' ),
-					'title'      => __( 'Background Color', 'astra' ),
+					'title'      => __( 'Normal', 'astra' ),
+					'responsive' => true,
+					'rgba'       => true,
+					'priority'   => 65,
+					'context'    => Astra_Builder_Helper::$design_tab,
+				),
+
+				// Option: Cart Background Hover Color.
+				array(
+					'type'       => 'sub-control',
+					'control'    => 'ast-responsive-color',
+					'parent'     => ASTRA_THEME_SETTINGS . '[' . $header_woo_cart_background_colors . ']',
+					'section'    => $_section,
+					'transport'  => 'postMessage',
+					'name'       => 'header-woo-cart-background-hover-color',
+					'default'    => astra_get_option( 'header-woo-cart-background-hover-color' ),
+					'title'      => __( 'Hover', 'astra' ),
 					'responsive' => true,
 					'rgba'       => true,
 					'priority'   => 65,

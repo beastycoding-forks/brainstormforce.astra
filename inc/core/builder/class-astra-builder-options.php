@@ -836,6 +836,23 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	/**
+	 * Dark Mode Palette.
+	 */
+	$defaults['dark-color-palette'] = array(
+		'palette' => array(
+			'#30C7B5',
+			'#00AC97',
+			'#FFFFFF',
+			'#F0EFEC',
+			'#1E1810',
+			'#4D4A46',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
+		),
+	);
+
+	/**
 	* Mobile Menu
 	*/
 
@@ -941,7 +958,11 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['woo-header-cart-click-action']              = 'default';
 	$defaults['woo-desktop-cart-flyout-width']             = 30;
-	$defaults['woo-header-cart-icon-total-label-position'] = 'left';
+	$defaults['woo-header-cart-icon-total-label-position']  = array(
+		'desktop' => 'left',
+		'tablet'  => 'left',
+		'mobile'  => 'left',
+	);
 	$defaults['woo-header-cart-icon-style']                = 'outline';
 	$defaults['woo-desktop-cart-flyout-direction']         = 'right';
 	$defaults['header-woo-cart-icon-color']                = '';
@@ -955,11 +976,20 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	$defaults['woo-header-cart-title-display'] = true;
 
 	// Cart tray > General Color styles.
-	$defaults['header-woo-cart-text-color']       = '';
-	$defaults['header-woo-cart-link-color']       = '';
-	$defaults['header-woo-cart-background-color'] = '';
-	$defaults['header-woo-cart-separator-color']  = '';
-	$defaults['header-woo-cart-link-hover-color'] = '';
+	$defaults['header-woo-cart-text-color']             = '';
+	$defaults['header-woo-cart-link-color']             = '';
+	$defaults['header-woo-cart-background-color']       = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults['header-woo-cart-background-hover-color'] = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
+	);
+	$defaults['header-woo-cart-separator-color']        = '';
+	$defaults['header-woo-cart-link-hover-color']       = '';
 
 	// Cart tray > Cart Button styles.
 	$defaults['header-woo-cart-btn-text-color']       = '';

@@ -34,18 +34,8 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
-				* Option: Disable Breadcrumb
+				* Option: button width option
 				*/
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]',
-					'section'  => 'section-woo-shop-single',
-					'type'     => 'control',
-					'control'  => 'ast-toggle-control',
-					'default'  => astra_get_option( 'single-product-breadcrumb-disable' ),
-					'title'    => __( 'Disable Breadcrumb', 'astra' ),
-					'priority' => 16,
-				),
-
 				array(
 					'name'        => ASTRA_THEME_SETTINGS . '[single-product-cart-button-width]',
 					'default'     => astra_get_option( 'single-product-cart-button-width' ),
@@ -56,12 +46,33 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'section'     => 'section-woo-shop-single',
 					'title'       => __( 'Button Width', 'astra-addon' ),
 					'suffix'      => '%',
-					'priority'    => 5,
+					'priority'    => 16,
 					'input_attrs' => array(
-						'min'  => 46,
-						'step' => 1,
-						'max'  => 79,
+						'min'     => 46,
+						'step'    => 1,
+						'max'     => 100,
+						'divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
+					'context'   => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+							'operator' => 'contains',
+							'value'    => 'add_cart',
+						),
+					),
+					
+				),
+				/**
+				* Option: Disable Breadcrumb
+				*/
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-breadcrumb-disable]',
+					'section'  => 'section-woo-shop-single',
+					'type'     => 'control',
+					'control'  => 'ast-toggle-control',
+					'default'  => astra_get_option( 'single-product-breadcrumb-disable' ),
+					'title'    => __( 'Disable Breadcrumb', 'astra' ),
+					'priority' => 16,
 				),
 
 				/**

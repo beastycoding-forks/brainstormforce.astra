@@ -221,6 +221,21 @@ p.demo_store,
     }
 }
 
+.ast-desktop-cart-flyout {
+	&:focus {
+		.widget_shopping_cart {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+	&:hover {
+		.widget_shopping_cart {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+}
+
 .ast-site-header-cart {
 	&:focus, &:hover {
 		.widget_shopping_cart {

@@ -148,22 +148,25 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function astra_woocommerce_store_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-			if ( is_store_notice_showing() ) {
-				$store_notice_color    = astra_get_option( 'store-notice-text-color' );
-				$store_notice_bg_color = astra_get_option( 'store-notice-background-color' );
-				/**
-				 * WooCommerce store CSS.
-				 */
-				$css_output_desktop = array(
-					'body p.demo_store, body .woocommerce-store-notice, body p.demo_store a, body .woocommerce-store-notice a' => array(
-						'color'            => esc_attr( $store_notice_color ),
-						'background-color' => esc_attr( $store_notice_bg_color ),
-					),
-				);
-
-				/* Parse CSS from array() */
-				$dynamic_css .= astra_parse_css( $css_output_desktop );
+			if ( false === is_store_notice_showing() ) {
+				return $dynamic_css;
 			}
+
+			$store_notice_color    = astra_get_option( 'store-notice-text-color' );
+			$store_notice_bg_color = astra_get_option( 'store-notice-background-color' );
+			/**
+			 * WooCommerce store CSS.
+			 */
+			$css_output_desktop = array(
+				'body p.demo_store, body .woocommerce-store-notice, body p.demo_store a, body .woocommerce-store-notice a' => array(
+					'color'            => esc_attr( $store_notice_color ),
+					'background-color' => esc_attr( $store_notice_bg_color ),
+					'transition'       => 'none',
+				),
+			);
+
+			/* Parse CSS from array() */
+			$dynamic_css .= astra_parse_css( $css_output_desktop );
 
 			return $dynamic_css;
 		}
@@ -182,6 +185,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$icon               = astra_get_option( 'woo-header-cart-icon' );
 			$cart_count_display = apply_filters( 'astra_header_cart_count', true );
 			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
+			$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 
 			$cart_title_markup      = '<span class="ast-woo-header-cart-title">' . esc_html( $cart_title ) . '</span>';
 			$cart_total_markup      = '';
@@ -244,11 +248,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				/* translators: 1: Cart Title Markup, 2: Cart Icon Markup */
 				printf(
-					'<div class="ast-addon-cart-wrap ast-cart-position-%1$s">
-							%2$s
-							%3$s
+					'<div class="ast-addon-cart-wrap ast-desktop-cart-position-%1$s ast-cart-mobile-position-%2$s ast-cart-tablet-position-%3$s ">
+							%4$s
+							%5$s
 					</div>',
-					( self::$cart_total_label_postion ) ? self::$cart_total_label_postion : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					( $cart_total_label_postion['desktop'] ) ? $cart_total_label_postion['desktop'] : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					( $cart_total_label_postion['mobile'] ) ? $cart_total_label_postion['mobile'] : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+					( $cart_total_label_postion['tablet'] ) ? $cart_total_label_postion['tablet'] : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					( $cart_title_display || $cart_total_display ) ? $cart_info_markup : '', // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 					( $cart_icon ) ? $cart_icon : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				);
@@ -1723,7 +1729,94 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			/* Parse CSS from array()*/
+
 			$css_output .= astra_parse_css( $woo_product_lang_direction_css, astra_get_tablet_breakpoint( '', 1 ) );
+			
+
+				/**
+			 * Single page cart buttion size.
+			 */
+
+			$single_product_cart_button_width = astra_get_option( 'single-product-cart-button-width' );
+
+			$single_product_cart_button_width_desktop = ( ! empty( $single_product_cart_button_width['desktop'] ) ) ? $single_product_cart_button_width['desktop'] : '';
+
+			$single_product_cart_button_width_tablet = ( ! empty( $single_product_cart_button_width['tablet'] ) ) ? $single_product_cart_button_width['tablet'] : '';
+
+			$single_product_cart_button_width_mobile = ( ! empty( $single_product_cart_button_width['mobile'] ) ) ? $single_product_cart_button_width['mobile'] : '';
+
+			$single_cart_button = '.single_add_to_cart_button';
+
+			$css_output_cart_button_width_desktop = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_desktop, '%' ),
+				),
+			);
+
+			$css_output .= astra_parse_css( $css_output_cart_button_width_desktop );
+
+			$css_output_cart_button_width_mobile = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_mobile, '%' ),
+				),
+			);
+
+			$css_output_cart_button_width_tablet = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_tablet, '%' ),
+				),
+			);
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$css_output                         .= astra_parse_css( $css_output_cart_button_width_tablet, '', astra_get_tablet_breakpoint() );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$css_output                         .= astra_parse_css( $css_output_cart_button_width_mobile, '', astra_get_mobile_breakpoint() );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			
+
+				/**
+			 * Single page cart buttion size.
+			 */
+
+			$single_product_cart_button_width = astra_get_option( 'single-product-cart-button-width' );
+
+			$single_product_cart_button_width_desktop = ( ! empty( $single_product_cart_button_width['desktop'] ) ) ? $single_product_cart_button_width['desktop'] : '';
+
+			$single_product_cart_button_width_tablet = ( ! empty( $single_product_cart_button_width['tablet'] ) ) ? $single_product_cart_button_width['tablet'] : '';
+
+			$single_product_cart_button_width_mobile = ( ! empty( $single_product_cart_button_width['mobile'] ) ) ? $single_product_cart_button_width['mobile'] : '';
+
+			$single_cart_button = '.single_add_to_cart_button';
+
+			$css_output_cart_button_width_desktop = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_desktop, '%' ),
+				),
+			);
+
+			$css_output .= astra_parse_css( $css_output_cart_button_width_desktop );
+
+			$css_output_cart_button_width_mobile = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_mobile, '%' ),
+				),
+			);
+
+			$css_output_cart_button_width_tablet = array(
+
+				$single_cart_button => array(
+					'width' => astra_get_css_value( $single_product_cart_button_width_tablet, '%' ),
+				),
+			);
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$css_output                         .= astra_parse_css( $css_output_cart_button_width_tablet, '', astra_get_tablet_breakpoint() );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$css_output                         .= astra_parse_css( $css_output_cart_button_width_mobile, '', astra_get_mobile_breakpoint() );
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
@@ -1787,8 +1880,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 			);
 			/* Parse CSS from array()*/
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$yith_wcwl_main_style .= astra_parse_css( $yith_wcwl_main_style_small, '', astra_get_tablet_breakpoint() );
-
+			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_add_inline_style( 'yith-wcwl-main', $yith_wcwl_main_style );
 		}
 
@@ -1903,9 +1997,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
-			self::$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
+			$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			?>
-			<a class="cart-container ast-cart-position-<?php echo esc_attr( self::$cart_total_label_postion ); ?>" href="<?php echo esc_url( $woo_cart_link ); ?>" title="<?php echo esc_attr( $view_shopping_cart ); ?>">
+			<a class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_postion['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_postion['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_postion['tablet'] ); ?> ">
 
 						<?php
 						do_action( 'astra_woo_header_cart_icons_before' );

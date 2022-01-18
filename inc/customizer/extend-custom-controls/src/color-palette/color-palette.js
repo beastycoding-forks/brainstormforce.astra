@@ -99,6 +99,7 @@ const ColorPaletteComponent = (props) => {
 		if ( state.presets && state.presets[presetKey] ) {
 			state.presets[presetKey].map( ( item, index ) => {
 				handleChangeComplete( index, { hex: item } );
+				toggleClose();
 			} );
 		}
 	};
@@ -237,9 +238,11 @@ const ColorPaletteComponent = (props) => {
 	return (
 		<>
 			<label className="customizer-text">{labelHtml}</label>
-			<Tooltip text={ __("Select Preset", "astra") } position="top center">
-				<Dashicon className="ast-palette-preset-trigger" icon='open-folder' onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } } />
-			</Tooltip>
+			{ 'astra-color-palettes' === props.control.id &&
+				<Tooltip text={ __("Select Preset", "astra") } position="top center">
+					<Dashicon className="ast-palette-preset-trigger" icon='open-folder' onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } } />
+				</Tooltip>
+			}
 			<div className="ast-palette-presets-wrapper">
 				{ state.isVisible &&
 					presetOptions
@@ -250,7 +253,9 @@ const ColorPaletteComponent = (props) => {
 					paletteOptions
 				}
 			</div>
-			<div className="ast-color-palette-wrapper">{paletteColors}</div>
+			{ 'astra-color-palettes' === props.control.id &&
+				<div className="ast-color-palette-wrapper">{paletteColors}</div>
+			}
 		</>
 	);
 };

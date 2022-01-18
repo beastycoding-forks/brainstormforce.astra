@@ -201,3 +201,6 @@
 .ast-palette-presets-wrapper .components-popover__content {
     margin-top: -15px;
 }
+#customize-control-astra-settings-dark-mode-palette .ast-color-palette-wrapper {
+    margin-top: 0;
+}

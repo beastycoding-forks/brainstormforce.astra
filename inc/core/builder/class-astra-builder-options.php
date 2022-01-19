@@ -836,6 +836,23 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	/**
+	 * Dark Mode Palette.
+	 */
+	$defaults['dark-color-palette'] = array(
+		'palette' => array(
+			'#30C7B5',
+			'#00AC97',
+			'#FFFFFF',
+			'#F0EFEC',
+			'#1E1810',
+			'#4D4A46',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
+		),
+	);
+
+	/**
 	* Mobile Menu
 	*/
 
@@ -941,10 +958,15 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['woo-header-cart-click-action']              = 'default';
 	$defaults['woo-desktop-cart-flyout-width']             = 30;
-	$defaults['woo-header-cart-icon-total-label-position']  = array(
+	$defaults['woo-header-cart-icon-total-label-position'] = array(
 		'desktop' => 'left',
 		'tablet'  => 'left',
 		'mobile'  => 'left',
+	);
+	$defaults['header-woo-cart-icon-size']                 = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
 	);
 	$defaults['woo-header-cart-icon-style']                = 'outline';
 	$defaults['woo-desktop-cart-flyout-direction']         = 'right';

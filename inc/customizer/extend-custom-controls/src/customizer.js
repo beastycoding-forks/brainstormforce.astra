@@ -691,7 +691,6 @@
 				// Set css variables for Elementor style.
 				innerDoc.documentElement.style.setProperty( '--e-global-color-' + paletteSlugs[ index ].replace(/-/g, ""), paletteItem[1] );
 			}
-
 		} );
 	}
 
@@ -862,7 +861,6 @@
 				setPaletteVariables,
 				false
 			);
-
 		});
 
 	});

@@ -466,15 +466,14 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 		 */
 		public static function generate_dark_palette_style() {
 
-			$variable_prefix    = Astra_Global_Palette::get_css_variable_prefix();
-			$dark_palette       = astra_get_option( 'dark-mode-palette', 'palette_2' );
-			$ast_palette_config = astra_get_palette_colors();
-			$palette_style      = array();
-			$palette_css_vars   = array();
-			$css                = '';
+			$ast_dark_palette = astra_get_option( 'dark-color-palette' );
+			$variable_prefix  = Astra_Global_Palette::get_css_variable_prefix();
+			$palette_style    = array();
+			$palette_css_vars = array();
+			$css              = '';
 
-			if ( isset( $ast_palette_config['palettes'][ $dark_palette ] ) ) {
-				foreach ( $ast_palette_config['palettes'][ $dark_palette ] as $key => $color ) {
+			if ( isset( $ast_dark_palette['palette'] ) ) {
+				foreach ( $ast_dark_palette['palette'] as $key => $color ) {
 					$palette_key = str_replace( '--', '-', $variable_prefix ) . $key;
 
 					$palette_style[ '.ast-dark-mode .has' . $palette_key . '-color' ] = array(
@@ -561,7 +560,9 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			?>
 				<script type="text/javascript">
 					var siteView = localStorage.getItem( 'astra-color-mode' ),
-						carryOsSetting = "<?php echo astra_get_option( 'mode-switcher-carry-os-palette', true ); ?>";
+						carryOsSetting = "<?php echo astra_get_option( 'mode-switcher-carry-os-palette', true ); ?>",
+						hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
+
 					if ( siteView && '' !== siteView ) {
 						if ( 'dark' === siteView && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
 							document.documentElement.classList.add( 'ast-dark-mode' );
@@ -570,7 +571,6 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 						}
 					} else if( '1' === carryOsSetting ) {
 						// Logic for OS Aware option to showcase site on load with their set system scheme.
-						var hasDarkSchemeSupport = window.matchMedia( "(prefers-color-scheme: dark)" );
 						if ( hasDarkSchemeSupport.matches && ! document.documentElement.classList.contains( 'ast-dark-mode' ) ) {
 							document.documentElement.classList.add( 'ast-dark-mode' );
 						} else if ( ! hasDarkSchemeSupport.matches && document.documentElement.classList.contains( 'ast-dark-mode' ) ) {

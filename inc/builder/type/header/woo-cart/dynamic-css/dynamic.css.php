@@ -59,6 +59,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_separator_color   = astra_get_option( 'header-woo-cart-separator-color' );
 	$cart_h_link_color      = astra_get_option( 'header-woo-cart-link-hover-color' );
 	$cart_button_text_color = astra_get_option( 'header-woo-cart-btn-text-color' );
+	$cart_icon_size         = astra_get_option( 'header-woo-cart-icon-size' );
 
 	$cart_button_bg_color     = astra_get_option( 'header-woo-cart-btn-background-color' );
 	$cart_button_text_h_color = astra_get_option( 'header-woo-cart-btn-text-hover-color' );
@@ -132,6 +133,12 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$cart_label_position_mobile  = ( ! empty( $cart_total_label_position['mobile'] ) ) ? $cart_total_label_position['mobile'] : '';
 	$cart_label_position_tablet  = ( ! empty( $cart_total_label_position['tablet'] ) ) ? $cart_total_label_position['tablet'] : '';
 
+	$cart_icon_size_desktop = ( isset( $cart_icon_size ) && isset( $cart_icon_size['desktop'] ) && ! empty( $cart_icon_size['desktop'] ) ) ? $cart_icon_size['desktop'] : '';
+
+	$cart_icon_size_tablet = ( isset( $cart_icon_size ) && isset( $cart_icon_size['tablet'] ) && ! empty( $cart_icon_size['tablet'] ) ) ? $cart_icon_size['tablet'] : '';
+
+	$cart_icon_size_mobile = ( isset( $cart_icon_size ) && isset( $cart_icon_size['mobile'] ) && ! empty( $cart_icon_size['mobile'] ) ) ? $cart_icon_size['mobile'] : '';
+
 	/**
 	* Woo Cart CSS.
 	*/
@@ -154,6 +161,13 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$selector . ' .ast-addon-cart-wrap i.astra-icon:after' => array(
 			'color'            => esc_attr( $theme_h_color ),
 			'background-color' => esc_attr( $icon_color ),
+		),
+		$selector . '.ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg' => array(
+			'height' => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
+			'width'  => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
+		),
+		'.ast-cart-menu-wrap'                         => array(
+			'font-size' => astra_get_css_value( $cart_icon_size_desktop, 'px' ),
 		),
 		$selector . ' a.cart-container *'             => array(
 			'transition' => 'none',
@@ -331,6 +345,13 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$responsive_selector . ' .widget_shopping_cart_content a:not(.button):hover' => array(
 			'color' => esc_attr( $cart_h_link_color_mobile ),
 		),
+		$responsive_selector . '.ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg' => array(
+			'height' => astra_get_css_value( $cart_icon_size_mobile, 'px' ),
+			'width'  => astra_get_css_value( $cart_icon_size_mobile, 'px' ),
+		),
+		'.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap' => array(
+			'font-size' => astra_get_css_value( $cart_icon_size_mobile, 'px' ),
+		),
 
 		/**
 		* Checkout button color for widget
@@ -393,6 +414,13 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		),
 		$responsive_selector . ' .widget_shopping_cart_content a:not(.button):hover' => array(
 			'color' => esc_attr( $cart_h_link_color_tablet ),
+		),
+		$responsive_selector . '.ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg' => array(
+			'height' => astra_get_css_value( $cart_icon_size_tablet, 'px' ),
+			'width'  => astra_get_css_value( $cart_icon_size_tablet, 'px' ),
+		),
+		'.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap' => array(
+			'font-size' => astra_get_css_value( $cart_icon_size_tablet, 'px' ),
 		),
 		/**
 		* Checkout button color for widget

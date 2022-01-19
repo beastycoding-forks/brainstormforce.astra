@@ -1670,7 +1670,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
 							'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
 						),
-						'body .elementor-button.elementor-size-sm, body .elementor-button.elementor-size-xs, body .elementor-button.elementor-size-md, body .elementor-button.elementor-size-lg, body .elementor-button.elementor-size-xl, body .elementor-button' => array(
+						'.elementor-button.elementor-size-sm, .elementor-button.elementor-size-xs, .elementor-button.elementor-size-md, .elementor-button.elementor-size-lg, .elementor-button.elementor-size-xl, .elementor-button' => array(
 							'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
 							'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
 							'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),

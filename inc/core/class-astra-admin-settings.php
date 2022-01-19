@@ -166,7 +166,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		/**
 	 * global-font-family Ajax call.
 	 */
-	public function global_font_family() {
+	public static function global_font_family() {
+
+		check_ajax_referer( 'astra-builder-module-nonce', 'fontfamilynonce' );
 		$value = array();
 		$value       = $_POST['fontfamily'];
 		update_option( 'ast-global-font-family', $value );
@@ -671,7 +673,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( astra_is_white_labelled() ) {
 				return;
 			}
-			
+			$flag = false;
 			$global_font_families = Astra_Font_Families::get_google_fonts();
 			$global_font_family_array = get_option('ast-global-font-family'); ?>
 			<div class="postbox">
@@ -684,18 +686,17 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						<?php 
 						foreach ( $global_font_families as $key => $value ) {
 							foreach ( $global_font_family_array as $font_key ) { 
-								if( $font_key === $key ){ ?>
-									<option selected="selected" value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>
-								<?php } else{ ?>
-									<option value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>
-								<?php }
-								
+								if( $font_key === $key ) { ?>
+									<option  <?php echo ( $font_key === $key ) ? 'selected="selected"' : ''; ?>  value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>
+									<?php $flag = true; break;
+								 } ?>	
+								<?php 
 							}
-								?>
-					
-								<?php
-						}
-						?>
+							if($flag === false){ ?>
+								<option  value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>	
+							<?php }
+							$flag = false; 
+						} ?>
 						<!-- <option value="volvo">Volvo</option>
 						<option value="saab">Saab</option>
 						<option value="mercedes">Mercedes</option>

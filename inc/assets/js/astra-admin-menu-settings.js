@@ -321,8 +321,8 @@
 				url: astra.ajaxUrl,
 				data: {
 					action: 'global_font_family',
-					// add your parameters here
-					fontfamily: fontFamilySelected
+					fontfamily: fontFamilySelected,
+					fontfamilynonce: astra.ajax_nonce,
 				},
 				success: function (output) {
 				   console.log(output);

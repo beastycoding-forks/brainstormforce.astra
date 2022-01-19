@@ -130,8 +130,9 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_header_right_section', __CLASS__ . '::top_header_right_section' );
 
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::external_important_links_section', 11 );
-
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::external_important_links_section', 12 );
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::global_fontfamily_option', 11 );
+			
 			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
 			add_action( 'astra_welcome_page_content', __class__ . '::astra_available_plugins', 30 );
 
@@ -145,6 +146,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 
 			add_action( 'admin_init', __CLASS__ . '::minimum_addon_version_notice' );
+			add_action( 'wp_ajax_global_font_family',__CLASS__ . '::global_font_family' );
 		}
 
 		/**
@@ -160,6 +162,17 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			// Let extensions hook into saving.
 			do_action( 'astra_admin_settings_save' );
 		}
+
+		/**
+	 * global-font-family Ajax call.
+	 */
+	public function global_font_family() {
+		$value = array();
+		$value       = $_POST['fontfamily'];
+		update_option( 'ast-global-font-family', $value );
+		// update_option( 'astra-settings', $theme_options );
+		wp_send_json_success( $value );
+	}
 
 		/**
 		 * Theme options page Slug getter including White Label string.
@@ -426,7 +439,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				}
 
 				wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
-
+				wp_register_script( 'astra-select2', ASTRA_THEME_URI . 'inc/lib/select2/select2.js', array( 'jquery', 'wp-util' ), ASTRA_THEME_VERSION, false );
 				$localize = array(
 					'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 					'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
@@ -459,6 +472,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				wp_enqueue_style( 'astra-admin-settings-rtl', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-menu-settings-rtl.css', array(), ASTRA_THEME_VERSION );
 			} else {
 				wp_enqueue_style( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/css/astra-admin-menu-settings.css', array(), ASTRA_THEME_VERSION );
+				wp_enqueue_style( 'astra-select2', ASTRA_THEME_URI . 'inc/lib/select2/select2.css', array(), ASTRA_THEME_VERSION );
 			}
 
 			if ( ! current_user_can( 'manage_options' ) ) {
@@ -474,6 +488,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Script.
 			wp_enqueue_script( 'astra-admin-settings' );
+			wp_enqueue_script( 'astra-select2' );
 		}
 
 		/**
@@ -487,8 +502,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				return;
 			}
 
-			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
-
+			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates'), ASTRA_THEME_VERSION, false );
 			$localize = array(
 				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
@@ -641,6 +655,54 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							<a href="https://wordpress.org/support/theme/astra/reviews/?rate=5#new-post" target="_blank" rel="noopener"> <?php esc_html_e( 'Rate Us ★★★★★', 'astra' ); ?> </a>
 						</li>
 					</ul>
+				</div>
+			</div>
+
+			<?php
+		}
+
+		/**
+		 * Global font family option.
+		 *
+		 * @since 3.4.0
+		 */
+		public static function global_fontfamily_option() {
+
+			if ( astra_is_white_labelled() ) {
+				return;
+			}
+			
+			$global_font_families = Astra_Font_Families::get_google_fonts();
+			$global_font_family_array = get_option('ast-global-font-family'); ?>
+			<div class="postbox">
+				<h2 class="hndle ast-normal-cursor">
+					<span><?php echo esc_html( apply_filters( 'astra_other_links_postbox_title', __( 'Display Selected Font Families', 'astra' ) ) ); ?></span>
+				</h2>
+				<div class="inside">
+					<p>You can get all the selected global font families in typography component of each section.</p>
+					<select name="ast-global-font-family[]" id="ast-global-font-family" class="form-control ast-global-font-family" multiple="multiple" >
+						<?php 
+						foreach ( $global_font_families as $key => $value ) {
+							foreach ( $global_font_family_array as $font_key ) { 
+								if( $font_key === $key ){ ?>
+									<option selected="selected" value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>
+								<?php } else{ ?>
+									<option value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>
+								<?php }
+								
+							}
+								?>
+					
+								<?php
+						}
+						?>
+						<!-- <option value="volvo">Volvo</option>
+						<option value="saab">Saab</option>
+						<option value="mercedes">Mercedes</option>
+						<option value="audi">Audi</option> -->
+						</select>
+						<button class="button astra-font-family-button" id="astra-font-family-button" data-value="">
+							Save						</button>
 				</div>
 			</div>
 

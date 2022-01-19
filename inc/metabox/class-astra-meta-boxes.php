@@ -835,8 +835,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 	}
 }
 
-
-
 /**
  * Kicking this off by calling 'get_instance()' method
  */

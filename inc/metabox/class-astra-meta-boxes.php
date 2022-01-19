@@ -685,7 +685,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$meta = self::get_meta_option();
 
 			register_post_meta(
-				'', // Pass an empty string to register the meta key across all existing post types.
+				'', 
 				'site-sidebar-layout',
 				array(
 					'show_in_rest'  => true,

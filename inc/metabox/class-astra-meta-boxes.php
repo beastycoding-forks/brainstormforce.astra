@@ -60,47 +60,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			 *
 			 * @see https://php.net/manual/en/filter.filters.sanitize.php
 			 */
-			self::$meta_option = apply_filters(
-				'astra_meta_box_options',
-				array(
-					'ast-hfb-above-header-display'  => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'ast-main-header-display'       => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'ast-hfb-below-header-display'  => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'ast-hfb-mobile-header-display' => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'footer-sml-layout'             => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'footer-adv-display'            => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'site-post-title'               => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'site-sidebar-layout'           => array(
-						'default'  => 'default',
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'site-content-layout'           => array(
-						'default'  => 'default',
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'ast-featured-img'              => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-					'ast-breadcrumbs-content'       => array(
-						'sanitize' => 'FILTER_DEFAULT',
-					),
-				)
-			);
-
+			
+			self::post_meta_options();
 			add_action( 'load-post.php', array( $this, 'init_metabox' ) );
 			add_action( 'load-post-new.php', array( $this, 'init_metabox' ) );
 			add_action( 'do_meta_boxes', array( $this, 'remove_metabox' ) );
@@ -170,7 +131,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		 *  Init Metabox
 		 */
 		public function init_metabox() {
-
+			
+			self::post_meta_options();
 			add_action( 'add_meta_boxes', array( $this, 'setup_meta_box' ) );
 			add_action( 'save_post', array( $this, 'save_meta_box' ) );
 		}
@@ -822,8 +784,58 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				)
 			);
 		}
+
+		/**
+		 * Setup meta options for Astra meta settings.
+		 * 
+		 * @since x.x.x
+		 */
+		public static function post_meta_options() {
+			self::$meta_option = apply_filters(
+				'astra_meta_box_options',
+				array(
+					'ast-hfb-above-header-display'  => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-main-header-display'       => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-hfb-below-header-display'  => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-hfb-mobile-header-display' => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'footer-sml-layout'             => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'footer-adv-display'            => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-post-title'               => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-sidebar-layout'           => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'site-content-layout'           => array(
+						'default'  => 'default',
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-featured-img'              => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+					'ast-breadcrumbs-content'       => array(
+						'sanitize' => 'FILTER_DEFAULT',
+					),
+				)
+			);
+		}
 	}
 }
+
+
 
 /**
  * Kicking this off by calling 'get_instance()' method

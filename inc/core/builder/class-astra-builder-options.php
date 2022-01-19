@@ -958,10 +958,15 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	 */
 	$defaults['woo-header-cart-click-action']              = 'default';
 	$defaults['woo-desktop-cart-flyout-width']             = 30;
-	$defaults['woo-header-cart-icon-total-label-position']  = array(
+	$defaults['woo-header-cart-icon-total-label-position'] = array(
 		'desktop' => 'left',
 		'tablet'  => 'left',
 		'mobile'  => 'left',
+	);
+	$defaults['header-woo-cart-icon-size']                 = array(
+		'desktop' => '',
+		'tablet'  => '',
+		'mobile'  => '',
 	);
 	$defaults['woo-header-cart-icon-style']                = 'outline';
 	$defaults['woo-desktop-cart-flyout-direction']         = 'right';

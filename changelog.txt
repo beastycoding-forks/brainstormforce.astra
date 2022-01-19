@@ -11,7 +11,6 @@ v3.8.0(Unreleased)
 - New: WooCommerce - Added cart total Label position option.
 - New: WooCommerce - Added store notice color & background-color options.
 - New: WooCommerce - Added store notice position option.
-- New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
 - Improvement: Site Background is applying as background-CSS for Full-Width Contained/Stretched layouts instead of Content Background.
 - Improvement: Builder - Button - Added typography options from Astra Pro to free theme.

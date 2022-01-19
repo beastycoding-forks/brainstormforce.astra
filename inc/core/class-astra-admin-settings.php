@@ -170,9 +170,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 		check_ajax_referer( 'astra-builder-module-nonce', 'fontfamilynonce' );
 		$value = array();
-		$value       = $_POST['fontfamily'];
+		$value = array_map( 'sanitize_text_field',$_POST['fontfamily'] );
 		update_option( 'ast-global-font-family', $value );
-		// update_option( 'astra-settings', $theme_options );
 		wp_send_json_success( $value );
 	}
 
@@ -685,13 +684,16 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<select name="ast-global-font-family[]" id="ast-global-font-family" class="form-control ast-global-font-family" multiple="multiple" >
 						<?php 
 						foreach ( $global_font_families as $key => $value ) {
-							foreach ( $global_font_family_array as $font_key ) { 
-								if( $font_key === $key ) { ?>
-									<option  <?php echo ( $font_key === $key ) ? 'selected="selected"' : ''; ?>  value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>
-									<?php $flag = true; break;
-								 } ?>	
-								<?php 
+							if(!empty($global_font_family_array)){
+								foreach ( $global_font_family_array as $font_key ) { 
+									if( $font_key === $key ) { ?>
+										<option  <?php echo ( $font_key === $key ) ? 'selected="selected"' : ''; ?>  value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>
+										<?php $flag = true; break;
+									 } ?>	
+									<?php 
+								}
 							}
+						
 							if($flag === false){ ?>
 								<option  value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>	
 							<?php }

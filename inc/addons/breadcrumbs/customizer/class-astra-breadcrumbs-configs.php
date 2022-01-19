@@ -398,7 +398,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 						),
 					),
 					'transport'         => 'postMessage',
-					'priority'          => 10,
 					'context'           => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',

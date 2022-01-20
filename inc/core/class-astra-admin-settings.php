@@ -170,7 +170,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 		check_ajax_referer( 'astra-builder-module-nonce', 'fontfamilynonce' );
 		$value = array();
-		$value = array_map( 'sanitize_text_field',$_POST['fontfamily'] );
+		$value = isset( $_POST['fontfamily'] ) ? array_map( 'sanitize_text_field',$_POST['fontfamily'] ) : '';
 		update_option( 'ast-global-font-family', $value );
 		wp_send_json_success( $value );
 	}

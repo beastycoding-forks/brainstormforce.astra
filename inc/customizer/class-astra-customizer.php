@@ -1360,15 +1360,17 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			?>
 
 			<option value="inherit"><?php esc_html_e( 'Default System Font', 'astra' ); ?></option>
+			<?php $global_fonts = Astra_Font_Families::get_global_fonts(); 
+			if(!empty($global_fonts)) { ?>
 			<optgroup label="Global Font Family">
-			<?php $global_fonts = Astra_Font_Families::get_global_fonts(); ?>
-
 			<?php foreach ( $global_fonts as $name => $specific_font ) {
 				?>
 
 				<option value="<?php echo esc_attr( $name ); ?>" ><?php echo esc_html( $name ); ?></option>
 				<?php
+			} 
 			} ?>
+			
 			<optgroup label="Other System Fonts">
 
 			<?php

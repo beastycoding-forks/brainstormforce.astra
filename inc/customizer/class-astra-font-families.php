@@ -113,7 +113,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		 */
 		public static function get_global_fonts() {
 			$google_fonts             = self::get_google_fonts();
-			$global_font_family_array = get_option( 'ast-global-font-family' );
+			$global_font_family_array =  astra_get_option('ast-global-font-family');
 			$global_font_family       = array();
 			if ( ! empty( $global_font_family_array ) ) {
 				foreach ( $google_fonts as $key => $value ) {

@@ -169,10 +169,12 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static function global_font_family() {
 
 			check_ajax_referer( 'astra-builder-module-nonce', 'fontfamilynonce' );
+			$theme_options = get_option( 'astra-settings' );
 			$value = array();
 			$value = isset( $_POST['fontfamily'] ) ? array_map( 'sanitize_text_field', $_POST['fontfamily'] ) : ''; // phpcs:ignore
-			update_option( 'ast-global-font-family', $value );
-			wp_send_json_success( $value );
+			$theme_options['ast-global-font-family'] = $value;
+			update_option( 'astra-settings', $theme_options );
+			wp_send_json_success( true );
 		}
 
 		/**
@@ -674,7 +676,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 			$flag                     = false;
 			$global_font_families     = Astra_Font_Families::get_google_fonts();
-			$global_font_family_array = get_option( 'ast-global-font-family' ); 
+			$global_font_family_array =  astra_get_option('ast-global-font-family'); 
 			?>
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cursor">

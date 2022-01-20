@@ -3248,7 +3248,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-decoration'          => 'inherit',
 						'text-align'               => 'center',
 						'-webkit-font-smoothing'   => 'antialiased',
-						'-moz-osx-font-smoothing/' => 'grayscale',
+						'-moz-osx-font-smoothing' => 'grayscale',
 						'z-index'                  => '3',
 					),
 					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(

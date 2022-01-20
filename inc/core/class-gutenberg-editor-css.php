@@ -915,9 +915,6 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'.ast-page-builder-template .block-editor-block-list__layout.is-root-container > .wp-block:not(.wp-block-cover):not(.wp-block-group):not(.wp-block-columns):not(.wp-block-media-text):not([data-align=wide]):not([data-align=full]):not([data-align=left]):not([data-align=right]), .editor-styles-wrapper .wp-block.editor-post-title__block' => array(
 						'max-width' => '100%',
 					),
-					'.block-editor-block-list__layout.is-root-container > .wp-block:not([data-align=full]):not([data-align=wide]):not([data-align=left]):not([data-align=right]):not(p.wp-block-paragraph):not(.wp-block-cover):not(.wp-block-group):not(.wp-block-columns):not(.wp-block-media-text)' => array(
-						'max-width' => astra_get_css_value( $site_content_width, 'px' ),
-					),
 					'.edit-post-visual-editor .editor-post-title__input, p.wp-block-paragraph, .wp-block[data-align="wide"]' => array(
 						'max-width' => astra_get_css_value( $site_content_width - 56, 'px' ),
 					),

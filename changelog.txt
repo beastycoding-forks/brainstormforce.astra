@@ -12,6 +12,7 @@ v3.8.0(Unreleased)
 - Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
 
 v3.7.7(Unreleased)
+- Fix: Astra button border radius conflict with Elementor Pro button border radius
 
 v3.7.6
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( https://wpastra.com/docs/change-web-stories-position/ )

@@ -92,7 +92,6 @@ function astra_breadcrumb_section_dynamic_css( $dynamic_css, $dynamic_css_filter
 
 	$breadcrumb_separator_selector = astra_get_option( 'breadcrumb-separator-selector' );
 
-
 	/**
 	 * Generate dynamic CSS based on the Breadcrumb Source option selected from the customizer.
 	 */

@@ -2876,7 +2876,7 @@ input[type="text"].select2-search__field {
 
 .ast-divide-four input:checked + label svg {
 	box-shadow: none;
-	fill: var(--wp-admin-theme-color);
+	color: var(--wp-admin-theme-color);
 }
 
 .customize-control-ast-radio-image input + label .image-clickable {
@@ -2908,7 +2908,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-divide-four .ast-radio-img-svg svg {
-	fill: #A0AEC0;
+	color: #A0AEC0;
 	width: 100%;
 	height: 93%;
 }
@@ -4734,7 +4734,7 @@ input[type="text"].select2-search__field {
 
 .ast-divide-four input:checked + label svg {
 	box-shadow: none;
-	fill: var(--wp-admin-theme-color);
+	color: var(--wp-admin-theme-color);
 }
 
 .customize-control-ast-radio-image input + label .image-clickable {
@@ -4766,7 +4766,7 @@ input[type="text"].select2-search__field {
 }
 
 .ast-divide-four .ast-radio-img-svg svg {
-	fill: #A0AEC0;
+	color: #A0AEC0;
 	width: 100%;
 	height: 93%;
 }

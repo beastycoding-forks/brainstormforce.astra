@@ -42,7 +42,6 @@ final class Astra_Builder_Customizer {
 		add_action( 'customize_register', array( $this, 'update_default_wp_configs' ) );
 		add_action( 'init', array( $this, 'deregister_menu_locations_widgets' ), 999 );
 		add_action( 'customize_controls_print_footer_scripts', array( $this, 'builder_customizer_preview_styles' ) );
-
 	}
 
 	/**
@@ -238,6 +237,7 @@ final class Astra_Builder_Customizer {
 		require_once $header_components_path . '/widget/class-astra-header-widget-component.php';
 		require_once $header_components_path . '/mobile-trigger/class-astra-mobile-trigger.php';
 		require_once $header_components_path . '/mobile-menu/class-astra-mobile-menu-component.php';
+		require_once $header_components_path . '/mode-switcher/class-astra-header-mode-switcher-component.php';
 
 		require_once $header_components_path . '/above-header/class-astra-above-header.php';
 		require_once $header_components_path . '/below-header/class-astra-below-header.php';
@@ -270,6 +270,7 @@ final class Astra_Builder_Customizer {
 		require_once $footer_components_path . '/above-footer/class-astra-above-footer.php';
 		require_once $footer_components_path . '/primary-footer/class-astra-primary-footer.php';
 		require_once $footer_components_path . '/widget/class-astra-footer-widget-component.php';
+		require_once $footer_components_path . '/mode-switcher/class-astra-footer-mode-switcher-component.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
@@ -312,6 +313,7 @@ final class Astra_Builder_Customizer {
 		require_once $header_config_path . '/class-astra-header-search-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-account-component-configs.php';
 		require_once $header_config_path . '/class-astra-header-social-icon-component-configs.php';
+		require_once $header_config_path . '/class-astra-header-mode-switcher-component-configs.php';
 
 		if ( class_exists( 'Astra_Woocommerce' ) ) {
 			require_once $header_config_path . '/class-astra-customizer-woo-cart-configs.php';
@@ -344,6 +346,7 @@ final class Astra_Builder_Customizer {
 		require_once $footer_config_path . '/class-astra-footer-html-component-configs.php';
 		require_once $footer_config_path . '/class-astra-footer-button-component-configs.php';
 		require_once $footer_config_path . '/class-astra-footer-widget-component-configs.php';
+		require_once $footer_config_path . '/class-astra-footer-mode-switcher-component-configs.php';
 		// @codingStandardsIgnoreEnd WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 

@@ -375,8 +375,8 @@ add_filter( 'astra_customizer_configurations', 'astra_remove_controls', 99 );
  * @return string The menu item.
  */
 function astra_dropdown_icon_to_menu_link( $title, $item, $args, $depth ) {
-	$role     = 'presentation';
-	$icon     = '';
+	$role = 'presentation';
+	$icon = '';
 
 	/**
 	 * These menus are not overriden by the 'Astra_Custom_Nav_Walker' class present in Addon - Nav Menu module.
@@ -801,7 +801,86 @@ function astra_check_elementor_pro_3_5_version() {
 }
 
 /**
+ * Get Global Color Palette's presets
+ *
+ * @return array color presets array.
+ * @since x.x.x
+ */
+function astra_get_palette_presets() {
+	return array(
+		'preset_1' => array(
+			'#8E43F0',
+			'#6300E2',
+			'#150E1F',
+			'#584D66',
+			'#F3F1F6',
+			'#FFFFFF',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
+		),
+		'preset_2' => array(
+			'#EF4D48',
+			'#D90700',
+			'#2B161B',
+			'#453E3E',
+			'#F7F3F5',
+			'#FFFFFF',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
+		),
+		'preset_3' => array(
+			'#FF6A97',
+			'#FA036B',
+			'#2B161B',
+			'#645659',
+			'#F8F3F5',
+			'#FFFFFF',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
+		),
+		'preset_4' => array(
+			'#30C7B5',
+			'#00AC97',
+			'#FFFFFF',
+			'#F0EFEC',
+			'#1E1810',
+			'#4D4A46',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
+		),
+		'preset_5' => array(
+			'#4175FC',
+			'#084AF3',
+			'#FFFFFF',
+			'#E8EBEC',
+			'#101218',
+			'#3B4244',
+			'#000000',
+			'#4B4F58',
+			'#F6F7F8',
+		),
+	);
+}
+
+/**
+ * Check if backward flag is set before updating default colors to sync colors with palette.
+ *
+ * @since x.x.x
+ * @return bool $astra_backward_flag
+ */
+function astra_check_update_defaults_colors() {
+	$astra_settings      = get_option( ASTRA_THEME_SETTINGS );
+	$astra_backward_flag = ( isset( $astra_settings['link-default-colors-with-palette'] ) && false === $astra_settings['link-default-colors-with-palette'] ) ? false : true;
+	return $astra_backward_flag;
+}
+
+/**
  * Should Content BG settings apply to Fullwidth Contained/Stretched layout or not?
+ * Is Content BG settings need to apply on Fullwidth Contained/Stretched layout or not?
  *
  * Do not apply content background to fullwidth layouts in following cases -
  * 1. For backward compatibility.

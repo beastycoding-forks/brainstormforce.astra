@@ -299,15 +299,14 @@
 
 		let fontFamilySelected; 
 	
-		$('.ast-global-font-family').select2();
-		$('.ast-global-font-family').select2({
-			placeholder: 'This is my placeholder',
+		$('#ast-global-font-family').select2({
 			allowClear: true,
 			multiple:true,
 		  });
 		$("#ast-global-font-family").select2({
 			tag: true,
 			maximumSelectionLength: 10,
+			placeholder: 'Selct font families',
 		  });
 		  
 		  $('.ast-global-font-family').on('change', function() {
@@ -325,7 +324,6 @@
 					fontfamilynonce: astra.ajax_nonce,
 				},
 				success: function (output) {
-				   console.log(output);
 				}
 				});
 			

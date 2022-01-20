@@ -169,8 +169,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		public static function global_font_family() {
 
 			check_ajax_referer( 'astra-builder-module-nonce', 'fontfamilynonce' );
-			$theme_options = get_option( 'astra-settings' );
-			$value = array();
+			$theme_options                           = get_option( 'astra-settings' );
+			$value                                   = array();
 			$value = isset( $_POST['fontfamily'] ) ? array_map( 'sanitize_text_field', $_POST['fontfamily'] ) : ''; // phpcs:ignore
 			$theme_options['ast-global-font-family'] = $value;
 			update_option( 'astra-settings', $theme_options );
@@ -676,7 +676,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			}
 			$flag                     = false;
 			$global_font_families     = Astra_Font_Families::get_google_fonts();
-			$global_font_family_array =  astra_get_option('ast-global-font-family'); 
+			$global_font_family_array = astra_get_option( 'ast-global-font-family' ); 
 			?>
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cursor">
@@ -685,29 +685,29 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				<div class="inside">
 					<p>You can get all the selected global font families in typography component of each section.</p>
 					<select name="ast-global-font-family[]" id="ast-global-font-family" class="form-control ast-global-font-family" multiple="multiple" >
-						<?php 
-						foreach ( $global_font_families as $key => $value ) {
-							if ( ! empty( $global_font_family_array ) ) {
-								foreach ( $global_font_family_array as $font_key ) { 
-									if ( $font_key === $key ) { 
-										?>
+					<?php 
+					foreach ( $global_font_families as $key => $value ) {
+						if ( ! empty( $global_font_family_array ) ) {
+							foreach ( $global_font_family_array as $font_key ) { 
+								if ( $font_key === $key ) { 
+									?>
 										<option  <?php echo ( $font_key === $key ) ? 'selected="selected"' : ''; ?>  value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>
 										<?php 
 										$flag = true;
 										break;
-									}   
-									?>
-									<?php 
-								}
-							}
-							if ( false === $flag ) { 
+								}   
 								?>
-								<option  value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>	
 								<?php 
 							}
-							$flag = false; 
-						} 
-						?>
+						}
+						if ( false === $flag ) { 
+							?>
+								<option  value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>	
+								<?php 
+						}
+						$flag = false; 
+					} 
+					?>
 						<!-- <option value="volvo">Volvo</option>
 						<option value="saab">Saab</option>
 						<option value="mercedes">Mercedes</option>

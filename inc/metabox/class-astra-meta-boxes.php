@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			}
 			return self::$instance;
 		}
-
+		
 		/**
 		 * Constructor
 		 */

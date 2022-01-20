@@ -1041,6 +1041,19 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							),
 						),
 					),
+					'dark-mode-switch'      => array(
+						'title'     => __( 'Dark Mode', 'astra' ),
+						'class'     => 'ast-addon',
+						'title_url' => astra_get_pro_url( '#', 'welcome_page', 'features', 'astra_theme' ),
+						'links'     => array(
+							array(
+								'link_class'   => 'ast-learn-more',
+								'link_url'     => astra_get_pro_url( '#', 'welcome_page', 'features', 'astra_theme' ),
+								'link_text'    => __( 'Learn More &#187;', 'astra' ),
+								'target_blank' => true,
+							),
+						),
+					),
 					'woocommerce'           => array(
 						'title'     => __( 'WooCommerce', 'astra' ),
 						'class'     => 'ast-addon',

@@ -18,6 +18,7 @@ class Astra_Gutenberg {
 	 */
 	public function __construct() {
 		add_filter( 'render_block', array( $this, 'restore_group_inner_container' ), 10, 2 );
+		add_filter( 'astra_dynamic_theme_css', array( $this, 'enqueue_gutenberg_compatibility_styles' ) );
 	}
 
 	/**
@@ -63,6 +64,27 @@ class Astra_Gutenberg {
 	 */
 	public function group_block_replace_regex( $matches ) {
 		return $matches[1] . '<div class="wp-block-group__inner-container">' . $matches[2] . '</div>' . $matches[3];
+	}
+
+	/**
+	 * Compatibility CSS for Gutenberg separator
+	 *
+	 * @param  string $dynamic_css Astra Dynamic CSS.
+	 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+	 * @return string $dynamic_css Generated CSS.
+	 *
+	 * @since  x.x.x
+	 */
+	public function enqueue_gutenberg_compatibility_styles( $dynamic_css, $dynamic_css_filtered = '' ) {
+		if ( apply_filters( 'astra_gutenberg_separator_max_width', true ) ) {
+			$gb_separator_css = array(
+				'.wp-block-separator' => array(
+					'max-width' => '100px',
+				),
+			);
+			$dynamic_css     .= astra_parse_css( $gb_separator_css );
+		}
+		return $dynamic_css;
 	}
 
 }

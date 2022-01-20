@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import AstraColorPickerControl from "../common/astra-color-picker-control";
 import { useEffect, useState } from "react";
-import { Tooltip } from '@wordpress/components';
+import { Dashicon, Popover, Tooltip, Button } from '@wordpress/components';
 import { __ } from "@wordpress/i18n";
 
 const ColorPaletteComponent = (props) => {
@@ -54,16 +54,23 @@ const ColorPaletteComponent = (props) => {
 			flag: !props.control.setting.get().flag,
 		});
 
-		let globalPaletteControl = props.customizer.control(
-			"astra-settings[global-color-palette]"
-		);
+		let paletteControl;
+		if( 'astra-color-palettes' === props.control.id ) {
+			paletteControl = props.customizer.control(
+				"astra-settings[global-color-palette]"
+			);
+		} else {
+			paletteControl = props.customizer.control(
+				"astra-settings[dark-color-palette]"
+			);
+		}
 
-		var globalPalette = globalPaletteControl.setting.get();
+		var globalPalette = paletteControl.setting.get();
 
 		globalPalette.palette = stateObj.palettes[stateObj.currentPalette];
-		globalPaletteControl.setting.set({
+		paletteControl.setting.set({
 			...globalPalette,
-			flag: !globalPaletteControl.setting.get().flag,
+			flag: !paletteControl.setting.get().flag,
 		});
 	};
 
@@ -88,10 +95,19 @@ const ColorPaletteComponent = (props) => {
 		updateValues(updateState);
 	};
 
+	const handlePresetAssignment = (presetKey) => {
+		if ( state.presets && state.presets[presetKey] ) {
+			state.presets[presetKey].map( ( item, index ) => {
+				handleChangeComplete( index, { hex: item } );
+				toggleClose();
+			} );
+		}
+	};
+
 	var paletteColors = (
 		<>
 			<div className="ast-single-palette-wrap">
-				{state.palettes[state.currentPalette].map((value, index) => {
+				{state.palettes && state.palettes[state.currentPalette].map((value, index) => {
 					const paletteLables = astra.customizer.globalPaletteLabels;
 					return (
 						<Tooltip key={index} text={paletteLables[index]} position="top center">
@@ -153,6 +169,55 @@ const ColorPaletteComponent = (props) => {
 		</>
 	);
 
+	const toggleVisible = () => {
+		let updateState = {
+			...state,
+		};
+
+		updateState.isVisible = true;
+		updateValues(updateState);
+	};
+
+	const toggleClose = () => {
+		let updateState = {
+			...state,
+		};
+
+		if( updateState.isVisible = true ) {
+			updateState.isVisible = false;
+			updateValues(updateState);
+		}
+	};
+
+	var presetOptions = (
+		<>
+			<Popover position="bottom center" onClose={toggleClose}>
+				{ state.presets && Object.keys( state.presets ).map( ( presetKey, index ) => {
+					return (
+						<Button
+							key={index}
+							onClick={ () => handlePresetAssignment( presetKey ) }
+							className={ 'ast-preset-palette-item' }
+						>
+							{ state.presets[presetKey].map( ( color, subIndex ) => {
+								return (
+									<div className="ast-palette-individual-item-wrap">
+										<span
+											key={subIndex}
+											className='ast-palette-individual-item'
+											style={{ color: color }}
+											>
+										</span>
+									</div>
+								)
+							} ) }
+						</Button>
+					);
+				} ) }
+			</Popover>
+		</>
+	);
+
 	const updatePaletteVariables = (e) => {
 		clearTimeout(UpdatePaletteEvent);
 
@@ -173,10 +238,24 @@ const ColorPaletteComponent = (props) => {
 	return (
 		<>
 			<label className="customizer-text">{labelHtml}</label>
-			<div className="ast-palette-selection-wrapper">
-				{paletteOptions}
+			{ 'astra-color-palettes' === props.control.id &&
+				<Tooltip text={ __("Select Preset", "astra") } position="top center">
+					<Dashicon className="ast-palette-preset-trigger" icon='open-folder' onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } } />
+				</Tooltip>
+			}
+			<div className="ast-palette-presets-wrapper">
+				{ state.isVisible &&
+					presetOptions
+				}
 			</div>
-			<div className="ast-color-palette-wrapper">{paletteColors}</div>
+			<div className="ast-palette-selection-wrapper">
+				{state.palettes &&
+					paletteOptions
+				}
+			</div>
+			{ 'astra-color-palettes' === props.control.id &&
+				<div className="ast-color-palette-wrapper">{paletteColors}</div>
+			}
 		</>
 	);
 };

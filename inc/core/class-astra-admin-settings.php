@@ -146,7 +146,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 
 			add_action( 'admin_init', __CLASS__ . '::minimum_addon_version_notice' );
-			add_action( 'wp_ajax_global_font_family',__CLASS__ . '::global_font_family' );
+			add_action( 'wp_ajax_global_font_family', __CLASS__ . '::global_font_family' );
 		}
 
 		/**
@@ -164,16 +164,16 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 		}
 
 		/**
-	 * global-font-family Ajax call.
-	 */
-	public static function global_font_family() {
+		 * Global-font-family Ajax call.
+		 */
+		public static function global_font_family() {
 
-		check_ajax_referer( 'astra-builder-module-nonce', 'fontfamilynonce' );
-		$value = array();
-		$value = isset( $_POST['fontfamily'] ) ? array_map( 'sanitize_text_field',$_POST['fontfamily'] ) : '';
-		update_option( 'ast-global-font-family', $value );
-		wp_send_json_success( $value );
-	}
+			check_ajax_referer( 'astra-builder-module-nonce', 'fontfamilynonce' );
+			$value = array();
+			$value = isset( $_POST['fontfamily'] ) ? array_map( 'sanitize_text_field', $_POST['fontfamily'] ) : ''; // phpcs:ignore
+			update_option( 'ast-global-font-family', $value );
+			wp_send_json_success( $value );
+		}
 
 		/**
 		 * Theme options page Slug getter including White Label string.
@@ -503,7 +503,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				return;
 			}
 
-			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates'), ASTRA_THEME_VERSION, false );
+			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
 			$localize = array(
 				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
 				'btnActivating'                      => __( 'Activating Importer Plugin ', 'astra' ) . '&hellip;',
@@ -672,9 +672,10 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			if ( astra_is_white_labelled() ) {
 				return;
 			}
-			$flag = false;
-			$global_font_families = Astra_Font_Families::get_google_fonts();
-			$global_font_family_array = get_option('ast-global-font-family'); ?>
+			$flag                     = false;
+			$global_font_families     = Astra_Font_Families::get_google_fonts();
+			$global_font_family_array = get_option( 'ast-global-font-family' ); 
+			?>
 			<div class="postbox">
 				<h2 class="hndle ast-normal-cursor">
 					<span><?php echo esc_html( apply_filters( 'astra_other_links_postbox_title', __( 'Display Selected Font Families', 'astra' ) ) ); ?></span>
@@ -684,21 +685,27 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					<select name="ast-global-font-family[]" id="ast-global-font-family" class="form-control ast-global-font-family" multiple="multiple" >
 						<?php 
 						foreach ( $global_font_families as $key => $value ) {
-							if(!empty($global_font_family_array)){
+							if ( ! empty( $global_font_family_array ) ) {
 								foreach ( $global_font_family_array as $font_key ) { 
-									if( $font_key === $key ) { ?>
+									if ( $font_key === $key ) { 
+										?>
 										<option  <?php echo ( $font_key === $key ) ? 'selected="selected"' : ''; ?>  value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>
-										<?php $flag = true; break;
-									 } ?>	
+										<?php 
+										$flag = true;
+										break;
+									}   
+									?>
 									<?php 
 								}
 							}
-						
-							if($flag === false){ ?>
+							if ( false === $flag ) { 
+								?>
 								<option  value="<?php echo esc_attr( $key ); ?>" ><?php echo esc_attr( $key ); ?></option>	
-							<?php }
+								<?php 
+							}
 							$flag = false; 
-						} ?>
+						} 
+						?>
 						<!-- <option value="volvo">Volvo</option>
 						<option value="saab">Saab</option>
 						<option value="mercedes">Mercedes</option>

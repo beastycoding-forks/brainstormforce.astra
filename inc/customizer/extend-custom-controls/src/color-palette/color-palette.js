@@ -48,6 +48,14 @@ const ColorPaletteComponent = (props) => {
 		updateState.palettes[updateState.currentPalette][colorIndex] = value;
 		updateValues(updateState);
 
+		// let event = new CustomEvent('AstUpdatePaletteColors', {
+		// 	'detail': {
+		// 		'updatedState': updateState
+		// 	}
+		// });
+
+		// document.dispatchEvent( event );
+
 		// let updateDarkState = {
 		// 	...darkColorPalettes,
 		// };
@@ -58,6 +66,27 @@ const ColorPaletteComponent = (props) => {
 		// updateDarkPalettes( updateDarkState );
 	};
 
+	// document.addEventListener(
+	// 	"AstUpdatePaletteColors",
+	// 	setPaletteColors,
+	// 	false
+	// );
+
+	// const setPaletteColors = (e) => {
+
+	// 	var eventData = e.detail,
+	// 		updatedPaletteColors = eventData.updatedState;
+
+	// 	clearTimeout(UpdatePaletteEvent);
+
+	// 	// Throttle events when user tries to drag inside color picker.
+	// 	UpdatePaletteEvent = setTimeout(function () {
+	// 		document.dispatchEvent(
+	// 			new CustomEvent("AstUpdatePaletteVariables", {})
+	// 		);
+	// 	}, 200);
+	// };
+
 	const updateValues = (stateObj) => {
 		setState(stateObj);
 		props.control.setting.set({
@@ -65,9 +94,26 @@ const ColorPaletteComponent = (props) => {
 			flag: !props.control.setting.get().flag,
 		});
 
-		let paletteControl = props.customizer.control(
-			"astra-settings[global-color-palette]"
+		// Palette picker control.
+		var darkPalettePicker = wp.customize.control(
+			"astra-settings[dark-mode-palette]"
 		);
+
+		darkPalettePicker.setting.set({
+			...stateObj,
+			flag: !props.control.setting.get().flag,
+		});
+
+		var paletteControl;
+		if( 'astra-color-palettes' == props.control.id ) {
+			paletteControl = props.customizer.control(
+				"astra-settings[global-color-palette]"
+			);
+		} else {
+			paletteControl = props.customizer.control(
+				"astra-settings[dark-color-palette]"
+			);
+		}
 
 		var globalPalette = paletteControl.setting.get();
 
@@ -76,19 +122,6 @@ const ColorPaletteComponent = (props) => {
 			...globalPalette,
 			flag: !paletteControl.setting.get().flag,
 		});
-
-		console.error( stateObj );
-
-		let darkPaletteControl = props.customizer.control(
-			"astra-settings[dark-mode-palette]"
-		);
-		darkPaletteControl.setting.set({
-			...stateObj
-		});
-
-		// var dakrColorPalettes = darkPaletteControl.setting.get();
-
-		// dakrColorPalettes.palettes = globalPalette.palettes;
 	};
 
 	const onPaletteChange = (paletteKey) => {

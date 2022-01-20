@@ -2742,6 +2742,7 @@ const ColorPaletteComponent = props => {
   } = props.control.params;
   let UpdatePaletteEvent;
   const [state, setState] = value ? (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(value) : (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(defaultValue);
+  const [darkColorPalettes, updateDarkPalettes] = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(defaultValue);
   (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(() => {
     // If settings are changed externally.
     if (state !== value) {
@@ -2769,7 +2770,12 @@ const ColorPaletteComponent = props => {
     }
 
     updateState.palettes[updateState.currentPalette][colorIndex] = value;
-    updateValues(updateState);
+    updateValues(updateState); // let updateDarkState = {
+    // 	...darkColorPalettes,
+    // };
+    // console.error( updateState.currentPalette, colorIndex, value );
+    // updateDarkState.palettes[updateState.currentPalette][colorIndex] = value;
+    // updateDarkPalettes( updateDarkState );
   };
 
   const updateValues = stateObj => {
@@ -2777,19 +2783,17 @@ const ColorPaletteComponent = props => {
     props.control.setting.set({ ...stateObj,
       flag: !props.control.setting.get().flag
     });
-    let paletteControl;
-
-    if ('astra-color-palettes' === props.control.id) {
-      paletteControl = props.customizer.control("astra-settings[global-color-palette]");
-    } else {
-      paletteControl = props.customizer.control("astra-settings[dark-color-palette]");
-    }
-
+    let paletteControl = props.customizer.control("astra-settings[global-color-palette]");
     var globalPalette = paletteControl.setting.get();
     globalPalette.palette = stateObj.palettes[stateObj.currentPalette];
     paletteControl.setting.set({ ...globalPalette,
       flag: !paletteControl.setting.get().flag
     });
+    console.error(stateObj);
+    let darkPaletteControl = props.customizer.control("astra-settings[dark-mode-palette]");
+    darkPaletteControl.setting.set({ ...stateObj
+    }); // var dakrColorPalettes = darkPaletteControl.setting.get();
+    // dakrColorPalettes.palettes = globalPalette.palettes;
   };
 
   const onPaletteChange = paletteKey => {
@@ -2838,7 +2842,26 @@ const ColorPaletteComponent = props => {
       onColorResetClick: (color, backgroundType) => handleColorReset(index, color)
     })));
   })));
-  var paletteOptions = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, Object.keys(state.palettes).map((paletteKey, index) => {
+  var paletteOptions = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, state.palettes && Object.keys(state.palettes).map((paletteKey, index) => {
+    return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+      className: "ast-color-palette-wrap " + (paletteKey === state.currentPalette ? "active" : ""),
+      key: index
+    }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+      onClick: () => onPaletteChange(paletteKey)
+    }, state.palettes[paletteKey].map((color, index) => {
+      return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+        className: "ast-single-color-container",
+        style: {
+          backgroundColor: color
+        },
+        key: index
+      }));
+    }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
+      className: "ast-palette-label-wrap"
+    }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Palette", "astra") + " " + (index + 1))));
+  }));
+  console.error(props.control.setting.get());
+  var darkPaletteOptions = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, state.palettes && Object.keys(state.palettes).map((paletteKey, index) => {
     return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
       className: "ast-color-palette-wrap " + (paletteKey === state.currentPalette ? "active" : ""),
       key: index
@@ -2906,7 +2929,7 @@ const ColorPaletteComponent = props => {
   document.addEventListener("AstPaletteUpdated", updatePaletteVariables, false);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
     className: "customizer-text"
-  }, labelHtml), 'astra-color-palettes' === props.control.id && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Tooltip, {
+  }, labelHtml), 'section-colors-background' === props.control.params.section && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Tooltip, {
     text: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_5__.__)("Select Preset", "astra"),
     position: "top center"
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_4__.Dashicon, {
@@ -2917,9 +2940,11 @@ const ColorPaletteComponent = props => {
     }
   })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-palette-presets-wrapper"
-  }, state.isVisible && presetOptions), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, state.isVisible && presetOptions), 'section-colors-background' === props.control.params.section && state.palettes && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-palette-selection-wrapper"
-  }, state.palettes && paletteOptions), 'astra-color-palettes' === props.control.id && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, paletteOptions), 'dark-mode-global-section' === props.control.params.section && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ast-palette-selection-wrapper"
+  }, darkPaletteOptions), 'section-colors-background' === props.control.params.section && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ast-color-palette-wrapper"
   }, paletteColors));
 };

@@ -370,6 +370,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 
 			if ( $this->is_selected_breadcrumb_active() ) {
 
+				/**
+				 * Option: Breadcrumb separator
+				 */
+
 				$_configs[] = array(
 					'name'              => ASTRA_THEME_SETTINGS . '[breadcrumb-separator-selector]',
 					'type'              => 'control',
@@ -408,6 +412,9 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					),
 				);
 
+				/**
+				 * Option: Breadcrumb Unicode input
+				 */
 
 				$_configs[] = array(
 					'name'      => ASTRA_THEME_SETTINGS . '[breadcrumb-separator]',

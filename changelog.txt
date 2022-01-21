@@ -27,8 +27,10 @@ v3.8.0(Unreleased)
 - Fix: WooCommerce - Flyout shopping cart should not be displayed on checkout & cart page for mobile/tablet devices.
 - Fix: WooCommerce - Blank Flyout shopping cart appearing on checkout & cart page for mobile/tablet devices.
 - Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
-- Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
 - Fix: Fixed Astra meta settings are not getting saved for the Classic editor.
+- Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
+
+v3.7.7(Unreleased)
 
 v3.7.6
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( https://wpastra.com/docs/change-web-stories-position/ )

@@ -1,3 +1,35 @@
+v3.9.0
+- Fix: Guteneberg separator dots not appearing properly on frontend.
+
+v3.8.0(Unreleased)
+- Improvement: Added a new filter 'astra_settings_metabox_register' to prevent loading of block based Astra Settings metabox. ( https://wpastra.com/docs/hide-astra-settings-for-user-roles/ )
+- New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
+- New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
+- New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
+- New: WooCommerce - Added cart icon hover color option.
+- New: WooCommerce - Added cart Margin and Padding spacing option.
+- New: WooCommerce - Added cart total Label position option.
+- New: WooCommerce - Added store notice color & background-color options.
+- New: WooCommerce - Added store notice position option.
+- Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories.
+- Improvement: Site Background is applying as background-CSS for Full-Width Contained/Stretched layouts instead of Content Background.
+- Improvement: Builder - Button - Added typography options from Astra Pro to free theme.
+- Improvement: WooCommerce - Modify the Cart label section via Shortcodes. (Needs Doc)
+- Fix: W3 validation - Removed an element with the attribute tabindex for dropdown menu toggle.
+- Fix: W3 validation - legend HTML tag missing as fieldset tag is being used for comment section.
+- Fix: Related Posts - Post Query - Order by Random option not working as expected.
+- Fix: W3 validation - aria-label attribute is missing for cart offcanvas drawer.
+- Fix: Off-canvas - Dropdown menu displayed when flyout/fullscreen header type is selected in mobile/tablet customizer.
+- Fix: W3 validation - Builder - Account - Duplicate IDs for account icons.
+- Fix: Elementor Pro - WooCommerce Grid layout support in WooCommerce Products Archive widget.
+- Fix: Accessibility - Tab navigation does not highlight slider search Icon.
+- Fix: JS Error - Uncaught ReferenceError: bodyElement is not defined.
+- Fix: WooCommerce - Flyout shopping cart should not be displayed on checkout & cart page for mobile/tablet devices.
+- Fix: WooCommerce - Blank Flyout shopping cart appearing on checkout & cart page for mobile/tablet devices.
+- Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
+- Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
+- Fix: Fixed Astra meta settings are not getting saved for the Classic editor.
+
 v3.7.7 (WP-5.9 release compatibility unreleased update)
 - Fix: There is no any gap between post edit title & first content block in block editor.
 
@@ -26,6 +58,7 @@ v3.7.4
 - Improvement: Gutenberg frontend blocks UI improvement. ( https://wpastra.com/docs/gutenberg-ui-improvements-with-astra/ )
 - Improvement: Global – Typography – Heading presets value should also retain in H1 to H6.
 - Improvement: Moved Astra meta settings into a separate Gutenberg sidebar panel. ( https://wpastra.com/astra-3-7-4/ )
+- Improvement: Added Background color and hover color for WooCommerce Cart.
 - Fix: W3 validation - Getting duplicate H1 tag for site-title.
 - Fix: W3 validation - Duplicate HTML id '#site-navigation' if there are multiple menus on a single page.
 - Fix: W3 validation - CSS parse error for '.menu-link' & '.wp-block-button__link'.

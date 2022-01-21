@@ -321,6 +321,6 @@ span.select2.select2-container.select2-container--default {
     margin-bottom:unset;
 }
 .ast-container .select2-container--default .select2-selection--multiple .select2-selection__rendered {
-    vertical-align: middle;
     margin-top: 4px;
+    margin-bottom: 4px;
 }

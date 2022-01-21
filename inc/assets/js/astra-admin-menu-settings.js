@@ -306,7 +306,7 @@
 		$("#ast-global-font-family").select2({
 			tag: true,
 			maximumSelectionLength: 10,
-			placeholder: 'Selct font families',
+			placeholder: 'Select the font families',
 		  });
 		  
 		  $('.ast-global-font-family').on('change', function() {

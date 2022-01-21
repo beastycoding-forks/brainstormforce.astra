@@ -105,6 +105,31 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		}
 
 		/**
+		 * Get global Fonts
+		 *
+		 * @since 1.0.19
+		 *
+		 * @return Array All the system fonts in Astra
+		 */
+		public static function get_global_fonts() {
+			$google_fonts             = self::get_google_fonts();
+			$global_font_family_array = astra_get_option( 'ast-global-font-family' );
+			$global_font_family       = array();
+			if ( ! empty( $global_font_family_array ) ) {
+				foreach ( $google_fonts as $key => $value ) {
+					foreach ( $global_font_family_array as $font_key ) {
+						if ( array_key_exists( $font_key, $google_fonts ) ) {
+							if ( $font_key === $key ) {
+								$global_font_family[ $key ] = $value;
+							}
+						}
+					}
+				}           
+			}
+			return apply_filters( 'astra_global_fonts', $global_font_family );
+		}
+
+		/**
 		 * Custom Fonts
 		 *
 		 * @since 1.0.19

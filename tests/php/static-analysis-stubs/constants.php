@@ -10,3 +10,5 @@ define( 'ASTRA_THEME_SETTINGS', '' );
 define( 'ASTRA_THEME_VERSION', '' );
 define( 'ASTRA_RELATED_POSTS_DIR', '' );
 define( 'ASTRA_THEME_BREADCRUMBS_DIR', '' );
+define( 'ASTRA_HEADER_MODE_SWITCHER_URI', '' );
+define( 'ASTRA_FOOTER_MODE_SWITCHER_URI', '' );

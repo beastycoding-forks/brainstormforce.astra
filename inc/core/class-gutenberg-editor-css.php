@@ -474,6 +474,12 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				);
 			}
 
+			if ( astra_wp_version_compare( '5.9', '>=' ) ) {
+				$desktop_css['.editor-post-title.editor-post-title__input'] = array(
+					'margin-bottom' => '20px',
+				);
+			}
+
 			if ( ( ( ! in_array( 'single-title-meta', $single_post_title ) ) && ( 'post' === get_post_type() ) ) || ( 'disabled' === $title_enabled_from_meta ) ) {
 				$destop_title_css = array(
 					'.editor-post-title__block' => array(

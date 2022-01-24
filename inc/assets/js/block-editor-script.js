@@ -56,12 +56,12 @@ function astra_onload_function() {
 			/**
 			 * In WP-5.9 block editor comes up with color palette showing color-code canvas, but with theme var() CSS its appearing directly as it is. So updated them on wp.data event.
 			 */
-			var customColorPickerButtons = document.querySelectorAll( '.components-color-palette__custom-color' );
+			const customColorPickerButtons = document.querySelectorAll( '.components-color-palette__custom-color' );
 
-			for ( var item = 0;  item < customColorPickerButtons.length; item++ ) {
-				var colorCode = customColorPickerButtons[item].innerText;
+			for ( const btnCount = 0; btnCount < customColorPickerButtons.length; btnCount++ ) {
+				const colorCode = customColorPickerButtons[btnCount].innerText;
 				if ( colorCode.indexOf( 'var(--ast-global-color' ) > -1 ) {
-					customColorPickerButtons[item].innerHTML = astraColors[ colorCode ];
+					customColorPickerButtons[btnCount].innerHTML = astraColors[ colorCode ];
 				}
 			}
 

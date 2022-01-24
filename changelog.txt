@@ -32,8 +32,10 @@ v3.8.0(Unreleased)
 - Fix: Fixed Astra meta settings are not getting saved for the Classic editor.
 
 v3.7.7 (WP-5.9 release compatibility unreleased update)
-- Fix: var() colors code appearing in block editor theme palette picker.
-- Fix: Color picker module ui breaking
+- Fix: There is no any gap between post edit title & first content block in block editor.
+- Fix: Color picker's UI breaking in customizer & in block editor.
+- Fix: Column figure blocks overlapping on one another in block editor.
+- Fix: WooCommerce - Variation product label is not align properly with WooCommerce 6.1 version.
 
 v3.7.6
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( https://wpastra.com/docs/change-web-stories-position/ )

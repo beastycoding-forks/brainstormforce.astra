@@ -2208,10 +2208,6 @@
     padding: 14px;
 }
 
-.astra-popover-color .components-h-stack .components-button {
-    flex: inherit;
-}
-
 .astra-popover-color .components-circular-option-picker__option:focus::after{
     width: auto;
     height: auto;

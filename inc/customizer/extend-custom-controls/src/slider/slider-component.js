@@ -4,11 +4,14 @@ import {useState,useEffect} from 'react';
 
 const SliderComponent = props => {
 
-	const [props_value, setPropsValue] = useState( props.control.setting.get() );
+	let value = props.control.setting.get();
+	const [props_value, setPropsValue] = useState( value );
 
 	useEffect( () => {
 		// If settings are changed externally.
-		setPropsValue( props.control.setting.get() );
+		if( props_value !== value ) {
+			setPropsValue(value);
+		}
 	}, [props]);
 
 	const linkRemoteUpdate = () => {
@@ -103,4 +106,4 @@ SliderComponent.propTypes = {
 	control: PropTypes.object.isRequired
 };
 
-export default React.memo( SliderComponent );
+export default SliderComponent;

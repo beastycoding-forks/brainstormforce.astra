@@ -12,6 +12,7 @@
 		init: function()
 		{
 			this._bind();
+			
 		},
 
 
@@ -288,10 +289,45 @@
 		},
 	};
 
+
+
 	/**
 	 * Initialize AstraThemeAdmin
 	 */
 	$(function(){
+		
+
+		let fontFamilySelected; 
+	
+		$('#ast-global-font-family').select2({
+			allowClear: true,
+			multiple:true,
+		  });
+		$("#ast-global-font-family").select2({
+			tag: true,
+			maximumSelectionLength: 10,
+			placeholder: 'Selct font families',
+		  });
+		  
+		  $('.ast-global-font-family').on('change', function() {
+			fontFamilySelected = $(".ast-global-font-family").val();
+
+		  })
+		  $('#astra-font-family-button').on('click', function() {
+			jQuery.ajax({
+				type: "POST",
+				dataType: 'json',
+				url: astra.ajaxUrl,
+				data: {
+					action: 'global_font_family',
+					fontfamily: fontFamilySelected,
+					fontfamilynonce: astra.ajax_nonce,
+				},
+				success: function (output) {
+				}
+				});
+			
+		});
 		AstraThemeAdmin.init();
 	});
 

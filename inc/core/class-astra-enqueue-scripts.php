@@ -361,7 +361,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_enqueue_script( 'astra-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
 
 			$astra_global_palette_instance = new Astra_Global_Palette();
-			$astra_colors = array(
+			$astra_colors                  = array(
 				'var(--ast-global-color-0)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-0)' ),
 				'var(--ast-global-color-1)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-1)' ),
 				'var(--ast-global-color-2)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-2)' ),

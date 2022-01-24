@@ -2685,7 +2685,7 @@ p.demo_store a,
 }
 
 .woocommerce .variations th {
-  text-align: right;
+  text-align: left;
 }
 
 .woocommerce,

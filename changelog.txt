@@ -28,10 +28,12 @@ v3.8.0(Unreleased)
 - Fix: WooCommerce - Blank Flyout shopping cart appearing on checkout & cart page for mobile/tablet devices.
 - Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
 - Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
-- Fix: WooCommerce - Variation product label is not align properly with WooCommerce 6.1 version. 
-
-v3.7.7(Unreleased)
+- Fix: WooCommerce - Variation product label is not align properly with WooCommerce 6.1 version.
 - Fix: Fixed Astra meta settings are not getting saved for the Classic editor.
+
+v3.7.7 (WP-5.9 release compatibility unreleased update)
+- Fix: var() colors code appearing in block editor theme palette picker.
+- Fix: Color picker module ui breaking
 
 v3.7.6
 - Improvement: Added a new filter 'astra_web_stories_position' to change the position of web stories. ( https://wpastra.com/docs/change-web-stories-position/ )

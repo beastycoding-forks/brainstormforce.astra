@@ -791,6 +791,10 @@ h6 {
   min-width: 290px;
 }
 
+.components-color-palette__custom-color-dropdown-content .components-popover__content {
+  min-width: auto;
+}
+
 .wp-block-buttons > .wp-block.wp-block-button {
   padding-right: 0;
 }

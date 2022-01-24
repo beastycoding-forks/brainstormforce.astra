@@ -4593,3 +4593,10 @@ button.pswp__button--zoom:hover {
     width: 60%;
   }
 }
+
+/**
+ * Product variation - label align css.
+ */
+.woocommerce div.product form.cart .variations th {
+  text-align: right;
+}

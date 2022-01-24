@@ -4541,5 +4541,5 @@ button.pswp__button--zoom:hover {
  * Product variation - label align css.
  */
 .woocommerce .variations th {
-  text-align: right;
+  text-align: left;
 }

@@ -58,7 +58,7 @@ function astra_onload_function() {
 			 */
 			const customColorPickerButtons = document.querySelectorAll( '.components-color-palette__custom-color' );
 
-			for ( const btnCount = 0; btnCount < customColorPickerButtons.length; btnCount++ ) {
+			for ( var btnCount = 0; btnCount < customColorPickerButtons.length; btnCount++ ) {
 				const colorCode = customColorPickerButtons[btnCount].innerText;
 				if ( colorCode.indexOf( 'var(--ast-global-color' ) > -1 ) {
 					customColorPickerButtons[btnCount].innerHTML = astraColors[ colorCode ];

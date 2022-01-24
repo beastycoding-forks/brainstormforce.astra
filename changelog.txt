@@ -28,6 +28,9 @@ v3.8.0(Unreleased)
 - Fix: WooCommerce - Blank Flyout shopping cart appearing on checkout & cart page for mobile/tablet devices.
 - Fix: Gutenberg editor - Gutenberg Blocks jerks when users edit any of the blocks.
 - Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
+- Fix: WooCommerce - Variation product label is not align properly with WooCommerce 6.1 version. 
+
+v3.7.7(Unreleased)
 - Fix: Fixed Astra meta settings are not getting saved for the Classic editor.
 
 v3.7.6

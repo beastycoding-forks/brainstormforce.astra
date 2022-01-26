@@ -536,12 +536,12 @@
   display: none;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap > div {
+.customize-control-ast-color-palette .ast-color-palette-wrap > div {
 	margin-bottom: 8px;
 	position: relative;
 }
 
-#customize-control-astra-color-palettes .color-button-wrap {
+.customize-control-ast-color-palette .color-button-wrap {
 	display: unset;
 	position: relative;
 	left: unset;
@@ -549,7 +549,7 @@
 	vertical-align: sub;
 }
 
-#customize-control-astra-color-palettes .astra-color-picker-wrap {
+.customize-control-ast-color-palette .astra-color-picker-wrap {
 	position: absolute;
 	z-index: 1;
 	left: 0;
@@ -557,23 +557,23 @@
 	display: none;
 }
 
-#customize-control-astra-color-palettes .astra-color-picker-wrap.picker-open{
+.customize-control-ast-color-palette .astra-color-picker-wrap.picker-open{
 	display: block;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-label {
+.customize-control-ast-color-palette .ast-color-palette-label {
 	width: 65%;
 	display: inline-block;
 	margin-left: 10px;
 	vertical-align: top;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-label input {
+.customize-control-ast-color-palette .ast-color-palette-label input {
 	background: none;
 	border: none;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-label input:focus {
+.customize-control-ast-color-palette .ast-color-palette-label input:focus {
 	border: 1px solid black;
 	outline: none;
 	box-shadow: none;
@@ -594,29 +594,29 @@
 	height: 25px;
 }
 
-#customize-control-astra-color-palettes
+.customize-control-ast-color-palette
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap:first-child {
 	margin-right: 0;
 }
 
-#customize-control-astra-color-palettes
+.customize-control-ast-color-palette
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
 	margin-top: 12px;
 }
 
-#customize-control-astra-color-palettes .ast-reset-btn:disabled {
+.customize-control-ast-color-palette .ast-reset-btn:disabled {
 	opacity: 0.6;
 }
 
-#customize-control-astra-color-palettes .ast-single-color-container {
+.customize-control-ast-color-palette .ast-single-color-container {
 	width: 20%;
 	height: 100%;
 	display: inline-block;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap {
+.customize-control-ast-color-palette .ast-color-palette-wrap {
 	height: 50px;
 	width: 30%;
 	float: right;
@@ -624,21 +624,21 @@
 	position: relative;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrapper {
+.customize-control-ast-color-palette .ast-color-palette-wrapper {
 	clear: both;
 	margin-top: 10px;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap:first-child {
+.customize-control-ast-color-palette .ast-color-palette-wrap:first-child {
 	margin-right: 0;
 }
 
-#customize-control-astra-color-palettes .ast-palette-selection-wrapper {
+.customize-control-ast-color-palette .ast-palette-selection-wrapper {
 	overflow: hidden;
 	padding: 2px;
 }
 
-#customize-control-astra-color-palettes .ast-palette-label-wrap{
+.customize-control-ast-color-palette .ast-palette-label-wrap{
 	position: absolute;
     bottom: -1%;
     right: 0;
@@ -650,19 +650,19 @@
 }
 
 @media (min-width: 1800px) {
-	#customize-control-astra-color-palettes .astra-color-picker-wrap {
+	.customize-control-ast-color-palette .astra-color-picker-wrap {
 		width: 24em;
 	}
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap:hover{
+.customize-control-ast-color-palette .ast-color-palette-wrap:hover{
     box-shadow: 0 0 0 2px #eeeeee;
 }
-#customize-control-astra-color-palettes .ast-color-palette-wrap.active{
+.customize-control-ast-color-palette .ast-color-palette-wrap.active{
     outline: none;
     box-shadow: 0 0 0 2px #0574bd;
 }
-#customize-control-astra-color-palettes .ast-palette-label-wrap{
+.customize-control-ast-color-palette .ast-palette-label-wrap{
     position: absolute;
     bottom: 0;
     right: 0;
@@ -675,8 +675,8 @@
     transition: .15s color ease-in-out,.15s background-color ease-in-out,.15s border-color ease-in-out;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap.active .ast-palette-label-wrap,
-#customize-control-astra-color-palettes .ast-color-palette-wrap:hover .ast-palette-label-wrap{
+.customize-control-ast-color-palette .ast-color-palette-wrap.active .ast-palette-label-wrap,
+.customize-control-ast-color-palette .ast-color-palette-wrap:hover .ast-palette-label-wrap{
     background-color: rgb(0 0 0 / 80%);
 }
 
@@ -701,6 +701,46 @@
     width: 10px;
     height: 10px;
     transform: scale(1.5);
+}
+
+.ast-palette-preset-trigger {
+	position: absolute;
+    left: 0;
+    top: -3px;
+    color: #0071a1;
+	cursor: pointer;
+}
+.ast-palette-individual-item {
+    height: 100%;
+    display: block;
+    width: 100%;
+    border: 1px solid #929ba4;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 15px;
+    transition: 100ms box-shadow ease;
+}
+.ast-palette-individual-item-wrap {
+    width: 20px;
+    height: 20px;
+}
+.ast-palette-individual-item-wrap:not(:last-child) {
+    margin-left: 10px;
+}
+.components-button.ast-preset-palette-item:focus, .components-button.ast-preset-palette-item, .components-button.ast-preset-palette-item:hover, .components-button.ast-preset-palette-item:active {
+	box-shadow: none;
+	outline: none;
+}
+.components-button.ast-preset-palette-item {
+	border: 1px solid transparent;
+}
+.components-button.ast-preset-palette-item:hover {
+	border-color: #777777;
+}
+.ast-palette-presets-wrapper .components-popover__content {
+    margin-top: -15px;
+}
+#customize-control-astra-settings-dark-mode-palette .ast-color-palette-wrapper {
+    margin-top: 0;
 }
 
  /** Remove Button Color */
@@ -952,6 +992,28 @@
 	border-radius: 4px;
 }
 
+.astra-popover-color .components-h-stack.ast-color-palette {
+    padding: 14px;
+}
+
+.astra-popover-color .components-h-stack .components-button {
+    flex: inherit;
+}
+
+.astra-popover-color .components-circular-option-picker__option:focus::after{
+    width: auto;
+    height: auto;
+}
+
+.astra-popover-color .components-h-stack .components-circular-option-picker__option-wrapper{
+    margin-left: 0;
+}
+
+.astra-popover-color .components-color-picker .react-colorful__hue,
+.astra-popover-color .components-color-picker .react-colorful__alpha {
+    width: 90%;
+}
+
 .ast-field-settings-modal .astra-popover-color {
     margin-right: 0px;
 	border: 1px solid #dedede;
@@ -977,6 +1039,12 @@
     bottom: 0;
 	display: none;
 }
+
+.astra-color-picker-wrap .astra-popover-color .components-color-picker,
+.astra-color-picker-wrap .astra-popover-color .react-colorful {
+    width: 100%;
+} 
+
 .astra-color-picker-wrap.picker-open{
 	display: block;
 }
@@ -1760,12 +1828,12 @@
   display: none;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap > div {
+.customize-control-ast-color-palette .ast-color-palette-wrap > div {
 	margin-bottom: 8px;
 	position: relative;
 }
 
-#customize-control-astra-color-palettes .color-button-wrap {
+.customize-control-ast-color-palette .color-button-wrap {
 	display: unset;
 	position: relative;
 	left: unset;
@@ -1773,7 +1841,7 @@
 	vertical-align: sub;
 }
 
-#customize-control-astra-color-palettes .astra-color-picker-wrap {
+.customize-control-ast-color-palette .astra-color-picker-wrap {
 	position: absolute;
 	z-index: 1;
 	left: 0;
@@ -1781,23 +1849,23 @@
 	display: none;
 }
 
-#customize-control-astra-color-palettes .astra-color-picker-wrap.picker-open{
+.customize-control-ast-color-palette .astra-color-picker-wrap.picker-open{
 	display: block;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-label {
+.customize-control-ast-color-palette .ast-color-palette-label {
 	width: 65%;
 	display: inline-block;
 	margin-left: 10px;
 	vertical-align: top;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-label input {
+.customize-control-ast-color-palette .ast-color-palette-label input {
 	background: none;
 	border: none;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-label input:focus {
+.customize-control-ast-color-palette .ast-color-palette-label input:focus {
 	border: 1px solid black;
 	outline: none;
 	box-shadow: none;
@@ -1818,29 +1886,29 @@
 	height: 25px;
 }
 
-#customize-control-astra-color-palettes
+.customize-control-ast-color-palette
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap:first-child {
 	margin-right: 0;
 }
 
-#customize-control-astra-color-palettes
+.customize-control-ast-color-palette
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
 	margin-top: 12px;
 }
 
-#customize-control-astra-color-palettes .ast-reset-btn:disabled {
+.customize-control-ast-color-palette .ast-reset-btn:disabled {
 	opacity: 0.6;
 }
 
-#customize-control-astra-color-palettes .ast-single-color-container {
+.customize-control-ast-color-palette .ast-single-color-container {
 	width: 20%;
 	height: 100%;
 	display: inline-block;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap {
+.customize-control-ast-color-palette .ast-color-palette-wrap {
 	height: 50px;
 	width: 30%;
 	float: right;
@@ -1848,21 +1916,21 @@
 	position: relative;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrapper {
+.customize-control-ast-color-palette .ast-color-palette-wrapper {
 	clear: both;
 	margin-top: 10px;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap:first-child {
+.customize-control-ast-color-palette .ast-color-palette-wrap:first-child {
 	margin-right: 0;
 }
 
-#customize-control-astra-color-palettes .ast-palette-selection-wrapper {
+.customize-control-ast-color-palette .ast-palette-selection-wrapper {
 	overflow: hidden;
 	padding: 2px;
 }
 
-#customize-control-astra-color-palettes .ast-palette-label-wrap{
+.customize-control-ast-color-palette .ast-palette-label-wrap{
 	position: absolute;
     bottom: -1%;
     right: 0;
@@ -1874,19 +1942,19 @@
 }
 
 @media (min-width: 1800px) {
-	#customize-control-astra-color-palettes .astra-color-picker-wrap {
+	.customize-control-ast-color-palette .astra-color-picker-wrap {
 		width: 24em;
 	}
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap:hover{
+.customize-control-ast-color-palette .ast-color-palette-wrap:hover{
     box-shadow: 0 0 0 2px #eeeeee;
 }
-#customize-control-astra-color-palettes .ast-color-palette-wrap.active{
+.customize-control-ast-color-palette .ast-color-palette-wrap.active{
     outline: none;
     box-shadow: 0 0 0 2px #0574bd;
 }
-#customize-control-astra-color-palettes .ast-palette-label-wrap{
+.customize-control-ast-color-palette .ast-palette-label-wrap{
     position: absolute;
     bottom: 0;
     right: 0;
@@ -1899,8 +1967,8 @@
     transition: .15s color ease-in-out,.15s background-color ease-in-out,.15s border-color ease-in-out;
 }
 
-#customize-control-astra-color-palettes .ast-color-palette-wrap.active .ast-palette-label-wrap,
-#customize-control-astra-color-palettes .ast-color-palette-wrap:hover .ast-palette-label-wrap{
+.customize-control-ast-color-palette .ast-color-palette-wrap.active .ast-palette-label-wrap,
+.customize-control-ast-color-palette .ast-color-palette-wrap:hover .ast-palette-label-wrap{
     background-color: rgb(0 0 0 / 80%);
 }
 
@@ -1925,6 +1993,46 @@
     width: 10px;
     height: 10px;
     transform: scale(1.5);
+}
+
+.ast-palette-preset-trigger {
+	position: absolute;
+    left: 0;
+    top: -3px;
+    color: #0071a1;
+	cursor: pointer;
+}
+.ast-palette-individual-item {
+    height: 100%;
+    display: block;
+    width: 100%;
+    border: 1px solid #929ba4;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 15px;
+    transition: 100ms box-shadow ease;
+}
+.ast-palette-individual-item-wrap {
+    width: 20px;
+    height: 20px;
+}
+.ast-palette-individual-item-wrap:not(:last-child) {
+    margin-left: 10px;
+}
+.components-button.ast-preset-palette-item:focus, .components-button.ast-preset-palette-item, .components-button.ast-preset-palette-item:hover, .components-button.ast-preset-palette-item:active {
+	box-shadow: none;
+	outline: none;
+}
+.components-button.ast-preset-palette-item {
+	border: 1px solid transparent;
+}
+.components-button.ast-preset-palette-item:hover {
+	border-color: #777777;
+}
+.ast-palette-presets-wrapper .components-popover__content {
+    margin-top: -15px;
+}
+#customize-control-astra-settings-dark-mode-palette .ast-color-palette-wrapper {
+    margin-top: 0;
 }
 
  /** Remove Button Color */
@@ -2176,6 +2284,28 @@
 	border-radius: 4px;
 }
 
+.astra-popover-color .components-h-stack.ast-color-palette {
+    padding: 14px;
+}
+
+.astra-popover-color .components-h-stack .components-button {
+    flex: inherit;
+}
+
+.astra-popover-color .components-circular-option-picker__option:focus::after{
+    width: auto;
+    height: auto;
+}
+
+.astra-popover-color .components-h-stack .components-circular-option-picker__option-wrapper{
+    margin-left: 0;
+}
+
+.astra-popover-color .components-color-picker .react-colorful__hue,
+.astra-popover-color .components-color-picker .react-colorful__alpha {
+    width: 90%;
+}
+
 .ast-field-settings-modal .astra-popover-color {
     margin-right: 0px;
 	border: 1px solid #dedede;
@@ -2201,6 +2331,12 @@
     bottom: 0;
 	display: none;
 }
+
+.astra-color-picker-wrap .astra-popover-color .components-color-picker,
+.astra-color-picker-wrap .astra-popover-color .react-colorful {
+    width: 100%;
+} 
+
 .astra-color-picker-wrap.picker-open{
 	display: block;
 }
@@ -2454,6 +2590,11 @@
 .customize-control-ast-customizer-link:empty {
   display:none;
 }
+
+.customize-control .ast-link-remove-font-style {
+    font-style: normal;
+}
+
 /* Customizer Scroll CSS */
 .accordion-section-content::-webkit-scrollbar, .wp-full-overlay-sidebar-content::-webkit-scrollbar {
   width: 6px;
@@ -2629,8 +2770,15 @@ input[type="text"].select2-search__field {
 
 /* Customizer - builder widget area's block gets round shapes in more-settings tab */
 .customize-widgets-layout__inspector .components-circular-option-picker__option::after {
-  box-shadow: none;
-  position: unset;
+  display: none;
+}
+
+.customize-widgets-layout__inspector .components-circular-option-picker__option:focus::after {
+  display: none;
+}
+
+.components-circular-option-picker__option-wrapper::before {
+  display: none;
 }
 
 /* Hiding this specific control on responsive devices.  */
@@ -2718,7 +2866,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider > label.ast-divider-title, .ast-bottom-divider > label.ast-divider-title,
-.customize-control-ast-color-group > .ast-divider-title {
+.customize-control-ast-color-group > .ast-divider-title,
+.customize-control-ast-heading .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;
@@ -2877,6 +3026,10 @@ input[type="text"].select2-search__field {
   margin-left: 12px;
 }
 
+.ast-divide-four label {
+	margin-left: 0;
+}
+
 .customize-control-ast-radio-image input {
   display: none;
 }
@@ -2885,6 +3038,11 @@ input[type="text"].select2-search__field {
   background: #ffffff;
   border-radius: 3px;
   box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
+}
+
+.ast-divide-four input:checked + label svg {
+	box-shadow: none;
+	fill: var(--wp-admin-theme-color);
 }
 
 .customize-control-ast-radio-image input + label .image-clickable {
@@ -2904,9 +3062,21 @@ input[type="text"].select2-search__field {
   grid-row-gap: 5px;
 }
 
+.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .ast-divide-four {
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 20px;
+	grid-row-gap: 10px;
+}
+
 .customize-control-ast-radio-image .ast-radio-img-svg svg {
   width: 75px;
   height: 50px;
+}
+
+.ast-divide-four .ast-radio-img-svg svg {
+	fill: #A0AEC0;
+	width: 100%;
+	height: 93%;
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
@@ -4308,6 +4478,11 @@ span.select2-container.select2-container--default.select2-container--open li.sel
 .customize-control-ast-customizer-link:empty {
   display:none;
 }
+
+.customize-control .ast-link-remove-font-style {
+    font-style: normal;
+}
+
 /* Customizer Scroll CSS */
 .accordion-section-content::-webkit-scrollbar, .wp-full-overlay-sidebar-content::-webkit-scrollbar {
   width: 6px;
@@ -4483,8 +4658,15 @@ input[type="text"].select2-search__field {
 
 /* Customizer - builder widget area's block gets round shapes in more-settings tab */
 .customize-widgets-layout__inspector .components-circular-option-picker__option::after {
-  box-shadow: none;
-  position: unset;
+  display: none;
+}
+
+.customize-widgets-layout__inspector .components-circular-option-picker__option:focus::after {
+  display: none;
+}
+
+.components-circular-option-picker__option-wrapper::before {
+  display: none;
 }
 
 /* Hiding this specific control on responsive devices.  */
@@ -4572,7 +4754,8 @@ input[type="text"].select2-search__field {
 }
 
 .ast-top-divider > label.ast-divider-title, .ast-bottom-divider > label.ast-divider-title,
-.customize-control-ast-color-group > .ast-divider-title {
+.customize-control-ast-color-group > .ast-divider-title,
+.customize-control-ast-heading .ast-divider-title {
 	display: block;
 	width: 100%;
 	font-size: 15px;
@@ -4731,6 +4914,10 @@ input[type="text"].select2-search__field {
   margin-left: 12px;
 }
 
+.ast-divide-four label {
+	margin-left: 0;
+}
+
 .customize-control-ast-radio-image input {
   display: none;
 }
@@ -4739,6 +4926,11 @@ input[type="text"].select2-search__field {
   background: #ffffff;
   border-radius: 3px;
   box-shadow: 0 0 3px 0px rgba(0, 133, 186, 0.67);
+}
+
+.ast-divide-four input:checked + label svg {
+	box-shadow: none;
+	fill: var(--wp-admin-theme-color);
 }
 
 .customize-control-ast-radio-image input + label .image-clickable {
@@ -4758,9 +4950,21 @@ input[type="text"].select2-search__field {
   grid-row-gap: 5px;
 }
 
+.customize-control-ast-radio-image:not(#customize-control-astra-settings-header-trigger-icon) > .ast-divide-four {
+	grid-template-columns: repeat(4, 1fr);
+	grid-column-gap: 20px;
+	grid-row-gap: 10px;
+}
+
 .customize-control-ast-radio-image .ast-radio-img-svg svg {
   width: 75px;
   height: 50px;
+}
+
+.ast-divide-four .ast-radio-img-svg svg {
+	fill: #A0AEC0;
+	width: 100%;
+	height: 93%;
 }
 
 #customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,

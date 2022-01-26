@@ -247,3 +247,10 @@ wp.customize( 'astra-settings[edd-archive-width]', function( value ) {
 // WooCommerce store notice color configs.
 astra_css( 'astra-settings[store-notice-text-color]', 'color', 'body p.demo_store, body .woocommerce-store-notice, body p.demo_store a, body .woocommerce-store-notice a' );
 astra_css( 'astra-settings[store-notice-background-color]', 'background-color', 'body p.demo_store, body .woocommerce-store-notice, body p.demo_store a, body .woocommerce-store-notice a' );
+
+// WooCommerce store notice position preview.
+wp.customize( 'astra-settings[store-notice-position]', function( value ) {
+    value.bind( function( position ) {
+		jQuery('.woocommerce-store-notice').attr( 'data-position', position );
+    } );
+} );

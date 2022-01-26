@@ -751,6 +751,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( get_theme_mod( 'custom_logo' )
 				|| astra_get_option( 'transparent-header-logo' )
 				|| astra_get_option( 'sticky-header-logo' )
+				|| astra_get_option( 'dark-mode-logo' )
 				|| $page_header_logo
 				|| is_customize_preview() ) {
 
@@ -1670,7 +1671,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 							'border-left-width'   => ( isset( $global_custom_button_border_size['left'] ) && '' !== $global_custom_button_border_size['left'] ) ? astra_get_css_value( $global_custom_button_border_size['left'], 'px' ) : '0',
 							'border-bottom-width' => ( isset( $global_custom_button_border_size['bottom'] ) && '' !== $global_custom_button_border_size['bottom'] ) ? astra_get_css_value( $global_custom_button_border_size['bottom'], 'px' ) : '0',
 						),
-						'body .elementor-button.elementor-size-sm, body .elementor-button.elementor-size-xs, body .elementor-button.elementor-size-md, body .elementor-button.elementor-size-lg, body .elementor-button.elementor-size-xl, body .elementor-button' => array(
+						'.elementor-button.elementor-size-sm, .elementor-button.elementor-size-xs, .elementor-button.elementor-size-md, .elementor-button.elementor-size-lg, .elementor-button.elementor-size-xl, .elementor-button' => array(
 							'border-radius'  => astra_get_css_value( $btn_border_radius, 'px' ),
 							'padding-top'    => astra_responsive_spacing( $theme_btn_padding, 'top', 'desktop' ),
 							'padding-right'  => astra_responsive_spacing( $theme_btn_padding, 'right', 'desktop' ),
@@ -2228,8 +2229,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			}
 
+			$astra_spearate_container_selector = 'body, .ast-separate-container';
+			if ( astra_has_gcp_typo_preset_compatibility() && true === astra_apply_content_background_fullwidth_layouts() ) {
+				$astra_spearate_container_selector = '.ast-separate-container';
+			}
+
 			$separate_container_css = array(
-				'body, .ast-separate-container' => astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ),
+				$astra_spearate_container_selector => astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ),
 			);
 			$parse_css             .= astra_parse_css( $separate_container_css );
 
@@ -2783,7 +2789,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$account_menu_color_active    = astra_get_option( 'transparent-account-menu-a-color' );
 				$account_menu_bg_color_active = astra_get_option( 'transparent-account-menu-a-bg-color' );
 
+				// Mode Switcher colors.
+				$astra_mode_switcher_light_color = astra_get_option( 'transparent-header-mode-switcher-light-color' );
+				$astra_mode_switcher_dark_color  = astra_get_option( 'transparent-header-mode-switcher-dark-color' );
+
 				$transparent_header_builder_desktop_css = array(
+					'.ast-theme-transparent-header .ast-header-mode-switcher, .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
+						'color'            => esc_attr( $astra_mode_switcher_light_color ),
+						'background-color' => esc_attr( $astra_mode_switcher_dark_color ),
+					),
+					'.ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:hover, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:active, .ast-dark-mode .ast-theme-transparent-header .ast-header-mode-switcher:focus' => array(
+						'color'            => esc_attr( $astra_mode_switcher_dark_color ),
+						'background-color' => esc_attr( $astra_mode_switcher_light_color ),
+					),
 					'.ast-theme-transparent-header [CLASS*="ast-header-html-"] .ast-builder-html-element' => array(
 						'color' => esc_attr( $html_text_color ),
 					),
@@ -3223,14 +3241,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'transform'             => 'translate(0, -50%)',
 					),
 					'.astra-search-icon::before'        => array(
-						'content'                 => '"\e8b6"',
-						'font-family'             => 'Astra',
-						'font-style'              => 'normal',
-						'font-weight'             => 'normal',
-						'text-decoration'         => 'inherit',
-						'text-align'              => 'center',
-						'-webkit-font-smoothing'  => 'antialiased',
+						'content'                  => '"\e8b6"',
+						'font-family'              => 'Astra',
+						'font-style'               => 'normal',
+						'font-weight'              => 'normal',
+						'text-decoration'          => 'inherit',
+						'text-align'               => 'center',
+						'-webkit-font-smoothing'   => 'antialiased',
 						'-moz-osx-font-smoothing' => 'grayscale',
+						'z-index'                  => '3',
 					),
 					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
 						'content'                 => '"\e900"',

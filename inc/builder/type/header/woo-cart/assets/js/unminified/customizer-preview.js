@@ -12,6 +12,8 @@
 
 	var selector = '.ast-site-header-cart';
 	var responsive_selector = '.astra-cart-drawer';
+	var tablet_break_point = astraBuilderPreview.tablet_break_point || 768,
+		mobile_break_point = astraBuilderPreview.mobile_break_point || 544;
 
 
 	// Icon Color.
@@ -84,7 +86,7 @@
 		'woo-cart-colors',
 		'astra-settings[header-woo-cart-background-color]',
 		'background-color',
-		'#ast-site-header-cart .widget_shopping_cart, .astra-cart-drawer'
+		'#ast-site-header-cart .widget_shopping_cart, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item a.remove:hover, .ast-site-header-cart .ast-site-header-cart-data .widget_shopping_cart .mini_cart_item:hover > a.remove,' + responsive_selector + ',' + responsive_selector + ' .widget_shopping_cart .mini_cart_item a.remove:hover,' + responsive_selector + ' .widget_shopping_cart .mini_cart_item:hover > a.remove, #astra-mobile-cart-drawer' + responsive_selector
 	);
 
 	astra_color_responsive_css(
@@ -247,6 +249,24 @@
 	} );
 
 	/**
+	 * Desktop cart offcanvas width.
+	 */
+	 wp.customize( 'astra-settings[woo-desktop-cart-flyout-width]', function( setting ) {
+		setting.bind( function( width ) {
+			var offcanvasPosition = wp.customize( 'astra-settings[woo-desktop-cart-flyout-direction]' ).get();
+
+			if( 'left' == offcanvasPosition ) {
+				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + width + '%; left: -' + width + '%; } ';
+					dynamicStyle += '.ast-desktop .astra-cart-drawer.open-right.active { left: ' + width + '%; } ';
+			} else {
+				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + width + '%; left: 100%; } ';
+			}
+
+			astra_add_dynamic_css( 'woo-desktop-cart-flyout-width', dynamicStyle );
+		} );
+	} );
+
+	/**
 	 * Cart icon style
 	 */
 	wp.customize('astra-settings[header-woo-cart-icon-color]', function (setting) {
@@ -345,5 +365,51 @@
 
 	// Advanced Visibility CSS Generation.
 	astra_builder_visibility_css('section-header-woo-cart', '.ast-header-woo-cart');
+
+	// Icon Size.
+	wp.customize('astra-settings[header-woo-cart-icon-size]', function (value) {
+		value.bind(function (size) {
+			if (size.desktop != '' || size.tablet != '' || size.mobile != '') {
+				var dynamicStyle = '';
+				dynamicStyle += '.ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg {';
+				dynamicStyle += 'height: ' + size.desktop + 'px' + ';';
+				dynamicStyle += 'width: ' + size.desktop + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += '.ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg {';
+				dynamicStyle += 'height: ' + size.tablet + 'px' + ';';
+				dynamicStyle += 'width: ' + size.tablet + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += '.ast-icon-shopping-bag .ast-icon svg, .ast-icon-shopping-cart .ast-icon svg, .ast-icon-shopping-basket .ast-icon svg {';
+				dynamicStyle += 'height: ' + size.mobile + 'px' + ';';
+				dynamicStyle += 'width: ' + size.mobile + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+				
+
+				dynamicStyle += '.ast-cart-menu-wrap {';
+				dynamicStyle += 'font-size: ' + size.desktop + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '@media (max-width: ' + tablet_break_point + 'px) {';
+				dynamicStyle += '.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap {';
+				dynamicStyle += 'font-size: ' + size.tablet + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+				dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
+				dynamicStyle += '.ast-header-break-point.ast-hfb-header .ast-cart-menu-wrap {';
+				dynamicStyle += 'font-size:' + size.mobile + 'px' + ';';
+				dynamicStyle += '} ';
+				dynamicStyle += '} ';
+
+
+				
+				astra_add_dynamic_css('header-woo-cart-icon-size', dynamicStyle);
+			}
+		});
+	});
 
 })(jQuery);

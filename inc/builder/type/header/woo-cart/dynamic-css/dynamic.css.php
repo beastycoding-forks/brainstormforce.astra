@@ -70,6 +70,8 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	$checkout_button_text_h_color = astra_get_option( 'header-woo-checkout-btn-text-hover-color' );
 	$checkout_button_bg_h_color   = astra_get_option( 'header-woo-checkout-btn-bg-hover-color' );
 	$cart_total_label_position    = astra_get_option( 'woo-header-cart-icon-total-label-position' );
+	$cart_badge_display = astra_get_option( 'woo-header-cart-badge-display' );
+
 
 	$header_cart_icon = '';
 
@@ -544,6 +546,21 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				'border' => '2px solid ' . $transparent_header_icon_color,
 				'color'  => esc_attr( $transparent_header_icon_color ),
 			);
+		}
+
+		/**
+	 	* Woo Cart Display Badge.
+	 	*/
+		if ( false === $cart_badge_display ) {
+			$css_badge_output = array(
+				'.astra-icon.astra-icon::after' => array(
+					'display' => 'none',
+				),
+				'.ast-count-text' => array(
+					'display' => 'none',
+				),
+			);
+			$css_output      .= astra_parse_css( $css_badge_output );
 		}
 
 		$css_output .= astra_parse_css( $header_cart_icon );

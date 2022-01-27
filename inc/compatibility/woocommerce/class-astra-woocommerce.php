@@ -184,6 +184,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$icon               = astra_get_option( 'woo-header-cart-icon' );
 			$cart_count_display = apply_filters( 'astra_header_cart_count', true );
+			$cart_total_display = astra_get_option( 'woo-header-cart-total-display' );
+			$cart_title_display = astra_get_option( 'woo-header-cart-title-display' );
 			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
 			$cart_total_label_postion = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 
@@ -2008,11 +2010,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							?>
 							<div class="ast-cart-menu-wrap">
 								<span class="count">
+								<span class="ast-count-text">
 									<?php
 									if ( apply_filters( 'astra_woo_header_cart_total', true ) && null != WC()->cart ) {
 										echo WC()->cart->get_cart_contents_count(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									}
 									?>
+									</span>
 								</span>
 							</div>
 							<?php

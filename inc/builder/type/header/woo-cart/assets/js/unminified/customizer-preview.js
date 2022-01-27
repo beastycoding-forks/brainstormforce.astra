@@ -412,4 +412,20 @@
 		});
 	});
 
+	/**
+	 * Cart Badge
+	 */
+	 wp.customize('astra-settings[woo-header-cart-badge-display]', function (setting) {
+		setting.bind(function (badge) {
+			if (!badge) {
+				var dynamicStyle = '.astra-icon.astra-icon::after {  display:none; } ';
+				dynamicStyle += '.ast-count-text {  display:none; } ';
+			} else {
+				var dynamicStyle = '.astra-icon.astra-icon::after {  display:block; } ';
+				dynamicStyle += '.ast-count-text {  display:block; } ';
+			}
+			astra_add_dynamic_css('woo-header-cart-badge-display', dynamicStyle);
+		});
+	});
+
 })(jQuery);

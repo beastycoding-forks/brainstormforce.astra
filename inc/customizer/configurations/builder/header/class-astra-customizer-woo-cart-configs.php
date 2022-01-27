@@ -73,6 +73,21 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			 * Option: Cart product count badge.
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-badge-display]',
+				'default'   => astra_get_option( 'woo-header-cart-badge-display' ),
+				'type'      => 'control',
+				'section'   => $_section,
+				'title'     => __( 'Display Cart Badge', 'astra' ),
+				'priority'  => 50,
+				'transport' => 'postMessage',
+				'control'   => 'ast-toggle-control',
+				'context'   => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
 			 * Option: Cart icon click action.
 			 */
 			array(

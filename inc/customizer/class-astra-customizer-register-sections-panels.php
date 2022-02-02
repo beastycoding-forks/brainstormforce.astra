@@ -376,7 +376,18 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'section'  => 'section-header-button',
 				),
 
+				/**
+				 * Dark Mode Global Section.
+				 */
+				array(
+					'name'     => 'dark-mode-global-section',
+					'type'     => 'section',
+					'priority' => 70,
+					'title'    => __( 'Dark Mode', 'astra' ),
+					'panel'    => 'panel-global',
+				),
 			);
+
 			return array_merge( $configurations, $configs );
 		}
 	}

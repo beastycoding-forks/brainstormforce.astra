@@ -11,6 +11,7 @@ import { responsiveColorControl } from './responsive-color/control'
 import { responsiveBackgroundControl } from './responsive-background/control';
 import { backgroundControl } from './background/control';
 import { sortableControl } from './sortable/control';
+import { sortableGroupControl } from './sortable-group/control';
 import { borderControl } from './border/control';
 import { customizerLinkControl } from './customizer-link/control';
 import { responsiveControl } from './responsive/control';
@@ -53,6 +54,7 @@ wp.customize.controlConstructor['ast-select'] = selectControl;
 wp.customize.controlConstructor['ast-header-type-button'] = HeaderTypeButtonControl;
 wp.customize.controlConstructor['ast-builder-header-control'] = BuilderHeaderControl;
 wp.customize.controlConstructor['ast-sortable'] = sortableControl;
+wp.customize.controlConstructor['ast-sortable-group'] = sortableGroupControl;
 wp.customize.controlConstructor['ast-font-family'] = astFontFamilyControl;
 wp.customize.controlConstructor['ast-font-weight'] = astFontWeightControl;
 wp.customize.controlConstructor['ast-responsive-select'] = responsiveSelectControl;

@@ -453,6 +453,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['shop-archive-width']     = 'default';
 			$defaults['shop-archive-max-width'] = 1200;
 
+			
+			$defaults['single-product-variation-tabs-layout'] = 'horizontal';
+
 			return $defaults;
 		}
 
@@ -1689,11 +1692,35 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				),
 			);
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$css_output                         .= astra_parse_css( $css_output_cart_button_width_tablet, '', astra_get_tablet_breakpoint() );
+			$css_output .= astra_parse_css( $css_output_cart_button_width_tablet, '', astra_get_tablet_breakpoint() );
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$css_output                         .= astra_parse_css( $css_output_cart_button_width_mobile, '', astra_get_mobile_breakpoint() );
+			$css_output .= astra_parse_css( $css_output_cart_button_width_mobile, '', astra_get_mobile_breakpoint() );
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			
+			/**
+			 * Single page variation tab layout.
+			 */
+
+			$woo_variation_layout = astra_get_option( 'single-product-variation-tabs-layout' );
+
+			if ( 'vertical' === $woo_variation_layout ) {
+				$css_output_woo_variation_layout = array(
+					'.woocommerce div.product form.cart .variations td' => array(
+						'display'     => 'table-cell',
+						'padding-top' => '8px',
+					),
+					'.woocommerce div.product form.cart .variations td.label' => array(
+						'vertical-align' => 'top',
+						'padding-top'    => '8px',
+					),
+				);
+
+				$css_output .= astra_parse_css( $css_output_woo_variation_layout );
+			}
+
+
+
+
 
 			wp_add_inline_style( 'woocommerce-general', apply_filters( 'astra_theme_woocommerce_dynamic_css', $css_output ) );
 

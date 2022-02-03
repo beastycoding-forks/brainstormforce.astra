@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 						'max'     => 100,
 						'divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
-					'context'   => array(
+					'context'     => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-structure]',
 							'operator' => 'contains',
@@ -62,6 +62,30 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					),
 					
 				),
+
+				/**
+				* Option: Single page variation tab layout.
+				*/
+
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[single-product-variation-tabs-layout]',
+					'default'    => astra_get_option( 'single-product-variation-tabs-layout' ),
+					'type'       => 'control',
+					'section'    => 'section-woo-shop-single',
+					'title'      => __( 'Product Variation Layout', 'astra-addon' ),
+					'context'    => array(
+						Astra_Builder_Helper::$general_tab_config,
+					),
+					'control'    => 'ast-selector',
+					'priority'   => 35,
+					'choices'    => array(
+						'horizontal' => __( 'Horizontal', 'astra-addon' ),
+						'vertical'   => __( 'Vertical', 'astra-addon' ),
+					),
+					'renderAs'   => 'text',
+					'responsive' => false,
+				),
+
 				/**
 				* Option: Disable Breadcrumb
 				*/

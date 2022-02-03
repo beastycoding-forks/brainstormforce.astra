@@ -99,16 +99,14 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				get_object_taxonomies( $post_type ),
 				array( 'post_format' )
 			);
-			$raw_taxonomies[''] = __( 'Select', 'astra' );
 
 			// Filter out taxonomies in index-value format.
 			$taxonomies = array();
 			foreach ( $raw_taxonomies as $index => $value ) {
-				if ( '' === $index ) {
-					$taxonomies[''] = $value;
-				} else {
-					$taxonomies[ $value ] = ucfirst( $value );
-				}
+				$taxonomies[] = array(
+					'label' => ucfirst( $value ),
+					'value' => $value,
+				);
 			}
 			$taxonomies = array_reverse( $taxonomies );
 
@@ -117,7 +115,10 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 			if ( 'product' === $post_type ) {
 				$parent_section = 'section-woo-shop-single';
 			} elseif ( 'post' === $post_type ) {
-				$taxonomies['category-tag'] = __( 'Category + Tag', 'astra' );
+				$taxonomies[] = array(
+					'label' => __( 'Category + Tag', 'astra' ),
+					'value' => 'category-tag',
+				);
 				$parent_section             = 'section-blog-single';
 			} else {
 				$parent_section = 'section-posttype-' . $post_type;
@@ -295,7 +296,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 					'section'    => $section,
 					'title'      => __( 'Select Taxonomy', 'astra' ),
 					'type'       => 'control',
-					'control'    => 'ast-select',
+					'control'    => 'ast-select2',
 					'priority'   => 26,
 					'choices'    => $taxonomies,
 					'context'    => array(
@@ -307,7 +308,6 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 							'value'    => 'taxonomy',
 						),
 					),
-					'responsive' => false,
 				),
 
 				/**

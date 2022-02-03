@@ -24,10 +24,23 @@ const SortableGroupComponent = props => {
 	let visibleMetaHtml = Object.values(value).map(choiceID => {
 		let html = '';
 		if (choices[choiceID]) {
-			html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-value={choiceID}>
-				{choices[choiceID]}
+			if( true === Object.values(choices[choiceID])[0] ) {
+				html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item ast-with-accordion' data-value={choiceID}>
+					<div className="ast-single-item">
+						{Object.keys(choices[choiceID])[0]}
+						<i className="dashicons dashicons-visibility visibility"></i>
+						<i className="dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"></i>
+					</div>
+					<div className="ast-more-option">
+						More options
+					</div>
+				</div>;
+			} else {
+				html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item' data-value={choiceID}>
+				{Object.keys(choices[choiceID])[0]}
 				<i className="dashicons dashicons-visibility visibility"></i>
-			</div>;
+				</div>;
+			}
 		}
 		return html;
 	});
@@ -35,10 +48,24 @@ const SortableGroupComponent = props => {
 	let invisibleMetaHtml = Object.keys(choices).map(choiceID => {
 		let html = '';
 		if (Array.isArray(value) && -1 === value.indexOf(choiceID)) {
-			html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item invisible' data-value={choiceID}>
-				{choices[choiceID]}
+			if( true === Object.values(choices[choiceID])[0] ) {
+				html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item ast-with-accordion invisible' data-value={choiceID}>
+					<div className="ast-single-item">
+						{Object.keys(choices[choiceID])[0]}
+						<i className="dashicons dashicons-visibility visibility"></i>
+						<i className="dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"></i>
+					</div>
+					<div className="ast-more-option">
+						More options
+					</div>
+				</div>;
+			} else {
+				html = <div {...inputAttrs} key={choiceID} className='ast-sortable-item invisible' data-value={choiceID}>
+				{Object.keys(choices[choiceID])[0]}
 				<i className="dashicons dashicons-visibility visibility"></i>
-			</div>;
+				</div>;
+			}
+			
 		}
 		return html;
 	});

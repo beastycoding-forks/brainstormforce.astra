@@ -4280,14 +4280,24 @@ input[type="text"].select2-search__field {
     top: 28px;
 }
 
+.customize-control-ast-sortable-group .sortable,
 .customize-control-ast-sortable .sortable {
   cursor: default;
 }
 
-.customize-control-ast-sortable .sortable .dashicons-visibility {
+.customize-control-ast-sortable-group .sortable .dashicons-visibility,
+.customize-control-ast-sortable .sortable .dashicons-visibility,
+.customize-control-ast-sortable-group .ast-optiom {
   cursor: pointer;
 }
 
+.customize-control-ast-sortable-group .sortable .dashicons-visibility:hover,
+.customize-control-ast-sortable .sortable .dashicons-visibility:hover, 
+.customize-control-ast-sortable .ast-option:hover {
+  opacity: .6;
+}
+
+.customize-control-ast-sortable-group .sortable div,
 .customize-control-ast-sortable .sortable div {
   padding: 0 12px 0 0;
   border: 1px solid #dddddd;
@@ -4298,11 +4308,15 @@ input[type="text"].select2-search__field {
   margin: 0 0 10px;
   border-radius: 3px;
 }
+
+.customize-control-ast-sortable-group .sortable div:last-child,
 .customize-control-ast-sortable .sortable div:last-child {
   margin: 0;
 }
 
-.customize-control-ast-sortable .sortable div .dashicons.visibility {
+.customize-control-ast-sortable-group .sortable div .dashicons.visibility,
+.customize-control-ast-sortable .sortable div .dashicons.visibility,
+.customize-control-ast-sortable-group .sortable div .dashicons.ast-option {
   float: left;
   position: relative;
   font-size: 18px;
@@ -4311,10 +4325,12 @@ input[type="text"].select2-search__field {
   border-right: 1px solid #ddd;
 }
 
+.customize-control-ast-sortable-group .sortable div.invisible,
 .customize-control-ast-sortable .sortable div.invisible {
   opacity: 0.6;
 }
 
+.customize-control-ast-sortable-group .sortable div.invisible .dashicons.visibility:after,
 .customize-control-ast-sortable .sortable div.invisible .dashicons.visibility:after {
   opacity: 1;
   position: absolute;
@@ -4330,10 +4346,36 @@ input[type="text"].select2-search__field {
   transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable .sortable div:hover {
-  opacity: 0.8;
-}
 
+.customize-control-ast-sortable-group .sortable div.ast-with-accordion {
+	padding-right: 0;
+  }
+  
+  .customize-control-ast-sortable-group .ast-with-accordion .ast-single-item {
+	margin-bottom: 0;
+  }
+  
+  .customize-control-ast-sortable-group .ast-with-accordion .ast-single-item,
+  .customize-control-ast-sortable-group .ast-with-accordion .ast-more-option {
+	border: 0;
+  }
+  
+  .ast-sortable-item.invisible,
+  .ast-sortable-item:hover {
+	opacity: .8;
+  }
+  
+  .ast-sortable-item.show:hover {
+	opacity: 1;
+  }
+  
+  .ast-sortable-item .ast-more-option {
+	display: none;
+  }
+  
+  .ast-sortable-item.show .ast-more-option {
+	display: block;
+  }
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
   margin: 0;
 }
@@ -6123,8 +6165,15 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-sortable-group .sortable .dashicons-visibility,
-.customize-control-ast-sortable .sortable .dashicons-visibility {
+.customize-control-ast-sortable .sortable .dashicons-visibility,
+.customize-control-ast-sortable-group .ast-optiom {
   cursor: pointer;
+}
+
+.customize-control-ast-sortable-group .sortable .dashicons-visibility:hover,
+.customize-control-ast-sortable .sortable .dashicons-visibility:hover, 
+.customize-control-ast-sortable .ast-option:hover {
+  opacity: .6;
 }
 
 .customize-control-ast-sortable-group .sortable div,
@@ -6145,7 +6194,8 @@ input[type="text"].select2-search__field {
 }
 
 .customize-control-ast-sortable-group .sortable div .dashicons.visibility,
-.customize-control-ast-sortable .sortable div .dashicons.visibility {
+.customize-control-ast-sortable .sortable div .dashicons.visibility,
+.customize-control-ast-sortable-group .sortable div .dashicons.ast-option {
   float: left;
   position: relative;
   font-size: 18px;
@@ -6175,11 +6225,41 @@ input[type="text"].select2-search__field {
   transition: opacity 0.2s ease;
 }
 
-.customize-control-ast-sortable-group .sortable div:hover,
-.customize-control-ast-sortable .sortable div:hover {
-  opacity: 0.8;
+
+.customize-control-ast-sortable-group .sortable div.ast-with-accordion {
+	padding-right: 0;
+}
+  
+.customize-control-ast-sortable-group .ast-with-accordion .ast-single-item {
+	margin-bottom: 0;
+}
+  
+.customize-control-ast-sortable-group .ast-with-accordion .ast-single-item,
+.customize-control-ast-sortable-group .ast-with-accordion .ast-more-option {
+	border: 0;
+}
+  
+.ast-sortable-item.invisible,
+.ast-sortable-item:hover {
+	opacity: .8;
+}
+  
+.ast-sortable-item.show:hover {
+  opacity: 1;
+}
+  
+.ast-sortable-item .ast-more-option {
+	display: none;
+}
+  
+.ast-sortable-item.show .ast-more-option {
+	display: block;
 }
 
+.ast-sortable-item.show .ast-single-item {
+  border-bottom: 1px solid #dddddd;
+  border-radius: 0;
+}
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
   margin: 0;
 }

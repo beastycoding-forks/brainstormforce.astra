@@ -9905,6 +9905,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _sortable_group_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./sortable-group.js */ "./src/sortable-group/sortable-group.js");
+/* harmony import */ var _toggle_control_control__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../toggle-control/control */ "./src/toggle-control/control.js");
+
 
 
 const sortableGroupControl = wp.customize.astraControl.extend({
@@ -9928,8 +9930,14 @@ const sortableGroupControl = wp.customize.astraControl.extend({
       }
     }).disableSelection().find('div').each(function () {
       // Enable/disable options when we click on the eye of Thundera.
+      jQuery(this).find('i.visibility').unbind('click');
       jQuery(this).find('i.visibility').click(function () {
-        jQuery(this).toggleClass('dashicons-visibility-faint').parents('div:eq(0)').toggleClass('invisible');
+        jQuery(this).toggleClass('dashicons-visibility-faint').closest(".ast-sortable-item").toggleClass('invisible');
+      }); // Opens / closes accordion
+
+      jQuery(this).find('i.ast-accordion').unbind('click');
+      jQuery(this).find('i.ast-accordion').click(function () {
+        jQuery(this).toggleClass('dashicons-arrow-up-alt2').closest(".ast-sortable-item").toggleClass('show');
       });
     }).click(function () {
       // Update value on click.
@@ -9950,8 +9958,48 @@ const sortableGroupControl = wp.customize.astraControl.extend({
         newValue.push(jQuery(this).data('value'));
       }
     });
-    console.log(newValue);
     control.setting.set(newValue);
+  },
+  renderReactControl: function (fields, control) {
+    const reactControls = {
+      'ast-toggle-control': _toggle_control_control__WEBPACK_IMPORTED_MODULE_2__.toggleControl
+    }; // if( astra.customizer.is_pro ) {
+    // 	reactControls['ast-box-shadow'] = BoxShadowComponent;
+    // }
+
+    if ('undefined' != typeof fields.tabs) {
+      _.each(fields.tabs, function (fields_data, key) {
+        _.each(fields_data, function (attr, index) {
+          if ('ast-font' !== attr.control) {
+            var control_clean_name = attr.name.replace('[', '-');
+            control_clean_name = control_clean_name.replace(']', '');
+            var selector = '#customize-control-' + control_clean_name;
+            var controlObject = wp.customize.control('astra-settings[' + attr.name + ']');
+            controlObject = control.getFinalControlObject(attr, controlObject);
+            const ComponentName = reactControls[attr.control];
+            ReactDOM.render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ComponentName, {
+              control: controlObject,
+              customizer: wp.customize
+            }), jQuery(selector)[0]);
+          }
+        });
+      });
+    } else {
+      _.each(fields, function (attr, index) {
+        if ('ast-font' !== attr.control) {
+          var control_clean_name = attr.name.replace('[', '-');
+          control_clean_name = control_clean_name.replace(']', '');
+          var selector = '#customize-control-' + control_clean_name;
+          var controlObject = wp.customize.control('astra-settings[' + attr.name + ']');
+          controlObject = control.getFinalControlObject(attr, controlObject);
+          const ComponentName = reactControls[attr.control];
+          ReactDOM.render((0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(ComponentName, {
+            control: controlObject,
+            customizer: wp.customize
+          }), jQuery(selector)[0]);
+        }
+      });
+    }
   }
 });
 
@@ -10001,13 +10049,29 @@ const SortableGroupComponent = props => {
     let html = '';
 
     if (choices[choiceID]) {
-      html = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, inputAttrs, {
-        key: choiceID,
-        className: "ast-sortable-item",
-        "data-value": choiceID
-      }), choices[choiceID], (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
-        className: "dashicons dashicons-visibility visibility"
-      }));
+      if (true === Object.values(choices[choiceID])[0]) {
+        html = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, inputAttrs, {
+          key: choiceID,
+          className: "ast-sortable-item ast-with-accordion",
+          "data-value": choiceID
+        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+          className: "ast-single-item"
+        }, Object.keys(choices[choiceID])[0], (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
+          className: "dashicons dashicons-visibility visibility"
+        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
+          className: "dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"
+        })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+          className: "ast-more-option"
+        }, "More options"));
+      } else {
+        html = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, inputAttrs, {
+          key: choiceID,
+          className: "ast-sortable-item",
+          "data-value": choiceID
+        }), Object.keys(choices[choiceID])[0], (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
+          className: "dashicons dashicons-visibility visibility"
+        }));
+      }
     }
 
     return html;
@@ -10016,13 +10080,29 @@ const SortableGroupComponent = props => {
     let html = '';
 
     if (Array.isArray(value) && -1 === value.indexOf(choiceID)) {
-      html = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, inputAttrs, {
-        key: choiceID,
-        className: "ast-sortable-item invisible",
-        "data-value": choiceID
-      }), choices[choiceID], (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
-        className: "dashicons dashicons-visibility visibility"
-      }));
+      if (true === Object.values(choices[choiceID])[0]) {
+        html = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, inputAttrs, {
+          key: choiceID,
+          className: "ast-sortable-item ast-with-accordion invisible",
+          "data-value": choiceID
+        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+          className: "ast-single-item"
+        }, Object.keys(choices[choiceID])[0], (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
+          className: "dashicons dashicons-visibility visibility"
+        }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
+          className: "dashicons dashicons-arrow-down-alt2 ast-option ast-accordion"
+        })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", {
+          className: "ast-more-option"
+        }, "More options"));
+      } else {
+        html = (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("div", (0,_babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0__["default"])({}, inputAttrs, {
+          key: choiceID,
+          className: "ast-sortable-item invisible",
+          "data-value": choiceID
+        }), Object.keys(choices[choiceID])[0], (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_1__.createElement)("i", {
+          className: "dashicons dashicons-visibility visibility"
+        }));
+      }
     }
 
     return html;

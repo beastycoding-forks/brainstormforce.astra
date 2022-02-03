@@ -1,4 +1,5 @@
 import SortableGroupComponent from './sortable-group.js';
+import { toggleControl } from '../toggle-control/control';
 
 export const sortableGroupControl = wp.customize.astraControl.extend( {
 	renderContent: function renderContent() {
@@ -23,10 +24,17 @@ export const sortableGroupControl = wp.customize.astraControl.extend( {
 			}
 		}).disableSelection().find( 'div' ).each( function() {
 
-				// Enable/disable options when we click on the eye of Thundera.
-				jQuery( this ).find( 'i.visibility' ).click( function() {
-					jQuery( this ).toggleClass( 'dashicons-visibility-faint' ).parents( 'div:eq(0)' ).toggleClass( 'invisible' );
-				});
+			// Enable/disable options when we click on the eye of Thundera.
+			jQuery( this ).find( 'i.visibility' ).unbind('click');
+			jQuery( this ).find( 'i.visibility' ).click( function() {
+				jQuery( this ).toggleClass( 'dashicons-visibility-faint' ).closest(".ast-sortable-item").toggleClass( 'invisible' );
+			});
+
+			// Opens / closes accordion
+			jQuery( this ).find( 'i.ast-accordion' ).unbind('click');
+			jQuery( this ).find( 'i.ast-accordion' ).click( function() {
+				jQuery( this ).toggleClass( 'dashicons-arrow-up-alt2' ).closest(".ast-sortable-item").toggleClass( 'show' );
+			});
 		}).click( function() {
 
 			// Update value on click.
@@ -50,8 +58,58 @@ export const sortableGroupControl = wp.customize.astraControl.extend( {
 			}
 		});
 
-		console.log(newValue);
-
 		control.setting.set( newValue );
+	},
+
+	renderReactControl: function( fields, control ) {
+
+		const reactControls = {
+			'ast-toggle-control' : toggleControl,
+		};
+
+		// if( astra.customizer.is_pro ) {
+		// 	reactControls['ast-box-shadow'] = BoxShadowComponent;
+		// }
+
+		if( 'undefined' != typeof fields.tabs ) {
+
+			_.each( fields.tabs, function ( fields_data, key ) {
+
+				_.each(fields_data, function (attr, index) {
+					if ( 'ast-font' !== attr.control ) {
+						var control_clean_name = attr.name.replace('[', '-');
+						control_clean_name = control_clean_name.replace(']', '');
+						var selector = '#customize-control-' + control_clean_name;
+						var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
+						controlObject = control.getFinalControlObject( attr, controlObject );
+						const ComponentName = reactControls[ attr.control ];
+						ReactDOM.render(
+							<ComponentName control={controlObject} customizer={ wp.customize }/>,
+							jQuery( selector )[0]
+						);
+					}
+				});
+
+			});
+		} else {
+
+			_.each(fields, function (attr, index) {
+
+				if ( 'ast-font' !== attr.control ) {
+
+					var control_clean_name = attr.name.replace('[', '-');
+					control_clean_name = control_clean_name.replace(']', '');
+					var selector = '#customize-control-' + control_clean_name;
+					var controlObject = wp.customize.control( 'astra-settings['+attr.name+']' );
+					controlObject = control.getFinalControlObject( attr, controlObject );
+					const ComponentName = reactControls[ attr.control ];
+
+					ReactDOM.render(
+						<ComponentName control={controlObject} customizer={ wp.customize }/>,
+						jQuery( selector )[0]
+					);
+				}
+			});
+		}
 	}
 } );

@@ -160,6 +160,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$default_assets['js']['astra-theme-js-pro'] = 'frontend-pro';
 				}
 
+				if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'footer' ) || true === astra_get_option( 'enable-fixed-switch-mode', false ) ) {
+					$default_assets['js']['astra-theme-mode-switcher'] = 'mode-switcher';
+				}
+
 				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ||
 					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
@@ -319,11 +323,22 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );
 
-			$astra_cart_localize_data = array(
-				'desktop_layout' => astra_get_option( 'woo-header-cart-click-action' ),    // WooCommerce sidebar flyout desktop.
-			);
+			if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
+				$astra_cart_localize_data = array(
+					'desktop_layout' => astra_get_option( 'woo-header-cart-click-action' ),    // WooCommerce sidebar flyout desktop.
+				);
 
-			wp_localize_script( 'astra-mobile-cart', 'astra_cart', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );
+				wp_localize_script( 'astra-mobile-cart', 'astra_cart', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );
+			}
+
+			if ( Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'mode-switcher', 'footer' ) || true === astra_get_option( 'enable-fixed-switch-mode', false ) ) {
+				$astra_mode_switcher_localize = array(
+					'carryOsPalette'    => astra_get_option( 'mode-switcher-carry-os-palette', true ),
+					'switchToLightMode' => astra_get_option( 'mode-switcher-light-tooltip-message' ),
+					'switchToDarkMode'  => astra_get_option( 'mode-switcher-dark-tooltip-message' ),
+				);
+				wp_localize_script( 'astra-theme-mode-switcher', 'astraModeSwitcher', apply_filters( 'astra_mode_switcher_localize', $astra_mode_switcher_localize ) );
+			}
 		}
 
 		/**
@@ -365,6 +380,21 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			wp_enqueue_style( 'astra-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_enqueue_script( 'astra-block-editor-script', $js_uri, false, ASTRA_THEME_VERSION, 'all' );
+
+			$astra_global_palette_instance = new Astra_Global_Palette();
+			$astra_colors                  = array(
+				'var(--ast-global-color-0)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-0)' ),
+				'var(--ast-global-color-1)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-1)' ),
+				'var(--ast-global-color-2)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-2)' ),
+				'var(--ast-global-color-3)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-3)' ),
+				'var(--ast-global-color-4)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-4)' ),
+				'var(--ast-global-color-5)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-5)' ),
+				'var(--ast-global-color-6)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-6)' ),
+				'var(--ast-global-color-7)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-7)' ),
+				'var(--ast-global-color-8)' => $astra_global_palette_instance->get_color_by_palette_variable( 'var(--ast-global-color-8)' ),
+			);
+
+			wp_localize_script( 'astra-block-editor-script', 'astraColors', apply_filters( 'astra_theme_root_colors', $astra_colors ) );
 
 			// Render fonts in Gutenberg layout.
 			Astra_Fonts::render_fonts();

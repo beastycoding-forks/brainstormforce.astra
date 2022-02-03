@@ -299,3 +299,28 @@ a.astra-starter-sites-detail-link {
 .ast-other-links-list .dashicons {
     margin-left: 6px;
 }
+
+span.select2.select2-container.select2-container--default {
+    width: 254px !important;
+}
+
+#astra-font-family-button {
+    margin-top: 5px;
+}
+
+.ast-container .select2-container--default .select2-selection--multiple .select2-selection__choice{
+    margin-top:4px;
+    border-radius: 4px;
+    overflow: hidden;
+    padding: 2px 4px 2px 4px;
+}
+.ast-container .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+    font-size: 15px;
+}
+.select2-results__option {
+    margin-bottom:unset;
+}
+.ast-container .select2-container--default .select2-selection--multiple .select2-selection__rendered {
+    vertical-align: middle;
+    margin-top: 4px;
+}

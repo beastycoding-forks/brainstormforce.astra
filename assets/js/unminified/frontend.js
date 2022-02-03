@@ -182,7 +182,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			body.classList.add( 'ast-popup-nav-open' );
         }
 
-		if ( ! body.classList.contains( 'ast-main-header-nav-open' ) ) {
+		if ( ! body.classList.contains( 'ast-main-header-nav-open' ) && 'mobile' !== triggerType ) {
 			body.classList.add( 'ast-main-header-nav-open' );
 		}
 
@@ -379,7 +379,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		accountPopupTrigger();
-
 	}
 
 	function triggerToggleClose( event ) {
@@ -476,8 +475,11 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} else {
 			containerButton = document.getElementById( 'ast-desktop-header' );
 		}
-		var containerMenu = containerButton.querySelector( '.navigation-accessibility' );
-		navigation_accessibility( containerMenu, containerButton );
+
+		if( null !== containerButton ) {
+			var containerMenu = containerButton.querySelector( '.navigation-accessibility' );
+			navigation_accessibility( containerMenu, containerButton );
+		}
 	});
 
 	var get_window_width = function () {
@@ -604,7 +606,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	AstraToggleSetup = function () {
 
-		if( typeof astraAddon != 'undefined' ) {
+		if( typeof astraAddon != 'undefined' && undefined !== astraToggleSetupPro ) {
 			astraToggleSetupPro( mobileHeaderType, body, menu_click_listeners );
 		} else {
 
@@ -748,7 +750,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	    }
 
 	    if( 'Safari' === M[0] && M[1] < 11 ) {
-		   bodyElement.classList.add( "ast-safari-browser-less-than-11" );
+			document.body.classList.add( "ast-safari-browser-less-than-11" );
 	    }
 	}
 

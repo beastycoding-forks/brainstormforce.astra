@@ -384,7 +384,11 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 	                    			return \'&#\'+i.charCodeAt(0)+\';\';
 								});
 	                    	desc.remove();
-	                    	li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+							if(ctrl["id"]){
+								li_wrapper.append( tooltip);
+							} else {
+								li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+							}	
 	                	}
 	            	});
 	        	});';
@@ -1128,10 +1132,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-blog-single-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-sidebar-layout-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-site-container-layout-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/layout/class-astra-dark-mode-global-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/colors-background/class-astra-body-colors-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-archive-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-body-typo-configs.php';
-
 
 			if( astra_has_gcp_typo_preset_compatibility() ) {
 				require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-headings-typo-configs.php';
@@ -1360,10 +1364,23 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			?>
 
 			<option value="inherit"><?php esc_html_e( 'Default System Font', 'astra' ); ?></option>
+			<?php 
+			$global_fonts = Astra_Font_Families::get_global_fonts(); 
+			if ( ! empty( $global_fonts ) ) { 
+				?>
+			<optgroup label="Global Font Family">
+				<?php 
+				foreach ( $global_fonts as $name => $specific_font ) {
+					?>
+
+				<option value="<?php echo esc_attr( $name ); ?>" ><?php echo esc_html( $name ); ?></option>
+					<?php
+				} 
+			} 
+			?>
 			<optgroup label="Other System Fonts">
 
 			<?php
-
 			$system_fonts = Astra_Font_Families::get_system_fonts();
 			$google_fonts = Astra_Font_Families::get_google_fonts();
 
@@ -1428,6 +1445,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'site_layout'                          => astra_get_option( 'site-layout' ),
 				'has_block_editor_support'             => Astra_Dynamic_CSS::is_block_editor_support_enabled(),
 				'updated_gb_outline_button_patterns'   => astra_button_default_padding_updated(),
+				'apply_content_bg_fullwidth_layouts'   => astra_get_option( 'apply-content-background-fullwidth-layouts', true ),
 			);
 
 			wp_localize_script( 'astra-customizer-preview-js', 'astraCustomizer', $localize_array );

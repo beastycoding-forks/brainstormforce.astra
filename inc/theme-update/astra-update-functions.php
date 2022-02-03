@@ -873,6 +873,80 @@ function astra_fullwidth_layouts_apply_content_background() {
 }
 
 /**
+ * Migrating Post Structure & Meta options in title area meta parts.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_post_strctures_meta_migration() {
+	$theme_options                                     = get_option( 'astra-settings', array() );
+	$theme_options['post-structure-migration-succeed'] = false;
+
+	// Single post strcture.
+	if ( ! empty( $theme_options['ast-single-post-structure'] ) ) {
+		$single_post_strcture   = isset( $theme_options['blog-single-post-structure'] ) ? $theme_options['blog-single-post-structure'] : array();
+		$migrated_post_strcture = array();
+
+		if ( ! empty( $single_post_strcture ) ) {
+
+			foreach ( $single_post_strcture as $key ) {
+				if ( 'single-title-meta' === $key ) {
+					$migrated_post_strcture[] = 'ast-single-post-title';
+					$migrated_post_strcture[] = 'ast-single-post-meta';
+				}
+				if ( 'single-image' === $key ) {
+					$migrated_post_strcture[] = 'ast-single-post-image';
+				}
+			}
+
+			$theme_options['ast-single-post-structure']        = $migrated_post_strcture;
+			$theme_options['post-structure-migration-succeed'] = true;
+		}
+	}
+
+	// Single post meta.
+	if ( ! empty( $theme_options['ast-single-post-metadata'] ) ) {
+		$single_post_meta       = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array();
+		$migrated_post_metadata = array();
+
+		if ( ! empty( $single_post_meta ) ) {
+			if ( in_array( 'author', $single_post_meta ) ) {
+				$migrated_post_metadata[] = 'author';
+			}
+
+			if ( in_array( 'date', $single_post_meta ) ) {
+				$migrated_post_metadata[] = 'date';
+			}
+
+			$assigned_tax = false;
+			if ( in_array( 'category', $single_post_meta ) && in_array( 'tag', $single_post_meta ) ) {
+				$migrated_post_metadata[]                  = 'taxonomy';
+				$theme_options['ast-single-post-taxonomy'] = 'category-tag';
+				$assigned_tax                              = true;
+			}
+			if ( false === $assigned_tax && in_array( 'category', $single_post_meta ) ) {
+				$migrated_post_metadata[]                  = 'taxonomy';
+				$theme_options['ast-single-post-taxonomy'] = 'category';
+			}
+			if ( false === $assigned_tax && in_array( 'tag', $single_post_meta ) ) {
+				$migrated_post_metadata[]                  = 'taxonomy';
+				$theme_options['ast-single-post-taxonomy'] = 'post_tag';
+			}
+
+			if ( in_array( 'comments', $single_post_meta ) ) {
+				$migrated_post_metadata[] = 'comments';
+			}
+
+			$theme_options['ast-single-post-metadata']         = $migrated_post_metadata;
+			$theme_options['post-structure-migration-succeed'] = true;
+		}
+	}
+
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
  * @todo Updating builder & their element's default colors or static colors to make them link with color palette colors.

@@ -8,10 +8,11 @@ const SortableComponent = props => {
 	const {
 		label,
 		description,
-		value,
 		choices,
 		inputAttrs
 	} = props.control.params;
+
+	const value = props.control.setting.get() ? props.control.setting.get() : props.control.params.default;
 
 	if (label) {
 		labelHtml = <span className="customize-control-title">{label}</span>;

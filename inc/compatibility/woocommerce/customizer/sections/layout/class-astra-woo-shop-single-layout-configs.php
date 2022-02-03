@@ -34,6 +34,21 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 			$_configs = array(
 
 				/**
+				 * Link to the Shop banner stcrure.
+				 */
+				array(
+					'name'           => ASTRA_THEME_SETTINGS . '[wc-single-product-banner-section-link]',
+					'type'           => 'control',
+					'control'        => 'ast-customizer-link',
+					'section'        => 'section-woo-shop-single',
+					'priority'       => 1,
+					'link_type'      => 'section',
+					'is_button_link' => true,
+					'linked'         => 'ast-single-product',
+					'link_text'      => __( 'Product Title Section', 'astra' ),
+				),
+
+				/**
 				* Option: button width option
 				*/
 				array(
@@ -60,7 +75,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 							'value'    => 'add_cart',
 						),
 					),
-					
+
 				),
 				/**
 				* Option: Disable Breadcrumb

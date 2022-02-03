@@ -1003,7 +1003,9 @@ if ( ! function_exists( 'astra_archive_page_info' ) ) {
 		}
 	}
 
-	add_action( 'astra_archive_header', 'astra_archive_page_info' );
+	if ( false === astra_get_option( 'post-structure-migration-succeed', true ) ) {
+		add_action( 'astra_archive_header', 'astra_archive_page_info' );
+	}
 }
 
 /**

@@ -155,6 +155,7 @@ require_once ASTRA_THEME_DIR . 'inc/addons/transparent-header/class-astra-ext-tr
 require_once ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/class-astra-breadcrumbs.php';
 require_once ASTRA_THEME_DIR . 'inc/addons/heading-colors/class-astra-heading-colors.php';
 require_once ASTRA_THEME_DIR . 'inc/builder/class-astra-builder-loader.php';
+require_once ASTRA_THEME_DIR . 'inc/modules/posts-structures/class-astra-posts-strctures.php';
 
 // Elementor Compatibility requires PHP 5.4 for namespaces.
 if ( version_compare( PHP_VERSION, '5.4', '>=' ) ) {

@@ -896,3 +896,24 @@ function astra_apply_content_background_fullwidth_layouts() {
 
 	return ( $astra_apply_content_background && 'ast-box-layout' !== $astra_site_layout && 'ast-padded-layout' !== $astra_site_layout );
 }
+
+/**
+ * Getting current author ID.
+ *
+ * @since x.x.x
+ * @return int
+ */
+function astra_get_author_id() {
+	$author_id = get_queried_object_id();
+
+	if ( is_singular() ) {
+		$author_id = get_the_author_meta( 'ID' );
+	}
+
+	if ( ! $author_id ) {
+		$author    = get_user_by( 'slug', get_query_var( 'author_name' ) );
+		$author_id = $author->ID;
+	}
+
+	return $author_id;
+}

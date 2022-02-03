@@ -1,6 +1,3 @@
-v3.9.0
-- Fix: Guteneberg separator dots not appearing properly on frontend.
-
 v3.8.0(Unreleased)
 - Improvement: Added a new filter 'astra_settings_metabox_register' to prevent loading of block based Astra Settings metabox. ( https://wpastra.com/docs/hide-astra-settings-for-user-roles/ )
 - New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
@@ -31,9 +28,12 @@ v3.8.0(Unreleased)
 - Fix: WooCommerce - Variation product label is not align properly with WooCommerce 6.1 version.
 - Fix: Fixed Astra meta settings are not getting saved for the Classic editor.
 
-v3.7.7 (WP-5.9 release compatibility unreleased update)
-- Fix: There is no any gap between post edit title & first content block in block editor.
+v3.7.7
+- Improvement: Compatibility with WordPress 5.9.
+- Fix: var() colors code appearing in block editor theme palette picker.
+- Fix: There is no gap between the post edit title & first content block in the block editor.
 - Fix: Color picker's UI breaking in customizer & in block editor.
+- Fix: Gradient picker's UI breaking inside color picker.
 - Fix: Column figure blocks overlapping on one another in block editor.
 - Fix: WooCommerce - Variation product label is not align properly with WooCommerce 6.1 version.
 

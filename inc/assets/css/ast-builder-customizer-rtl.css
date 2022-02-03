@@ -5030,3 +5030,11 @@ i.fipicon-angle-left:before {
 .ahfb-builder-item > .ahfb-builder-item-icon.ahfb-setting-icon {
     margin-left: -12px;
 }
+
+/**
+ * Added CSS for hiding section from WP-Customizer panel.
+ */
+li#accordion-section-ast-single-post, li#accordion-section-ast-single-product,
+li#accordion-section-ast-archive-post, li#accordion-section-ast-archive-product {
+    display: none !important;
+}

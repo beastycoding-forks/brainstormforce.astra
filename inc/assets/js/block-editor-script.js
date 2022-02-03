@@ -58,10 +58,10 @@ function astra_onload_function() {
 			 */
 			const customColorPickerButtons = document.querySelectorAll( '.components-color-palette__custom-color' );
 
-			for ( var btnCount = 0; btnCount < customColorPickerButtons.length; btnCount++ ) {
+			for ( let btnCount = 0; btnCount < customColorPickerButtons.length; btnCount++ ) {
 				const colorCode = customColorPickerButtons[btnCount].innerText;
 				if ( colorCode.indexOf( 'var(--ast-global-color' ) > -1 ) {
-					customColorPickerButtons[btnCount].innerHTML = astraColors[ colorCode ];
+					customColorPickerButtons[btnCount].innerHTML = '<span class="ast-theme-block-color-name">' + astraColors[ colorCode ] + '</span>';
 				}
 			}
 

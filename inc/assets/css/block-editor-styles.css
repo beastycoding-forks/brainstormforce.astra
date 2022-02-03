@@ -818,3 +818,12 @@ p.wp-block-paragraph {
 .wp-block-paragraph.has-background {
   padding: 1.25em 2.375em;
 }
+
+.ast-theme-block-color-name {
+  mix-blend-mode: difference;
+}
+
+.components-color-palette__custom-color {
+  text-align: left;
+  padding-left: 5px;
+}

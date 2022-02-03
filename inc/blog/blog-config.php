@@ -36,8 +36,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 			switch ( $meta_value ) {
 
 				case 'author':
-					$author = get_the_author();
-					if ( ! empty( $author ) ) {
+					if ( ! empty( get_the_author_meta( 'display_name', get_queried_object()->post_author ) ) ) {
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
 					}
@@ -69,6 +68,33 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 					if ( '' != $comment ) {
 						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
 						$output_str .= $comment;
+					}
+					break;
+
+				case 'taxonomy':
+					$tax_name = '';
+					if ( is_single() ) {
+						$tax_name = astra_get_option( 'ast-single-' . get_post_type() . '-taxonomy' );
+					}
+					if ( '' !== $tax_name ) {
+						if ( 'category-tag' === $tax_name ) {
+							$category = astra_post_categories();
+							if ( '' != $category ) {
+								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+								$output_str .= $category;
+							}
+							$tags = astra_post_tags();
+							if ( '' != $tags ) {
+								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+								$output_str .= $tags;
+							}
+						} else {
+							$taxonomies = astra_custom_post_taxonomies( array( 'taxonomy' => $tax_name ) );
+							if ( '' != $taxonomies ) {
+								$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+								$output_str .= $taxonomies;
+							}
+						}
 					}
 					break;
 				default:
@@ -165,7 +191,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 						)
 					);
 				?>
-				><?php echo get_the_author(); ?></span>
+				><?php echo get_the_author_meta( 'display_name', get_queried_object()->post_author ); ?></span>
 			</a>
 		</span>
 
@@ -468,3 +494,44 @@ if ( ! function_exists( 'astra_the_content_more_link' ) ) {
 	}
 }
 add_filter( 'the_content_more_link', 'astra_the_content_more_link', 10, 2 );
+
+/**
+ * Function to get Categories applied of Post
+ *
+ * @param  array $args Query filter args.
+ * @return string HTML Markup.
+ */
+function astra_custom_post_taxonomies( $args = array() ) {
+
+	$output = '';
+	$args   = wp_parse_args(
+		$args,
+		array(
+			'post_id'  => null,
+			'taxonomy' => null,
+		)
+	);
+
+	if ( null === $args['post_id'] ) {
+		global $post;
+		$args['post_id'] = $post->ID;
+	}
+
+	$terms = get_the_terms( $args['post_id'], $args['taxonomy'] );
+
+	if ( is_wp_error( $terms ) ) {
+		return $output;
+	}
+
+	if ( ! empty( $terms ) ) {
+		$loop_count = 1;
+		foreach ( $terms as $index => $term ) {
+			$term_link = get_term_link( $term );
+			$output   .= ( 1 !== $loop_count && '' !== $output ) ? ', ' : '';
+			$output   .= '<span class="cat-links"> <a href="' . esc_url( $term_link ) . '">' . $term->name . '</a> </span>';
+			$loop_count ++;
+		}
+	}
+
+	return apply_filters( 'astra_custom_post_taxonomies', $output );
+}

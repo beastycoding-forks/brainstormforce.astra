@@ -185,6 +185,21 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		}
 
 		/**
+		 * Prepare Edit navigatory trigger for Banner Section in customizer.
+		 *
+		 * @since x.x.x
+		 */
+		public static function render_banner_customizer_edit_button() {
+			?>
+				<div class="customize-partial-edit-shortcut banner-editor-shortcut" data-id="ahfb">
+					<button aria-label="<?php esc_attr_e( 'Click to edit this element.', 'astra' ); ?>"	title="<?php esc_attr_e( 'Click to edit this Row.', 'astra' ); ?>" class="item-customizer-focus">
+						<?php echo self::fetch_svg_icon( 'edit' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					</button>
+				</div>
+			<?php
+		}
+
+		/**
 		 * Render Trigger Markup.
 		 *
 		 * @since 3.0.0

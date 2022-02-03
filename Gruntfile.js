@@ -262,6 +262,12 @@ module.exports = function (grunt) {
                         ],
                         dest: 'inc/addons/breadcrumbs/assets/js/minified/customizer-preview.min.js',
                     },
+					{
+                        src: [
+                            'inc/modules/posts-structures/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/modules/posts-structures/assets/js/minified/customizer-preview.min.js',
+                    },
                     {
                         src: [
                             'inc/addons/transparent-header/assets/js/unminified/*.js',

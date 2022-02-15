@@ -330,14 +330,19 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 
 		if ( $display_site_title || $display_site_tagline ) {
 			/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
-			$html .= sprintf(
-				'<div class="ast-site-title-wrap">
-						%1$s
-						%2$s
-				</div>',
-				( $display_site_title ) ? $site_title_markup : '',
-				( $display_site_tagline ) ? $site_tagline_markup : ''
-			);
+			$site_title_setting = astra_get_option( 'display-site-title-responsive' );
+			foreach($site_title_setting  as $specific_device => $val) {
+				if( (1 === $val || true === $val ) && ($device === $specific_device) ){
+					$html .= sprintf(
+					'<div class="ast-site-title-wrap">
+							%1$s
+							%2$s
+					</div>',
+					( $display_site_title ) ? $site_title_markup : '',
+					( $display_site_tagline ) ? $site_tagline_markup : ''
+					);
+				}
+			}
 		}
 	}
 	return $html;

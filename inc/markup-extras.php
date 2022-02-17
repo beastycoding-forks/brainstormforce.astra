@@ -185,7 +185,8 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$site_tagline         = astra_get_option( 'display-site-tagline-responsive' );
 		$display_site_tagline = ( $site_tagline['desktop'] || $site_tagline['tablet'] || $site_tagline['mobile'] ) ? true : false;
 		$site_title           = astra_get_option( 'display-site-title-responsive' );
-		$display_site_title   = ( $site_title['desktop'] || $site_title['tablet'] || $site_title['mobile'] ) ? true : false;
+		
+		$display_site_title = ( $site_title['desktop'] || $site_title['tablet'] || $site_title['mobile'] ) ? true : false;
 
 		$html            = '';
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
@@ -252,50 +253,56 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 		 * @param string the HTML output for Site Title.
 		 */
 		// Site Title.
-		$site_title_markup = apply_filters(
-			'astra_site_title_output',
-			sprintf(
-				'<%1$s %4$s>
-				<a href="%2$s" rel="home" %5$s >
-					%3$s
-				</a>
-			</%1$s>',
-				/**
-				* Filters the tags for site title.
-				*
-				* @since 1.3.1
-				*
-				* @param string $tags string containing the HTML tags for Site Title.
-				*/
-				apply_filters( 'astra_site_title_tag', $tag ),
-				/**
-				* Filters the href for the site title.
-				*
-				* @since 1.4.9
-				*
-				* @param string site title home url
-				*/
-				esc_url( apply_filters( 'astra_site_title_href', home_url( '/' ) ) ),
-				/**
-				* Filters the site title.
-				*
-				* @since 1.4.9
-				*
-				* @param string site title
-				*/
-				apply_filters( 'astra_site_title', get_bloginfo( 'name' ) ),
-				astra_attr(
-					'site-title',
-					array(
-						'class' => 'site-title',
+		$site_title_markup  = '';
+		$site_title_setting = astra_get_option( 'display-site-title-responsive' );
+		foreach ( $site_title_setting  as $specific_device => $val ) {
+			if ( ( 1 === $val || true === $val ) && ( $device === $specific_device ) ) {
+				$site_title_markup = apply_filters(
+					'astra_site_title_output',
+					sprintf(
+						'<%1$s %4$s>
+						<a href="%2$s" rel="home" %5$s >
+							%3$s
+						</a>
+					</%1$s>',
+						/**
+						* Filters the tags for site title.
+						*
+						* @since 1.3.1
+						*
+						* @param string $tags string containing the HTML tags for Site Title.
+						*/
+						apply_filters( 'astra_site_title_tag', $tag ),
+						/**
+						* Filters the href for the site title.
+						*
+						* @since 1.4.9
+						*
+						* @param string site title home url
+						*/
+						esc_url( apply_filters( 'astra_site_title_href', home_url( '/' ) ) ),
+						/**
+						* Filters the site title.
+						*
+						* @since 1.4.9
+						*
+						* @param string site title
+						*/
+						apply_filters( 'astra_site_title', get_bloginfo( 'name' ) ),
+						astra_attr(
+							'site-title',
+							array(
+								'class' => 'site-title',
+							)
+						),
+						astra_attr(
+							'site-title-link',
+							array()
+						)
 					)
-				),
-				astra_attr(
-					'site-title-link',
-					array()
-				)
-			)
-		);
+				);
+			}
+		}
 
 		// Site Description.
 		/**
@@ -327,22 +334,16 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 				apply_filters( 'astra_site_description', get_bloginfo( 'description' ) )
 			)
 		);
-
 		if ( $display_site_title || $display_site_tagline ) {
 			/* translators: 1: Site Title Markup, 2: Site Tagline Markup */
-			$site_title_setting = astra_get_option( 'display-site-title-responsive' );
-			foreach($site_title_setting  as $specific_device => $val) {
-				if( (1 === $val || true === $val ) && ($device === $specific_device) ){
 					$html .= sprintf(
-					'<div class="ast-site-title-wrap">
+						'<div class="ast-site-title-wrap">
 							%1$s
 							%2$s
 					</div>',
-					( $display_site_title ) ? $site_title_markup : '',
-					( $display_site_tagline ) ? $site_tagline_markup : ''
+						( $display_site_title ) ? $site_title_markup : '',
+						( $display_site_tagline ) ? $site_tagline_markup : ''
 					);
-				}
-			}
 		}
 	}
 	return $html;

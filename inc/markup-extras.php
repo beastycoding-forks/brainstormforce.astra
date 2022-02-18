@@ -256,7 +256,7 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 		$site_title_markup  = '';
 		$site_title_setting = astra_get_option( 'display-site-title-responsive' );
 		foreach ( $site_title_setting  as $specific_device => $val ) {
-			if ( ( 1 === $val || true === $val ) && ( $device === $specific_device ) ) {
+			if ( is_customize_preview() || ( 1 === $val || true === $val ) && ( $device === $specific_device ) ) {
 				$site_title_markup = apply_filters(
 					'astra_site_title_output',
 					sprintf(

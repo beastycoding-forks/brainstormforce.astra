@@ -3109,9 +3109,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Hence this is added to dynamic CSS which will be applied only if this filter `astra_submenu_below_header_fix` is enabled.
 				// @see https://github.com/brainstormforce/astra/pull/828
 				$submenu_below_header = array(
-					'.ast-safari-browser-less-than-11 .main-header-menu .menu-item, .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items' => array(
-						'display' => 'block',
-					),
+					// '.ast-safari-browser-less-than-11 .main-header-menu .menu-item, .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items' => array(
+					// 	'display' => 'block',
+					// ),
 					'.main-header-menu .menu-item, #astra-footer-menu .menu-item, .main-header-bar .ast-masthead-custom-menu-items' => array(
 						'-js-display'             => 'flex',
 						'display'                 => '-webkit-box',
@@ -3162,6 +3162,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// If submenu below header fix is not to be loaded then add removed flex properties from class `ast-flex`.
 				// Also restore the padding to class `main-header-bar`.
 				$submenu_below_header = array(
+
+					'.ast-safari-browser-less-than-11 .main-header-menu .menu-item, .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items' => array(
+						'display' => 'block',
+					),
 					// CSS to open submenu just below menu.
 					'.header-main-layout-1 .ast-flex.main-header-container, .header-main-layout-3 .ast-flex.main-header-container' => array(
 						'-webkit-align-content' => 'center',

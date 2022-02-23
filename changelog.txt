@@ -16,6 +16,7 @@ v3.7.8(Unreleased)
 - Fix: Fixed Astra meta settings are not getting saved for the Classic editor.
 - Fix: Gutenberg editor - Block Editor layout showing issue with heading block on page or post.
 - Fix: On Safari browser version less than 11 the submenus are misaligned with old Astra header.
+- Fix: The Menu get disappear on the Android mobile device when you select Header Type is set as Dropdown.
 - Fix: Elementor Popup – Youtube video fullscreen not working when the cart element is added.
 
 v3.7.7

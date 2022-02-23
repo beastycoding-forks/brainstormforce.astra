@@ -429,7 +429,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	} );
 
-	var mobile_width = window.innerWidth;
+	var mobile_width = window.visualViewport.width;
 	function AstraHandleResizeEvent() {
 
 		var menu_offcanvas_close 	= document.getElementById('menu-toggle-close');
@@ -441,7 +441,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 			desktop_header_content.style.display = 'none';
 		}
 
-		if ( window.innerWidth !== mobile_width ) {
+		if ( window.visualViewport.width !== mobile_width ) {
 			if ( menu_dropdown_close && null === elementor_editor ) {
 				menu_dropdown_close.click();
 			}

@@ -3160,9 +3160,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				// Also restore the padding to class `main-header-bar`.
 				$submenu_below_header = array(
 					// CSS to open submenu just below menu.
-					'.ast-safari-browser-less-than-11 .main-header-menu .menu-item, .ast-safari-browser-less-than-11 .main-header-bar .ast-masthead-custom-menu-items' => array(
-						'display' => 'block',
-					),
 					'.header-main-layout-1 .ast-flex.main-header-container, .header-main-layout-3 .ast-flex.main-header-container' => array(
 						'-webkit-align-content' => 'center',
 						'-ms-flex-line-pack'    => 'center',

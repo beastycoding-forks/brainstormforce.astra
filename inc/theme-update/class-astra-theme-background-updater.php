@@ -118,6 +118,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_improve_gutenberg_editor_ui',
 			),
 			'3.8.0' => array(
+				'astra_set_default_breadcrumb_separator_option',
 				'astra_fullwidth_layouts_apply_content_background',
 			),
 		);

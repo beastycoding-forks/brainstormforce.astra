@@ -80,6 +80,21 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			 * Option: Cart product count badge.
+			 */
+			array(
+				'name'      => ASTRA_THEME_SETTINGS . '[woo-header-cart-badge-display]',
+				'default'   => astra_get_option( 'woo-header-cart-badge-display' ),
+				'type'      => 'control',
+				'section'   => $_section,
+				'title'     => __( 'Display Cart Total', 'astra' ),
+				'priority'  => 55,
+				'transport' => 'postMessage',
+				'control'   => 'ast-toggle-control',
+				'context'   => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
 			 * Option: Cart icon click action.
 			 */
 			array(
@@ -346,6 +361,31 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'priority' => 5,
 					'title'    => __( 'WooCommerce Cart', 'astra' ),
 					'panel'    => 'panel-header-builder-group',
+				),
+
+				/**
+				* Option: Cart Icon Size
+				*/
+				array(
+					'name'              => ASTRA_THEME_SETTINGS . '[header-woo-cart-icon-size]',
+					'section'           => $_section,
+					'transport'         => 'postMessage',
+					'default'           => astra_get_option( 'header-woo-cart-icon-size' ),
+					'title'             => __( 'Icon Size', 'astra' ),
+					'type'              => 'control',
+					'suffix'            => 'px',
+					'control'           => 'ast-responsive-slider',
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
+					'priority'          => 48,
+					'input_attrs'       => array(
+						'min'  => 0,
+						'step' => 1,
+						'max'  => 100,
+					),
+					'context'           => array(
+						Astra_Builder_Helper::$design_tab_config,
+					),
 				),
 
 				/**

@@ -1061,8 +1061,12 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'1200'
 				);
 
+				// Checks if value is set and adds the condition accordingly.
+				$astra_condition_margin_flag = astra_get_option( 'apply-woo-product-single-margin', false );
+				$astra_condition_margin      = $astra_condition_margin_flag ? is_singular() : ( is_singular() && ( class_exists( 'woocommerce' ) && ! is_product() ) );
+				
 				// Remove margin top when Primary Header is not set and No Sidebar is added in Full-Width / Contained Layout.
-				if ( is_singular() ) {
+				if ( apply_filters( 'astra_content_margin_condition', $astra_condition_margin ) ) {
 					$display_header = get_post_meta( get_the_ID(), 'ast-main-header-display', true );
 					if ( 'disabled' === $display_header && apply_filters( 'astra_content_margin_full_width_contained', true ) || ( Astra_Ext_Transparent_Header_Markup::is_transparent_header() ) || ( self::gutenberg_core_blocks_css_comp() ) ) {
 						$gtn_margin_top = array(
@@ -2228,8 +2232,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			}
 
+			$astra_spearate_container_selector = 'body, .ast-separate-container';
+			if ( astra_has_gcp_typo_preset_compatibility() && true === astra_apply_content_background_fullwidth_layouts() ) {
+				$astra_spearate_container_selector = '.ast-separate-container';
+			}
+
 			$separate_container_css = array(
-				'body, .ast-separate-container' => astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ),
+				$astra_spearate_container_selector => astra_get_responsive_background_obj( $box_bg_obj, 'desktop' ),
 			);
 			$parse_css             .= astra_parse_css( $separate_container_css );
 
@@ -3231,6 +3240,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'text-align'              => 'center',
 						'-webkit-font-smoothing'  => 'antialiased',
 						'-moz-osx-font-smoothing' => 'grayscale',
+						'z-index'                 => '3',
 					),
 					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
 						'content'                 => '"\e900"',

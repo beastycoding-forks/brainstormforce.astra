@@ -16,6 +16,7 @@ const RadioImageComponent = props => {
 		label,
 		description,
 		id,
+		alt_layout,
 		choices,
 		inputAttrs,
 		choices_titles,
@@ -27,6 +28,10 @@ const RadioImageComponent = props => {
 		htmlDescription = null,
 		htmlRadio,
 		inp_array = [];
+
+	
+	// Adds class to enable four column layout.
+	const hasUnicode =  alt_layout ? 'ast-divide-four' : '';
 
 	if (label) {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
@@ -75,7 +80,7 @@ const RadioImageComponent = props => {
 			{htmlLabel}
 			{htmlDescription}
 		</label>
-		<div id={`input_${id}`} className="image">
+		<div id={`input_${id}`} className={`image ${ hasUnicode }`}>
 			{htmlRadio}
 		</div>
 	</Fragment>;

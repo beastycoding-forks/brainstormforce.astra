@@ -53,7 +53,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 						'max'     => 100,
 						'divider' => array( 'ast_class' => 'ast-bottom-divider' ),
 					),
-					'context'   => array(
+					'context'     => array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-structure]',
 							'operator' => 'contains',
@@ -62,6 +62,30 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					),
 					
 				),
+
+				/**
+				* Option: Single page variation tab layout.
+				*/
+
+				array(
+					'name'       => ASTRA_THEME_SETTINGS . '[single-product-variation-tabs-layout]',
+					'default'    => astra_get_option( 'single-product-variation-tabs-layout' ),
+					'type'       => 'control',
+					'section'    => 'section-woo-shop-single',
+					'title'      => __( 'Product Variation Layout', 'astra-addon' ),
+					'context'    => array(
+						Astra_Builder_Helper::$general_tab_config,
+					),
+					'control'    => 'ast-selector',
+					'priority'   => 25,
+					'choices'    => array(
+						'horizontal' => __( 'Horizontal', 'astra-addon' ),
+						'vertical'   => __( 'Vertical', 'astra-addon' ),
+					),
+					'renderAs'   => 'text',
+					'responsive' => false,
+				),
+
 				/**
 				* Option: Disable Breadcrumb
 				*/
@@ -95,6 +119,40 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 					'priority' => 26,
 					'control'  => 'ast-toggle-control',
 					'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
+				),
+
+				/**
+				 * Option: Enable free shipping
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-enable-shipping]',
+					'default'  => astra_get_option( 'single-product-enable-shipping' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-single',
+					'title'    => __( 'Enable Shipping Text', 'astra' ),
+					'control'  => 'ast-toggle-control',
+					'priority' => 16,
+				),
+
+				/**
+				 * Option: Free shipping text
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[single-product-shipping-text]',
+					'default'  => astra_get_option( 'single-product-shipping-text' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-single',
+					'title'    => __( 'Shipping Text', 'astra' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-enable-shipping]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+					'control'  => 'text',
+					'priority' => 16,
 				),
 			);
 

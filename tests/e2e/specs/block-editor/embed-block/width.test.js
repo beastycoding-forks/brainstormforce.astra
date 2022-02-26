@@ -13,7 +13,7 @@ describe( 'Embed in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-embed',
 			property: 'width',
-		} ).cssValueToBe( `1200px` );
+		} ).cssValueToBe( `1399px` );
 
 		//full width for Embeds block
 		await clickBlockToolbarButton( 'Align' );

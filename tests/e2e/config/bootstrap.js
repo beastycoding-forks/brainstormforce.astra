@@ -13,7 +13,7 @@ import {
 	isOfflineMode,
 	setBrowserViewport,
 	trashAllPosts,
-	//deactivatePlugin,
+	deactivatePlugin,
 } from '@wordpress/e2e-test-utils';
 
 import './expect-extensions';
@@ -219,7 +219,7 @@ beforeAll( async () => {
 	enablePageDialogAccept();
 	observeConsoleLogging();
 	await setupBrowser();
-	//await deactivatePlugin( 'gutenberg' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
+	await deactivatePlugin( 'gutenberg' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
 	await trashAllPosts();
 	await trashAllPosts( 'page' );
 	await siteReset();

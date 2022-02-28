@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../../utils/customize';
-import { scrollToElement } from '../../../../../utils/scroll-to-element';
-import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
+import { setCustomize } from '../../../../utils/customize';
+import { scrollToElement } from '../../../../utils/scroll-to-element';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'html2 block settings in the customizer', () => {
 	it( 'footer html2 link color for desktop should apply correctly', async () => {
 		const html2LinkColor = {

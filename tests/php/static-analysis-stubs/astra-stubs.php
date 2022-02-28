@@ -5067,7 +5067,7 @@ namespace {
         public function content_layout($layout)
         {
         }
-        /** 
+        /**
          * LearnDash Static CSS.
          *
          * @since 3.3.0
@@ -6937,7 +6937,7 @@ namespace {
         public function __construct()
         {
         }
-        /** 
+        /**
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6947,7 +6947,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /** 
+        /**
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6957,7 +6957,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6967,7 +6967,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6977,7 +6977,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -6987,7 +6987,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -6997,7 +6997,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -7006,7 +7006,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /** 
+        /**
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -7051,16 +7051,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /** 
+        /**
          * Comment form grid classes.
          *
-         * @since 3.3.0 
+         * @since 3.3.0
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /** 
+        /**
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -7069,7 +7069,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /** 
+        /**
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -7077,7 +7077,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /** 
+        /**
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -7085,7 +7085,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /** 
+        /**
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -7093,7 +7093,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /** 
+        /**
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -7101,7 +7101,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /** 
+        /**
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -7109,7 +7109,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /** 
+        /**
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -7119,7 +7119,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7129,7 +7129,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7159,7 +7159,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7640,7 +7640,7 @@ namespace {
         /**
          * Sanitize checkbox
          *
-         * @param  number $input setting input.
+         * @param  mixed $input setting input.
          * @return number        setting input value.
          */
         public static function sanitize_checkbox($input)
@@ -9840,7 +9840,7 @@ namespace {
          * @var array Notices.
          * @since 1.0.0
          */
-        private static $version = '1.1.8';
+        private static $version = '1.1.9';
         /**
          * Notices
          *
@@ -10895,64 +10895,6 @@ namespace {
          * @since 3.7.4
          */
         public function register_meta_settings()
-        {
-        }
-    }
-    /*!
-     * ISC License
-     * 
-     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
-     *
-     * Permission to use, copy, modify, and/or distribute this software for any
-     * purpose with or without fee is hereby granted, provided that the above
-     * copyright notice and this permission notice appear in all copies.
-     *
-     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
-     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-     * PERFORMANCE OF THIS SOFTWARE.
-     */
-    class FlattedString
-    {
-        public function __construct($value)
-        {
-        }
-    }
-    class Flatted
-    {
-        // public utilities
-        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
-        {
-        }
-        public static function stringify($value, $options = 0, $depth = 512)
-        {
-        }
-        // private helpers
-        private static function asString($value)
-        {
-        }
-        private static function index(&$known, &$input, &$value)
-        {
-        }
-        private static function keys(&$value)
-        {
-        }
-        private static function loop($obj, $keys, &$input, &$set, &$output)
-        {
-        }
-        private static function relate(&$known, &$input, &$value)
-        {
-        }
-        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
-        {
-        }
-        private static function transform(&$known, &$input, &$value)
-        {
-        }
-        private static function wrap($value)
         {
         }
     }
@@ -12186,6 +12128,18 @@ namespace {
 }
 namespace {
     /**
+     * Define Constants
+     */
+    \define('ASTRA_THEME_VERSION', '3.7.7');
+    \define('ASTRA_THEME_SETTINGS', 'astra-settings');
+    \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
+    \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
+    /**
+     * Minimum Version requirement of the Astra Pro addon.
+     * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
+     */
+    \define('ASTRA_EXT_MIN_VER', '3.6.3');
+    /**
      * Astra Get Breadcrumb
      *
      * Gets the basic Breadcrumb wrapper div & content
@@ -12234,6 +12188,8 @@ namespace {
     function astra_get_breadcrumb_trail($echo = \true)
     {
     }
+    \define('ASTRA_THEME_BREADCRUMBS_DIR', \ASTRA_THEME_DIR . 'inc/addons/breadcrumbs/');
+    \define('ASTRA_THEME_BREADCRUMBS_URI', \ASTRA_THEME_URI . 'inc/addons/breadcrumbs/');
     /**
      * Dynamic CSS
      *
@@ -12246,6 +12202,8 @@ namespace {
     function astra_breadcrumb_section_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_THEME_HEADING_COLORS_DIR', \ASTRA_THEME_DIR . 'inc/addons/heading-colors/');
+    \define('ASTRA_THEME_HEADING_COLORS_URI', \ASTRA_THEME_URI . 'inc/addons/heading-colors/');
     /**
      * Dynamic CSS
      *
@@ -12258,6 +12216,8 @@ namespace {
     function astra_heading_colors_section_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_THEME_TRANSPARENT_HEADER_DIR', \ASTRA_THEME_DIR . 'inc/addons/transparent-header/');
+    \define('ASTRA_THEME_TRANSPARENT_HEADER_URI', \ASTRA_THEME_URI . 'inc/addons/transparent-header/');
     /**
      * Dynamic CSS
      *
@@ -12538,6 +12498,8 @@ namespace {
     function astra_builder()
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_ABOVE_FOOTER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/above-footer');
+    \define('ASTRA_BUILDER_FOOTER_ABOVE_FOOTER_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/above-footer');
     /**
      * Dynamic CSS
      *
@@ -12550,6 +12512,8 @@ namespace {
     function astra_fb_above_footer_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_BELOW_FOOTER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/below-footer');
+    \define('ASTRA_BUILDER_FOOTER_BELOW_FOOTER_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/below-footer');
     /**
      * Dynamic CSS
      *
@@ -12562,6 +12526,8 @@ namespace {
     function astra_fb_below_footer_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_FOOTER_BUTTON_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/button');
+    \define('ASTRA_FOOTER_BUTTON_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/button');
     /**
      * Dynamic CSS
      *
@@ -12574,6 +12540,8 @@ namespace {
     function astra_fb_button_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_COPYRIGHT_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/copyright');
+    \define('ASTRA_BUILDER_FOOTER_COPYRIGHT_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/copyright');
     /**
      * Dynamic CSS
      *
@@ -12586,6 +12554,8 @@ namespace {
     function astra_fb_copyright_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_HTML_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/html');
+    \define('ASTRA_BUILDER_FOOTER_HTML_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/html');
     /**
      * Dynamic CSS
      *
@@ -12598,6 +12568,8 @@ namespace {
     function astra_fb_html_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_MENU_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/menu');
+    \define('ASTRA_BUILDER_FOOTER_MENU_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/menu');
     /**
      * Dynamic CSS
      *
@@ -12619,6 +12591,8 @@ namespace {
     function astra_footer_menu_static_css()
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_PRIMARY_FOOTER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/primary-footer');
+    \define('ASTRA_BUILDER_FOOTER_PRIMARY_FOOTER_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/primary-footer');
     /**
      * Dynamic CSS
      *
@@ -12643,6 +12617,8 @@ namespace {
     function astra_fb_primary_footer_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/social-icon');
+    \define('ASTRA_BUILDER_FOOTER_SOCIAL_ICONS_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/social-icon');
     /**
      * Dynamic CSS
      *
@@ -12655,6 +12631,8 @@ namespace {
     function astra_fb_social_icon_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_FOOTER_WIDGET_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/footer/widget');
+    \define('ASTRA_BUILDER_FOOTER_WIDGET_URI', \ASTRA_THEME_URI . 'inc/builder/type/footer/widget');
     /**
      * Whether to fix the footer right-margin space not working case or not.
      *
@@ -12678,6 +12656,8 @@ namespace {
     function astra_fb_widget_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_ABOVE_HEADER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/above-header');
+    \define('ASTRA_ABOVE_HEADER_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/above-header');
     /**
      * Above Header Row - Dynamic CSS
      *
@@ -12690,6 +12670,8 @@ namespace {
     function astra_above_header_row_setting($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_ACCOUNT_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/account');
+    \define('ASTRA_HEADER_ACCOUNT_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/account');
     /**
      * Dynamic CSS
      *
@@ -12702,6 +12684,8 @@ namespace {
     function astra_hb_account_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BELOW_HEADER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/below-header');
+    \define('ASTRA_BELOW_HEADER_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/below-header');
     /**
      * Below Header Row - Dynamic CSS
      *
@@ -12714,6 +12698,8 @@ namespace {
     function astra_below_header_row_setting($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_BUTTON_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/button');
+    \define('ASTRA_HEADER_BUTTON_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/button');
     /**
      * Dynamic CSS
      *
@@ -12726,6 +12712,8 @@ namespace {
     function astra_hb_button_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_EDD_CART_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/edd-cart');
+    \define('ASTRA_HEADER_EDD_CART_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/edd-cart');
     /**
      * Dynamic CSS
      *
@@ -12738,6 +12726,8 @@ namespace {
     function astra_hb_edd_cart_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_HTML_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/html');
+    \define('ASTRA_HEADER_HTML_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/html');
     /**
      * Dynamic CSS
      *
@@ -12750,6 +12740,8 @@ namespace {
     function astra_hb_html_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_MENU_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/menu');
+    \define('ASTRA_HEADER_MENU_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/menu');
     /**
      * Dynamic CSS
      *
@@ -12764,13 +12756,15 @@ namespace {
     }
     /**
      * Load Menu hover style static CSS if any one of the menu hover style is selected.
-     * 
+     *
      * @return string
      * @since 3.5.0
      */
     function astra_menu_hover_style_css()
     {
     }
+    \define('ASTRA_BUILDER_MOBILE_MENU_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/mobile-menu');
+    \define('ASTRA_BUILDER_MOBILE_MENU_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/mobile-menu');
     /**
      * Dynamic CSS
      *
@@ -12783,6 +12777,8 @@ namespace {
     function astra_hb_mobile_menu_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_MOBILE_TRIGGER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/mobile-trigger');
+    \define('ASTRA_MOBILE_TRIGGER_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/mobile-trigger');
     /**
      * Mobile Trigger - Dynamic CSS
      *
@@ -12795,6 +12791,8 @@ namespace {
     function astra_mobile_trigger_row_setting($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_OFF_CANVAS_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/off-canvas');
+    \define('ASTRA_OFF_CANVAS_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/off-canvas');
     /**
      * Dynamic CSS
      *
@@ -12837,6 +12835,8 @@ namespace {
     function astra_dropdown_type_static_css()
     {
     }
+    \define('ASTRA_PRIMARY_HEADER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/primary-header');
+    \define('ASTRA_PRIMARY_HEADER_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/primary-header');
     /**
      * Dynamic CSS
      *
@@ -12849,6 +12849,8 @@ namespace {
     function astra_primary_header_breakpoint_style($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_SEARCH_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/search');
+    \define('ASTRA_HEADER_SEARCH_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/search');
     /**
      * Dynamic CSS
      *
@@ -12863,13 +12865,15 @@ namespace {
     }
     /**
      * Search Component static CSS.
-     * 
+     *
      * @return string
      * @since 3.5.0
      */
     function astra_search_static_css()
     {
     }
+    \define('ASTRA_HEADER_SITE_IDENTITY_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/site-identity');
+    \define('ASTRA_HEADER_SITE_IDENTITY_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/site-identity');
     /**
      * Dynamic CSS
      *
@@ -12882,6 +12886,8 @@ namespace {
     function astra_hb_site_identity_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_SOCIAL_ICON_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/social-icon');
+    \define('ASTRA_HEADER_SOCIAL_ICON_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/social-icon');
     /**
      * Dynamic CSS
      *
@@ -12894,6 +12900,8 @@ namespace {
     function astra_hb_social_icon_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_BUILDER_HEADER_WIDGET_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/widget');
+    \define('ASTRA_BUILDER_HEADER_WIDGET_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/widget');
     /**
      * Dynamic CSS
      *
@@ -12906,6 +12914,8 @@ namespace {
     function astra_hb_widget_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    \define('ASTRA_HEADER_WOO_CART_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/woo-cart');
+    \define('ASTRA_HEADER_WOO_CART_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/woo-cart');
     /**
      * Dynamic CSS
      *
@@ -14490,7 +14500,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css 
+     * @param string $dynamic_css
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -14561,7 +14571,7 @@ namespace {
      * Return current content layout
      *
      * @since 1.0.0
-     * @return boolean  content layout.
+     * @return mixed content layout.
      */
     function astra_get_content_layout()
     {
@@ -15311,6 +15321,7 @@ namespace {
     function astra_post_navigation_template()
     {
     }
+    \define('ASTRA_RELATED_POSTS_DIR', \ASTRA_THEME_DIR . 'inc/modules/related-posts/');
     /**
      * Related Posts - Dynamic CSS
      *

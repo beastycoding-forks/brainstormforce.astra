@@ -8,7 +8,7 @@ describe( 'Embed in gutenberg editor', () => {
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>
 			document.activeElement.classList.contains( 'components-dropdown-menu__menu-item' ) );
-		await page.click( '[aria-label="Align"] button:nth-child(4)' );
+		await page.click( '[aria-label="Align"] button:nth-child(2)' );
 		await page.waitForSelector( '.wp-block-embed' );
 		await expect( {
 			selector: '.wp-block-embed',
@@ -19,7 +19,7 @@ describe( 'Embed in gutenberg editor', () => {
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>
 			document.activeElement.classList.contains( 'components-dropdown-menu__menu-item' ) );
-		await page.click( '[aria-label="Align"] button:nth-child(5)' );
+		await page.click( '[aria-label="Align"] button:nth-child(3)' );
 		await page.waitForSelector( '.wp-block-embed' );
 		await expect( {
 			selector: '.wp-block-embed',
@@ -30,7 +30,7 @@ describe( 'Embed in gutenberg editor', () => {
 		await clickBlockToolbarButton( 'Align' );
 		await page.waitForFunction( () =>
 			document.activeElement.classList.contains( 'components-dropdown-menu__menu-item' ) );
-		await page.click( '[aria-label="Align"] button:nth-child(5)' );
+		await page.click( '[aria-label="Align"] button:nth-child(1)' );
 		await page.waitForSelector( '.wp-block-embed' );
 		await expect( {
 			selector: '.wp-block-embed',

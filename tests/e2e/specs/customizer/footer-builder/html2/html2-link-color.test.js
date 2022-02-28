@@ -1,16 +1,15 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { setCustomize } from '../../../../utils/customize';
-import { scrollToElement } from '../../../../utils/scroll-to-element';
-import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'Html 2 block settings in the customizer', () => {
+import { setCustomize } from '../../../../../utils/customize';
+import { scrollToElement } from '../../../../../utils/scroll-to-element';
+import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
+describe( 'html2 block settings in the customizer', () => {
 	it( 'footer html2 link color for desktop should apply correctly', async () => {
 		const html2LinkColor = {
 			'footer-html-2': '<a href="https://wpastra.com/">HTML2 link color</a>',
 			'footer-html-2link-color': {
 				desktop: 'rgb(11, 82, 96)',
 				tablet: 'rgb(119, 124, 3)',
-				mobile: 'rgb(82, 27, 3)',
-				
+				mobile: 'rgb(82, 27, 3)',	
 			},
 			'footer-desktop-items': {
 				primary: {

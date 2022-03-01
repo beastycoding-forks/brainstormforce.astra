@@ -56,6 +56,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Register Store Sidebars.
 			add_action( 'widgets_init', array( $this, 'store_widgets_init' ), 15 );
+
+			// Register Dynamic Sidebars.
+			if ( is_customize_preview() ) {
+				add_action( 'wp', array( $this, 'store_widgets_dynamic' ), 15 );
+			} else {
+				add_action( 'widgets_init', array( $this, 'store_widgets_dynamic' ), 15 );
+			}
+
 			// Replace Store Sidebars.
 			add_filter( 'astra_get_sidebar', array( $this, 'replace_store_sidebar' ) );
 			// Store Sidebar Layout.
@@ -559,23 +567,41 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Store widgets init.
+		 * Dynamic Store widgets.
 		 */
-		public function store_widgets_init() {
+		public function store_widgets_dynamic() {
+			$shop_filter_array = array(
+				'name'          => esc_html__( 'WooCommerce Sidebar', 'astra' ),
+				'id'            => 'astra-woo-shop-sidebar',
+				'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'astra' ),
+				'before_widget' => '<div id="%1$s" class="ast-woo-sidebar-widget widget %2$s">',
+				'after_widget'  => '</div>',
+			);
+
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && astra_get_option( 'shop-filter-accordion' ) ) {
+				$shop_filter_array['before_title']   = '<h3 class="widget-title">';
+				$shop_filter_array['after_title']    = Astra_Builder_UI_Controller::fetch_svg_icon( 'angle-down', false ) . '</h3>';
+				$shop_filter_array['before_sidebar'] = '<div class="ast-accordion-layout ast-filter-wrap">';
+				$shop_filter_array['after_sidebar']  = '</div>';
+			} else {
+				$shop_filter_array['before_title']   = '<h3 class="widget-title">';
+				$shop_filter_array['after_title']    = '</h3>';
+				$shop_filter_array['before_sidebar'] = '<div class="ast-filter-wrap">';
+				$shop_filter_array['after_sidebar']  = '</div>';
+			}
+
 			register_sidebar(
 				apply_filters(
 					'astra_woocommerce_shop_sidebar_init',
-					array(
-						'name'          => esc_html__( 'WooCommerce Sidebar', 'astra' ),
-						'id'            => 'astra-woo-shop-sidebar',
-						'description'   => __( 'This sidebar will be used on Product archive, Cart, Checkout and My Account pages.', 'astra' ),
-						'before_widget' => '<div id="%1$s" class="widget %2$s">',
-						'after_widget'  => '</div>',
-						'before_title'  => '<h2 class="widget-title">',
-						'after_title'   => '</h2>',
-					)
+					$shop_filter_array
 				)
 			);
+		}
+
+		/**
+		 * Store widgets init.
+		 */
+		public function store_widgets_init() {
 			register_sidebar(
 				apply_filters(
 					'astra_woocommerce_single_sidebar_init',
@@ -1770,17 +1796,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 									?>
 								</span>
 							</div> -->
-							
 							<?php
 					
 							$cart_contents_count = 0;
 							if ( null !== WC()->cart ) {
-							$cart_contents_count = WC()->cart->get_cart_contents_count();
+								$cart_contents_count = WC()->cart->get_cart_contents_count();
 							}
 							$icon               = 'default';
 							$cart_count_display = apply_filters( 'astra_header_cart_count', true );
-							$test = ( $icon ) ? ( ( false !== Astra_Icons::is_svg_icons() ) ? Astra_Icons::get_icons( $icon ) : '' ) : '';
-							$cart_icon = sprintf(
+							$test               = ( $icon ) ? ( ( false !== Astra_Icons::is_svg_icons() ) ? Astra_Icons::get_icons( $icon ) : '' ) : '';
+							$cart_icon          = sprintf(
 								'<i class="astra-icon ast-icon-shopping-%1$s %2$s"
 											%3$s
 										>%4$s</i>',
@@ -1795,7 +1820,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 								</div>',
 								( $cart_icon ) ? $cart_icon : '' // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 							);
-					}
+						}
 						do_action( 'astra_woo_header_cart_icons_after' );
 						?>
 			</a>

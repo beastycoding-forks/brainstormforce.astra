@@ -371,18 +371,7 @@ class Astra_Social_Component_Dynamic_CSS {
 				padding-right: 6px;
 			}';
 		} else {
-			$social_static_css .= '.ast-footer-social-wrap .ast-builder-social-element:first-child {
-				margin-left: 0;
-			}  
-			.ast-footer-social-wrap .ast-builder-social-element:last-child {
-				margin-right: 0;
-			}
-			.ast-header-social-wrap .ast-builder-social-element:first-child {
-				margin-left: 0;
-			}  
-			.ast-header-social-wrap .ast-builder-social-element:last-child {
-				margin-right: 0;
-			}
+			$social_static_css .= '
 			.ast-builder-social-element {
 				line-height: 1;
 				color: #3a3a3a;

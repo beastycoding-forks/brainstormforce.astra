@@ -7,8 +7,8 @@ describe( 'setting shop archive width from customizer', () => {
 		const shopColumns = {
 			'shop-grids': {
 				desktop: 3,
-				tablet: 3,
-				mobile: 2,
+				tablet: 2,
+				mobile: 1,
 			},
 		};
 		await setCustomize( shopColumns );
@@ -20,21 +20,19 @@ describe( 'setting shop archive width from customizer', () => {
 		await expect( {
 			selector: '.woocommerce ul.products.columns-3, .woocommerce-page ul.products.columns-3',
 			property: 'grid-template-columns',
-		} ).cssValueToBe(
-			`${ shopColumns[ 'shop-grids' ].desktop }` );
+		} ).cssValueToBe( `${ shopColumns[ 'shop-grids' ].desktop }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.woocommerce ul.products.columns-3, .woocommerce-page ul.products.columns-3',
+			selector: '.woocommerce.tablet-columns-2 ul.products',
 			property: 'grid-template-columns',
-		} ).cssValueToBe(
-			`${ shopColumns[ 'shop-grids' ].tablet }` );
+		} ).cssValueToBe( `${ shopColumns[ 'shop-grids' ].tablet }` );
 
 		await setBrowserViewport( 'small' );
+		await page.waitForSelector( '.woocommerce ul.products, .woocommerce-page ul.products, .woocommerce.mobile-columns-1 ul.products, .woocommerce-page.mobile-columns-1 ul.products' );
 		await expect( {
-			selector: '.woocommerce ul.products.columns-3, .woocommerce-page ul.products.columns-3',
+			selector: '.woocommerce ul.products, .woocommerce-page ul.products, .woocommerce.mobile-columns-1 ul.products, .woocommerce-page.mobile-columns-1 ul.products',
 			property: 'grid-template-columns',
-		} ).cssValueToBe(
-			`${ shopColumns[ 'shop-grids' ].mobile }` );
+		} ).cssValueToBe( `${ shopColumns[ 'shop-grids' ].mobile }` );
 	} );
 } );

@@ -185,8 +185,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 		$site_tagline         = astra_get_option( 'display-site-tagline-responsive' );
 		$display_site_tagline = ( $site_tagline['desktop'] || $site_tagline['tablet'] || $site_tagline['mobile'] ) ? true : false;
 		$site_title           = astra_get_option( 'display-site-title-responsive' );
-		
-		$display_site_title = ( $site_title['desktop'] || $site_title['tablet'] || $site_title['mobile'] ) ? true : false;
+		$display_site_title   = ( $site_title['desktop'] || $site_title['tablet'] || $site_title['mobile'] ) ? true : false;
 
 		$html            = '';
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
@@ -253,11 +252,11 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 		 * @param string the HTML output for Site Title.
 		 */
 		// Site Title.
-		$site_title_markup  = '';
-		$old_header_active  = add_filter( 'astra_is_header_footer_builder_active', '__return_false' );
-		$site_title_setting = astra_get_option( 'display-site-title-responsive' );
+		$site_title_markup     = '';
+		$header_builder_active = Astra_Builder_Helper::$is_header_footer_builder_active;
+		$site_title_setting    = astra_get_option( 'display-site-title-responsive' );
 		foreach ( $site_title_setting  as $specific_device => $val ) {
-			if ( true === $old_header_active || is_customize_preview() || ( 1 === $val || true === $val ) && ( $device === $specific_device ) ) {
+			if ( false === $header_builder_active || is_customize_preview() || ( 1 === $val || true === $val ) && ( $device === $specific_device ) ) {
 				$site_title_markup = apply_filters(
 					'astra_site_title_output',
 					sprintf(

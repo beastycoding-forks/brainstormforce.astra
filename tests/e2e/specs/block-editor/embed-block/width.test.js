@@ -35,6 +35,6 @@ describe( 'Embed in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-embed',
 			property: 'width',
-		} ).cssValueToBe( `1256px` );
+		} ).cssValueToBe( `910px` );
 	} );
 } );

@@ -7,15 +7,14 @@ describe( 'html2 block settings in the customizer', () => {
 		const html2LinkColor = {
 			'footer-html-2': '<a href="https://wpastra.com/">HTML2 link color</a>',
 			'footer-html-2link-color': {
-				desktop: 'rgb(11, 82, 96)',
-				tablet: 'rgb(119, 124, 3)',
-				mobile: 'rgb(82, 27, 3)',
+				desktop: 'rgb(16, 190, 68)',
+				tablet: 'rgb(193, 106, 16)',
+				mobile: 'rgb(174, 12, 171)',
 			},
 			'footer-desktop-items': {
 				primary: {
 					primary_2: {
 						0: 'html-2',
-
 					},
 				},
 			},
@@ -23,36 +22,33 @@ describe( 'html2 block settings in the customizer', () => {
 				primary: {
 					primary_2: {
 						0: 'html-2',
-
 					},
 				},
 			},
 		};
 		await setCustomize( html2LinkColor );
-
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-
-		await page.waitForSelector( '.footer-widget-area[data-section="section-fb-html-2"] .ast-builder-html-element a' );
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#colophon' );
+		await page.waitForSelector( '.footer-widget-area[data-section="section-fb-html-2"] a' );
 		await expect( {
-			selector: '.footer-widget-area[data-section="section-fb-html-2"] .ast-builder-html-element a',
+			selector: '.footer-widget-area[data-section="section-fb-html-2"] a',
 			property: 'color',
 		} ).cssValueToBe( `${ html2LinkColor[ 'footer-html-2link-color' ].desktop }` );
 
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
 		await expect( {
-			selector: '.footer-widget-area[data-section="section-fb-html-2"] .ast-builder-html-element a',
+			selector: '.footer-widget-area[data-section="section-fb-html-2"] a',
 			property: 'color',
 		} ).cssValueToBe( `${ html2LinkColor[ 'footer-html-2link-color' ].tablet }` );
 
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
 		await expect( {
-			selector: '.footer-widget-area[data-section="section-fb-html-2"] .ast-builder-html-element a',
+			selector: '.footer-widget-area[data-section="section-fb-html-2"] a',
 			property: 'color',
 		} ).cssValueToBe( `${ html2LinkColor[ 'footer-html-2link-color' ].mobile }` );
 	} );

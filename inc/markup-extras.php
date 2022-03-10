@@ -254,9 +254,10 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 		 */
 		// Site Title.
 		$site_title_markup  = '';
+		$old_header_active  = add_filter( 'astra_is_header_footer_builder_active', '__return_false' );
 		$site_title_setting = astra_get_option( 'display-site-title-responsive' );
 		foreach ( $site_title_setting  as $specific_device => $val ) {
-			if ( is_customize_preview() || ( 1 === $val || true === $val ) && ( $device === $specific_device ) ) {
+			if ( true === $old_header_active || is_customize_preview() || ( 1 === $val || true === $val ) && ( $device === $specific_device ) ) {
 				$site_title_markup = apply_filters(
 					'astra_site_title_output',
 					sprintf(

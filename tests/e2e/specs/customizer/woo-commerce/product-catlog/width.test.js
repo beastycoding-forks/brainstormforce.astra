@@ -5,7 +5,7 @@ describe( 'setting shop archive width from customizer', () => {
 	it( 'default width for shop archive should apply', async () => {
 		const shopArchiveWidth = {
 			'shop-archive-width': 'custom',
-			'shop-archive-max-width': 500,
+			'shop-archive-max-width': 1240,
 		};
 		await wooCommercePage();
 		await setCustomize( shopArchiveWidth );

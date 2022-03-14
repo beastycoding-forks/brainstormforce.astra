@@ -13,7 +13,7 @@ import {
 	isOfflineMode,
 	setBrowserViewport,
 	trashAllPosts,
-	deactivatePlugin,
+	//deactivatePlugin,
 	activatePlugin
 } from '@wordpress/e2e-test-utils';
 
@@ -220,7 +220,7 @@ beforeAll( async () => {
 	enablePageDialogAccept();
 	observeConsoleLogging();
 	await setupBrowser();
-	await deactivatePlugin( 'gutenberg' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
+	//await deactivatePlugin( 'gutenberg' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
 	await activatePlugin( 'woocommerce' );
 	await trashAllPosts();
 	await trashAllPosts( 'page' );

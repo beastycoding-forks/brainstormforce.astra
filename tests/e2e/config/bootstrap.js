@@ -13,7 +13,6 @@ import {
 	isOfflineMode,
 	setBrowserViewport,
 	trashAllPosts,
-	deactivatePlugin,
 } from '@wordpress/e2e-test-utils';
 
 import './expect-extensions';

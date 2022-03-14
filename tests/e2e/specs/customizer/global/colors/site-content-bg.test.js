@@ -1,7 +1,7 @@
 import { setCustomize } from '../../../../utils/customize';
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'Testing site background and content background color setting under the customizer', () => {
+describe( 'testing site background and content background color setting under the customizer', () => {
 	it( 'site background color should apply correctly', async () => {
 		const sitebgColors = {
 			'site-layout-outside-bg-obj-responsive': {

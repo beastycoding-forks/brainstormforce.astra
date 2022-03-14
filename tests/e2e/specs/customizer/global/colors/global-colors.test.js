@@ -56,7 +56,6 @@ describe( 'Testing global Color setting under the customizer', () => {
 			property: 'background-color',
 		} ).cssValueToBe( `${ themeColor[ 'theme-color' ] }` );
 	} );
-
 	// GitHub action E2E fail case
 	// eslint-disable-next-line jest/no-commented-out-tests
 	// it( 'link hover color should apply correctly', async () => {

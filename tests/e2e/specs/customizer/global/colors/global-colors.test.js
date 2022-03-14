@@ -16,9 +16,9 @@ describe( 'Testing global Color setting under the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'body, h1, .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' );
+		await page.waitForSelector( '.entry-content p' );
 		await expect( {
-			selector: 'body, h1, .entry-title a, .entry-content h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
+			selector: '.entry-content p',
 			property: 'color',
 		} ).cssValueToBe( `${ textAndHeadingColor[ 'text-color' ] }` );
 

@@ -1,5 +1,10 @@
 import { createURL } from '@wordpress/e2e-test-utils/build/create-url';
+import { scrollToElement } from '../utils/scroll-to-element';
 export const wooCommercePage = async () => {
+	await page.goto( createURL( '/wp-admin/plugins.php' ), {
+		waitUntil: 'networkidle0',
+	} );
+	await scrollToElement( '#bulk-action-selector-bottom' );
 	await page.goto( createURL( '/wp-admin' ), {
 		waitUntil: 'networkidle0',
 	} );

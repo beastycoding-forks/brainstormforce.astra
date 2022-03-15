@@ -10,7 +10,7 @@ export const wooCommercePage = async () => {
 	} );
 	await page.waitForSelector( '#toplevel_page_woocommerce' );
 	await page.hover( '#toplevel_page_woocommerce' );
-	await page.click( '#toplevel_page_woocommerce > ul > li:nth-child(8) > a' );
+	await page.click( 'a[href="admin.php?page=wc-status"]' );
 	await page.waitForSelector( '#wpbody-content > div.wrap.woocommerce > nav > a:nth-child(2)' );
 	await page.click( '#wpbody-content > div.wrap.woocommerce > nav > a:nth-child(2)' );
 	await page.click( '#wpbody-content > div.wrap.woocommerce > table > tbody > tr.install_pages > td > input' );

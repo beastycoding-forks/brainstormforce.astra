@@ -14,7 +14,7 @@ import {
 	setBrowserViewport,
 	trashAllPosts,
 	//deactivatePlugin,
-	activatePlugin
+	activatePlugin,
 } from '@wordpress/e2e-test-utils';
 
 import './expect-extensions';

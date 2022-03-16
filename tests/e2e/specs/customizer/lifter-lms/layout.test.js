@@ -6,7 +6,7 @@ describe( 'lifter lms layout setting from customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.hover( '#toplevel_page_lifterlms > a > div.wp-menu-name' );
-		await page.click( '.toplevel_page_lifterlms ul li:nth-child(5)' );
+		await page.click( '.wp-has-submenu .wp-has-current-submenu .wp-menu-open .menu-top .toplevel_page_lifterlms ul li:nth-child(5)' );
 		await page.click( '#wpbody-content > div.wrap.lifterlms.llms-import-export > form > ul > li:nth-child(2) > button' );
 		const lifterLMSLayout = {
 			'site-content-width': 800,

@@ -848,7 +848,7 @@ function astra_add_color_palette_presets() {
 	$astra_color_palette = get_option( 'astra-color-palettes', array() );
 
 	// Check if Presets array is already set or not. If not then set it as array.
-	if ( ! isset( $astra_color_palette['presets'] ) ) {
+	if ( isset( $astra_color_palette['currentPalette'] ) && ! isset( $astra_color_palette['presets'] ) ) {
 		$astra_color_palette['presets'] = astra_get_palette_presets();
 		update_option( 'astra-color-palettes', $astra_color_palette );
 	}
@@ -882,6 +882,23 @@ function astra_fullwidth_layouts_apply_content_background() {
 
 	if ( ! isset( $theme_options['apply-content-background-fullwidth-layouts'] ) ) {
 		$theme_options['apply-content-background-fullwidth-layouts'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+
+
+/**
+ * Sets the default breadcrumb separator selector value if the current user is an exsisting user
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_set_default_breadcrumb_separator_option() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	if ( ! isset( $theme_options['breadcrumb-separator-selector'] ) ) {
+		$theme_options['breadcrumb-separator-selector'] = 'unicode';
 		update_option( 'astra-settings', $theme_options );
 	}
 }

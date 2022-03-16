@@ -118,9 +118,10 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_improve_gutenberg_editor_ui',
 			),
 			'3.8.0' => array(
+				'astra_set_default_breadcrumb_separator_option',
+				'astra_fullwidth_layouts_apply_content_background',
 				'astra_add_color_palette_presets',
 				'astra_update_builders_default_colors',
-				'astra_fullwidth_layouts_apply_content_background',
 			),
 		);
 
@@ -287,6 +288,8 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 			$fallback = false;
 
 			$is_db_version_updated = $this->is_db_version_updated();
+
+			/** @psalm-suppress DocblockTypeContradiction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( ! $is_db_version_updated ) {
 
 				$db_migrated = get_transient( 'astra-theme-db-migrated' );

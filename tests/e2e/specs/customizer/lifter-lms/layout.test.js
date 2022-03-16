@@ -21,4 +21,4 @@ describe( 'lifter lms layout setting from customizer', () => {
 			property: 'max-width',
 		} ).cssValueToBe( `${ lifterLMSLayout[ 'shop-archive-max-width' ] }` );
 	} );
-} ); 
+} );

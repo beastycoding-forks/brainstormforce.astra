@@ -6,10 +6,10 @@ describe( 'lifter lms layout setting from customizer', () => {
 			waitUntil: 'networkidle0',
 		} );
 		await page.click( '#toplevel_page_lifterlms > a > div.wp-menu-name' );
-		await page.click( '#toplevel_page_lifterlms > ul > li:nth-child(5) > a' );
+		await page.click( 'a[href="admin.php?page=llms-import"]' );
 		await page.click( '#wpbody-content > div.wrap.lifterlms.llms-import-export > form > ul > li:nth-child(2) > button' );
 		const lifterLMSLayout = {
-			'lifterlms-content-layout': 'boxed-container',
+			'lifterlms-content-layout': 'content-boxed-container',
 		};
 		await setCustomize( lifterLMSLayout );
 		await page.goto( createURL( '/course/free-course-lead-magnet-template-2' ), {

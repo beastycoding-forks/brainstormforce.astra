@@ -5,10 +5,11 @@ describe( 'lifter lms layout setting from customizer', () => {
 		await page.goto( createURL( '/wp-admin' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.click( '#toplevel_page_lifterlms > a > div.wp-menu-name' );
-		await page.click( 'a[href="admin.php?page=llms-import"]' );
+		await page.hover( '#toplevel_page_lifterlms > a > div.wp-menu-name' );
+		await page.click( '.toplevel_page_lifterlms ul li:nth-child(5)' );
 		await page.click( '#wpbody-content > div.wrap.lifterlms.llms-import-export > form > ul > li:nth-child(2) > button' );
 		const lifterLMSLayout = {
+			'site-content-width': 800,
 			'lifterlms-content-layout': 'content-boxed-container',
 		};
 		await setCustomize( lifterLMSLayout );
@@ -19,6 +20,6 @@ describe( 'lifter lms layout setting from customizer', () => {
 		await expect( {
 			selector: '.ast-container',
 			property: 'max-width',
-		} ).cssValueToBe( `${ lifterLMSLayout[ 'shop-archive-max-width' ] }` );
+		} ).cssValueToBe( `${ lifterLMSLayout[ 'site-content-width' ] + 40 }` + 'px' );
 	} );
 } );

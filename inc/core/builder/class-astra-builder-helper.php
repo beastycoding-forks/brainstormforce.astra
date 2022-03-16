@@ -298,7 +298,7 @@ final class Astra_Builder_Helper {
 	/**
 	 *  Check if migrated to new HFB.
 	 *
-	 * @var int
+	 * @var boolean
 	 */
 	public static $is_header_footer_builder_active;
 

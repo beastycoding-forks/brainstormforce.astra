@@ -661,7 +661,18 @@
 				// Set css variables for Elementor style.
 				innerDoc.documentElement.style.setProperty( '--e-global-color-' + paletteSlugs[ index ].replace(/-/g, ""), paletteItem[1] );
 			}
+		} );
 
+		const allGlobalPalettes = wp.customize.control( 'astra-color-palettes' ).setting.get();
+		const darkStylePrefix = astra.customizer.globalPaletteStylePrefix + 'dark-';
+		Object.entries( allGlobalPalettes.palettes ).map( ( paletteItem, index ) => {
+			Object.entries( paletteItem ).map( ( singlePalette ) => {
+				if ( Array.isArray( singlePalette[1] ) ) {
+					Object.entries( singlePalette[1] ).map( ( singleColor, indexColor ) => {
+						document.documentElement.style.setProperty( darkStylePrefix + index + '-' + indexColor, singleColor[1] );
+					});
+				}
+			});
 		} );
 	}
 
@@ -828,7 +839,6 @@
 				setPaletteVariables,
 				false
 			);
-
 		});
 
 	});

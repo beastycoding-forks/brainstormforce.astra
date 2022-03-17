@@ -733,14 +733,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Remove type from configuration.
 			unset( $config['type'] );
 
-			$ignore_controls = array( 'ast-settings-group', 'ast-sortable', 'ast-radio-image', 'ast-slider', 'ast-responsive-slider' );
+			$ignore_controls = array( 'ast-settings-group', 'ast-sortable', 'ast-radio-image', 'ast-slider', 'ast-responsive-slider', 'ast-color-palette' );
 
 			if ( ! isset( $config['control'] ) ) {
 				return;
 			}
 
 			$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
-
 
 			if ( ! $sanitize_callback ) {
 				$config = $this->sanitize_control( $config );

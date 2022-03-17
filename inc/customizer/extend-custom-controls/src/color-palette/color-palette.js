@@ -47,15 +47,6 @@ const ColorPaletteComponent = (props) => {
 
 		updateState.palettes[updateState.currentPalette][colorIndex] = value;
 		updateValues(updateState);
-
-		// let updateDarkState = {
-		// 	...darkColorPalettes,
-		// };
-
-		// console.error( updateState.currentPalette, colorIndex, value );
-
-		// updateDarkState.palettes[updateState.currentPalette][colorIndex] = value;
-		// updateDarkPalettes( updateDarkState );
 	};
 
 	const updateValues = (stateObj) => {
@@ -77,18 +68,12 @@ const ColorPaletteComponent = (props) => {
 			flag: !paletteControl.setting.get().flag,
 		});
 
-		console.error( stateObj );
-
 		let darkPaletteControl = props.customizer.control(
 			"astra-settings[dark-mode-palette]"
 		);
 		darkPaletteControl.setting.set({
 			...stateObj
 		});
-
-		// var dakrColorPalettes = darkPaletteControl.setting.get();
-
-		// dakrColorPalettes.palettes = globalPalette.palettes;
 	};
 
 	const onPaletteChange = (paletteKey) => {
@@ -186,7 +171,7 @@ const ColorPaletteComponent = (props) => {
 		</>
 	);
 
-	console.error( props.control.setting.get() );
+	const darkStylePrefix = astra.customizer.globalPaletteStylePrefix + 'dark-';
 
 	var darkPaletteOptions = (
 		<>
@@ -202,12 +187,12 @@ const ColorPaletteComponent = (props) => {
 						key={index}
 					>
 						<label onClick={() => onPaletteChange(paletteKey)}>
-							{state.palettes[paletteKey].map((color, index) => {
+							{state.palettes[paletteKey].map((color, singleIndex) => {
 								return (
 									<>
 										<div
 											className="ast-single-color-container"
-											style={{ backgroundColor: color }}
+											style={{ backgroundColor: 'var(' + darkStylePrefix + index + '-' + singleIndex + ')' }}
 											key={index}
 										></div>
 									</>

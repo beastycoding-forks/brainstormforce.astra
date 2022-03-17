@@ -13,6 +13,8 @@ const ColorPaletteComponent = (props) => {
 
 	const [state, setState] = value ? useState(value) : useState(defaultValue);
 
+	const [ darkColorPalettes, updateDarkPalettes ] = useState( defaultValue );
+
 	useEffect(() => {
 		// If settings are changed externally.
 		if (state !== value) {
@@ -54,16 +56,23 @@ const ColorPaletteComponent = (props) => {
 			flag: !props.control.setting.get().flag,
 		});
 
-		let globalPaletteControl = props.customizer.control(
+		let paletteControl = props.customizer.control(
 			"astra-settings[global-color-palette]"
 		);
 
-		var globalPalette = globalPaletteControl.setting.get();
+		var globalPalette = paletteControl.setting.get();
 
 		globalPalette.palette = stateObj.palettes[stateObj.currentPalette];
-		globalPaletteControl.setting.set({
+		paletteControl.setting.set({
 			...globalPalette,
-			flag: !globalPaletteControl.setting.get().flag,
+			flag: !paletteControl.setting.get().flag,
+		});
+
+		let darkPaletteControl = props.customizer.control(
+			"astra-settings[dark-mode-palette]"
+		);
+		darkPaletteControl.setting.set({
+			...stateObj
 		});
 	};
 
@@ -92,6 +101,7 @@ const ColorPaletteComponent = (props) => {
 		if ( state.presets && state.presets[presetKey] ) {
 			state.presets[presetKey].map( ( item, index ) => {
 				handleChangeComplete( index, { hex: item } );
+				toggleClose();
 			} );
 		}
 	};
@@ -128,7 +138,7 @@ const ColorPaletteComponent = (props) => {
 
 	var paletteOptions = (
 		<>
-			{Object.keys(state.palettes).map((paletteKey, index) => {
+			{state.palettes && Object.keys(state.palettes).map((paletteKey, index) => {
 				return (
 					<div
 						className={
@@ -146,6 +156,43 @@ const ColorPaletteComponent = (props) => {
 										<div
 											className="ast-single-color-container"
 											style={{ backgroundColor: color }}
+											key={index}
+										></div>
+									</>
+								);
+							})}
+							<span className="ast-palette-label-wrap">
+								{__("Palette", "astra") + " " + (index + 1)}
+							</span>
+						</label>
+					</div>
+				);
+			})}
+		</>
+	);
+
+	const darkStylePrefix = astra.customizer.globalPaletteStylePrefix + 'dark-';
+
+	var darkPaletteOptions = (
+		<>
+			{state.palettes && Object.keys(state.palettes).map((paletteKey, index) => {
+				return (
+					<div
+						className={
+							"ast-color-palette-wrap " +
+							(paletteKey === state.currentPalette
+								? "active"
+								: "")
+						}
+						key={index}
+					>
+						<label onClick={() => onPaletteChange(paletteKey)}>
+							{state.palettes[paletteKey].map((color, singleIndex) => {
+								return (
+									<>
+										<div
+											className="ast-single-color-container"
+											style={{ backgroundColor: 'var(' + darkStylePrefix + index + '-' + singleIndex + ')' }}
 											key={index}
 										></div>
 									</>
@@ -230,20 +277,25 @@ const ColorPaletteComponent = (props) => {
 	return (
 		<>
 			<label className="customizer-text">{labelHtml}</label>
-			<Tooltip text={ __("Select Preset", "astra") } position="top center">
-				<Dashicon className="ast-palette-preset-trigger" icon='open-folder' onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } } />
-			</Tooltip>
+			{ 'section-colors-background' === props.control.params.section &&
+				<Tooltip text={ __("Select Preset", "astra") } position="top center">
+					<Dashicon className="ast-palette-preset-trigger" icon='open-folder' onClick={ () => { state.isVisible ? toggleClose() : toggleVisible() } } />
+				</Tooltip>
+			}
 			<div className="ast-palette-presets-wrapper">
 				{ state.isVisible &&
 					presetOptions
 				}
 			</div>
-			<div className="ast-palette-selection-wrapper">
-				{state.palettes &&
-					paletteOptions
-				}
-			</div>
-			<div className="ast-color-palette-wrapper">{paletteColors}</div>
+			{ ( 'section-colors-background' === props.control.params.section && state.palettes ) &&
+				<div className="ast-palette-selection-wrapper">{paletteOptions}</div>
+			}
+			{ 'dark-mode-global-section' === props.control.params.section &&
+				<div className="ast-palette-selection-wrapper">{darkPaletteOptions}</div>
+			}
+			{ 'section-colors-background' === props.control.params.section &&
+				<div className="ast-color-palette-wrapper">{paletteColors}</div>
+			}
 		</>
 	);
 };

@@ -886,7 +886,7 @@ function astra_check_update_defaults_colors() {
  * 2. When site layout is Max-width.
  * 3. When site layout is Padded.
  *
- * @since x.x.x
+ * @since 3.7.8
  * @return boolean
  */
 function astra_apply_content_background_fullwidth_layouts() {

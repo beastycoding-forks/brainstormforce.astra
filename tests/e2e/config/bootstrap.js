@@ -219,12 +219,11 @@ beforeAll( async () => {
 	enablePageDialogAccept();
 	observeConsoleLogging();
 	await setupBrowser();
-	//await deactivatePlugin( 'gutenberg' );
-	//await deactivatePlugin( 'woocommerce' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
+	await deactivatePlugin( 'gutenberg' );
+	await deactivatePlugin( 'woocommerce' ); // by default keep the Gutenberg plugin deactive, Activate when needed.
 	await trashAllPosts();
 	await trashAllPosts( 'page' );
 	await siteReset();
-
 	await page.setDefaultNavigationTimeout( 10000 );
 	await page.setDefaultTimeout( 10000 );
 } );

@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo "Adding basic WooCommerce settings..."
 wp option set woocommerce_store_address "Example Address Line 1"
 wp option set woocommerce_store_address_2 "Example Address Line 2"

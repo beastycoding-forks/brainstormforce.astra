@@ -46,7 +46,7 @@
     "lodash": "^4.17.21",
     "minimist": ">=1.2.3",
     "node-sass": "^7.0.1",
-    "postcss-flexibility": "git+https://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
+    "postcss-flexibility": "https://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
     "puppeteer": "^10.4.0",
     "wp-scripts": "0.0.1-security"
   },
@@ -61,10 +61,10 @@
     "lint:js:fix": "npm run format && wp-scripts lint-js tests/ --fix",
     "env:activate-astra": "wp-env run cli wp theme activate astra",
     "env:deactivate-gutenberg": "wp-env run cli wp plugin deactivate gutenberg",
-    "env:start": "wp-env start && npm run env:activate-astra && wp-env run cli ./wp-content/themes/astra/tests/e2e/config/woo-importer.sh",
+    "env:start": "wp-env start && npm run env:activate-astra && wp-env run tests-cli \"bash ./wp-content/themes/astra/tests/e2e/config/woo-importer.sh\"",
     "env:stop": "wp-env stop",
     "env:destroy": "wp-env destroy",
-    "env:up": "npm run env:start && npm run env:clean && wp-env run tests-cli ./wp-content/themes/astra/tests/e2e/config/woo-importer.sh",
+    "env:up": "npm run env:start && npm run env:clean && wp-env run tests-cli \"bash ./wp-content/themes/astra/tests/e2e/config/woo-importer.sh\"",
     "env:reset-site": "wp-env clean all",
     "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8888 '#astra-theme-css-inline-css'",
     "env": "wp-env"

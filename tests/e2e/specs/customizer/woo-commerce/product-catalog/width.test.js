@@ -1,11 +1,9 @@
-import { createURL, activatePlugin, trashAllPosts } from '@wordpress/e2e-test-utils';
+import { createURL, activatePlugin } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { wooProductPages } from '../../../../utils/product-pages';
 describe( 'setting shop archive width from customizer', () => {
 	beforeAll( async () => {
 		await activatePlugin( 'woocommerce' );
-		await trashAllPosts();
-		await trashAllPosts( 'page' );
 		await page.setDefaultNavigationTimeout( 10000 );
 		//await page.setDefaultTimeout( 10000 );
 	} );

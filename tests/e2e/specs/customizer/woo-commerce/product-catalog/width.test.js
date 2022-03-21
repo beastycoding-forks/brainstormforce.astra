@@ -1,4 +1,4 @@
-import { createURL, activatePlugin, createNewPost, publishPost, trashAllPosts } from '@wordpress/e2e-test-utils';
+import { createURL, activatePlugin, trashAllPosts } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { wooProductPages } from '../../../../utils/product-pages';
 describe( 'setting shop archive width from customizer', () => {

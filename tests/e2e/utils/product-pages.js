@@ -1,4 +1,4 @@
-import { createURL, createNewPost, publishPost, insertBlock } from '@wordpress/e2e-test-utils';
+import { createNewPost, publishPost, insertBlock } from '@wordpress/e2e-test-utils';
 //import { scrollToElement } from '../utils/scroll-to-element';
 export const wooProductPages = async () => {
 	// await page.goto( createURL( '/wp-admin/plugins.php' ), {

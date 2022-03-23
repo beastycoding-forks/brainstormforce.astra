@@ -1,13 +1,9 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
-//import { scrollToElement } from '../utils/scroll-to-element';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from './publish-post';
 export const wooProductPages = async () => {
-	// await page.goto( createURL( '/wp-admin/plugins.php' ), {
-	// 	waitUntil: 'networkidle0',
-	// } );
-
 	await createNewPost( {
 		postType: 'page',
-		title: 'Shop',
+		title: 'shop',
 	} );
 	await publishPost();
 
@@ -25,3 +21,4 @@ export const wooProductPages = async () => {
 	//await page.click( '#select2-woocommerce_shop_page_id-container' );
 	await page.click( '#mainform > p > button' );
 };
+

@@ -66,7 +66,6 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			add_action( 'wp', array( $this, 'setup_content_width' ) );
 			if ( 'disable' === get_option( '_astra_fse_support', 'disable' ) ) {
 				add_filter( 'theme_file_path', array( $this, 'fse_support' ), 10, 2 );
-				add_filter( 'get_file_path_from_theme', '__return_empty_string' );
 			}
 		}
 
@@ -190,7 +189,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		}
 
 		public function fse_support( $path, $file ) {
-			if ( 'block-templates/index.html' === $file ) {
+			if ( '/block-templates/index.html' === $file || '/templates/index.html' === $file ) {
 				return false;
 			}
 		}

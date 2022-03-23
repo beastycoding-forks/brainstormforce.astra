@@ -16,14 +16,14 @@ describe( 'Global color palette settings in the customizer', () => {
 		await setCustomize( globalColorPalette );
 		await createNewPost( { postType: 'post', title: 'Global Color Palette ', content: 'TEXT COLOR TEST' } );
 		await publishPost();
-		await page.goto( createURL( 'global-color-palette-test' ), {
+		await page.goto( createURL( 'global-color-palette' ), {
 			waitUntil: 'networkidle0',
 		} );
 
 		// Link color.
-		await page.waitForSelector( '.entry-meta' );
+		await page.waitForSelector( '.entry-meta *' );
 		await expect( {
-			selector: '.entry-meta',
+			selector: '.entry-meta *',
 			property: 'color',
 		} ).cssValueToBe( `${ globalColorPalette[ 'global-color-palette' ].palette[ 0 ] }` );
 

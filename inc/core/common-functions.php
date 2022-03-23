@@ -1151,14 +1151,22 @@ if ( ! function_exists( 'astra_get_pro_url' ) ) :
 		}
 		// Set up our URL if we have a medium.
 		if ( isset( $medium ) ) {
-			$astra_pro_url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $url );
+			$astra_pro_url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $astra_pro_url );
 		}
 		// Set up our URL if we have a campaign.
 		if ( isset( $campaign ) ) {
-			$astra_pro_url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $url );
+			$astra_pro_url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $astra_pro_url );
 		}
 
-		return esc_url( apply_filters( 'astra_get_pro_url', $astra_pro_url, $url ) );
+		$astra_pro_url = esc_url( apply_filters( 'astra_get_pro_url', $astra_pro_url, $url ) );
+		$astra_pro_url = remove_query_arg( 'bsf', $astra_pro_url );
+
+		$ref = get_option( 'astra_partner_url_param', '' );
+		if ( ! empty( $ref ) ) {
+			$astra_pro_url = add_query_arg( 'bsf', sanitize_text_field( $ref ), $astra_pro_url );
+		}
+
+		return $astra_pro_url;
 	}
 
 endif;

@@ -37,6 +37,10 @@ function astra_onload_function() {
 		var titleCheckbox = document.getElementById('site-post-title'),
 			titleBlock = document.querySelector('.editor-post-title__block');
 
+		if( null === titleCheckbox ) {
+			titleCheckbox = document.querySelector('.site-post-title input');
+		}
+
 		titleCheckbox.addEventListener('change',function() {
 
 			if( titleCheckbox.checked ){
@@ -49,6 +53,18 @@ function astra_onload_function() {
 
 	wp.data.subscribe(function () {
 		setTimeout( function () {
+			/**
+			 * In WP-5.9 block editor comes up with color palette showing color-code canvas, but with theme var() CSS its appearing directly as it is. So updated them on wp.data event.
+			 */
+			const customColorPickerButtons = document.querySelectorAll( '.components-color-palette__custom-color' );
+
+			for ( let btnCount = 0; btnCount < customColorPickerButtons.length; btnCount++ ) {
+				const colorCode = customColorPickerButtons[btnCount].innerText;
+				if ( colorCode.indexOf( 'var(--ast-global-color' ) > -1 ) {
+					customColorPickerButtons[btnCount].innerHTML = '<span class="ast-theme-block-color-name">' + astraColors[ colorCode ] + '</span>';
+				}
+			}
+
 			var spacerBlocks = document.querySelectorAll( '.wp-block.wp-block-spacer' );
 
 			for ( var item = 0;  item < spacerBlocks.length; item++ ) {

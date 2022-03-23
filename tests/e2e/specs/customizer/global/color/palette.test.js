@@ -13,9 +13,7 @@ describe( 'Global color palette settings in the customizer', () => {
 				},
 			},
 		};
-
 		await setCustomize( globalColorPalette );
-
 		await createNewPost( { postType: 'post', title: 'Global Color Palette Test', content: 'TEXT COLOR TEST' } );
 		await publishPost();
 		await page.goto( createURL( 'global-color-palette-test' ), {

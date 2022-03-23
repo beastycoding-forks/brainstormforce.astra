@@ -1,7 +1,7 @@
 import { setCustomize } from '../../../../utils/customize';
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 describe( 'Global color palette settings in the customizer', () => {
-	it( 'color should be applied correctly', async () => {
+	it( 'palette color should be applied correctly', async () => {
 		const globalColorPalette = {
 			'global-color-palette': {
 				palette: {
@@ -23,9 +23,9 @@ describe( 'Global color palette settings in the customizer', () => {
 		} );
 
 		// Link color.
-		await page.waitForSelector( '.entry-meta, .entry-meta *' );
+		await page.waitForSelector( '.entry-meta' );
 		await expect( {
-			selector: '.entry-meta, .entry-meta *',
+			selector: '.entry-meta',
 			property: 'color',
 		} ).cssValueToBe( `${ globalColorPalette[ 'global-color-palette' ].palette[ 0 ] }` );
 

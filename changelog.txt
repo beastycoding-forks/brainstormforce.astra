@@ -1,3 +1,6 @@
+v3.7.10
+- Fix: Offcanvas Shopping cart closed automatically on mobile when scrolled.
+
 v3.7.9
 - Fix: Added correct version number for background updater.
 - Fix: Compatibility with WordPress 5.9.2 - Customizer block editor color More Settings getting oval shape around palette.

@@ -131,7 +131,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::external_important_links_section', 11 );
-			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::toggle_fse_support', 11 );
 
 			add_action( 'astra_welcome_page_content', __CLASS__ . '::astra_welcome_page_content' );
 			add_action( 'astra_welcome_page_content', __class__ . '::astra_available_plugins', 30 );
@@ -146,24 +145,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 
 			add_action( 'admin_init', __CLASS__ . '::minimum_addon_version_notice' );
-
-			// Enable/Disable Full Site Editing Support.
-			add_action( 'wp_ajax_astra_fse_support', __CLASS__ . '::enable_disable_fse_support' );
-		}
-
-		/**
-		 * Save All admin settings here
-		 */
-		public static function enable_disable_fse_support() {
-
-			$status = isset( $_POST['status'] ) ? sanitize_text_field( $_POST['status'] ) : false;
-
-			if ( false !== $status ) {
-				update_option( '_astra_fse_support', $status );
-				wp_send_json_success();
-			}
-
-			wp_send_json_error();
 		}
 
 		/**
@@ -502,13 +483,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			// Script.
 			wp_enqueue_script( 'astra-admin-settings' );
-
-			// Script Register
-			wp_register_script( 'astra-options-page', ASTRA_THEME_URI . 'inc/assets/js/toggle-options-page.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
-
-			// Script enqueue.
-			wp_enqueue_script( 'astra-options-page' );
-
 		}
 
 		/**
@@ -674,43 +648,6 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 						<li>
 							<span class="dashicons dashicons-star-filled"></span>
 							<a href="https://wordpress.org/support/theme/astra/reviews/?rate=5#new-post" target="_blank" rel="noopener"> <?php esc_html_e( 'Rate Us ★★★★★', 'astra' ); ?> </a>
-						</li>
-					</ul>
-				</div>
-			</div>
-
-			<?php
-		}
-
-		/**
-		 * External links through Astra Options page.
-		 *
-		 * @since 3.4.0
-		 */
-		public static function toggle_fse_support() {
-			?>
-
-			<div class="postbox">
-				<h2 class="hndle ast-normal-cursor">
-					<span class="dashicons dashicons-layout"></span>
-					<span><?php echo esc_html( apply_filters( 'astra_toggle_fse_support', __( 'Full Site Editing', 'astra' ) ) ); ?></span>
-				</h2>
-				<?php
-					$allow_file_generation = get_option( '_astra_fse_support', 'disable' );
-				?>
-				<div class="inside">
-					<ul class="ast-other-links-list">
-						<li>
-							<?php
-							if ( 'disable' === $allow_file_generation ) {
-								$file_generation_string = __( 'Enable Full Site Editing', 'astra' );
-							} else {
-								$file_generation_string = __( 'Disable Full Site Editing', 'astra' );
-							}
-							?>
-							<button class="button" id="ast-full-site-editing" data-value="<?php echo esc_attr( $allow_file_generation ); ?>">
-							<?php echo esc_html( $file_generation_string ); ?>
-							</button>
 						</li>
 					</ul>
 				</div>

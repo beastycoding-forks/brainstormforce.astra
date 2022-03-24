@@ -64,7 +64,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 2 );
 			add_action( 'wp', array( $this, 'setup_content_width' ) );
-			if ( 'disable' === get_option( '_astra_fse_support', 'disable' ) ) {
+			if ( 'disable' === get_option( '_astra_fse_support', 'disable' ) || ! defined( 'ASTRA_BLOCK_THEME_VER' ) ) {
 				add_filter( 'theme_file_path', array( $this, 'fse_support' ), 10, 2 );
 			}
 		}
@@ -181,8 +181,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 				);
 			}
 
-			if ( 'disable' === get_option( '_astra_fse_support', 'disable' ) ) {
-				// var_dump('FSE Disable');
+			if ( 'disable' === get_option( '_astra_fse_support', 'disable' ) || ! defined( 'ASTRA_BLOCK_THEME_VER' ) ) {
 				// Remove Template Editor support until WP 5.9 since more Theme Blocks are going to be introduced.
 				remove_theme_support( 'block-templates' );
 			}

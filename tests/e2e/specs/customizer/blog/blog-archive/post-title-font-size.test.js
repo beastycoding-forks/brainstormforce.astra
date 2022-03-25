@@ -4,7 +4,7 @@ import { setCustomize } from '../../../../utils/customize';
 import { responsiveFontSize } from '../../../../utils/responsive-utils';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Blog Archive option under the customizer', () => {
-	it( 'blog Archive post font size options should apply correctly', async () => {
+	it( 'blog archive post font size options should apply correctly', async () => {
 		const blogPostTitleFontSize = {
 			'font-size-page-title': {
 				desktop: '60',

@@ -558,7 +558,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				),
 				array(
 					'key'   => 'header-main-stick-meta',
-					'label' => __( 'Disable Primary Header', 'astra' ),
+					'label' => __( 'Stick Primary Header', 'astra' ),
 				),
 				array(
 					'key'   => 'header-below-stick-meta',
@@ -607,7 +607,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 			$meta = self::get_meta_option();
 
 			register_post_meta(
-				'', 
+				'',
 				'site-sidebar-layout',
 				array(
 					'show_in_rest'  => true,
@@ -786,8 +786,8 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 
 		/**
 		 * Setup meta options for Astra meta settings.
-		 * 
-		 * @since x.x.x
+		 *
+		 * @since 3.7.8
 		 */
 		public static function post_meta_options() {
 			self::$meta_option = apply_filters(

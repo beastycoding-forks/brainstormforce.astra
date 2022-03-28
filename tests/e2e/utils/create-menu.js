@@ -1,7 +1,7 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { scrollToElement } from './scroll-to-element';
 import { setBrowserViewport } from '../../e2e/utils/set-browser-viewport';
-
+import { publishPost } from './publish-post';
 export const createNewMenu = async () => {
 	let ppStatus = false;
 	while ( false === ppStatus ) {

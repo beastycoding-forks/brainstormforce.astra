@@ -403,15 +403,31 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	 */
 	function astra_get_search( $option = '', $device = '' ) {
 		ob_start();
+		// Check if the search element present in Offcanvas.
+		$search_element_offcanvas = astra_get_option( 'header-' . $device . '-items', array() );
+		$mobile_flag              = false;
+		if ( isset( $search_element_offcanvas['popup']['popup_content'] ) ) {
+			$mobile_flag = in_array( 'search', $search_element_offcanvas['popup']['popup_content'], true );
+		}
+
 		?>
 		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-			<div class="ast-search-icon">
-			<?php astra_get_search_form(); ?>
-				<a class="slide-search astra-search-icon" aria-label="<?php esc_attr_e( 'Search icon link', 'astra' ); ?>" href="#">
-					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
-					<?php Astra_Icons::get_icons( 'search', true ); ?>
-				</a>
-			</div>
+		<div class="ast-search-icon">
+			<?php
+			if ( ! $mobile_flag ) {
+				astra_get_search_form();
+			}
+			?>
+			<a class="slide-search astra-search-icon" aria-label="<?php esc_attr_e( 'Search icon link', 'astra' ); ?>" href="#">
+				<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
+				<?php Astra_Icons::get_icons( 'search', true ); ?>
+			</a>
+		</div>
+		<?php
+		if ( $mobile_flag ) {
+			astra_get_search_form();
+		}
+		?>
 		</div>
 		<?php
 		$search_html = ob_get_clean();

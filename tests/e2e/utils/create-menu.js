@@ -1,20 +1,23 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { scrollToElement } from './scroll-to-element';
 import { setBrowserViewport } from '../../e2e/utils/set-browser-viewport';
-
+import { publishPost } from './publish-post';
 export const createNewMenu = async () => {
-	await createNewPost( {
-		postType: 'page',
-		title: 'Test Page',
-		content: 'This is simple test page',
-	} );
-	await publishPost();
+	let ppStatus = false;
+	while ( false === ppStatus ) {
+		await createNewPost( {
+			postType: 'page',
+			title: 'Test Page',
+			content: 'This is simple test page',
+		} );
+		ppStatus = await publishPost();
+	}
 	await createNewPost( {
 		postType: 'page',
 		title: 'Sub Test Page',
 		content: 'This is simple sub test page',
 	} );
-	await publishPost();
+	ppStatus = await publishPost();
 	await page.goto( createURL( '/wp-admin/nav-menus.php' ), {
 		waitUntil: 'networkidle0',
 	} );

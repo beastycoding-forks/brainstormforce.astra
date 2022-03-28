@@ -30,7 +30,7 @@ describe( 'Add sub menu for primary menu and add top offset to the sub menu', ()
 		} );
 		await page.hover( '.menu-link' );
 		await expect( {
-			selector: '.sub-menu',
+			selector: '.ast-builder-menu-1 .main-header-menu > .menu-item > .sub-menu',
 			property: 'margin-top',
 		} ).cssValueToBe(
 			`${ submenuTopOffset[ 'header-menu1-submenu-top-offset' ] + 'px' }`,

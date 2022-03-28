@@ -121,6 +121,14 @@
 
 	}
 
+	window.addEventListener('resize', function () {
+		// Close Cart
+		var cart_close = document.querySelector('.astra-cart-drawer-close');
+		if ( undefined !== cart_close && '' !== cart_close && null !== cart_close && 'INPUT' !== document.activeElement.tagName && cart_flyout.classList.contains( 'active' ) ) {
+			cart_close.click();
+		}
+	});
+
 	window.addEventListener('load', function () {
 		cartInit();
 	});

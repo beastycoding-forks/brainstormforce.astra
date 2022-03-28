@@ -4,7 +4,6 @@ import { setCustomize } from '../../../../utils/customize';
 describe( 'Add sub menu for primary menu and add border to the sub menu', () => {
 	it( 'sub menu should be added successfully', async () => {
 		await createNewMenu();
-		//center alignment for desktop, tablet and mobile
 		const headerMenuAlignment = {
 			'header-desktop-items': {
 				primary: {

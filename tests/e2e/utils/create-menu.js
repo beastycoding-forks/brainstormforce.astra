@@ -18,7 +18,6 @@ export const createNewMenu = async () => {
 		content: 'This is simple sub test page',
 	} );
 	ppStatus = await publishPost();
-
 	await page.goto( createURL( '/wp-admin/nav-menus.php' ), {
 		waitUntil: 'networkidle0',
 	} );

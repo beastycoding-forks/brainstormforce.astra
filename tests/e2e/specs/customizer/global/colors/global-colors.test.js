@@ -1,5 +1,6 @@
 import { setCustomize } from '../../../../utils/customize';
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 describe( 'Testing global Color setting under the customizer', () => {
 	it( 'text color should apply correctly', async () => {
 		const textAndHeadingColor = {
@@ -7,24 +8,27 @@ describe( 'Testing global Color setting under the customizer', () => {
 			'heading-base-color': 'rgb(81, 29, 236)',
 		};
 		await setCustomize( textAndHeadingColor );
-		await createNewPost( {
-			postType: 'post',
-			title: 'Global Colors Test',
-			content: 'this is the text color test',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'post',
+				title: 'Global Colors Test',
+				content: 'this is the text color test',
+			} );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.entry-content p' );
+		await page.waitForSelector( 'body' );
 		await expect( {
-			selector: '.entry-content p',
+			selector: 'body',
 			property: 'color',
 		} ).cssValueToBe( `${ textAndHeadingColor[ 'text-color' ] }` );
 
-		await page.waitForSelector( '.entry-title' );
+		await page.waitForSelector( '.entry-title a' );
 		await expect( {
-			selector: '.entry-title',
+			selector: '.entry-title a',
 			property: 'color',
 		} ).cssValueToBe( `${ textAndHeadingColor[ 'heading-base-color' ] }` );
 	} );

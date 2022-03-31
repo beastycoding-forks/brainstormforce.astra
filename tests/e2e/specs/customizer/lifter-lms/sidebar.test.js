@@ -1,9 +1,10 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../utils/customize';
-import { setBrowserViewport } from '../../../utils/set-browser-viewport';
-import { scrollIntoView } from '../../../utils/scroll-to-element';
+import { importCourse } from '../../../utils/import-lms.course';
+//import { clickAndWait } from '../../../utils/click-and-wait';
 describe( 'lifter lms setting from customizer', () => {
 	it( 'sidebar should apply', async () => {
+		await importCourse();
 		await page.goto( createURL( '/wp-admin' ), {
 			waitUntil: 'networkidle0',
 		} );

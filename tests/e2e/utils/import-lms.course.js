@@ -1,6 +1,3 @@
-// Internal dependencies.
-import { clickAndWait } from './click-and-wait';
-
 // External dependencies.
 import { visitAdminPage } from '@wordpress/e2e-test-utils';
 
@@ -36,9 +33,9 @@ export async function importCourse(
 	fileUpload.uploadFile( file );
 	await page.waitForTimeout( 1000 );
 
-	await clickAndWait( '#llms-import-file-submit' );
-
+	await page.click( '#llms-import-file-submit' );
+	await page.waitFor( 2000 );
 	if ( navigate ) {
-		await clickAndWait( '.llms-admin-notice.notice-success a' );
+		await page.click( '.llms-admin-notice.notice-success a' );
 	}
 }

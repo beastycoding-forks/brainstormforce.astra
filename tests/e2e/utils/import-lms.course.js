@@ -16,7 +16,6 @@ import { visitAdminPage } from '@wordpress/e2e-test-utils';
 export async function importCourse(
 	importFile = 'sample-course.json',
 	importPath = '',
-	navigate = true,
 ) {
 	importPath = importPath || `${ process.cwd() }/tests/e2e/assets/`;
 
@@ -34,5 +33,4 @@ export async function importCourse(
 	await page.waitForTimeout( 1000 );
 
 	await page.click( '#llms-import-file-submit' );
-	await page.waitFor( 2000 );
 }

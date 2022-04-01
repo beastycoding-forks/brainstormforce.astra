@@ -197,9 +197,11 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 		/**
 		 * Render site logo.
+		 *
+		 * @param  string $device   Device name.
 		 */
-		public static function site_identity() {
-			Astra_Builder_UI_Controller::render_site_identity();
+		public static function site_identity( $device = 'desktop' ) {
+			Astra_Builder_UI_Controller::render_site_identity( $device );
 		}
 
 		/**
@@ -406,7 +408,9 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		 */
 		public function mobile_cart_flyout() {
 
-			if ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) || Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
+			// Hide cart flyout only if current page is checkout/cart.
+			if ( ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) && class_exists( 'WooCommerce' ) && ! is_cart() && ! is_checkout() ) || Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
+
 				Astra_Builder_UI_Controller::render_mobile_cart_flyout_markup();
 			}
 		}

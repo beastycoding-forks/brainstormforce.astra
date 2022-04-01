@@ -17,7 +17,7 @@ import { visitAdminPage } from '@wordpress/e2e-test-utils';
  * @return {void}
  */
 export async function importCourse(
-	importFile = 'import-error.json',
+	importFile = 'sample-course.json',
 	importPath = '',
 	navigate = true,
 ) {

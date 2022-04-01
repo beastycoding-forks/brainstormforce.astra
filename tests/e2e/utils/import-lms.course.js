@@ -35,7 +35,4 @@ export async function importCourse(
 
 	await page.click( '#llms-import-file-submit' );
 	await page.waitFor( 2000 );
-	if ( navigate ) {
-		await page.click( '.llms-admin-notice.notice-success a' );
-	}
 }

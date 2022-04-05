@@ -1,6 +1,7 @@
 v3.7.10
 - Fix: Offcanvas Shopping cart closed automatically on mobile when scrolled.
 - Fix: Search element not displaying in Mobile Offcanvas.
+- Fix: Multiple nav menu tab navigation accessibility not focusable.
 
 v3.7.9
 - Fix: Added correct version number for background updater.

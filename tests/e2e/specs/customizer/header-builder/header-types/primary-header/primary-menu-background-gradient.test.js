@@ -1,4 +1,5 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../../utils/publish-post';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../../../utils/customize';
 describe( 'Primary menu background gradient color settings in the customizer', () => {
@@ -16,8 +17,11 @@ describe( 'Primary menu background gradient color settings in the customizer', (
 			},
 		};
 		await setCustomize( menuGradient );
-		await createNewPost( { postType: 'page', title: 'test' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -51,8 +55,11 @@ describe( 'Primary menu background gradient color settings in the customizer', (
 			},
 		};
 		await setCustomize( menuGradient );
-		await createNewPost( { postType: 'page', title: 'test' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'test' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

@@ -329,7 +329,9 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		 * Adding the Margin and Padding option.
 		 * $_section: section-header-woo-cart.
 		 */
-		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
+        if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+            $_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
+        }
 
 		$configurations                    = array_merge( $configurations, $_configs );
 		$header_woo_cart_background_colors = 'header-woo-cart-background-colors';

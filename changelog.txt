@@ -1,3 +1,9 @@
+v3.7.10
+- Fix: Offcanvas Shopping cart closed automatically on mobile when scrolled.
+- Fix: Search element not displaying in Mobile Offcanvas.
+- Fix: Elementor Pro - WooCommerce Checkout Form's shipping details not look appropriate in editor mode as it looks on the frontend.
+- Fix: Gutenberg editor - Layout settings is not visble for Group block.
+
 v3.7.9
 - Fix: Added correct version number for background updater.
 - Fix: Compatibility with WordPress 5.9.2 - Customizer block editor color More Settings getting oval shape around palette.

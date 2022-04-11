@@ -1,9 +1,10 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../../utils/publish-post';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'off canvas flyout header type settings in the customizer', () => {
+describe( 'Off canvas flyout header type settings in the customizer', () => {
 	it( 'flyout inner element spacing should apply correctly', async () => {
-		const flyoutPSpacing = {
+		const flyoutSpacing = {
 			'mobile-header-type': 'off-canvas',
 			'off-canvas-inner-spacing': 20,
 			'header-mobile-popup-items': {
@@ -14,26 +15,23 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 				},
 			},
 		};
-		await setCustomize( flyoutPSpacing );
-		await createNewPost( {
-			postType: 'page',
-			title: 'sample-page',
-		} );
-		await publishPost();
-		await createNewPost( {
-			postType: 'page',
-			title: 'test-page',
-		} );
-		await publishPost();
+		await setCustomize( flyoutSpacing );
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'sample-page' } );
+			ppStatus = await publishPost();
+			await createNewPost( { postType: 'page', title: 'test-page' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await setBrowserViewport( 'medium' );
 		await page.click( '.main-header-menu-toggle' );
-		await page.waitForSelector( '.ast-mobile-header-content' );
+		await page.waitForSelector( '.ast-mobile-popup-content > *' );
 		await expect( {
-			selector: '.ast-mobile-header-content',
+			selector: '.ast-mobile-popup-content > *',
 			property: 'padding-bottom',
-		} ).cssValueToBe( `${ flyoutPSpacing[ 'off-canvas-inner-spacing' ] }` );
+		} ).cssValueToBe( `${ flyoutSpacing[ 'off-canvas-inner-spacing' ] }` );
 	} );
 } );

@@ -119,5 +119,5 @@ describe( 'Global typography preset-2 style in the customizer', () => {
 			property: 'line-height',
 		} ).cssValueToBe( `${ globalTypographyPreset[ 'headings-line-height' ] }`,
 		);
-	} )
+	} );
 } );

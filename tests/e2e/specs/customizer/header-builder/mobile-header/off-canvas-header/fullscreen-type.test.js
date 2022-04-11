@@ -77,7 +77,7 @@ describe( 'Off canvas header type and content alignment settings in the customiz
 		while ( false === ppStatus ) {
 			await createNewPost( {
 				postType: 'page',
-				title: 'align-right'
+				title: 'align-right',
 			} );
 			ppStatus = await publishPost();
 		}

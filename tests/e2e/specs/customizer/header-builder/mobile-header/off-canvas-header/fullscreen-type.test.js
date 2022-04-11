@@ -1,18 +1,22 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
+import { publishPost } from '../../../../../utils/publish-post';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'off canvas header type and content alignment settings in the customizer', () => {
+describe( 'Off canvas header type and content alignment settings in the customizer', () => {
 	it( 'off canvas header general setting should apply correctly', async () => {
 		const offCanvasGeneralSetting = {
 			'mobile-header-type': 'full-width',
 			'header-offcanvas-content-alignment': 'flex-start',
 		};
 		await setCustomize( offCanvasGeneralSetting );
-		await createNewPost( {
-			postType: 'page',
-			title: 'align-left',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'align-left',
+			} );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -37,11 +41,14 @@ describe( 'off canvas header type and content alignment settings in the customiz
 			'header-offcanvas-content-alignment': 'center',
 		};
 		await setCustomize( offCanvasGeneralSetting );
-		await createNewPost( {
-			postType: 'page',
-			title: 'align-center',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'align-center',
+			} );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -66,11 +73,14 @@ describe( 'off canvas header type and content alignment settings in the customiz
 			'header-offcanvas-content-alignment': 'flex-end',
 		};
 		await setCustomize( offCanvasGeneralSetting );
-		await createNewPost( {
-			postType: 'page',
-			title: 'align-right',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'align-right',
+			} );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

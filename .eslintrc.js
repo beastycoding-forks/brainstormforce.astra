@@ -6,7 +6,7 @@ module.exports = {
 	extends: [
 		'plugin:@wordpress/eslint-plugin/recommended-with-formatting',
 		'plugin:import/recommended',
-		'plugin:eslint-comments/recommended'
+		'plugin:eslint-comments/recommended',
 	],
 	root: true,
 	env: {
@@ -25,19 +25,20 @@ module.exports = {
 			],
 			extends: [
 				'plugin:@wordpress/eslint-plugin/test-e2e',
-				'plugin:jest/all'
+				'plugin:jest/all',
 			],
 			rules: {
-				"jest/prefer-lowercase-title": [
-					"error",
+				'jest/prefer-lowercase-title': [
+					'error',
 					{
-					  "ignore": [ "describe" ]
-					}
+						ignore: [ 'describe' ],
+					},
 				],
-				"jest/no-hooks": "off",
-				"jest/prefer-expect-assertions": "off",
-				"jest/prefer-inline-snapshots": "off"
-			}
-		}
-	]
+				'jest/no-hooks': 'off',
+				'jest/prefer-expect-assertions': 'off',
+				'jest/prefer-inline-snapshots': 'off',
+				'jsdoc/valid-types': 'off',
+			},
+		},
+	],
 };

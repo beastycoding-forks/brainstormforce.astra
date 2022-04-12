@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { scrollToElement } from '../../../../utils/scroll-to-element';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-describe( 'html2 block settings in the customizer', () => {
+describe( 'Footer html2 block settings in the customizer', () => {
 	it( 'footer html2 link color for desktop should apply correctly', async () => {
 		const html2LinkColor = {
 			'footer-html-2': '<a href="https://wpastra.com/">HTML2 link color</a>',

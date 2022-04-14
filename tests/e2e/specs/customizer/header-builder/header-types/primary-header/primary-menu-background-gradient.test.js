@@ -3,7 +3,7 @@ import { publishPost } from '../../../../../utils/publish-post';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 import { setCustomize } from '../../../../../utils/customize';
 describe( 'Primary menu background gradient color settings in the customizer', () => {
-	it( 'background gradient color should apply corectly', async () => {
+	it( 'background gradient color should apply correctly', async () => {
 		const menuGradient = {
 			'header-menu1-bg-obj-responsive': {
 				desktop: {
@@ -33,7 +33,7 @@ describe( 'Primary menu background gradient color settings in the customizer', (
 			`${ menuGradient[ 'header-menu1-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
 		);
 	} );
-	it( 'background gradient color for mobile and tablet should apply corectly', async () => {
+	it( 'background gradient color for mobile and tablet should apply correctly', async () => {
 		const menuGradient = {
 			'header-mobile-menu-bg-obj-responsive': {
 				tablet: {

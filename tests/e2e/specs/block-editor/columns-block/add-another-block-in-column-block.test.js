@@ -1,5 +1,5 @@
 import { createNewPost, insertBlock, clickBlockToolbarButton } from '@wordpress/e2e-test-utils';
-describe( 'columns in gutenberg editor', () => {
+describe( 'Column block in gutenberg editor', () => {
 	it( 'add other blocks in column block and assert width', async () => {
 		await createNewPost( { postType: 'post', title: 'test columns' } );
 		await page.click( '[aria-label="Settings"]' );

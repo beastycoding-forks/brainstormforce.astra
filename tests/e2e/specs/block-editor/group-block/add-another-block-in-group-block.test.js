@@ -1,5 +1,5 @@
 import { searchForBlock, createNewPost, clickBlockToolbarButton } from '@wordpress/e2e-test-utils';
-describe( 'group in gutenberg editor', () => {
+describe( 'Grounp block in gutenberg editor', () => {
 	it( 'add other blocks in group block and assert width', async () => {
 		await createNewPost( { postType: 'post', title: 'test group' } );
 		await page.click( '[aria-label="Settings"]' );

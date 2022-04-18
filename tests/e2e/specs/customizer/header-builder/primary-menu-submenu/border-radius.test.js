@@ -21,7 +21,7 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 		await expect( true ).toBe( true );
 	} );
 	it( 'border radius to the submenu should be added correctly', async () => {
-		const submenuBorder = {
+		const subMenuBorder = {
 			'header-menu1-submenu-border-radius': 10,
 			'header-menu1-submenu-border': {
 				top: 10,
@@ -30,16 +30,16 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 				right: 10,
 			},
 		};
-		await setCustomize( submenuBorder );
+		await setCustomize( subMenuBorder );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.hover( '.menu-link' );
 		await expect( {
-			selector: '.sub-menu',
+			selector: '.ast-builder-menu-1 .sub-menu',
 			property: 'border-radius',
 		} ).cssValueToBe(
-			`${ submenuBorder[ 'header-menu1-submenu-border-radius' ] + 'px' }`,
+			`${ subMenuBorder[ 'header-menu1-submenu-border-radius' ] + 'px' }`,
 		);
 	} );
 } );

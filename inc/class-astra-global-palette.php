@@ -214,10 +214,12 @@ class Astra_Global_Palette {
 
 			$global_palette = astra_get_option( 'global-color-palette' );
 
-			foreach ( $global_palette['palette'] as $palette_index => $value ) {
+			if ( isset( $global_palette['palette'] ) ) {
+				foreach ( $global_palette['palette'] as $palette_index => $value ) {
 
-				if ( 'var(' . self::get_css_variable_prefix() . $palette_index . ')' === $color ) {
-					return $value;
+					if ( 'var(' . self::get_css_variable_prefix() . $palette_index . ')' === $color ) {
+						return $value;
+					}
 				}
 			}
 		}

@@ -17,6 +17,7 @@ class Astra_Gutenberg {
 	 * Constructor
 	 */
 	public function __construct() {
+
 		add_filter( 'render_block', array( $this, 'restore_group_inner_container' ), 10, 2 );
 	}
 

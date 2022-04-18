@@ -66,7 +66,18 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			add_action( 'wp', array( $this, 'setup_content_width' ) );
 			if ( 'disable' === get_option( '_astra_fse_support', 'disable' ) || ! defined( 'ASTRA_BLOCK_THEME_VER' ) ) {
 				add_filter( 'theme_file_path', array( $this, 'fse_support' ), 10, 2 );
+			} else {
+				add_action( 'wp', array( $this, 'dequeue_theme_assets' ) );
 			}
+		}
+
+		/**
+		 * Dequeue theme assets when FSE is enabled.
+		 *
+		 * @since x.x.x
+		 */
+		public function dequeue_theme_assets() {
+			add_filter( 'astra_enqueue_theme_assets', '__return_false' );
 		}
 
 		/**

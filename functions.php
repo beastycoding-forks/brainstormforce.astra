@@ -61,7 +61,9 @@ require_once ASTRA_THEME_DIR . 'inc/dynamic-css/astra-icons.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/block-editor-compatibility.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-walker-page.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';
-require_once ASTRA_THEME_DIR . 'inc/core/class-gutenberg-editor-css.php';
+if ( 'disable' === get_option( '_astra_fse_support', 'disable' ) || ! defined( 'ASTRA_BLOCK_THEME_VER' ) ) {
+	require_once ASTRA_THEME_DIR . 'inc/core/class-gutenberg-editor-css.php';
+}
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/inline-on-mobile.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/content-background.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-dynamic-css.php';
@@ -134,7 +136,9 @@ require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/class-astra-related-po
 /**
  * Compatibility
  */
-require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-gutenberg.php';
+if ( 'disable' === get_option( '_astra_fse_support', 'disable' ) || ! defined( 'ASTRA_BLOCK_THEME_VER' ) ) {
+	require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-gutenberg.php';
+}
 require_once ASTRA_THEME_DIR . 'inc/compatibility/class-astra-jetpack.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/woocommerce/class-astra-woocommerce.php';
 require_once ASTRA_THEME_DIR . 'inc/compatibility/edd/class-astra-edd.php';

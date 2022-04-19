@@ -5,6 +5,7 @@ describe( 'Transparent header settings in the customizer', () => {
 	it( 'background overlay color setting should apply correctly', async () => {
 		const backgroundOverlay = {
 			'transparent-header-enable': 1,
+			'transparent-header-disable-latest-posts-index': 1,
 			'transparent-header-bg-color-responsive': {
 				desktop: 'rgb(227, 244, 222)',
 				tablet: 'rgb(212, 234, 247)',
@@ -38,6 +39,7 @@ describe( 'Transparent header settings in the customizer', () => {
 	it( 'site title color setting should apply correctly', async () => {
 		const siteTitleColor = {
 			'transparent-header-enable': 1,
+			'transparent-header-disable-latest-posts-index': 1,
 			'transparent-header-color-site-title-responsive': {
 				desktop: 'rgb(92, 11, 130)',
 				tablet: 'rgb(101, 37, 7)',

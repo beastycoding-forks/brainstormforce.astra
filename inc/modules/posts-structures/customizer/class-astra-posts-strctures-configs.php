@@ -39,33 +39,37 @@ class Astra_Posts_Strctures_Configs extends Astra_Customizer_Config_Base {
 		$post_types = Astra_Posts_Strctures_Loader::get_supported_post_types();
 
 		if ( ! empty( $post_types ) ) {
-
-			$_configs = array(
-				// array(
-				// 'name'             => 'post-types-section-separator',
-				// 'type'             => 'section',
-				// 'ast_type'         => 'ast-section-separator',
-				// 'priority'         => 68,
-				// 'section_callback' => 'Astra_WP_Customize_Separator',
-				// ),
-				array(
-					'name'     => 'section-posts-strctures',
-					'type'     => 'section',
-					'priority' => 69,
-					'title'    => __( 'Posts Types', 'astra' ),
-				),
-			);
-
 			/**
 			 * Individual post types main section.
 			 */
+			$_configs = array();
+			$ignore_single_for_posttypes = array( 'post', 'product' );
+			$ignore_archive_for_posttypes = array( 'post', 'product' );
 			foreach ( $post_types as $index => $label ) {
 				$_configs[] = array(
 					'name'    => 'section-posttype-' . $label,
 					'type'    => 'section',
 					'title'   => ucfirst( $label ),
-					'section' => 'section-posts-strctures',
+					'priority' => 69,
 				);
+				if ( in_array( $label, $ignore_single_for_posttypes ) ) {
+					$_configs[] = array(
+						'name'    => 'single-posttype-' . $label,
+						'type'    => 'section',
+						'title'   => __( 'Single', 'astra' ) . ' ' . ucfirst( $label ),
+						'section'    => 'section-posttype-' . $label,
+						'priority' => 5,
+					);
+				}
+				if ( in_array( $label, $ignore_archive_for_posttypes ) ) {
+					$_configs[] = array(
+						'name'    => 'archive-posttype-' . $label,
+						'type'    => 'section',
+						'title'   => __( 'Archive', 'astra' ) . ' ' .ucfirst( $label ),
+						'section'    => 'section-posttype-' . $label,
+						'priority' => 10,
+					);
+				}
 			}
 
 			$configurations = array_merge( $configurations, $_configs );

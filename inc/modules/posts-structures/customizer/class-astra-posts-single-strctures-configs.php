@@ -133,7 +133,7 @@ class Astra_Posts_Single_Strctures_Configs extends Astra_Customizer_Config_Base 
 				$taxonomies['category-tag'] = __( 'Category + Tag', 'astra' );
 				$parent_section             = 'section-blog-single';
 			} else {
-				$parent_section = 'section-posttype-' . $post_type;
+				$parent_section = 'single-posttype-' . $post_type;
 			}
 
 			$clone_limit = 3;

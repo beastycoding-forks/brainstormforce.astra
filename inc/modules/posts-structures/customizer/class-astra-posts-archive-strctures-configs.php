@@ -123,7 +123,7 @@ class Astra_Posts_Archive_Strctures_Configs extends Astra_Customizer_Config_Base
 			} elseif ( 'post' === $post_type ) {
 				$parent_section = 'section-blog';
 			} else {
-				$parent_section = 'section-posttype-' . $post_type;
+				$parent_section = 'archive-posttype-' . $post_type;
 			}
 
 			$_configs = array(

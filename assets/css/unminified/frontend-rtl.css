@@ -2544,13 +2544,6 @@ body .entry-content .wp-block-latest-posts li {
   margin-left: auto;
 }
 
-/**
- * 10 - Submenu container box shadow
- */
-.ast-desktop .main-header-menu.ast-menu-shadow .sub-menu {
-  box-shadow: 0 4px 10px -2px rgba(0, 0, 0, 0.1);
-}
-
 .ast-header-custom-item-inside .button-custom-menu-item .menu-link {
   display: none;
 }

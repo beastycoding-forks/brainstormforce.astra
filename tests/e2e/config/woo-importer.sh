@@ -15,7 +15,6 @@ wp rewrite structure /%postname%/
 
 echo "Enable COD..."
 wp wc --user=admin payment_gateway update cod --enabled=true
-
 echo "Importing WooCommerce shop pages..."
 wp wc --user=admin tool run install_pages
 echo "Installing and activating the WordPress Importer plugin..."

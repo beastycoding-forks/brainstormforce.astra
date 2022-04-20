@@ -2,9 +2,17 @@ import { createNewPost, insertBlock, clickBlockToolbarButton } from '@wordpress/
 describe( 'Column block in gutenberg editor', () => {
 	it( 'add other blocks in column block and assert width', async () => {
 		await createNewPost( { postType: 'post', title: 'test columns' } );
-		await page.click( '[aria-label="Options"]' );
-		await page.click( '#editor > div > div.popover-slot > div > div > div > div > div:nth-child(1) > div:nth-child(2) > button:nth-child(3)' );
-		await page.click( '[aria-label="Settings"]' );
+		const css = 'body div#adminmenumain, body .interface-interface-skeleton__sidebar {display: none;} body #wpcontent, body #wpfooter {margin-left: 0;}	body .interface-interface-skeleton { left: 0!important}',
+			head = document.head || document.getElementsByTagName( 'head' )[ 0 ],
+			style = document.createElement( 'style' );
+		head.appendChild( style );
+		style.type = 'text/css';
+		if ( style.styleSheet ) {
+			// This is required for IE8 and below.
+			style.styleSheet.cssText = css;
+		} else {
+			style.appendChild( document.createTextNode( css ) );
+		}
 		await insertBlock( 'Columns' );
 		await page.click( '[aria-label="One column"]' );
 		await page.click( '.block-editor-button-block-appender' );

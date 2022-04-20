@@ -1,11 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { createNewMenu } from '../../../../utils/create-menu';
 import { setCustomize } from '../../../../utils/customize';
-<<<<<<< HEAD
-describe( 'Add sub menu for primary menu and add top offset to the sub menu', () => {
-=======
-describe( 'Add sub menu for primary menu and add border to the sub menu', () => {
->>>>>>> 04ab3116a91cf103fc653148e9ab038057e3d220
+describe( 'Add sub menu for primary menu', () => {
 	it( 'sub menu should be added successfully', async () => {
 		await createNewMenu();
 		const headerMenuAlignment = {

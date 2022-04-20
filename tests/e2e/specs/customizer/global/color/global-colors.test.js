@@ -1,6 +1,7 @@
 import { setCustomize } from '../../../../utils/customize';
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, setPostContent } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
+import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 describe( 'Testing global Color setting under the customizer', () => {
 	it( 'text color should apply correctly', async () => {
 		const textAndHeadingColor = {
@@ -12,9 +13,9 @@ describe( 'Testing global Color setting under the customizer', () => {
 		while ( false === ppStatus ) {
 			await createNewPost( {
 				postType: 'post',
-				title: 'Global Colors Test',
-				content: 'this is the text color test',
+				title: 'global-colors-test',
 			} );
+			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 			ppStatus = await publishPost();
 		}
 		await page.goto( createURL( '/' ), {
@@ -26,9 +27,12 @@ describe( 'Testing global Color setting under the customizer', () => {
 			property: 'color',
 		} ).cssValueToBe( `${ textAndHeadingColor[ 'text-color' ] }` );
 
-		await page.waitForSelector( '.entry-title a' );
+		await page.goto( createURL( 'global-colors-test' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( '.entry-title a, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' );
 		await expect( {
-			selector: '.entry-title a',
+			selector: '.entry-title a, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'color',
 		} ).cssValueToBe( `${ textAndHeadingColor[ 'heading-base-color' ] }` );
 	} );
@@ -40,7 +44,7 @@ describe( 'Testing global Color setting under the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.entry-meta *' );
+		await page.waitForSelector( '.entry-meta *, a .single .post-navigation a' );
 		await expect( {
 			selector: '.entry-meta *',
 			property: 'color',
@@ -57,6 +61,15 @@ describe( 'Testing global Color setting under the customizer', () => {
 		await page.waitForSelector( '.wp-block-search__button' );
 		await expect( {
 			selector: '.wp-block-search__button',
+			property: 'background-color',
+		} ).cssValueToBe( `${ themeColor[ 'theme-color' ] }` );
+
+		await page.goto( createURL( 'global-colors-test' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( 'input#submit, input[type="submit"]' );
+		await expect( {
+			selector: 'input#submit, input[type="submit"]',
 			property: 'background-color',
 		} ).cssValueToBe( `${ themeColor[ 'theme-color' ] }` );
 	} );

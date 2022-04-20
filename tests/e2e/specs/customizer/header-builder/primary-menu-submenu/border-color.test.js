@@ -36,7 +36,7 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 		} );
 		await page.hover( '.menu-link' );
 		await expect( {
-			selector: '.sub-menu',
+			selector: '.ast-builder-menu-1 .sub-menu',
 			property: 'border-color',
 		} ).cssValueToBe(
 			`${ submenuBorderColor[ 'header-menu1-submenu-b-color' ] }`,

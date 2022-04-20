@@ -1,15 +1,15 @@
 import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'off canvas flyout header type settings in the customizer', () => {
+describe( 'Off canvas flyout header type settings in the customizer', () => {
 	it( 'flyout header background color for tablet should apply correctly', async () => {
-		const flyoutbackColor = {
+		const flyoutBgColor = {
 			'mobile-header-type': 'off-canvas',
 			'off-canvas-background': {
 				'background-color': 'rgb(238, 249, 200)',
 			},
 		};
-		await setCustomize( flyoutbackColor );
+		await setCustomize( flyoutBgColor );
 		await createNewPost( {
 			postType: 'page',
 			title: 'sample-page',
@@ -29,17 +29,17 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner',
 			property: 'background-color',
-		} ).cssValueToBe( `${ flyoutbackColor[ 'off-canvas-background' ][ 'background-color' ] }` );
+		} ).cssValueToBe( `${ flyoutBgColor[ 'off-canvas-background' ][ 'background-color' ] }` );
 	} );
 
 	it( 'flyout header background color for mobile should apply correctly', async () => {
-		const flyoutbackColor = {
+		const flyoutBgColor = {
 			'mobile-header-type': 'off-canvas',
 			'off-canvas-background': {
 				'background-color': 'rgb(238, 249, 200)',
 			},
 		};
-		await setCustomize( flyoutbackColor );
+		await setCustomize( flyoutBgColor );
 		await createNewPost( {
 			postType: 'page',
 			title: 'sample-page',
@@ -59,7 +59,7 @@ describe( 'off canvas flyout header type settings in the customizer', () => {
 		await expect( {
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-inner',
 			property: 'background-color',
-		} ).cssValueToBe( `${ flyoutbackColor[ 'off-canvas-background' ][ 'background-color' ] }` );
+		} ).cssValueToBe( `${ flyoutBgColor[ 'off-canvas-background' ][ 'background-color' ] }` );
 	} );
 
 	it( 'flyout popup padding for mobile should apply correctly', async () => {

@@ -20,20 +20,26 @@ describe( 'Add sub menu for primary menu and add border to the sub menu', () => 
 		await page.waitForSelector( '#primary-site-navigation' );
 		await expect( true ).toBe( true );
 	} );
-	it( 'top offset should be added correctly', async () => {
-		const submenuTopOffset = {
-			'header-menu1-submenu-top-offset': '20',
+	it( 'border color to the submenu should be added correctly', async () => {
+		const submenuBorderColor = {
+			'header-menu1-submenu-b-color': 'rgb(242, 33, 217)',
+			'header-menu1-submenu-border': {
+				top: 10,
+				bottom: 10,
+				left: 10,
+				right: 10,
+			},
 		};
-		await setCustomize( submenuTopOffset );
+		await setCustomize( submenuBorderColor );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.hover( '.menu-link' );
 		await expect( {
-			selector: '.ast-builder-menu-1 .main-header-menu > .menu-item > .sub-menu',
-			property: 'margin-top',
+			selector: '.ast-builder-menu-1 .sub-menu',
+			property: 'border-color',
 		} ).cssValueToBe(
-			`${ submenuTopOffset[ 'header-menu1-submenu-top-offset' ] + 'px' }`,
+			`${ submenuBorderColor[ 'header-menu1-submenu-b-color' ] }`,
 		);
 	} );
 } );

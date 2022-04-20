@@ -1,7 +1,11 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { createNewMenu } from '../../../../utils/create-menu';
 import { setCustomize } from '../../../../utils/customize';
+<<<<<<< HEAD
 describe( 'Add sub menu for primary menu and add top offset to the sub menu', () => {
+=======
+describe( 'Add sub menu for primary menu and add border to the sub menu', () => {
+>>>>>>> 04ab3116a91cf103fc653148e9ab038057e3d220
 	it( 'sub menu should be added successfully', async () => {
 		await createNewMenu();
 		const headerMenuAlignment = {
@@ -20,11 +24,11 @@ describe( 'Add sub menu for primary menu and add top offset to the sub menu', ()
 		await page.waitForSelector( '#primary-site-navigation' );
 		await expect( true ).toBe( true );
 	} );
-	it( 'top offset should be added correctly', async () => {
-		const submenuTopOffset = {
-			'header-menu1-submenu-top-offset': '20',
+	it( 'width of submenu should be set correctly', async () => {
+		const submenuWidth = {
+			'header-menu1-submenu-width': '100',
 		};
-		await setCustomize( submenuTopOffset );
+		await setCustomize( submenuWidth );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -33,8 +37,7 @@ describe( 'Add sub menu for primary menu and add top offset to the sub menu', ()
 			selector: '.ast-builder-menu-1 .sub-menu',
 			property: 'width',
 		} ).cssValueToBe(
-			`${ submenuTopOffset[ 'header-menu1-submenu-top-offset' ] + 'px' }`,
+			`${ submenuWidth[ 'header-menu1-submenu-width' ] + 'px' }`,
 		);
 	} );
 } );
-

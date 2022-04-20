@@ -1,18 +1,9 @@
 import { createNewPost, insertBlock, clickBlockToolbarButton } from '@wordpress/e2e-test-utils';
+import { fullScreenOn } from '../../../utils/full-screen-mode';
 describe( 'Column block in gutenberg editor', () => {
 	it( 'add other blocks in column block and assert width', async () => {
 		await createNewPost( { postType: 'post', title: 'test columns' } );
-		const css = 'body div#adminmenumain, body .interface-interface-skeleton__sidebar {display: none;} body #wpcontent, body #wpfooter {margin-left: 0;}	body .interface-interface-skeleton { left: 0!important}',
-			head = document.head || document.getElementsByTagName( 'head' )[ 0 ],
-			style = document.createElement( 'style' );
-		head.appendChild( style );
-		style.type = 'text/css';
-		if ( style.styleSheet ) {
-			// This is required for IE8 and below.
-			style.styleSheet.cssText = css;
-		} else {
-			style.appendChild( document.createTextNode( css ) );
-		}
+		await fullScreenOn();
 		await insertBlock( 'Columns' );
 		await page.click( '[aria-label="One column"]' );
 		await page.click( '.block-editor-button-block-appender' );

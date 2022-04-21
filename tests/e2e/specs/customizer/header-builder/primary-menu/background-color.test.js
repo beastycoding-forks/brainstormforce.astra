@@ -1,8 +1,10 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
-import { publishPost } from '../../../../utils/publish-post';
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
+import { createNewMenu } from '../../../../utils/create-menu';
+import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Primary menu setting in customizer', () => {
 	it( 'primary menu background color should apply correctly', async () => {
+		await createNewMenu();
 		const primaryMenuBgColor = {
 			'header-menu1-bg-obj-responsive': {
 				desktop: {
@@ -11,11 +13,6 @@ describe( 'Primary menu setting in customizer', () => {
 			},
 		};
 		await setCustomize( primaryMenuBgColor );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'test-1' } );
-			ppStatus = await publishPost();
-		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -29,25 +26,40 @@ describe( 'Primary menu setting in customizer', () => {
 	it( 'primary menu active background color should apply correctly', async () => {
 		const primaryMenuBgColor = {
 			'header-menu1-a-bg-color-responsive': {
-				desktop: {
+				desktop:
+				{
 					'background-color': 'rgb(228, 246, 242)',
+
 				},
+			},
+			tablet: {
+				'background-color': 'rgb(219, 242, 217)',
+			},
+			mobile: {
+				'background-color': 'rgb(240, 255, 240)',
 			},
 		};
 		await setCustomize( primaryMenuBgColor );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'test-1' } );
-			ppStatus = await publishPost();
-		}
-		await page.goto( createURL( '/test-1' ), {
+		await page.goto( createURL( 'test-page' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-builder-menu-1 .menu-item.current-menu-item > .menu-link' );
+		await page.waitForSelector( '.menu-item.current-menu-item > .menu-link' );
 		await expect( {
-			selector: '.ast-builder-menu-1 .menu-item.current-menu-item > .menu-link',
+			selector: '.menu-item.current-menu-item > .menu-link',
 			property: 'background-color',
 		} ).cssValueToBe( `${ primaryMenuBgColor[ 'header-menu1-a-bg-color-responsive' ].desktop[ 'background-color' ] }` );
+
+		await setBrowserViewport( 'medium' );
+		await expect( {
+			selector: '.menu-item.current-menu-item > .menu-link',
+			property: 'background-color',
+		} ).cssValueToBe( `${ primaryMenuBgColor[ 'header-menu1-a-bg-color-responsive' ].tablet[ 'background-color' ] }` );
+
+		await setBrowserViewport( 'small' );
+		await expect( {
+			selector: '.menu-item.current-menu-item > .menu-link',
+			property: 'background-color',
+		} ).cssValueToBe( `${ primaryMenuBgColor[ 'header-menu1-a-bg-color-responsive' ].mobile[ 'background-color' ] }` );
 	} );
 } );
 

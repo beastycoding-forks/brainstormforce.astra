@@ -29,5 +29,5 @@ describe( 'Primary menu settings in the customizer', () => {
 			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-image',
 		} ).cssValueToBe( `url("${ primaryMenuImage[ 'header-menu1-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }` );
-	} );
+	} );	
 } );

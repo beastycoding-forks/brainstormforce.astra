@@ -8,9 +8,9 @@ describe( 'Global typography settings in the customizer', () => {
 		const presetFont = {
 			'body-font-family': "'Source Sans Pro', sans-serif",
 			'font-size-body': {
-				desktop: '17',
-				tablet: '17',
-				mobile: '17',
+				desktop: '35',
+				tablet: '25',
+				mobile: '15',
 				'desktop-unit': 'px',
 				'tablet-unit': 'px',
 				'mobile-unit': 'px',

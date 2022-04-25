@@ -1,5 +1,6 @@
 // External dependencies.
-import { visitAdminPage, createURL } from '@wordpress/e2e-test-utils';
+import { visitAdminPage } from '@wordpress/e2e-test-utils';
+import { scrollToElement } from './scroll-to-element';
 
 /**
  * Import a course JSON file
@@ -13,7 +14,7 @@ import { visitAdminPage, createURL } from '@wordpress/e2e-test-utils';
  * @return {void}
  */
 export async function importProducts(
-	importFile = 'sample-products.csv',
+	importFile = 'sample_products.csv',
 	importPath = '',
 ) {
 	importPath = importPath || `${ process.cwd() }/tests/e2e/assets/`;
@@ -22,16 +23,16 @@ export async function importProducts(
 
 	await visitAdminPage( 'admin.php', 'edit.php?post_type=product&page=product_importer' );
 
-	await page.click( '#upload' );
-
-	const inputSelector = 'button[type="submit"]';
+	const inputSelector = 'input[name="import"]';
 	await page.waitForSelector( inputSelector );
 	const fileUpload = await page.$( inputSelector );
 
 	fileUpload.uploadFile( file );
 	await page.waitForTimeout( 1000 );
 
-	await page.goto( createURL( '/' ), {
-		waitUntil: 'networkidle0',
-	} );
+	await page.click( 'button[type="submit"]' );
+	await scrollToElement( '#collapse-button' );
+	await page.click( 'button[type="submit"]' );
+	await page.waitFor( 2000 );
+	await page.click( '.woocommerce-progress-form-wrapper .button' );
 }

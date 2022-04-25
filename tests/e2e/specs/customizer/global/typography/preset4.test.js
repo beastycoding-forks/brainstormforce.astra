@@ -1,9 +1,5 @@
-import {
-	createURL,
-	createNewPost,
-	setPostContent,
-	publishPost,
-} from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, setPostContent } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
@@ -29,40 +25,37 @@ describe( 'Global typography settings in the customizer', () => {
 		};
 
 		await setCustomize( presetFont );
-		await createNewPost( { postType: 'post', title: 'Preset Test' } );
-		await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-		await publishPost();
-		await page.goto( createURL( '/preset-test/' ), {
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'Preset-4-test' } );
+			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
+			ppStatus = await publishPost();
+		}
+		await page.goto( createURL( '/preset-4-test/' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( 'body' );
-
 		await expect( {
 			selector: 'body',
 			property: 'font-family',
-		} ).cssValueToBe( `${ presetFont[ 'body-font-family' ] }`,
-		);
+		} ).cssValueToBe( `${ presetFont[ 'body-font-family' ] }` );
 
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
-		} ).cssValueToBe(
-			`${ presetFont[ 'font-size-body' ].desktop }${ presetFont[ 'font-size-body' ][ 'desktop-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ presetFont[ 'font-size-body' ].desktop }${ presetFont[ 'font-size-body' ][ 'desktop-unit' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
-		} ).cssValueToBe( `${ presetFont[ 'font-size-body' ].tablet }${ presetFont[ 'font-size-body' ][ 'tablet-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ presetFont[ 'font-size-body' ].tablet }${ presetFont[ 'font-size-body' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
-		} ).cssValueToBe( `${ presetFont[ 'font-size-body' ].mobile }${ presetFont[ 'font-size-body' ][ 'mobile-unit' ] }`,
-		);
+		} ).cssValueToBe( `${ presetFont[ 'font-size-body' ].mobile }${ presetFont[ 'font-size-body' ][ 'mobile-unit' ] }` );
 
 		await expect( {
 			selector: 'body',
@@ -82,14 +75,12 @@ describe( 'Global typography settings in the customizer', () => {
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'font-family',
-		} ).cssValueToBe( `${ presetFont[ 'headings-font-family' ] }`,
-		);
+		} ).cssValueToBe( `${ presetFont[ 'headings-font-family' ] }` );
 
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'font-weight',
-		} ).cssValueToBe( `${ presetFont[ 'headings-font-weight' ] }`,
-		);
+		} ).cssValueToBe( `${ presetFont[ 'headings-font-weight' ] }` );
 
 		await expect( {
 			selector: '.entry-content h1',

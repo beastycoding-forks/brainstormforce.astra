@@ -32,7 +32,7 @@ export async function importProducts(
 
 	await page.click( 'button[type="submit"]' );
 	await scrollToElement( '#collapse-button' );
-	await page.click( 'button[type="submit"]' );
+	await page.click( 'button[value="Run the importer"]' );
 	await page.waitFor( 2000 );
 	await page.click( '.woocommerce-progress-form-wrapper .button' );
 }

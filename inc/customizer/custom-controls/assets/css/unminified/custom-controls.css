@@ -89,6 +89,9 @@
 .customize-control-ast-selector {
     margin-bottom: 1px;
 }
+.ast-alignment-inner-wrap.active button.components-button.is-primary {
+    border-color: #007cba;
+}
 
 #customize-controls .customize-control-notifications-container {
   margin: 0;
@@ -2141,6 +2144,16 @@ input[type="text"].select2-search__field {
 
 .ast-responsive-select-container.active {
   display: block;
+}
+.customize-control select, .ast-variant-select > div, .customize-control input {
+	border-color: #ddd;
+	padding-top: 2px;
+    padding-bottom: 2px;
+}
+.customize-control select:focus, .ast-variant-select > div, .customize-control input:focus {
+	border-color: var(--wp-admin-theme-color);
+	color: #0a4b78;
+	box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 }
 
 .customize-control-ast-responsive-slider .wrapper, .customize-control-ast-slider .wrapper {

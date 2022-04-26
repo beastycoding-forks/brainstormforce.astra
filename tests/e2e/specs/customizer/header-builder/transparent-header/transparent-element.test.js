@@ -14,7 +14,7 @@ describe( 'transparent header elements colors in the customizer', () => {
 					below_center: {
 						0: 'social-icons-1',
 						1: 'button-1',
-						2: 'account',
+						2: 'search',
 						3: 'html-1',
 					},
 				},

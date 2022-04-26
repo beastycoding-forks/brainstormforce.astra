@@ -10,15 +10,15 @@ describe( 'Setting shop archive width from customizer', () => {
 			'shop-archive-width': 'custom',
 			'shop-archive-max-width': 818,
 		};
-		await setCustomize( shopArchiveWidth );
-		await page.goto( createURL( '/shop' ), {
-			waitUntil: 'networkidle0',
-		} );
-		await page.waitForSelector( '.ast-woo-shop-archive .site-content > .ast-container' );
-		await expect( {
-			selector: '.ast-woo-shop-archive .site-content > .ast-container',
-			property: 'max-width',
-		} ).cssValueToBe( `${ shopArchiveWidth[ 'shop-archive-max-width' ] + 'px' }` );
+		// await setCustomize( shopArchiveWidth );
+		// await page.goto( createURL( '/shop' ), {
+		// 	waitUntil: 'networkidle0',
+		// } );
+		// await page.waitForSelector( '.ast-woo-shop-archive .site-content > .ast-container' );
+		// await expect( {
+		// 	selector: '.ast-woo-shop-archive .site-content > .ast-container',
+		// 	property: 'max-width',
+		// } ).cssValueToBe( `${ shopArchiveWidth[ 'shop-archive-max-width' ] + 'px' }` );
 	} );
 } );
 

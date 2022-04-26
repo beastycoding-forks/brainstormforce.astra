@@ -1,6 +1,5 @@
 // External dependencies.
 import { visitAdminPage } from '@wordpress/e2e-test-utils';
-import { scrollToElement } from './scroll-to-element';
 
 /**
  * Import a course JSON file
@@ -31,7 +30,6 @@ export async function importProducts(
 	await page.waitForTimeout( 1000 );
 
 	await page.click( 'button[type="submit"]' );
-	await scrollToElement( '#collapse-button' );
 	await page.click( 'button[value="Run the importer"]' );
 	await page.waitFor( 2000 );
 	await page.click( '.woocommerce-progress-form-wrapper .button' );

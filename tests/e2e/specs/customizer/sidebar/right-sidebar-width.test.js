@@ -1,12 +1,13 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../utils/publish-post';
 import { setCustomize } from '../../../utils/customize';
+import { createNewMenu } from '../../../utils/create-menu';
 describe( 'Sidebar setting in the customizer', () => {
 	it( 'width for post right sidebar should apply correctly on post', async () => {
 		const postSidebarWidth = {
 			'site-sidebar-layout': 'right-sidebar',
 			'site-post-sidebar-layout': 'right-sidebar',
-			'site-sidebar-width': '13',
+			'site-sidebar-width': '30',
 		};
 		await setCustomize( postSidebarWidth );
 		let ppStatus = false;
@@ -21,22 +22,18 @@ describe( 'Sidebar setting in the customizer', () => {
 		await expect( {
 			selector: '#secondary',
 			property: 'width',
-		} ).cssValueToBe( `${ postSidebarWidth[ 'site-sidebar-width' ] + 'px' }` );
+		} ).cssValueToBe( `${ postSidebarWidth[ 'site-sidebar-width' ] * 100 }+ 'px'` );
 	} );
 
 	it( 'width for page right sidebar should apply correctly on page', async () => {
 		const pageSidebarWidth = {
 			'site-sidebar-layout': 'right-sidebar',
 			'site-page-sidebar-layout': 'right-sidebar',
-			'site-sidebar-width': '14',
+			'site-sidebar-width': '25',
 		};
+		await createNewMenu();
 		await setCustomize( pageSidebarWidth );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'page sidebar' } );
-			ppStatus = await publishPost();
-		}
-		await page.goto( createURL( '/page-sidebar' ), {
+		await page.goto( createURL( '/test-page' ), {
 			waitUntil: 'networkidle0',
 		} );
 		await page.waitForSelector( '#secondary' );

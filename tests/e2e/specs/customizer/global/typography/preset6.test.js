@@ -3,7 +3,6 @@ import { publishPost } from '../../../../utils/publish-post';
 import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
-import { responsiveFontSize } from '../../../../utils/responsive-utils'; 
 describe( 'Global typography settings in the customizer', () => {
 	it( 'preset 6 settings should be applied correctly', async () => {
 		const presetFont = {
@@ -49,25 +48,13 @@ describe( 'Global typography settings in the customizer', () => {
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				presetFont[ 'font-size-body' ].tablet,
-			) }${
-				presetFont[ 'font-size-body' ][ 'tablet-unit' ]
-			}`,
-		);
+		} ).cssValueToBe( `${ presetFont[ 'font-size-body' ].tablet }${ presetFont[ 'font-size-body' ][ 'tablet-unit' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
 			selector: 'body',
 			property: 'font-size',
-		} ).cssValueToBe(
-			`${ await responsiveFontSize(
-				presetFont[ 'font-size-body' ].mobile,
-			) }${
-				presetFont[ 'font-size-body' ][ 'mobile-unit' ]
-			}`,
-		);
+		} ).cssValueToBe( `${ presetFont[ 'font-size-body' ].mobile }${ presetFont[ 'font-size-body' ][ 'mobile-unit' ] }` );
 
 		await expect( {
 			selector: 'body',

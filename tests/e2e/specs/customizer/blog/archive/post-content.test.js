@@ -49,7 +49,7 @@ describe( 'Blog Archive post content option under the customizer', () => {
 		await page.keyboard.press( 'Enter' );
 		await page.waitForSelector( '.ast-article-post' );
 		const excerpt = await page.$eval( '.ast-article-post', ( element ) => element.getAttribute( '.entry-content' ) );
-		await expect( excerpt ).toBe();
+		await expect( excerpt ).toBe( );
 	} );
 
 	it( 'blog Archive full content options should apply correctly', async () => {

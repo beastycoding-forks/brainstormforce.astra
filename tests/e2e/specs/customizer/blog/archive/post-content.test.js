@@ -48,7 +48,7 @@ describe( 'Blog Archive post content option under the customizer', () => {
 		await page.keyboard.type( 'test' );
 		await page.keyboard.press( 'Enter' );
 		await page.waitForSelector( '.ast-article-post' );
-		const excerpt = await page.$eval( '..ast-article-post', ( element ) => element.getAttribute( '.entry-content' ) );
+		const excerpt = await page.$eval( '.ast-article-post', ( element ) => element.getAttribute( '.entry-content' ) );
 		await expect( excerpt ).toBe();
 	} );
 

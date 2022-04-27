@@ -5,7 +5,7 @@ describe( 'Primary menu submenu option under the customizer', () => {
 	it( 'width option should apply correctly', async () => {
 		await createNewMenu();
 		const submenuWidth = {
-			'header-menu1-submenu-width': '800',
+			'header-menu1-submenu-width': '900',
 			'header-desktop-items': {
 				primary: {
 					primary_right: {

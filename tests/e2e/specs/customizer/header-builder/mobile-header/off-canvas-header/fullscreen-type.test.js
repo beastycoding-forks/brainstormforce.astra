@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../../utils/customize';
 import { publishPost } from '../../../../../utils/publish-post';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'Off canvas header type and content alignment settings in the customizer', () => {
-	it( 'off canvas header general setting should apply correctly', async () => {
+	it( 'off canvas header content alignment as left setting should apply correctly', async () => {
 		const offCanvasGeneralSetting = {
 			'mobile-header-type': 'full-width',
 			'header-offcanvas-content-alignment': 'flex-start',
@@ -35,7 +35,7 @@ describe( 'Off canvas header type and content alignment settings in the customiz
 			property: 'justify-content',
 		} ).cssValueToBe( `${ offCanvasGeneralSetting[ 'header-offcanvas-content-alignment' ] }` );
 	} );
-	it( 'off canvas header content alignment as center should apply correctly for mobile mode', async () => {
+	it( 'off canvas header content alignment as center should apply correctly', async () => {
 		const offCanvasGeneralSetting = {
 			'mobile-header-type': 'full-width',
 			'header-offcanvas-content-alignment': 'center',
@@ -67,7 +67,7 @@ describe( 'Off canvas header type and content alignment settings in the customiz
 			property: 'justify-content',
 		} ).cssValueToBe( `${ offCanvasGeneralSetting[ 'header-offcanvas-content-alignment' ] }` );
 	} );
-	it( 'off canvas header content alignment as Right apply correctly for mobile mode', async () => {
+	it( 'off canvas header content alignment as right apply correctly', async () => {
 		const offCanvasGeneralSetting = {
 			'mobile-header-type': 'full-width',
 			'header-offcanvas-content-alignment': 'flex-end',

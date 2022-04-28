@@ -38,7 +38,7 @@ describe( 'Off-Canvas header background color & close icon color setting in the 
 
 	//popup padding
 	it( 'padding should apply correctly for tablet', async () => {
-		const fullscreenPopupPadding = {
+		const fullScreenPopupPadding = {
 			'mobile-header-type': 'full-width',
 			'off-canvas-padding': {
 				tablet: {
@@ -51,7 +51,7 @@ describe( 'Off-Canvas header background color & close icon color setting in the 
 
 			},
 		};
-		await setCustomize( fullscreenPopupPadding );
+		await setCustomize( fullScreenPopupPadding );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -62,28 +62,28 @@ describe( 'Off-Canvas header background color & close icon color setting in the 
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-content',
 			property: 'padding-top',
 		} ).cssValueToBe(
-			`${ fullscreenPopupPadding[ 'off-canvas-padding' ].tablet.top }${ fullscreenPopupPadding[ 'off-canvas-padding' ][ 'tablet-unit' ] }`,
+			`${ fullScreenPopupPadding[ 'off-canvas-padding' ].tablet.top }${ fullScreenPopupPadding[ 'off-canvas-padding' ][ 'tablet-unit' ] }`,
 		);
 
 		await expect( {
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-content',
 			property: 'padding-right',
 		} ).cssValueToBe(
-			`${ fullscreenPopupPadding[ 'off-canvas-padding' ].tablet.right }${ fullscreenPopupPadding[ 'off-canvas-padding' ][ 'tablet-unit' ] }`,
+			`${ fullScreenPopupPadding[ 'off-canvas-padding' ].tablet.right }${ fullScreenPopupPadding[ 'off-canvas-padding' ][ 'tablet-unit' ] }`,
 		);
 
 		await expect( {
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-content',
 			property: 'padding-bottom',
 		} ).cssValueToBe(
-			`${ fullscreenPopupPadding[ 'off-canvas-padding' ].tablet.bottom }${ fullscreenPopupPadding[ 'off-canvas-padding' ][ 'tablet-unit' ] }`,
+			`${ fullScreenPopupPadding[ 'off-canvas-padding' ].tablet.bottom }${ fullScreenPopupPadding[ 'off-canvas-padding' ][ 'tablet-unit' ] }`,
 		);
 
 		await expect( {
 			selector: '.ast-mobile-popup-drawer.active .ast-mobile-popup-content',
 			property: 'padding-left',
 		} ).cssValueToBe(
-			`${ fullscreenPopupPadding[ 'off-canvas-padding' ].tablet.left }${ fullscreenPopupPadding[ 'off-canvas-padding' ][ 'tablet-unit' ] }`,
+			`${ fullScreenPopupPadding[ 'off-canvas-padding' ].tablet.left }${ fullScreenPopupPadding[ 'off-canvas-padding' ][ 'tablet-unit' ] }`,
 		);
 	} );
 	it( 'header design settings for mobile should apply correctly', async () => {

@@ -1,6 +1,5 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
-import { publishPost } from '../../../../utils/publish-post';
 import { createNewMenu } from '../../../../utils/create-menu';
 describe( 'Primary menu settings in the customizer', () => {
 	it( 'background image should apply corectly', async () => {

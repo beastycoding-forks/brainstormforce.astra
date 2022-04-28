@@ -36,9 +36,9 @@ describe( 'Primary menu settings in the customizer', () => {
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.ast-builder-menu-1 .main-header-menu' );
+		await page.waitForSelector( '.ast-builder-menu-1 .main-header-menu .sub-menu' );
 		await expect( {
-			selector: '.ast-builder-menu-1 .main-header-menu',
+			selector: '.ast-builder-menu-1 .main-header-menu .sub-menu',
 			property: 'background-image',
 		} ).cssValueToBe( `url("${ primaryMenuImage[ 'header-menu1-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }` );
 	} );

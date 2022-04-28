@@ -8,7 +8,35 @@ describe( 'Primary menu setting in customizer', () => {
 		const primaryMenuBgColor = {
 			'header-menu1-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'rgb(247, 252, 233)',
+					'background-color': 'rgb(216, 241, 221)',
+					'background-repeat': 'no-repeat',
+					'background-position': 'left top',
+					'background-size': 'cover',
+					'background-attachment': 'fixed',
+					'background-type': 'color',
+				},
+				tablet: {
+					'background-color': 'rgb(241, 222, 222)',
+					'background-repeat': 'no-repeat',
+					'background-position': 'left top',
+					'background-size': 'cover',
+					'background-attachment': 'fixed',
+					'background-type': 'color',
+				},
+				mobile: {
+					'background-color': 'rgb(251, 249, 219)',
+					'background-repeat': 'no-repeat',
+					'background-position': 'left top',
+					'background-size': 'cover',
+					'background-attachment': 'fixed',
+					'background-type': 'color',
+				},
+			},
+			'header-mobile-items': {
+				primary: {
+					primary_center: {
+						0: 'menu-1',
+					},
 				},
 			},
 		};
@@ -21,45 +49,17 @@ describe( 'Primary menu setting in customizer', () => {
 			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-color',
 		} ).cssValueToBe( `${ primaryMenuBgColor[ 'header-menu1-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
-	} );
-
-	it( 'primary menu active background color should apply correctly', async () => {
-		const primaryMenuBgColor = {
-			'header-menu1-a-bg-color-responsive': {
-				desktop:
-				{
-					'background-color': 'rgb(228, 246, 242)',
-
-				},
-			},
-			tablet: {
-				'background-color': 'rgb(219, 242, 217)',
-			},
-			mobile: {
-				'background-color': 'rgb(240, 255, 240)',
-			},
-		};
-		await setCustomize( primaryMenuBgColor );
-		await page.goto( createURL( 'test-page' ), {
-			waitUntil: 'networkidle0',
-		} );
-		await page.waitForSelector( '.menu-item.current-menu-item > .menu-link' );
-		await expect( {
-			selector: '.menu-item.current-menu-item > .menu-link',
-			property: 'background-color',
-		} ).cssValueToBe( `${ primaryMenuBgColor[ 'header-menu1-a-bg-color-responsive' ].desktop[ 'background-color' ] }` );
 
 		await setBrowserViewport( 'medium' );
 		await expect( {
-			selector: '.menu-item.current-menu-item > .menu-link',
+			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-color',
-		} ).cssValueToBe( `${ primaryMenuBgColor[ 'header-menu1-a-bg-color-responsive' ].tablet[ 'background-color' ] }` );
+		} ).cssValueToBe( `${ primaryMenuBgColor[ 'header-menu1-bg-obj-responsive' ].tablet[ 'background-color' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await expect( {
-			selector: '.menu-item.current-menu-item > .menu-link',
+			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-color',
-		} ).cssValueToBe( `${ primaryMenuBgColor[ 'header-menu1-a-bg-color-responsive' ].mobile[ 'background-color' ] }` );
+		} ).cssValueToBe( `${ primaryMenuBgColor[ 'header-menu1-bg-obj-responsive' ].mobile[ 'background-color' ] }` );
 	} );
 } );
-

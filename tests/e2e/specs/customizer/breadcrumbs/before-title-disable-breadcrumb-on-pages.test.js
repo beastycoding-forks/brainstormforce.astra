@@ -38,7 +38,7 @@ describe( 'Breadcrumb settings in the customizer', () => {
 	it( 'disable breadcrumb on search page before title header position should apply correctly', async () => {
 		const insideBreadcrumb = {
 			'breadcrumb-position': 'astra_entry_top',
-			'breadcrumb-disable-archive': 1,
+			'breadcrumb-disable-search': 1,
 		};
 		await setCustomize( insideBreadcrumb );
 		let ppStatus = false;

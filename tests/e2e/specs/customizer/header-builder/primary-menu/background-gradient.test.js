@@ -32,6 +32,13 @@ describe( 'Primary menu background gradient color settings in the customizer', (
 					'background-type': 'gradient',
 				},
 			},
+			'header-mobile-items': {
+				primary: {
+					primary_center: {
+						0: 'menu-1',
+					},
+				},
+			},
 		};
 		await setCustomize( primaryMenuGradient );
 		await page.goto( createURL( '/' ), {
@@ -44,18 +51,12 @@ describe( 'Primary menu background gradient color settings in the customizer', (
 		} ).cssValueToBe( `${ primaryMenuGradient[ 'header-menu1-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
 
 		await setBrowserViewport( 'medium' );
-		await page.click(
-			'.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle',
-		);
 		await expect( {
 			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-image',
 		} ).cssValueToBe( `${ primaryMenuGradient[ 'header-menu1-bg-obj-responsive' ].tablet[ 'background-color' ] }` );
 
 		await setBrowserViewport( 'small' );
-		await page.click(
-			'.ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle',
-		);
 		await expect( {
 			selector: '.ast-builder-menu-1 .main-header-menu',
 			property: 'background-image',

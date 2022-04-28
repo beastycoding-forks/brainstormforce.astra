@@ -1,6 +1,7 @@
 import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../utils/customize';
 import { publishPost } from '../../../../utils/publish-post';
+import { createNewMenu } from '../../../../utils/create-menu';
 describe( 'Primary menu settings in the customizer', () => {
 	it( 'background image should apply corectly', async () => {
 		const primaryMenuImage = {
@@ -13,14 +14,26 @@ describe( 'Primary menu settings in the customizer', () => {
 					'background-attachment': 'fixed',
 					'background-type': 'image',
 				},
+				tablet: {
+					'background-image': '',
+					'background-repeat': '',
+					'background-position': '',
+					'background-size': '',
+					'background-attachment': '',
+					'background-type': '',
+				},
+				mobile: {
+					'background-image': '',
+					'background-repeat': '',
+					'background-position': '',
+					'background-size': '',
+					'background-attachment': '',
+					'background-type': '',
+				},
 			},
 		};
 		await setCustomize( primaryMenuImage );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'test-1' } );
-			ppStatus = await publishPost();
-		}
+		await createNewMenu();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

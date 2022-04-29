@@ -1,23 +1,25 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
+import { publishPost } from '../../../../../utils/publish-post';
 describe( 'Off-Canvas header background color & close icon color setting in the customizer', () => {
 	it( 'header background color & close icon color for tablet should apply correctly', async () => {
 		const offCanvasColor = {
 			'mobile-header-type': 'full-width',
 			'off-canvas-background': {
-				'background-color': 'rgb(255, 255, 255)',
+				'background-color': 'rgb(250, 245, 245)',
 			},
-			'off-canvas-close-color': 'rgb(21, 21, 21)',
+			'off-canvas-close-color': 'rgb(115, 2, 2)',
 		};
 		await setCustomize( offCanvasColor );
-
-		await createNewPost( {
-			postType: 'page',
-			title: 'QA',
-		} );
-		await publishPost();
-
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'QA',
+			} );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -90,17 +92,20 @@ describe( 'Off-Canvas header background color & close icon color setting in the 
 		const offCanvasColor = {
 			'mobile-header-type': 'full-width',
 			'off-canvas-background': {
-				'background-color': 'rgb(255, 255, 255)',
+				'background-color': 'rgb(249, 245, 255)',
 			},
 			'off-canvas-close-color': 'rgb(21, 21, 21)',
 		};
 		await setCustomize( offCanvasColor );
 
-		await createNewPost( {
-			postType: 'page',
-			title: 'sample-page',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( {
+				postType: 'page',
+				title: 'Test',
+			} );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

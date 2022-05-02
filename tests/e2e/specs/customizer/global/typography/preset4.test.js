@@ -4,7 +4,7 @@ import { setCustomize } from '../../../../utils/customize';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Global typography settings in the customizer', () => {
-	it( 'preset settings should be applied correctly', async () => {
+	it( 'preset 4 settings should be applied correctly', async () => {
 		const presetFont = {
 			'body-font-family': "'Source Sans Pro', sans-serif",
 			'font-size-body': {
@@ -25,7 +25,7 @@ describe( 'Global typography settings in the customizer', () => {
 			'font-size-h1': {
 				desktop: '40',
 				'desktop-unit': 'px',
-			}
+			},
 		};
 
 		await setCustomize( presetFont );
@@ -97,3 +97,4 @@ describe( 'Global typography settings in the customizer', () => {
 		} ).cssValueToBe( `${ presetFont[ 'headings-line-height' ] * presetFont[ 'font-size-h1' ].desktop }` + 'px' );
 	} );
 } );
+

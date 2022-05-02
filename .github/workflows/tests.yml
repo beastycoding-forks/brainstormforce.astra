@@ -13,12 +13,42 @@ concurrency:
 
 
 jobs:
-  E2ETests:
+  E2ETests_1:
 
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        Plan: [Regression,Smoke]
+    # strategy:
+    #   matrix:
+    #     Plan: [Regression,Smoke]
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Use desired version of NodeJS
+      uses: actions/setup-node@v2
+      with:
+          node-version: 14.15
+
+    - name: npm install, build
+      run: npm install
+
+    - name: Start Docker environment
+      run: npm run env:start
+      env:
+        COMPOSE_INTERACTIVE_NO_CLI: true
+
+    - name: E2E Tests
+      if: always()
+      run: npm run test:e2e:ci
+
+    - name: Stop Docker environment
+      run: npm run env:stop
+      if: always()
+      env:
+        COMPOSE_INTERACTIVE_]NO_CLI: true
+  
+  E2ETests_2:
+
+    runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v2

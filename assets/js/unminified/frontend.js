@@ -478,7 +478,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		}
 
 		if( null !== containerButton ) {
-			var containerMenu = containerButton.querySelector( '.navigation-accessibility' );
+			var containerMenu = containerButton.querySelectorAll( '.navigation-accessibility' );
 			for ( let index = 0; index < containerMenu.length; index++ ) {
 				navigation_accessibility( containerMenu[ index ], containerButton );
 			}

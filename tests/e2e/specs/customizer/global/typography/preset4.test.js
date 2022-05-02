@@ -17,11 +17,15 @@ describe( 'Global typography settings in the customizer', () => {
 			},
 			'body-font-weight': '400',
 			'body-text-transform': 'uppercase',
-			'body-line-height': '2',
+			'body-line-height': '1.8',
 			'headings-font-family': 'Montserrat, sans-serif',
 			'headings-font-weight': '700',
 			'headings-text-transform': 'lowercase',
 			'headings-line-height': '2',
+			'font-size-h1': {
+				desktop: '40',
+				'desktop-unit': 'px',
+			}
 		};
 
 		await setCustomize( presetFont );
@@ -70,7 +74,7 @@ describe( 'Global typography settings in the customizer', () => {
 		await expect( {
 			selector: 'body',
 			property: 'line-height',
-		} ).cssValueToBe( `${ presetFont[ 'body-line-height' ] * presetFont[ 'font-size-body' ].desktop }` + 'px' );
+		} ).cssValueToBe( `${ presetFont[ 'body-line-height' ] * presetFont[ 'font-size-body' ].mobile }` + 'px' );
 
 		await expect( {
 			selector: '.entry-content h1',
@@ -90,6 +94,6 @@ describe( 'Global typography settings in the customizer', () => {
 		await expect( {
 			selector: '.entry-content h1',
 			property: 'line-height',
-		} ).cssValueToBe( `${ presetFont[ 'headings-line-height' ] * presetFont[ 'font-size-body' ].desktop }` + 'px' );
+		} ).cssValueToBe( `${ presetFont[ 'headings-line-height' ] * presetFont[ 'font-size-h1' ].desktop }` + 'px' );
 	} );
 } );

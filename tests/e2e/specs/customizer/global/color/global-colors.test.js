@@ -1,5 +1,5 @@
 import { setCustomize } from '../../../../utils/customize';
-import { createURL, createNewPost, setPostContent } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost, setPostContent, insertBlock } from '@wordpress/e2e-test-utils';
 import { publishPost } from '../../../../utils/publish-post';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 describe( 'Testing global Color setting under the customizer', () => {
@@ -11,28 +11,27 @@ describe( 'Testing global Color setting under the customizer', () => {
 		await setCustomize( textAndHeadingColor );
 		let ppStatus = false;
 		while ( false === ppStatus ) {
-			await createNewPost( {
-				postType: 'post',
-				title: 'global-colors-test',
-			} );
+			await createNewPost( { postType: 'post', title: 'global-colors-test' } );
+			await insertBlock( 'Buttons' );
+			await page.keyboard.type( 'color' );
 			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
 			ppStatus = await publishPost();
 		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'body' );
+		await page.waitForSelector( 'body, .ast-footer-copyright' );
 		await expect( {
-			selector: 'body',
+			selector: 'body, .ast-footer-copyright',
 			property: 'color',
 		} ).cssValueToBe( `${ textAndHeadingColor[ 'text-color' ] }` );
 
 		await page.goto( createURL( 'global-colors-test' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.entry-title a, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' );
+		await page.waitForSelector( 'h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' );
 		await expect( {
-			selector: '.entry-title a, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
+			selector: 'h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'color',
 		} ).cssValueToBe( `${ textAndHeadingColor[ 'heading-base-color' ] }` );
 	} );
@@ -41,12 +40,12 @@ describe( 'Testing global Color setting under the customizer', () => {
 			'link-color': 'rgb(16, 109, 4)',
 		};
 		await setCustomize( linkColor );
-		await page.goto( createURL( '/' ), {
+		await page.goto( createURL( 'global-colors-test' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( '.entry-meta *, a .single .post-navigation a' );
+		await page.waitForSelector( '.entry-meta, .entry-meta *, .post-navigation a' );
 		await expect( {
-			selector: '.entry-meta *',
+			selector: '.entry-meta, .entry-meta *, .post-navigation a',
 			property: 'color',
 		} ).cssValueToBe( `${ linkColor[ 'link-color' ] }` );
 	} );

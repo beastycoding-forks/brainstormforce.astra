@@ -41,15 +41,15 @@ jobs:
               run: npm run env:start
               env:
               COMPOSE_INTERACTIVE_NO_CLI: true
+            
+            - name: E2E Tests
+              if: always()
+              run: npm run test:e2e:ci
 
             - name: Running the tests
               run: |
                   $( npm bin )/wp-scripts test-e2e --config=./tests/e2e/jest.config.js --listTests > ~/.jest-e2e-tests
                   $( npm bin )/wp-scripts test-e2e --config=./tests/e2e/jest.config.js --cacheDirectory="$HOME/.jest-cache" --runTestsByPath $( awk 'NR % 4 == ${{ matrix.part }} - 1' < ~/.jest-e2e-tests )
-            
-            - name: E2E Tests
-              if: always()
-              run: npm run test:e2e:ci
 
             - name: Stop Docker environment
               run: npm run env:stop

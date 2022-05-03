@@ -40,9 +40,8 @@ jobs:
                   npm run build
             
             - name: Start Docker environment
-              run: npm run env:start
-              env:
-              COMPOSE_INTERACTIVE_NO_CLI: true
+              run: |
+                  npm run wp-env start
 
             - name: E2E Tests
               if: always()

@@ -34,17 +34,19 @@ jobs:
                   node-version: ${{ matrix.node }}
                   cache: npm
 
-            - name: Npm install and build
-              run: |
-                  npm ci
-                  npm run build
-            - name: Install WordPress
-              run: |
-                  npm run wp-env start
+            - name: npm install, build
+                run: npm install
+            
+            - name: Start Docker environment
+              run: npm run env:start
+              env:
+              COMPOSE_INTERACTIVE_NO_CLI: true
+
             - name: Running the tests
               run: |
                   $( npm bin )/wp-scripts test-e2e --config=./tests/e2e/jest.config.js --listTests > ~/.jest-e2e-tests
                   $( npm bin )/wp-scripts test-e2e --config=./tests/e2e/jest.config.js --cacheDirectory="$HOME/.jest-cache" --runTestsByPath $( awk 'NR % 4 == ${{ matrix.part }} - 1' < ~/.jest-e2e-tests )
+            
             - name: E2E Tests
               if: always()
               run: npm run test:e2e:ci

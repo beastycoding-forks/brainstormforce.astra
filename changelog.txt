@@ -1,6 +1,7 @@
 v3.8.0
 - Improvement: Font variant customizer control's HTML markup was loading from PHP, which is now moved to React JS for the better and optimized customizer performance.
 - Fix: Customizer's typography section loading slowly.
+- Fix: W3 validation - Builder - secondary menu - Duplicate IDs for responsive devices.
 
 v3.7.10
 - Fix: Offcanvas Shopping cart closed automatically on mobile when scrolled.

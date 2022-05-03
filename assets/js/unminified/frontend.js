@@ -410,6 +410,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	window.addEventListener( 'load', function() {
 		init();
+		let parent = document.querySelector('#ast-mobile-header');
+		if(parent.querySelector('#secondary_menu-site-navigation')){
+			parent.querySelector('#secondary_menu-site-navigation').setAttribute('id', 'secondary_menu-site-navigation-mobile');
+		}
 	} );
 	document.addEventListener( 'astLayoutWidthChanged', function() {
 		init();

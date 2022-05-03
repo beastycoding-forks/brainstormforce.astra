@@ -47,7 +47,7 @@ describe( 'Below header background gradient setting in customizer', () => {
 			},
 		};
 		await setCustomize( secondaryMenuBggradient );
-        let ppStatus = false;
+		let ppStatus = false;
 		while ( false === ppStatus ) {
 			await createNewPost( { postType: 'page', title: 'menu-background-gradient' } );
 			ppStatus = await publishPost();

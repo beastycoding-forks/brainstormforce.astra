@@ -34,8 +34,10 @@ jobs:
                   node-version: ${{ matrix.node }}
                   cache: npm
 
-            - name: npm install, build
-                run: npm install
+            - name: Npm install and build
+              run: |
+                  npm ci
+                  npm run build
             
             - name: Start Docker environment
               run: npm run env:start

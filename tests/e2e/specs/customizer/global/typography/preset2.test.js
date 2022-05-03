@@ -44,7 +44,7 @@ describe( 'Global typography preset-2 style in the customizer', () => {
 			`${ globalTypographyPreset2[ 'body-font-family' ] }`,
 		);
 		await expect( {
-			selector: 'body, button, input, select, textarea, .ast-button, .ast-custom-button',
+			selector: '.entry-title, body, button, input, select, textarea, .ast-button, .ast-custom-button',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ globalTypographyPreset2[ 'body-font-weight' ] }`,
 		);
@@ -88,34 +88,37 @@ describe( 'Global typography preset-2 style in the customizer', () => {
 		};
 
 		await setCustomize( globalTypographyPreset );
-
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'post', title: 'preset2' } );
-			await setPostContent( TPOGRAPHY_TEST_POST_CONTENT );
-			ppStatus = await publishPost();
-		}
 		await page.goto( createURL( 'preset2' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.waitForSelector( 'h1, .entry-content h1' );
+		await page.waitForSelector( 'h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6' );
 		await expect( {
-			selector: 'h1, .entry-content h1',
+			selector: 'h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'font-family',
 		} ).cssValueToBe( `${ globalTypographyPreset[ 'headings-font-family' ] }`,
 		);
 		await expect( {
-			selector: '.entry-content h1',
+			selector: 'h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'font-weight',
 		} ).cssValueToBe( `${ globalTypographyPreset[ 'headings-font-weight' ] }`,
 		);
 		await expect( {
-			selector: '.entry-content h1',
+			selector: 'h1, h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'text-transform',
 		} ).cssValueToBe( `${ globalTypographyPreset[ 'headings-text-transform' ] }`,
 		);
+		// await expect( {
+		// 	selector: '.ast-single-post .entry-title',
+		// 	property: 'line-height',
+		// } ).cssValueToBe( `${ globalTypographyPreset[ 'headings-line-height' ] }`,
+		// );
+		// await expect( {
+		// 	selector: '.comment-reply-title',
+		// 	property: 'line-height',
+		// } ).cssValueToBe( `${ globalTypographyPreset[ 'headings-line-height' ] }`,
+		// );
 		await expect( {
-			selector: '.entry-content h1',
+			selector: 'h2, .entry-content h2, h3, .entry-content h3, h4, .entry-content h4, h5, .entry-content h5, h6, .entry-content h6',
 			property: 'line-height',
 		} ).cssValueToBe( `${ globalTypographyPreset[ 'headings-line-height' ] }`,
 		);

@@ -36,12 +36,13 @@ jobs:
 
             - name: Npm install and build
               run: |
-                  npm ci
-                  npm run build
+                  npm install
             
             - name: Start Docker environment
               run: |
-                  npm run wp-env start
+                  npm run env:start
+              env:
+                COMPOSE_INTERACTIVE_NO_CLI: true
 
             - name: E2E Tests
               if: always()

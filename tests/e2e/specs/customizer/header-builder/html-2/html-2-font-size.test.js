@@ -5,7 +5,7 @@ import { responsiveFontSize } from '../../../../utils/responsive-utils';
 describe( 'HTML 2 block settings in the customizer', () => {
 	it( 'html2 font size should apply correctly', async () => {
 		const htmlFontSize = {
-			'header-html-2': '<a href="https://wpastra.com/">HTML link color</a>',
+			'header-html-2': '<a href="https://wpastra.com/">HTML font size</a>',
 			'font-size-section-hb-html-2': {
 				desktop: '60',
 				tablet: '40',

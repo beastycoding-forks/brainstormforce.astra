@@ -12,6 +12,7 @@ import SelectComponent from '../select/select-component';
 import DividerComponent from '../divider/divider-component';
 import BoxShadowComponent from '../box-shadow/box-shadow-component.js';
 import SelectorComponent from '../selector/selector-component';
+import FontVariantComponent from '../ast-font-variant/ast-font-variant.js';
 
 import {
 	astraGetBackground,
@@ -78,7 +79,9 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 
 		/* Close popup when click outside anywhere outside of popup */
 		jQuery( '.wp-full-overlay-sidebar-content, .wp-picker-container' ).click( function( e ) {
-			if ( ! jQuery( e.target ).closest( '.ast-field-settings-modal' ).length ) {
+			let id = undefined !== e.target ? e.target.id : '',
+				ignoreCloseTrigger = id.indexOf( 'react-select-' ) != -1 ? true  : false;
+			if ( ! ignoreCloseTrigger && ! jQuery( e.target ).closest( '.ast-field-settings-modal' ).length ) {
 				jQuery( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
 			}
 		});
@@ -486,6 +489,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-select' : SelectComponent,
 			'ast-divider' : DividerComponent,
 			'ast-selector' : SelectorComponent,
+			'ast-font-variant' : FontVariantComponent,
 		};
 
 		if( astra.customizer.is_pro ) {

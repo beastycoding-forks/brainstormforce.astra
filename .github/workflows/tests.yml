@@ -18,11 +18,11 @@ jobs:
     job:
         name: Job - ${{ matrix.part }}
         runs-on: ubuntu-latest
-        if: ${{ github.repository == 'https://github.com/brainstormforce/astra.git' }}
+        if: ${{ github.repository == 'brainstormforce/astra' || github.event_name == 'pull_request' }}
         strategy:
             fail-fast: false
             matrix:
-                part: [1, 2]
+                part: [1, 2, 3, 4]
                 node: ['14']
 
         steps:

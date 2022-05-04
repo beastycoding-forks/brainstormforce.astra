@@ -11,9 +11,6 @@ concurrency:
     group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
     cancel-in-progress: true
 
-
-
-
 jobs:
     job:
         name: Job - ${{ matrix.part }}
@@ -22,8 +19,10 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                part: [1, 2, 3, 4]
-                node: ['14']
+                directory: 
+                  - tests/e2e/specs/meta-settings
+                  - tests/e2e/specs/customizer
+                  - tests/e2e/specs/block-editor
 
         steps:
             - uses: actions/checkout@v2
@@ -47,8 +46,7 @@ jobs:
             - name: E2E Tests
               if: always()
               run: |
-                  $( npm bin )/wp-scripts test-e2e --config=./tests/e2e/jest.config.js --listTests > ~/.jest-e2e-tests
-                  $( npm bin )/wp-scripts test-e2e --config=./tests/e2e/jest.config.js --cacheDirectory="$HOME/.jest-cache" --runTestsByPath $( awk 'NR % 4 == ${{ matrix.part }} - 1' < ~/.jest-e2e-tests )
+                  npm run test:e2e:ci -- "${{ matrix.directory }}"
 
             - name: Stop Docker environment
               run: npm run env:stop

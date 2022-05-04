@@ -18,7 +18,7 @@ jobs:
     job:
         name: Job - ${{ matrix.part }}
         runs-on: ubuntu-latest
-        if: ${{ github.repository == 'brainstormforce/astra' || github.event_name == 'pull_request' }}
+        if: ${{ github.repository == 'https://github.com/brainstormforce/astra.git' }}
         strategy:
             fail-fast: false
             matrix:

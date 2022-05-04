@@ -53,7 +53,7 @@
     "pree2etests": "npm run env run cli rewrite structure %postname% --hard --quiet",
     "test:e2e": "npm run pree2etests && cross-env WP_BASE_URL=http://localhost:8888 wp-scripts test-e2e --config=tests/e2e/jest.config.js",
     "test:e2e:interactive": "npm run test:e2e -- --puppeteer-interactive",
-    "test:e2e:ci": "npm run test-e2e -- astra/tests/e2e/specs",
+    "test:e2e:ci": "npm run test:e2e -- --runInBand",
     "format": "wp-scripts format tests/",
     "lint:css": "wp-scripts lint-style tests/",
     "lint:js": "wp-scripts lint-js tests/",

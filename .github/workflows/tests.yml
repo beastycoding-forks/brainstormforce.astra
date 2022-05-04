@@ -19,7 +19,7 @@ jobs:
             fail-fast: false
             matrix:
                 part: [1, 2, 3, 4]
-                node: ['14']
+                node: ['14.15']
             directory: 
                 - tests/e2e/specs/meta-settings
                 - tests/e2e/specs/customizer

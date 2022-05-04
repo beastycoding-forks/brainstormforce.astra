@@ -249,9 +249,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			}
 
 			return $partial_args;
-
 		}
-
 
 		/**
 		 * Add dynamic control settings.
@@ -581,6 +579,10 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 					break;
 
+				case 'ast-font-variant':
+					$configuration['value'] = $val;
+					break;
+
 			} // Switch End.
 
 			if ( isset( $configuration['id'] ) ) {
@@ -632,8 +634,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			$section_name = astra_get_prop( $config, 'name' );
 
-
-
 			unset( $config['type'] );
 			$config['type']            = isset( $config['ast_type'] ) ? $config['ast_type'] : 'ast_section';
 			$config['active']          = true;
@@ -652,8 +652,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			} else {
 				self::$js_configs['sections'][ $section_name ] = $config;
 			}
-
-
 		}
 
 		/**
@@ -690,8 +688,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'sanitize_callback' => $sanitize_callback,
 				'suffix'            => astra_get_prop( $config, 'suffix' ),
 				'control_type'      => astra_get_prop( $config, 'control' ),
+				'variant'           => astra_get_prop( $config, 'variant' ),
+				'help'              => astra_get_prop( $config, 'help' ),
 			);
-
 
 			self::$dynamic_options['settings'][ astra_get_prop( $new_config, 'name' ) ] = array(
 				'default'           => astra_get_prop( $new_config, 'default' ),
@@ -1023,10 +1022,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'component_limit'         => Astra_Builder_Helper::$component_limit,
 					'is_site_rtl'             => is_rtl(),
 					'defaults'                => $this->get_control_defaults(),
+					'isWP_5_9'                => astra_wp_version_compare( '5.8.99', '>=' ),
 					'astraRegenerateFonts'    => wp_create_nonce( 'astra-regenerate-local-fonts' ),
 					'initialFlushText'        => __( 'Flush Local Font Files', 'astra' ),
 					'successFlushed'          => __( 'Successfully Flushed', 'astra' ),
 					'failedFlushed'           => __( 'Failed, Please try again later.', 'astra' ),
+					'googleFonts'             => Astra_Font_Families::get_google_fonts(),
+					'variantLabels'           => Astra_Font_Families::font_variant_labels(),
 				)
 			);
 
@@ -1196,14 +1198,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'ast-font',
 				array(
 					'callback'          => 'Astra_Control_Typography',
-					'sanitize_callback' => 'sanitize_text_field',
-				)
-			);
-
-			Astra_Customizer_Control_Base::add_control(
-				'ast-font-variant',
-				array(
-					'callback'          => 'Astra_Control_Font_Variant',
 					'sanitize_callback' => 'sanitize_text_field',
 				)
 			);

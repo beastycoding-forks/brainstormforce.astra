@@ -11,42 +11,47 @@ concurrency:
     group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
     cancel-in-progress: true
 
+
+
+
 jobs:
-  E2ETests:
+    job:
+        name: Job - ${{ matrix.part }}
+        runs-on: ubuntu-latest
+        if: ${{ github.repository == 'brainstormforce/astra' || github.event_name == 'pull_request' }}
+        strategy:
+            fail-fast: false
+            matrix:
+                part: [1, 2]
+                node: ['14']
 
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - run: npm ci
-    - run: npm test
-    - name: Use desired version of NodeJS
-      uses: actions/setup-node@v2
-      with:
-          node-version: 14.15
+        steps:
+            - uses: actions/checkout@v2
 
-  test:
-      runs-on: ubuntu-latest
-      steps:
-      - uses: actions/checkout@v2
-      - uses: ./
-        with:
-          milliseconds: 1000
+            - name: Use desired version of NodeJS
+              uses: actions/setup-node@v2
+              with:
+                  node-version: ${{ matrix.node }}
+                  cache: npm
 
+            - name: Npm install and build
+              run: |
+                  npm install
 
-    - name: npm install, build
-      run: npm install
+            - name: Start Docker environment
+              run: |
+                  npm run env:start
+              env:
+                COMPOSE_INTERACTIVE_NO_CLI: true
 
-    - name: Start Docker environment
-      run: npm run env:start
-      env:
-        COMPOSE_INTERACTIVE_NO_CLI: true
+            - name: E2E Tests
+              if: always()
+              run: |
+                  $( npm bin )/wp-scripts test-e2e --config=./tests/e2e/jest.config.js --listTests > ~/.jest-e2e-tests
+                  $( npm bin )/wp-scripts test-e2e --config=./tests/e2e/jest.config.js --cacheDirectory="$HOME/.jest-cache" --runTestsByPath $( awk 'NR % 4 == ${{ matrix.part }} - 1' < ~/.jest-e2e-tests )
 
-    - name: E2E Tests
-      if: always()
-      run: npm run test:e2e:ci
-
-    - name: Stop Docker environment
-      run: npm run env:stop
-      if: always()
-      env:
-        COMPOSE_INTERACTIVE_]NO_CLI: true
+            - name: Stop Docker environment
+              run: npm run env:stop
+              if: always()
+              env:
+                COMPOSE_INTERACTIVE_]NO_CLI: true

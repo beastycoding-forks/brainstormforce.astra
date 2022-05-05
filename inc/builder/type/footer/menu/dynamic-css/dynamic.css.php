@@ -132,7 +132,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-horizontal-menu' => array(
 			'justify-content' => $desktop_alignment,
 		),
-		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-vertical-menu .menu-item' => array(
+		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-vertical-menu, .footer-widget-area[data-section="section-footer-menu"] .astra-footer-vertical-menu .menu-item' => array(
 			'align-items' => $desktop_alignment,
 		),
 		$selector . ' .menu-item > a'                   => array(

@@ -22,7 +22,7 @@ jobs:
     - name: Use desired version of NodeJS
       uses: actions/setup-node@v2
       with:
-          node-version: 14.15
+          node-version: 16
 
     - name: npm install, build
       run: npm install
@@ -34,8 +34,8 @@ jobs:
 
     - name: E2E Tests
       if: always()
-      run: npm run test:e2e:ci
-
+      run: npm run test:e2e
+      spec: tests/play/*
     - name: Stop Docker environment
       run: npm run env:stop
       if: always()

@@ -165,11 +165,12 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 	$arr_footer_ul_tablet = array_merge( $arr_footer_ul_tablet, astra_get_responsive_background_obj( $menu_resp_bg_color, 'tablet' ) );
 
 	$css_output_tablet = array(
-		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-horizontal-menu' => array(
+		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-horizontal-menu,.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-vertical-menu' => array(
 			'justify-content' => $tablet_alignment,
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-vertical-menu' => array(
 			'display' => 'grid',
+			'align-items' => $tablet_alignment,
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-vertical-menu .menu-item' => array(
 			'align-items' => $tablet_alignment,
@@ -205,7 +206,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 
 	$css_output_mobile = array(
 		$selector                                       => astra_get_responsive_background_obj( $menu_resp_bg_color, 'mobile' ),
-		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-mobile-horizontal-menu' => array(
+		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-mobile-horizontal-menu,.footer-widget-area[data-section="section-footer-menu"] .astra-footer-mobile-vertical-menu' => array(
 			'justify-content' => $mobile_alignment,
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-mobile-vertical-menu' => array(

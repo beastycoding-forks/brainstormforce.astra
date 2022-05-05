@@ -1,9 +1,10 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
-import { publishPost } from '../../../../../utils/publish-post';
+import { createURL } from '@wordpress/e2e-test-utils';
+import { createSecondaryMenu } from '../../../../../utils/create-secondary-menu';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'Secondary menu settings in the customizer', () => {
 	it( 'background normal color should apply correctly', async () => {
+		await createSecondaryMenu();
 		const secondaryMenuBgColor = {
 			'header-menu2-bg-obj-responsive': {
 				desktop: {
@@ -47,11 +48,6 @@ describe( 'Secondary menu settings in the customizer', () => {
 			},
 		};
 		await setCustomize( secondaryMenuBgColor );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'menu-background-color' } );
-			ppStatus = await publishPost();
-		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

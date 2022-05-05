@@ -1,9 +1,10 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
-import { publishPost } from '../../../../../utils/publish-post';
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
+import { createSecondaryMenu } from '../../../../../utils/create-secondary-menu';
 describe( 'Secondary menu spacing in the customizer', () => {
 	it( 'spacing option should apply correctly', async () => {
+		await createSecondaryMenu();
 		const secondaryMenuSpacing = {
 			'header-menu2-menu-spacing': {
 				desktop: {
@@ -44,11 +45,6 @@ describe( 'Secondary menu spacing in the customizer', () => {
 			},
 		};
 		await setCustomize( secondaryMenuSpacing );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'menu-spacing' } );
-			ppStatus = await publishPost();
-		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

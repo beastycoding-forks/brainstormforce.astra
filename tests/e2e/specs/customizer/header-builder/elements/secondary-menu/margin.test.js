@@ -1,9 +1,10 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
-import { publishPost } from '../../../../../utils/publish-post';
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
+import { createSecondaryMenu } from '../../../../../utils/create-secondary-menu';
 describe( 'Secondary menu setting in the customizer for', () => {
 	it( 'secondary menu margin should apply correctly', async () => {
+		await createSecondaryMenu();
 		const secondaryMenuMargin = {
 			'section-hb-menu-2-margin': {
 				desktop: {
@@ -44,11 +45,6 @@ describe( 'Secondary menu setting in the customizer for', () => {
 			},
 		};
 		await setCustomize( secondaryMenuMargin );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'menu-margin' } );
-			ppStatus = await publishPost();
-		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

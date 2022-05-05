@@ -1,9 +1,10 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
-import { publishPost } from '../../../../../utils/publish-post';
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-describe( 'Below header background gradient setting in customizer', () => {
+import { createSecondaryMenu } from '../../../../../utils/create-secondary-menu';
+describe( 'Secondary menu backgeound gradient setting in customizer', () => {
 	it( 'background gradient should apply correctly', async () => {
+		await createSecondaryMenu();
 		const secondaryMenuBggradient = {
 			'header-menu2-bg-obj-responsive': {
 				desktop: {
@@ -47,11 +48,6 @@ describe( 'Below header background gradient setting in customizer', () => {
 			},
 		};
 		await setCustomize( secondaryMenuBggradient );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'menu-background-gradient' } );
-			ppStatus = await publishPost();
-		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -59,9 +55,7 @@ describe( 'Below header background gradient setting in customizer', () => {
 		await expect( {
 			selector: '.ast-builder-menu-2 .main-header-menu',
 			property: 'background-image',
-		} ).cssValueToBe(
-			`${ secondaryMenuBggradient[ 'header-menu2-bg-obj-responsive' ].desktop[ 'background-color' ] }`,
-		);
+		} ).cssValueToBe( `${ secondaryMenuBggradient[ 'header-menu2-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
 		await setBrowserViewport( 'medium' );
 		await page.waitForSelector( '.ast-builder-menu-2 .main-header-menu' );
 		await expect( {

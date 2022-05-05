@@ -1,9 +1,10 @@
-import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
-import { publishPost } from '../../../../../utils/publish-post';
+import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
+import { createSecondaryMenu } from '../../../../../utils/create-secondary-menu';
 describe( 'Secondary menu settings in the customizer', () => {
 	it( 'background image should apply correctly', async () => {
+		await createSecondaryMenu();
 		const secondaryMenuBgImage = {
 			'header-menu2-bg-obj-responsive': {
 				desktop: {
@@ -47,11 +48,6 @@ describe( 'Secondary menu settings in the customizer', () => {
 			},
 		};
 		await setCustomize( secondaryMenuBgImage );
-		let ppStatus = false;
-		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'page', title: 'menu-background-image' } );
-			ppStatus = await publishPost();
-		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

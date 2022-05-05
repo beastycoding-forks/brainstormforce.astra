@@ -37,6 +37,7 @@ import { typographyPresetControl } from './typography-presets/control.js';
 import { colorPaletteControl } from './color-palette/control.js';
 import { boxShadowControl }  from './box-shadow/control.js';
 import { responsiveToggleControl } from './responsive-toggle-control/control';
+import { astFontVariantControl } from './ast-font-variant/control';
 
 window.svgIcons = svgIcons;
 wp.customize.controlConstructor['ast-heading'] = headingControl;
@@ -75,6 +76,7 @@ wp.customize.controlConstructor['ast-button-presets'] = buttonPresetControl;
 wp.customize.controlConstructor['ast-typography-presets'] = typographyPresetControl;
 wp.customize.controlConstructor['ast-color-palette'] = colorPaletteControl;
 wp.customize.controlConstructor['ast-responsive-toggle-control'] = responsiveToggleControl;
+wp.customize.controlConstructor['ast-font-variant'] = astFontVariantControl;
 
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;
 import { Base } from './customizer';

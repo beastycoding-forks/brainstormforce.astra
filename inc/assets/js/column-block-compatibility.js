@@ -30,4 +30,3 @@ wp.hooks.addFilter(
 	},
 	20
 );
-

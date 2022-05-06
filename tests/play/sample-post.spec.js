@@ -4,7 +4,7 @@ const { test, expect } = require( '@playwright/test' );
 const { loginToSite } = require( './utils/login' );
 const { createNewPost } = require( '../play/utils/create-new-post' );
 test.describe( 'create new post', () => {
-	test( 'Login to Admin', async ( { page } ) => {
+	test( 'create a post', async ( { page } ) => {
 		const login = new loginToSite( page );
 		await login.loginAsAdmin();
 		const createPost = new createNewPost( page );

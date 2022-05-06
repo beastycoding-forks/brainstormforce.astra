@@ -3,7 +3,7 @@ import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../../utils/scroll-to-element';
 import { createNewFooterMenu } from '../../../../../utils/create-footer-menu';
-describe( 'Add footer menu spacing', () => {
+describe( 'Add footer menu alignment', () => {
 	it( 'footer menu center alignment should be added properly', async () => {
 		await createNewFooterMenu();
 		//center alignment for desktop, tablet and mobile

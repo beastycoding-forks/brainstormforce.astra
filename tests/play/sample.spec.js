@@ -1,6 +1,6 @@
 const { test, expect } = require( '@playwright/test' );
 const { loginToSite } = require( './utils/login' );
-test.describe( 'Single post in the customizer', () => {
+test.describe( 'Login to site', () => {
 	test( 'Login to Admin', async ( { page } ) => {
 		const login = new loginToSite( page );
 		await login.loginAsAdmin();

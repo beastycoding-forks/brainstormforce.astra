@@ -1,6 +1,6 @@
 {
   "name": "astra",
-  "version": "3.7.9",
+  "version": "3.7.10",
   "description": "A very lightweight and beautiful theme made to work with Page Builders.",
   "main": "Gruntfile.js",
   "repository": {
@@ -37,6 +37,7 @@
     "grunt-contrib-sass": "^2.0.0",
     "grunt-contrib-uglify": "^5.0.1",
     "grunt-json2php": "^0.1.4",
+    "grunt-jsonlint": "^2.1.3",
     "grunt-rtlcss": "^2.0.2",
     "grunt-sass": "^3.0.2",
     "grunt-text-replace": "^0.4.0",
@@ -49,7 +50,7 @@
     "react-router-dom": "^6.2.1",
     "kind-of": ">=6.0.3",
     "lodash": "^4.17.21",
-    "minimist": ">=1.2.3",
+    "minimist": "^1.2.6",
     "node-sass": "^7.0.1",
     "postcss-flexibility": "git+https://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",
     "puppeteer": "^10.4.0"

@@ -1,24 +1,16 @@
+/**
+ * Internal dependencies
+ */
+
 module.exports = {
-	root: true,
 	extends: [
 		'plugin:@wordpress/eslint-plugin/recommended-with-formatting',
 		'plugin:import/recommended',
 		'plugin:eslint-comments/recommended',
 	],
-	ignorePatterns: [ 'deprecated.js' ],
-	rules: {
-		'no-alert': 'off',
-		'no-lonely-if': 'off',
-		'no-console': 'off',
-		'import/no-unresolved': 'off',
-		'jsx-a11y/click-events-have-key-events': 'off',
-		'jsx-a11y/no-static-element-interactions': 'off',
-		'jsx-a11y/no-redundant-roles': 'off',
-		'jest/expect-expect': 'off',
-		'jest/valid-expect-in-promise': 'off',
-		'jest/no-commented-out-tests': 'off',
-		'jest/no-done-callback': 'off',
-		'jsdoc/valid-types': 'off',
+	root: true,
+	env: {
+		browser: true,
 	},
 	parserOptions: {
 		requireConfigFile: false,
@@ -26,6 +18,26 @@ module.exports = {
 			presets: [ require.resolve( '@wordpress/babel-preset-default' ) ],
 		},
 	},
-	globals: {
-	},
+	overrides: [
+		{
+			files: [
+				'tests/e2e/**/*.js',
+			],
+			extends: [
+				'plugin:@wordpress/eslint-plugin/test-e2e',
+				'plugin:jest/all',
+			],
+			rules: {
+				'jest/prefer-lowercase-title': [
+					'error',
+					{
+						ignore: [ 'describe' ],
+					},
+				],
+				'jest/no-hooks': 'off',
+				'jest/prefer-expect-assertions': 'off',
+				'jest/prefer-inline-snapshots': 'off',
+			},
+		},
+	],
 };

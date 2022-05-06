@@ -37,6 +37,7 @@ module.exports = {
 				'jest/no-hooks': 'off',
 				'jest/prefer-expect-assertions': 'off',
 				'jest/prefer-inline-snapshots': 'off',
+				'jsdoc/valid-types': 'off',
 			},
 		},
 	],

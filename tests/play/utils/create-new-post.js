@@ -4,16 +4,6 @@
 const { expect } = require( '@playwright/test' );
 const { addQueryArgs } = require( '@wordpress/url' );
 
-/**
- * Creates new post.
- *
- * @param {Object}  object                    Object to create new post, along with tips enabling option.
- * @param {string}  [object.postType]         Post type of the new post.
- * @param {string}  [object.title]            Title of the new post.
- * @param {string}  [object.content]          Content of the new post.
- * @param {string}  [object.excerpt]          Excerpt of the new post.
- * @param {boolean} [object.showWelcomeGuide] Whether to show the welcome guide.
- */
 exports. createNewPost = class createNewPost {
 	constructor( page ) {
 		this.page = page;

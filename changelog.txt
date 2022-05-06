@@ -1,4 +1,6 @@
-v3.8.0 (Unreleased)
+v3.8.1 (Unreleased)
+- Fix: Footer builder - footer menu alignment is not working on vertical layout for responsive devices.
+v3.8.0
 - New: Enhanced block editor experience. ( Blog link )
 - Improvement: Font variant customizer control's HTML markup was loading from PHP, which is now moved to React JS for the better and optimized customizer performance.
 - Fix: Customizer's typography section loading slowly.

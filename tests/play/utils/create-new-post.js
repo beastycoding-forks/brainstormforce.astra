@@ -6,7 +6,7 @@ export class createNewPost {
 		this.page = page;
 	}
 	async createNewPosts() {
-		await this.visitAdminPage( 'post-new.php', query );
+		await this.visitAdminPage( 'post-new.php' );
 
 		await this.page.waitForSelector( '.edit-post-layout' );
 

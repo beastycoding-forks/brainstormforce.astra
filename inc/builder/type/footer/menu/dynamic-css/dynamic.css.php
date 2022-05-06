@@ -169,7 +169,7 @@ function astra_hb_footer_menu_dynamic_css( $dynamic_css, $dynamic_css_filtered =
 			'justify-content' => $tablet_alignment,
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-vertical-menu' => array(
-			'display' => 'grid',
+			'display'     => 'grid',
 			'align-items' => $tablet_alignment,
 		),
 		'.footer-widget-area[data-section="section-footer-menu"] .astra-footer-tablet-vertical-menu .menu-item' => array(

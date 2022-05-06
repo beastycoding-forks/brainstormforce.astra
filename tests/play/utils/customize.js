@@ -1,6 +1,11 @@
-export const setCustomize = async ( { page, data } ) => {
-	return await window.fetch(
-		await page.goto( '/wp-json/astra/v1/e2e-utils/set-astra-settings' ),
+exports.setCustomize = class setCustomize {
+	constructor( page ) {
+		this.page = page;
+	}
+	async setCustomize() {
+		return await window
+		.fetch(
+		await this.page.goto( '/wp-json/astra/v1/e2e-utils/set-astra-settings' ),
 		{
 			method: 'POST',
 			headers: {
@@ -8,10 +13,12 @@ export const setCustomize = async ( { page, data } ) => {
 			},
 			body: JSON.stringify( { settings: data } ),
 		},
-	);
-};
 
-export const getCustomizerSettings = async ( { page, key } ) => {
+exports.getCustomizerSettings = class getCustomizerSettings {
+	constructor( page ) {
+		this.page = page;
+	}
+	async getCustomizerSettings() {
 	return await window
 		.fetch(
 			await page.goto( `/wp-json/astra/v1/e2e-utils/get-astra-settings` ) +
@@ -24,9 +31,12 @@ export const getCustomizerSettings = async ( { page, key } ) => {
 			},
 		)
 		.then( ( response ) => response.json() );
-};
-
-export const uploadImage = async ( { page, data } ) => {
+	}
+exports.uploadImage = class uploadImage {
+	constructor( page ) {
+		this.page = page;
+	}
+	async uploadImage() {
 	const rawResponse = await window.fetch(
 		await page.goto( '/wp-json/astra/v1/e2e-utils/upload-astra-image' ),
 		{
@@ -39,9 +49,12 @@ export const uploadImage = async ( { page, data } ) => {
 	);
 	const fileID = await rawResponse.json();
 	return fileID;
-};
-
-export const setLogo = async ( { page, data } ) => {
+}
+exports.setLogo = class setLogo {
+	constructor( page ) {
+		this.page = page;
+	}
+	async setLogo() {
 	return await window.fetch(
 		await page.goto( '/wp-json/astra/v1/e2e-utils/set-astra-logo' ),
 		{
@@ -52,4 +65,7 @@ export const setLogo = async ( { page, data } ) => {
 			body: JSON.stringify( { fileId: data } ),
 		},
 	);
+	},
+};
+}
 };

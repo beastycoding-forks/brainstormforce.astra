@@ -11,5 +11,6 @@ test.describe( 'create new page', () => {
 		await createPage.createNewPage();
 		await page.locator( '[aria-label="Dismiss this notice"]' );
 		await expect( page.locator( '[aria-label="Dismiss this notice"]' ) ).toBeVisible();
+		await page.goto( '/sample-page' );
 	} );
 } );

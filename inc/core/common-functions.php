@@ -1642,14 +1642,3 @@ function astra_block_based_legacy_setup() {
 	$legacy_setup   = ( isset( $astra_settings['blocks-legacy-setup'] ) && isset( $astra_settings['wp-blocks-ui'] ) && 'legacy' === $astra_settings['wp-blocks-ui'] ) ? true : false;
 	return $legacy_setup;
 }
-
-/**
- * Check if existing setup is live with old block editor compatibilities.
- *
- * @return bool true|false.
- */
-function astra_block_based_legacy_setup() {
-	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-	$legacy_setup   = ( isset( $astra_settings['blocks-legacy-setup'] ) && isset( $astra_settings['wp-blocks-ui'] ) && 'legacy' === $astra_settings['wp-blocks-ui'] ) ? true : false;
-	return $legacy_setup;
-}

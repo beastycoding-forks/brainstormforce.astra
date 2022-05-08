@@ -159,6 +159,13 @@ module.exports = function (grunt) {
                         dest: 'assets/css/unminified',
                         ext: '.css'
                     },
+					{
+                        expand: true,
+                        cwd: 'sass/',
+                        src: ['fse-main.scss'],
+                        dest: 'assets/css/unminified',
+                        ext: '.css'
+                    },
                     {
                         expand: true,
                         cwd: 'sass/',
@@ -475,6 +482,10 @@ module.exports = function (grunt) {
                     {
                         src: 'assets/css/unminified/main-rtl.css',
                         dest: 'assets/css/minified/main.min-rtl.css',
+                    },
+                    {
+                        src: 'assets/css/unminified/fse-main-rtl.css',
+                        dest: 'assets/css/minified/fse-main.min-rtl.css',
                     },
                     {
                         src: 'assets/css/unminified/extend-customizer-rtl.css',

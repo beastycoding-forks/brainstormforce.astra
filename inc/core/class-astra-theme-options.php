@@ -568,7 +568,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 		public static function refresh() {
 			self::$db_options = wp_parse_args(
 				self::get_db_options(),
-				// self::defaults()
+				self::defaults()
 			);
 		}
 

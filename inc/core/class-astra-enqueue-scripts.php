@@ -380,20 +380,18 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			// Render fonts in Gutenberg layout.
 			Astra_Fonts::render_fonts();
 
-			if ( 'disable' === get_option( '_astra_fse_support', 'disable' ) || ! defined( 'ASTRA_BLOCK_THEME_VER' ) ) {
-				if ( astra_block_based_legacy_setup() ) {
-					$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
-					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					wp_enqueue_style( 'astra-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
-					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					wp_add_inline_style( 'astra-block-editor-styles', apply_filters( 'astra_block_editor_dynamic_css', Gutenberg_Editor_CSS::get_css() ) );
-				} else {
-					$css_uri = ASTRA_THEME_URI . 'inc/assets/css/wp-editor-styles' . $rtl . '.css';
-					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					wp_enqueue_style( 'astra-wp-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
-					/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					wp_add_inline_style( 'astra-wp-editor-styles', apply_filters( 'astra_block_editor_dynamic_css', Astra_WP_Editor_CSS::get_css() ) );
-				}
+			if ( astra_block_based_legacy_setup() ) {
+				$css_uri = ASTRA_THEME_URI . 'inc/assets/css/block-editor-styles' . $rtl . '.css';
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				wp_enqueue_style( 'astra-block-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				wp_add_inline_style( 'astra-block-editor-styles', apply_filters( 'astra_block_editor_dynamic_css', Gutenberg_Editor_CSS::get_css() ) );
+			} else {
+				$css_uri = ASTRA_THEME_URI . 'inc/assets/css/wp-editor-styles' . $rtl . '.css';
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				wp_enqueue_style( 'astra-wp-editor-styles', $css_uri, false, ASTRA_THEME_VERSION, 'all' );
+				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				wp_add_inline_style( 'astra-wp-editor-styles', apply_filters( 'astra_block_editor_dynamic_css', Astra_WP_Editor_CSS::get_css() ) );
 			}
 		}
 

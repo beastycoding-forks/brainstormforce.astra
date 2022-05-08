@@ -6,7 +6,7 @@
         {
           "name": "Theme Color 1",
           "slug": "ast-global-color-0",
-          "color": "#FF0000"
+          "color": "var(--ast-global-color-0)"
         },
         {
           "name": "Theme Color 2",

@@ -1,25 +1,13 @@
 <?php
 /**
- * Astra functions and definitions.
- * Text Domain: astra
- * When using a child theme (see https://codex.wordpress.org/Theme_Development
- * and https://codex.wordpress.org/Child_Themes), you can override certain
- * functions (those wrapped in a function_exists() call) by defining them first
- * in your child theme's functions.php file. The child theme's functions.php
- * file is included before the parent theme's file, so the child theme
- * functions would be used.
- *
- * For more information on hooks, actions, and filters,
- * see https://codex.wordpress.org/Plugin_API
- *
  * Astra is a very powerful theme and virtually anything can be customized
  * via a child theme.
  *
  * @package     Astra
  * @author      Astra
- * @copyright   Copyright (c) 2020, Astra
+ * @copyright   Copyright (c) 2022, Astra
  * @link        https://wpastra.com/
- * @since       Astra 1.0.0
+ * @since       Astra x.x.x
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -27,58 +15,43 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Astra_After_Setup_Theme initial setup
+ * Astra_Setup_Theme initial setup for Full Site Editing.
  *
- * @since 1.0.0
+ * @since x.x.x
  */
-if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
+if ( ! class_exists( 'Astra_Setup_Theme' ) ) {
 
 	/**
-	 * Astra_After_Setup_Theme initial setup
+	 * Astra_Setup_Theme initial setup
 	 */
-	class Astra_After_Setup_Theme {
-
-		/**
-		 * Instance
-		 *
-		 * @var $instance
-		 */
-		private static $instance;
-
-		/**
-		 * Initiator
-		 *
-		 * @since 1.0.0
-		 * @return object
-		 */
-		public static function get_instance() {
-			if ( ! isset( self::$instance ) ) {
-				self::$instance = new self();
-			}
-			return self::$instance;
-		}
+	class Astra_Setup_Theme {
 
 		/**
 		 * Constructor
 		 */
 		public function __construct() {
 			add_action( 'after_setup_theme', array( $this, 'setup_theme' ), 2 );
-			add_action( 'wp', array( $this, 'setup_content_width' ) );
-			add_filter( 'theme_file_path', array( $this, 'fse_support' ), 10, 2 );
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_scripts' ), 1 );
 		}
 
 		/**
-		 * Do not load HTML template when FSE is not enabled.
+		 * Dequeue theme assets when FSE is enabled.
 		 *
 		 * @since x.x.x
-		 *
-		 * @param  string $path Path for the index.html.
-		 * @param  string $file path for index.html.
 		 */
-		public function fse_support( $path, $file ) {
-			if ( '/block-templates/index.html' === $file || '/templates/index.html' === $file ) {
-				return false;
-			}
+		public function enqueue_scripts() {
+			/* Directory and Extension */
+			/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
+			/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$dir_name = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			$css_uri  = ASTRA_THEME_URI . 'assets/css/' . $dir_name . '/';
+
+			// Register theme stylesheet.
+			wp_register_style( 'astra-fse-css', $css_uri . 'fse-main' . $file_prefix . '.css', array(), ASTRA_THEME_VERSION, 'all' );
+
+			// Enqueue theme stylesheet.
+			wp_enqueue_style( 'astra-fse-css' );
 		}
 
 		/**
@@ -165,7 +138,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			/* Directory and Extension */
 			$dir_name    = 'minified';
 			$file_prefix = '';
-			/** @psalm-suppress RedundantConditionGivenDocblockType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			if ( SCRIPT_DEBUG ) {
 				$dir_name    = 'unminified';
 				$file_prefix = '.min';
@@ -197,52 +170,6 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 					)
 				);
 			}
-
-			// Remove Template Editor support until WP 5.9 since more Theme Blocks are going to be introduced.
-			remove_theme_support( 'block-templates' );
-		}
-
-		/**
-		 * Set the $content_width global variable used by WordPress to set image dimennsions.
-		 *
-		 * @since 1.5.5
-		 * @return void
-		 */
-		public function setup_content_width() {
-			global $content_width;
-
-			/**
-			 * Content Width
-			 */
-			if ( ! isset( $content_width ) ) {
-
-				if ( is_home() || is_post_type_archive( 'post' ) ) {
-					$blog_width = astra_get_option( 'blog-width' );
-
-					if ( 'custom' === $blog_width ) {
-						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'blog-max-width', 1200 ) );
-					} else {
-						$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
-					}
-				} elseif ( is_single() ) {
-
-					if ( 'post' === get_post_type() ) {
-						$single_post_max = astra_get_option( 'blog-single-width' );
-
-						if ( 'custom' === $single_post_max ) {
-							$content_width = apply_filters( 'astra_content_width', astra_get_option( 'blog-single-max-width', 1200 ) );
-						} else {
-							$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
-						}
-					}
-
-					// For custom post types set the global content width.
-					$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
-				} else {
-					$content_width = apply_filters( 'astra_content_width', astra_get_option( 'site-content-width', 1200 ) );
-				}
-			}
-
 		}
 
 		/**
@@ -271,7 +198,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			if ( astra_strposa( $url, $allowed_providers ) ) {
 				if ( $add_astra_oembed_wrapper ) {
-					$html = ( '' !== $html ) ? '<div class="ast-oembed-container" style="height: 100%;">' . $html . '</div>' : '';
+					$html = ( '' !== $html ) ? '<div class="ast-oembed-container">' . $html . '</div>' : '';
 				}
 			}
 
@@ -283,4 +210,4 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 /**
  * Kicking this off by calling 'get_instance()' method
  */
-Astra_After_Setup_Theme::get_instance();
+new Astra_Setup_Theme();

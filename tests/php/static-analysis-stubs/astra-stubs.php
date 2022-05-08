@@ -2722,11 +2722,30 @@ namespace {
         {
         }
         /**
+         * Dequeue theme assets when FSE is enabled.
+         *
+         * @since x.x.x
+         */
+        public function dequeue_theme_assets()
+        {
+        }
+        /**
+         * Dequeue theme assets when FSE is enabled.
+         *
+         * @since x.x.x
+         */
+        public function enqueue_scripts()
+        {
+        }
+        /**
          * Setup theme
          *
          * @since 1.0.0
          */
         public function setup_theme()
+        {
+        }
+        public function fse_support($path, $file)
         {
         }
         /**
@@ -2982,15 +3001,6 @@ namespace {
          * @since 3.7.0
          */
         public function __construct()
-        {
-        }
-        /**
-         * Modify color palette from Gutenberg.
-         *
-         * @since 3.7.0
-         * @return void
-         */
-        public function support_editor_color_palette()
         {
         }
         /**
@@ -8170,6 +8180,15 @@ namespace {
         {
         }
         /**
+         * Variant labels.
+         *
+         * @since x.x.x
+         * @return array
+         */
+        public static function font_variant_labels()
+        {
+        }
+        /**
          * Google Fonts used in astra.
          * Array is generated from the google-fonts.json file.
          *
@@ -9440,91 +9459,6 @@ namespace {
         }
     }
     /**
-     * Variant control.
-     */
-    final class Astra_Control_Font_Variant extends \WP_Customize_Control
-    {
-        /**
-         * Used to connect controls to each other.
-         *
-         * @since 3.0.0
-         * @var bool $connect
-         */
-        public $connect = \false;
-        /**
-         * Option name.
-         *
-         * @since 3.0.0
-         * @var string $name
-         */
-        public $name = '';
-        /**
-         * Option label.
-         *
-         * @since 3.0.0
-         * @var string $label
-         */
-        public $label = '';
-        /**
-         * Option description.
-         *
-         * @since 3.0.0
-         * @var string $description
-         */
-        public $description = '';
-        /**
-         * Control type.
-         *
-         * @since 3.0.0
-         * @var string $type
-         */
-        public $type = 'ast-font-variant';
-        /**
-         * Used to connect variant controls to each other.
-         *
-         * @since 1.5.2
-         * @var bool $variant
-         */
-        public $variant = \false;
-        /**
-         * Used to set the default font options.
-         *
-         * @since 1.0.8
-         * @var string $ast_inherit
-         */
-        public $ast_inherit = '';
-        /**
-         * Set the default font options.
-         *
-         * @since 3.0.0
-         * @param WP_Customize_Manager $manager Customizer bootstrap instance.
-         * @param string               $id      Control ID.
-         * @param array                $args    Default parent's arguments.
-         */
-        public function __construct($manager, $id, $args = array())
-        {
-        }
-        /**
-         * Refresh the parameters passed to the JavaScript via JSON.
-         *
-         * @since 3.0.0
-         * @see WP_Customize_Control::to_json()
-         */
-        public function to_json()
-        {
-        }
-        /**
-         * COntent Template for the Control rendering.
-         *
-         * @see WP_Customize_Control::print_template()
-         * @since 3.0.0
-         * @access protected
-         */
-        protected function content_template()
-        {
-        }
-    }
-    /**
      * Typography control.
      */
     final class Astra_Control_Typography extends \WP_Customize_Control
@@ -10791,6 +10725,15 @@ namespace {
         {
         }
         /**
+         * Checking the page headers are available and have some posts with it.
+         *
+         * @since x.x.x
+         * @return bool true|false.
+         */
+        public function check_page_header_availability()
+        {
+        }
+        /**
          * Get page header Options.
          */
         public function get_page_header_options()
@@ -10810,64 +10753,6 @@ namespace {
          * @since 3.7.8
          */
         public static function post_meta_options()
-        {
-        }
-    }
-    /*!
-     * ISC License
-     * 
-     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
-     *
-     * Permission to use, copy, modify, and/or distribute this software for any
-     * purpose with or without fee is hereby granted, provided that the above
-     * copyright notice and this permission notice appear in all copies.
-     *
-     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
-     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-     * PERFORMANCE OF THIS SOFTWARE.
-     */
-    class FlattedString
-    {
-        public function __construct($value)
-        {
-        }
-    }
-    class Flatted
-    {
-        // public utilities
-        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
-        {
-        }
-        public static function stringify($value, $options = 0, $depth = 512)
-        {
-        }
-        // private helpers
-        private static function asString($value)
-        {
-        }
-        private static function index(&$known, &$input, &$value)
-        {
-        }
-        private static function keys(&$value)
-        {
-        }
-        private static function loop($obj, $keys, &$input, &$set, &$output)
-        {
-        }
-        private static function relate(&$known, &$input, &$value)
-        {
-        }
-        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
-        {
-        }
-        private static function transform(&$known, &$input, &$value)
-        {
-        }
-        private static function wrap($value)
         {
         }
     }
@@ -13591,6 +13476,15 @@ namespace {
      * @return bool|null            True/False based on the  $version and $compare value.
      */
     function astra_wp_version_compare($version, $compare)
+    {
+    }
+    /**
+     * Check if Full Site Editing support is enabled or not?
+     *
+     * @since  x.x.x
+     * @return bool True if FSE support is enabled else false.
+     */
+    function astra_is_fse()
     {
     }
     /**

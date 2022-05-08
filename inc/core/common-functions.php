@@ -1372,6 +1372,79 @@ if ( ! function_exists( 'astra_is_white_labelled' ) ) :
 
 endif;
 
+if ( ! function_exists( 'astra_get_prop' ) ) :
+
+	/**
+	 * Get a specific property of an array without needing to check if that property exists.
+	 *
+	 * Provide a default value if you want to return a specific value if the property is not set.
+	 *
+	 * @since  1.2.7
+	 * @access public
+	 * @author Gravity Forms - Easiest Tool to Create Advanced Forms for Your WordPress-Powered Website.
+	 * @link  https://www.gravityforms.com/
+	 *
+	 * @param array  $array   Array from which the property's value should be retrieved.
+	 * @param string $prop    Name of the property to be retrieved.
+	 * @param string $default Optional. Value that should be returned if the property is not set or empty. Defaults to null.
+	 *
+	 * @return null|string|mixed The value
+	 */
+	function astra_get_prop( $array, $prop, $default = null ) {
+
+		/** @psalm-suppress DocblockTypeContradiction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		if ( ! is_array( $array ) && ! ( is_object( $array ) && $array instanceof ArrayAccess ) ) {
+			return $default;
+		}
+
+		if ( ( isset( $array[ $prop ] ) && false === $array[ $prop ] ) ) {
+			return false;
+		}
+
+		if ( isset( $array[ $prop ] ) ) {
+			$value = $array[ $prop ];
+		} else {
+			$value = '';
+		}
+
+		return empty( $value ) && null !== $default ? $default : $value;
+	}
+
+endif;
+
+if ( ! function_exists( 'astra_get_theme_name' ) ) :
+
+	/**
+	 * Get theme name.
+	 *
+	 * @return string Theme Name.
+	 */
+	function astra_get_theme_name() {
+
+		$theme_name = __( 'Astra', 'astra' );
+
+		return apply_filters( 'astra_theme_name', $theme_name );
+	}
+
+endif;
+
+/**
+ * Build list of attributes into a string and apply contextual filter on string.
+ *
+ * The contextual filter is of the form `astra_attr_{context}_output`.
+ *
+ * @since 1.6.2
+ * @credits - Genesis Theme By StudioPress.
+ *
+ * @param string $context    The context, to build filter name.
+ * @param array  $attributes Optional. Extra attributes to merge with defaults.
+ * @param array  $args       Optional. Custom data to pass to filter.
+ * @return string String of HTML attributes and values.
+ */
+function astra_attr( $context, $attributes = array(), $args = array() ) {
+	return Astra_Attr::get_instance()->astra_attr( $context, $attributes, $args );
+}
+
 /**
  * Get the value for font-display property.
  *
@@ -1557,6 +1630,17 @@ function astra_zero_font_size_case() {
  */
 function astra_wp_version_compare( $version, $compare ) {
 	return version_compare( get_bloginfo( 'version' ), $version, $compare );
+}
+
+/**
+ * Check if existing setup is live with old block editor compatibilities.
+ *
+ * @return bool true|false.
+ */
+function astra_block_based_legacy_setup() {
+	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	$legacy_setup   = ( isset( $astra_settings['blocks-legacy-setup'] ) && isset( $astra_settings['wp-blocks-ui'] ) && 'legacy' === $astra_settings['wp-blocks-ui'] ) ? true : false;
+	return $legacy_setup;
 }
 
 /**

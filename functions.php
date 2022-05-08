@@ -15,11 +15,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '3.7.9' );
+define( 'ASTRA_THEME_VERSION', '3.8.0' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
-
 
 /**
  * Minimum Version requirement of the Astra Pro addon.
@@ -58,12 +57,13 @@ require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-fonts.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/custom-menu-old-header.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/container-layouts.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/astra-icons.php';
-require_once ASTRA_THEME_DIR . 'inc/dynamic-css/block-editor-compatibility.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-walker-page.php';
 require_once ASTRA_THEME_DIR . 'inc/core/class-astra-enqueue-scripts.php';
 if ( 'disable' === get_option( '_astra_fse_support', 'disable' ) || ! defined( 'ASTRA_BLOCK_THEME_VER' ) ) {
 	require_once ASTRA_THEME_DIR . 'inc/core/class-gutenberg-editor-css.php';
 }
+require_once ASTRA_THEME_DIR . 'inc/core/class-astra-wp-editor-css.php';
+require_once ASTRA_THEME_DIR . 'inc/dynamic-css/block-editor-compatibility.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/inline-on-mobile.php';
 require_once ASTRA_THEME_DIR . 'inc/dynamic-css/content-background.php';
 require_once ASTRA_THEME_DIR . 'inc/class-astra-dynamic-css.php';

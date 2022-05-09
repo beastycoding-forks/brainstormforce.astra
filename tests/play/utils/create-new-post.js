@@ -7,7 +7,7 @@ exports.createNewPost = class createNewPost {
 	async createNewPost() {
 		// let showWelcomeGuide;
 		await this.page.goto( '/wp-admin/post-new.php' );
-		await this.page.locator( '.components-modal__header > .components-button > svg > path' ).click();
+		//await this.page.locator( '.components-modal__header > .components-button > svg > path' ).click();
 		await this.page.locator( '#editor .block-editor-block-list__block' ).click();
 		await this.page.locator( '#editor .block-editor-block-list__block' ).type( 'sample' );
 		// await this.page.waitForLoadState( 'networkidle' );

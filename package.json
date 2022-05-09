@@ -65,6 +65,7 @@
     "env:stop": "wp-env stop",
     "env:destroy": "wp-env destroy",
     "env:reset-site": "wp-env clean all",
+    "env:reset": "wp-env run tests-cli './wp-content/themes/astra/tests/e2e/docker/reset-site.sh'",
     "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8888 '#astra-theme-css-inline-css'",
     "env": "wp-env",
     "play:install": "npm i -D @playwright/test",

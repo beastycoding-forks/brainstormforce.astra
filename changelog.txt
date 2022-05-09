@@ -6,6 +6,7 @@ v3.8.0 (Unreleased)
 - Fix: Elementor Pro - WooCommerce Checkout Form's shipping details not look appropriate in editor mode as it looks on the frontend.
 - Fix: Search element not displaying in Mobile Offcanvas.
 - Fix: Offcanvas Shopping cart closes automatically on mobile when scrolled.
+- Fix: W3 validation - Role attribute is missing for Acoount element link.
 
 v3.7.10
 - Fix: WooCommerce - Grid layout not working properly with Products Archive shortcode.

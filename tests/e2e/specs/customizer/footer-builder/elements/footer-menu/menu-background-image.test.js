@@ -51,20 +51,20 @@ describe( 'Footer menu background image settings in the customizer', () => {
 		await expect( {
 			selector: '#astra-footer-menu',
 			property: 'background-color',
-		} ).cssValueToBe( `${ footerMenuBackgroundImage[ 'footer-menu-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
+		} ).cssValueToBe( `url("${ footerMenuBackgroundImage[ 'footer-menu-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }` );
 
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '#astra-footer-menu',
 			property: 'background-color',
-		} ).cssValueToBe( `${ footerMenuBackgroundImage[ 'footer-menu-bg-obj-responsive' ].tablet[ 'background-color' ] }` );
+		} ).cssValueToBe( `url("${ footerMenuBackgroundImage[ 'footer-menu-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }` );
 
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '#astra-footer-menu',
 			property: 'background-color',
-		} ).cssValueToBe( `${ footerMenuBackgroundImage[ 'footer-menu-bg-obj-responsive' ].mobile[ 'background-color' ] }` );
+		} ).cssValueToBe( `url("${ footerMenuBackgroundImage[ 'footer-menu-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }` );
 	} );
 } );

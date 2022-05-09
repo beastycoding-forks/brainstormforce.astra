@@ -350,6 +350,12 @@ th {
   margin-left: -20px;
 }
 
+@media (min-width: 768px) and (max-width: 921px) {
+  .blog-layout-3 .ast-width-md-6 {
+    float: none;
+  }
+}
+
 .ast-grid-common-col {
   position: relative;
   min-height: 1px;

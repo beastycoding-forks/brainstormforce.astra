@@ -177,7 +177,7 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
  * @param string $dynamic_css Dynamic CSS.
  * @return string $dynamic_css Dynamic CSS.
  *
- * @since x.x.x
+ * @since 3.8.0
  */
 function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	$dynamic_css      .= astra_get_block_editor_required_css();

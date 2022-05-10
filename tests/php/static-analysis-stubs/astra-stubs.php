@@ -1340,7 +1340,7 @@ namespace {
         /**
          * Remove complete header Support on basis of meta option.
          *
-         * @since x.x.x
+         * @since 3.8.0
          * @return void
          */
         public function global_astra_header()
@@ -3973,7 +3973,7 @@ namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport {
         /**
          * Check if Elementor Editor is open.
          *
-         * @since  x.x.x
+         * @since  3.8.0
          *
          * @return boolean true iF Elementor Editor is loaded, false If Elementor Editor is not loaded.
          */
@@ -3985,7 +3985,7 @@ namespace ElementorPro\Modules\ThemeBuilder\ThemeSupport {
          *
          * Case: Theme's 'woocommerce_checkout' action conflicting with Elementor Pro's checkout widget. On frontend billing + shipping details wrapper comes under col-1 div because of theme's above action. But in Elementor editor, billing + shipping wrappers comes in two different cols, i.e. col-1 & col-2. Due to this, styling looks inappropriate in editor only.
          *
-         * @since x.x.x
+         * @since 3.8.0
          * @return void
          */
         public function update_woocommerce_checkout()
@@ -4261,7 +4261,7 @@ namespace {
         /**
          * Check if blocks has been used on the layout. Adding it for making moder compatibility CSS target specific.
          *
-         * @since x.x.x
+         * @since 3.8.0
          * @return void
          */
         public function is_layout_with_blocks()
@@ -8256,7 +8256,7 @@ namespace {
          *
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-         * @since x.x.x
+         * @since 3.8.0
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -14429,7 +14429,7 @@ namespace {
      * @param string $dynamic_css Dynamic CSS.
      * @return string $dynamic_css Dynamic CSS.
      *
-     * @since x.x.x
+     * @since 3.8.0
      */
     function astra_load_modern_block_editor_ui($dynamic_css)
     {
@@ -15940,7 +15940,7 @@ namespace {
      *
      * Backward flag purpose - To initiate modern & updated UI of block editor & frontend.
      *
-     * @since x.x.x
+     * @since 3.8.0
      * @return void
      */
     function astra_apply_modern_block_editor_ui()

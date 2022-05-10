@@ -45,7 +45,6 @@
     "jest-silent-reporter": "^0.5.0",
     "kind-of": ">=6.0.3",
     "lodash": "^4.17.21",
-    "prettier": "2.4.1",
     "minimist": ">=1.2.3",
     "node-sass": "^7.0.1",
     "postcss-flexibility": "git+https://github.com/Nikschavan/postcss-flexibility.git#fix-145-build",

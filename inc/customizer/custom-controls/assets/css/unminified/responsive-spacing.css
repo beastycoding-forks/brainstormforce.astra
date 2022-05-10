@@ -21,22 +21,16 @@
   -webkit-appearance: none;
   margin: 0;
 }
-
-.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
-  display: block;
-  text-align: center;
-  line-height: 2;
-  border: 1px solid #dddddd;
-  background-color: #ffffff;
-  border-radius: 0 3px 3px 0;
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap {
+  position: relative;
+  top: -7px;
+  right: -1px;
+  display: inline-block;
 }
 
+
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
-  margin-bottom: 0;
   display: none;
-  width: 35px;
-  height: 26px;
-  padding: 2px 0;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li.active {
@@ -55,9 +49,7 @@
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns button[type="button"] > i {
-  font-size: 13px;
-  height: 15px;
-  line-height: 15px;
+  font-size: 15px;
   vertical-align: middle;
 }
 
@@ -67,10 +59,9 @@
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units {
   position: absolute;
-  transform: translateY(-100%);
   font-size: 11px;
   text-transform: uppercase;
-  top: 0;
+  top: -35px;
   right: 0;
 }
 
@@ -163,7 +154,6 @@
   border: 1px solid #dddddd;
   background-color: #ffffff;
   border-radius: 3px 0 0 3px;
-  border-right-width: 0;
 }
 
 .customize-control-ast-responsive-spacing .ast-spacing-wrapper > li:nth-child(2) {

@@ -84,6 +84,7 @@ const SliderComponent = props => {
 	return <div className="ast-slider-wrap">
 		{labelHtml}
 		{descriptionHtml}
+		{ suffixHtml }
 		{ renderOperationButtons() }
 		<div className="wrapper">
 			<RangeControl
@@ -94,7 +95,7 @@ const SliderComponent = props => {
 				max={ max || 500 }
 				step={ step || 1 }
 			/>
-			{ suffixHtml }
+			
 		</div>
 	</div>;
 };

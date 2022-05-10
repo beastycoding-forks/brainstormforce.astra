@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {Fragment} from '@wordpress/element';
 import {useState} from 'react';
-import {ToggleControl} from '@wordpress/components';
+import ToggleControl from '../ast-toggle/toggle-control';
 
 const AstToggleControl = props => {
 

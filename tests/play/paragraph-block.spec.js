@@ -8,8 +8,6 @@ test.describe( 'Login to site', () => {
 		await login.loginAsAdmin();
 
 		await page.goto( '/wp-admin/post-new.php' );
-		//await page.pause();
-		await page.locator( 'text=Type / to choose a block' ).click();
 		await page.locator( '[aria-label="Add title"]' ).click();
 		await page.locator( '[aria-label="Add title"]' ).type( 'sample' );
 		await page.locator( '.edit-post-header-toolbar .edit-post-header-toolbar__inserter-toggle.has-icon' ).click();

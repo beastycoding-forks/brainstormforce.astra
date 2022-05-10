@@ -42,7 +42,7 @@ class Astra_Header_Menu_Component {
 	 *
 	 * @param int $index index.
 	 */
-	public static function menu_markup( $index ) {
+	public static function menu_markup( $index, $device ) {
 
 		switch ( $index ) {
 			case 1:
@@ -89,7 +89,7 @@ class Astra_Header_Menu_Component {
 		$items_wrap .= astra_attr(
 			'site-navigation',
 			array(
-				'id'         => esc_attr( $theme_location ) . '-site-navigation',
+				'id'         => esc_attr( $theme_location ) . '-site-navigation-' . esc_attr( $device ),
 				'class'      => 'site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item',
 				'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),
 			)

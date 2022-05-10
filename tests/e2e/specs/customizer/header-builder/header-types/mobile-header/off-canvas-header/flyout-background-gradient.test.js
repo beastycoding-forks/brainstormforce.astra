@@ -1,4 +1,5 @@
-import { createURL, createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL, createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../../../utils/publish-post';
 import { setCustomize } from '../../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../../utils/set-browser-viewport';
 describe( 'Off canvas flyout header type settings in the customizer', () => {
@@ -15,8 +16,11 @@ describe( 'Off canvas flyout header type settings in the customizer', () => {
 			},
 		};
 		await setCustomize( offCanvasFlyoutBgGradient );
-		await createNewPost( { postType: 'page', title: 'test-1' } );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'page', title: 'test-1' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

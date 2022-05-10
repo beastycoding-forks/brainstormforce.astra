@@ -3312,7 +3312,7 @@ function astra_set_default_breadcrumb_separator_option() {
  *
  * Backward flag purpose - To initiate modern & updated UI of block editor & frontend.
  *
- * @since x.x.x
+ * @since 3.8.0
  * @return void
  */
 function astra_apply_modern_block_editor_ui() {

@@ -656,7 +656,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 		/**
 		 * Checking the page headers are available and have some posts with it.
 		 *
-		 * @since x.x.x
+		 * @since 3.8.0
 		 * @return bool true|false.
 		 */
 		public function check_page_header_availability() {

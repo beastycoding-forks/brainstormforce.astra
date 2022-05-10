@@ -1,8 +1,7 @@
 /**
  * Internal dependencies
  */
-
-module.exports = {
+ module.exports = {
 	extends: [
 		'plugin:@wordpress/eslint-plugin/recommended-with-formatting',
 		'plugin:import/recommended',

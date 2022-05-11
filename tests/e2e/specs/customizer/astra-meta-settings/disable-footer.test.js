@@ -32,7 +32,7 @@ describe( 'disable footer meta setting', () => {
 		await setBrowserViewport( 'large' );
 		await scrollToElement( '#secondary' );
 		await page.waitForSelector( '#secondary' );
-		const siteFooter = await page.$eval( '#secondary', ( element ) => element.getAttribute( 'colophon' ) );
+		const siteFooter = await page.$eval( '#secondary', ( element ) => element.getAttribute( '#colophon' ) );
 		await expect( siteFooter ).toBeNull( );
 	} );
 } );

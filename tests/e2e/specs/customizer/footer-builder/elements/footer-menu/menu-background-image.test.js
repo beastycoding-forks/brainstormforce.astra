@@ -9,34 +9,34 @@ describe( 'Footer menu background image settings in the customizer', () => {
 		const footerMenuBackgroundImage = {
 			'footer-menu-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'https://pd.w.org/2022/03/3146230b053848c21.81950886-300x200.jpeg',
+					'background-image': 'https://pd.w.org/2022/03/3146230b053848c21.81950886-300x200.jpeg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
-					'background-size': 'contain',
+					'background-size': 'cover',
 					'background-attachment': 'fixed',
 					'background-type': 'image',
 				},
 				tablet: {
-					'background-image': 'https://pd.w.org/2022/03/3146230b053848c21.81950886-300x200.jpeg',
+					'background-image': 'https://pd.w.org/2022/03/6462309002a5de46.79671062-300x200.jpg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
-					'background-size': 'contain',
+					'background-size': 'cover',
 					'background-attachment': 'fixed',
 					'background-type': 'image',
 				},
 				mobile: {
-					'background-color': 'https://pd.w.org/2022/03/6462309002a5de46.79671062-300x200.jpg',
+					'background-image': 'https://pd.w.org/2022/03/361622a6f3c4e5ad0.29454670-225x300.jpg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
-					'background-size': 'contain',
+					'background-size': 'cover',
 					'background-attachment': 'fixed',
 					'background-type': 'image',
 				},
-				'footer-desktop-items': {
-					primary: {
-						primary_2: {
-							0: 'menu',
-						},
+			},
+			'footer-desktop-items': {
+				primary: {
+					primary_2: {
+						0: 'menu',
 					},
 				},
 			},
@@ -50,21 +50,21 @@ describe( 'Footer menu background image settings in the customizer', () => {
 		await page.waitForSelector( '#astra-footer-menu' );
 		await expect( {
 			selector: '#astra-footer-menu',
-			property: 'background-color',
+			property: 'background-image',
 		} ).cssValueToBe( `url("${ footerMenuBackgroundImage[ 'footer-menu-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }` );
 
 		await setBrowserViewport( 'medium' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '#astra-footer-menu',
-			property: 'background-color',
+			property: 'background-image',
 		} ).cssValueToBe( `url("${ footerMenuBackgroundImage[ 'footer-menu-bg-obj-responsive' ].tablet[ 'background-image' ] + '")' }` );
 
 		await setBrowserViewport( 'small' );
 		await scrollToElement( '#colophon' );
 		await expect( {
 			selector: '#astra-footer-menu',
-			property: 'background-color',
+			property: 'background-image',
 		} ).cssValueToBe( `url("${ footerMenuBackgroundImage[ 'footer-menu-bg-obj-responsive' ].mobile[ 'background-image' ] + '")' }` );
 	} );
 } );

@@ -14,15 +14,15 @@ describe( 'Footer menu background gradient settings in the customizer', () => {
 					'background-position': 'left top',
 					'background-size': 'contain',
 					'background-attachment': 'fixed',
-					'background-type': 'image',
+					'background-type': 'gradient',
 				},
 				tablet: {
-					'background-image': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(189, 48, 135) 41%, rgb(155, 81, 224) 53%)',
+					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 0%, rgb(189, 48, 135) 41%, rgb(155, 81, 224) 53%)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
 					'background-attachment': 'fixed',
-					'background-type': 'image',
+					'background-type': 'gradient',
 				},
 				mobile: {
 					'background-color': 'linear-gradient(135deg, rgb(6, 147, 227) 33%, rgb(168, 224, 81) 73%)',
@@ -30,13 +30,13 @@ describe( 'Footer menu background gradient settings in the customizer', () => {
 					'background-position': 'left top',
 					'background-size': 'contain',
 					'background-attachment': 'fixed',
-					'background-type': 'image',
+					'background-type': 'gradient',
 				},
-				'footer-desktop-items': {
-					primary: {
-						primary_2: {
-							0: 'menu',
-						},
+			},
+			'footer-desktop-items': {
+				primary: {
+					primary_2: {
+						0: 'menu',
 					},
 				},
 			},

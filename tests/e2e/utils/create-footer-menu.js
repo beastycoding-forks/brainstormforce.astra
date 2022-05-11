@@ -34,8 +34,8 @@ export const createNewFooterMenu = async () => {
 	await page.click( '#page-tab' );
 	await page.click( '#submit-posttype-page' );
 
+	await page.waitFor( 5000 );
 	await page.waitForSelector( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
-
 	const menuToSubMenu = await page.$( '.menu-item-depth-0:nth-child(2) .menu-item-handle' );
 	const boundingBox = await menuToSubMenu.boundingBox();
 

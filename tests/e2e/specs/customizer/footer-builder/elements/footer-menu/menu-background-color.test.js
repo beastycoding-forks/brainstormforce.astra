@@ -9,7 +9,7 @@ describe( 'Footer menu background color settings in the customizer', () => {
 		const footerMenuBackgroundColor = {
 			'footer-menu-bg-obj-responsive': {
 				desktop: {
-					'background-color': 'rgb(224, 218, 185)',
+					'background-color': 'rgb(75, 79, 88)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -17,7 +17,7 @@ describe( 'Footer menu background color settings in the customizer', () => {
 					'background-type': 'color',
 				},
 				tablet: {
-					'background-color': 'rgb(194, 237, 239)',
+					'background-color': 'rgb(255, 249, 239)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
@@ -25,18 +25,18 @@ describe( 'Footer menu background color settings in the customizer', () => {
 					'background-type': 'color',
 				},
 				mobile: {
-					'background-color': 'rgb(225, 197, 232)',
+					'background-color': 'rgb(249, 240, 255)',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'contain',
 					'background-attachment': 'fixed',
 					'background-type': 'color',
 				},
-				'footer-desktop-items': {
-					primary: {
-						primary_2: {
-							0: 'menu',
-						},
+			},
+			'footer-desktop-items': {
+				primary: {
+					primary_2: {
+						0: 'menu',
 					},
 				},
 			},

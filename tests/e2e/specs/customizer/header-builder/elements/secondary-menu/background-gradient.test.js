@@ -2,10 +2,10 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 import { createSecondaryMenu } from '../../../../../utils/create-secondary-menu';
-describe( 'Secondary menu backgeound gradient setting in customizer', () => {
+describe( 'Secondary menu background gradient setting in customizer', () => {
 	it( 'background gradient should apply correctly', async () => {
 		await createSecondaryMenu();
-		const secondaryMenuBggradient = {
+		const secondaryMenuBgGradient = {
 			'header-menu2-bg-obj-responsive': {
 				desktop: {
 					'background-color': 'linear-gradient(135deg, rgb(236, 208, 206) 30%, rgb(239, 17, 65) 100%)',
@@ -47,7 +47,7 @@ describe( 'Secondary menu backgeound gradient setting in customizer', () => {
 				},
 			},
 		};
-		await setCustomize( secondaryMenuBggradient );
+		await setCustomize( secondaryMenuBgGradient );
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );
@@ -55,19 +55,19 @@ describe( 'Secondary menu backgeound gradient setting in customizer', () => {
 		await expect( {
 			selector: '.ast-builder-menu-2 .main-header-menu',
 			property: 'background-image',
-		} ).cssValueToBe( `${ secondaryMenuBggradient[ 'header-menu2-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
+		} ).cssValueToBe( `${ secondaryMenuBgGradient[ 'header-menu2-bg-obj-responsive' ].desktop[ 'background-color' ] }` );
 		await setBrowserViewport( 'medium' );
 		await page.waitForSelector( '.ast-builder-menu-2 .main-header-menu' );
 		await expect( {
 			selector: '.ast-builder-menu-2 .main-header-menu',
 			property: 'background-image',
-		} ).cssValueToBe( `${ secondaryMenuBggradient[ 'header-menu2-bg-obj-responsive' ].tablet[ 'background-color' ] }` );
+		} ).cssValueToBe( `${ secondaryMenuBgGradient[ 'header-menu2-bg-obj-responsive' ].tablet[ 'background-color' ] }` );
 
 		await setBrowserViewport( 'small' );
 		await page.waitForSelector( '.ast-builder-menu-2 .main-header-menu' );
 		await expect( {
 			selector: '.ast-builder-menu-2 .main-header-menu',
 			property: 'background-image',
-		} ).cssValueToBe( `${ secondaryMenuBggradient[ 'header-menu2-bg-obj-responsive' ].mobile[ 'background-color' ] }` );
+		} ).cssValueToBe( `${ secondaryMenuBgGradient[ 'header-menu2-bg-obj-responsive' ].mobile[ 'background-color' ] }` );
 	} );
 } );

@@ -137,7 +137,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		/**
 		 * Remove complete header Support on basis of meta option.
 		 *
-		 * @since x.x.x
+		 * @since 3.8.0
 		 * @return void
 		 */
 		public function global_astra_header() {

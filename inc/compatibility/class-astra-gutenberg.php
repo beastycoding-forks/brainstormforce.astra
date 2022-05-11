@@ -27,7 +27,7 @@ class Astra_Gutenberg {
 	/**
 	 * Check if blocks has been used on the layout. Adding it for making moder compatibility CSS target specific.
 	 *
-	 * @since x.x.x
+	 * @since 3.8.0
 	 * @return void
 	 */
 	public function is_layout_with_blocks() {

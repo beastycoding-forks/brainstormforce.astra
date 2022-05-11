@@ -8,7 +8,7 @@
  * @author      Astra
  * @copyright   Copyright (c) 2022, Astra
  * @link        http://wpastra.com/
- * @since       Astra x.x.x
+ * @since       Astra 3.8.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

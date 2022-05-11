@@ -1,3 +1,5 @@
+v3.8.1
+- Fix: Block editor - Margin is not set within Paragraph block.
 v3.8.0
 - New: Enhanced block editor experience. ( https://wpastra.com/docs/improved-block-editor-experience/ )
 - Improvement: Font variant customizer control's HTML markup was loading from PHP, which is now moved to React JS for the better and optimized customizer performance.

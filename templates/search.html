@@ -3,9 +3,21 @@
 <!-- wp:group {"tagName":"main","align":"full","style":{"spacing":{"padding":{"top":"calc(var(--wp--custom--v-spacing, 1em) *4)","bottom":"calc(var(--wp--custom--v-spacing, 1em) *4)"}}},"layout":{"inherit":true}} -->
 <main class="wp-block-group alignfull" style="padding-top:calc(var(--wp--custom--v-spacing, 1em) *4);padding-bottom:calc(var(--wp--custom--v-spacing, 1em) *4)">
 
-	<!-- wp:heading {"fontSize":"x-large"} -->
-	<h2 id="search-results" class="has-x-large-font-size">Search Results:</h2>
+	<!-- wp:heading {"fontSize":"x-large","style":{"typography":{"fontWeight":"300"}}} -->
+	<h2 class="has-x-large-font-size" style="font-weight:300">Search Results:</h2>
 	<!-- /wp:heading -->
+
+	<!-- wp:spacer {"height":30} -->
+	<div style="height:30px" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
+
+	<!-- wp:separator {"align":"full","className":"is-style-wide"} -->
+	<hr class="wp-block-separator is-style-wide"/>
+	<!-- /wp:separator -->
+
+	<!-- wp:spacer {"height":50} -->
+	<div style="height:50px" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
 
 	<!-- wp:query {"query":{"perPage":5,"pages":0,"offset":0,"postType":"post","categoryIds":[],"tagIds":[],"order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"align":"full","layout":{"inherit":true}} -->
 	<div class="wp-block-query alignfull">

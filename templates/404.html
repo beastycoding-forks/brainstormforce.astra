@@ -3,18 +3,26 @@
 <!-- wp:group {"tagName":"main","align":"full","style":{"spacing":{"padding":{"top":"calc(var(--wp--custom--v-spacing, 1.25rem) *3)","bottom":"calc(var(--wp--custom--v-spacing, 1.25rem) *2)"}}},"layout":{"inherit":true}} -->
 <main class="wp-block-group alignfull" style="padding-top:calc(var(--wp--custom--v-spacing, 1.25rem) *3);padding-bottom:calc(var(--wp--custom--v-spacing, 1.25rem) *2)">
 
-	<!-- wp:heading {"fontSize":"x-large"} -->
-	<h2 class="has-x-large-font-size">This page doesn't seem to exist.</h2>
+	<!-- wp:spacer {"height":"60px"} -->
+	<div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
+
+	<!-- wp:heading {"textAlign":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"400"}},"textColor":"theme","fontSize":"large"} -->
+	<h2 class="has-text-align-center has-theme-color has-text-color has-large-font-size" style="font-style:normal;font-weight:400">This page doesn’t seem to exist.</h2>
 	<!-- /wp:heading -->
 
-	<!-- wp:heading {"fontSize":"x-large"} -->
-	<h2 class="has-x-large-font-size">It looks like the link pointing here was faulty. Maybe try searching?</h2>
-	<!-- /wp:heading -->
+	<!-- wp:paragraph {"align":"center","style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"medium"} -->
+	<p class="has-text-align-center has-medium-font-size" style="font-style:normal;font-weight:700">It looks like the link pointing here was faulty. Maybe try searching?</p>
+	<!-- /wp:paragraph -->
 
-	<!-- wp:search {"label":"Search","showLabel":false,"buttonText":"Search"} /-->
+	<!-- wp:spacer {"height":"23px"} -->
+	<div style="height:23px" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- /wp:spacer -->
 
-	<!-- wp:spacer {"height":40} -->
-	<div style="height:40px" aria-hidden="true" class="wp-block-spacer"></div>
+	<!-- wp:search {"label":"Search","showLabel":false,"width":25,"widthUnit":"%","buttonText":"Search","buttonPosition":"button-inside","buttonUseIcon":true,"align":"center"} /-->
+
+	<!-- wp:spacer {"height":"60px"} -->
+	<div style="height:60px" aria-hidden="true" class="wp-block-spacer"></div>
 	<!-- /wp:spacer -->
 
 </main>

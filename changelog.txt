@@ -1,4 +1,5 @@
 v3.8.1 (Unreleased)
+- Fix: Global Typography Body and Headings font family preview changes not appearing in the customizer.
 - Fix: Beaver Builder page content width not working properly with block editor CSS compatibility.
 
 v3.8.0

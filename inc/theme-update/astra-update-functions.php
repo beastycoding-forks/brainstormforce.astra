@@ -3317,8 +3317,9 @@ function astra_set_default_breadcrumb_separator_option() {
  */
 function astra_apply_modern_block_editor_ui() {
 	$theme_options = get_option( 'astra-settings', array() );
-	error_log("3.8.0 astra_apply_modern_block_editor_ui");
-	if ( ! isset( $theme_options['wp-blocks-ui'] ) ) {
+	$saved_version = astra_get_option( 'theme-auto-version', false );
+	if ( ! isset( $theme_options['wp-blocks-ui'] ) && version_compare( $saved_version, ASTRA_THEME_VERSION, '!=' ) ) {
+		error_log("3.8.0 astra_apply_modern_block_editor_ui");
 		$theme_options['blocks-legacy-setup'] = true;
 		$theme_options['wp-blocks-ui']        = 'legacy';
 		update_option( 'astra-settings', $theme_options );

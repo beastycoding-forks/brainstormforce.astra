@@ -8,7 +8,7 @@ describe( 'Primary menu settings in the customizer', () => {
 		const primaryMenuImage = {
 			'header-menu1-bg-obj-responsive': {
 				desktop: {
-					'background-image': 'https://pd.w.org/2022/03/96622a0f432e6904.41498035-300x169.jpeg',
+					'background-image': 'https://pd.w.org/2022/03/4276227843c5411a8.42886635-300x225.jpg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'cover',
@@ -16,7 +16,7 @@ describe( 'Primary menu settings in the customizer', () => {
 					'background-type': 'image',
 				},
 				tablet: {
-					'background-image': 'https://pd.w.org/2022/03/96622a0f432e6904.41498035-300x169.jpeg',
+					'background-image': 'https://pd.w.org/2022/03/542622502f45e1481.07648228-225x300.jpg',
 					'background-repeat': 'no-repeat',
 					'background-position': 'left top',
 					'background-size': 'cover',

@@ -68,7 +68,7 @@ describe( 'Primary menu setting in customizer', () => {
 		await setBrowserViewport( 'medium' );
 		await page.waitForSelector( '.ast-header-break-point .ast-builder-menu-1 .main-header-menu .menu-item > .menu-link' );
 		await expect( {
-			selector: '.ast-header-break-point .ast-builder-menu-1 .main-header-menu .menu-item > .menu-linkk',
+			selector: '.ast-header-break-point .ast-builder-menu-1 .main-header-menu .menu-item > .menu-link',
 			property: 'padding-top',
 		} ).cssValueToBe( `${ primaryMenuSpacing[ 'header-menu1-menu-spacing' ].tablet.top }${ primaryMenuSpacing[ 'header-menu1-menu-spacing' ][ 'tablet-unit' ] }` );
 		await expect( {

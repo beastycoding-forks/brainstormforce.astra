@@ -26,7 +26,6 @@ jobs:
     - name: Npm install and build
               run: |
                   npm install
-
     - name: Install Playwright
       run: npx playwright install --with-deps
 

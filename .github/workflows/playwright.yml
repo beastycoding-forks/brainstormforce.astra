@@ -15,8 +15,7 @@ jobs:
                 part: [1, 2]
                 node: ['14']
                 directory:
-                  - tests/play/simple-tests
-                  - tests/play/complex-tests
+                  - tests/play
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2

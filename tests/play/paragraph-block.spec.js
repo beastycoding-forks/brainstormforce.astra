@@ -1,25 +1,28 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable jest/no-done-callback */
-const { test, expect } = require( '@playwright/test' );
-const { loginToSite } = require( './utils/login' );
-test.describe( 'Login to site', () => {
-	test( 'Setting values', async ( { page } ) => {
-		const login = new loginToSite( page );
-		await login.loginAsAdmin();
+const { test, expect } = require('@playwright/test');
 
-		await page.goto( '/wp-admin/post-new.php' );
-		await page.locator( '[aria-label="Add title"]' ).click();
-		await page.locator( '[aria-label="Add title"]' ).type( 'sample' );
-		await page.locator( '.edit-post-header-toolbar .edit-post-header-toolbar__inserter-toggle.has-icon' ).click();
-		await page.locator( '[placeholder="Search"]' ).click();
-		await page.locator( '[placeholder="Search"]' ).type( 'Paragraph' );
-		await page.locator( '[aria-label="Empty block\\; start writing or type forward slash to choose a block"]' )
-			.first().click();
-		await page.locator( '[aria-label="Empty block\\; start writing or type forward slash to choose a block"]' )
-			.first()
-			.type( 'paragraph-block' );
-		const locator = page.locator( '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > p' );
-		await expect( locator )
-			.toHaveCSS( 'max-width', '1200px' );
-	} );
-} );
+ test.describe( 'Paragraph', () => {
+	 test.beforeEach( async ( { pageUtils } ) => {
+		 await pageUtils.createNewPost();
+	 } );
+
+	 test( 'should output unwrapped editable paragraph', async ( {
+		 page,
+		 pageUtils,
+	 } ) => {
+		 await pageUtils.insertBlock( {
+			 name: 'core/paragraph',
+		 } );
+		 await page.keyboard.type( '1' );
+
+		 const firstBlockTagName = await page.evaluate( () => {
+			 return document.querySelector(
+				 '.block-editor-block-list__layout .wp-block'
+			 ).tagName;
+		 } );
+
+		 // The outer element should be a paragraph. Blocks should never have any
+		 // additional div wrappers so the markup remains simple and easy to
+		 // style.
+		 expect( firstBlockTagName ).toBe( 'P' );
+	 } );
+ } );

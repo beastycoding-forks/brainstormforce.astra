@@ -1,50 +1,51 @@
-/* eslint-disable eslint-comments/disable-enable-pair */
-/* eslint-disable no-undef */
-exports.createNewPost = class createNewPost {
-	constructor( page ) {
-		this.page = page;
-	}
-	async createNewPost() {
-		// let showWelcomeGuide;
-		await this.page.goto( '/wp-admin/post-new.php' );
-		await this.page.locator( '.components-modal__header > .components-button > svg > path' ).click();
-		await this.page.locator( '#editor .block-editor-block-list__block' ).click();
-		await this.page.locator( '#editor .block-editor-block-list__block' ).type( 'sample' );
-		// await this.page.waitForLoadState( 'networkidle' );
-		await this.page.locator( '.components-button.editor-post-publish-panel__toggle.is-primary' ).click();
-		await this.page.locator( '#editor div.editor-post-publish-panel__header-publish-button > button' ).click();
-	}
-};
-// 		const isWelcomeGuideActive = await this.page.evaluate( () =>
-// 			window.wp.data
-// 				.select( 'core/edit-post' )
-// 				.isFeatureActive( 'welcomeGuide' ),
-// 		);
-// 		const isFullscreenMode = await this.page.evaluate( () =>
-// 			window.wp.data
-// 				.select( 'core/edit-post' )
-// 				.isFeatureActive( 'fullscreenMode' ),
-// 		);
+ import { addQueryArgs } from '@wordpress/url';
+ export async function createNewPost( {
+	 postType,
+	 title,
+	 content,
+	 excerpt,
+	 showWelcomeGuide = false,
+ } = {} ) {
+	 const query = addQueryArgs( '', {
+		 post_type: postType,
+		 post_title: title,
+		 content,
+		 excerpt,
+	 } ).slice( 1 );
 
-// 		if ( showWelcomeGuide !== isWelcomeGuideActive ) {
-// 			await this.page.evaluate( () =>
-// 				window.wp.data
-// 					.dispatch( 'core/edit-post' )
-// 					.toggleFeature( 'welcomeGuide' ),
-// 			);
+	 await this.visitAdminPage( 'post-new.php', query );
 
-// 			await this.page.reload();
-// 			await this.page.locator( '.edit-post-layout' );
-// 		}
+	 await this.page.waitForSelector( '.edit-post-layout' );
 
-// 		if ( isFullscreenMode ) {
-// 			await this.page.evaluate( () =>
-// 				window.wp.data
-// 					.dispatch( 'core/edit-post' )
-// 					.toggleFeature( 'fullscreenMode' ),
-// 			);
+	 const isWelcomeGuideActive = await this.page.evaluate( () =>
+		 window.wp.data
+			 .select( 'core/edit-post' )
+			 .isFeatureActive( 'welcomeGuide' )
+	 );
+	 const isFullscreenMode = await this.page.evaluate( () =>
+		 window.wp.data
+			 .select( 'core/edit-post' )
+			 .isFeatureActive( 'fullscreenMode' )
+	 );
 
-// 			await this.page.locator( 'body:not(.is-fullscreen-mode)' );
-// 		}
-// 	}
-// };
+	 if ( showWelcomeGuide !== isWelcomeGuideActive ) {
+		 await this.page.evaluate( () =>
+			 window.wp.data
+				 .dispatch( 'core/edit-post' )
+				 .toggleFeature( 'welcomeGuide' )
+		 );
+
+		 await this.page.reload();
+		 await this.page.waitForSelector( '.edit-post-layout' );
+	 }
+
+	 if ( isFullscreenMode ) {
+		 await this.page.evaluate( () =>
+			 window.wp.data
+				 .dispatch( 'core/edit-post' )
+				 .toggleFeature( 'fullscreenMode' )
+		 );
+
+		 await this.page.waitForSelector( 'body:not(.is-fullscreen-mode)' );
+	 }
+ }

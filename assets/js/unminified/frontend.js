@@ -410,6 +410,18 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	window.addEventListener( 'load', function() {
 		init();
+		let parentSelector = document.querySelector('.site-content > .ast-container');
+		let selectorHook = parentSelector.firstChild.nextElementSibling.getAttribute('class');
+		let  astraContentTop = selectorHook.substring(0,20);
+		parentSelector.style.flexWrap = 'wrap';
+		if('astra-advanced-hook-' === astraContentTop){
+			parentSelector.firstChild.nextElementSibling.style.width = '100%';
+		}
+		let SelectorHookBottom = parentSelector.lastChild.previousElementSibling.getAttribute('class');
+		let astraContentBottom = SelectorHookBottom.substring(0,20);
+		if('astra-advanced-hook-' === astraContentBottom){
+			parentSelector.lastChild.previousElementSibling.style.width = '100%';
+		}
 	} );
 	document.addEventListener( 'astLayoutWidthChanged', function() {
 		init();

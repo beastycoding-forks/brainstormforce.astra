@@ -3,7 +3,7 @@ on:
   # push:
   #   branches: [ main, next-release ]
   pull_request:
-    # branches: [ main, next-release ]
+    branches: [ main, next-release ]
 jobs:
   test:
     name: E2E Tests

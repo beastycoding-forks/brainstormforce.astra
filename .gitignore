@@ -30,3 +30,6 @@ artifacts
 inc/metabox/extend-metabox/build/index.asset.php
 test-results/
 playwright-report/
+/test-results/
+/playwright-report/
+/playwright/.cache/

@@ -11,8 +11,6 @@
 			var _this = $(this)
 			var status = _this.data('value');
 
-			console.log(status);
-
 			if ( 'disable' == status ) {
 				newString = 'Disable Full Site Editing';
 				newStatus = 'enable';

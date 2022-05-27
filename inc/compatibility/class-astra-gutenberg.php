@@ -27,7 +27,7 @@ class Astra_Gutenberg {
 	/**
 	 * Check if blocks has been used on the layout. Adding it for making moder compatibility CSS target specific.
 	 *
-	 * @since x.x.x
+	 * @since 3.8.0
 	 * @return void
 	 */
 	public function is_layout_with_blocks() {
@@ -41,8 +41,12 @@ class Astra_Gutenberg {
 			$current_post = get_post( (int) $post_id, OBJECT );
 			/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$enable_block_editor_attr = apply_filters( 'astra_disable_block_content_attr', true, $post_id );
+			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( has_blocks( $current_post ) ) {
+			if ( has_blocks( $current_post ) && $enable_block_editor_attr ) {
 				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				add_filter( 'astra_attr_article-entry-content-single-layout', array( $this, 'add_ast_block_container' ) );
 				add_filter( 'astra_attr_article-entry-content', array( $this, 'add_ast_block_container' ) );

@@ -6802,6 +6802,21 @@
         }
     },
     {
+        "Libre Bodoni": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Libre Caslon Display": {
             "variants": [
                 "regular"
@@ -8394,6 +8409,18 @@
                 "700italic"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Noto Emoji": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -11599,6 +11626,18 @@
         }
     },
     {
+        "Radio Canada": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Radley": {
             "variants": [
                 "regular",
@@ -11992,6 +12031,14 @@
                 "italic",
                 "700",
                 "700italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Roboto Flex": {
+            "variants": [
+                "regular"
             ],
             "category": "sans-serif"
         }
@@ -13609,6 +13656,14 @@
         }
     },
     {
+        "Tapestry": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
+        }
+    },
+    {
         "Taprom": {
             "variants": [
                 "regular"
@@ -14355,6 +14410,14 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Water Brush": {
+            "variants": [
+                "regular"
+            ],
+            "category": "handwriting"
         }
     },
     {

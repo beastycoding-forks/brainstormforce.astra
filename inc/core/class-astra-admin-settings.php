@@ -450,6 +450,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					'ajax_nonce'                         => wp_create_nonce( 'astra-builder-module-nonce' ),
 					'old_header_footer'                  => __( 'Use Old Header/Footer', 'astra' ),
 					'migrate_to_builder'                 => __( 'Use New Header/Footer Builder', 'astra' ),
+					'disableFSEText'                 => __( 'Disable Full Site Editing', 'astra' ),
+					'enableFSEText'                 => __( 'Enable Full Site Editing', 'astra' ),
 				);
 
 				wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );

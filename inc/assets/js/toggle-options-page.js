@@ -12,10 +12,10 @@
 			var status = _this.data('value');
 
 			if ( 'disable' == status ) {
-				newString = 'Disable Full Site Editing';
+				newString = astra.disableFSEText;
 				newStatus = 'enable';
 			} else {
-				newString = 'Enable Full Site Editing';
+				newString = astra.enableFSEText;
 				newStatus = 'disable';
 			}
 

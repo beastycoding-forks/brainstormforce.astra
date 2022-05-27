@@ -76,9 +76,10 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 * @param  string $file path for index.html.
 		 */
 		public function fse_support( $path, $file ) {
-			if ( '/block-templates/index.html' === $file || '/templates/index.html' === $file ) {
+			if ( strpos( $file, 'block-templates/index.html' ) !== false || strpos( $file, 'templates/index.html' ) !== false ) {
 				return false;
 			}
+			return $path;
 		}
 
 		/**

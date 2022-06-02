@@ -141,6 +141,8 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 			default:
 				// Proceed with normal comments.
 				global $post;
+				$hcard_schema_enabled = apply_filters( 'astra_hcard_schema_enabled', true );
+				$hcard_class          = true === $hcard_schema_enabled ? 'vcard' : '';
 				?>
 				<li <?php comment_class(); ?> id="li-comment-<?php comment_ID(); ?>">
 
@@ -155,7 +157,7 @@ if ( ! function_exists( 'astra_theme_comment' ) ) {
 								echo astra_attr(
 									'commen-meta-author',
 									array(
-										'class' => 'ast-comment-meta ast-row ast-comment-author vcard capitalize',
+										'class' => 'ast-comment-meta ast-row ast-comment-author ' . $hcard_class . ' capitalize',
 									)
 								);
 								echo '>';

@@ -4223,3 +4223,60 @@ button.pswp__button--zoom:hover {
 		}
 	}
 }
+
+.woocommerce {
+	form {
+		.password-input {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+		}
+		.show-password-input {
+			&::after {
+				font-family: WooCommerce;
+				speak: never;
+				font-weight: 400;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				margin-left: 0.618em;
+				content: "\e010";
+				text-decoration: none;
+			}
+			position: absolute;
+			right: 0.7em;
+			cursor: pointer;
+			top: 0.7em;
+		}
+	}
+}
+.woocommerce-page {
+	form {
+		.password-input {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			position: relative;
+		}
+		.show-password-input {
+			&::after {
+				font-family: WooCommerce;
+				speak: never;
+				font-weight: 400;
+				font-variant: normal;
+				text-transform: none;
+				line-height: 1;
+				-webkit-font-smoothing: antialiased;
+				margin-left: 0.618em;
+				content: "\e010";
+				text-decoration: none;
+			}
+			position: absolute;
+			right: 0.7em;
+			cursor: pointer;
+			top: 0.7em;
+		}
+	}
+}

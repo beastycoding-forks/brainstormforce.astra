@@ -410,11 +410,6 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	window.addEventListener( 'load', function() {
 		init();
-		let parent = document.querySelector('#ast-mobile-header');
-		if(parent.querySelector('#secondary_menu-site-navigation')){
-			parent.querySelector('#secondary_menu-site-navigation').setAttribute('id', 'secondary_menu-site-navigation-mobile');
-		}
-	} );
 	document.addEventListener( 'astLayoutWidthChanged', function() {
 		init();
 	} );
@@ -535,25 +530,29 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	var accountPopupTrigger = function () {
 		// Account login form popup.
-		var header_account_trigger =  document.querySelectorAll( '.ast-account-action-login' )[0];
+		var header_account_trigger =  document.querySelectorAll( '.ast-account-action-login' );
 
-		if( undefined !== header_account_trigger ) {
+		if ( undefined !== header_account_trigger ) {
 
-			var header_account__close_trigger =  document.getElementById( 'ast-hb-login-close' );
-			var login_popup =  document.getElementById( 'ast-hb-account-login-wrap' );
+			var header_account__close_trigger =  document.querySelectorAll( '#ast-hb-login-close' );
+			var login_popup = document.querySelectorAll('#ast-hb-account-login-wrap');
+			if ( 0 < header_account__close_trigger.length ) {
+				for ( let index = 0; index < header_account_trigger.length; index++ ) {
 
-			header_account_trigger.onclick = function( event ) {
-				event.preventDefault();
-				event.stopPropagation();
-				if ( ! login_popup.classList.contains( 'show' ) ) {
-					login_popup.classList.add( 'show' );
+					header_account_trigger[ index ].onclick = function (event) {
+						event.preventDefault();
+						event.stopPropagation();
+						if ( ! login_popup[ index ].classList.contains('show')) {
+							login_popup[ index ].classList.add('show');
+						}
+					};
+
+					header_account__close_trigger[ index ].onclick = function (event) {
+						event.preventDefault();
+						login_popup[ index ].classList.remove('show');
+					};
 				}
-			};
-
-			header_account__close_trigger.onclick = function( event ) {
-				event.preventDefault();
-				login_popup.classList.remove( 'show' );
-			};
+			}
 		}
 	}
 

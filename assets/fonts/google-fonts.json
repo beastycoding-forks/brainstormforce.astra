@@ -505,7 +505,10 @@
     {
         "Andika": {
             "variants": [
-                "regular"
+                "regular",
+                "italic",
+                "700",
+                "700italic"
             ],
             "category": "sans-serif"
         }
@@ -1994,6 +1997,22 @@
         }
     },
     {
+        "Blaka": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Blaka Hollow": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Blinker": {
             "variants": [
                 "100",
@@ -2539,6 +2558,17 @@
         }
     },
     {
+        "Charis SIL": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Charm": {
             "variants": [
                 "regular",
@@ -3064,6 +3094,19 @@
                 "700italic",
                 "800italic",
                 "900italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Crimson Text": {
+            "variants": [
+                "regular",
+                "italic",
+                "600",
+                "600italic",
+                "700",
+                "700italic"
             ],
             "category": "serif"
         }
@@ -4482,6 +4525,17 @@
         }
     },
     {
+        "Gentium Plus": {
+            "variants": [
+                "regular",
+                "italic",
+                "700",
+                "700italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Geo": {
             "variants": [
                 "regular",
@@ -5722,6 +5776,14 @@
         }
     },
     {
+        "Joan": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Jockey One": {
             "variants": [
                 "regular"
@@ -6106,6 +6168,14 @@
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Kdam Thmor Pro": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -10528,6 +10598,14 @@
         }
     },
     {
+        "Nuosu SIL": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Odibee Sans": {
             "variants": [
                 "regular"
@@ -11632,7 +11710,12 @@
                 "regular",
                 "500",
                 "600",
-                "700"
+                "700",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic"
             ],
             "category": "sans-serif"
         }
@@ -13345,6 +13428,18 @@
         }
     },
     {
+        "Spline Sans Mono": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
         "Squada One": {
             "variants": [
                 "regular"
@@ -13633,6 +13728,15 @@
         }
     },
     {
+        "Tai Heritage Pro": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Tajawal": {
             "variants": [
                 "200",
@@ -13838,6 +13942,78 @@
                 "italic",
                 "700",
                 "700italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Tiro Bangla": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Tiro Devanagari Hindi": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Tiro Devanagari Marathi": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Tiro Devanagari Sanskrit": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Tiro Gurmukhi": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Tiro Kannada": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Tiro Tamil": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Tiro Telugu": {
+            "variants": [
+                "regular",
+                "italic"
             ],
             "category": "serif"
         }

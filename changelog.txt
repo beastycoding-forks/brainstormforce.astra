@@ -1,3 +1,6 @@
+v3.8.3
+- Fix: Woocommerce - Show password option is not visible on Woocommerce account page.
+
 v3.8.2
 - Fix: Improvements as per WordPress coding standards.
 - Fix: Compatibility with WordPress 6.0 - Image block not aligned center when Legacy option set from the Block Editor.

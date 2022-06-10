@@ -55,7 +55,7 @@ if ( ! class_exists( 'Astra_Beaver_Builder' ) ) :
 		 * @param bool $flag Flag to enable/disable entry content attr.
 		 * @param int  $post_id Post ID.
 		 *
-		 * @since  x.x.x
+		 * @since  3.8.1
 		 * @return bool true|false
 		 */
 		public function remove_astra_block_editor_attr( $flag, $post_id ) {

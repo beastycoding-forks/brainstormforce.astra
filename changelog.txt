@@ -1,5 +1,6 @@
 v3.8.3 (Unreleased)
 - Fix: W3 validation - Builder - secondary menu - Duplicate IDs for responsive devices.
+- Fix: PHP Notice - Array to string conversion on widget.php page.
 
 v3.8.2
 - Fix: Improvements as per WordPress coding standards.

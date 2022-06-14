@@ -90,6 +90,7 @@ class Astra_Header_Menu_Component {
 		$items_wrap .= astra_attr(
 			'site-navigation',
 			array(
+				/** @psalm-suppress UndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				'id'         => esc_attr( $theme_location ) . '-site-navigation-' . esc_attr( $device ),
 				'class'      => 'site-navigation ast-flex-grow-1 navigation-accessibility site-header-focus-item',
 				'aria-label' => esc_attr__( 'Site Navigation', 'astra' ),

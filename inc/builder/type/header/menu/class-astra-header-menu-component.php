@@ -40,7 +40,7 @@ class Astra_Header_Menu_Component {
 	/**
 	 * Secondary navigation markup
 	 *
-	 * @param int $index index.
+	 * @param int    $index index.
 	 * @param string $device device.
 	 */
 	public static function menu_markup( $index, $device ) {

@@ -249,6 +249,23 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					),
 				),
 
+				array(
+					'name'      => ASTRA_THEME_SETTINGS . '[site-title-devices-visibility]',
+					'default'   => astra_get_option( 'site-title-devices-visibility' ),
+					'type'      => 'control',
+					'control'   => 'ast-multi-selector',
+					'section'   => $_section,
+					'priority'  => 9,
+					'title'     => __( 'Site Title Visibility', 'astra' ),
+					'context'   => Astra_Builder_Helper::$general_tab,
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'desktop' => 'customizer-desktop',
+						'tablet'  => 'customizer-tablet',
+						'mobile'  => 'customizer-mobile',
+					),
+				),
+
 				/**
 				 * Option: Divider
 				 */

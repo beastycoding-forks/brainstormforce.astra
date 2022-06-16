@@ -1035,8 +1035,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				$resultant_menus[$id] = $menu;
 			}
 
-			error_log( print_r( $resultant_menus, true ) );
-
 			// Localize variables for Dev mode > Customizer JS.
 			wp_localize_script(
 				SCRIPT_DEBUG ? 'astra-custom-control-react-script' : 'astra-custom-control-script',

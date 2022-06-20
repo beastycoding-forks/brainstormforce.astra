@@ -430,7 +430,7 @@ if ( ! class_exists( 'Astra_Builder_Base_Dynamic_CSS' ) ) {
 			$hide_mobile  = ( ! astra_get_option( $section_id . '-hide-mobile' ) ) ? $mobile_tablet_default : 'none';
 
 			$css_output_desktop = array(
-				$selector => array(
+				'ast-builder-grid-row-container-inner' . $selector => array(
 					'display' => $hide_desktop,
 				),
 			);

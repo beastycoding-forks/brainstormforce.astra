@@ -14,7 +14,7 @@
  * @param  {String} selector Selector to match against [optional].
  * @return {Array}           The parent elements.
  */
-var astraGetParents = function ( elem, selector ) {
+ var astraGetParents = function ( elem, selector ) {
 
 	// Element.matches() polyfill.
 	if ( ! Element.prototype.matches) {
@@ -531,25 +531,29 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	var accountPopupTrigger = function () {
 		// Account login form popup.
-		var header_account_trigger =  document.querySelectorAll( '.ast-account-action-login' )[0];
+		var header_account_trigger =  document.querySelectorAll( '.ast-account-action-login' );
 
-		if( undefined !== header_account_trigger ) {
+		if ( undefined !== header_account_trigger ) {
 
-			var header_account__close_trigger =  document.getElementById( 'ast-hb-login-close' );
-			var login_popup =  document.getElementById( 'ast-hb-account-login-wrap' );
+			var header_account__close_trigger =  document.querySelectorAll( '#ast-hb-login-close' );
+			var login_popup = document.querySelectorAll('#ast-hb-account-login-wrap');
+			if ( 0 < header_account__close_trigger.length ) {
+				for ( let index = 0; index < header_account_trigger.length; index++ ) {
 
-			header_account_trigger.onclick = function( event ) {
-				event.preventDefault();
-				event.stopPropagation();
-				if ( ! login_popup.classList.contains( 'show' ) ) {
-					login_popup.classList.add( 'show' );
+					header_account_trigger[ index ].onclick = function (event) {
+						event.preventDefault();
+						event.stopPropagation();
+						if ( ! login_popup[ index ].classList.contains('show')) {
+							login_popup[ index ].classList.add('show');
+						}
+					};
+
+					header_account__close_trigger[ index ].onclick = function (event) {
+						event.preventDefault();
+						login_popup[ index ].classList.remove('show');
+					};
 				}
-			};
-
-			header_account__close_trigger.onclick = function( event ) {
-				event.preventDefault();
-				login_popup.classList.remove( 'show' );
-			};
+			}
 		}
 	}
 
@@ -610,25 +614,36 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		if( typeof astraAddon != 'undefined' ) {
 			astraToggleSetupPro( mobileHeaderType, body, menu_click_listeners );
 		} else {
-
+			var flag = false;
+			var menuToggleAllLength;
 			if ( 'off-canvas' === mobileHeaderType || 'full-width' === mobileHeaderType ) {
 				// comma separated selector added, if menu is outside of Off-Canvas then submenu is not clickable, it work only for Off-Canvas area with dropdown style.
 				var __main_header_all = document.querySelectorAll( '#ast-mobile-popup, #ast-mobile-header' );
-				var menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+				var menu_toggle_all = document.querySelectorAll('#ast-mobile-header .main-header-menu-toggle');
+
+				menuToggleAllLength = menu_toggle_all.length;
 			} else {
 				var __main_header_all = document.querySelectorAll( '#ast-mobile-header' ),
-					menu_toggle_all   = document.querySelectorAll( '#ast-mobile-header .main-header-menu-toggle' );
+					menu_toggle_all = document.querySelectorAll('#ast-mobile-header .main-header-menu-toggle');
+					menuToggleAllLength = menu_toggle_all.length;
+				flag = menuToggleAllLength > 0 ? false : true;
+
+				menuToggleAllLength = flag ? 1 : menuToggleAllLength;
+
 			}
 
-			if (menu_toggle_all.length > 0) {
+			if ( menuToggleAllLength > 0 || flag ) {
 
-				for (var i = 0; i < menu_toggle_all.length; i++) {
+				for (var i = 0; i < menuToggleAllLength; i++) {
 
-					menu_toggle_all[i].setAttribute('data-index', i);
+					if ( ! flag ) {
 
-					if ( ! menu_click_listeners[i] ) {
-						menu_click_listeners[i] = menu_toggle_all[i];
-						menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
+						menu_toggle_all[i].setAttribute('data-index', i);
+
+						if ( ! menu_click_listeners[i] ) {
+							menu_click_listeners[i] = menu_toggle_all[i];
+							menu_toggle_all[i].addEventListener('click', astraNavMenuToggle, false);
+						}
 					}
 
 					if ('undefined' !== typeof __main_header_all[i]) {

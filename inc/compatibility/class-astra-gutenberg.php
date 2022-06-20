@@ -41,8 +41,12 @@ class Astra_Gutenberg {
 			$current_post = get_post( (int) $post_id, OBJECT );
 			/** @psalm-suppress UndefinedConstant */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$enable_block_editor_attr = apply_filters( 'astra_disable_block_content_attr', true, $post_id );
+			/** @psalm-suppress TooManyArguments */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( has_blocks( $current_post ) ) {
+			if ( has_blocks( $current_post ) && $enable_block_editor_attr ) {
 				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				add_filter( 'astra_attr_article-entry-content-single-layout', array( $this, 'add_ast_block_container' ) );
 				add_filter( 'astra_attr_article-entry-content', array( $this, 'add_ast_block_container' ) );
@@ -85,6 +89,11 @@ class Astra_Gutenberg {
 		) {
 			return $block_content;
 		}
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		if ( ( isset( $block['blockName'] ) && 'core/group' === $block['blockName'] ) && ! empty( $block['attrs'] ) && isset( $block['attrs']['layout'] ) && isset( $block['attrs']['layout']['type'] ) && 'flex' === $block['attrs']['layout']['type'] ) {
+			return $block_content;
+		}
+
 
 		$replace_regex   = '/(^\s*<div\b[^>]*wp-block-group[^>]*>)(.*)(<\/div>\s*$)/ms';
 		$updated_content = preg_replace_callback(

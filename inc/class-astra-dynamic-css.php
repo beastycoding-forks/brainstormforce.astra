@@ -1305,6 +1305,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					$parse_css .= astra_parse_css( $mobile_screen_max_gb_css, '', astra_get_mobile_breakpoint() );
 				}
 
+				$is_legacy_setup = ( 'legacy' === astra_get_option( 'wp-blocks-ui' ) ) ? true : false;
+				if ( $is_legacy_setup && astra_wp_version_compare( '6.0', '>=' ) ) {
+					// Image block align center CSS.
+					$image_block_center_align = array(
+						'.wp-block-image.aligncenter' => array(
+							'margin-left'  => 'auto',
+							'margin-right' => 'auto',
+						),
+					);
+					$parse_css               .= astra_parse_css( $image_block_center_align );
+				}
+
+
 				if ( self::gutenberg_media_text_block_css_compat() ) {
 					$media_text_block_padding_css = array(
 						// Media & Text block CSS compatibility (min-width: mobile-breakpoint) CSS.

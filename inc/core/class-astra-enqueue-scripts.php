@@ -94,7 +94,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			}
 
 			if ( ( ( 'post-new.php' == $pagenow || 'post.php' == $pagenow ) && ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) && ASTRA_ADVANCED_HOOKS_POST_TYPE == $screen->post_type ) ) || 'widgets.php' == $pagenow ) {
-				return;
+				return $classes;
 			}
 
 			$post_id = get_the_ID();
@@ -122,6 +122,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			$site_layout = astra_get_option( 'site-layout' );
 			if ( 'ast-box-layout' === $site_layout ) {
 				$classes .= ' ast-max-width-layout';
+			}
+
+			// block CSS class.
+			if ( astra_block_based_legacy_setup() ) {
+				$classes .= ' ast-block-legacy';
+			} else {
+				$classes .= ' ast-block-custom';
 			}
 
 			$classes .= ' ast-' . astra_page_layout();

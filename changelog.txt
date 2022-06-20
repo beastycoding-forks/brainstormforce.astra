@@ -4,6 +4,7 @@ v3.8.3 (Unreleased)
 - Fix: Primary submenus not expandable on mobile when toggle button element is not added.
 - Fix: PHP Notice - Array to string conversion on widget.php page.
 - Fix: Logo markup loading on the frontend without added logo in Site Identity.
+- Fix: Offcanvas menu content left arrow not aligned.
 
 v3.8.2
 - Fix: Improvements as per WordPress coding standards.

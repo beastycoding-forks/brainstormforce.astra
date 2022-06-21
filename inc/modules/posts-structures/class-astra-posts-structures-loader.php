@@ -132,7 +132,7 @@ class Astra_Posts_Strctures_Loader {
 		// Start removing.
 		$supported_post_types = array( 'post' );
 		if ( function_exists( 'is_product' ) ) {
-		$supported_post_types[] = 'product';
+			$supported_post_types[] = 'product';
 		}
 		// Remove till here.
 

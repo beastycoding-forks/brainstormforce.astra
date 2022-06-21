@@ -88,15 +88,15 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 
 				array(
 					'name'              => 'font-size-button',
-					'parent'      		=> ASTRA_THEME_SETTINGS . '[button-text-typography]',
-					'type'        		=> 'sub-control',
+					'parent'            => ASTRA_THEME_SETTINGS . '[button-text-typography]',
+					'type'              => 'sub-control',
 					'control'           => 'ast-responsive-slider',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-					'section'     		=> 'section-buttons',
+					'section'           => 'section-buttons',
 					'transport'         => 'postMessage',
-					'title'       		=> __( 'Size', 'astra' ),
-					'priority'    		=> 2,
-					'default'     		=> astra_get_option( 'font-size-button' ),
+					'title'             => __( 'Size', 'astra' ),
+					'priority'          => 2,
+					'default'           => astra_get_option( 'font-size-button' ),
 					'suffix'            => array( 'px', 'em' ),
 					'input_attrs'       => array(
 						'px' => array(

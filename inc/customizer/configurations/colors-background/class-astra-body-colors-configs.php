@@ -64,22 +64,22 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				 * Option: Theme color heading
 				 */
 				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[theme-color-divider-reset]',
-					'section'   => $_section,
-					'title'    => __( 'Theme Color', 'astra-addon' ),
-					'type'     => 'control',
-					'control'  => 'ast-group-title',
-					'priority' => 5,
-					'settings' => array(),
-					'input_attrs'       => array(
-						'reset_linked_controls'  => array(
+					'name'        => ASTRA_THEME_SETTINGS . '[theme-color-divider-reset]',
+					'section'     => $_section,
+					'title'       => __( 'Theme Color', 'astra-addon' ),
+					'type'        => 'control',
+					'control'     => 'ast-group-title',
+					'priority'    => 5,
+					'settings'    => array(),
+					'input_attrs' => array(
+						'reset_linked_controls' => array(
 							'theme-color',
 							'link-color',
 							'link-h-color',
 							'heading-base-color',
 							'text-color',
 							'border-color',
-						)
+						),
 					),
 				),
 
@@ -105,7 +105,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'type'       => 'control',
 					'control'    => 'ast-color-group',
 					'title'      => __( 'Links', 'astra' ),
-					'section'  => $_section,
+					'section'    => $_section,
 					'transport'  => 'postMessage',
 					'priority'   => 5,
 					'responsive' => false,
@@ -113,9 +113,9 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 
 				array(
 					'name'     => 'link-color',
-					'parent'     => ASTRA_THEME_SETTINGS . '[base-link-colors-group]',
+					'parent'   => ASTRA_THEME_SETTINGS . '[base-link-colors-group]',
 					'section'  => $_section,
-					'type'       => 'sub-control',
+					'type'     => 'sub-control',
 					'control'  => 'ast-color',
 					'default'  => astra_get_option( 'link-color' ),
 					'priority' => 5,
@@ -127,10 +127,10 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 				 */
 				array(
 					'name'     => 'link-h-color',
-					'parent'     => ASTRA_THEME_SETTINGS . '[base-link-colors-group]',
+					'parent'   => ASTRA_THEME_SETTINGS . '[base-link-colors-group]',
 					'section'  => $_section,
 					'default'  => astra_get_option( 'link-h-color' ),
-					'type'       => 'sub-control',
+					'type'     => 'sub-control',
 					'control'  => 'ast-color',
 					'priority' => 10,
 					'title'    => __( 'Hover', 'astra' ),

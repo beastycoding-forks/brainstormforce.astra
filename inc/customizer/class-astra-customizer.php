@@ -1018,13 +1018,13 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		public function enqueue_customizer_scripts() {
 
 			$sorted_menus = array(
-				'0' => __( 'Select Menu', 'astra' )
+				'0' => __( 'Select Menu', 'astra' ),
 			);
 
 			$all_menus = get_terms( 'nav_menu', array( 'hide_empty' => true ) );
 
 			if ( is_array( $all_menus ) && count( $all_menus ) ) {
-				foreach( $all_menus as $row ) {
+				foreach ( $all_menus as $row ) {
 					$sorted_menus[ $row->term_id ] = $row->name;
 				}
 			}
@@ -1032,7 +1032,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$resultant_menus = array();
 
 			foreach ( $sorted_menus as $id => $menu ) {
-				$resultant_menus[$id] = $menu;
+				$resultant_menus[ $id ] = $menu;
 			}
 
 			// Localize variables for Dev mode > Customizer JS.

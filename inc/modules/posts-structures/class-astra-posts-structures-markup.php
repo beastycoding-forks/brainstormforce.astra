@@ -74,9 +74,9 @@ class Astra_Posts_Strctures_Markup {
 			$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
 		}
 
-		$post_type_array   = apply_filters( 'astra_post_structures_supported_post_types', array( 'post', 'product' ) );
+		$post_type_array = apply_filters( 'astra_post_structures_supported_post_types', array( 'post', 'product' ) );
 
-		if( ! in_array( $post_type, $post_type_array ) ) {
+		if ( ! in_array( $post_type, $post_type_array ) ) {
 			return;
 		}
 

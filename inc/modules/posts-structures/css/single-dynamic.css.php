@@ -26,9 +26,9 @@ add_filter( 'astra_dynamic_theme_css', 'astra_post_single_strcture_dynamic_css' 
  */
 function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	$post_types        = Astra_Posts_Strctures_Loader::get_supported_post_types();
-	$load_static_css = true;
-	$active_post_type  = get_post_type();
+	$post_types       = Astra_Posts_Strctures_Loader::get_supported_post_types();
+	$load_static_css  = true;
+	$active_post_type = get_post_type();
 
 	foreach ( $post_types as $index => $post_type ) {
 
@@ -36,7 +36,7 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 			continue;
 		}
 
-		$layout_type = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
+		$layout_type     = astra_get_option( 'ast-single-' . $post_type . '-layout', 'layout-1' );
 		$layout_2_active = ( 'layout-2' === $layout_type ) ? true : false;
 
 		if ( $layout_2_active ) {
@@ -61,11 +61,11 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 		$link_color       = astra_get_option( 'ast-single-' . $post_type . '-banner-link-color' );
 		$link_hover_color = astra_get_option( 'ast-single-' . $post_type . '-banner-link-hover-color' );
 
-		$elements_gap = astra_get_option( 'ast-single-' . $post_type . '-elements-gap', 10 );
-		$banner_height    = astra_get_option( 'ast-single-' . $post_type . '-banner-height' );
+		$elements_gap       = astra_get_option( 'ast-single-' . $post_type . '-elements-gap', 10 );
+		$banner_height      = astra_get_option( 'ast-single-' . $post_type . '-banner-height' );
 		$desk_banner_height = ( $layout_2_active && isset( $banner_height['desktop'] ) ) ? astra_get_css_value( $banner_height['desktop'], 'px' ) : '';
-		$tab_banner_height   = ( $layout_2_active && isset( $banner_height['tablet'] ) ) ? astra_get_css_value( $banner_height['tablet'], 'px' ) : '';
-		$mob_banner_height   = ( $layout_2_active && isset( $banner_height['mobile'] ) ) ? astra_get_css_value( $banner_height['mobile'], 'px' ) : '';
+		$tab_banner_height  = ( $layout_2_active && isset( $banner_height['tablet'] ) ) ? astra_get_css_value( $banner_height['tablet'], 'px' ) : '';
+		$mob_banner_height  = ( $layout_2_active && isset( $banner_height['mobile'] ) ) ? astra_get_css_value( $banner_height['mobile'], 'px' ) : '';
 
 		$background_type = astra_get_option( 'ast-single-' . $post_type . '-banner-image-type', 'none' );
 		$vert_alignment  = ( $layout_2_active ) ? astra_get_option( 'ast-single-' . $post_type . '-vertical-alignment', 'center' ) : 'center';
@@ -150,7 +150,7 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 		$css_output_tablet = array(
 			$selector                   => array(
 				'text-align'     => $tab_h_alignment,
-				'min-height'      => $tab_banner_height,
+				'min-height'     => $tab_banner_height,
 				'padding-top'    => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'top', 'tablet' ) : '',
 				'padding-right'  => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'right', 'tablet' ) : '',
 				'padding-bottom' => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'bottom', 'tablet' ) : '',
@@ -177,7 +177,7 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 		$css_output_mobile = array(
 			$selector                   => array(
 				'text-align'     => $mob_h_alignment,
-				'min-height'      => $mob_banner_height,
+				'min-height'     => $mob_banner_height,
 				'padding-top'    => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'top', 'mobile' ) : '',
 				'padding-right'  => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'right', 'mobile' ) : '',
 				'padding-bottom' => $layout_2_active ? astra_responsive_spacing( $banner_padding, 'bottom', 'mobile' ) : '',
@@ -228,8 +228,8 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 		}
 
 		if ( true === $load_static_css || is_customize_preview() ) {
-			$site_content_width         = astra_get_option( 'site-content-width', 1200 );
-			$dynamic_css      .= '.ast-single-entry-banner {
+			$site_content_width = astra_get_option( 'site-content-width', 1200 );
+			$dynamic_css       .= '.ast-single-entry-banner {
 				-js-display: flex;
 				display: flex;
 				flex-direction: column;
@@ -248,7 +248,7 @@ function astra_post_single_strcture_dynamic_css( $dynamic_css, $dynamic_css_filt
 			.ast-single-entry-banner + .site-content .entry-header {
 				margin-bottom: 0;
 			}';
-			$load_static_css = false;
+			$load_static_css    = false;
 		}
 
 		/* Parse CSS from array() */

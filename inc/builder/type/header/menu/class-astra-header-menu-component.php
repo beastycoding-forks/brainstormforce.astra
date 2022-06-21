@@ -38,6 +38,21 @@ class Astra_Header_Menu_Component {
 	}
 
 	/**
+	 * Get menu by location
+	 *
+	 * @since x.x.x
+	 *
+	 * @param string $theme_location.
+	 * @return object.
+	 */
+	public static function get_menu_by_location( $theme_location ) {
+		// Get all locations.
+		$locations = get_nav_menu_locations();
+		// Return menu.
+		return isset( $locations[ $theme_location ] ) ? $locations[ $theme_location ] : '';
+	}
+
+	/**
 	 * Secondary navigation markup
 	 *
 	 * @param int $index index.
@@ -56,7 +71,7 @@ class Astra_Header_Menu_Component {
 				break;
 		}
 
-		error_log( $theme_location );
+		$menu_id = astra_get_option( 'nav_menu_locations-' . $theme_location, self::get_menu_by_location( $theme_location ) );
 
 		$_prefix = 'menu' . $index;
 
@@ -123,12 +138,12 @@ class Astra_Header_Menu_Component {
 		if ( has_nav_menu( $theme_location ) ) {
 			wp_nav_menu(
 				array(
+					'menu'            => $menu_id,
 					'menu_id'         => 'ast-hf-menu-' . $index,
 					'menu_class'      => esc_attr( implode( ' ', $menu_classes ) ),
 					'container'       => 'div',
 					'container_class' => 'main-header-bar-navigation',
 					'items_wrap'      => $items_wrap,
-					'theme_location'  => $theme_location,
 				)
 			);
 		} else {

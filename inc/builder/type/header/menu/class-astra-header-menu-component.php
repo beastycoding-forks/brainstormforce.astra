@@ -56,6 +56,8 @@ class Astra_Header_Menu_Component {
 				break;
 		}
 
+		error_log( $theme_location );
+
 		$_prefix = 'menu' . $index;
 
 		$submenu_class         = apply_filters( 'astra_secondary_submenu_border_class', ' submenu-with-border' );

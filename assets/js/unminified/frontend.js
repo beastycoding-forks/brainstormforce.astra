@@ -623,6 +623,9 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 				var menu_toggle_all = document.querySelectorAll('#ast-mobile-header .main-header-menu-toggle');
 
 				menuToggleAllLength = menu_toggle_all.length;
+				flag = menuToggleAllLength > 0 ? false : true;
+
+				menuToggleAllLength = flag ? 1 : menuToggleAllLength;
 			} else {
 				var __main_header_all = document.querySelectorAll( '#ast-mobile-header' ),
 					menu_toggle_all = document.querySelectorAll('#ast-mobile-header .main-header-menu-toggle');
@@ -839,17 +842,19 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 		if ( 'off-canvas' === mobileHeaderType ) {
 			var popupClose = document.getElementById( 'menu-toggle-close' );
-			popupClose.onclick = function() {
-				if ( -1 !== containerMenu.className.indexOf( 'toggled' ) ) {
-					containerMenu.className = containerMenu.className.replace( ' toggled', '' );
-					button.setAttribute( 'aria-expanded', 'false' );
-					menu.setAttribute( 'aria-expanded', 'false' );
-				} else {
-					containerMenu.className += ' toggled';
-					button.setAttribute( 'aria-expanded', 'true' );
-					menu.setAttribute( 'aria-expanded', 'true' );
-				}
-			};
+			if(null !== popupClose){
+				popupClose.onclick = function() {
+					if ( -1 !== containerMenu.className.indexOf( 'toggled' ) ) {
+						containerMenu.className = containerMenu.className.replace( ' toggled', '' );
+						button.setAttribute( 'aria-expanded', 'false' );
+						menu.setAttribute( 'aria-expanded', 'false' );
+					} else {
+						containerMenu.className += ' toggled';
+						button.setAttribute( 'aria-expanded', 'true' );
+						menu.setAttribute( 'aria-expanded', 'true' );
+					}
+				};
+			}
 		}
 
 		button.onclick = function() {

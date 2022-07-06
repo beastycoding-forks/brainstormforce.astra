@@ -581,6 +581,10 @@
   position: relative;
 }
 
+.woocommerce #content .coupon .ast-coupon-label, .woocommerce-page #content .coupon .ast-coupon-label {
+  display: none;
+}
+
 .woocommerce-account .woocommerce-MyAccount-navigation {
   float: left;
   width: 30%;

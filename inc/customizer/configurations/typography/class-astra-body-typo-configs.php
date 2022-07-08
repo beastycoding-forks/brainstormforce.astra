@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_variant' ),
 					'default'           => astra_get_option( 'body-font-variant' ),
 					'ast_inherit'       => __( 'Default', 'astra' ),
-					'help'              => __( 'Selected variants will load from Google.', 'astra' ),
+					'help'              => __( 'These variants will load from Google.', 'astra' ),
 					'section'           => $typo_section,
 					'priority'          => 6,
 					'title'             => __( 'Variants', 'astra' ),
@@ -244,7 +244,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'              => 'headings-font-variant',
 					'type'              => 'sub-control',
-					'help'              => __( 'Selected variants will load from Google.', 'astra' ),
+					'help'              => __( 'These variants will load from Google.', 'astra' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[ast-headings-font-settings]',
 					'control'           => 'ast-font-variant',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_variant' ),

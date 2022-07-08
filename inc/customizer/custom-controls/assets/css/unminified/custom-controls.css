@@ -844,7 +844,7 @@
 	display: inline-block;
     position: absolute;
     right: 0;
-    top: -4.5px;
+    top: 0;
     transform: scale(1);
     transition: transform .1s ease;
     height: 28px;
@@ -1083,7 +1083,7 @@
 .ast-color-btn-reset-wrap {
 	position: absolute;
     right: 36px;
-    top: 1.5px;
+    top: 6px;
 }
 .ast-color-btn-reset-wrap .ast-reset-btn.components-button, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button {
 	color: #006BA1;
@@ -1118,7 +1118,7 @@
 }
 .ast-field-settings-modal .ast-color-btn-reset-wrap {
     right: 59px;
-	top: 0;
+	top: 6px;
 }
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     right: 78px;
@@ -1371,9 +1371,18 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   margin-top: 16px;
 }
 
-.customize-control.customize-control-ast-toggle-control,
-.customize-control.customize-control-ast-color {
-  margin-top: 24px;
+.customize-control.customize-control-ast-color, .customize-control.customize-control-ast-color-group, .customize-control-ast-responsive-background, .customize-control-ast-background {
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+}
+
+.customize-control-ast-responsive-background label {
+  white-space: nowrap;
+}
+
+.customize-control[ID*="-builder-layout-ast-context-tabs"] {
+  margin-top: 0;
 }
 
 [ID*="-builder-layout-ast-context-tabs"] {
@@ -1840,6 +1849,42 @@ input[type="text"].select2-search__field {
 }
 .customize-control-ast-typography-presets .ast-reset-btn-preset-wrap {
     top: -5px;
+}
+
+.ast-typo-preset-item .components-tooltip {
+	margin-top: -8px;
+}
+
+.ast-typo-preset-item .components-tooltip::before {
+	border-bottom: none!important;
+    border-left-color: transparent!important;
+    border-right-color: transparent!important;
+    border-top-style: solid!important;
+	border-top-color: #1e1e1e!important;
+    margin-left: -10px;
+	bottom: -8px;
+	content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    line-height: 0;
+	border: 8px solid #ccc;
+}
+
+.ast-typo-preset-item .components-tooltip::after {
+	border-bottom: none!important;
+    border-left-color: transparent!important;
+    border-right-color: transparent!important;
+    border-top-style: solid!important;
+	border-top-color: #1e1e1e!important;
+    margin-left: -10px;
+	bottom: -6px;
+	content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    line-height: 0;
+	border: 8px solid #fff;
 }
 
 span.customize-control-title.ast-group-section-title {
@@ -2457,7 +2502,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
   display: inline-block;
   line-height: 1;
-  top: 0;
+  top: 4.5px;
 }
 .customize-control-ast-responsive-background .ast-responsive-btns,
 .customize-control-ast-responsive-color .ast-responsive-btns {

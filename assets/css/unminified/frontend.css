@@ -1385,7 +1385,6 @@ body {
 
 .main-navigation {
   height: 100%;
-  -js-display: inline-flex;
   display: inline-flex;
 }
 
@@ -2063,7 +2062,6 @@ body {
 }
 
 .ast-builder-grid-row.ast-grid-center-col-layout-only {
-  -js-display: flex;
   display: flex;
   height: 100%;
   justify-content: center;
@@ -2131,7 +2129,6 @@ body {
  */
 .ast-logo-title-inline .ast-site-identity {
   padding: 1em 0;
-  -js-display: inline-flex;
   display: inline-flex;
   vertical-align: middle;
   align-items: center;
@@ -2178,7 +2175,7 @@ body {
 }
 
 .ahfb-svg-iconset {
-  -js-display: inline-flex;
+  display: -webkit-inline-box;
   display: inline-flex;
   align-self: center;
 }
@@ -2321,20 +2318,17 @@ body {
 }
 
 .ast-mobile-header-wrap .menu-toggle .mobile-menu-toggle-icon {
-  -js-display: inline-flex;
   display: inline-flex;
   align-self: center;
 }
 
 .ast-mobile-header-wrap .menu-toggle .mobile-menu-wrap {
-  -js-display: inline-flex;
   display: inline-flex;
   align-self: center;
   margin-left: 0.4em;
 }
 
 .ast-mobile-header-wrap .ast-button-wrap .menu-toggle.main-header-menu-toggle {
-  -js-display: flex;
   display: flex;
   align-items: center;
   width: auto;
@@ -2342,13 +2336,11 @@ body {
 }
 
 .menu-toggle .mobile-menu-toggle-icon {
-  -js-display: inline-flex;
   display: inline-flex;
   align-self: center;
 }
 
 .menu-toggle .mobile-menu-wrap {
-  -js-display: inline-flex;
   display: inline-flex;
   align-self: center;
   margin-left: 0.4em;
@@ -2356,14 +2348,12 @@ body {
 
 .ast-hfb-header .ast-button-wrap .menu-toggle .mobile-menu-wrap {
   align-items: center;
-  -js-display: flex;
   display: flex;
 }
 
 .ast-button-wrap .menu-toggle.main-header-menu-toggle {
   padding: .5em;
   align-items: center;
-  -js-display: flex;
   display: flex;
 }
 
@@ -3071,7 +3061,6 @@ input[type="color"]::-webkit-color-swatch {
 
 @media (min-width: 421px) {
   .single .post-navigation .nav-links {
-    -js-display: flex;
     display: flex;
   }
   .single .post-navigation .nav-previous,
@@ -3396,7 +3385,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-flex {
-  -js-display: flex;
   display: flex;
   flex-wrap: wrap;
 }
@@ -3422,7 +3410,6 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 .ast-inline-flex {
-  -js-display: inline-flex;
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;

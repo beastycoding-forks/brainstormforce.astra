@@ -825,6 +825,16 @@ p.demo_store,
 
 		div.summary {
 			margin-bottom: 2em;
+
+			.single-product-category {
+				display: block;
+				line-height: 1;
+				margin-bottom: 1em;
+			}
+
+			.woocommerce-product-details__short-description *:last-child {
+				margin-bottom: 1em;
+			}
 		}
 
 		div.social {
@@ -1043,12 +1053,12 @@ p.demo_store,
 
 			div.quantity {
 				float: left;
-				margin: 0 4px 0 0;
+				margin: 0 .5em 0 0;
 			}
 
 			table {
 				border-width: 0 0 1px;
-				margin: 0 0 1.2em;
+				margin: 0 0 1em;
 
 				td {
 					padding-left: 0;
@@ -1083,8 +1093,12 @@ p.demo_store,
 					display: block;
 				}
 
+				tr {
+					margin-bottom: 0.5em;
+				}
+
 				th {
-					margin: 0.5em 0;
+					margin-bottom: 0.5em;
 					padding-left: 0;
 				}
 
@@ -1192,7 +1206,7 @@ p.demo_store,
 			.single_variation_wrap{
 				width: 100%;
 				p {
-					margin-bottom: 0.8em;
+					margin-bottom: 1em;
 				}
 				.single_variation{
 					margin-bottom: 1.2em;

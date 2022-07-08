@@ -136,6 +136,8 @@ const TypoPresetControl = ( props ) => {
 	const SingleList = ( props ) => {
 		return (
 			<Tooltip
+				position="top center"
+				noArrow={ false }
 				key={props.uniqueKey}
 				text={ generateToolTipText(props.preset ) }
 			>

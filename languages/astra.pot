@@ -5707,7 +5707,7 @@ msgstr ""
 #: astra/inc/customizer/configurations/typography/class-astra-body-typo-configs.php:217
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:80
 #: inc/customizer/configurations/typography/class-astra-body-typo-configs.php:217
-msgid "Selected variants will load from Google."
+msgid "These variants will load from Google."
 msgstr ""
 
 #: astra/inc/customizer/configurations/typography/class-astra-body-typo-configs.php:83

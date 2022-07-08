@@ -63,11 +63,13 @@
 }
 
 .widget .llms-progress .llms-progress-bar {
+  -webkit-border-radius: 20px;
   border-radius: 20px;
   height: 20px;
 }
 
 .widget .llms-progress .progress-bar-complete {
+  -webkit-border-radius: 20px;
   border-radius: 20px;
 }
 
@@ -127,7 +129,6 @@
 .llms-student-dashboard .llms-checkout,
 .ast-container .llms-checkout,
 .ast-lifterlms-container .llms-checkout {
-  -js-display: flex;
   display: flex;
 }
 
@@ -361,7 +362,6 @@ body .course .llms-course-progress,
 body .llms-course-progress {
   max-width: 100%;
   margin: 0 auto;
-  -js-display: flex;
   display: flex;
   flex-direction: row-reverse;
   background: #f1f2f1;
@@ -573,7 +573,6 @@ body .llms-loop-item-content .llms-progress-bar .progress-bar-complete {
 .lifterlms .llms-checkout-wrapper .llms-checkout-col.llms-col-2 {
   width: 42%;
   margin: 0;
-  height: -moz-fit-content;
   height: fit-content;
 }
 

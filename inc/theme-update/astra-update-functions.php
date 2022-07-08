@@ -983,22 +983,6 @@ function astra_legacy_customizer_maintenance() {
 }
 
 /**
- * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
- *
- * Case: In older versions of Astra WooCommerce > Single Product sidebar layout synced with Default sidebar layout (not with WooCommerce sidebar option).
- *
- * @since x.x.x
- * @return void
- */
-function astra_update_single_product_sidebar_layout() {
-	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['woocommerce-single-product-fallback-default'] ) ) {
-		$theme_options['woocommerce-single-product-fallback-default'] = true;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
  * Enable single product breadcrumb to maintain backward compatibility for existing users.
  *
  * @since x.x.x
@@ -1012,4 +996,18 @@ function astra_update_single_product_breadcrumb() {
 		$theme_options['single-product-breadcrumb-disable'] = true;
 	}
 	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * Restrict direct changes on users end so make it filterable.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_apply_modern_ecommerce_setup() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['astra-ecommerce-modern-setup'] ) ) {
+		$theme_options['astra-ecommerce-modern-setup'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
 }

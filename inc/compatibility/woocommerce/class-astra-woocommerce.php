@@ -868,22 +868,24 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) {
 
 				$woo_sidebar = astra_get_option( 'woocommerce-sidebar-layout' );
+				$astra_with_modern_ecommerce = astra_get_option( 'astra-ecommerce-modern-setup', true );
 
 				if ( 'default' !== $woo_sidebar ) {
-
 					$sidebar_layout = $woo_sidebar;
 				}
 
 				$global_page_specific_layout = 'default';
 
 				if ( is_shop() || is_product_taxonomy() ) {
-					$global_page_specific_layout = astra_get_option( 'archive-product-sidebar-layout', 'default' );
+					$archive_product_fallback_sidebar = ( false === $astra_with_modern_ecommerce ) ? astra_get_option( 'site-sidebar-layout' ) : astra_get_option( 'woocommerce-sidebar-layout' );
+					$archive_product_sidebar = astra_get_option( 'archive-product-sidebar-layout', 'default' );
+					$global_page_specific_layout     = 'default' === $archive_product_sidebar ? $archive_product_fallback_sidebar : $archive_product_sidebar;
 				}
 
 				if ( is_product() ) {
-					$single_product_fallback_sidebar_layout = ( true === astra_get_option( 'woocommerce-single-product-fallback-default', false ) ) ? astra_get_option( 'site-sidebar-layout' ) : astra_get_option( 'woocommerce-sidebar-layout' );
-					$single_product_sidebar                 = astra_get_option( 'single-product-sidebar-layout', 'default' );
-					$global_page_specific_layout            = 'default' === $single_product_sidebar ? $single_product_fallback_sidebar_layout : $single_product_sidebar;
+					$single_product_fallback_sidebar = ( false === $astra_with_modern_ecommerce ) ? astra_get_option( 'site-sidebar-layout' ) : astra_get_option( 'woocommerce-sidebar-layout' );
+					$single_product_sidebar          = astra_get_option( 'single-product-sidebar-layout', 'default' );
+					$global_page_specific_layout     = 'default' === $single_product_sidebar ? $single_product_fallback_sidebar : $single_product_sidebar;
 				}
 
 				if ( 'default' !== $global_page_specific_layout ) {

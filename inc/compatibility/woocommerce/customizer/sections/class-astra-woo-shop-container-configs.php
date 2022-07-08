@@ -21,6 +21,17 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 	class Astra_Woo_Shop_Container_Configs extends Astra_Customizer_Config_Base {
 
 		/**
+		 * Check if user has journey from legacy to modern setup.
+		 *
+		 * @since x.x.x
+		 * @return bool true|false.
+		 */
+		public static function astra_with_legacy_modern_setup() {
+			$theme_options = get_option( 'astra-settings', array() );
+			return apply_filters( 'astra_get_option_modern-ecommerce-setup', isset( $theme_options['ecommerce-modern-setup'] ) ? true : false );
+		}
+
+		/**
 		 * Register Astra-WooCommerce Shop Container Settings.
 		 *
 		 * @param Array                $configurations Astra Customizer Configurations.
@@ -66,7 +77,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider ast-section-spacing' ),
 				),
 
 				/**
@@ -144,8 +155,31 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 				),
 			);
 
-			return array_merge( $configurations, $_configs );
+			/**
+			 * Option: Enable/Disable modern WooCommerce Setup.
+			 */
+			if( self::astra_with_legacy_modern_setup() ) {
+				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[modern-ecommerce-setup]',
+					'default'  => astra_get_option( 'modern-ecommerce-setup' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-general',
+					'title'    => __( 'Modern Ecommerce Setup', 'astra-addon' ),
+					'priority' => 1,
+					'control'  => 'ast-toggle-control',
+				);
+				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[modern-ecommerce-setup-description]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-woo-general',
+					'priority' => 1,
+					'label'    => '',
+					'help'     => __( 'Enabling this option will apply the latest design changes to your website. This might affect the current website layout. You can disable this option if you do not wish to continue with the newly applied changes.', 'astra' ),
+				);
+			}
 
+			return array_merge( $configurations, $_configs );
 		}
 	}
 }

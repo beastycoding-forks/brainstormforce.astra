@@ -868,7 +868,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_shop() || is_product_taxonomy() || is_checkout() || is_cart() || is_account_page() || is_product() ) {
 
 				$woo_sidebar = astra_get_option( 'woocommerce-sidebar-layout' );
-				$astra_with_modern_ecommerce = astra_get_option( 'astra-ecommerce-modern-setup', true );
+				$astra_with_modern_ecommerce = astra_get_option( 'modern-ecommerce-setup', true );
 
 				if ( 'default' !== $woo_sidebar ) {
 					$sidebar_layout = $woo_sidebar;

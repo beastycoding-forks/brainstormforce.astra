@@ -1006,8 +1006,8 @@ function astra_update_single_product_breadcrumb() {
  */
 function astra_apply_modern_ecommerce_setup() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['astra-ecommerce-modern-setup'] ) ) {
-		$theme_options['astra-ecommerce-modern-setup'] = false;
+	if ( ! isset( $theme_options['modern-ecommerce-setup'] ) ) {
+		$theme_options['modern-ecommerce-setup'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

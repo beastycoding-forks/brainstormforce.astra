@@ -95,7 +95,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
-					'context'   => ( $astra_with_modern_woocommerce ) ? array(
+					'context'           => ( $astra_with_modern_woocommerce ) ? array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[archive-product-content-layout]',
 							'operator' => '!=',
@@ -146,7 +146,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 						),
 					),
 					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
-					'context'   => ( $astra_with_modern_woocommerce ) ? array(
+					'context'           => ( $astra_with_modern_woocommerce ) ? array(
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-content-layout]',
 							'operator' => '!=',

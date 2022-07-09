@@ -33,6 +33,42 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 
 			$_configs = array(
 
+
+				/**
+				 * Option: Enable checkout button text
+				 */
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[woo-enable-cart-button-text]',
+					'default'     => astra_get_option( 'woo-enable-cart-button-text' ),
+					'type'        => 'control',
+					'section'     => 'section-woo-shop-cart',
+					'title'       => __( 'Enable Cart Button Text', 'astra' ),
+					'description' => __( 'Add custom text for cart button', 'astra' ),
+					'control'     => 'ast-toggle-control',
+					'priority'    => 2,
+				),
+
+				/**
+				 * Option: Checkout
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-cart-button-text]',
+					'default'  => astra_get_option( 'woo-cart-button-text' ),
+					'type'     => 'control',
+					'section'  => 'section-woo-shop-cart',
+					'title'    => __( 'Cart Button Text', 'astra' ),
+					'context'  => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[woo-enable-cart-button-text]',
+							'operator' => '==',
+							'value'    => true,
+						),
+					),
+					'control'  => 'text',
+					'priority' => 2,
+				),
+
 				/**
 				 * Option: Cart upsells
 				 *

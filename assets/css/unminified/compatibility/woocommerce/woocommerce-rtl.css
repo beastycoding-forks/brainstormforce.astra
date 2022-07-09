@@ -1260,7 +1260,7 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce div.product form.cart div.quantity {
   float: right;
-  margin: 0 0 0 .5em;
+  margin: 0 0 0 1em;
 }
 
 .woocommerce div.product form.cart table {
@@ -1448,7 +1448,7 @@ p.demo_store[data-position="bottom"],
   min-height: 3em;
   line-height: 3em;
   padding: 0;
-  font-size: 1em;
+  font-size: .8em;
   font-weight: normal;
   position: absolute;
   text-align: center;
@@ -4824,7 +4824,7 @@ button.pswp__button--zoom:hover {
   min-height: 3em;
   line-height: 3em;
   padding: 0;
-  font-size: 1em;
+  font-size: .8em;
   font-weight: normal;
   text-transform: capitalize;
   position: absolute;
@@ -4832,7 +4832,7 @@ button.pswp__button--zoom:hover {
   border-radius: 100%;
   z-index: 9;
   top: 0;
-  left: 15px;
+  left: 10px;
   right: auto;
   margin: -0.5em 0 0 -0.5em;
 }

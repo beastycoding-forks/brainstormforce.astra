@@ -1721,7 +1721,9 @@ input[type="text"].select2-search__field {
 #customize-control-astra-settings-shop-load-more-text,
 #customize-control-astra-settings-single-product-shipping-text,
 #customize-control-astra-settings-ast-header-retina-logo,
+#customize-control-astra-settings-product-sale-percent-value,
 #customize-control-astra-settings-header-account-create-menu-link,
+#customize-control-astra-settings-woo-cart-button-text,
 #customize-control-astra-settings-sticky-header-retina-logo {
     margin-top: 24px;
     padding-top: 24px;
@@ -2173,6 +2175,7 @@ span.customize-control-title.ast-group-section-title {
   color: var(--ast-customizer-color-10);
   z-index: 1000;
   bottom: calc(100% + 5px);
+  text-align: center;
   animation: tooltips-vert 300ms ease-out forwards;
 }
 

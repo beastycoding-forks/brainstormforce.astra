@@ -461,12 +461,5 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 		}
 	';
 
-	$dynamic_css .= '
-		.entry-content[ast-blocks-layout] ul, 
-		.entry-content[ast-blocks-layout] ol {
-			padding-' . esc_attr( $ltr_left ) . ': var(--wp--custom--ast-default-block-' . esc_attr( $ltr_left ) . '-padding);
-		}
-	';
-
 	return $dynamic_css;
 }

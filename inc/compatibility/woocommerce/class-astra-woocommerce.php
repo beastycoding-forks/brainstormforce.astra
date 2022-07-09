@@ -130,6 +130,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'change_cart_close_icon' ), 10, 2 );
+
+			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
+
 		}
 
 		/**
@@ -645,6 +648,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['single-product-tabs-display']          = false;
 			$defaults['single-product-shipping-text']         = __( '& Free Shipping', 'astra' );
 			$defaults['single-product-variation-tabs-layout'] = 'vertical';
+
+			/* Cart button*/
+			$defaults['woo-enable-cart-button-text'] = false;
+			$defaults['woo-cart-button-text']        = __( 'Proceed to checkout', 'astra' );
+
 
 
 			return $defaults;
@@ -2296,6 +2304,41 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function woocommerce_template_path() {
 			return 'inc/compatibility/woocommerce/templates';
+		}
+
+		/**
+		 * Woocommerce Cart button html
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function woocommerce_proceed_to_checkout_button_html() {
+			$cart_button_text = astra_get_option( 'woo-cart-button-text' );
+
+			if ( $cart_button_text ) {
+				?>
+					<a href="<?php echo esc_url( wc_get_checkout_url() ); ?>" class="checkout-button button alt wc-forward">
+					<?php echo esc_attr( $cart_button_text ); ?>
+					</a>
+				<?php
+			}
+		}
+
+		/**
+		 * Woocommerce Cart button text
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function woocommerce_proceed_to_checkout_button() {
+
+			$enable_cart_button_text = astra_get_option( 'woo-enable-cart-button-text' );
+			$cart_button_text        = astra_get_option( 'woo-cart-button-text' );
+
+			if ( $cart_button_text && $enable_cart_button_text ) {
+				remove_action( 'woocommerce_proceed_to_checkout', 'woocommerce_button_proceed_to_checkout', 20 );
+				add_action( 'woocommerce_proceed_to_checkout', array( $this, 'woocommerce_proceed_to_checkout_button_html' ), 20 );
+			}
 		}
 
 		/**

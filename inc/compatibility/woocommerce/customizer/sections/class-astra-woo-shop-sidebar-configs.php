@@ -101,6 +101,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 							'operator' => '!=',
 							'value'    => 'page-builder',
 						),
+						Astra_Builder_Helper::$general_tab_config,
 					) : array(),
 				),
 
@@ -152,6 +153,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 							'operator' => '!=',
 							'value'    => 'page-builder',
 						),
+						Astra_Builder_Helper::$general_tab_config,
 					) : array(),
 				),
 			);

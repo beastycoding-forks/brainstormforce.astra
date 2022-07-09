@@ -6966,7 +6966,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns {
     position: relative;
     float: left;
-    top: 2px;
+    top: 4px;
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns > li.active{
@@ -6977,7 +6977,7 @@ span.customize-control-title.ast-group-section-title {
     margin-bottom: 0;
     display: none;
 }
-  
+
 .ast-responsive-toggle-btns > li.active {
     display: inline-block;
 }
@@ -6996,6 +6996,7 @@ span.customize-control-title.ast-group-section-title {
     height: 15px;
     font-size: 15px;
 }
+
 .ast-adv-toggle-icon {
   left: 2px;
   position: absolute;

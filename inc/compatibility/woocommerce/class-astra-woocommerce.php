@@ -864,7 +864,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public static function astra_with_legacy_modern_setup() {
 			$theme_options = get_option( 'astra-settings', array() );
-			return apply_filters( 'astra_get_option_modern-ecommerce-setup', isset( $theme_options['ecommerce-modern-setup'] ) ? true : false );
+			return apply_filters( 'astra_get_option_modern-ecommerce-setup', isset( $theme_options['ecommerce-modern-setup'] ) ? false : true );
 		}
 
 		/**

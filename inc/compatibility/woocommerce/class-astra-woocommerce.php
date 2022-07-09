@@ -894,7 +894,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				if ( is_shop() || is_product_taxonomy() ) {
 					$global_page_specific_layout = astra_get_option( 'archive-product-sidebar-layout', 'default' );
-					$content_layout              = astra_get_option( 'archive-product-content-layout', 'default' );
+					$content_layout              = 'default' === astra_get_option( 'archive-product-content-layout', 'default' ) ? $content_layout : astra_get_option( 'archive-product-content-layout', 'default' );
 				}
 
 				if ( is_product() ) {

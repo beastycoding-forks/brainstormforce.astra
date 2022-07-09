@@ -41,6 +41,8 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			$astra_ecommerce_legacy_setup = self::astra_with_legacy_modern_setup();
+
 			$_configs = array(
 
 				/**
@@ -77,7 +79,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider ast-section-spacing' ),
+					'divider'           => $astra_ecommerce_legacy_setup ? array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider ast-section-spacing' ) : array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 				),
 
 				/**
@@ -158,7 +160,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Container_Configs' ) ) {
 			/**
 			 * Option: Enable/Disable modern WooCommerce Setup.
 			 */
-			if( self::astra_with_legacy_modern_setup() ) {
+			if( $astra_ecommerce_legacy_setup ) {
 				$_configs[] = array(
 					'name'     => ASTRA_THEME_SETTINGS . '[modern-ecommerce-setup]',
 					'default'  => astra_get_option( 'modern-ecommerce-setup' ),

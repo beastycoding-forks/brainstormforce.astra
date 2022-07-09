@@ -877,9 +877,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$global_page_specific_layout = 'default';
 
 				if ( is_shop() || is_product_taxonomy() ) {
-					$archive_product_fallback_sidebar = ( false === $astra_with_modern_ecommerce ) ? astra_get_option( 'site-sidebar-layout' ) : astra_get_option( 'woocommerce-sidebar-layout' );
-					$archive_product_sidebar = astra_get_option( 'archive-product-sidebar-layout', 'default' );
-					$global_page_specific_layout     = 'default' === $archive_product_sidebar ? $archive_product_fallback_sidebar : $archive_product_sidebar;
+					$global_page_specific_layout = astra_get_option( 'archive-product-sidebar-layout', 'default' );
 				}
 
 				if ( is_product() ) {

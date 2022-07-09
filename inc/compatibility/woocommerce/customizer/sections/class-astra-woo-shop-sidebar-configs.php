@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 					'title'    => __( 'Shop Display Options', 'astra' ),
 					'type'     => 'control',
 					'control'  => 'ast-heading',
-					'priority' => 5,
+					'priority' => 9.5,
 					'settings' => array(),
 					'divider'  => array( 'ast_class' => 'ast-section-spacing ast-bottom-spacing' ),
 				),

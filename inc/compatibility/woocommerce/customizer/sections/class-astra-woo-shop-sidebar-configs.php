@@ -30,6 +30,8 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			$astra_with_modern_woocommerce = Astra_Woocommerce::astra_with_legacy_modern_setup();
+
 			$_configs = array(
 
 				/**
@@ -62,6 +64,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				array(
@@ -91,6 +94,14 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+					'context'   => ( $astra_with_modern_woocommerce ) ? array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[archive-product-content-layout]',
+							'operator' => '!=',
+							'value'    => 'page-builder',
+						),
+					) : array(),
 				),
 
 				/**
@@ -134,6 +145,14 @@ if ( ! class_exists( 'Astra_Woo_Shop_Sidebar_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
 						),
 					),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
+					'context'   => ( $astra_with_modern_woocommerce ) ? array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[single-product-content-layout]',
+							'operator' => '!=',
+							'value'    => 'page-builder',
+						),
+					) : array(),
 				),
 			);
 

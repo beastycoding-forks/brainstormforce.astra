@@ -8,6 +8,6 @@ describe( 'Shortcode in gutenberg editor', () => {
 		await expect( {
 			selector: '.wp-block-shortcode',
 			property: 'width',
-		} ).cssValueToBe( `910px` );
+		} ).cssValueToBe( `1200px` );
 	} );
 } );

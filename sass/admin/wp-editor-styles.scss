@@ -18,6 +18,9 @@ html {
 
 .edit-post-visual-editor {
     @import "../site/site-normalize/site-normalize.scss";
+	.editor-styles-wrapper > .is-root-container {
+		padding-top: 20px;
+	}
 }
 /**
  * Responsive view management CSS.
@@ -43,7 +46,6 @@ html {
 	&.is-highlighted,
 	&:hover {
 		box-shadow: 0 0 0 var(--wp-admin-border-width-focus) var(--wp-admin-theme-color);
-		border-radius: 5px;
 	}
 	&.is-highlighted:after {
 		box-shadow: none;
@@ -54,12 +56,13 @@ html {
  */
 .edit-post-visual-editor__post-title-wrapper {
 	position: relative;
-    max-width: var(--wp--custom--ast-wide-width-size);
+	max-width: calc(var(--wp--custom--ast-content-width-size) + 10px) !important;
     margin-left: auto !important;
     margin-right: auto !important;
+	margin-bottom: 1.5em;
 	&:hover {
 		h1.editor-post-title__input {
-			outline: 1px solid var(--wp-admin-theme-color) !important;
+			box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 		}
 		.title-visibility {
 			opacity: 1;
@@ -68,35 +71,81 @@ html {
 	.title-visibility {
 		cursor: pointer;
 		font-size: 18px;
-		width: 26px;
-		height: 22px;
-		background: var(--wp-admin-theme-color);
+		width: 36px;
+		height: 100%;
 		text-align: center;
-		color: #fafafa;
+		color: var(--wp-admin-theme-color);
+		vertical-align: middle;
 		position: absolute;
-		right: 0;
-		top: 0;
+		left: -37px;
+		bottom: 0;
 		opacity: 0;
 		margin: 0 !important;
 		padding: 0 !important;
+		box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
+		transition: all 0.2s;
 		&:hover {
 			opacity: 1;
+			color: var(--wp-admin-theme-color);
+			&:after {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+		&:before {
+			width: 100%;
+			height: 100%;
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+		}
+		&:after {
+			content: attr(data-tooltip);
+			white-space: nowrap;
+			border-radius: 2px;
+			pointer-events: none;
+			color: #fff;
+			background: #1e1e1e;
+			opacity: 0;
+			visibility: hidden;
+			width: max-content;
+			line-height: 26px;
+			margin-left: -1px;
+			display: flex;
+			font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+			align-items: flex-start;
+			padding: 0 6px;
+			font-size: 12px;
+			transition: all 0.2s;
 		}
 	}
 	> .wp-block-post-title {
 		max-width: 100% !important;
 	}
 	h1.editor-post-title__input {
-		padding: 10px;
+		padding: 10px 6px;
+		transition: all 0.2s;
 		&.is-selected {
-			outline: 1px solid var(--wp-admin-theme-color) !important;
+			box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 			& + .title-visibility {
 				opacity: 1;
+				color: var(--wp-admin-theme-color);
 			}
 		}
 	}
 	&.invisible {
 		opacity: 0.5;
+	}
+}
+.ast-page-builder-template, .ast-stacked-title-visibility {
+	.edit-post-visual-editor__post-title-wrapper {
+		max-width: none;
+		padding: 0 20px;
+		.title-visibility {
+			left: unset;
+			top: -41px;
+			height: 40px;
+		}
 	}
 }
 /**
@@ -108,9 +157,10 @@ html .edit-widgets-main-block-list :where(.wp-block) {
 /**
  * ast-separate-container layout compatibility.
  */
-.ast-separate-container .edit-post-visual-editor {
-	padding: 20px;
+.ast-separate-container .edit-post-visual-editor__content-area {
+	padding: 20px !important;
 }
+
 /**
  * Color control's name adjustment.
  */
@@ -153,6 +203,9 @@ html .edit-widgets-main-block-list :where(.wp-block) {
 /**
  * Modern Gutenberg editor improved UI/UX.
  */
+body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > * + *, body .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > * + * {
+	margin-block-start: 0;
+}
 .wp-block-separator {
 	height: 0;
 	&:not(.is-style-wide) {
@@ -173,6 +226,10 @@ html .edit-widgets-main-block-list :where(.wp-block) {
 	}
 	cite {
 		font-style: initial;
+	}
+	.block-editor-block-variation-picker {
+		margin-left: auto;
+		margin-right: auto;
 	}
 }
 .wp-block-cover:not([class*='background-color']) .wp-block-cover__inner-container, .wp-block-cover:not([class*='background-color']) .wp-block-cover-image-text, .wp-block-cover:not([class*='background-color']) .wp-block-cover-text, .wp-block-cover:not([class*='background-color']) .block-editor-block-list__block, .wp-block-cover-image:not([class*='background-color']) .wp-block-cover__inner-container, .wp-block-cover-image:not([class*='background-color']) .wp-block-cover-image-text,

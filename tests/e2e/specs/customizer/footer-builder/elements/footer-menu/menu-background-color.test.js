@@ -4,7 +4,7 @@ import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../../utils/scroll-to-element';
 import { createNewFooterMenu } from '../../../../../utils/footer-menu';
 describe( 'Footer menu background color settings in the customizer', () => {
-	it( 'footer menu backgeound color should apply correctly', async () => {
+	it( 'footer menu background color should apply correctly', async () => {
 		await createNewFooterMenu();
 		const footerMenuBackgroundColor = {
 			'footer-menu-bg-obj-responsive': {

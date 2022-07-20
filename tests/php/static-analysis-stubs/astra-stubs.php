@@ -2316,17 +2316,6 @@ namespace {
         {
         }
         /**
-         * Get menu by location
-         *
-         * @since x.x.x
-         *
-         * @param string $theme_location Registered theme location.
-         * @return mixed If menu location set.
-         */
-        public static function astra_get_menu_by_location($theme_location)
-        {
-        }
-        /**
          * Secondary navigation markup
          *
          * @param int $index index.
@@ -3093,6 +3082,18 @@ namespace {
          * @return string
          */
         public function get_color_by_palette_variable($color)
+        {
+        }
+        /**
+         * Add dynamic CSS for the global border color.
+         *
+         * @since x.x.x
+         *
+         * @param  string $dynamic_css          Astra Dynamic CSS.
+         *
+         * @return String Generated dynamic CSS for global border.
+         */
+        public function global_border_compatibility($dynamic_css)
         {
         }
     }
@@ -5401,17 +5402,6 @@ namespace {
         {
         }
         /**
-         * Encode SVG
-         *
-         * @since x.x.x
-         *
-         * @param  string $svg Svg icon.
-         * @return string
-         */
-        public function svg_encode($svg)
-        {
-        }
-        /**
          * Dynamic Store widgets.
          */
         public function store_widgets_dynamic()
@@ -5793,6 +5783,24 @@ namespace {
          * @return string
          */
         public function woocommerce_template_path()
+        {
+        }
+        /**
+         * Woocommerce Cart button html
+         *
+         * @since x.x.x
+         * @return void
+         */
+        public function woocommerce_proceed_to_checkout_button_html()
+        {
+        }
+        /**
+         * Woocommerce Cart button text
+         *
+         * @since x.x.x
+         * @return void
+         */
+        public function woocommerce_proceed_to_checkout_button()
         {
         }
         /**
@@ -11784,7 +11792,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.1' => array('astra_apply_modern_block_editor_ui'), '3.8.3' => array('astra_update_customizer_layout_defaults', 'astra_apply_modern_block_editor_v2_ui'), '3.9.0-beta.1' => array('astra_display_cart_total_title_compatibility', 'astra_update_woocommerce_cart_icons'), '3.9.0' => array('astra_legacy_customizer_maintenance'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.1' => array('astra_apply_modern_block_editor_ui'), '3.8.3' => array('astra_update_customizer_layout_defaults', 'astra_apply_modern_block_editor_v2_ui'), '3.9.0-beta.1' => array('astra_update_single_product_breadcrumb', 'astra_display_cart_total_title_compatibility', 'astra_update_woocommerce_cart_icons', 'astra_legacy_customizer_maintenance', 'astra_apply_modern_ecommerce_setup'));
         /**
          *  Constructor
          */
@@ -12414,15 +12422,6 @@ namespace {
     {
     }
     /**
-     * Function to get Categories applied of Post
-     *
-     * @param  array $args Query filter args.
-     * @return string HTML Markup.
-     */
-    function astra_custom_post_taxonomies($args = array())
-    {
-    }
-    /**
      * Adds custom classes to the array of body classes.
      *
      * @since 1.0
@@ -12510,26 +12509,6 @@ namespace {
      * @return mixed
      */
     function astra_get_video_from_post($post_id)
-    {
-    }
-    /**
-     * Get last word of string to get metakey of custom post structure.
-     *
-     * @since x.x.x
-     * @param string $string - String from which last word needs to find.
-     * @return string $last_word.
-     */
-    function astra_get_last_meta_word($string)
-    {
-    }
-    /**
-     * Custom single post Title & Meta order display.
-     *
-     * @since x.x.x
-     * @param array $structure - Post strcture.
-     * @return mixed
-     */
-    function astra_banner_elements_order($structure = array())
     {
     }
     /**
@@ -15027,15 +15006,6 @@ namespace {
     {
     }
     /**
-     * Getting current author ID.
-     *
-     * @since x.x.x
-     * @return mixed
-     */
-    function astra_get_author_id()
-    {
-    }
-    /**
      * Create instance of Astra_WebFont_Loader class.
      *
      * @param string $font_url Google font URL to set data.
@@ -15430,6 +15400,17 @@ namespace {
      * Added this filter to modify the post navigation template to remove the h2 tag from screen reader text.
      */
     function astra_post_navigation_template()
+    {
+    }
+    /**
+     * Prevent onboarding of Elementor for theme users as its demanding to continue with Hello theme which switches Astra theme.
+     *
+     * @param bool   $network_wide Whether to enable the plugin for all sites in the network
+     *                              or just the current site. Multisite only. Default false.
+     *
+     * @since x.x.x
+     */
+    function astra_skip_elementor_onboarding($network_wide)
     {
     }
     \define('ASTRA_RELATED_POSTS_DIR', \ASTRA_THEME_DIR . 'inc/modules/related-posts/');
@@ -16069,15 +16050,6 @@ namespace {
     {
     }
     /**
-     * Display Cart Total and Title compatibility.
-     *
-     * @since x.x.x
-     * @return void
-     */
-    function astra_display_cart_total_title_compatibility()
-    {
-    }
-    /**
      * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      *
      * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
@@ -16086,16 +16058,6 @@ namespace {
      * @return void
      */
     function astra_fullwidth_layouts_apply_content_background()
-    {
-    }
-    /**
-     * Migrating Post Structure & Meta options in title area meta parts.
-     *
-     * @since x.x.x
-     *
-     * @return void
-     */
-    function astra_post_strctures_meta_migration()
     {
     }
     /**
@@ -16108,15 +16070,6 @@ namespace {
     {
     }
     /**
-     * If old user then it keeps then default cart icon.
-     *
-     * @since x.x.x
-     * @return void
-     */
-    function astra_update_woocommerce_cart_icons()
-    {
-    }
-    /**
      * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      *
      * Backward flag purpose - To initiate modern & updated UI of block editor & frontend.
@@ -16125,15 +16078,6 @@ namespace {
      * @return void
      */
     function astra_apply_modern_block_editor_ui()
-    {
-    }
-    /**
-     * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
-     *
-     * @since x.x.x
-     * @return void
-     */
-    function astra_legacy_customizer_maintenance()
     {
     }
     /**
@@ -16156,6 +16100,51 @@ namespace {
      * @return void
      */
     function astra_apply_modern_block_editor_v2_ui()
+    {
+    }
+    /**
+     * Display Cart Total and Title compatibility.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_display_cart_total_title_compatibility()
+    {
+    }
+    /**
+     * If old user then it keeps then default cart icon.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_update_woocommerce_cart_icons()
+    {
+    }
+    /**
+     * Set brder color to blank for old users for new users 'default' will take over.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_legacy_customizer_maintenance()
+    {
+    }
+    /**
+     * Enable single product breadcrumb to maintain backward compatibility for existing users.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_update_single_product_breadcrumb()
+    {
+    }
+    /**
+     * Restrict direct changes on users end so make it filterable.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_apply_modern_ecommerce_setup()
     {
     }
     /**

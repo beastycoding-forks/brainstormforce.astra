@@ -2,7 +2,7 @@ import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 import { scrollToElement } from '../../../../../utils/scroll-to-element';
-import { createNewFooterMenu } from '../../../../../utils/create-footer-menu';
+import { createNewFooterMenu } from '../../../../../utils/footer-menu';
 describe( 'Footer menu background color settings in the customizer', () => {
 	it( 'footer menu backgeound color should apply correctly', async () => {
 		await createNewFooterMenu();

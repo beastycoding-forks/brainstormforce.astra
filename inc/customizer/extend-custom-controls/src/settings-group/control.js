@@ -453,6 +453,11 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		if ( undefined !== attr.inputAttrs && undefined === controlObject.params['inputAttrs'] ) {
 			controlObject.params['inputAttrs'] = attr.inputAttrs;
 		}
+
+		if ( undefined !== attr.input_attrs && undefined === controlObject.params['input_attrs'] ) {
+			controlObject.params['input_attrs'] = attr.input_attrs;
+		}
+
 		if ( undefined !== attr.link && undefined === controlObject.params['link'] ) {
 			controlObject.params['link'] = attr.link;
 		}

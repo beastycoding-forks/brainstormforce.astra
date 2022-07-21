@@ -1,7 +1,7 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
-import { createNewMenu } from '../../../../../utils/create-menu';
+import { createSubmenu } from '../../../../../utils/create-menu';
 describe( 'Off canvas full-screen header type popup padding setting in the customizer', () => {
 	it( 'padding should apply correctly', async () => {
 		const innerElementSpace = {
@@ -23,7 +23,7 @@ describe( 'Off canvas full-screen header type popup padding setting in the custo
 			'mobile-header-type': 'full-width',
 		};
 		await setCustomize( innerElementSpace );
-		await createNewMenu();
+		await createSubmenu();
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

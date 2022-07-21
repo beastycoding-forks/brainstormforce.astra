@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import {ReactSortable} from "react-sortablejs";
 import ItemComponent from './item-component';
 import {useEffect, useState} from 'react';
+import { plus } from '@wordpress/icons';
 
 const {__} = wp.i18n;
 const { Button, SelectControl} = wp.components;
@@ -99,8 +100,10 @@ const SocialComponent = props => {
 		value: value,
 		isVisible: false,
 		control: (undefined !== availibleSocialOptions[0] && undefined !== availibleSocialOptions[0].value ? availibleSocialOptions[0].value : ''),
-		icon : ''
+		icon : '',
 	});
+
+	const [show, setShow] = useState(false);
 
 	useEffect( () => {
 		// If settings are changed externally.
@@ -189,11 +192,13 @@ const SocialComponent = props => {
 		updateValues(updateState);
 	};
 
-	const addItem = () => {
+	const addItem = (value) => {
 		const itemControl = state.control;
+
 		setState(prevState => ({
 			...prevState,
-			isVisible: false
+			isVisible: false,
+			control: value
 		}));
 
 		if (itemControl) {
@@ -309,20 +314,16 @@ const SocialComponent = props => {
 		</div>
 		{undefined !== availibleSocialOptions[0] && undefined !== availibleSocialOptions[0].value &&
 		<div className="ahfb-social-add-area">
-			{<SelectControl value={state.control} options={availibleSocialOptions} onChange={value => {
-				setState(prevState => ({
-					...prevState,
-					control: value
-				}));
+			{show && <SelectControl id="ahfb-social-select" value={state.control} options={availibleSocialOptions} onChange={value => {
+				addItem(value)
 			}}/>}
 			{<Button
 				className="ahfb-sorter-add-item"
 				isPrimary
-				onClick={() => {
-					addItem();
-				}}
+				icon={ plus }
+				onClick={() => setShow(prev => !prev)}
 			>
-				{__('Add Social Icon', 'astra')}
+			{__('Add more', 'astra')}
 			</Button>}
 
 		</div>}

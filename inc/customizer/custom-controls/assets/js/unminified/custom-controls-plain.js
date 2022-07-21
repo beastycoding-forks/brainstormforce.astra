@@ -211,7 +211,7 @@
 		setOption: function( optionName, value, isSelect2 ) {
 			$( "[data-name='"+ optionName + "']" ).val(value);
 			if( isSelect2 ) {
-    			       $( "[data-name='"+ optionName + "']" ).select2().trigger('change');
+				$( "[data-name='"+ optionName + "']" ).select2().trigger('change');
 			} else {
 				$( "[data-name='"+ optionName + "']" ).trigger('change');
 			}
@@ -1753,8 +1753,8 @@ S2.define('select2/selection/single',[
     $selection.html(
       '<span class="select2-selection__rendered"></span>' +
       '<span class="select2-selection__arrow" role="presentation">' +
-        '<b role="presentation"></b>' +
-      '</span>'
+	  	'<span class="dashicons dashicons-arrow-down-alt2"></span>' +
+	  '</span>'
     );
 
     return $selection;

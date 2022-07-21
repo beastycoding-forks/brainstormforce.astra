@@ -1,5 +1,6 @@
 import { setCustomize } from '../../../../utils/customize';
-import { createURL,	createNewPost, publishPost } from '@wordpress/e2e-test-utils';
+import { createURL,	createNewPost } from '@wordpress/e2e-test-utils';
+import { publishPost } from '../../../../utils/publish-post';
 import { setBrowserViewport } from '../../../../utils/set-browser-viewport';
 describe( 'Testing site background image and content background image setting under the customizer', () => {
 	it( 'site background image should apply correctly', async () => {
@@ -89,12 +90,11 @@ describe( 'Testing site background image and content background image setting un
 			},
 		};
 		await setCustomize( contentBgImage );
-		await createNewPost( {
-			postType: 'post',
-			title: 'test',
-			content: 'test background image',
-		} );
-		await publishPost();
+		let ppStatus = false;
+		while ( false === ppStatus ) {
+			await createNewPost( { postType: 'post', title: 'test', content: 'test background image' } );
+			ppStatus = await publishPost();
+		}
 		await page.goto( createURL( '/' ), {
 			waitUntil: 'networkidle0',
 		} );

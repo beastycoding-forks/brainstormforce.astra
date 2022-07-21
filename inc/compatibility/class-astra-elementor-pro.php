@@ -91,7 +91,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		/**
 		 * Check if Elementor Editor is open.
 		 *
-		 * @since  x.x.x
+		 * @since  3.8.0
 		 *
 		 * @return boolean true iF Elementor Editor is loaded, false If Elementor Editor is not loaded.
 		 */
@@ -108,7 +108,7 @@ if ( ! class_exists( 'Astra_Elementor_Pro' ) ) :
 		 *
 		 * Case: Theme's 'woocommerce_checkout' action conflicting with Elementor Pro's checkout widget. On frontend billing + shipping details wrapper comes under col-1 div because of theme's above action. But in Elementor editor, billing + shipping wrappers comes in two different cols, i.e. col-1 & col-2. Due to this, styling looks inappropriate in editor only.
 		 *
-		 * @since x.x.x
+		 * @since 3.8.0
 		 * @return void
 		 */
 		public function update_woocommerce_checkout() {

@@ -60,7 +60,7 @@ describe( 'Below header background image setting in customizer', () => {
 			`url("${ belowHeaderBgImage[ 'hbb-header-bg-obj-responsive' ].desktop[ 'background-image' ] + '")' }`,
 		);
 		await setBrowserViewport( 'medium' );
-		await page.waitFor( 2000 );
+		await page.waitForTimeout( 2000 );
 		await page.waitForSelector( '.ast-below-header.ast-below-header-bar' );
 		await expect( {
 			selector: '.ast-below-header.ast-below-header-bar',
@@ -68,10 +68,10 @@ describe( 'Below header background image setting in customizer', () => {
 		} ).cssValueToBe(
 			`url("${ belowHeaderBgImage[ 'hbb-header-bg-obj-responsive' ].tablet[ 'background-image' ] + '")' }`,
 		);
-		await page.waitFor( 2000 );
+		await page.waitForTimeout( 2000 );
 		await setBrowserViewport( 'small' );
 		await page.waitForSelector( '.ast-below-header.ast-below-header-bar' );
-		await page.waitFor( 2000 );
+		await page.waitForTimeout( 2000 );
 		await expect( {
 			selector: '.ast-below-header.ast-below-header-bar',
 			property: 'background-image',

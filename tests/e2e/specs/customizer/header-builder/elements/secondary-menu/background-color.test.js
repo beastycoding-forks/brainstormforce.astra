@@ -1,5 +1,5 @@
 import { createURL } from '@wordpress/e2e-test-utils';
-import { createSecondaryMenu } from '../../../../../utils/create-secondary-menu';
+import { createSecondaryMenu } from '../../../../../utils/create-menu2';
 import { setCustomize } from '../../../../../utils/customize';
 import { setBrowserViewport } from '../../../../../utils/set-browser-viewport';
 describe( 'Secondary menu settings in the customizer', () => {

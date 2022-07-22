@@ -24,7 +24,7 @@ import { waitForWindowDimensions } from '@wordpress/e2e-test-utils';
  * @type {Object<WPDimensionsName,WPViewportDimensions>}
  */
 export const PREDEFINED_DIMENSIONS = {
-	large: { width: 960, height: 700 },
+	large: { width: 1500, height: 900 },
 	medium: { width: 920, height: 700 },
 	small: { width: 540, height: 700 },
 };

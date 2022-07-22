@@ -16,17 +16,21 @@ const RadioImageComponent = props => {
 		label,
 		description,
 		id,
+		alt_layout,
 		choices,
 		inputAttrs,
 		choices_titles,
 		link,
-		labelStyle
+		labelStyle,
 	} = props.control.params;
 
 	let htmlLabel = null,
 		htmlDescription = null,
 		htmlRadio,
 		inp_array = [];
+
+	// Adds class to enable four column layout.
+	const altLayout =  alt_layout ? 'ast-divide-four' : 'modern-layout';
 
 	if (label) {
 		htmlLabel = <span className="customize-control-title">{label}</span>;
@@ -66,7 +70,7 @@ const RadioImageComponent = props => {
 						<span dangerouslySetInnerHTML={{
 							__html: choices[key]
 						}}/>
-				<span className="image-clickable" title={choices_titles[key]}></span>
+				<span className="image-clickable" data-title={choices_titles[key]}></span>
 			</label>
 		</Fragment>;
 	});
@@ -75,7 +79,7 @@ const RadioImageComponent = props => {
 			{htmlLabel}
 			{htmlDescription}
 		</label>
-		<div id={`input_${id}`} className="image">
+		<div id={`input_${id}`} className={`image ${ altLayout }`}>
 			{htmlRadio}
 		</div>
 	</Fragment>;

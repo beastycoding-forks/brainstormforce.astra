@@ -97,7 +97,7 @@ function rest_route() : void {
 				'callback'            => function ( WP_Rest_Request $response ) {
 					return rest_ensure_response(
 						array(
-							'success' => true,
+							'success'  => true,
 							'settings' => astra_get_option( $response['key'] ),
 						)
 					);
@@ -105,9 +105,93 @@ function rest_route() : void {
 				'permission_callback' => '__return_true',
 				'args'                => array(
 					'key' => array(
+						'default'           => '',
+						'required'          => true,
+						'sanitize_callback' => 'sanitize_text_field',
+					),
+				),
+			),
+		)
+	);
+
+	register_rest_route(
+		REST_NAMESPACE,
+		REST_BASE . '/upload-astra-image',
+		array(
+			array(
+				'methods'             => WP_Rest_Server::CREATABLE,
+				'callback'            => function ( WP_Rest_Request $response ) {
+
+					$filename = $response['settings']['fileName'];
+					$uploaddir = wp_upload_dir();
+					$uploadfile = $uploaddir['path'] . '/' . $filename;
+
+					$contents = file_get_contents( $response['settings']['fileURL'] ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+					$savefile = fopen( $uploadfile, 'w' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_read_fopen
+					fwrite( $savefile, $contents ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_read_fwrite
+					fclose( $savefile ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_read_fclose
+
+					$wp_filetype = wp_check_filetype( basename( $filename ), null );
+
+					$attachment = array(
+						'post_mime_type' => $wp_filetype['type'],
+						'post_title'     => $filename,
+						'post_content'   => '',
+						'post_status'    => 'inherit',
+					);
+
+					$attach_id = wp_insert_attachment( $attachment, $uploadfile );
+
+					if ( isset( $response['settings']['returnURL'] ) && true === $response['settings']['returnURL'] ) {
+						return rest_ensure_response(
+							array(
+								'success'       => true,
+								'attachedMedia' => wp_get_attachment_image_url( $attach_id ),
+							)
+						);
+					}
+
+					return rest_ensure_response(
+						array(
+							'success'       => true,
+							'attachedMedia' => $attach_id,
+						)
+					);
+				},
+				'permission_callback' => '__return_true',
+				'args'                => array(
+					'settings' => array(
+						'default'  => array(),
+						'required' => true,
+					),
+				),
+			),
+		)
+	);
+
+	register_rest_route(
+		REST_NAMESPACE,
+		REST_BASE . '/set-astra-logo',
+		array(
+			array(
+				'methods'             => WP_Rest_Server::CREATABLE,
+				'callback'            => function ( WP_Rest_Request $response ) {
+
+					$current_options = get_option( 'theme_mods_astra', array() );
+					$current_options['custom_logo'] = $response['fileId'];
+					update_option( 'theme_mods_astra', $current_options );
+					return rest_ensure_response(
+						array(
+							'success' => true,
+						)
+					);
+
+				},
+				'permission_callback' => '__return_true',
+				'args'                => array(
+					'fileId' => array(
 						'default'  => '',
 						'required' => true,
-						'sanitize_callback' => 'sanitize_text_field',
 					),
 				),
 			),

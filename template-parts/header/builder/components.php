@@ -25,7 +25,7 @@ switch ( $astra_header_component_slug ) {
 	case 'logo':
 		?>
 		<div class="ast-builder-layout-element ast-flex site-header-focus-item" data-section="title_tagline">
-			<?php do_action( 'astra_site_identity' ); ?>
+			<?php do_action( 'astra_site_identity', $astra_active_device ); ?>
 		</div>
 		<?php
 		break;

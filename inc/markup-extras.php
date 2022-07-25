@@ -97,6 +97,7 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		} elseif ( 'plain-container' == $content_layout ) {
 			$classes[] = 'ast-plain-container';
 		}
+
 		// Sidebar location.
 		$page_layout = 'ast-' . astra_page_layout();
 		$classes[]   = esc_attr( $page_layout );
@@ -128,7 +129,6 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 
 add_filter( 'body_class', 'astra_body_classes' );
 
-
 /**
  * Astra Pagination
  */
@@ -149,19 +149,19 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 			return;
 		}
 
-			ob_start();
-			echo "<div class='ast-pagination'>";
-			the_posts_pagination(
-				array(
-					'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
-					'next_text'    => astra_default_strings( 'string-blog-navigation-next', false ),
-					'taxonomy'     => 'category',
-					'in_same_term' => true,
-				)
-			);
-			echo '</div>';
-			$output = ob_get_clean();
-			echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		ob_start();
+		echo "<div class='ast-pagination'>";
+		the_posts_pagination(
+			array(
+				'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
+				'next_text'    => astra_default_strings( 'string-blog-navigation-next', false ),
+				'taxonomy'     => 'category',
+				'in_same_term' => true,
+			)
+		);
+		echo '</div>';
+		$output = ob_get_clean();
+		echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	}
 }
 
@@ -176,22 +176,25 @@ if ( ! function_exists( 'astra_logo' ) ) {
 	 * Return or echo site logo markup.
 	 *
 	 * @since 1.0.0
+	 * @param  string  $device Device name.
 	 * @param  boolean $echo Echo markup.
 	 * @return mixed echo or return markup.
 	 */
-	function astra_logo( $echo = true ) {
+	function astra_logo( $device = 'desktop', $echo = true ) {
 
 		$site_tagline         = astra_get_option( 'display-site-tagline-responsive' );
 		$display_site_tagline = ( $site_tagline['desktop'] || $site_tagline['tablet'] || $site_tagline['mobile'] ) ? true : false;
 		$site_title           = astra_get_option( 'display-site-title-responsive' );
 		$display_site_title   = ( $site_title['desktop'] || $site_title['tablet'] || $site_title['mobile'] ) ? true : false;
+		$ast_custom_logo_id   = get_theme_mod( 'custom_logo' );
 
-		$html = '';
-
+		$html            = '';
 		$has_custom_logo = apply_filters( 'astra_has_custom_logo', has_custom_logo() );
+		$trans_logo      = astra_get_option( 'transparent-header-logo' );
+		$diff_trans_logo = astra_get_option( 'different-transparent-logo' );
 
 		// Site logo.
-		if ( $has_custom_logo ) {
+		if ( ( $has_custom_logo && ! empty( $ast_custom_logo_id ) ) || ( true === $diff_trans_logo && ! empty( $trans_logo ) ) ) {
 
 			if ( apply_filters( 'astra_replace_logo_width', true ) ) {
 				add_filter( 'wp_get_attachment_image_src', 'astra_replace_header_logo', 10, 4 );
@@ -206,7 +209,7 @@ if ( ! function_exists( 'astra_logo' ) ) {
 			}
 		}
 
-		$html .= astra_get_site_title_tagline( $display_site_title, $display_site_tagline );
+		$html .= astra_get_site_title_tagline( $display_site_title, $display_site_tagline, $device );
 
 		$html = apply_filters( 'astra_logo', $html, $display_site_title, $display_site_tagline );
 
@@ -227,10 +230,11 @@ if ( ! function_exists( 'astra_logo' ) ) {
  * @since 2.2.0
  * @param boolean $display_site_title Site title enable or not.
  * @param boolean $display_site_tagline Site tagline enable or not.
+ * @param  string  $device   Device name.
  *
  * @return string return markup.
  */
-function astra_get_site_title_tagline( $display_site_title, $display_site_tagline ) {
+function astra_get_site_title_tagline( $display_site_title, $display_site_tagline, $device = 'desktop' ) {
 	$html = '';
 
 	if ( ! apply_filters( 'astra_disable_site_identity', false ) ) {
@@ -238,7 +242,9 @@ function astra_get_site_title_tagline( $display_site_title, $display_site_taglin
 		// Site Title.
 		$tag = 'span';
 		if ( is_home() || is_front_page() ) {
-			$tag = 'h1';
+			if ( apply_filters( 'astra_show_site_title_h1_tag', true ) && 'desktop' === $device ) {
+				$tag = 'h1';
+			}
 		}
 
 		/**
@@ -401,14 +407,14 @@ if ( ! function_exists( 'astra_get_search' ) ) {
 	function astra_get_search( $option = '', $device = '' ) {
 		ob_start();
 		?>
-		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>id="ast-search-form" tabindex="-1">
+		<div class="ast-search-menu-icon slide-search" <?php echo apply_filters( 'astra_search_slide_toggle_data_attrs', '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+		<?php astra_get_search_form(); ?>
 			<div class="ast-search-icon">
 				<a class="slide-search astra-search-icon" aria-label="<?php esc_attr_e( 'Search icon link', 'astra' ); ?>" href="#">
 					<span class="screen-reader-text"><?php esc_html_e( 'Search', 'astra' ); ?></span>
 					<?php Astra_Icons::get_icons( 'search', true ); ?>
 				</a>
 			</div>
-			<?php astra_get_search_form(); ?>
 		</div>
 		<?php
 		$search_html = ob_get_clean();
@@ -1221,7 +1227,7 @@ if ( ! function_exists( 'astra_comment_form_default_markup' ) ) {
 			$args['title_reply']       = astra_default_strings( 'string-comment-title-reply', false );
 			$args['cancel_reply_link'] = astra_default_strings( 'string-comment-cancel-reply-link', false );
 			$args['label_submit']      = astra_default_strings( 'string-comment-label-submit', false );
-			$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><div class="comment-form-textarea ' . astra_attr( 'ast-grid-lg-12' ) . '"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
+			$args['comment_field']     = '<div class="ast-row comment-textarea"><fieldset class="comment-form-comment"><legend class ="comment-form-legend"></legend><div class="comment-form-textarea ' . astra_attr( 'ast-grid-lg-12' ) . '"><label for="comment" class="screen-reader-text">' . esc_html( astra_default_strings( 'string-comment-label-message', false ) ) . '</label><textarea id="comment" name="comment" placeholder="' . esc_attr( astra_default_strings( 'string-comment-label-message', false ) ) . '" cols="45" rows="8" aria-required="true"></textarea></div></fieldset></div>';
 		}
 		return apply_filters( 'astra_comment_form_default_markup', $args );
 
@@ -1610,3 +1616,19 @@ function astra_post_navigation_template() {
 }
 
 add_filter( 'navigation_markup_template', 'astra_post_navigation_template' );
+
+/**
+ * Prevent onboarding of Elementor.
+ *
+ * @param bool $network_wide Whether to enable the plugin for all sites in the network
+ *                            or just the current site. Multisite only. Default false.
+ *
+ * @since 3.9.0
+ */
+function astra_skip_elementor_onboarding( $network_wide ) {
+	// Deleted transient & setting up onboaded flag true to skip steps.
+	delete_transient( 'elementor_activation_redirect' );
+	update_option( 'elementor_onboarded', true );
+}
+
+add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding' );

@@ -1,6 +1,7 @@
 /**
  * `expect` extension to count the number of elements with a given selector on the page.
  */
+// eslint-disable-next-line jest/require-hook -- This is isignore for now is coming after updating the eslink-plugin to v9.2.0
 expect.extend( {
 	async countToBe( selector, expected ) {
 		const count = await page.$$eval( selector, ( els ) => els.length );
@@ -58,6 +59,7 @@ expect.extend( {
 const sanitizeValue = ( cssProperty, cssValue ) => {
 	const SANITIZERS = {
 		'font-family': sanitizeFontFamily,
+		'font-size': sanitizeFontSize,
 	};
 
 	const sanitizer = SANITIZERS[ `${ cssProperty }` ];
@@ -77,4 +79,14 @@ const sanitizeValue = ( cssProperty, cssValue ) => {
  */
 const sanitizeFontFamily = ( fontFamily ) => {
 	return fontFamily.replace( /\\/g, '' ).replace( /"/g, "'" );
+};
+
+const sanitizeFontSize = ( fontSize ) => {
+	const fontSizeNumber = Number( fontSize.replace( /px/, '' ) );
+
+	if ( ! Number.isInteger( fontSizeNumber ) ) {
+		return fontSizeNumber.toFixed( 2 ) + 'px';
+	}
+
+	return `${ fontSizeNumber }px`;
 };

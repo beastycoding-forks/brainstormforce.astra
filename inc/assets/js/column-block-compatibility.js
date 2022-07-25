@@ -40,7 +40,7 @@ wp.hooks.addFilter(
 			return attributes;
 		}
 
-		if (blockType.name == 'core/group' && undefined != attributes.layout && false == attributes.layout.inherit ) {
+		if (blockType.name == 'core/group' && undefined != attributes.layout && 'flex' === attributes.layout.type) {
 			return attributes;
 		}
 

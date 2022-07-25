@@ -73,7 +73,9 @@ p.demo_store,
 /**
  * Header Cart Icon with shopping cart.
  */
-.woocommerce .ast-site-header-cart,
+
+ // lowered specificity
+// .woocommerce .ast-site-header-cart,
 .ast-site-header-cart {
 	/* Cart wrapper in header. */
 	position: relative;
@@ -1278,7 +1280,9 @@ p.demo_store,
 	/**
 	 * Product loops
 	 */
-	.products ul,
+	
+	// lowered specificity
+	// .products ul,
 	ul.products {
 		margin: 0 0 1em;
 		padding: 0;
@@ -3892,7 +3896,8 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-.woocommerce .widget_shopping_cart .cart_list li,
+//lowered css specificity
+// .woocommerce .widget_shopping_cart .cart_list li,
 .woocommerce.widget_shopping_cart .cart_list li {
 
 	padding: 1.2em 1.8em 1.2em 5em;

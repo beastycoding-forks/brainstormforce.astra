@@ -1268,7 +1268,9 @@ p.demo_store,
 	/**
 	 * Product loops
 	 */
-	.products ul,
+	
+	// lowered specificity
+	// .products ul,
 	ul.products {
 		margin: 0 0 1em;
 		padding: 0;
@@ -3877,7 +3879,7 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-//lowered css specificity here
+//lowered css specificity
 // .woocommerce .widget_shopping_cart .cart_list li,
 .widget_shopping_cart .cart_list li {
 

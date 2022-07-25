@@ -128,7 +128,7 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_update_customizer_layout_defaults',
 				'astra_apply_modern_block_editor_v2_ui',
 			),
-			'3.9.0-beta.1' => array(
+			'3.9.0'        => array(
 				'astra_update_single_product_breadcrumb',
 				'astra_display_cart_total_title_compatibility',
 				'astra_update_woocommerce_cart_icons',

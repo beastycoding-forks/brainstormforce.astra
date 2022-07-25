@@ -138,7 +138,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Change cart close icon.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 *
 		 * @param  string $string Close button html.
 		 *
@@ -185,7 +185,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Update WooCommerce store notice. Extending this function to add custom data-attr as per Astra's configuration.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 *
 		 * @param  string $notice Store notice markup.
 		 * @return string $notice Store notice markup.
@@ -201,7 +201,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Adds shipping text after price.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 */
 		public function woocommerce_shipping_text() {
 			if ( astra_get_option( 'single-product-enable-shipping' ) ) {
@@ -215,7 +215,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Dynamic CSS for store notice config.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 *
 		 * @param  string $dynamic_css          Astra Dynamic CSS.
 		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
@@ -2248,7 +2248,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Change woocommerce template directory path
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 */
 		public function woocommerce_template_directory_path_change() {
 			add_filter( 'woocommerce_template_path', array( $this, 'woocommerce_template_path' ) );
@@ -2257,7 +2257,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Woocommerce template path
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 * @return string
 		 */
 		public function woocommerce_template_path() {
@@ -2267,7 +2267,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Woocommerce Cart button html
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 * @return void
 		 */
 		public function woocommerce_proceed_to_checkout_button_html() {
@@ -2285,7 +2285,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Woocommerce Cart button text
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 * @return void
 		 */
 		public function woocommerce_proceed_to_checkout_button() {

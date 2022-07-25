@@ -322,12 +322,6 @@ return array(
 		),
 	),
 	array(
-		'Andika New Basic' => array(
-			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
-			'category' => 'sans-serif', 
-		),
-	),
-	array(
 		'Anek Bangla' => array(
 			'variants' => array( '100', '200', '300', 'regular', '500', '600', '700', '800' ), 
 			'category' => 'sans-serif', 
@@ -522,7 +516,7 @@ return array(
 	array(
 		'Armata' => array(
 			'variants' => array( 'regular' ), 
-			'category' => 'sans-serif', 
+			'category' => 'sans-serif',
 		),
 	),
 	array(
@@ -2626,12 +2620,6 @@ return array(
 		),
 	),
 	array(
-		'Gentium Basic' => array(
-			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
-			'category' => 'serif', 
-		),
-	),
-	array(
 		'Gentium Book Basic' => array(
 			'variants' => array( 'regular', 'italic', '700', '700italic' ), 
 			'category' => 'serif', 
@@ -3557,12 +3545,6 @@ return array(
 	),
 	array(
 		'Kavoon' => array(
-			'variants' => array( 'regular' ), 
-			'category' => 'display', 
-		),
-	),
-	array(
-		'Kdam Thmor' => array(
 			'variants' => array( 'regular' ), 
 			'category' => 'display', 
 		),

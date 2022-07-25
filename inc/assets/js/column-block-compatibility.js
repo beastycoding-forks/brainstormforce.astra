@@ -31,7 +31,6 @@ wp.hooks.addFilter(
 	20
 );
 
-/*
 wp.hooks.addFilter(
 	'blocks.getBlockAttributes',
 	'astra/groupBlockSetting/checkInheritOption',

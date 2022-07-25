@@ -255,7 +255,7 @@ class Astra_Global_Palette {
 	/**
 	 * Add dynamic CSS for the global border color.
 	 *
-	 * @since x.x.x
+	 * @since 3.9.0
 	 *
 	 * @param  string $dynamic_css          Astra Dynamic CSS.
 	 *

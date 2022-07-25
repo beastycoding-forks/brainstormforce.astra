@@ -931,7 +931,7 @@ function astra_apply_modern_block_editor_v2_ui() {
 /**
  * Display Cart Total and Title compatibility.
  *
- * @since x.x.x
+ * @since 3.9.0
  * @return void
  */
 function astra_display_cart_total_title_compatibility() {
@@ -957,7 +957,7 @@ function astra_display_cart_total_title_compatibility() {
 /**
  * If old user then it keeps then default cart icon.
  *
- * @since x.x.x
+ * @since 3.9.0
  * @return void
  */
 function astra_update_woocommerce_cart_icons() {
@@ -971,7 +971,7 @@ function astra_update_woocommerce_cart_icons() {
 /**
  * Set brder color to blank for old users for new users 'default' will take over.
  *
- * @since x.x.x
+ * @since 3.9.0
  * @return void
  */
 function astra_legacy_customizer_maintenance() {
@@ -985,7 +985,7 @@ function astra_legacy_customizer_maintenance() {
 /**
  * Enable single product breadcrumb to maintain backward compatibility for existing users.
  *
- * @since x.x.x
+ * @since 3.9.0
  * @return void
  */
 function astra_update_single_product_breadcrumb() {
@@ -1001,7 +1001,7 @@ function astra_update_single_product_breadcrumb() {
 /**
  * Restrict direct changes on users end so make it filterable.
  *
- * @since x.x.x
+ * @since 3.9.0
  * @return void
  */
 function astra_apply_modern_ecommerce_setup() {

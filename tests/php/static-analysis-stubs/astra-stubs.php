@@ -1096,7 +1096,7 @@ namespace {
         /**
          * Prepare Edit navigatory trigger for Banner Section in customizer.
          *
-         * @since x.x.x
+         * @since 3.9.0
          */
         public static function render_banner_customizer_edit_button()
         {
@@ -3087,7 +3087,7 @@ namespace {
         /**
          * Add dynamic CSS for the global border color.
          *
-         * @since x.x.x
+         * @since 3.9.0
          *
          * @param  string $dynamic_css          Astra Dynamic CSS.
          *
@@ -5392,7 +5392,7 @@ namespace {
         /**
          * Change cart close icon.
          *
-         * @since x.x.x
+         * @since 3.9.0
          *
          * @param  string $string Close button html.
          *
@@ -5410,7 +5410,7 @@ namespace {
         /**
          * Update WooCommerce store notice. Extending this function to add custom data-attr as per Astra's configuration.
          *
-         * @since x.x.x
+         * @since 3.9.0
          *
          * @param  string $notice Store notice markup.
          * @return string $notice Store notice markup.
@@ -5421,7 +5421,7 @@ namespace {
         /**
          * Adds shipping text after price.
          *
-         * @since x.x.x
+         * @since 3.9.0
          */
         public function woocommerce_shipping_text()
         {
@@ -5429,7 +5429,7 @@ namespace {
         /**
          * Dynamic CSS for store notice config.
          *
-         * @since x.x.x
+         * @since 3.9.0
          *
          * @param  string $dynamic_css          Astra Dynamic CSS.
          * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
@@ -5771,7 +5771,7 @@ namespace {
         /**
          * Change woocommerce template directory path
          *
-         * @since x.x.x
+         * @since 3.9.0
          */
         public function woocommerce_template_directory_path_change()
         {
@@ -5779,7 +5779,7 @@ namespace {
         /**
          * Woocommerce template path
          *
-         * @since x.x.x
+         * @since 3.9.0
          * @return string
          */
         public function woocommerce_template_path()
@@ -5788,7 +5788,7 @@ namespace {
         /**
          * Woocommerce Cart button html
          *
-         * @since x.x.x
+         * @since 3.9.0
          * @return void
          */
         public function woocommerce_proceed_to_checkout_button_html()
@@ -5797,7 +5797,7 @@ namespace {
         /**
          * Woocommerce Cart button text
          *
-         * @since x.x.x
+         * @since 3.9.0
          * @return void
          */
         public function woocommerce_proceed_to_checkout_button()
@@ -5874,7 +5874,7 @@ namespace {
          *
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-         * @since x.x.x
+         * @since 3.9.0
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -15408,7 +15408,7 @@ namespace {
      * @param bool   $network_wide Whether to enable the plugin for all sites in the network
      *                              or just the current site. Multisite only. Default false.
      *
-     * @since x.x.x
+     * @since 3.9.0
      */
     function astra_skip_elementor_onboarding($network_wide)
     {
@@ -16105,7 +16105,7 @@ namespace {
     /**
      * Display Cart Total and Title compatibility.
      *
-     * @since x.x.x
+     * @since 3.9.0
      * @return void
      */
     function astra_display_cart_total_title_compatibility()
@@ -16114,7 +16114,7 @@ namespace {
     /**
      * If old user then it keeps then default cart icon.
      *
-     * @since x.x.x
+     * @since 3.9.0
      * @return void
      */
     function astra_update_woocommerce_cart_icons()
@@ -16123,7 +16123,7 @@ namespace {
     /**
      * Set brder color to blank for old users for new users 'default' will take over.
      *
-     * @since x.x.x
+     * @since 3.9.0
      * @return void
      */
     function astra_legacy_customizer_maintenance()
@@ -16132,7 +16132,7 @@ namespace {
     /**
      * Enable single product breadcrumb to maintain backward compatibility for existing users.
      *
-     * @since x.x.x
+     * @since 3.9.0
      * @return void
      */
     function astra_update_single_product_breadcrumb()
@@ -16141,7 +16141,7 @@ namespace {
     /**
      * Restrict direct changes on users end so make it filterable.
      *
-     * @since x.x.x
+     * @since 3.9.0
      * @return void
      */
     function astra_apply_modern_ecommerce_setup()

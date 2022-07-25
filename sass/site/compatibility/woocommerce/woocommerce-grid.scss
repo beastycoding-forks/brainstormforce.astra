@@ -85,7 +85,6 @@ p.demo_store,
     padding-left: 0;
     margin-bottom: 0;
     order: 1;
-	border: 1px solid black;
 	cursor: pointer;
 
     	&:focus,
@@ -1285,7 +1284,7 @@ p.demo_store,
 		}
 	}
 
-	// lowered specificity here
+	// lowered specificity
 	// ul.products 
 	li.product {
 		.onsale {
@@ -3878,8 +3877,9 @@ button.pswp__button--zoom:hover {
 	}
 }
 
-.woocommerce .widget_shopping_cart .cart_list li,
-.woocommerce.widget_shopping_cart .cart_list li {
+//lowered css specificity here
+// .woocommerce .widget_shopping_cart .cart_list li,
+.widget_shopping_cart .cart_list li {
 
 	padding: 1.2em 0 1.2em 5em;
 	a.remove {

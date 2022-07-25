@@ -74,7 +74,9 @@ p.demo_store,
 /**
  * Header Cart Icon with shopping cart.
  */
-.woocommerce .ast-site-header-cart,
+
+// lowered specificity
+// .woocommerce .ast-site-header-cart,
 .ast-site-header-cart {
 	/* Cart wrapper in header. */
 	position: relative;
@@ -83,6 +85,7 @@ p.demo_store,
     padding-left: 0;
     margin-bottom: 0;
     order: 1;
+	border: 1px solid black;
 	cursor: pointer;
 
     	&:focus,
@@ -154,7 +157,7 @@ p.demo_store,
         opacity: 0;
         visibility: hidden;
 		transition: all 0.3s ease;
-
+		color: red;
     	&:after,
     	&:before {
 			bottom: 99.9%;
@@ -1272,7 +1275,6 @@ p.demo_store,
 		padding: 0;
 		list-style: none outside;
 		clear: both;
-
 		&::before,
 		&::after {
 			width: 0;
@@ -1283,7 +1285,9 @@ p.demo_store,
 		}
 	}
 
-	ul.products li.product {
+	// lowered specificity here
+	// ul.products 
+	li.product {
 		.onsale {
 			top: 0;
 			right: 0;

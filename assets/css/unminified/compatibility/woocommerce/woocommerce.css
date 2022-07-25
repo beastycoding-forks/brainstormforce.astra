@@ -186,6 +186,7 @@ p.demo_store[data-position="bottom"],
   margin-bottom: 0;
   order: 1;
   cursor: pointer;
+  color: red;
   /* Cart container in header. */
 }
 

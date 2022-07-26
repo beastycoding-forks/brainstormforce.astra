@@ -1,6 +1,6 @@
 import { createURL } from '@wordpress/e2e-test-utils';
 import { setCustomize } from '../../../../../utils/customize';
-import { createSecondaryMenu } from '../../../../../utils/create-secondary-menu';
+import { createSecondaryMenu } from '../../../../../utils/create-menu2';
 describe( 'Secondary menu settings in the customizer', () => {
 	it( 'secondary menu font should apply correctly', async () => {
 		await createSecondaryMenu();

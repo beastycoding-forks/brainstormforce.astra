@@ -18,6 +18,7 @@ export const createSecondaryMenu = async () => {
 	if ( await page.$( '.menu-delete' ) ) {
 		await page.click( '.menu-delete' );
 	}
+	await page.waitForTimeout( 1000 );
 	await page.waitForSelector( '#menu-name' );
 	await page.focus( '#menu-name' );
 	await page.type( '#menu-name', 'Secondary-Menu' );

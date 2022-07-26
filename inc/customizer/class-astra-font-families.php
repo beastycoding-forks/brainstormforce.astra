@@ -120,7 +120,7 @@ if ( ! class_exists( 'Astra_Font_Families' ) ) :
 		/**
 		 * Variant labels.
 		 *
-		 * @since x.x.x
+		 * @since 3.8.0
 		 * @return array
 		 */
 		public static function font_variant_labels() {

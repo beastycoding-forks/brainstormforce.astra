@@ -10,23 +10,20 @@ describe( 'Single post option under the customizer', () => {
 		await setCustomize( numberOfPost );
 		let ppStatus = false;
 		while ( false === ppStatus ) {
-			await createNewPost( { postType: 'post', title: 'sample-post' } );
+			await createNewPost( { postType: 'post', title: 'post-1' } );
 			ppStatus = await publishPost();
-			await createNewPost( { postType: 'post', title: 'test-post' } );
+			await createNewPost( { postType: 'post', title: 'post-2' } );
 			ppStatus = await publishPost();
-			await createNewPost( { postType: 'post', title: 'testing-post' } );
+			await createNewPost( { postType: 'post', title: 'post-3' } );
 			ppStatus = await publishPost();
-			await createNewPost( { postType: 'post', title: 'qa-post' } );
+			await createNewPost( { postType: 'post', title: 'post-4' } );
 			ppStatus = await publishPost();
 		}
-		await page.goto( createURL( '/sample-post' ), {
+		await page.goto( createURL( '/post-1' ), {
 			waitUntil: 'networkidle0',
 		} );
-		await page.evaluate( () => {
-			window.scrollBy( 0, window.innerHeight );
-		} );
-		await page.waitForSelector( '.ast-related-posts-wrapper .ast-related-post' );
-		const posts = await page.$eval( '.ast-related-posts-wrapper .ast-related-post', ( element ) => element.getAttribute( '.ast-related-post-content' ) );
+		await page.waitForSelector( '.ast-related-posts-wrapper' );
+		const posts = await page.$eval( '.ast-related-posts-wrapper', ( element ) => element.getAttribute( '.ast-single-related-posts-container .ast-related-posts-wrapper' ) );
 		await expect( posts ).toBeNull( );
 	} );
 } );

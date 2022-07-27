@@ -199,3 +199,8 @@
 	height: 2.33333em;
 	line-height: calc(2.33333em - 3px);
 }
+
+.content-align-flex-start {
+	max-height: 60vh !important;
+	overflow: auto !important;
+	}

@@ -2444,8 +2444,8 @@ body {
 }
 
 .content-align-flex-start {
-  max-height: 60vh !important;
-  overflow: auto !important;
+  max-height: 60vh;
+  overflow: auto;
 }
 
 /*----------  Header  ----------*/

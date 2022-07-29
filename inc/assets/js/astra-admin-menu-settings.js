@@ -32,6 +32,16 @@
 			$( document ).on('wp-plugin-install-error'   , AstraThemeAdmin._installError);
 			$( document ).on('wp-plugin-installing'      , AstraThemeAdmin._pluginInstalling);
 			$( document ).on('click', '.ast-builder-migrate', AstraThemeAdmin._migrate );
+			$( document ).on('click', '.astra-app-purchase', AstraThemeAdmin._appPurchase );
+		},
+
+		_appPurchase: function( e ) {
+
+			e.stopPropagation();
+			e.preventDefault();
+
+			var $this = $( this );
+			console.error( $this );
 		},
 
 		_migrate: function( e ) {

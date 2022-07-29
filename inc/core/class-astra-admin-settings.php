@@ -129,6 +129,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'astra_header_right_section', __CLASS__ . '::top_header_right_section' );
 
+			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_in_app_purchase', 9 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::astra_welcome_page_starter_sites_section', 10 );
 			add_action( 'astra_welcome_page_right_sidebar_content', __CLASS__ . '::external_important_links_section', 11 );
 
@@ -653,6 +654,35 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 				</div>
 			</div>
 
+			<?php
+		}
+
+		/**
+		 * In app purchase for Astra Pro.
+		 *
+		 * @since x.x.x
+		 */
+		public static function astra_in_app_purchase() {
+
+			if ( defined( 'ASTRA_EXT_VER' ) ) {
+				// return;
+			}
+			?>
+			<div class="postbox">
+				<h2 class="hndle ast-normal-cursor">
+					<span><?php echo esc_html( apply_filters( 'astra_in_app_purchase_postbox_title', __( 'In App Purchase', 'astra' ) ) ); ?></span>
+				</h2>
+				<div class="inside">
+					</p>
+						<?php echo esc_html__( 'Get Exclusive Features To Save Time.', 'astra-addon' ); ?>
+					<p>
+					<label for="astra_in_app_purchase">
+						<a class="plugin-detail thickbox open-plugin-details-modal" href="https://store.brainstormforce.com/checkout/?edd_action=add_to_cart&download_id=51171&edd_options%5Bprice_id%5/&amp;TB_iframe=true&amp;width=772&amp;height=420" target="_blank" rel="noopener">
+							<?php echo esc_html__( 'Buy Now »', 'astra' ); ?>
+						</a>
+					</label>
+				</div>
+			</div>
 			<?php
 		}
 

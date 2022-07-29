@@ -3,7 +3,7 @@ import { createURL, createNewPost, setPostContent, insertBlock } from '@wordpres
 import { publishPost } from '../../../../utils/publish-post';
 import { TPOGRAPHY_TEST_POST_CONTENT } from '../../../../utils/post';
 describe( 'Testing global Color setting under the customizer', () => {
-	it( 'text color should apply correctly', async () => {
+	it( 'text & heading base color should apply correctly', async () => {
 		const textAndHeadingColor = {
 			'text-color': 'rgb(205, 41, 41)',
 			'heading-base-color': 'rgb(81, 29, 236)',
@@ -35,20 +35,6 @@ describe( 'Testing global Color setting under the customizer', () => {
 			property: 'color',
 		} ).cssValueToBe( `${ textAndHeadingColor[ 'heading-base-color' ] }` );
 	} );
-	it( 'link color should apply correctly', async () => {
-		const linkColor = {
-			'link-color': 'rgb(16, 109, 4)',
-		};
-		await setCustomize( linkColor );
-		await page.goto( createURL( 'global-colors-test' ), {
-			waitUntil: 'networkidle0',
-		} );
-		await page.waitForSelector( '.entry-meta, .entry-meta *, .post-navigation a' );
-		await expect( {
-			selector: '.entry-meta, .entry-meta *, .post-navigation a',
-			property: 'color',
-		} ).cssValueToBe( `${ linkColor[ 'link-color' ] }` );
-	} );
 	it( 'theme color should apply correctly', async () => {
 		const themeColor = {
 			'theme-color': 'rgb(163, 183, 1)',
@@ -72,21 +58,50 @@ describe( 'Testing global Color setting under the customizer', () => {
 			property: 'background-color',
 		} ).cssValueToBe( `${ themeColor[ 'theme-color' ] }` );
 	} );
-	// GitHub action E2E fail case
-	// eslint-disable-next-line jest/no-commented-out-tests
-	// it( 'link hover color should apply correctly', async () => {
-	// 	const linkhoverColor = {
-	// 		'link-h-color': 'rgb(205, 41, 41)',
-	// 	};
-	// 	await setCustomize( linkhoverColor );
-	// 	await page.goto( createURL( 'global-colors-test' ), {
-	// 		waitUntil: 'networkidle0',
-	// 	} );
-	// 	await page.hover( '.wp-block-group__inner-container :last-child' );
-	// 	await page.waitForSelector( '.entry-title' );
-	// 	await expect( {
-	// 		selector: '.wp-block-group__inner-container :last-child',
-	// 		property: 'color',
-	// 	} ).cssValueToBe( `${ linkhoverColor[ 'link-h-color' ] }` );
-	// } );
+	it( 'link color should apply correctly', async () => {
+		const linkColor = {
+			'link-color': 'rgb(16, 109, 4)',
+		};
+		await setCustomize( linkColor );
+		await page.goto( createURL( 'global-colors-test' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( '.entry-meta, .entry-meta *, .post-navigation a' );
+		await expect( {
+			selector: '.entry-meta, .entry-meta *, .post-navigation a',
+			property: 'color',
+		} ).cssValueToBe( `${ linkColor[ 'link-color' ] }` );
+	} );
+	it( 'link hover color should apply correctly', async () => {
+		const linkhoverColor = {
+			'link-h-color': 'rgb(165, 3, 125)',
+		};
+		await setCustomize( linkhoverColor );
+		await page.goto( createURL( 'global-colors-test' ), {
+			waitUntil: 'networkidle0',
+		} );
+		const link = await page.$( '.wp-block-latest-posts__post-title' );
+
+		await link.hover();
+		await page.waitForTimeout( 100 );
+		await page.waitForSelector( '.wp-block-latest-posts__post-title' );
+		await expect( {
+			selector: '.wp-block-latest-posts__post-title',
+			property: 'color',
+		} ).cssValueToBe( `${ linkhoverColor[ 'link-h-color' ] }` );
+	} );
+	it( 'border color should apply correctly', async () => {
+		const borderColor = {
+			'border-color': 'rgb(9, 7, 7)',
+		};
+		await setCustomize( borderColor );
+		await page.goto( createURL( 'global-colors-test' ), {
+			waitUntil: 'networkidle0',
+		} );
+		await page.waitForSelector( '.wp-block-search__inside-wrapper .wp-block-search__input' );
+		await expect( {
+			selector: '.wp-block-search__inside-wrapper .wp-block-search__input',
+			property: 'border-color',
+		} ).cssValueToBe( `${ borderColor[ 'border-color' ] }` );
+	} );
 } );

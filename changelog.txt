@@ -1,18 +1,30 @@
+v3.9.2
+- Fix: WooCommerce - Alignment issue with content added by plugin near single product add to cart section.
+- Fix: Customizer range slider control not accepting decimal values for 'em' unit.
+- Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
+
+v3.9.1
+- Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.
+- Fix: Block editor - Row block's layout stack in editor.
+- Fix: PHP error with uncaught function 'ctype_xdigit' not found in common-functions.php on some specific servers.
+
 v3.9.0
-- New: Customizer UI improvements.
-- New: Builder - WooCommerce cart - Option for enabling desktop offcanvas cart flyout.
-- New: Builder - WooCommerce cart - Option to update offcanvas flyout direction.
-- New: Builder - WooCommerce cart - Option to change offcanvas flyout width.
-- New: WooCommerce - Added cart icon hover color option.
-- New: WooCommerce - Added cart Margin and Padding spacing option.
-- New: WooCommerce - Added cart total Label position option.
-- New: WooCommerce - Added store notice text color & background color options.
-- New: WooCommerce - Added store notice position option.
-- New: WooCommerce - Added Icon size option in the Woocommerce Cart.
-- New: WooCommerce - Added Option to add free shipping text next to Woocommerce single product price.
-- New: WooCommerce - Added Product Variation Orientation option in the Single product.
-- New: WooCommerce - Added show/hide cart total badge option.
-- Improvement: WooCommerce - Modify the Cart label section via Shortcodes. ( https://wpastra.com/docs/improvement-woocommerce-modify-the-cart-label-design/ )
+- New: Redesigned the entire customizer UI for better user experience.
+- New: WooCommerce - Product Catalog - Introduced content layout & sidebar option.
+- New: WooCommerce - General - Introduced store notice text color & background color options.
+- New: WooCommerce - General - Introduced store notice position option.
+- New: WooCommerce - Single Product- Introduced Option to add free shipping text next to WooCommerce single product price.
+- New: WooCommerce - Single Product - Introduced Product Variation Orientation option.
+- New: WooCommerce Cart - Option for enabling desktop offcanvas cart flyout.
+- New: WooCommerce Cart - Option to update offcanvas flyout direction.
+- New: WooCommerce Cart - Option to change offcanvas flyout width.
+- New: WooCommerce Cart - Introduced cart icon hover color option.
+- New: WooCommerce Cart - Introduced cart Margin and Padding spacing option.
+- New: WooCommerce Cart - Introduced cart total Label position option.
+- New: WooCommerce Cart - Introduced Icon size option in the WooCommerce Cart.
+- New: WooCommerce Cart - Introduced show/hide cart total badge option.
+- Improvement: Categorized & segregated global options into respective sections of customizer.
+- Improvement: WooCommerce Cart - Modify the Cart label section via Shortcodes. ( https://wpastra.com/docs/improvement-woocommerce-modify-the-cart-label-design/ )
 - Improvement: Introduced filter 'astra_stretched_layout_with_spacing' to exclude Stretched layout around spacing CSS. ( https://wpastra.com/docs/improved-block-editor-experience/ )
 - Improvement: Introduced filter 'astra_get_store_sidebar_layout' to extend sidebar option for the WooCommerce layout.
 - Fix: WooCommerce - Margin issue for single shop page with the Full width & Contained Layout.

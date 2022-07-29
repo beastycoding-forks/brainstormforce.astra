@@ -539,17 +539,6 @@
         }
     },
     {
-        "Andika New Basic": {
-            "variants": [
-                "regular",
-                "italic",
-                "700",
-                "700italic"
-            ],
-            "category": "sans-serif"
-        }
-    },
-    {
         "Anek Bangla": {
             "variants": [
                 "100",
@@ -4637,17 +4626,6 @@
         }
     },
     {
-        "Gentium Basic": {
-            "variants": [
-                "regular",
-                "italic",
-                "700",
-                "700italic"
-            ],
-            "category": "serif"
-        }
-    },
-    {
         "Gentium Book Basic": {
             "variants": [
                 "regular",
@@ -6330,14 +6308,6 @@
     },
     {
         "Kavoon": {
-            "variants": [
-                "regular"
-            ],
-            "category": "display"
-        }
-    },
-    {
-        "Kdam Thmor": {
             "variants": [
                 "regular"
             ],

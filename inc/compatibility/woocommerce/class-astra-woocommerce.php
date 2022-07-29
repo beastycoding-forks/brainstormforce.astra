@@ -118,9 +118,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				add_filter( 'woocommerce_single_product_summary', array( $this, 'woocommerce_shipping_text' ), 11, 0 );
 			}
 
-			// Changes Woocommerce template directory path.
-			add_action( 'wp', array( $this, 'woocommerce_template_directory_path_change' ), 1 );
-
 			// Register Dynamic Sidebars.
 			if ( is_customize_preview() ) {
 				add_action( 'widgets_init', array( $this, 'store_widgets_dynamic' ), 15 );
@@ -133,12 +130,46 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
 
+			add_action( 'wp', array( $this, 'encapsulates_quantity_add_to_cart' ) );
+
 		}
+
+		/**
+		 * Encapsulates quantity selector and add to cart.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function encapsulates_quantity_add_to_cart() {
+			add_action( 'woocommerce_before_add_to_cart_quantity', array( $this, 'encapsulates_quantity_selector' ) );
+			add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'encapsulates_add_to_cart' ) );
+		}
+
+		/**
+		 * Encapsulates quantity selector.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function encapsulates_quantity_selector() {
+			echo '<div class="ast-quantity-add-to-cart">'; 
+		}
+
+		/**
+		 * Encapsulates add to cart.
+		 *
+		 * @since x.x.x
+		 * @return void
+		 */
+		public function encapsulates_add_to_cart() {
+			echo '</div>'; 
+		}
+
 
 		/**
 		 * Change cart close icon.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 *
 		 * @param  string $string Close button html.
 		 *
@@ -185,7 +216,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Update WooCommerce store notice. Extending this function to add custom data-attr as per Astra's configuration.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 *
 		 * @param  string $notice Store notice markup.
 		 * @return string $notice Store notice markup.
@@ -201,7 +232,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Adds shipping text after price.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 */
 		public function woocommerce_shipping_text() {
 			if ( astra_get_option( 'single-product-enable-shipping' ) ) {
@@ -215,7 +246,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Dynamic CSS for store notice config.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 *
 		 * @param  string $dynamic_css          Astra Dynamic CSS.
 		 * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
@@ -1058,6 +1089,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Remove Woo-Commerce Default actions
 		 */
 		public function woocommerce_init() {
+			add_action( 'woocommerce_after_mini_cart', array( $this, 'astra_update_flyout_cart_layout' ) );
+
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
@@ -2194,14 +2227,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function astra_get_cart_link() {
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 
-			$woo_cart_link = wc_get_cart_url();
-
+			$woo_cart_link = wc_get_cart_url(); 
 			if ( is_customize_preview() ) {
 				$woo_cart_link = '#';
 			}
 			$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			?>
-			<a class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> ">
+			<a href="<?php echo esc_url( $woo_cart_link ); ?>" class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> ">
 
 						<?php
 						do_action( 'astra_woo_header_cart_icons_before' );
@@ -2246,28 +2278,29 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Change woocommerce template directory path
+		 * Add shopping CTA in cart flyout.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 */
-		public function woocommerce_template_directory_path_change() {
-			add_filter( 'woocommerce_template_path', array( $this, 'woocommerce_template_path' ) );
-		}
-
-		/**
-		 * Woocommerce template path
-		 *
-		 * @since x.x.x
-		 * @return string
-		 */
-		public function woocommerce_template_path() {
-			return 'inc/compatibility/woocommerce/templates';
+		public function astra_update_flyout_cart_layout() {
+			if ( WC()->cart->is_empty() && 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+				?>
+					<div class="ast-mini-cart-empty">
+						<div class="ast-mini-cart-message">
+							<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'astra' ); ?></p>
+						</div>
+						<div class="woocommerce-mini-cart__buttons">
+							<a href="<?php /** @psalm-suppress PossiblyFalseArgument */  echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="button wc-forward"><?php esc_html_e( 'Continue Shopping', 'astra' ); ?></a> <?php // phpcs:ignore Generic.Commenting.DocComment.MissingShort ?>
+						</div>
+					</div>
+				<?php
+			}
 		}
 
 		/**
 		 * Woocommerce Cart button html
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 * @return void
 		 */
 		public function woocommerce_proceed_to_checkout_button_html() {
@@ -2285,7 +2318,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Woocommerce Cart button text
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 * @return void
 		 */
 		public function woocommerce_proceed_to_checkout_button() {

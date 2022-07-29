@@ -616,7 +616,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	/**
 	 * Position markup
 	 *
-	 * @since x.x.x
+	 * @since 3.9.0
 	 * @param  string $postion  Position.
 	 * @param  string $device Device type.
 	 * @return array

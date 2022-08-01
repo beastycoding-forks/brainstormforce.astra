@@ -27,7 +27,7 @@ $astra_search_input_value       = isset( $args['input_value'] ) ? $args['input_v
 		<input type="search" class="search-field" <?php echo esc_html( $astra_search_data_attrs ); ?> placeholder="<?php echo esc_html( $astra_search_input_placeholder ); ?>" value="<?php echo esc_attr( $astra_search_input_value ); ?>" name="s" tabindex="-1">
 		<?php 
 		 include_once ABSPATH . 'wp-admin/includes/plugin.php';
-		 // check for plugin using plugin name
+		 // check for plugin using plugin name.
 		 if ( is_plugin_active( 'astra-addon/astra-addon.php' ) ) {
 		 if ( class_exists( 'Astra_Icons' ) && Astra_Icons::is_svg_icons() ) { ?>
 			<button class="search-submit ast-search-submit" aria-label="<?php echo esc_attr__( 'Search Submit', 'astra' ); ?>">

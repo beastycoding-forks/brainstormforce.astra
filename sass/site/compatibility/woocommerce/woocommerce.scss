@@ -1058,6 +1058,10 @@ p.demo_store,
 				margin: 0 1em 0 0;
 			}
 
+			div.quantity.ast-vertical-style-applied + .button.single_add_to_cart_button {
+				margin-left: 30px;
+			}
+
 			table {
 				border-width: 0 0 1px;
 				margin: 0 0 1em;
@@ -1265,7 +1269,7 @@ p.demo_store,
 		.sale {
 			> span.onsale {
 				font-size: 1em;
-				
+
 				left: -0.5em;
 			}
 		}
@@ -2731,7 +2735,7 @@ p.demo_store,
 					margin-right: 0.5em;
 					margin-top: 0.25em;
 					margin-bottom: 0.25em;
-					
+
 					&:nth-last-child(1) {
 						margin-right: 0;
 					}

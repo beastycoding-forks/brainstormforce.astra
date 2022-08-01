@@ -1235,6 +1235,7 @@ p.demo_store[data-position="bottom"],
 .woocommerce div.product.product-type-simple form.cart .ast-quantity-add-to-cart {
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .woocommerce div.product form.cart {

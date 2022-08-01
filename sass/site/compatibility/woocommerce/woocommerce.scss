@@ -1040,6 +1040,7 @@ p.demo_store,
 			.ast-quantity-add-to-cart {
 				display: flex;
 				align-items: flex-start;
+				flex-wrap: wrap;
 			}
 		}
 
@@ -1265,7 +1266,7 @@ p.demo_store,
 		.sale {
 			> span.onsale {
 				font-size: 1em;
-				
+
 				left: -0.5em;
 			}
 		}
@@ -2731,7 +2732,7 @@ p.demo_store,
 					margin-right: 0.5em;
 					margin-top: 0.25em;
 					margin-bottom: 0.25em;
-					
+
 					&:nth-last-child(1) {
 						margin-right: 0;
 					}

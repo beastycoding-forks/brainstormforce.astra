@@ -25,15 +25,23 @@ $astra_search_input_value       = isset( $args['input_value'] ) ? $args['input_v
 	<label>
 		<span class="screen-reader-text"><?php echo esc_html__( 'Search for:', 'astra' ); ?></span>
 		<input type="search" class="search-field" <?php echo esc_html( $astra_search_data_attrs ); ?> placeholder="<?php echo esc_html( $astra_search_input_placeholder ); ?>" value="<?php echo esc_attr( $astra_search_input_value ); ?>" name="s" tabindex="-1">
-		<?php if ( class_exists( 'Astra_Icons' ) && Astra_Icons::is_svg_icons() ) { ?>
+		<?php 
+		 include_once ABSPATH . 'wp-admin/includes/plugin.php';
+		 // check for plugin using plugin name
+		 if ( is_plugin_active( 'astra-addon/astra-addon.php' ) ) {
+		 if ( class_exists( 'Astra_Icons' ) && Astra_Icons::is_svg_icons() ) { ?>
 			<button class="search-submit ast-search-submit" aria-label="<?php echo esc_attr__( 'Search Submit', 'astra' ); ?>">
 				<span hidden><?php echo esc_html__( 'Search', 'astra' ); ?></span>
 				<i><?php Astra_Icons::get_icons( 'search', true ); ?></i>
 			</button>
-		<?php } ?>
+		<?php } }?>
 	</label>
-	<?php if ( $astra_search_show_input_submit ) { ?>
+	<?php  
+		 include_once ABSPATH . 'wp-admin/includes/plugin.php';
+		 // check for plugin using plugin name
+		 if ( !is_plugin_active( 'astra-addon/astra-addon.php' ) ) {
+		if ( $astra_search_show_input_submit ) { ?>
 		<input type="submit" class="search-submit" value="<?php echo esc_attr__( 'Search', 'astra' ); ?>">
-	<?php } ?>
+	<?php } } ?>
 </form>
 <?php

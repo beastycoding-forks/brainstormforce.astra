@@ -1263,7 +1263,7 @@ p.demo_store[data-position="bottom"],
 }
 
 .woocommerce div.product form.cart div.quantity.ast-vertical-style-applied + .button.single_add_to_cart_button {
-  margin-left: 30px;
+  margin-left: 1.5em !important;
 }
 
 .woocommerce div.product form.cart table {

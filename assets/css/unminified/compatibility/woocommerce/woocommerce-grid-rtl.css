@@ -1259,10 +1259,6 @@ p.demo_store[data-position="bottom"],
   margin: 0 0 0 1em;
 }
 
-.woocommerce div.product form.cart div.quantity.ast-vertical-style-applied + .button.single_add_to_cart_button {
-  margin-right: 1.5em !important;
-}
-
 .woocommerce div.product form.cart table {
   border-width: 0 0 1px;
   margin: 0 0 1em;
@@ -2854,6 +2850,10 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce .variations th {
   text-align: right;
+}
+
+.ast-vertical-style-applied + .button.single_add_to_cart_button {
+  margin-right: 1.5em !important;
 }
 
 .woocommerce,

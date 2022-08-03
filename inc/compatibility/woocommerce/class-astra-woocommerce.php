@@ -129,8 +129,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			add_filter( 'woocommerce_cart_item_remove_link', array( $this, 'change_cart_close_icon' ), 10, 2 );
 
 			add_action( 'wp', array( $this, 'woocommerce_proceed_to_checkout_button' ) );
+			
+			add_action( 'woocommerce_before_single_product', array( $this, 'encapsulates_quantity_add_to_cart' ) );
 
-			add_action( 'wp', array( $this, 'encapsulates_quantity_add_to_cart' ) );
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
+				add_action( 'astra_woo_quick_view_product_summary', array( $this, 'encapsulates_quantity_add_to_cart' ) );
+			}
 
 		}
 
@@ -141,8 +145,26 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @return void
 		 */
 		public function encapsulates_quantity_add_to_cart() {
-			add_action( 'woocommerce_before_add_to_cart_quantity', array( $this, 'encapsulates_quantity_selector' ) );
-			add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'encapsulates_add_to_cart' ) );
+
+			global $product;
+
+			// Exclude some product types.
+			$product_types = array(
+				'wdm_bundle_product',
+				'external',
+			);
+			$exclusions    = apply_filters( 'astra_wrapper_exclusions', $product_types );
+
+			if ( ! in_array( $product->get_type(), $exclusions ) ) {
+
+				if ( $product->is_type( 'grouped' ) ) {
+					add_action( 'woocommerce_before_add_to_cart_button', array( $this, 'encapsulates_quantity_selector' ), 1 );
+				} else {
+					add_action( 'woocommerce_before_add_to_cart_quantity', array( $this, 'encapsulates_quantity_selector' ), 1 );
+				}
+				add_action( 'woocommerce_after_add_to_cart_button', array( $this, 'encapsulates_add_to_cart' ), 2 );
+	
+			}
 		}
 
 		/**

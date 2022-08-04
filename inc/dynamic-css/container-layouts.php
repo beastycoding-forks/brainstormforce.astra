@@ -108,17 +108,17 @@ function astra_container_layout_css() {
 
 		if ( true === $customizer_default_update ) {
 			$page_container_css .= '
-				.single.ast-page-builder-template .entry-header {
+				.ast-page-builder-template .entry-header {
 					margin-top: ' . esc_attr( $page_title_header_padding ) . ';
 					margin-left: auto;
 					margin-right: auto;
 				}
 			';
 			/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( false === astra_check_any_page_builder_is_active( astra_get_post_id() ) ) {
+			if ( true === apply_filters( 'astra_stretched_layout_with_spacing', true ) && false === astra_check_any_page_builder_is_active( astra_get_post_id() ) ) {
 				/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$page_container_css .= '
-					.ast-single-post.ast-page-builder-template .site-main > article {
+					.ast-single-post.ast-page-builder-template .site-main > article, .woocommerce.ast-page-builder-template .site-main {
 						padding-top: 2em;
 						padding-left: 20px;
 						padding-right: 20px;
@@ -127,7 +127,7 @@ function astra_container_layout_css() {
 			}
 		} else {
 			$page_container_css .= '
-				.single.ast-page-builder-template .entry-header {
+				.ast-page-builder-template .entry-header {
 					margin-top: ' . esc_attr( $page_title_header_padding ) . ';
 					margin-left: auto;
 					margin-right: auto;

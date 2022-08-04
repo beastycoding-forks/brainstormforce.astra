@@ -121,6 +121,7 @@ class Astra_Header_Menu_Component {
 			Astra_Builder_UI_Controller::render_customizer_edit_button();
 		}
 		if ( has_nav_menu( $theme_location ) ) {
+			/** @psalm-suppress ArgumentTypeCoercion */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			wp_nav_menu(
 				array(
 					'menu_id'         => 'ast-hf-menu-' . $index,
@@ -131,6 +132,7 @@ class Astra_Header_Menu_Component {
 					'theme_location'  => $theme_location,
 				)
 			);
+				/** @psalm-suppress ArgumentTypeCoercion */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		} else {
 				echo '<div class="main-header-bar-navigation ast-flex-1">';
 					echo '<nav ';

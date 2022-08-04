@@ -29,7 +29,6 @@ html {
 
 .edit-post-visual-editor {
     // Import CSS for the headings in the block editor.
-    @import "../elements/elements";
 
     @import "../site/site-normalize/site-normalize.scss";
 
@@ -58,6 +57,10 @@ html {
     .wp-block-heading h6 {
     	line-height: $line-height-h6;
     }
+
+	button.components-button {
+		color: inherit;
+	}
 }
 #editor .edit-post-visual-editor.responsive-enabled {
     background-color: #2f2f2f;

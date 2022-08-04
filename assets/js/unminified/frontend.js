@@ -411,6 +411,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 	window.addEventListener( 'load', function() {
 		init();
+	} );
 	document.addEventListener( 'astLayoutWidthChanged', function() {
 		init();
 	} );

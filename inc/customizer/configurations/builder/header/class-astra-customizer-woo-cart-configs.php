@@ -136,11 +136,12 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'       => 'control',
 				'section'    => $_section,
 				'title'      => __( 'Cart Click Action', 'astra' ),
-				'control'    => 'ast-selector',
+				'control'    => 'ast-select',
 				'priority'   => 60,
 				'choices'    => array(
 					'default' => __( 'Dropdown Cart', 'astra' ),
 					'flyout'  => __( 'Slide-In Cart', 'astra' ),
+					'redirect_to_cart' => __( 'Redirect To Cart', 'astra' ),
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',

@@ -459,6 +459,9 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 		$css_output .= astra_parse_css( $header_cart_icon );
 	}
 
+	$check_cart_icon_outline = ( 'outline' === astra_get_option( 'woo-header-cart-icon-style' ) || 'none' === astra_get_option( 'woo-header-cart-icon-style' ) );
+	$check_outline_css_cart_icon = ( ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) && 'default' === astra_get_option( 'woo-header-cart-icon' )  && $check_cart_icon_outline  ) || ( ! defined( 'ASTRA_EXT_VER' ) && $check_cart_icon_outline ) );
+
 	$remove_when_transparent_header = array(
 
 		// Fill icon Color.
@@ -490,7 +493,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 
 		// Outline icon hover colors.
 		'.ast-site-header-cart .cart-container:hover .count, .ast-site-header-cart .cart-container:hover .count' => array(
-			'color' => esc_attr( $cart_h_color ),
+			'color' => $check_outline_css_cart_icon ? esc_attr( $icon_color ) : esc_attr( $cart_h_color ),
 		),
 
 		$selector . ' .ast-site-header-cart-li:hover .ast-cart-menu-wrap .count:after, ' . $selector . ' .ast-site-header-cart-li:hover .ast-addon-cart-wrap .count' => array(

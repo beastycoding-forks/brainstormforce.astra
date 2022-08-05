@@ -2184,14 +2184,14 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$desktop_cart_flyout = 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ? 'ast-desktop-cart-flyout' : '';
 			$cart_menu_classes   = apply_filters( 'astra_cart_in_menu_class', array( 'ast-menu-cart-with-border', $desktop_cart_flyout ) );
-			$redirect_cart = astra_get_option( 'woo-header-cart-click-action' );
+			$redirect_cart       = astra_get_option( 'woo-header-cart-click-action' );
 
 			ob_start();
 			if ( is_customize_preview() && true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
 			}
 			?>
-			<?php if ('redirect_to_cart' === $redirect_cart):  ?>
+			<?php if ( 'redirect_to_cart' === $redirect_cart ) { ?>
 
 			<a href="<?php wc_get_cart_url(); ?>">
 				<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
@@ -2203,7 +2203,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				</div>
 			</a>
 
-			<?php  else:  ?>	
+			<?php } else { ?>	
 
 				<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
 					<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
@@ -2214,7 +2214,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					</div>
 				</div>
 
-			<?php  endif  ?>
+			<?php } ?>
 			<?php
 			return ob_get_clean();
 		}

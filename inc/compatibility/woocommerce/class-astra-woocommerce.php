@@ -2191,30 +2191,21 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				Astra_Builder_UI_Controller::render_customizer_edit_button();
 			}
 			?>
-			<?php if ( 'cart_page' === $cart_page ) { ?>
-
-			<a href="<?php wc_get_cart_url(); ?>">
-				<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
-					<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
-						<?php $this->astra_get_cart_link(); ?>
-					</div>
-					<div class="ast-site-header-cart-data">
-					</div>
+			<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
+				<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
+					<?php $this->astra_get_cart_link(); ?>
 				</div>
-			</a>
+				<div class="ast-site-header-cart-data">
+					<?php 
+						//if cart page is active then no action
+						if ( $cart_page !== "cart_page" ) {
+							
+							the_widget( 'WC_Widget_Cart', 'title=' );
 
-			<?php } else { ?>	
-
-				<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
-					<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
-						<?php $this->astra_get_cart_link(); ?>
-					</div>
-					<div class="ast-site-header-cart-data">
-						<?php the_widget( 'WC_Widget_Cart', 'title=' ); ?>
-					</div>
+						} 
+					?>
 				</div>
-
-			<?php } ?>
+			</div>
 			<?php
 			return ob_get_clean();
 		}

@@ -124,7 +124,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'priority' => 60,
 				'settings' => array(),
 				'context'  => Astra_Builder_Helper::$general_tab,
-				'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
+				'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
 			),
 
 			/**
@@ -145,7 +145,6 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'responsive' => false,
 				'renderAs'   => 'text',
 				'context'    => Astra_Builder_Helper::$desktop_general_tab,
-				'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -202,7 +201,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'step' => 1,
 					'max'  => 1920,
 				),
-				'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+				'divider'     => array( 'ast_class' => 'ast-top-dotted-divider ast-bottom-dotted-divider' ),
 			),
 
 			/**
@@ -836,8 +835,34 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 
 		}
 
+		if ( defined( 'ASTRA_EXT_VER' ) ) {
+			
+			/**
+			 * Option: Hide slide in cart.
+			 */
+			$_configs[] = array(
+				'name'     => ASTRA_THEME_SETTINGS . '[woo-header-cart-hide-slide-in]',
+				'default'  => astra_get_option( 'woo-header-cart-hide-slide-in' ),
+				'type'     => 'control',
+				'section'  => $_section,
+				'title'    => __( 'Hide Slide-in Cart For Add To Cart', 'astra' ),
+				'priority' => 70,
+				'control'  => 'ast-toggle-control',
+				'context'  => array(
+					Astra_Builder_Helper::$general_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-click-action]',
+						'operator' => '==',
+						'value'    => 'flyout',
+					),
+				),
+			);
+		}
+
 		// Learn More link if Astra Pro is not activated.
 		if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+
+
 
 			$_configs[] = array(
 

@@ -952,6 +952,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 	$defaults['woo-header-cart-icon-style']                = 'outline';
 	$defaults['woo-desktop-cart-flyout-direction']         = 'right';
+	$defaults['woo-header-cart-hide-slide-in']             = false;
 	$defaults['header-woo-cart-icon-color']                = '';
 	$defaults['transparent-header-woo-cart-icon-color']    = '';
 	$defaults['header-woo-cart-icon-hover-color']          = '';

@@ -2197,8 +2197,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				</div>
 				<div class="ast-site-header-cart-data">
 					<?php 
-						// if cart page is active then no action.
-					if ( 'cart_page' == $cart_page ) {
+						// if cart page is active then do not display widget.
+					if ( 'cart_page' !== $cart_page ) {
 							
 						the_widget( 'WC_Widget_Cart', 'title=' );
 
@@ -2234,9 +2234,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function astra_get_cart_link() {
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
-
+			$cart_page           = astra_get_option( 'woo-header-cart-click-action' );
 			$woo_cart_link = wc_get_cart_url(); 
-			if ( is_customize_preview() ) {
+			if ( is_customize_preview() && "cart_page" !== $cart_page) {
 				$woo_cart_link = '#';
 			}
 			$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );

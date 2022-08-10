@@ -2197,8 +2197,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				</div>
 				<div class="ast-site-header-cart-data">
 					<?php 
-						// if cart page is active then no action
-					if ( $cart_page !== 'cart_page' ) {
+						// if cart page is active then no action.
+					if ( 'cart_page' == $cart_page ) {
 							
 						the_widget( 'WC_Widget_Cart', 'title=' );
 

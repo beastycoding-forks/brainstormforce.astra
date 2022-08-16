@@ -2,6 +2,7 @@ v3.9.2
 - Fix: WooCommerce - Alignment issue with content added by plugin near single product add to cart section.
 - Fix: Customizer range slider control not accepting decimal values for 'em' unit.
 - Fix: WooCommerce - Dropdown icon cart link is not redirect to cart page.
+- Fix: WooCommerce - Single Product - Flex CSS conflicting with third party plugins which adds custom functionality aside add-to-cart button.
 
 v3.9.1
 - Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.

@@ -1228,12 +1228,6 @@ p.demo_store[data-position="bottom"],
   clear: both;
 }
 
-.woocommerce div.product .woocommerce-variation-add-to-cart .ast-quantity-add-to-cart,
-.woocommerce div.product.product-type-simple form.cart .ast-quantity-add-to-cart {
-  display: flex;
-  align-items: flex-start;
-}
-
 .woocommerce div.product form.cart {
   margin: 0 0 1em;
   zoom: 1;

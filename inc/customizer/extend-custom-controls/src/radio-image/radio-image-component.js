@@ -22,6 +22,7 @@ const RadioImageComponent = props => {
 		choices_titles,
 		link,
 		labelStyle,
+		headerModern
 	} = props.control.params;
 
 	let htmlLabel = null,
@@ -66,7 +67,7 @@ const RadioImageComponent = props => {
 			<input {...inp_array} className="image-select" type="radio" value={key} name={`_customize-radio-${id}`}
 				   id={id + key} checked={checked} onChange={() => onLayoutChange(key)}/>
 
-			<label htmlFor={id + key} {...labelStyle} className="ast-radio-img-svg">
+			<label htmlFor={id + key} {...labelStyle} className={`ast-radio-img-svg ${headerModern === false ? 'ast-old-header' : ''} `}>
 						<span dangerouslySetInnerHTML={{
 							__html: choices[key]
 						}}/>

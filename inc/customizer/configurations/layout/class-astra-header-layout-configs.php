@@ -59,6 +59,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'header-main-layout-3' ),
 						),
 					),
+					'headerModern'      => Astra_Builder_Helper::is_header_footer_builder_active(),
 				),
 
 				/**

@@ -1166,21 +1166,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-bottom' => '1px solid var(--ast-border-color)',
 					'font-weight'   => '700',
 				),
-				'form #order_review_heading:not(.elementor-widget-woocommerce-checkout-page #order_review_heading)' => array(
-					'border-width' => '2px 2px 0 2px',
-					'border-style' => 'solid',
-					'font-size'    => '1.2rem',
-					'margin'       => '0',
-					'padding'      => '1.5em 1.5em 1em',
-					'border-color' => 'var(--ast-border-color)',
-					'font-weight'  => '700',
-				),
-				'form #order_review:not(.elementor-widget-woocommerce-checkout-page #order_review)' => array(
-					'padding'      => '0 2em',
-					'border-width' => '0 2px 2px',
-					'border-style' => 'solid',
-					'border-color' => 'var(--ast-border-color)',
-				),
 				'ul#shipping_method li:not(.elementor-widget-woocommerce-cart #shipping_method li)' => array(
 					'margin'      => '0',
 					'padding'     => '0.25em 0 0.25em 22px',
@@ -1244,6 +1229,34 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'background' => $single_product_heading_tab_active_color ? $single_product_heading_tab_active_color : $link_color,
 				),
 			);
+
+			if ( ! class_exists( 'WooCommerce_Germanized' ) ) {
+				$css_desktop_output['form #order_review_heading:not(.elementor-widget-woocommerce-checkout-page #order_review_heading)'] = array(
+					'border-width' => '2px 2px 0 2px',
+					'border-style' => 'solid',
+					'font-size'    => '1.2rem',
+					'margin'       => '0',
+					'padding'      => '1.5em 1.5em 1em',
+					'border-color' => 'var(--ast-border-color)',
+					'font-weight'  => '700',
+				);
+
+				$css_desktop_output['form #order_review:not(.elementor-widget-woocommerce-checkout-page #order_review)'] = array(
+					'padding'      => '0 2em',
+					'border-width' => '0 2px 2px',
+					'border-style' => 'solid',
+					'border-color' => 'var(--ast-border-color)',
+				);
+
+			} else {
+
+				$css_desktop_output['form #order_review:not(.elementor-widget-woocommerce-checkout-page #order_review)'] = array(
+					'padding'      => '1.5em 2em 2em 2em',
+					'border-width' => '2px',
+					'border-style' => 'solid',
+					'border-color' => 'var(--ast-border-color)',
+				);
+			}
 
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 

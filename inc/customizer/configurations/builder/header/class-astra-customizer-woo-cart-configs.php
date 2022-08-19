@@ -113,6 +113,22 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 			),
 
 			/**
+			 * Option: Cart product count badge.
+			 */
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[woo-header-cart-total-label]',
+				'default'     => astra_get_option( 'woo-header-cart-total-label' ),
+				'type'        => 'control',
+				'section'     => $_section,
+				'title'       => __( 'Hide Cart Total Label', 'astra' ),
+				'description' => __( 'Hide cart total label if cart is empty', 'astra' ),
+				'priority'    => $astra_hfb_enabled ? 55 : 3.5,
+				'transport'   => 'postMessage',
+				'control'     => 'ast-toggle-control',
+				'context'     => Astra_Builder_Helper::$general_tab,
+			),
+
+			/**
 			 * Option: WOO cart tray Section divider
 			 */
 			array(

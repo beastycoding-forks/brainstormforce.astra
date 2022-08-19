@@ -1763,7 +1763,8 @@ p.demo_store[data-position="bottom"],
 }
 
 .woocommerce a.added_to_cart {
-  display: none;
+  padding: 0.4em 0.4em 0;
+  display: inline-block;
 }
 
 .woocommerce #reviews .woocommerce-Reviews-title {
@@ -4078,7 +4079,7 @@ button.pswp__button--zoom:hover {
   border-right-color: transparent;
   border-top-color: transparent;
   position: absolute;
-  top: -0.75em;
+  top: -1em;
   right: 0;
   margin: -1em 2em 0 0;
 }
@@ -4263,6 +4264,8 @@ button.pswp__button--zoom:hover {
 .woocommerce.woocommerce-checkout form #order_review td.product-name,
 .woocommerce-page.woocommerce-checkout form #order_review td.product-name {
   font-weight: 500;
+  display: flex;
+  align-items: center;
 }
 
 .woocommerce.woocommerce-checkout form #order_review td.product-name .product-quantity,

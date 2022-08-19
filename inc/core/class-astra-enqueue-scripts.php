@@ -188,6 +188,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
 				}
+
+				if ( class_exists( 'WooCommerce' ) && is_product() && astra_get_option( 'single-product-sticky-add-to-cart' ) ) {
+					$default_assets['js']['astra-sticky-add-to-cart'] = 'sticky-add-to-cart';
+				}
 			}
 			return apply_filters( 'astra_theme_assets', $default_assets );
 		}

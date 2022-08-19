@@ -416,4 +416,13 @@
 		});
 	});
 
+	/**
+	 * Hide Cart Total Label
+	 */
+	wp.customize( 'astra-settings[woo-header-cart-total-label]', function( setting ) {
+		setting.bind( function( toggle ) {
+			$( document.body ).trigger( 'wc_fragment_refresh' );
+		});
+	});
+
 })(jQuery);

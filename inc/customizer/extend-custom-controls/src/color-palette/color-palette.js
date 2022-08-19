@@ -1,7 +1,6 @@
 import PropTypes from "prop-types";
 import AstraColorPickerControl from "../common/astra-color-picker-control";
 import { useEffect, useState } from "react";
-import { Tooltip } from '@wordpress/components';
 import { __ } from "@wordpress/i18n";
 
 const ColorPaletteComponent = (props) => {
@@ -94,7 +93,7 @@ const ColorPaletteComponent = (props) => {
 				{state.palettes[state.currentPalette].map((value, index) => {
 					const paletteLables = astra.customizer.globalPaletteLabels;
 					return (
-						<Tooltip key={index} text={paletteLables[index]} position="top center">
+
 							<div className="ast-color-picker-wrap">
 								<AstraColorPickerControl
 									color={value ? value : ""}
@@ -110,8 +109,9 @@ const ColorPaletteComponent = (props) => {
 										backgroundType
 									) => handleColorReset(index, color)}
 								/>
+								<span className="ast-color-picker-custom-tooltip" data-title={ paletteLables[index] }></span>
 							</div>
-						</Tooltip>
+
 					);
 				})}
 			</div>

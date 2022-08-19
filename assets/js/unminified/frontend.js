@@ -820,6 +820,10 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		var button = containerButton.getElementsByTagName( 'button' )[0];
 		if ( 'undefined' === typeof button ) {
 			button = containerButton.getElementsByTagName( 'a' )[0];
+			var search_type = button.classList.contains('astra-search-icon');
+			if ( true === search_type ) {
+				return;
+			}
 			if ( 'undefined' === typeof button ) {
 				return;
 			}

@@ -24,7 +24,7 @@ v3.9.2 (Unreleased)
 - Fix: WooCommerce - Checkout - Misalignment for order products quality in order summary box.
 - Fix: The Menu get disappear on the Android mobile device when you select Header Type is set as Dropdown.
 - Fix: Footer - Footer global background color and padding is not working in the frontend.
-
+- Fix: Spectra plugin settings page link redirect to old 'uag' admin page.
 
 v3.9.1
 - Fix: WooCommerce - Child theme's WooCommerce custom templates gets overridden by parent theme.

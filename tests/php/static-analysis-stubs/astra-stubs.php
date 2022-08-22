@@ -5034,7 +5034,7 @@ namespace {
         public function content_layout($layout)
         {
         }
-        /**
+        /** 
          * LearnDash Static CSS.
          *
          * @since 3.3.0
@@ -6680,6 +6680,17 @@ namespace {
         {
         }
         /**
+         * Check if Spectra is installed.
+         *
+         * @since x.x.x
+         *
+         * @access public
+         * @return array
+         */
+        public static function astra_get_spectra_plugin_data()
+        {
+        }
+        /**
          * Include Welcome page content
          *
          * @since 1.2.4
@@ -7123,7 +7134,7 @@ namespace {
         public function __construct()
         {
         }
-        /**
+        /** 
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7133,7 +7144,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /**
+        /** 
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7143,7 +7154,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7153,7 +7164,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7163,7 +7174,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7173,7 +7184,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7183,7 +7194,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -7192,7 +7203,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /**
+        /** 
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -7237,16 +7248,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /**
+        /** 
          * Comment form grid classes.
          *
-         * @since 3.3.0
+         * @since 3.3.0 
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /**
+        /** 
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -7255,7 +7266,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /**
+        /** 
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -7263,7 +7274,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /**
+        /** 
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -7271,7 +7282,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /**
+        /** 
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -7279,7 +7290,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /**
+        /** 
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -7287,7 +7298,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /**
+        /** 
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -7295,7 +7306,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /**
+        /** 
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -7305,7 +7316,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7315,7 +7326,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7345,7 +7356,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -9912,7 +9923,7 @@ namespace {
          * @var array Notices.
          * @since 1.0.0
          */
-        private static $version = '1.1.11';
+        private static $version = '1.1.9';
         /**
          * Notices
          *
@@ -10999,7 +11010,7 @@ namespace {
     }
     /*!
      * ISC License
-     *
+     * 
      * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
      *
      * Permission to use, copy, modify, and/or distribute this software for any
@@ -12901,7 +12912,7 @@ namespace {
     }
     /**
      * Load Menu hover style static CSS if any one of the menu hover style is selected.
-     *
+     * 
      * @return string
      * @since 3.5.0
      */
@@ -13446,9 +13457,9 @@ namespace {
     /**
      * Parse CSS
      *
-     * @param  array  $css_output Array of CSS.
+     * @param  array $css_output Array of CSS.
      * @param  mixed $min_media  Min Media breakpoint.
-	 * @param  mixed $max_media  Max Media breakpoint.
+     * @param  mixed $max_media  Max Media breakpoint.
      * @return string             Generated CSS.
      */
     function astra_parse_css($css_output = array(), $min_media = '', $max_media = '')
@@ -14696,7 +14707,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css
+     * @param string $dynamic_css 
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -14959,7 +14970,7 @@ namespace {
     /**
      * Check the Astra addon version.
      * For  major update and frequently we used version_compare, added a function for this for easy maintenance.
-     *
+     * 
      * @param string $version Astra addon version.
      * @param string $compare Compare symbols.
      * @since  x.x.x
@@ -16265,15 +16276,6 @@ namespace {
     {
     }
     /**
-     * Apply css for show password icon on woocommerce account page.
-     *
-     * @since x.x.x
-     * @return void
-     */
-    function astra_apply_woocommerce_show_password_icon_css()
-    {
-    }
-    /**
      * Migrate old user data to new responsive format layout for shop's summary box content alignment.
      *
      * @since 3.9.0
@@ -16289,6 +16291,15 @@ namespace {
      * @return void
      */
     function astra_shop_style_design_layout()
+    {
+    }
+    /**
+     * Apply css for show password icon on woocommerce account page.
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_apply_woocommerce_show_password_icon_css()
     {
     }
     /**

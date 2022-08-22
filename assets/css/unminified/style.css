@@ -1613,6 +1613,13 @@ a:hover {
   margin-right: auto;
 }
 
+.ast-article-single {
+  width: 100%;
+  -js-display: flex;
+  display: flex;
+  flex-direction: column;
+}
+
 .clear:before,
 .clear:after,
 .site-header:before,

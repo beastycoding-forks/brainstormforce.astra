@@ -3008,14 +3008,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				if ( ( $product->is_purchasable() && ( $product->is_in_stock() || $product->backorders_allowed() ) ) || $product->is_type( 'external' ) ) {
 				// @codingStandardsIgnoreEnd
 					echo '<div class="ast-sticky-add-to-cart ' . esc_attr( $sticky_position ) . '" data-section="section-primary-header-builder">';
-					if ( is_customize_preview() ) { 
-						?>
-						<div class="customize-partial-edit-shortcut row-editor-shortcut" data-id="ahfb">
-							<button aria-label="<?php esc_attr_e( 'Click to edit this element.', 'astra' ); ?>"	title="<?php esc_attr_e( 'Click to edit this Row.', 'astra' ); ?>" class="item-customizer-focus">
-								<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( 'edit' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-							</button>
-						</div>
-						<?php 
+					if ( is_customize_preview() ) {
+						Astra_Builder_UI_Controller::render_customizer_edit_button( 'customizer-focus-item' );
 					}
 					echo '<div class="ast-container">';
 						echo '<div class="ast-sticky-add-to-cart-content">';

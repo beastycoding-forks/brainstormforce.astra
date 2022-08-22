@@ -38,6 +38,24 @@
             }
         );
 
+        $document.on(
+            'click',
+            '.customizer-focus-item .item-customizer-focus',
+            function(e) {
+
+                e.preventDefault();
+                e.stopPropagation();
+                var p = $( this ).closest( '.customizer-focus-item' );
+                var section_id = p.attr( 'data-section' ) || '';
+                if ( section_id ) {
+                    if ( defaultTarget.wp.customize.section( section_id ) ) {
+                        defaultTarget.wp.customize.section( section_id ).focus();
+                    }
+                }
+            }
+        );
+
+
         /**
          * Ajax quantity input show.
          */

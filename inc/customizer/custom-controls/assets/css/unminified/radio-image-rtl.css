@@ -160,3 +160,11 @@
     transform: translate(0, -50%);
   }
 }
+
+/** Maintaining old header radio-image-picker. */
+.customize-control-ast-radio-image.ast-radio-image-legacy-control input:checked + label svg {
+    background: #ffffff;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 3px 0px rgb(0 133 186 / 67%);
+}

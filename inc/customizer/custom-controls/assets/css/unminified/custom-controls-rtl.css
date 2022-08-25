@@ -6293,6 +6293,14 @@ span.customize-control-title.ast-group-section-title {
   }
 }
 
+/** Maintaining old header radio-image-picker. */
+.customize-control-ast-radio-image.ast-radio-image-legacy-control input:checked + label svg {
+    background: #ffffff;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 3px 0px rgb(0 133 186 / 67%);
+}
+
 .customize-control-ast-responsive-background {
   position: relative;
   margin-bottom: -5px;

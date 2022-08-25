@@ -43,7 +43,7 @@ if ( ! class_exists( 'Astra_Header_Layout_Configs' ) ) {
 					'title'             => __( 'Layout', 'astra' ),
 					'type'              => 'control',
 					'control'           => 'ast-radio-image',
-					'divider'           => array( 'ast_class' => 'ast-bottom-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-divider ast-radio-image-legacy-control' ),
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
 					'choices'           => array(
 						'header-main-layout-1' => array(

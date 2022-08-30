@@ -499,8 +499,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				}
 			}
 
-			$defaults           = apply_filters( 'astra_woocommerce_cart_icon', $woo_cart_icon_new_user ) ? 'bag' : 'default';
-			$icon               = astra_get_option( 'woo-header-cart-icon', $defaults );
+
+			$defaults = apply_filters( 'astra_woocommerce_cart_icon', $woo_cart_icon_new_user ) ? 'bag' : 'default';
+
+			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
+				$icon = astra_get_option( 'woo-header-cart-icon', $defaults );
+			} else {
+				$icon = $defaults;
+			}
+
 			$cart_count_display = apply_filters( 'astra_header_cart_count', true );
 			$cart_title         = apply_filters( 'astra_header_cart_title', __( 'Cart', 'astra' ) );
 
@@ -560,11 +567,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Theme's default icon with cart title and cart total.
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( 'default' === $icon || ! defined( 'ASTRA_EXT_VER' ) || ( defined( 'ASTRA_EXT_VER' ) && ! Astra_Ext_Extension::is_active( 'woocommerce' ) ) ) {
+			if ( 'default' === $icon && '' !== $cart_label_markup ) {
 				// Cart Total or Cart Title enable then only add markup.
-				if ( '' !== $cart_label_markup ) {
-					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-				}
+				echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			} else {
 				self::svg_cart_icon( $cart_total_label_position, $cart_label_markup, $cart_info_markup, $cart_icon );
 			}

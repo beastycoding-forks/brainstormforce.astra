@@ -1589,6 +1589,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						'margin-left' => '15px',
 					);
 				}
+
+				$css_desktop_output['.ast-icon-shopping-cart svg']   = array(
+					'height' => '.82em',
+				);
+				$css_desktop_output['.ast-icon-shopping-bag svg']    = array(
+					'height' => '1em',
+					'width'  => '1em',
+				);
+				$css_desktop_output['.ast-icon-shopping-basket svg'] = array(
+					'height' => '1.15em',
+					'width'  => '1.2em',
+				);
+
 			}
 
 			if ( is_account_page() && false === astra_get_option( 'modern-woo-account-view', false ) ) {

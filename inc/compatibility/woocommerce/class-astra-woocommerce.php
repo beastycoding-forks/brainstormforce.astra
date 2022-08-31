@@ -1602,6 +1602,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'width'  => '1.2em',
 				);
 
+				$css_desktop_output['.ast-site-header-cart.ast-menu-cart-outline .ast-addon-cart-wrap, .ast-site-header-cart.ast-menu-cart-fill .ast-addon-cart-wrap '] = array(
+					'line-height' => '1.8',
+				);
+
+				$css_desktop_output['.ast-site-header-cart.ast-menu-cart-fill i.astra-icon'] = array(
+					' font-size' => '1.1em',
+				);
 			}
 
 			if ( is_account_page() && false === astra_get_option( 'modern-woo-account-view', false ) ) {

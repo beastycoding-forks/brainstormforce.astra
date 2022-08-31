@@ -567,9 +567,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			// Theme's default icon with cart title and cart total.
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( 'default' === $icon && '' !== $cart_label_markup ) {
+			if ( 'default' === $icon ) {
 				// Cart Total or Cart Title enable then only add markup.
-				echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				if ( '' !== $cart_label_markup ) {
+					echo $cart_info_markup; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				}
 			} else {
 				self::svg_cart_icon( $cart_total_label_position, $cart_label_markup, $cart_info_markup, $cart_icon );
 			}

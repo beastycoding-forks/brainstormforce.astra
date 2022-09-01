@@ -35,7 +35,8 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 	 * @return Array Astra Customizer Configurations with updated configurations.
 	 */
 	public function register_configuration( $configurations, $wp_customize ) {
-		$_section = ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-woo-cart' : 'section-woo-general';
+		$_section          = ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? 'section-header-woo-cart' : 'section-woo-shop-cart';
+		$astra_hfb_enabled = ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ? true : false;
 
 		$_configs = array(
 
@@ -48,12 +49,11 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'control'  => 'ast-heading',
 				'section'  => $_section,
 				'title'    => __( 'Cart', 'astra' ),
-				'priority' => 2,
+				'priority' => 3,
 				'settings' => array(),
 				'context'  => Astra_Builder_Helper::$general_tab,
-				'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
+				'divider'  => $astra_hfb_enabled ? array( 'ast_class' => 'ast-bottom-spacing' ) : array( 'ast_class' => 'ast-section-spacing' ),
 			),
-
 
 			/**
 			 * Option: Cart Label
@@ -70,7 +70,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'container_inclusive' => false,
 					'render_callback'     => array( Astra_Builder_Header::get_instance(), 'header_woo_cart' ),
 				),
-				'priority'          => 50,
+				'priority'          => $astra_hfb_enabled ? 50 : 3.5,
 				'title'             => __( 'Cart Label', 'astra' ),
 				'control'           => 'ast-input-with-dropdown',
 				'choices'           => array(
@@ -80,7 +80,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 					'{cart_total_currency_symbol}' => __( 'Total + Currency symbol', 'astra' ),
 				),
 				'context'           => Astra_Builder_Helper::$general_tab,
-				'divider'           => array( 'ast_class' => 'ast-top-spacing' ),
+				'divider'           => $astra_hfb_enabled ? array( 'ast_class' => 'ast-top-spacing' ) : array( 'ast_class' => 'ast-section-spacing' ),
 			),
 
 			/**
@@ -91,9 +91,9 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'     => 'control',
 				'control'  => 'ast-description',
 				'section'  => $_section,
-				'priority' => 50,
+				'priority' => $astra_hfb_enabled ? 50 : 3.5,
 				'context'  => Astra_Builder_Helper::$general_tab,
-				'help'     => '<p>' . __( 'Note: The Cart Label on the header will be displayed by using shortcodes. Click on the plus icon above to add your desired shortcode.', 'astra' ) . '</p>',
+				'help'     => '<p>' . __( 'Note: The Cart Label on the header will be displayed by using shortcodes. Type any custom string in it or click on the plus icon above to add your desired shortcode.', 'astra' ) . '</p>',
 			),
 
 			/**
@@ -105,11 +105,27 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'      => 'control',
 				'section'   => $_section,
 				'title'     => __( 'Display Cart Count', 'astra' ),
-				'priority'  => 55,
+				'priority'  => $astra_hfb_enabled ? 55 : 3.5,
 				'transport' => 'postMessage',
 				'control'   => 'ast-toggle-control',
 				'context'   => Astra_Builder_Helper::$general_tab,
 				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
+			),
+
+			/**
+			 * Option: Cart product count badge.
+			 */
+			array(
+				'name'        => ASTRA_THEME_SETTINGS . '[woo-header-cart-total-label]',
+				'default'     => astra_get_option( 'woo-header-cart-total-label' ),
+				'type'        => 'control',
+				'section'     => $_section,
+				'title'       => __( 'Hide Cart Total Label', 'astra' ),
+				'description' => __( 'Hide cart total label if cart is empty', 'astra' ),
+				'priority'    => $astra_hfb_enabled ? 55 : 3.5,
+				'transport'   => 'postMessage',
+				'control'     => 'ast-toggle-control',
+				'context'     => Astra_Builder_Helper::$general_tab,
 			),
 
 			/**
@@ -140,7 +156,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'priority'   => 60,
 				'choices'    => array(
 					'default' => __( 'Dropdown Cart', 'astra' ),
-					'flyout'  => __( 'Offcanvas Cart', 'astra' ),
+					'flyout'  => __( 'Slide-In Cart', 'astra' ),
 				),
 				'responsive' => false,
 				'renderAs'   => 'text',
@@ -193,7 +209,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 						'value'    => 'flyout',
 					),
 				),
-				'title'       => __( 'Flyout Width', 'astra' ),
+				'title'       => __( 'Slide-In Cart Width', 'astra' ),
 				'control'     => 'ast-slider',
 				'suffix'      => 'px',
 				'priority'    => 70,
@@ -249,7 +265,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'default'    => astra_get_option( 'header-woo-cart-icon-colors' ),
 				'type'       => 'control',
 				'control'    => 'ast-color-group',
-				'title'      => __( 'Color', 'astra' ),
+				'title'      => __( 'Cart Color', 'astra' ),
 				'section'    => $_section,
 				'transport'  => 'postMessage',
 				'priority'   => 45,
@@ -338,7 +354,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'type'       => 'control',
 				'transport'  => 'postMessage',
 				'section'    => $_section,
-				'title'      => __( 'Cart Total Position', 'astra' ),
+				'title'      => __( 'Cart Label Position', 'astra' ),
 				'control'    => 'ast-selector',
 				'priority'   => 47,
 				'choices'    => array(
@@ -349,7 +365,14 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				),
 				'responsive' => true,
 				'renderAs'   => 'text',
-				'context'    => Astra_Builder_Helper::$design_tab,
+				'context'    => array(
+					Astra_Builder_Helper::$design_tab_config,
+					array(
+						'setting'  => ASTRA_THEME_SETTINGS . '[woo-header-cart-label-display]',
+						'operator' => '!=',
+						'value'    => '',
+					),
+				),
 				'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
 			),
 
@@ -382,7 +405,9 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		 * Adding the Margin and Padding option.
 		 * $_section: section-header-woo-cart.
 		 */
-		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
+		if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( $_section ) );
+		}
 
 		$configurations                    = array_merge( $configurations, $_configs );
 		$header_woo_cart_background_colors = 'header-woo-cart-background-colors';
@@ -397,9 +422,10 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 				'title'    => __( 'Header Cart Icon', 'astra' ),
 				'type'     => 'control',
 				'control'  => 'ast-heading',
-				'priority' => 30,
+				'priority' => $astra_hfb_enabled ? 30 : 20,
 				'settings' => array(),
 				'context'  => Astra_Builder_Helper::$general_tab,
+				'divider'  => $astra_hfb_enabled ? array() : array( 'ast_class' => 'ast-section-spacing' ),
 			),
 		);
 

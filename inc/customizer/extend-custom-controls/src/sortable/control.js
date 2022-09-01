@@ -23,7 +23,8 @@ import {
 	astraGetResponsiveColorJs,
 	astraGetResponsiveJs,
 	astraGetResponsiveSliderJs,
-	astraGetResponsiveSpacingJs
+	astraGetResponsiveSpacingJs,
+	astraGetAlignmentJS,
 } from '../common/responsive-helper';
 
 export const sortableControl = wp.customize.astraControl.extend( {
@@ -280,6 +281,9 @@ export const sortableControl = wp.customize.astraControl.extend( {
 					break;
 				case "ast-responsive-slider":
 					astraGetResponsiveSliderJs( control )
+					break;
+				case "ast-selector":
+					astraGetAlignmentJS( control )
 					break;
 				case "ast-responsive-spacing":
 					astraGetResponsiveSpacingJs( control )

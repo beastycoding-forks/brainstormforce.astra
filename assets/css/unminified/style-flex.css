@@ -3934,3 +3934,19 @@ input[type="color"]::-webkit-color-swatch {
 .ast-icon.icon-search {
   z-index: 4;
 }
+
+.ahfb-svg-iconset {
+  -js-display: inline-flex;
+  display: inline-flex;
+  align-self: center;
+}
+
+.ahfb-svg-iconset svg {
+  width: 17px;
+  height: 17px;
+  transition: none;
+}
+
+.ahfb-svg-iconset svg > * {
+  transition: none;
+}

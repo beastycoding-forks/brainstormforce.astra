@@ -1894,6 +1894,49 @@ function hasWordPressWidgetBlockEditor() {
 			});
 		});
 
+		// Single product Sticky add to cart.
+		const astraStickyAddToCartBtnColor = '.woocommerce .ast-sticky-add-to-cart .button.alt';
+		const astraStickyAddToCartBtnHover = '.woocommerce .ast-sticky-add-to-cart .button.alt:hover';
+
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-n-color]', 'color', astraStickyAddToCartBtnColor );
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-h-color]', 'color', astraStickyAddToCartBtnHover );
+
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-bg-n-color]', 'background', astraStickyAddToCartBtnColor );
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-bg-h-color]', 'background', astraStickyAddToCartBtnHover );
+
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-bg-n-color]', 'border-color',astraStickyAddToCartBtnColor );
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-bg-h-color]', 'border-color', astraStickyAddToCartBtnHover );
+
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-text-color]', 'color', '.ast-sticky-add-to-cart .ast-container .ast-sticky-add-to-cart-content' );
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-bg-color]', 'background-color', '.ast-sticky-add-to-cart');
+
+		wp.customize( 'astra-settings[single-product-sticky-add-to-cart-position]', function( setting ) {
+			setting.bind( function( position  ) {
+
+				var dynamicStyle = '';
+
+				if( 'top' === position ) {
+					dynamicStyle += 'div.ast-sticky-add-to-cart{';
+					dynamicStyle += 'top: 0;';
+					dynamicStyle += 'bottom: initial;';
+					dynamicStyle += 'transform: translate(0, -100%);';
+					dynamicStyle += 'box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1), 0px 1px 9px rgba(0, 0, 0, 0.06);';
+					dynamicStyle += 'opacity: 0';
+					dynamicStyle += '}';
+				} else {
+					dynamicStyle += 'div.ast-sticky-add-to-cart{';
+					dynamicStyle += 'bottom: 0;';
+					dynamicStyle += 'top: initial;';
+					dynamicStyle += 'transform: translate(0, 100%);';
+					dynamicStyle += 'box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.1), 0px -1px 9px rgba(0, 0, 0, 0.06);';
+					dynamicStyle += 'opacity: 0';
+					dynamicStyle += '}';
+				}
+
+				astra_add_dynamic_css( 'sticky-add-to-cart-position', dynamicStyle );
+			} );
+		} );
+
 	}
 
 } )( jQuery );

@@ -104,6 +104,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
+				// Breadcrumb if set to None - Show the notice under the Design tab.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-position-none-notice]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => $_section,
+					'priority' => 5,
+					'label'    => '',
+					'help'     => __( 'Note: To get design settings in action make sure to select Header Position other than None.', 'astra' ),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '==',
+							'value'    => 'none',
+						),
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
+							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
 				/**
 				 * Option: Divider
 				 */
@@ -468,13 +488,6 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'control'     => 'ast-builder-header-control',
 					'priority'    => 0,
 					'description' => '',
-					'context'     => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-					),
 				);
 
 			}

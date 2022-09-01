@@ -641,7 +641,7 @@
     cursor: pointer;
     box-shadow: none !important;
 	line-height: 42px;
-	font-size: 14px;	
+	font-size: 14px;
 }
 
 .ast-builder-elements-section .ast-builder-elements-notice  {
@@ -1928,7 +1928,7 @@ button.components-button.ahfb-sorter-item-expand {
 }
 
 .ahfb-slide-up span {
-	font-size: 12px;
+	font-size: 14px;
 	padding-right: 2px;
 }
 
@@ -5035,8 +5035,7 @@ i.fipicon-angle-left:before {
  * Added CSS for hiding section from WP-Customizer panel.
  */
 li#accordion-section-ast-single-post, li#accordion-section-ast-single-product,
-li#accordion-section-ast-archive-post, li#accordion-section-ast-archive-product,
-li#accordion-section-section-woo-shop-skin {
+li#accordion-section-ast-archive-post, li#accordion-section-ast-archive-product {
     display: none !important;
 }
 

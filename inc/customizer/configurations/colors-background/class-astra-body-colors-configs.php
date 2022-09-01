@@ -146,7 +146,7 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 					'control'  => 'ast-color',
 					'section'  => $_section,
 					'priority' => 6,
-					'title'    => __( 'Body text', 'astra' ),
+					'title'    => __( 'Body Text', 'astra' ),
 				),
 
 				/**

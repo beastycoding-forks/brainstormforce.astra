@@ -931,7 +931,7 @@ function astra_apply_modern_block_editor_v2_ui() {
 /**
  * Display Cart Total and Title compatibility.
  *
- * @since x.x.x
+ * @since 3.9.0
  * @return void
  */
 function astra_display_cart_total_title_compatibility() {
@@ -957,7 +957,7 @@ function astra_display_cart_total_title_compatibility() {
 /**
  * If old user then it keeps then default cart icon.
  *
- * @since x.x.x
+ * @since 3.9.0
  * @return void
  */
 function astra_update_woocommerce_cart_icons() {
@@ -971,29 +971,13 @@ function astra_update_woocommerce_cart_icons() {
 /**
  * Set brder color to blank for old users for new users 'default' will take over.
  *
- * @since x.x.x
+ * @since 3.9.0
  * @return void
  */
 function astra_legacy_customizer_maintenance() {
 	$theme_options = get_option( 'astra-settings', array() );
 	if ( ! isset( $theme_options['border-color'] ) ) {
-		$theme_options['border-color'] = '';
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
- *
- * Case: In older versions of Astra WooCommerce > Single Product sidebar layout synced with Default sidebar layout (not with WooCommerce sidebar option).
- *
- * @since x.x.x
- * @return void
- */
-function astra_update_single_product_sidebar_layout() {
-	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['woocommerce-single-product-fallback-default'] ) ) {
-		$theme_options['woocommerce-single-product-fallback-default'] = true;
+		$theme_options['border-color'] = '#dddddd';
 		update_option( 'astra-settings', $theme_options );
 	}
 }
@@ -1001,14 +985,75 @@ function astra_update_single_product_sidebar_layout() {
 /**
  * Enable single product breadcrumb to maintain backward compatibility for existing users.
  *
- * @since x.x.x
+ * @since 3.9.0
  * @return void
  */
 function astra_update_single_product_breadcrumb() {
-	error_log( 'Running batch correctly...' );
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['single-product-breadcrumb-disable'] ) ) {
+	if ( isset( $theme_options['single-product-breadcrumb-disable'] ) ) {
+		$theme_options['single-product-breadcrumb-disable'] = ( true === $theme_options['single-product-breadcrumb-disable'] ) ? false : true;
+	} else {
 		$theme_options['single-product-breadcrumb-disable'] = true;
+	}
+	update_option( 'astra-settings', $theme_options );
+}
+
+/**
+ * Restrict direct changes on users end so make it filterable.
+ *
+ * @since 3.9.0
+ * @return void
+ */
+function astra_apply_modern_ecommerce_setup() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['modern-ecommerce-setup'] ) ) {
+		$theme_options['modern-ecommerce-setup'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Migrate old user data to new responsive format layout for shop's summary box content alignment.
+ *
+ * @since 3.9.0
+ * @return void
+ */
+function astra_responsive_shop_content_alignment() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['shop-product-align-responsive'] ) && isset( $theme_options['shop-product-align'] ) ) {
+		$theme_options['shop-product-align-responsive'] = array(
+			'desktop' => $theme_options['shop-product-align'],
+			'tablet'  => $theme_options['shop-product-align'],
+			'mobile'  => $theme_options['shop-product-align'],
+		);
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Change default layout to standard for old users.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_shop_style_design_layout() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['woo-shop-style-flag'] ) ) {
+		$theme_options['woo-shop-style-flag'] = true;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+
+/**
+ * Apply css for show password icon on woocommerce account page.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_apply_woocommerce_show_password_icon_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['woo-show-password-icon'] ) ) {
+		$theme_options['woo-show-password-icon'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

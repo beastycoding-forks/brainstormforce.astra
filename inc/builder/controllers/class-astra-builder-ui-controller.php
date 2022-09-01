@@ -188,7 +188,7 @@ if ( ! class_exists( 'Astra_Builder_UI_Controller' ) ) {
 		/**
 		 * Prepare Edit navigatory trigger for Banner Section in customizer.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.0
 		 */
 		public static function render_banner_customizer_edit_button() {
 			?>

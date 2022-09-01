@@ -4916,3 +4916,19 @@ input[type="color"]::-webkit-color-swatch {
 .ast-align-self-stretch {
   align-self: stretch;
 }
+
+.ahfb-svg-iconset {
+  -js-display: inline-flex;
+  display: inline-flex;
+  align-self: center;
+}
+
+.ahfb-svg-iconset svg {
+  width: 17px;
+  height: 17px;
+  transition: none;
+}
+
+.ahfb-svg-iconset svg > * {
+  transition: none;
+}

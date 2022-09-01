@@ -114,14 +114,21 @@
 #customize-control-astra-settings-header-account-logged-out-text,
 #customize-control-blogname,
 #customize-control-blogdescription,
+#customize-control-astra-settings-shop-load-more-text,
 #customize-control-astra-settings-single-product-shipping-text,
 #customize-control-astra-settings-ast-header-retina-logo,
+#customize-control-astra-settings-product-sale-percent-value,
 #customize-control-astra-settings-header-account-create-menu-link,
+#customize-control-astra-settings-woo-cart-button-text,
 #customize-control-astra-settings-sticky-header-retina-logo {
     margin-top: 24px;
     padding-top: 24px;
     border-top: 1px dashed var(--ast-customizer-color-7);
 }
+
+#customize-control-astra-settings-product-sale-percent-value .ast-control-tooltip {
+    top: 24px;
+} 
 
 .customize-control.ast-top-dotted-divider .ast-adv-toggle-icon {
     top: 25px;

@@ -252,22 +252,17 @@ class Astra_Global_Palette {
 		return $color;
 	}
 
-
 	/**
 	 * Add dynamic CSS for the global border color.
 	 *
-	 * @since x.x.x
+	 * @since 3.9.0
 	 *
 	 * @param  string $dynamic_css          Astra Dynamic CSS.
 	 *
 	 * @return String Generated dynamic CSS for global border.
 	 */
 	public function global_border_compatibility( $dynamic_css ) {
-		$global_border_color = astra_get_option( 'border-color' );
-		
-		if ( ! $global_border_color ) {
-			$global_border_color = '#eaeaea';
-		}
+		$global_border_color = astra_get_option( 'border-color', '#dddddd' );
 
 		$global_border = '
 			:root {

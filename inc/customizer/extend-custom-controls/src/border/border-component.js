@@ -76,7 +76,8 @@ const BorderComponent = props => {
 		id,
 		choices,
 		inputAttrs,
-		name
+		name,
+		suffix
 	} = props.control.params;
 
 	let htmlLabel = <span className="customize-control-title">{label ? label : __('Background', 'astra')}</span>;
@@ -84,10 +85,13 @@ const BorderComponent = props => {
 		<span className="description customize-control-description">{description}</span> : null;
 	let htmlLinkedChoices = null;
 	let htmlChoices = null;
+	let suffixHtml = null;
 
 	let itemLinkDesc = __('Link Values Together', 'astra');
 
-
+	if (suffix) {
+		suffixHtml = <span className="ast-range-unit">{suffix}</span>;
+	}
 
 	if (linked_choices) {
 		const linkActive = parse( svgIcons['hyper-link-enable'] );
@@ -123,6 +127,7 @@ const BorderComponent = props => {
 	return <>
 		{htmlLabel}
 		{htmlDescription}
+		{ suffixHtml }
 		<div className="ast-border-outer-wrapper">
 			<div className="input-wrapper ast-border-wrapper">
 				<ul className="ast-border-wrapper desktop active">

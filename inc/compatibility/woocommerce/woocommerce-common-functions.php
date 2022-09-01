@@ -297,3 +297,40 @@ if ( ! function_exists( 'astra_woocommerce_div_wrapper_close' ) ) :
 	}
 
 endif;
+
+
+
+/**
+ * Checking whether shop page style is selected as modern layout.
+ */
+if ( ! function_exists( 'astra_is_shop_page_modern_style' ) ) :
+
+	/**
+	 * Checking whether shop page style is selected as modern layout.
+	 *
+	 * @return bool true|false.
+	 */
+	function astra_is_shop_page_modern_style() {
+		return ( 'shop-page-modern-style' === astra_get_option( 'shop-style' ) ) ? true : false;
+	}
+
+endif;
+
+
+/**
+ * Check if Woocommerce pro addons is enabled.
+ */
+if ( ! function_exists( 'astra_has_pro_woocommerce_addon' ) ) :
+
+	/**
+	 * Check if Woocommerce pro addons is enabled.
+	 *
+	 * @return bool true|false.
+	 */
+	function astra_has_pro_woocommerce_addon() {
+		/** @psalm-suppress UndefinedClass  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		return ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ? true : false;
+		/** @psalm-suppress UndefinedClass  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	}
+
+endif;

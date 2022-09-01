@@ -431,6 +431,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'name'           => ASTRA_THEME_SETTINGS . '[theme-button-border-group-border-size]',
 					'transport'      => 'postMessage',
 					'linked_choices' => true,
+					'suffix'         => 'px',
 					'priority'       => 19,
 					'default'        => astra_get_option( 'theme-button-border-group-border-size' ),
 					'title'          => __( 'Border Width', 'astra' ),
@@ -441,7 +442,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 						'left'   => __( 'Left', 'astra' ),
 					),
 				),
-
 
 				/**
 				 * Option: Global Button Radius
@@ -463,7 +463,6 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
-
 			);
 
 			if ( false === Astra_Builder_Helper::$is_header_footer_builder_active ) {

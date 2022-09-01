@@ -418,7 +418,7 @@
 				return '&#' + i.charCodeAt(0) + ';';
 			});
 			desc.remove();
-			li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip + "\'></i>");
+			li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'data-title=\'" + tooltip + "\'></i><span class=\'ast-dashicons-custom-tooltip\'data-title=\'" + tooltip + "\'><span>");
 		}
 	}
 

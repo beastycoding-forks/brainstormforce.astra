@@ -65,5 +65,6 @@ if ( class_exists( 'WooCommerce' ) ) {
 	$wp_customize->get_section( 'woocommerce_store_notice' )->priority    = 26;
 	$wp_customize->get_section( 'woocommerce_product_catalog' )->priority = 11;
 	$wp_customize->get_section( 'woocommerce_checkout' )->priority        = 21;
+	$wp_customize->get_section( 'woocommerce_checkout' )->description     = '';
 	$wp_customize->get_panel( 'woocommerce' )->priority                   = 70;
 }

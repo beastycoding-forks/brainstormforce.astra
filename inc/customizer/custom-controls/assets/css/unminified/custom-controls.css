@@ -347,6 +347,17 @@
 .customize-control-ast-border .input-wrapper.ast-border-wrapper {
   margin-bottom: 8px;
 }
+.customize-control-ast-border .ast-range-unit {
+    position: absolute;
+    right: 0;
+    top: 0px;
+    padding-right: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    color: var(--ast-customizer-color-1);
+}
 
 .customize-control-ast-button-link .ast-button-link {
 	display: block;
@@ -414,20 +425,6 @@
 .color-group-item .components-tooltip .components-popover__content > div {
   padding: 5px 10px;
   line-height: 1;
-}
-
-.color-group-item .components-tooltip:before {
-  content: '';
-  position: absolute;
-  left: -5px;
-  top: -12px;
-  bottom: 100%;
-  width: 0;
-  height: 0;
-  border-bottom: 5px solid transparent;
-  border-top: 5px solid #1f1f1f;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
 }
 
 .customize-control.customize-control-ast-color-group {
@@ -556,6 +553,7 @@
 	right: unset;
 	top: unset;
 	vertical-align: sub;
+	z-index: 10;
 }
 
 #customize-control-astra-color-palettes .astra-color-picker-wrap {
@@ -615,6 +613,7 @@
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
 	margin-top: 12px;
+	cursor: pointer;
 }
 
 #customize-control-astra-color-palettes .ast-reset-btn:disabled {
@@ -722,6 +721,54 @@
 
 #customize-control-astra-color-palettes .ast-adv-toggle-icon {
 	top: -5px;
+}
+
+.ast-color-picker-custom-tooltip {
+	position: absolute;
+    top: -30px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ast-color-picker-custom-tooltip[data-title]::after {
+	content: attr(data-title);
+    min-width: 3em;
+    max-width: 10em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1ch 1.5ch;
+    border-radius: 0.3ch;
+    box-shadow: 0 1em 2em -0.5em rgb(0 0 0 / 35%);
+    background: var(--ast-customizer-color-12);
+    color: var(--ast-customizer-color-10);
+    z-index: 1000;
+    bottom: calc(100% + 5px);
+    text-align: center;
+    animation: tooltips-vert .3s ease-out forwards;
+	text-transform: none;
+    font-size: .9em;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    display: none;
+    opacity: 0;
+    left: 50%;
+    transform: translate(-50%,-0.5em);
+}
+
+.ast-color-picker-custom-tooltip-wrapper {
+	position: relative;
+}
+
+.ast-color-picker-wrap:hover + .ast-color-picker-custom-tooltip-wrapper .ast-color-picker-custom-tooltip[data-title]::after{
+	display: flex;
+	white-space: break-spaces;
+	inline-size: max-content;
 }
 
  /** Remove Button Color */
@@ -833,7 +880,7 @@
 	display: inline-block;
     position: absolute;
     right: 0;
-    top: -4.5px;
+    top: 0;
     transform: scale(1);
     transition: transform .1s ease;
     height: 28px;
@@ -1072,7 +1119,7 @@
 .ast-color-btn-reset-wrap {
 	position: absolute;
     right: 36px;
-    top: 1.5px;
+    top: 6px;
 }
 .ast-color-btn-reset-wrap .ast-reset-btn.components-button, .ast-resp-slider-reset-wrap .ast-reset-btn.components-button {
 	color: #006BA1;
@@ -1107,7 +1154,7 @@
 }
 .ast-field-settings-modal .ast-color-btn-reset-wrap {
     right: 59px;
-	top: 0;
+	top: 6px;
 }
 .ast-field-settings-modal .ast-color-btn-clear-wrap {
     right: 78px;
@@ -1264,7 +1311,9 @@
     margin-top: 25px;
     display: inline-flex;
     width: 100%;
+    min-height: 22px;
 }
+
 
 .ast-top-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
 .ast-bottom-divider.customize-control-ast-toggle-control .ast-divider-title + .ast-togglecontrol-wrapper,
@@ -1360,9 +1409,19 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   margin-top: 16px;
 }
 
-.customize-control.customize-control-ast-toggle-control,
-.customize-control.customize-control-ast-color {
-  margin-top: 24px;
+.customize-control.customize-control-ast-color, .customize-control.customize-control-ast-color-group, .customize-control-ast-responsive-background, .customize-control-ast-background {
+  display: flex;
+  align-items: center;
+  min-height: 28px;
+  flex-wrap: wrap;
+}
+
+.customize-control-ast-responsive-background label {
+  white-space: nowrap;
+}
+
+.customize-control[ID*="-builder-layout-ast-context-tabs"] {
+  margin-top: 0;
 }
 
 [ID*="-builder-layout-ast-context-tabs"] {
@@ -1421,6 +1480,13 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   top: 50%;
   right: 40px;
   transform: translateY(-50%);
+}
+
+.customize-control.customize-control-ast-toggle-control.ast-top-dotted-divider .ast-control-tooltip {
+  position: absolute;
+  top: 55%;
+  right: 40px;
+  transform: translateY(0);
 }
 
 .customize-control.customize-control-ast-toggle-control.ast-top-divider .ast-control-tooltip {
@@ -1698,14 +1764,21 @@ input[type="text"].select2-search__field {
 #customize-control-astra-settings-header-account-logged-out-text,
 #customize-control-blogname,
 #customize-control-blogdescription,
+#customize-control-astra-settings-shop-load-more-text,
 #customize-control-astra-settings-single-product-shipping-text,
 #customize-control-astra-settings-ast-header-retina-logo,
+#customize-control-astra-settings-product-sale-percent-value,
 #customize-control-astra-settings-header-account-create-menu-link,
+#customize-control-astra-settings-woo-cart-button-text,
 #customize-control-astra-settings-sticky-header-retina-logo {
     margin-top: 24px;
     padding-top: 24px;
     border-top: 1px dashed var(--ast-customizer-color-7);
 }
+
+#customize-control-astra-settings-product-sale-percent-value .ast-control-tooltip {
+    top: 24px;
+} 
 
 .customize-control.ast-top-dotted-divider .ast-adv-toggle-icon {
     top: 25px;
@@ -1810,6 +1883,7 @@ input[type="text"].select2-search__field {
     height: 64px;
     text-align: center;
 	width: 47.5%;
+	position: relative;
 }
 .ast-typo-presets .ast-typo-preset-item:hover{
 	border: 1px solid var(--ast-customizer-color-1);
@@ -1828,6 +1902,86 @@ input[type="text"].select2-search__field {
 }
 .customize-control-ast-typography-presets .ast-reset-btn-preset-wrap {
     top: -5px;
+}
+
+.ast-typo-preset-item .components-tooltip {
+	margin-top: -8px;
+}
+
+.ast-typo-preset-item .components-tooltip::before {
+	border-bottom: none!important;
+    border-left-color: transparent!important;
+    border-right-color: transparent!important;
+    border-top-style: solid!important;
+	border-top-color: #1e1e1e!important;
+    margin-left: -10px;
+	bottom: -8px;
+	content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    line-height: 0;
+	border: 8px solid #ccc;
+}
+
+.ast-typo-preset-item .components-tooltip::after {
+	border-bottom: none!important;
+    border-left-color: transparent!important;
+    border-right-color: transparent!important;
+    border-top-style: solid!important;
+	border-top-color: #1e1e1e!important;
+    margin-left: -10px;
+	bottom: -6px;
+	content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    line-height: 0;
+	border: 8px solid #fff;
+}
+
+.ast-typopreset-custom-tooltip {
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ast-typopreset-custom-tooltip[data-title]::after {
+	content: attr(data-title);
+    min-width: 3em;
+    max-width: 10em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1ch 1.5ch;
+    border-radius: 0.3ch;
+    box-shadow: 0 1em 2em -0.5em rgb(0 0 0 / 35%);
+    background: var(--ast-customizer-color-12);
+    color: var(--ast-customizer-color-10);
+    z-index: 1000;
+    bottom: calc(100% + 5px);
+    text-align: center;
+    animation: tooltips-vert .3s ease-out forwards;
+	text-transform: none;
+    font-size: .9em;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    display: none;
+    opacity: 0;
+    left: 50%;
+    transform: translate(-50%,-0.5em);
+}
+
+.ast-typopreset-custom-tooltip[data-title]:hover::after{
+	display: flex;
+	white-space: break-spaces;
+	inline-size: max-content;
 }
 
 span.customize-control-title.ast-group-section-title {
@@ -2055,7 +2209,7 @@ span.customize-control-title.ast-group-section-title {
   height: auto;
   background-color: rgba(221,224,226,0.5);
   border: 1px solid var(--ast-customizer-color-7);
-  border-radius: 4px; 
+  border-radius: 4px;
   cursor: pointer;
   transition: background 0.15s ease, box-shadow 0.15s ease;
 }
@@ -2078,9 +2232,8 @@ span.customize-control-title.ast-group-section-title {
 }
 
 /* Image tooltip */
-.image-clickable[data-title]::before,
 .image-clickable[data-title]::after {
-  text-transform: none; 
+  text-transform: none;
   font-size: .9em;
   line-height: 1;
   user-select: none;
@@ -2092,18 +2245,8 @@ span.customize-control-title.ast-group-section-title {
   transform: translate(-50%, -.5em);
 }
 
-.image-clickable[data-title]::before {
-  content: '';
-  border: 5px solid transparent;
-  z-index: 1001; 
-  bottom: 100%;
-  border-bottom-width: 0;
-  border-top-color: var(--ast-customizer-color-12);
-  animation: tooltips-vert 300ms ease-out forwards;
-}
-
 .image-clickable[data-title]::after {
-  content: attr(data-title); 
+  content: attr(data-title);
   min-width: 3em;
   max-width: 21em;
   white-space: nowrap;
@@ -2116,17 +2259,16 @@ span.customize-control-title.ast-group-section-title {
   color: var(--ast-customizer-color-10);
   z-index: 1000;
   bottom: calc(100% + 5px);
+  text-align: center;
   animation: tooltips-vert 300ms ease-out forwards;
 }
 
 /* Make the tooltips respond to hover */
-.image-clickable[data-title]:hover::before,
 .image-clickable[data-title]:hover::after {
   display: block;
 }
 
 /* don't show empty tooltips */
-.image-clickable[data-title='']::before,
 .image-clickable[data-title='']::after {
   display: none !important;
 }
@@ -2145,6 +2287,7 @@ span.customize-control-title.ast-group-section-title {
     transform: translate(0, -50%);
   }
 }
+
 .customize-control-ast-responsive-background {
   position: relative;
   margin-bottom: -5px;
@@ -2445,7 +2588,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-color .ast-color-btn-reset-wrap {
   display: inline-block;
   line-height: 1;
-  top: 0;
+  top: 4.5px;
 }
 .customize-control-ast-responsive-background .ast-responsive-btns,
 .customize-control-ast-responsive-color .ast-responsive-btns {
@@ -2919,7 +3062,7 @@ span.customize-control-title.ast-group-section-title {
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns {
     position: relative;
     float: right;
-    top: 2px;
+    top: 4px;
 }
 
 .customize-control-ast-responsive-toggle-control .ast-responsive-toggle-control-wrapper .ast-responsive-toggle-btns > li.active{
@@ -2930,7 +3073,7 @@ span.customize-control-title.ast-group-section-title {
     margin-bottom: 0;
     display: none;
 }
-  
+
 .ast-responsive-toggle-btns > li.active {
     display: inline-block;
 }
@@ -2949,6 +3092,7 @@ span.customize-control-title.ast-group-section-title {
     height: 15px;
     font-size: 15px;
 }
+
 .ast-responsive-btns {
   display: inline-block;
   line-height: 1;
@@ -3285,12 +3429,9 @@ span.customize-control-title.ast-group-section-title {
   top: 3px;
 }
 
-.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
-  top: 2px;
-}
-
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns,
 .customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
-  top: 4px;
+  top: 2px;
 }
 
 .ast-field-settings-modal .customize-control {
@@ -3402,7 +3543,8 @@ span.customize-control-title.ast-group-section-title {
 /**
  * Responsive slider control inside settings-group, case: body-font, headings-font.
  */
- .ast-fields-wrap .customize-control-ast-responsive-slider .ast-slider-wrap > label {
+ .ast-fields-wrap .customize-control-ast-responsive-slider .ast-slider-wrap > label,
+ .ast-fields-wrap .customize-control-ast-selector .ast-slider-wrap > label {
     display: inline-block;
 }
 
@@ -3657,8 +3799,12 @@ span.customize-control-title.ast-group-section-title {
     margin-bottom: 20px;
     font-size: 13px;
     margin-top: 3px;
-    display: block;
 }
+
+.customize-control-ast-sortable .ast-sortable-subfields-wrap .ast-responsive-btns {
+    top: 7px;
+}
+
 .ast-sortable-subfields-wrap .ast-fields-wrap {
     margin-left: -12px;
 	padding-bottom: 10px;
@@ -3700,7 +3846,7 @@ span.customize-control-title.ast-group-section-title {
     margin-left: auto;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
-    top: -5px;
+    top: -2px;
 }
 
 .customize-control-ast-toggle-control .components-toggle-control .components-base-control__field, .ast-togglecontrol-wrapper .components-base-control__field {
@@ -3767,6 +3913,61 @@ span.customize-control-title.ast-group-section-title {
 .ast-switch:not(:checked), .ast-switch:checked {
   opacity: 0;
 }
+.dashicons-editor-help[data-title]{
+	z-index: 10;
+}
+
+.ast-dashicons-custom-tooltip {
+	display: none;
+	opacity: 0;
+	position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.ast-dashicons-custom-tooltip[data-title]::after {
+	content: attr(data-title);
+    min-width: 3em;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1ch 1.5ch;
+    border-radius: 0.3ch;
+    box-shadow: 0 1em 2em -0.5em rgb(0 0 0 / 35%);
+    background: var(--ast-customizer-color-12);
+    color: var(--ast-customizer-color-10);
+    z-index: 1000;
+    bottom: calc(100% + 5px);
+    text-align: center;
+    animation: tooltips-vert .3s ease-out forwards;
+	text-transform: none;
+    font-size: .9em;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    display: none;
+    opacity: 0;
+    left: 50%;
+    transform: translate(-50%,-0.5em);
+}
+
+.dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip {
+	display: block;
+	opacity: 100;
+}
+
+.dashicons-editor-help[data-title]:hover ~ .ast-dashicons-custom-tooltip[data-title]::after{
+	display: flex;
+	white-space: break-spaces;
+	inline-size: max-content;
+}
+
 .select2-container {
   width: 100% !important;
 }

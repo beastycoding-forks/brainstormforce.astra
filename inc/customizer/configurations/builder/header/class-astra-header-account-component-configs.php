@@ -469,7 +469,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			array(
 				'name'     => ASTRA_THEME_SETTINGS . '[header-account-spacing-divider]',
 				'section'  => 'section-header-account',
-				'title'    => __( 'Spacing', 'astra-addon' ),
+				'title'    => __( 'Spacing', 'astra' ),
 				'type'     => 'control',
 				'control'  => 'ast-heading',
 				'priority' => 510,

@@ -21,27 +21,35 @@ $astra_search_data_attrs        = isset( $args['data_attributes'] ) ? $args['dat
 $astra_search_input_value       = isset( $args['input_value'] ) ? $args['input_value'] : '';
 
 ?>
-<form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
+<form role="search" method="get" class="search-form" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 <label>
-	<span class="screen-reader-text"><?php echo esc_html__('Search for:', 'astra'); ?></span>
-		<input type="search" class="search-field" <?php echo esc_html($astra_search_data_attrs); ?> placeholder="<?php echo esc_html( $astra_search_input_placeholder ); ?>" value="<?php echo esc_attr( $astra_search_input_value ); ?>" name="s" tabindex="-1">
+	<span class="screen-reader-text"><?php echo esc_html__( 'Search for:', 'astra' ); ?></span>
+		<input type="search" class="search-field" <?php echo esc_html( $astra_search_data_attrs ); ?> placeholder="<?php echo esc_html( $astra_search_input_placeholder ); ?>" value="<?php echo esc_attr( $astra_search_input_value ); ?>" name="s" tabindex="-1">
 		<?php 
-		if (! defined('ABSPATH') ) {
-			define( 'ABSPATH', __DIR__ . '/');
+		if ( ! defined( 'ABSPATH' ) ) {
+			define( 'ABSPATH', __DIR__ . '/' );
 		}
-		 include_once ABSPATH . 'wp-admin/includes/plugin.php';
-		 if (is_plugin_active('astra-addon/astra-addon.php') ) {
-			if (class_exists('Astra_Icons') && Astra_Icons::is_svg_icons() ) { ?>
-			<button class="search-submit ast-search-submit" aria-label="<?php echo esc_attr__('Search Submit', 'astra'); ?>">
-			<span hidden><?php echo esc_html__('Search', 'astra'); ?></span>
-			<i><?php Astra_Icons::get_icons('search', true); ?></i>
+		 require_once ABSPATH . 'wp-admin/includes/plugin.php';
+		if ( is_plugin_active( 'astra-addon/astra-addon.php' ) ) {
+			if ( class_exists( 'Astra_Icons' ) && Astra_Icons::is_svg_icons() ) { 
+				?>
+			<button class="search-submit ast-search-submit" aria-label="<?php echo esc_attr__( 'Search Submit', 'astra' ); ?>">
+			<span hidden><?php echo esc_html__( 'Search', 'astra' ); ?></span>
+			<i><?php Astra_Icons::get_icons( 'search', true ); ?></i>
 		</button>
-		 <?php } }?>
+				<?php 
+			} 
+		}
+		?>
 	</label>
 	<?php  
-	if (!is_plugin_active('astra-addon/astra-addon.php') ) {
-		if ($astra_search_show_input_submit ) { ?>
-		<input type="submit" class="search-submit" value="<?php echo esc_attr__('Search', 'astra'); ?>">
-		<?php } } ?>
+	if ( ! is_plugin_active( 'astra-addon/astra-addon.php' ) ) {
+		if ( $astra_search_show_input_submit ) { 
+			?>
+		<input type="submit" class="search-submit" value="<?php echo esc_attr__( 'Search', 'astra' ); ?>">
+			<?php 
+		} 
+	} 
+	?>
 	</form>
 	<?php

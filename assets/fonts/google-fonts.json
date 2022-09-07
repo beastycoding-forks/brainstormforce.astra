@@ -29,6 +29,14 @@
         }
     },
     {
+        "Aboreto": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Abril Fatface": {
             "variants": [
                 "regular"
@@ -428,12 +436,30 @@
         }
     },
     {
+        "Alumni Sans Collegiate One": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Alumni Sans Inline One": {
             "variants": [
                 "regular",
                 "italic"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Alumni Sans Pinstripe": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -3502,6 +3528,17 @@
         }
     },
     {
+        "DynaPuff": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Dynalight": {
             "variants": [
                 "regular"
@@ -4112,6 +4149,20 @@
         }
     },
     {
+        "Figtree": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Finger Paint": {
             "variants": [
                 "regular"
@@ -4429,7 +4480,8 @@
     {
         "Fruktur": {
             "variants": [
-                "regular"
+                "regular",
+                "italic"
             ],
             "category": "display"
         }
@@ -8373,7 +8425,16 @@
                 "600",
                 "700",
                 "800",
-                "900"
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "display"
         }
@@ -10342,6 +10403,21 @@
         "Noto Serif Gurmukhi": {
             "variants": [
                 "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Noto Serif HK": {
+            "variants": [
                 "200",
                 "300",
                 "regular",
@@ -12471,7 +12547,55 @@
         }
     },
     {
+        "Rubik Burned": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Dirt": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Distressed": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Rubik Glitch": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Iso": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Marker Hatch": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Maze": {
             "variants": [
                 "regular"
             ],
@@ -13119,6 +13243,15 @@
                 "700"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Silkscreen": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "display"
         }
     },
     {

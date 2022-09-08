@@ -739,6 +739,12 @@ ins {
   text-decoration: none;
 }
 
+.ast-container-footer-box, .ast-container-header-box {
+  max-width: 1240px;
+  margin: auto;
+  padding: 0px 15px 0px 15px;
+}
+
 table, th, td {
   border: 1px solid var(--ast-border-color);
 }

@@ -60,5 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	astra_content_before();
 	?>
 	<div id="content" class="site-content">
+		<?php if ( has_action( 'astra_content_top' ) ) { ?>
+			<div class="ast-container-header-box"><?php astra_content_top(); ?></div>
+		<?php } ?>
 		<div class="ast-container">
-		<?php astra_content_top(); ?>

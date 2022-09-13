@@ -62,6 +62,18 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				);
 			}
 
+			/**
+			 * Shop add to cart control.
+			 */
+			$add_to_cart_attr = array();
+			$add_to_cart_attr['add_cart'] = array(
+				'clone'       => false,
+				'is_parent'   => true,
+				'main_index'  => 'add_cart',
+				'clone_limit' => 2,
+				'title'       => __( 'Add To Cart', 'astra' ),
+			);
+
 			$_configs = array(
 
 				/**
@@ -141,13 +153,17 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'section'           => 'woocommerce_product_catalog',
 					'default'           => astra_get_option( 'shop-product-structure' ),
 					'priority'          => 15,
-					'choices'           => array(
-						'title'      => __( 'Title', 'astra' ),
-						'price'      => __( 'Price', 'astra' ),
-						'ratings'    => __( 'Ratings', 'astra' ),
-						'short_desc' => __( 'Short Description', 'astra' ),
-						'add_cart'   => __( 'Add To Cart', 'astra' ),
-						'category'   => __( 'Category', 'astra' ),
+					'choices'           => array_merge(
+						array(
+							'title'      => __( 'Title', 'astra' ),
+							'price'      => __( 'Price', 'astra' ),
+							'ratings'    => __( 'Ratings', 'astra' ),
+							'short_desc' => __( 'Short Description', 'astra' ),
+						),
+						$add_to_cart_attr,
+						array(
+							'category'   => __( 'Category', 'astra' ),
+						)
 					),
 					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				),
@@ -277,6 +293,26 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					),
 					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
+			);
+
+			/**
+			* Option: Shop cart click actions
+			*/
+			$_configs[] = array(
+				'name'        => 'shop-cart-click-actions',
+				'parent'      => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
+				'default'     => astra_get_option( 'shop-cart-click-actions' ),
+				'linked'      => 'add_cart',
+				'type'        => 'sub-control',
+				'control'     => 'ast-select',
+				'section'     => 'woocommerce_product_catalog',
+				'priority'    => 11,
+				'title'       => __( 'Cart Click Actions', 'astra' ),
+				'transport'   => 'postMessage',
+				'choices'     => array(
+					'default' => __( 'Default', 'astra' ),
+					'slide_in' => __( 'Slide In', 'astra' ),
+				)
 			);
 
 			// Learn More link if Astra Pro is not activated.

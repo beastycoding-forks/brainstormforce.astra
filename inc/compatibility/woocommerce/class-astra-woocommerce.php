@@ -876,6 +876,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['single-product-payment-paypal']     = false;
 			$defaults['single-product-payment-apple-pay']  = false;
 
+			//Shop cart click actions
+			$defaults['shop-cart-click-actions'] = 'default';
 			return $defaults;
 		}
 

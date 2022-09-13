@@ -6,6 +6,7 @@
  * @package Astra
  */
 
+
 (function () {
 
 	var cart_flyout = document.getElementById('astra-mobile-cart-drawer'),
@@ -160,5 +161,15 @@
 			document.dispatchEvent(new CustomEvent("astLayoutWidthChanged", {"detail": {'response': ''}}));
 		}, 50);
 	});
+
+	(function($){ 
+		$( document.body ).on( 'added_to_cart', function(){
+			if( window.astra_cart.shop_cart_click_actions === 'slide_in') {
+				//open flyout
+				document.querySelector('#ast-site-header-cart').classList.add('ast-desktop-cart-flyout');
+				document.querySelector('#astra-mobile-cart-drawer').classList.add('active');
+			}
+		});
+	})(jQuery);
 
 })();

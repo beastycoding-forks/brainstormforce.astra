@@ -368,6 +368,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 			$astra_cart_localize_data = array(
 				'desktop_layout' => astra_get_option( 'woo-header-cart-click-action' ),    // WooCommerce sidebar flyout desktop.
+				'shop_cart_click_actions' => astra_get_option( 'shop-cart-click-actions' ), // WooCommerce shop click actions.
 			);
 
 			wp_localize_script( 'astra-mobile-cart', 'astra_cart', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );

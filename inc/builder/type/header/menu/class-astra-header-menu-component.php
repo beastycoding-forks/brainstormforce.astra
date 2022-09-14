@@ -43,7 +43,7 @@ class Astra_Header_Menu_Component {
 	 * @param int    $index index.
 	 * @param string $device device.
 	 */
-	public static function menu_markup( $index, $device ) {
+	public static function menu_markup( $index, $device = 'desktop' ) {
 
 		switch ( $index ) {
 			case 1:

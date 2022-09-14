@@ -185,7 +185,9 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	$ltr_right                = is_rtl() ? 'left' : 'right';
 	$astra_block_editor_v2_ui = astra_get_option( 'wp-blocks-v2-ui', true );
 	$ast_container_width      = astra_get_option( 'site-content-width', 1200 ) . 'px';
-	$blocks_spacings          = Astra_WP_Editor_CSS::astra_get_block_spacings();
+	if(class_exists('dbinfo')){
+		$blocks_spacings          = Astra_WP_Editor_CSS::astra_get_block_spacings();
+	}
 
 	/** @psalm-suppress InvalidCast */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$tablet_breakpoint = (string) astra_get_tablet_breakpoint();

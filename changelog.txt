@@ -1,3 +1,6 @@
+v3.9.3
+- Fix: Fatal error when updatig astra theeme.it's showing class not found Astra_WP_Editor_CSS.
+
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
 - Improvement: WooCommerce - Added WPML translation support for cart dynamic input, proceed to checkout input & free-shipping text input through wpml-config.xml file. (Props - OnTheGoSystems)

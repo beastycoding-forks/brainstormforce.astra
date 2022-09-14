@@ -1,5 +1,5 @@
 v3.9.3
-- Fix: Fatal error when updatig astra theeme.it's showing class not found Astra_WP_Editor_CSS.
+- Fix: Fatal error: Uncaught Error: Class 'Astra_WP_Editor_CSS' not found when updating theme in some cases.
 
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.

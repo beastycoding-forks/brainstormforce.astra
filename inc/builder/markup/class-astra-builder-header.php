@@ -98,6 +98,7 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 				// Load Cart Flyout Markup on Footer.
 				add_action( 'astra_footer', array( $this, 'mobile_cart_flyout' ) );
+				add_action( 'astra_footer', array( $this, 'slide_in_cart' ) );
 				add_action( 'astra_header_menu_mobile', array( $this, 'header_mobile_menu_markup' ) );
 			}
 
@@ -429,6 +430,18 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 
 			// Hide cart flyout only if current page is checkout/cart.
 			if ( ( Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) && class_exists( 'WooCommerce' ) && ! is_cart() && ! is_checkout() ) || Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) {
+
+				Astra_Builder_UI_Controller::render_mobile_cart_flyout_markup();
+			}
+		}
+
+		/**
+		 *  Slide In Cart UI.
+		 */
+		public function slide_in_cart() {
+
+			// Load flyout markup for shop & single products cart click slide in options.
+			if ( ( ! Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) && ( ! Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) && class_exists( 'WooCommerce' ) && ! is_cart() && ! is_checkout() && 'default' !== astra_get_option( 'shop-cart-click-actions' ) ) {
 
 				Astra_Builder_UI_Controller::render_mobile_cart_flyout_markup();
 			}

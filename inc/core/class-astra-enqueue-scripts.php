@@ -185,7 +185,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				}
 
 				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ||
-					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
+					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ||
+					'default' !== astra_get_option( 'shop-cart-click-actions' ) ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
 				}
 
@@ -371,6 +372,7 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				'shop_cart_click_actions' => astra_get_option( 'shop-cart-click-actions' ), // WooCommerce shop click actions.
 				'cart_url' => wc_get_cart_url(),
 				'checkout_url' => wc_get_checkout_url(),
+				'is_shop_page' => is_shop(),
 			);
 
 			wp_localize_script( 'astra-mobile-cart', 'astra_cart', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );

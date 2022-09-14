@@ -163,28 +163,32 @@
 	});
 
 	const hideFlyout = () => {
-		document.querySelector('#ast-site-header-cart').classList.remove('ast-desktop-cart-flyout');
-		document.querySelector('#astra-mobile-cart-drawer').classList.remove('active');
+		const flyoutCart = document.querySelector('#ast-site-header-cart');
+		if( flyoutCart ) flyoutCart.classList.remove('ast-desktop-cart-flyout');
+		const slideInCart = document.querySelector('#astra-mobile-cart-drawer');
+		if( slideInCart ) slideInCart.classList.remove('active');
 	}
 	const activateFlyout = () => {
-		document.querySelector('#ast-site-header-cart').classList.add('ast-desktop-cart-flyout');
-		document.querySelector('#astra-mobile-cart-drawer').classList.add('active');
+		const slideInCart = document.querySelector('#astra-mobile-cart-drawer');
+		if(slideInCart !== null || slideInCart !== undefined ) slideInCart.classList.add('active');
 	}
-	(function($){ 
+	(function($){
 		$( document.body ).on( 'added_to_cart', function(){
-			if(window.astra_cart.shop_cart_click_actions === 'default' ) {
-				hideFlyout();
-			}
-			else if( window.astra_cart.shop_cart_click_actions === 'slide_in') {
-				activateFlyout();
-			}
-			else if( window.astra_cart.shop_cart_click_actions === 'redirect_to_cart' ) {
-				hideFlyout();
-				window.location.href = window.astra_cart.cart_url;
-			}
-			else if( window.astra_cart.shop_cart_click_actions === 'redirect_to_checkout' ) {
-				hideFlyout();
-				window.location.href = window.astra_cart.checkout_url;
+			if( window.astra_cart.is_shop_page ) {
+				if(window.astra_cart.shop_cart_click_actions === 'default' ) {
+					hideFlyout();
+				}
+				else if( window.astra_cart.shop_cart_click_actions === 'slide_in') {
+					activateFlyout();
+				}
+				else if( window.astra_cart.shop_cart_click_actions === 'redirect_to_cart' ) {
+					hideFlyout();
+					window.location.href = window.astra_cart.cart_url;
+				}
+				else if( window.astra_cart.shop_cart_click_actions === 'redirect_to_checkout' ) {
+					hideFlyout();
+					window.location.href = window.astra_cart.checkout_url;
+				}
 			}
 		});
 	})(jQuery);

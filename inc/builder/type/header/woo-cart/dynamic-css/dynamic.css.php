@@ -26,7 +26,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_hb_woo_cart_dynamic_css' );
  */
 function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
-	if ( ! Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) {
+	if ( (! Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) && ('slide_in' !== astra_get_option( 'shop-cart-click-actions' ))) {
 		return $dynamic_css;
 	}
 
@@ -254,7 +254,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	);
 
 	// Desktop offcanvas cart.
-	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() ) {
+	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() || ('slide_in' === astra_get_option( 'shop-cart-click-actions' )) ) {
 
 		$desktop_flyout_cart_width     = astra_get_option( 'woo-desktop-cart-flyout-width' );
 		$desktop_flyout_cart_direction = astra_get_option( 'woo-desktop-cart-flyout-direction' );

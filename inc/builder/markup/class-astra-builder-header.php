@@ -441,7 +441,8 @@ if ( ! class_exists( 'Astra_Builder_Header' ) ) {
 		public function slide_in_cart() {
 
 			// Load flyout markup for shop & single products cart click slide in options.
-			if ( ( ! Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) && ( ! Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) && class_exists( 'WooCommerce' ) && ! is_cart() && ! is_checkout() && 'default' !== astra_get_option( 'shop-cart-click-actions' ) ) {
+			$load_slide_in_cart_markup = 'default' !== astra_get_option( 'single-product-cart-click-actions', array() ) || 'default' !== astra_get_option( 'shop-cart-click-actions' ) ? true : false;
+			if ( ( ! Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ) && ( ! Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ) && class_exists( 'WooCommerce' ) && ! is_cart() && ! is_checkout() && $load_slide_in_cart_markup ) {
 
 				Astra_Builder_UI_Controller::render_mobile_cart_flyout_markup();
 			}

@@ -170,7 +170,7 @@
 	}
 	const activateFlyout = () => {
 		const slideInCart = document.querySelector('#astra-mobile-cart-drawer');
-		if(slideInCart !== null || slideInCart !== undefined ) slideInCart.classList.add('active');
+		if( slideInCart ) slideInCart.classList.add('active');
 	}
 	(function($){
 		$( document.body ).on( 'added_to_cart', function(){
@@ -189,6 +189,24 @@
 					hideFlyout();
 					window.location.href = window.astra_cart.checkout_url;
 				}
+			}
+			else if( window.astra_cart.is_product_page ) {
+
+				if(window.astra_cart.single_product_cart_click_actions === 'default' ) {
+					hideFlyout();
+				}
+				else if( window.astra_cart.single_product_cart_click_actions === 'slide_in') {
+					activateFlyout();
+				}
+				else if( window.astra_cart.single_product_cart_click_actions === 'redirect_to_cart' ) {
+					hideFlyout();
+					window.location.href = window.astra_cart.cart_url;
+				}
+				else if( window.astra_cart.single_product_cart_click_actions=== 'redirect_to_checkout' ) {
+					hideFlyout();
+					window.location.href = window.astra_cart.checkout_url;
+				}		
+		
 			}
 		});
 	})(jQuery);

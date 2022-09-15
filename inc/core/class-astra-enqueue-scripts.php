@@ -184,9 +184,10 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$default_assets['js']['astra-theme-js-pro'] = 'frontend-pro';
 				}
 
+				$load_slide_in_cart_markup = 'default' !== astra_get_option( 'single-product-cart-click-actions', array() ) || 'default' !== astra_get_option( 'shop-cart-click-actions' ) ? true : false;
 				if ( Astra_Builder_Helper::is_component_loaded( 'edd-cart', 'header' ) ||
 					Astra_Builder_Helper::is_component_loaded( 'woo-cart', 'header' ) ||
-					'default' !== astra_get_option( 'shop-cart-click-actions' ) ) {
+					$load_slide_in_cart_markup ) {
 					$default_assets['js']['astra-mobile-cart'] = 'mobile-cart';
 				}
 
@@ -373,6 +374,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				'cart_url' => wc_get_cart_url(),
 				'checkout_url' => wc_get_checkout_url(),
 				'is_shop_page' => is_shop(),
+				'is_product_page' => is_product(),
+				'single_product_cart_click_actions' => astra_get_option( 'single-product-cart-click-actions', array() )
 			);
 
 			wp_localize_script( 'astra-mobile-cart', 'astra_cart', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );

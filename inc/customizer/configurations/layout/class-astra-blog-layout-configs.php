@@ -114,13 +114,13 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						),
 					),
 					'context'           => array(
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[archive-post-content-layout]',
-								'operator' => '!=',
-								'value'    => 'page-builder',
-							),
-							Astra_Builder_Helper::$general_tab_config,
-						) ,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[archive-post-content-layout]',
+							'operator' => '!=',
+							'value'    => 'page-builder',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
 				),
 
 				/**

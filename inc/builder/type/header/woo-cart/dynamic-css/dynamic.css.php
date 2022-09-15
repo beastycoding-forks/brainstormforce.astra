@@ -258,7 +258,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	// Desktop offcanvas cart.
 	// Apply flyout width css when slide in cart option is selected in either shop or product cart click actions.
 	$apply_dynamic_css_slide_in_cart = 'slide_in' === astra_get_option( 'single-product-cart-click-actions', array() ) || 'slide_in' === astra_get_option( 'shop-cart-click-actions' ) ? true : false;
-	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() || $apply_dynamic_css_slide_in_cart) {
+	if ( 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) || is_customize_preview() || $apply_dynamic_css_slide_in_cart ) {
 
 		$desktop_flyout_cart_width     = astra_get_option( 'woo-desktop-cart-flyout-width' );
 		$desktop_flyout_cart_direction = astra_get_option( 'woo-desktop-cart-flyout-direction' );

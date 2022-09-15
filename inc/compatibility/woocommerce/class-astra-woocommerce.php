@@ -876,7 +876,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['single-product-payment-paypal']     = false;
 			$defaults['single-product-payment-apple-pay']  = false;
 
-			//Shop cart click actions
+			// Shop cart click actions.
 			$defaults['shop-cart-click-actions'] = 'default';
 			return $defaults;
 		}
@@ -3494,7 +3494,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 				$product          = wc_get_product( $post->ID );
 				$sticky_position  = astra_get_option( 'single-product-sticky-add-to-cart-position' );
-				$add_to_cart_ajax = astra_get_option( 'single-product-ajax-add-to-cart' );
+				$add_to_cart_ajax = 'default' !== astra_get_option( 'single-product-cart-click-actions' ) ? true : false;
 				// @codingStandardsIgnoreStart
 				/**
 				 * @psalm-suppress PossiblyNullReference

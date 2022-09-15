@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 			/**
 			 * Shop add to cart control.
 			 */
-			$add_to_cart_attr = array();
+			$add_to_cart_attr             = array();
 			$add_to_cart_attr['add_cart'] = array(
 				'clone'       => false,
 				'is_parent'   => true,
@@ -162,7 +162,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 						),
 						$add_to_cart_attr,
 						array(
-							'category'   => __( 'Category', 'astra' ),
+							'category' => __( 'Category', 'astra' ),
 						)
 					),
 					'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
@@ -296,52 +296,51 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 			);
 
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if( astra_has_pro_woocommerce_addon() ) {
+			if ( astra_has_pro_woocommerce_addon() ) {
 				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 				/**
 				* Option: Shop cart click actions.
 				*/
 				$_configs[] = array(
-					'name'        => 'shop-cart-click-actions',
-					'parent'      => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
-					'default'     => astra_get_option( 'shop-cart-click-actions' ),
-					'linked'      => 'add_cart',
-					'type'        => 'sub-control',
-					'control'     => 'ast-select',
-					'section'     => 'woocommerce_product_catalog',
-					'priority'    => 11,
-					'title'       => __( 'Cart Click Actions', 'astra' ),
-					'transport'   => 'postMessage',
-					'choices'     => array(
-						'default' => __( 'Default', 'astra' ),
-						'slide_in' => __( 'Slide In', 'astra' ),
-						'redirect_to_cart' => __( 'Redirect To Cart Page', 'astra' ),
+					'name'      => 'shop-cart-click-actions',
+					'parent'    => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
+					'default'   => astra_get_option( 'shop-cart-click-actions' ),
+					'linked'    => 'add_cart',
+					'type'      => 'sub-control',
+					'control'   => 'ast-select',
+					'section'   => 'woocommerce_product_catalog',
+					'priority'  => 11,
+					'title'     => __( 'Cart Click Actions', 'astra' ),
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'default'              => __( 'Default', 'astra' ),
+						'slide_in'             => __( 'Slide In', 'astra' ),
+						'redirect_to_cart'     => __( 'Redirect To Cart Page', 'astra' ),
 						'redirect_to_checkout' => __( 'Redirect To Checkout Page', 'astra' ),
-					)
+					),
 				);
 
-			}
-			else {
+			} else {
 
 				/**
 				* Option: Shop cart click actions.
 				*/
 				$_configs[] = array(
-					'name'        => 'shop-cart-click-actions',
-					'parent'      => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
-					'default'     => astra_get_option( 'shop-cart-click-actions' ),
-					'linked'      => 'add_cart',
-					'type'        => 'sub-control',
-					'control'     => 'ast-select',
-					'section'     => 'woocommerce_product_catalog',
-					'priority'    => 11,
-					'title'       => __( 'Cart Click Actions', 'astra' ),
-					'transport'   => 'postMessage',
-					'choices'     => array(
-						'default' => __( 'Default', 'astra' ),
+					'name'      => 'shop-cart-click-actions',
+					'parent'    => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
+					'default'   => astra_get_option( 'shop-cart-click-actions' ),
+					'linked'    => 'add_cart',
+					'type'      => 'sub-control',
+					'control'   => 'ast-select',
+					'section'   => 'woocommerce_product_catalog',
+					'priority'  => 11,
+					'title'     => __( 'Cart Click Actions', 'astra' ),
+					'transport' => 'postMessage',
+					'choices'   => array(
+						'default'  => __( 'Default', 'astra' ),
 						'slide_in' => __( 'Slide In', 'astra' ),
-					)
+					),
 				);
 
 			}

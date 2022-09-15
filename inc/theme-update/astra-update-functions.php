@@ -1057,3 +1057,17 @@ function astra_apply_woocommerce_show_password_icon_css() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Update single product ajax add to cart option (Real-Time Add To Cart).
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_update_single_product_ajax_add_to_cart() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( isset( $theme_options['single-product-ajax-add-to-cart'] ) && ( ! isset( $theme_options['single-product-cart-click-actions'] ) ) ) {
+		$theme_options['single-product-cart-click-actions'] = $theme_options['single-product-ajax-add-to-cart'] ? 'ajax_add_to_cart' : 'default';
+		update_option( 'astra-settings', $theme_options );
+	}
+}

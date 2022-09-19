@@ -80,7 +80,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+				
 				),
 
 				/**
@@ -114,13 +114,14 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 						),
 					),
 					'context'           => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[archive-post-content-layout]',
-							'operator' => '!=',
-							'value'    => 'page-builder',
-						),
-						Astra_Builder_Helper::$general_tab_config,
-					),
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[archive-post-content-layout]',
+								'operator' => '!=',
+								'value'    => 'page-builder',
+							),
+							Astra_Builder_Helper::$general_tab_config,
+						) ,
+						'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**

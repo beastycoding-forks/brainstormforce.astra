@@ -74,7 +74,7 @@ if ( ! class_exists( 'Astra_Lifter_Container_Configs' ) ) {
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
 					),
-					'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
+				
 				),
 			);
 

@@ -15,16 +15,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '3.9.0-beta.1' );
+define( 'ASTRA_THEME_VERSION', '3.9.3' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
+define( 'ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/' );
 
 /**
  * Minimum Version requirement of the Astra Pro addon.
  * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
  */
-define( 'ASTRA_EXT_MIN_VER', 'v3.7.0-beta.1' );
+define( 'ASTRA_EXT_MIN_VER', '3.9.2' );
 
 /**
  * Setup helper functions of Astra.
@@ -177,8 +178,3 @@ require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
-
-/**
- * Remove this filter after designers review & finalization.
- */
-add_filter( 'astra_get_option_post-structure-migration-succeed', '__return_true' );

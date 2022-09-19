@@ -217,9 +217,9 @@
   top: 3px;
 }
 
-.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns,
-.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns {
-  top: 0;
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-slider .ast-responsive-slider-btns,
+.customize-control-ast-settings-group .ast-field-settings-modal .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+  top: 2px;
 }
 
 .ast-field-settings-modal .customize-control {
@@ -331,7 +331,8 @@
 /**
  * Responsive slider control inside settings-group, case: body-font, headings-font.
  */
- .ast-fields-wrap .customize-control-ast-responsive-slider .ast-slider-wrap > label {
+ .ast-fields-wrap .customize-control-ast-responsive-slider .ast-slider-wrap > label,
+ .ast-fields-wrap .customize-control-ast-selector .ast-slider-wrap > label {
     display: inline-block;
 }
 

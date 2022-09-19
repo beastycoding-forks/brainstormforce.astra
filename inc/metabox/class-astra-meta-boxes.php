@@ -165,7 +165,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 						array( $this, 'markup_meta_box' ),      // Callback.
 						$type,                                  // Post_type.
 						'side',                                 // Context.
-						'default',                               // Priority.
+						'default',                              // Priority.
 						array(
 							'__back_compat_meta_box' => true,
 						)
@@ -501,8 +501,12 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'is_addon_activated'       => defined( 'ASTRA_EXT_VER' ) ? true : false,
 					'sticky_addon_enabled'     => ( $astra_ext_extension_class_exists && Astra_Ext_Extension::is_active( 'sticky-header' ) ) ? true : false,
 					'register_astra_metabox'   => apply_filters( 'astra_settings_metabox_register', true ),
+					'upgrade_pro_link'         => ASTRA_PRO_UPGRADE_URL,
+					'show_upgrade_notice'      => astra_showcase_upgrade_notices(),
 				)
 			);
+
+			wp_enqueue_script( 'astra-metabox-cf-compatibility', ASTRA_THEME_URI . 'inc/assets/js/custom-fields-priority.js', array(), ASTRA_THEME_VERSION, false );
 		}
 
 		/**

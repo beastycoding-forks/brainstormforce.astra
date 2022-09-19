@@ -104,6 +104,26 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
+				// Breadcrumb if set to None - Show the notice under the Design tab.
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-position-none-notice]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => $_section,
+					'priority' => 5,
+					'label'    => '',
+					'help'     => __( 'Note: To get design settings in action make sure to select Header Position other than None.', 'astra' ),
+					'context'  => array(
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
+							'operator' => '==',
+							'value'    => 'none',
+						),
+						( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
+							Astra_Builder_Helper::$design_tab_config : Astra_Builder_Helper::$general_tab_config,
+					),
+				),
+
 				/**
 				 * Option: Divider
 				 */
@@ -413,7 +433,7 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'breadcrumb-separator-3' ),
 						),
 						'unicode' => array(
-							'label' => __( 'Custom unicode separator', 'astra' ),
+							'label' => __( 'Custom separator', 'astra' ),
 							'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'breadcrumb-separator-unicode' ),
 						),
 					),
@@ -468,38 +488,10 @@ if ( ! class_exists( 'Astra_Breadcrumbs_Configs' ) ) {
 					'control'     => 'ast-builder-header-control',
 					'priority'    => 0,
 					'description' => '',
-					'context'     => array(
-						array(
-							'setting'  => ASTRA_THEME_SETTINGS . '[breadcrumb-position]',
-							'operator' => '!=',
-							'value'    => 'none',
-						),
-					),
 				);
-
 			}
-
-			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
-				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[breadcrumb-ast-button-link]',
-					'type'     => 'control',
-					'control'  => 'ast-button-link',
-					'section'  => $_section,
-					'priority' => 999,
-					'title'    => __( 'View Astra Pro Features', 'astra' ),
-					'url'      => astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
-					'context'  => Astra_Builder_Helper::$general_tab_config,
-				);
-
-			}
-
 
 			return array_merge( $configurations, $_configs );
-
 		}
 
 		/**

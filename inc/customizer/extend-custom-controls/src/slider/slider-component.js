@@ -82,7 +82,7 @@ const SliderComponent = props => {
 	}
 
 	return <div className="ast-slider-wrap">
-		
+
 
 		{labelHtml}
 		{descriptionHtml}

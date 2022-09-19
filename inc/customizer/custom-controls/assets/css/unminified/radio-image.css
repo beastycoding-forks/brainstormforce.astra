@@ -1,3 +1,8 @@
+.customize-control-ast-row-layout .ast-responsive-btns {
+  position: relative;
+  top: 1px;
+}
+
 .customize-control-ast-radio-image label {
   position: relative;
   display: inline-block;
@@ -77,7 +82,7 @@
   height: auto;
   background-color: rgba(221,224,226,0.5);
   border: 1px solid var(--ast-customizer-color-7);
-  border-radius: 4px; 
+  border-radius: 4px;
   cursor: pointer;
   transition: background 0.15s ease, box-shadow 0.15s ease;
 }
@@ -89,12 +94,66 @@
 }
 
 .ast-divide-four .ast-radio-img-svg svg path {
-  color: var(--ast-customizer-color-6);
+  color: var(--ast-customizer-color-8);
 }
 
-#customize-control-astra-settings-above-header-menu-align .ast-radio-img-svg svg,
-#customize-control-astra-settings-header-main-menu-align .ast-radio-img-svg svg,
-#customize-control-astra-settings-below-header-menu-align .ast-radio-img-svg svg {
-  width: 37px;
-  height: 49px;
+/* Image tooltip */
+.image-clickable[data-title]::after {
+  text-transform: none;
+  font-size: .9em;
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  display: none;
+  opacity: 0;
+  left: 50%;
+  transform: translate(-50%, -.5em);
+}
+
+.image-clickable[data-title]::after {
+  content: attr(data-title);
+  min-width: 3em;
+  max-width: 21em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 1ch 1.5ch;
+  border-radius: .3ch;
+  box-shadow: 0 1em 2em -.5em rgba(0, 0, 0, 0.35);
+  background: var(--ast-customizer-color-12);
+  color: var(--ast-customizer-color-10);
+  z-index: 1000;
+  bottom: calc(100% + 5px);
+  text-align: center;
+  animation: tooltips-vert 300ms ease-out forwards;
+}
+
+/* Make the tooltips respond to hover */
+.image-clickable[data-title]:hover::after {
+  display: block;
+}
+
+/* don't show empty tooltips */
+.image-clickable[data-title='']::after {
+  display: none !important;
+}
+
+/* KEYFRAMES */
+@keyframes tooltips-vert {
+  to {
+    opacity: .9;
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes tooltips-horz {
+  to {
+    opacity: .9;
+    transform: translate(0, -50%);
+  }
+}
+
+.ast-upgrade-trigger:hover .image-clickable[data-title]::after {
+    display: block;
 }

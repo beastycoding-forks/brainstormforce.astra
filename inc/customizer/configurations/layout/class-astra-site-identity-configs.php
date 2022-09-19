@@ -101,7 +101,7 @@ if ( ! class_exists( 'Astra_Site_Identity_Configs' ) ) {
 					'default'   => astra_get_option( 'different-retina-logo' ),
 					'priority'  => 5,
 					'transport' => 'postMessage',
-					'divider'   => array( 'ast_class' => 'ast-top-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-top-dotted-divider' ),
 					'context'   => array(
 						array(
 							'setting'  => 'custom_logo',

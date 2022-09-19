@@ -39,6 +39,7 @@ final class Astra_Builder_Admin {
 	 */
 	public function __construct() {
 		add_action( 'wp_ajax_ast-migrate-to-builder', array( $this, 'migrate_to_builder' ) );
+		add_action( 'wp_ajax_ast-disable-pro-notices', array( $this, 'disable_astra_pro_notices' ) );
 		add_action( 'astra_welcome_page_content', array( $this, 'migrate_to_builder_box' ), 5 );
 	}
 
@@ -145,6 +146,26 @@ final class Astra_Builder_Admin {
 			require_once ASTRA_THEME_DIR . 'inc/theme-update/astra-builder-migration-updater.php';  // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 			astra_header_builder_migration();
 		}
+		wp_send_json_success();
+	}
+
+	/**
+	 * Disable pro upgrade notice from all over in Astra.
+	 *
+	 * @since x.x.x
+	 */
+	public function disable_astra_pro_notices() {
+
+		check_ajax_referer( 'astra-upgrade-notices-nonce', 'security' );
+
+		if ( ! current_user_can( 'manage_options' ) ) {
+			wp_send_json_error( __( 'You don\'t have the access', 'astra' ) );
+		}
+
+		$migrate = isset( $_POST['value'] ) ? sanitize_key( $_POST['value'] ) : '';
+		$migrate = ( $migrate ) ? true : false;
+		astra_update_option( 'ast-disable-upgrade-notices', $migrate );
+
 		wp_send_json_success();
 	}
 }

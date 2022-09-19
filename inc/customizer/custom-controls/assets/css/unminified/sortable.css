@@ -162,8 +162,12 @@
     margin-bottom: 20px;
     font-size: 13px;
     margin-top: 3px;
-    display: block;
 }
+
+.customize-control-ast-sortable .ast-sortable-subfields-wrap .ast-responsive-btns {
+    top: 7px;
+}
+
 .ast-sortable-subfields-wrap .ast-fields-wrap {
     margin-left: -12px;
 	padding-bottom: 10px;
@@ -203,4 +207,7 @@
 }
 .customize-control-ast-sortable .sortable .rfip .rfipbtn__button {
     margin-left: auto;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
+    top: -2px;
 }

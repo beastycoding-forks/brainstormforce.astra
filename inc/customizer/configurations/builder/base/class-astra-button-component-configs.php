@@ -123,7 +123,7 @@ class Astra_Button_Component_Configs {
 						'render_callback'     => array( $class_obj, 'button_' . $index ),
 					),
 					'context'           => Astra_Builder_Helper::$general_tab,
-					'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-top-section-divider' ),
 				),
 
 				/**
@@ -340,7 +340,6 @@ class Astra_Button_Component_Configs {
 					'transport' => 'postMessage',
 					'context'   => Astra_Builder_Helper::$design_tab,
 					'priority'  => 90,
-					'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -368,7 +367,7 @@ class Astra_Button_Component_Configs {
 						),
 						'em' => array(
 							'min'  => 0,
-							'step' => 1,
+							'step' => 0.01,
 							'max'  => 20,
 						),
 					),

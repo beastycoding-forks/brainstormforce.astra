@@ -97,7 +97,7 @@ const ResponsiveColorComponent = (props) => {
 	let inputHtml = null;
 
 	if (label) {
-		labelHtml = <span className="customize-control-title">{label}</span>;
+		labelHtml = <span>{label}</span>;
 	}
 
 	if (description) {

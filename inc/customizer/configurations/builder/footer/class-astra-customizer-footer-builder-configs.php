@@ -205,6 +205,8 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 20,
 				'description' => '',
+				'context'   => array(),
+				'divider'     => ( astra_showcase_upgrade_notices() ) ? array() : array( 'ast_class' => 'ast-pro-available' ),
 			),
 
 			// Group Option: Global Footer Background styling.
@@ -216,7 +218,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'section'   => 'section-footer-builder-layout',
 				'transport' => 'postMessage',
 				'priority'  => 70,
-				'title'     => __( 'Background Color & Image', 'astra' ),
+				'title'     => __( 'Background Color-Image', 'astra' ),
 				'context'   => Astra_Builder_Helper::$design_tab,
 				'divider'   => array( 'ast_class' => 'ast-section-spacing' ),
 			),
@@ -301,6 +303,38 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'divider'     => array( 'ast_class' => 'ast-section-spacing' ),
 			),
 		);
+
+		if ( astra_showcase_upgrade_notices() ) {
+			$_configs[] = array(
+				'name'     => ASTRA_THEME_SETTINGS . '[footer-builder-pro-items]',
+				'type'     => 'control',
+				'control'  => 'ast-upgrade',
+				'renderAs' => 'list',
+				'choices'  => array(
+					'two'   => array(
+						'title' => __( 'Divider Element', 'astra' ),
+					),
+					'three' => array(
+						'title' => __( 'Language Switcher Element', 'astra' ),
+					),
+					'five'  => array(
+						'title' => __( 'Clone, Delete Element Options', 'astra' ),
+					),
+					'six'   => array(
+						'title' => __( 'Increased Element Count', 'astra' ),
+					),
+					'seven' => array(
+						'title' => __( 'More Design Options', 'astra' ),
+					),
+				),
+				'section'  => 'section-footer-builder-layout',
+				'default'  => '',
+				'context'  => array(),
+				'priority' => 999,
+				'title'    => __( 'With Astra Pro get more features for your site footer!', 'astra' ),
+				'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
+			);
+		}
 
 		$_configs = array_merge( $_configs, Astra_Builder_Base_Configuration::prepare_advanced_tab( 'section-footer-builder-layout' ) );
 

@@ -31,7 +31,7 @@
     justify-content: center;
     border-radius: unset;
     transition: none;
-    font-weight: 600;
+    font-weight: normal;
 }
 .ast-alignment-inner-wrap.active .components-button.is-primary {
     color: var(--ast-customizer-color-10);
@@ -44,7 +44,7 @@
 .customize-control-ast-selector .components-button .ahfb-icon-set svg {
     width: 16px;
     height: 16px;
-    fill: var(--ast-customizer-color-6);
+    fill: var(--ast-customizer-color-8);
 }
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg,
 .customize-control-ast-selector .components-button.is-primary .ahfb-icon-set svg circle,
@@ -57,9 +57,6 @@
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap:last-child .components-button {
     border-radius: 0px 3px 3px 0px;
-}
-.ast-alignment-wrapper .ast-alignment-inner-wrap:not(:first-child) .components-button {
-    margin-left: -1px;
 }
 
 .ast-alignment-wrapper .ast-alignment-inner-wrap:not(:first-child):not(:last-child) .components-button{
@@ -77,8 +74,8 @@
 }
 .customize-control-ast-selector .ast-responsive-btns {
     position: relative;
-    left: 5px;
-    top: -2px;
+    left: 6px;
+    top: 0px;
 }
 .customize-control-ast-selector .ast-alignment-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;

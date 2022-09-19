@@ -218,7 +218,7 @@ const ColorGroupComponent = props => {
 	})
 
 	if (label) {
-		htmlLabel = <span className="customize-control-title">{label}</span>;
+		htmlLabel = <span>{label}</span>;
 		let multipleGroup = Object.entries( colorGroupState ).length > 2 ? 'ast-multiple-colors-group' :'';
 
 		if (responsive) {

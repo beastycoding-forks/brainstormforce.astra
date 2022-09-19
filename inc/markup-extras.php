@@ -1315,12 +1315,18 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 			?>
 			<div class="widget ast-no-widget-row">
 				<h2 class='widget-title'><?php echo esc_html( $sidebar_name ); ?></h2>
-
-				<p class='no-widget-text'>
-					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-						<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra' ); ?>
-					</a>
-				</p>
+				<?php if ( is_customize_preview() ) { ?>
+					<div class="customizer-navigate-on-focus" data-section="widgets" data-type="panel">
+						<?php Astra_Builder_UI_Controller::render_customizer_edit_button(); ?>
+				<?php } ?>
+						<p class='no-widget-text'>
+							<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
+								<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra' ); ?>
+							</a>
+						</p>
+				<?php if ( is_customize_preview() ) { ?>
+					</div>
+				<?php } ?>
 			</div>
 			<?php
 		}
@@ -1409,11 +1415,7 @@ if ( ! function_exists( 'astra_get_post_thumbnail' ) ) {
 		$blog_post_thumb   = astra_get_option( 'blog-post-structure' );
 		$single_post_thumb = astra_get_option( 'blog-single-post-structure' );
 
-		global $post;
-		$layout_type      = 'ast-single-' . $post->post_type;
-		$layout_post_meta = astra_get_option( $layout_type . '-structure', array( $layout_type . '-title', $layout_type . '-breadcrumb' ) ); // Migrated option.
-
-		if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && ( in_array( 'single-image', $single_post_thumb ) || in_array( $layout_type . '-image', $layout_post_meta ) ) ) || is_page() ) && has_post_thumbnail() ) {
+		if ( ( ( ! $check_is_singular && in_array( 'image', $blog_post_thumb ) ) || ( is_single() && in_array( 'single-image', $single_post_thumb ) ) || is_page() ) && has_post_thumbnail() ) {
 
 			if ( $featured_image && ( ! ( $check_is_singular ) || ( ! post_password_required() && ! is_attachment() && has_post_thumbnail() ) ) ) {
 
@@ -1620,3 +1622,19 @@ function astra_post_navigation_template() {
 }
 
 add_filter( 'navigation_markup_template', 'astra_post_navigation_template' );
+
+/**
+ * Prevent onboarding of Elementor.
+ *
+ * @param bool $network_wide Whether to enable the plugin for all sites in the network
+ *                            or just the current site. Multisite only. Default false.
+ *
+ * @since 3.9.0
+ */
+function astra_skip_elementor_onboarding( $network_wide ) {
+	// Deleted transient & setting up onboaded flag true to skip steps.
+	delete_transient( 'elementor_activation_redirect' );
+	update_option( 'elementor_onboarded', true );
+}
+
+add_action( 'activate_elementor/elementor.php', 'astra_skip_elementor_onboarding' );

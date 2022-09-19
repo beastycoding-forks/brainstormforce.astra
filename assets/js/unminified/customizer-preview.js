@@ -732,7 +732,7 @@ function hasWordPressWidgetBlockEditor() {
 		var blog_grid = (typeof ( wp.customize._value['astra-settings[blog-grid]'] ) != 'undefined') ? wp.customize._value['astra-settings[blog-grid]']._value : 1;
 		var blog_layout = (typeof ( wp.customize._value['astra-settings[blog-layout]'] ) != 'undefined') ? wp.customize._value['astra-settings[blog-layout]']._value : 'blog-layout-1';
 
-		var dynamicSelector = '.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container .ast-author-meta, .ast-separate-container .related-posts, .ast-separate-container .comments-count-wrapper, .ast-separate-container .comments-area .comments-title, .ast-single-related-posts-container';
+		var dynamicSelector = '.ast-separate-container .ast-article-single:not(.ast-related-post), .ast-separate-container .comments-area .comment-respond,.ast-separate-container .comments-area .ast-comment-list li, .ast-separate-container .ast-woocommerce-container, .ast-separate-container .error-404, .ast-separate-container .no-results, .single.ast-separate-container .ast-author-meta, .ast-separate-container .related-posts, .ast-separate-container .comments-count-wrapper, .ast-separate-container .comments-area .comments-title, .ast-single-related-posts-container, .ast-plain-container';
 
 		if( 'blog-layout-1' == blog_layout && 1 != blog_grid ) {
 			dynamicSelector   += ', .ast-separate-container .blog-layout-1, .ast-separate-container .blog-layout-2, .ast-separate-container .blog-layout-3';
@@ -1866,7 +1866,36 @@ function hasWordPressWidgetBlockEditor() {
 				}
 			} );
 		} );
-		
+
+		/**
+		 * Cart Count Color.
+		 */
+		wp.customize( 'astra-settings[woo-header-cart-product-count-color]', function( setting ) {
+			setting.bind( function( color ) {
+				if( color ) {
+				var dynamicStyle = '.ast-site-header-cart .ast-addon-cart-wrap i.astra-icon:after { color: ' + color + '; } ';
+				astra_add_dynamic_css( 'woo-header-cart-product-count-color', dynamicStyle );
+				} else {
+					wp.customize.preview.send( 'refresh' );
+				}
+			} );
+		} );
+
+		/**
+		 * Cart Count Color Hover.
+		 */
+		wp.customize( 'astra-settings[woo-header-cart-product-count-h-color]', function( setting ) {
+			setting.bind( function( color ) {
+				if( color ) {
+					var dynamicStyle = '.ast-site-header-cart .ast-site-header-cart-li:hover .ast-addon-cart-wrap i.astra-icon:after { color: ' + color + '; } ';
+					astra_add_dynamic_css( 'woo-header-cart-product-count-h-color', dynamicStyle );
+				} else {
+					wp.customize.preview.send( 'refresh' );
+				}
+
+			} );
+		} );
+
 		wp.customize('astra-settings[single-product-cart-button-width]', function (value) {
 			value.bind(function (size) {
 				var tablet_break_point = astraBuilderPreview.tablet_break_point || 768,
@@ -1881,16 +1910,116 @@ function hasWordPressWidgetBlockEditor() {
 					dynamicStyle += 'width: ' + size.tablet + '%' + ';';
 					dynamicStyle += '} ';
 					dynamicStyle += '} ';
-	
+
 					dynamicStyle += '@media (max-width: ' + mobile_break_point + 'px) {';
 					dynamicStyle += '.single_add_to_cart_button {';
 					dynamicStyle += 'width: ' + size.mobile + '%' + ';';
 					dynamicStyle += '} ';
 					dynamicStyle += '} ';
 					astra_add_dynamic_css('header-woo-cart-icon-size', dynamicStyle);
+				} else {
+					wp.customize.preview.send( 'refresh' );
 				}
 			});
 		});
+
+		// Single product Sticky add to cart.
+		const astraStickyAddToCartBtnColor = '.woocommerce .ast-sticky-add-to-cart .button.alt';
+		const astraStickyAddToCartBtnHover = '.woocommerce .ast-sticky-add-to-cart .button.alt:hover';
+
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-n-color]', 'color', astraStickyAddToCartBtnColor );
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-h-color]', 'color', astraStickyAddToCartBtnHover );
+
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-bg-n-color]', 'background', astraStickyAddToCartBtnColor );
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-bg-h-color]', 'background', astraStickyAddToCartBtnHover );
+
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-bg-n-color]', 'border-color',astraStickyAddToCartBtnColor );
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-btn-bg-h-color]', 'border-color', astraStickyAddToCartBtnHover );
+
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-text-color]', 'color', '.ast-sticky-add-to-cart .ast-container .ast-sticky-add-to-cart-content' );
+		astra_css( 'astra-settings[single-product-sticky-add-to-cart-bg-color]', 'background-color', '.ast-sticky-add-to-cart');
+
+		wp.customize( 'astra-settings[single-product-sticky-add-to-cart-position]', function( setting ) {
+			setting.bind( function( position  ) {
+
+				var dynamicStyle = '';
+
+				if( 'top' === position ) {
+					dynamicStyle += 'div.ast-sticky-add-to-cart{';
+					dynamicStyle += 'top: 0;';
+					dynamicStyle += 'bottom: initial;';
+					dynamicStyle += 'transform: translate(0, -100%);';
+					dynamicStyle += 'box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1), 0px 1px 9px rgba(0, 0, 0, 0.06);';
+					dynamicStyle += 'opacity: 0';
+					dynamicStyle += '}';
+				} else {
+					dynamicStyle += 'div.ast-sticky-add-to-cart{';
+					dynamicStyle += 'bottom: 0;';
+					dynamicStyle += 'top: initial;';
+					dynamicStyle += 'transform: translate(0, 100%);';
+					dynamicStyle += 'box-shadow: 0px -1px 10px rgba(0, 0, 0, 0.1), 0px -1px 9px rgba(0, 0, 0, 0.06);';
+					dynamicStyle += 'opacity: 0';
+					dynamicStyle += '}';
+				}
+
+				astra_add_dynamic_css( 'sticky-add-to-cart-position', dynamicStyle );
+			} );
+		} );
+
+		/**
+		 * Single product payments.
+		 */
+
+		wp.customize( 'astra-settings[single-product-payment-visa]', function( setting ) {
+			setting.bind( function( flag ) {
+				wp.customize.preview.send( 'refresh' );
+			} );
+		} );
+
+		wp.customize( 'astra-settings[single-product-payment-mastercard]', function( setting ) {
+			setting.bind( function( flag ) {
+				wp.customize.preview.send( 'refresh' );
+			} );
+		} );
+
+		wp.customize( 'astra-settings[single-product-payment-amex]', function( setting ) {
+			setting.bind( function( flag ) {
+				wp.customize.preview.send( 'refresh' );
+			} );
+		} );
+
+		wp.customize( 'astra-settings[single-product-payment-discover]', function( setting ) {
+			setting.bind( function( flag ) {
+				wp.customize.preview.send( 'refresh' );
+			} );
+		} );
+
+		wp.customize( 'astra-settings[single-product-payment-paypal]', function( setting ) {
+			setting.bind( function( flag ) {
+				wp.customize.preview.send( 'refresh' );
+			} );
+		} );
+
+		wp.customize( 'astra-settings[single-product-payment-apple-pay]', function( setting ) {
+			setting.bind( function( flag ) {
+				wp.customize.preview.send( 'refresh' );
+			} );
+		} );
+
+		wp.customize( 'astra-settings[single-product-payment-icon-color]', function( setting ) {
+			setting.bind( function( flag ) {
+				wp.customize.preview.send( 'refresh' );
+			} );
+		} );
+
+		wp.customize( 'astra-settings[single-product-payment-text]', function( setting ) {
+			setting.bind( function( text ) {
+				const paymentText = document.querySelector('.ast-single-product-payments legend');
+				if( paymentText ) {
+					paymentText.textContent = text;
+				}
+			} );
+		} );
 
 	}
 

@@ -77,15 +77,15 @@ class Astra_Customizer_Mobile_Trigger_Configs extends Astra_Customizer_Config_Ba
 				'section'           => $_section,
 				'choices'           => array(
 					'menu'  => array(
-						'label' => __( 'menu', 'astra' ),
+						'label' => __( 'Menu', 'astra' ),
 						'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'mobile_menu' ),
 					),
 					'menu2' => array(
-						'label' => __( 'menu2', 'astra' ),
+						'label' => __( 'Menu 2', 'astra' ),
 						'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'mobile_menu2' ),
 					),
 					'menu3' => array(
-						'label' => __( 'menu3', 'astra' ),
+						'label' => __( 'Menu 3', 'astra' ),
 						'path'  => Astra_Builder_UI_Controller::fetch_svg_icon( 'mobile_menu3' ),
 					),
 				),

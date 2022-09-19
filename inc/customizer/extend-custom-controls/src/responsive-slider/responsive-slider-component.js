@@ -85,7 +85,7 @@ const ResponsiveSliderComponent = props => {
 	};
 
 	const onUnitChange = (device, unitKey = '') => {
-		
+
 		const {
 			input_attrs,
 		} = props.control.params;
@@ -115,7 +115,7 @@ const ResponsiveSliderComponent = props => {
 
 			respHtml = 	Object.values( suffix ).map(unitKey => {
 				let unitClass = '';
-			
+
 
 				if (state[`${device}-unit`] === unitKey) {
 					unitClass = 'active';

@@ -94,28 +94,10 @@ if ( ! class_exists( 'Astra_Block_Editor_Configs' ) ) {
 					'control'  => 'ast-description',
 					'section'  => 'section-block-editor',
 					'priority' => 10,
-					'help'     => '<p style="margin-top: -10px;">' . __( 'Global padding setting for WordPress Group, Column, Cover blocks, it can be overridden by respective block\'s Dimension setting.', 'astra' ) . '</p>',
+					'help'     => '<p style="margin-top: -5px;">' . __( 'Global padding setting for WordPress Group, Column, Cover blocks, it can be overridden by respective block\'s Dimension setting.', 'astra' ) . '</p>',
 					'settings' => array(),
 				),
 			);
-
-			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
-				$_configs[] = array(
-
-					'name'     => ASTRA_THEME_SETTINGS . '[section-block-editor-ast-button-link]',
-					'type'     => 'control',
-					'control'  => 'ast-button-link',
-					'section'  => 'section-block-editor',
-					'priority' => 999,
-					'title'    => __( 'View Astra Pro Features', 'astra' ),
-					'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
-				);
-
-			}
 
 			return array_merge( $configurations, $_configs );
 		}

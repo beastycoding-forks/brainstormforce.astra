@@ -19,14 +19,12 @@
     background: #eeeeee;
     vertical-align: top;
     border: none;
-    border-left: 1px solid #dddddd;
     padding: 8px 12px;
     border-radius: 0;
 }
 
 #customize-control-astra-settings-builder-header, #customize-control-astra-settings-builder-footer {
     background: #eee;
-    transition: all 0.2s;
     backface-visibility: hidden;
     z-index: 10;
     height: 45px;
@@ -44,8 +42,9 @@
 }
 
 .button.ahfb-builder-hide-button.ahfb-builder-tab-toggle {
-    width: 100px;
-    text-align: center;
+	width: auto;
+	padding-right: 20px;
+	text-align: center;
 }
 
 .customize-control-ast-builder-header-control .ahfb-builder-tab-toggle:hover, .customize-control-ast-builder-header-control .ahfb-builder-section-shortcut:hover {
@@ -641,7 +640,7 @@
     cursor: pointer;
     box-shadow: none !important;
 	line-height: 42px;
-	font-size: 14px;	
+	font-size: 14px;
 }
 
 .ast-builder-elements-section .ast-builder-elements-notice  {
@@ -1928,7 +1927,7 @@ button.components-button.ahfb-sorter-item-expand {
 }
 
 .ahfb-slide-up span {
-	font-size: 12px;
+	font-size: 14px;
 	padding-left: 2px;
 }
 
@@ -5035,8 +5034,7 @@ i.fipicon-angle-left:before {
  * Added CSS for hiding section from WP-Customizer panel.
  */
 li#accordion-section-ast-single-post, li#accordion-section-ast-single-product,
-li#accordion-section-ast-archive-post, li#accordion-section-ast-archive-product,
-li#accordion-section-section-woo-shop-skin {
+li#accordion-section-ast-archive-post, li#accordion-section-ast-archive-product {
     display: none !important;
 }
 

@@ -14,7 +14,7 @@ const SelectComponent = props => {
 	const {
 		label,
 		name,
-		description, 
+		description,
 		choices
 	} = props.control.params;
 
@@ -30,7 +30,7 @@ const SelectComponent = props => {
 		return html;
 	});
 
-	
+
 	if (description) {
 		descriptionHtml = <span className="description customize-control-description">{description}</span>;
 	}

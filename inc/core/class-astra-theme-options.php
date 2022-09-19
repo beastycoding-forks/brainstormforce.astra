@@ -140,7 +140,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					'theme-color'                          => 'var(' . $palette_css_var_prefix . '0)',
 					'link-h-color'                         => 'var(' . $palette_css_var_prefix . '1)',
 					'heading-base-color'                   => 'var(' . $palette_css_var_prefix . '2)',
-					'border-color'                         => ( true === astra_get_option( 'legacy-customizer-ui-maintainer', false ) ) ? '' : 'var(' . $palette_css_var_prefix . '6)',
+					'border-color'                         => 'var(' . $palette_css_var_prefix . '6)',
 
 					// Footer Bar Background.
 					'footer-bg-obj'                        => array(

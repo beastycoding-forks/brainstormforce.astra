@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_variant' ),
 					'default'           => astra_get_option( 'body-font-variant' ),
 					'ast_inherit'       => __( 'Default', 'astra' ),
-					'help'              => __( 'Selected variants will load from Google.', 'astra' ),
+					'help'              => __( 'These variants will load from Google.', 'astra' ),
 					'section'           => $typo_section,
 					'priority'          => 6,
 					'title'             => __( 'Variants', 'astra' ),
@@ -244,7 +244,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 				array(
 					'name'              => 'headings-font-variant',
 					'type'              => 'sub-control',
-					'help'              => __( 'Selected variants will load from Google.', 'astra' ),
+					'help'              => __( 'These variants will load from Google.', 'astra' ),
 					'parent'            => ASTRA_THEME_SETTINGS . '[ast-headings-font-settings]',
 					'control'           => 'ast-font-variant',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_variant' ),
@@ -450,24 +450,6 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'transport' => 'postMessage',
 					'priority'  => 30,
 				);
-			}
-
-			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
-				$_configs[] = array(
-
-					'name'     => ASTRA_THEME_SETTINGS . '[ast-general-typo-button-link]',
-					'type'     => 'control',
-					'control'  => 'ast-button-link',
-					'section'  => $typo_section,
-					'priority' => 999,
-					'title'    => __( 'View Astra Pro Features', 'astra' ),
-					'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
-				);
-
 			}
 
 			return array_merge( $configurations, $_configs );

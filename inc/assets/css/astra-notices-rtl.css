@@ -38,12 +38,12 @@
     align-items: center;
 }
 
-#astra-sites-on-active .notice-image img {
+#astra-sites-on-active .notice-image img, #astra-upgrade-pro-wc .notice-image img {
     max-width: 60px;
     margin-right: 5px;
 }
 
-#astra-sites-on-active .notice-content .notice-heading {
+#astra-sites-on-active .notice-content .notice-heading, #astra-upgrade-pro-wc .notice-content .notice-heading {
     margin: 0 0 8px;
     padding: 0;
     font-weight: bolder;
@@ -51,13 +51,13 @@
     color: #2e4453;
 }
 
-#astra-sites-on-active .notice-content p {
+#astra-sites-on-active .notice-content p, #astra-upgrade-pro-wc .notice-content p {
     padding-top: 0;
     margin-top: 0;
     margin-bottom: 6px;
 }
 
-#astra-sites-on-active .notice-container {
+#astra-sites-on-active .notice-container, #astra-upgrade-pro-wc .notice-container {
     padding: 18px 0 18px;
     align-items: start;
 }
@@ -70,11 +70,11 @@
     height: 30px;
 }
 
-#astra-sites-on-active .astra-review-notice-container {
+#astra-sites-on-active .astra-review-notice-container, #astra-upgrade-pro-wc .astra-review-notice-container {
     padding-top: 5px;
 }
 
-#astra-sites-on-active .button-primary {
+#astra-sites-on-active .button-primary, #astra-upgrade-pro-wc .button-primary {
     box-shadow: 0 1px 0 #006799;
 }
 

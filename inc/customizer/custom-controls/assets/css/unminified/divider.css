@@ -114,11 +114,23 @@
 #customize-control-astra-settings-header-account-logged-out-text,
 #customize-control-blogname,
 #customize-control-blogdescription,
+#customize-control-astra-settings-shop-load-more-text,
+#customize-control-astra-settings-single-product-shipping-text,
+#customize-control-astra-settings-checkout-back-to-cart-button-text,
+#customize-control-astra-settings-ast-header-retina-logo,
+#customize-control-astra-settings-product-sale-percent-value,
+#customize-control-astra-settings-header-account-create-menu-link,
+#customize-control-astra-settings-woo-cart-button-text,
+#customize-control-astra-settings-single-product-recently-viewed-text,
 #customize-control-astra-settings-sticky-header-retina-logo {
     margin-top: 24px;
     padding-top: 24px;
     border-top: 1px dashed var(--ast-customizer-color-7);
 }
+
+#customize-control-astra-settings-product-sale-percent-value .ast-control-tooltip {
+    top: 24px;
+} 
 
 .customize-control.ast-top-dotted-divider .ast-adv-toggle-icon {
     top: 25px;
@@ -142,7 +154,7 @@
 
 .customize-control.ast-top-section-divider,
 .customize-control.ast-bottom-section-divider {
-    position: relative; 
+    position: relative;
 }
 
 .customize-control.ast-top-section-divider {
@@ -178,14 +190,30 @@
 /*
 * CSS for ast-first-control-spacing attribute started.
 */
+[ID*="-create-menu-link"] .ahfb-builder-item-start {
+    margin-bottom: 0;
+}
 
 .customize-control.ast-section-spacing,
 #customize-control-astra-settings-footer-create-menu-link,
-#customize-control-astra-settings-header-button1-text,
 #customize-control-astra-settings-footer-language-switcher-options,
 #customize-control-astra-settings-header-mobile-menu-create-menu-link,
 #customize-control-astra-settings-header-language-switcher-options,
 #customize-control-astra-settings-site-icon-link,
-#customize-control-astra-settings-header-button2-text {
+#customize-control-custom_logo,
+#customize-control-astra-settings-header-above-stick,
+[ID*="sub-accordion-section-section-hb-menu-"] [ID*="-create-menu-link"],
+[ID*="customize-control-astra-settings-header-button"][ID*="-text"],
+[ID*="customize-control-astra-settings-footer-button"][ID*="-text"] {
     margin-top: 32px;
+}
+
+#customize-control-body-font-variant,
+#customize-control-headings-font-variant {
+    margin-top: 0;
+}
+
+#customize-control-body-font-variant .customize-control-title,
+#customize-control-headings-font-variant .customize-control-title {
+    margin-top: 23px;
 }

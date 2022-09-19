@@ -78,7 +78,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					),
 					'em' => array(
 						'min'  => 0,
-						'step' => 1,
+						'step' => 0.01,
 						'max'  => 20,
 					),
 				),
@@ -188,7 +188,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					),
 					'em' => array(
 						'min'  => 0,
-						'step' => 1,
+						'step' => 0.01,
 						'max'  => 20,
 					),
 				),
@@ -300,50 +300,9 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					),
 					'em' => array(
 						'min'  => 0,
-						'step' => 1,
+						'step' => 0.01,
 						'max'  => 20,
 					),
-				),
-			),
-
-			/**
-			 * Option: Heading <H3> Font Weight
-			 */
-			array(
-				'name'              => 'font-weight-h3',
-				'parent'            => ASTRA_THEME_SETTINGS . '[ast-heading-h3-typo]',
-				'type'              => 'sub-control',
-				'control'           => 'ast-font',
-				'font_type'         => 'ast-font-weight',
-				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_font_weight' ),
-				'default'           => astra_get_option( 'font-weight-h3' ),
-				'title'             => __( 'Weight', 'astra' ),
-				'section'           => $section,
-				'priority'          => 28,
-				'connect'           => 'font-family-h3',
-				'transport'         => 'postMessage',
-			),
-
-			/**
-			 * Option: Heading <H3> Text Transform
-			 */
-			array(
-				'name'      => 'text-transform-h3',
-				'parent'    => ASTRA_THEME_SETTINGS . '[ast-heading-h3-typo]',
-				'type'      => 'sub-control',
-				'section'   => $section,
-				'lazy'      => true,
-				'title'     => __( 'Text Transform', 'astra' ),
-				'default'   => astra_get_option( 'text-transform-h3' ),
-				'transport' => 'postMessage',
-				'control'   => 'ast-select',
-				'priority'  => 28,
-				'choices'   => array(
-					''           => __( 'Inherit', 'astra' ),
-					'none'       => __( 'None', 'astra' ),
-					'capitalize' => __( 'Capitalize', 'astra' ),
-					'uppercase'  => __( 'Uppercase', 'astra' ),
-					'lowercase'  => __( 'Lowercase', 'astra' ),
 				),
 			),
 
@@ -452,11 +411,11 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					),
 					'em' => array(
 						'min'  => 0,
-						'step' => 1,
+						'step' => 0.01,
 						'max'  => 20,
 					),
 				),
-			), 
+			),
 
 			/**
 			 * Option: Heading <H4> Font Weight
@@ -542,7 +501,6 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 			/**
 			 * Option: Heading 5 (H5) Font Size
 			 */
-
 			array(
 				'name'              => 'font-size-h5',
 				'parent'            => ASTRA_THEME_SETTINGS . '[ast-heading-h5-typo]',
@@ -563,11 +521,11 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					),
 					'em' => array(
 						'min'  => 0,
-						'step' => 1,
+						'step' => 0.01,
 						'max'  => 20,
 					),
 				),
-			), 
+			),
 			/**
 			 * Option: Heading <H5> Font Weight
 			 */
@@ -673,7 +631,7 @@ class Astra_Headings_Typo_Configs extends Astra_Customizer_Config_Base {
 					),
 					'em' => array(
 						'min'  => 0,
-						'step' => 1,
+						'step' => 0.01,
 						'max'  => 20,
 					),
 				),

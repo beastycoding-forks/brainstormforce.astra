@@ -191,9 +191,9 @@ const ResponsiveBackground = props => {
 	const responsiveMobile = parse( svgIcons['mobile-responsive'] );
 
 	if (label && '' !== label && undefined !== label) {
-		labelHtml = <span className="customize-control-title">{label}</span>;
+		labelHtml = <span>{label}</span>;
 	} else {
-		labelHtml = <span className="customize-control-title">{__('Background', 'astra')}</span>;
+		labelHtml = <span>{__('Background', 'astra')}</span>;
 	}
 
 	if (description) {

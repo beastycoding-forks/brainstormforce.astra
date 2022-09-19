@@ -311,7 +311,6 @@ class Astra_Social_Icon_Component_Configs {
 						'fallback_refresh'    => false,
 					),
 					'context'   => Astra_Builder_Helper::$general_tab,
-					'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
 				/**

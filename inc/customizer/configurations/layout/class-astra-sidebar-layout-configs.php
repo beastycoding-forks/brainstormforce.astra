@@ -45,10 +45,6 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 					'priority'          => 5,
 					'title'             => __( 'Default Layout', 'astra' ),
 					'choices'           => array(
-						'default'       => array(
-							'label' => __( 'Default', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
-						),
 						'no-sidebar'    => array(
 							'label' => __( 'No Sidebar', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'no-sidebar', false ) : '',
@@ -133,33 +129,33 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 			);
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
+			if ( astra_showcase_upgrade_notices() ) {
 				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-sidebars-ast-button-link]',
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-sidebar-pro-items]',
 					'type'     => 'control',
-					'control'  => 'ast-button-link',
+					'control'  => 'ast-upgrade',
+					'renderAs' => 'list',
+					'choices'  => array(
+						'one'   => array(
+							'title' => __( 'Sidebar Spacings', 'astra' ),
+						),
+						'two'   => array(
+							'title' => __( 'Sidebar Color Options', 'astra' ),
+						),
+						'three' => array(
+							'title' => __( 'Widget Color Options', 'astra' ),
+						),
+						'four'  => array(
+							'title' => __( 'Widget Title Typography', 'astra' ),
+						),
+						'five'  => array(
+							'title' => __( 'Widget Content Typography', 'astra' ),
+						),
+					),
 					'section'  => 'section-sidebars',
+					'default'  => '',
 					'priority' => 999,
-					'title'    => __( 'View Astra Pro Features', 'astra' ),
-					'url'      => astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
-				);
-			}
-
-			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
-				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[site-page-group-ast-button-link]',
-					'type'     => 'control',
-					'control'  => 'ast-button-link',
-					'section'  => 'section-page-group',
-					'priority' => 999,
-					'title'    => __( 'View Astra Pro Features', 'astra' ),
-					'url'      => astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-					'settings' => array(),
+					'title'    => __( 'With Astra Pro get design options for your sidebar!', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				);
 			}

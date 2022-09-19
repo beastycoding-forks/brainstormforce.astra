@@ -16,6 +16,7 @@ const { __ } = wp.i18n;
 const MetaSettings = props => {
 
 	const modalIcon = parse( svgIcons['meta-popup-icon'] );
+	const astraLogo = parse( svgIcons['astraLogo'] );
 	const brandIcon = astMetaParams.isWhiteLabelled ? '' : parse( svgIcons['astra-brand-icon'] );
 
     const [ isOpen, setOpen ] = useState( false );
@@ -293,6 +294,13 @@ const MetaSettings = props => {
 						</PanelBody>
 					}
 
+					{ ( ! astMetaParams.is_addon_activated && astMetaParams.show_upgrade_notice ) &&
+						<div className="ast-pro-upgrade-cta-wrapper">
+							{astraLogo}
+							<p className="ast-upgrade-description"> { __( 'Build professional websites faster, easier and better than ever before!', 'astra' ) } </p>
+							<a href={ astMetaParams.upgrade_pro_link } className='ast-pro-upgrade-link' target='_blank'> { __( 'Upgrade Now', 'astra' ) } </a>
+						</div>
+					}
 				</div>
 			</PluginSidebar>
 		</>

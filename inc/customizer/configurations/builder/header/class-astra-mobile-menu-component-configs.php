@@ -107,6 +107,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 							'value'    => true,
 						),
 					),
+					'divider'  => array( 'ast_class' => 'ast-section-spacing' ),
 				),
 
 				// Option: Submenu item Border Size.
@@ -133,7 +134,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'step' => 1,
 						'max'  => 10,
 					),
-					'divider'     => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
+					'divider'     => array( 'ast_class' => 'ast-bottom-dotted-divider ast-section-spacing' ),
 				),
 
 				// Option: Submenu item Border Color.
@@ -171,7 +172,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'responsive' => true,
 					'divider'    => array(
 						'ast_title' => __( 'Menu Color', 'astra' ),
-						'ast_class' => 'ast-section-spacing ast-bottom-dotted-divider',
+						'ast_class' => 'ast-section-spacing',
 					),
 				),
 				array(
@@ -396,7 +397,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						),
 						'em' => array(
 							'min'  => 0,
-							'step' => 1,
+							'step' => 0.01,
 							'max'  => 20,
 						),
 					),

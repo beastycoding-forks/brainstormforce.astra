@@ -51,10 +51,6 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 					'priority'          => 9,
 					'title'             => __( 'Default Layout', 'astra' ),
 					'choices'           => array(
-						'default'                 => array(
-							'label' => __( 'Default', 'astra' ),
-							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
-						),
 						'boxed-container'         => array(
 							'label' => __( 'Boxed', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-boxed', false ) : '',
@@ -173,40 +169,31 @@ if ( ! class_exists( 'Astra_Site_Container_Layout_Configs' ) ) {
 			$configurations = array_merge( $configurations, $_configs );
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
+			if ( astra_showcase_upgrade_notices() ) {
 				$config = array(
-
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-container-more-feature-description]',
-						'type'     => 'control',
-						'control'  => 'ast-description',
-						'section'  => 'section-container-layout',
-						'priority' => 999,
-						'title'    => '',
-						'help'     => '<p>' . __( 'More Options Available in Astra Pro!!!', 'astra' ) . '</p><a href="' . astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ) . '" class="button button-secondary"  target="_blank" rel="noopener">' . __( 'Learn More', 'astra' ) . '</a>',
-						'settings' => array(),
-						'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
-					),
-				);
-
-				$configurations = array_merge( $configurations, $config );
-			}
-
-			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
-				$config = array(
-
 					array(
 						'name'     => ASTRA_THEME_SETTINGS . '[ast-site-layout-button-link]',
 						'type'     => 'control',
-						'control'  => 'ast-button-link',
+						'control'  => 'ast-upgrade',
+						'renderAs' => 'list',
+						'choices'  => array(
+							'one'   => array(
+								'title' => __( 'Full Width Layout', 'astra' ),
+							),
+							'two'   => array(
+								'title' => __( 'Padded Layout', 'astra' ),
+							),
+							'three' => array(
+								'title' => __( 'Fluid Layout', 'astra' ),
+							),
+							'four'  => array(
+								'title' => __( 'Container Spacings', 'astra' ),
+							),
+						),
 						'section'  => 'section-container-layout',
+						'default'  => '',
 						'priority' => 999,
-						'title'    => __( 'View Astra Pro Features', 'astra' ),
-						'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-						'settings' => array(),
+						'title'    => __( 'With Astra Pro you will get more control on container layouts!', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
 				);

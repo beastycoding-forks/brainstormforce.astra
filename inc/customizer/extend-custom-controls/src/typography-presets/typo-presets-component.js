@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { __ } from "@wordpress/i18n";
 import { useState } from 'react';
-import { Tooltip, Dashicon } from "@wordpress/components";
+import { Dashicon } from "@wordpress/components";
 import parse from 'html-react-parser';
 
 const TypoPresetControl = ( props ) => {
@@ -135,21 +135,18 @@ const TypoPresetControl = ( props ) => {
 
 	const SingleList = ( props ) => {
 		return (
-			<Tooltip
-				key={props.uniqueKey}
-				text={ generateToolTipText(props.preset ) }
+			<li
+				className={
+					"ast-typo-preset-item " +
+					(propsValue === props.preset ? "active" : "")
+				}
+				key={props.preset}
+				onClick={() => onPresetClick(props.preset)}
 			>
-				<li
-					className={
-						"ast-typo-preset-item " +
-						(propsValue === props.preset ? "active" : "")
-					}
-					key={props.preset}
-					onClick={() => onPresetClick(props.preset)}
-				>
-					{parse(window.svgIcons[props.preset])}
-				</li>
-			</Tooltip>
+				{parse(window.svgIcons[props.preset])}
+				<span className="ast-typopreset-custom-tooltip" data-title={ generateToolTipText(props.preset ) }></span>
+			</li>
+
 		);
 	};
 

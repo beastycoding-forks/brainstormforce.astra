@@ -20,11 +20,14 @@
 
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-units-screen-wrap {
   position: relative;
-  top: -7px;
+  top: -5px;
   right: -10px;
   display: inline-block;
 }
-
+.customize-control-ast-responsive-spacing .ast-spacing-responsive-btns {
+    position: relative;
+    top: 2px;
+}
 .customize-control-ast-responsive-spacing .ast-spacing-responsive-btns > li {
   display: none;
 }
@@ -58,7 +61,7 @@
   line-height: 16px;
   text-transform: uppercase;
   font-weight: 500;
-  top: -33px;
+  top: -32px;
   right: 0;
 }
 
@@ -152,7 +155,7 @@
   background-color: transparent;
 }
 
-.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link svg {  
+.customize-control-ast-responsive-spacing .input-wrapper .ast-spacing-wrapper .ast-spacing-input-item-link svg {
   pointer-events: none;
 }
 

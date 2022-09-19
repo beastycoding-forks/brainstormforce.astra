@@ -7,4 +7,6 @@ span.customize-control-title.ast-group-section-title {
 }
 .customize-control-ast-group-title .ast-responsive-btns {
 	margin-left: 5px;
+    position: relative;
+    top: 3px;
 }

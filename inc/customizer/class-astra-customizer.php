@@ -382,7 +382,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 	                    			return \'&#\'+i.charCodeAt(0)+\';\';
 								});
 	                    	desc.remove();
-	                    	li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'title=\'" + tooltip +"\'></i>");
+	                    	li_wrapper.append(" <i class=\'ast-control-tooltip dashicons dashicons-editor-help\'data-title=\'" + tooltip +"\'></i><span class=\'ast-dashicons-custom-tooltip\'data-title=\'" + tooltip + "\'><span>");
 	                	}
 	            	});
 	        	});';
@@ -479,8 +479,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					if ( isset( $configuration['choices'] ) && is_array( $configuration['choices'] ) ) {
 
 						foreach ( $configuration['choices'] as $key => $value ) {
-							$configuration['choices'][ $key ]        = $value['path'];
-							$configuration['choices_titles'][ $key ] = $value['label'];
+							$configuration['choices'][ $key ]         = $value['path'];
+							$configuration['choices_titles'][ $key ]  = $value['label'];
+							$configuration['choices_upgrade'][ $key ] = isset( $value['is_pro'] ) ? $value['is_pro'] : false;
 						}
 					}
 					if ( isset( $configuration['input_attrs'] ) ) {
@@ -1059,6 +1060,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					'googleFonts'             => Astra_Font_Families::get_google_fonts(),
 					'variantLabels'           => Astra_Font_Families::font_variant_labels(),
 					'menuLocations'           => $resultant_menus,
+					'upgradeUrl'              => ASTRA_PRO_UPGRADE_URL,
 				)
 			);
 
@@ -1367,6 +1369,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'group_modal_tmpl'    => $template,
 							'sortable_modal_tmpl' => $sortable_subcontrol_template,
 							'is_pro'              => defined( 'ASTRA_EXT_VER' ),
+							'show_upgrade_notice' => ( astra_showcase_upgrade_notices() ) ? true : false,
 							'upgrade_link'        => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 							'is_block_widget'     => astra_has_widgets_block_editor(),
 						),

@@ -33,40 +33,55 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 			$_configs = array();
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
+			if ( astra_showcase_upgrade_notices() ) {
 
 				$_configs = array(
 
 					/**
-					 * Option: Learn More about Contant Typography
+					 * Option: Astra Pro items for blog pro.
 					 */
 					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-button-link]',
+						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-pro-items]',
 						'type'     => 'control',
-						'control'  => 'ast-button-link',
+						'control'  => 'ast-upgrade',
+						'renderAs' => 'list',
+						'choices'  => array(
+							'one'   => array(
+								'title' => __( 'Archive Blog Layout', 'astra' ),
+							),
+							'two'   => array(
+								'title' => __( 'Grid, Masonry Layout', 'astra' ),
+							),
+							'three' => array(
+								'title' => __( 'Custom Featured Images Size', 'astra' ),
+							),
+							'four'  => array(
+								'title' => __( 'Archive Pagination Options', 'astra' ),
+							),
+							'six'   => array(
+								'title' => __( 'Extended Typography Options', 'astra' ),
+							),
+							'seven' => array(
+								'title' => __( 'Extended Spacing Options', 'astra' ),
+							),
+							'eight' => array(
+								'title' => __( 'Archive Read Time', 'astra' ),
+							),
+							'nine' => array(
+								'title' => __( 'Archive Excerpt Options', 'astra' ),
+							),
+							'ten' => array(
+								'title' => __( 'Extended Spacing Options', 'astra' ),
+							),
+						),
 						'section'  => 'section-blog',
+						'default'  => '',
 						'priority' => 999,
-						'title'    => __( 'View Astra Pro Features', 'astra' ),
-						'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-						'settings' => array(),
+						'context'  => array(),
+						'title'    => __( 'With Astra Pro get more features for your blog!', 'astra' ),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					),
-
-					array(
-						'name'     => ASTRA_THEME_SETTINGS . '[ast-blog-design-button-link]',
-						'type'     => 'control',
-						'control'  => 'ast-button-link',
-						'section'  => 'section-blog',
-						'priority' => 999,
-						'title'    => __( 'View Astra Pro Features', 'astra' ),
-						'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-						'settings' => array(),
-						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
-						'context'  => Astra_Builder_Helper::$design_tab,
-					),
-
 				);
-
 			}
 
 			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
@@ -113,7 +128,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							),
 							'em' => array(
 								'min'  => 0,
-								'step' => 1,
+								'step' => 0.01,
 								'max'  => 20,
 							),
 						),
@@ -157,7 +172,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							),
 							'em' => array(
 								'min'  => 0,
-								'step' => 1,
+								'step' => 0.01,
 								'max'  => 20,
 							),
 						),
@@ -190,12 +205,13 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							),
 							'em' => array(
 								'min'  => 0,
-								'step' => 1,
+								'step' => 0.01,
 								'max'  => 20,
 							),
 						),
 						'context'           => ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) ?
 							Astra_Builder_Helper::$design_tab : Astra_Builder_Helper::$general_tab,
+						'divider'           => array( 'ast_class' => 'ast-section-spacing ast-bottom-section-divider' ),
 					),
 
 					/**
@@ -221,7 +237,7 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							),
 							'em' => array(
 								'min'  => 0,
-								'step' => 1,
+								'step' => 0.01,
 								'max'  => 20,
 							),
 						),

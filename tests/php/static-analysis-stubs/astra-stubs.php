@@ -1078,8 +1078,11 @@ namespace {
         }
         /**
          * Prepare Edit icon inside customizer.
+         *
+         * @param string $class custom class.
+         * @since x.x.x
          */
-        public static function render_customizer_edit_button()
+        public static function render_customizer_edit_button($class = '')
         {
         }
         /**
@@ -1096,7 +1099,7 @@ namespace {
         /**
          * Prepare Edit navigatory trigger for Banner Section in customizer.
          *
-         * @since x.x.x
+         * @since 3.9.0
          */
         public static function render_banner_customizer_edit_button()
         {
@@ -2316,17 +2319,6 @@ namespace {
         {
         }
         /**
-         * Get menu by location
-         *
-         * @since x.x.x
-         *
-         * @param string $theme_location Registered theme location.
-         * @return mixed If menu location set.
-         */
-        public static function astra_get_menu_by_location($theme_location)
-        {
-        }
-        /**
          * Secondary navigation markup
          *
          * @param int $index index.
@@ -3093,6 +3085,18 @@ namespace {
          * @return string
          */
         public function get_color_by_palette_variable($color)
+        {
+        }
+        /**
+         * Add dynamic CSS for the global border color.
+         *
+         * @since 3.9.0
+         *
+         * @param  string $dynamic_css          Astra Dynamic CSS.
+         *
+         * @return String Generated dynamic CSS for global border.
+         */
+        public function global_border_compatibility($dynamic_css)
         {
         }
     }
@@ -5033,7 +5037,7 @@ namespace {
         public function content_layout($layout)
         {
         }
-        /**
+        /** 
          * LearnDash Static CSS.
          *
          * @since 3.3.0
@@ -5389,26 +5393,73 @@ namespace {
         {
         }
         /**
+         * As WooCommerce-Astra pro options moved to theme, decide here to load from theme's end after 3.9.2 version.
+         *
+         * @since 3.9.2
+         * @return bool true|false.
+         */
+        public static function load_theme_side_woocommerce_strcture()
+        {
+        }
+        /**
+         * Post Class
+         *
+         * @param array $classes Default argument array.
+         * @return array
+         */
+        public function post_class($classes)
+        {
+        }
+        /**
+         * Modern Design Add to cart Markup
+         *
+         * @since 3.9.2
+         * @return mixed HTML markup.
+         */
+        public function modern_add_to_cart()
+        {
+        }
+        /**
+         * Modern shop page's triggers on product image.
+         *
+         * @since 3.9.2
+         */
+        public function add_modern_triggers_on_image()
+        {
+        }
+        /**
+         * Astra Sale flash markup.
+         *
+         * @param string $sale_notification sale bubble type.
+         * @param string $product Product.
+         * @since 3.9.2
+         * @return mixed HTML markup.
+         */
+        public function get_sale_flash_markup($sale_notification, $product)
+        {
+        }
+        /**
+         * Sale bubble flash
+         *
+         * @param  mixed  $markup  HTML markup of the the sale bubble / flash.
+         * @param  string $post Post.
+         * @param  string $product Product.
+         * @since 3.9.2
+         * @return string bubble markup.
+         */
+        public function sale_flash($markup, $post, $product)
+        {
+        }
+        /**
          * Change cart close icon.
          *
-         * @since x.x.x
+         * @since 3.9.0
          *
          * @param  string $string Close button html.
          *
          * @return string $string Close button html.
          */
         public function change_cart_close_icon($string)
-        {
-        }
-        /**
-         * Encode SVG
-         *
-         * @since x.x.x
-         *
-         * @param  string $svg Svg icon.
-         * @return string
-         */
-        public function svg_encode($svg)
         {
         }
         /**
@@ -5420,7 +5471,7 @@ namespace {
         /**
          * Update WooCommerce store notice. Extending this function to add custom data-attr as per Astra's configuration.
          *
-         * @since x.x.x
+         * @since 3.9.0
          *
          * @param  string $notice Store notice markup.
          * @return string $notice Store notice markup.
@@ -5431,7 +5482,7 @@ namespace {
         /**
          * Adds shipping text after price.
          *
-         * @since x.x.x
+         * @since 3.9.0
          */
         public function woocommerce_shipping_text()
         {
@@ -5439,7 +5490,7 @@ namespace {
         /**
          * Dynamic CSS for store notice config.
          *
-         * @since x.x.x
+         * @since 3.9.0
          *
          * @param  string $dynamic_css          Astra Dynamic CSS.
          * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
@@ -5717,6 +5768,15 @@ namespace {
         {
         }
         /**
+         * Shop summary box wrapper alignment.
+         *
+         * @since 3.9.2
+         * @return string
+         */
+        public function astra_shop_summary_box_alignment()
+        {
+        }
+        /**
          * Register Customizer sections and panel for woocommerce
          *
          * @since 1.0.0
@@ -5779,20 +5839,39 @@ namespace {
         {
         }
         /**
-         * Change woocommerce template directory path
+         * Add shopping CTA in cart flyout.
          *
-         * @since x.x.x
+         * @since 3.9.0
          */
-        public function woocommerce_template_directory_path_change()
+        public function astra_update_flyout_cart_layout()
         {
         }
         /**
-         * Woocommerce template path
+         * Woocommerce Cart button html
          *
-         * @since x.x.x
-         * @return string
+         * @since 3.9.0
+         * @return void
          */
-        public function woocommerce_template_path()
+        public function woocommerce_proceed_to_checkout_button_html()
+        {
+        }
+        /**
+         * Woocommerce Cart button text
+         *
+         * @since 3.9.0
+         * @return void
+         */
+        public function woocommerce_proceed_to_checkout_button()
+        {
+        }
+        /**
+         * Update the "Customize" link to the Toolbar.
+         *
+         * @since 3.9.2
+         *
+         * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
+         */
+        public function astra_update_customize_admin_bar_link($wp_admin_bar)
         {
         }
         /**
@@ -5802,6 +5881,46 @@ namespace {
          * @return boolean false if it is an existing user , true if not.
          */
         public static function astra_global_btn_woo_comp()
+        {
+        }
+        /**
+         * Show the product title in the product loop.
+         *
+         * @param string $product_type product type.
+         */
+        public function astra_woo_woocommerce_template_product_title($product_type)
+        {
+        }
+        /**
+         * Show the product catagories in the product loop.
+         */
+        public function single_product_category()
+        {
+        }
+        /**
+         * Single Product Payments.
+         *
+         * @since  3.9.2
+         * @return void
+         */
+        public function woocommerce_product_single_payments()
+        {
+        }
+        /**
+         * Show the product title in the product loop. By default this is an H2.
+         *
+         * @param string $product_type product type.
+         */
+        public function single_product_content_structure($product_type = '')
+        {
+        }
+        /**
+         * Single product sticky add to cart.
+         *
+         * @return void
+         * @since 3.9.0
+         */
+        public function single_product_sticky_add_to_cart()
         {
         }
     }
@@ -5866,7 +5985,7 @@ namespace {
          *
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
-         * @since x.x.x
+         * @since 3.9.0
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -5901,6 +6020,23 @@ namespace {
          * @param Array                $configurations Astra Customizer Configurations.
          * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
          * @since 1.4.3
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Customizer Sanitizes Initial setup
+     */
+    class Astra_Woo_Shop_Misc_Layout_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Astra-WooCommerce Misc Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since 3.9.2
          * @return Array Astra Customizer Configurations with updated configurations.
          */
         public function register_configuration($configurations, $wp_customize)
@@ -6381,7 +6517,7 @@ namespace {
          * Page title
          *
          * @since 1.0
-         * @var array $page_title
+         * @var string $page_title
          */
         public static $page_title = 'Astra';
         /**
@@ -6432,6 +6568,37 @@ namespace {
         {
         }
         /**
+         * Register Custom Layout & Page Header Pro sub-menus.
+         *
+         * Add new admin pages as sub-menu under the main Astra Options menu.
+         *
+         * Fired by `admin_menu` action.
+         *
+         * @since x.x.x
+         * @access public
+         */
+        public static function register_pro_menu()
+        {
+        }
+        /**
+         * Showcase Custom Layout highlight.
+         *
+         * @since x.x.x
+         * @access public
+         */
+        public static function preview_custom_layout()
+        {
+        }
+        /**
+         * Showcase Page Header highlight.
+         *
+         * @since x.x.x
+         * @access public
+         */
+        public static function preview_page_header()
+        {
+        }
+        /**
          * Save All admin settings here
          */
         public static function save_settings()
@@ -6452,6 +6619,14 @@ namespace {
          * @since 1.4.0
          */
         public static function register_notices()
+        {
+        }
+        /**
+         * Upgrade to Pro notice for Astra on WooCommerce pages.
+         *
+         * @since x.x.x
+         */
+        public static function upgrade_to_pro_wc_notice()
         {
         }
         /**
@@ -6588,6 +6763,17 @@ namespace {
          * @since 1.2.4
          */
         public static function astra_welcome_page_content()
+        {
+        }
+        /**
+         * Check if Spectra is installed.
+         *
+         * @since 3.9.2
+         *
+         * @access public
+         * @return array
+         */
+        public static function astra_get_spectra_plugin_data()
         {
         }
         /**
@@ -7034,7 +7220,7 @@ namespace {
         public function __construct()
         {
         }
-        /**
+        /** 
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7044,7 +7230,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /**
+        /** 
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7054,7 +7240,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7064,7 +7250,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7074,7 +7260,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7084,7 +7270,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7094,7 +7280,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -7103,7 +7289,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /**
+        /** 
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -7148,16 +7334,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /**
+        /** 
          * Comment form grid classes.
          *
-         * @since 3.3.0
+         * @since 3.3.0 
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /**
+        /** 
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -7166,7 +7352,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /**
+        /** 
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -7174,7 +7360,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /**
+        /** 
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -7182,7 +7368,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /**
+        /** 
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -7190,7 +7376,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /**
+        /** 
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -7198,7 +7384,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /**
+        /** 
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -7206,7 +7392,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /**
+        /** 
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -7216,7 +7402,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7226,7 +7412,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7256,7 +7442,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -10910,7 +11096,7 @@ namespace {
     }
     /*!
      * ISC License
-     *
+     * 
      * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
      *
      * Permission to use, copy, modify, and/or distribute this software for any
@@ -11784,7 +11970,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.1' => array('astra_apply_modern_block_editor_ui'), '3.8.3' => array('astra_update_customizer_layout_defaults', 'astra_apply_modern_block_editor_v2_ui'), '3.9.0-beta.1' => array('astra_display_cart_total_title_compatibility', 'astra_update_woocommerce_cart_icons'), '3.9.0' => array('astra_legacy_customizer_maintenance'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.1' => array('astra_apply_modern_block_editor_ui'), '3.8.3' => array('astra_update_customizer_layout_defaults', 'astra_apply_modern_block_editor_v2_ui'), '3.9.0' => array('astra_update_single_product_breadcrumb', 'astra_display_cart_total_title_compatibility', 'astra_update_woocommerce_cart_icons', 'astra_legacy_customizer_maintenance', 'astra_apply_modern_ecommerce_setup', 'astra_responsive_shop_content_alignment'), '3.9.2' => array('astra_apply_woocommerce_show_password_icon_css', 'astra_shop_style_design_layout'), '3.9.3' => array('astra_slide_in_cart_width_responsive_slider'));
         /**
          *  Constructor
          */
@@ -12198,15 +12384,16 @@ namespace {
     /**
      * Define Constants
      */
-    \define('ASTRA_THEME_VERSION', '3.9.0-beta.1');
+    \define('ASTRA_THEME_VERSION', '3.9.2');
     \define('ASTRA_THEME_SETTINGS', 'astra-settings');
     \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
     \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
+    \define('ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/');
     /**
      * Minimum Version requirement of the Astra Pro addon.
      * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
      */
-    \define('ASTRA_EXT_MIN_VER', 'v3.7.0-beta.1');
+    \define('ASTRA_EXT_MIN_VER', '3.9.2');
     /**
      * Astra Get Breadcrumb
      *
@@ -12414,15 +12601,6 @@ namespace {
     {
     }
     /**
-     * Function to get Categories applied of Post
-     *
-     * @param  array $args Query filter args.
-     * @return string HTML Markup.
-     */
-    function astra_custom_post_taxonomies($args = array())
-    {
-    }
-    /**
      * Adds custom classes to the array of body classes.
      *
      * @since 1.0
@@ -12510,26 +12688,6 @@ namespace {
      * @return mixed
      */
     function astra_get_video_from_post($post_id)
-    {
-    }
-    /**
-     * Get last word of string to get metakey of custom post structure.
-     *
-     * @since x.x.x
-     * @param string $string - String from which last word needs to find.
-     * @return string $last_word.
-     */
-    function astra_get_last_meta_word($string)
-    {
-    }
-    /**
-     * Custom single post Title & Meta order display.
-     *
-     * @since x.x.x
-     * @param array $structure - Post strcture.
-     * @return mixed
-     */
-    function astra_banner_elements_order($structure = array())
     {
     }
     /**
@@ -12841,7 +12999,7 @@ namespace {
     }
     /**
      * Load Menu hover style static CSS if any one of the menu hover style is selected.
-     *
+     * 
      * @return string
      * @since 3.5.0
      */
@@ -13192,6 +13350,41 @@ namespace {
     {
     }
     /**
+     * Checking whether shop page style is selected as modern layout.
+     *
+     * @return bool true|false.
+     */
+    function astra_is_shop_page_modern_style()
+    {
+    }
+    /**
+     * Check if Woocommerce pro addons is enabled.
+     *
+     * @return bool true|false.
+     */
+    function astra_has_pro_woocommerce_addon()
+    {
+    }
+    /**
+     * Support cart color setting to default cart icon, till now with other cart icons have this color compatibility but default one don't have this.
+     * This case is only for old header layout.
+     *
+     * @since 3.9.2
+     * @return boolean false if it is an existing user, true if not.
+     */
+    function astra_cart_color_default_icon_old_header()
+    {
+    }
+    /**
+     * Function to check the Add to Cart quantity buttons.
+     *
+     * @return bool true|false.
+     * @since 3.9.2
+     */
+    function astra_add_to_cart_quantity_btn_enabled()
+    {
+    }
+    /**
      * Return defaults for Builder Options.
      *
      * @param array $defaults exsiting options array.
@@ -13370,9 +13563,9 @@ namespace {
     /**
      * Parse CSS
      *
-     * @param  array  $css_output Array of CSS.
-     * @param  string $min_media  Min Media breakpoint.
-     * @param  string $max_media  Max Media breakpoint.
+     * @param  array $css_output Array of CSS.
+     * @param  mixed $min_media  Min Media breakpoint.
+     * @param  mixed $max_media  Max Media breakpoint.
      * @return string             Generated CSS.
      */
     function astra_parse_css($css_output = array(), $min_media = '', $max_media = '')
@@ -13603,8 +13796,8 @@ namespace {
     /**
      * Get the tablet breakpoint value.
      *
-     * @param string $min min.
-     * @param string $max max.
+     * @param mixed $min min.
+     * @param mixed $max max.
      *
      * @since 2.4.0
      *
@@ -13731,6 +13924,15 @@ namespace {
      * @return bool true|false.
      */
     function astra_check_is_structural_setup()
+    {
+    }
+    /**
+     * Check if user is old for hiding/showing password icon field for login my-account form.
+     *
+     * @since 3.9.2
+     * @return bool true|false.
+     */
+    function astra_load_woocommerce_login_form_password_icon()
     {
     }
     /**
@@ -14611,7 +14813,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css
+     * @param string $dynamic_css 
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -14872,6 +15074,17 @@ namespace {
     {
     }
     /**
+     * Check the Astra addon version.
+     * For  major update and frequently we used version_compare, added a function for this for easy maintenance.
+     *
+     * @param string $version Astra addon version.
+     * @param string $compare Compare symbols.
+     * @since  3.9.2
+     */
+    function astra_addon_check_version($version, $compare)
+    {
+    }
+    /**
      * Get a stylesheet URL for a webfont.
      *
      * @since 3.6.0
@@ -15027,12 +15240,12 @@ namespace {
     {
     }
     /**
-     * Getting current author ID.
+     * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
      *
      * @since x.x.x
-     * @return mixed
+     * @return bool
      */
-    function astra_get_author_id()
+    function astra_showcase_upgrade_notices()
     {
     }
     /**
@@ -15430,6 +15643,17 @@ namespace {
      * Added this filter to modify the post navigation template to remove the h2 tag from screen reader text.
      */
     function astra_post_navigation_template()
+    {
+    }
+    /**
+     * Prevent onboarding of Elementor.
+     *
+     * @param bool $network_wide Whether to enable the plugin for all sites in the network
+     *                            or just the current site. Multisite only. Default false.
+     *
+     * @since 3.9.0
+     */
+    function astra_skip_elementor_onboarding($network_wide)
     {
     }
     \define('ASTRA_RELATED_POSTS_DIR', \ASTRA_THEME_DIR . 'inc/modules/related-posts/');
@@ -16069,15 +16293,6 @@ namespace {
     {
     }
     /**
-     * Display Cart Total and Title compatibility.
-     *
-     * @since x.x.x
-     * @return void
-     */
-    function astra_display_cart_total_title_compatibility()
-    {
-    }
-    /**
      * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      *
      * Starting supporting content-background color for Full Width Contained & Full Width Stretched layouts.
@@ -16086,16 +16301,6 @@ namespace {
      * @return void
      */
     function astra_fullwidth_layouts_apply_content_background()
-    {
-    }
-    /**
-     * Migrating Post Structure & Meta options in title area meta parts.
-     *
-     * @since x.x.x
-     *
-     * @return void
-     */
-    function astra_post_strctures_meta_migration()
     {
     }
     /**
@@ -16108,15 +16313,6 @@ namespace {
     {
     }
     /**
-     * If old user then it keeps then default cart icon.
-     *
-     * @since x.x.x
-     * @return void
-     */
-    function astra_update_woocommerce_cart_icons()
-    {
-    }
-    /**
      * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      *
      * Backward flag purpose - To initiate modern & updated UI of block editor & frontend.
@@ -16125,15 +16321,6 @@ namespace {
      * @return void
      */
     function astra_apply_modern_block_editor_ui()
-    {
-    }
-    /**
-     * Set flag to new customizer UI maintainer flag, to avoid direct reflections on live site & to maintain backward compatibility for existing users.
-     *
-     * @since x.x.x
-     * @return void
-     */
-    function astra_legacy_customizer_maintenance()
     {
     }
     /**
@@ -16156,6 +16343,87 @@ namespace {
      * @return void
      */
     function astra_apply_modern_block_editor_v2_ui()
+    {
+    }
+    /**
+     * Display Cart Total and Title compatibility.
+     *
+     * @since 3.9.0
+     * @return void
+     */
+    function astra_display_cart_total_title_compatibility()
+    {
+    }
+    /**
+     * If old user then it keeps then default cart icon.
+     *
+     * @since 3.9.0
+     * @return void
+     */
+    function astra_update_woocommerce_cart_icons()
+    {
+    }
+    /**
+     * Set brder color to blank for old users for new users 'default' will take over.
+     *
+     * @since 3.9.0
+     * @return void
+     */
+    function astra_legacy_customizer_maintenance()
+    {
+    }
+    /**
+     * Enable single product breadcrumb to maintain backward compatibility for existing users.
+     *
+     * @since 3.9.0
+     * @return void
+     */
+    function astra_update_single_product_breadcrumb()
+    {
+    }
+    /**
+     * Restrict direct changes on users end so make it filterable.
+     *
+     * @since 3.9.0
+     * @return void
+     */
+    function astra_apply_modern_ecommerce_setup()
+    {
+    }
+    /**
+     * Migrate old user data to new responsive format layout for shop's summary box content alignment.
+     *
+     * @since 3.9.0
+     * @return void
+     */
+    function astra_responsive_shop_content_alignment()
+    {
+    }
+    /**
+     * Change default layout to standard for old users.
+     *
+     * @since 3.9.2
+     * @return void
+     */
+    function astra_shop_style_design_layout()
+    {
+    }
+    /**
+     * Apply css for show password icon on woocommerce account page.
+     *
+     * @since 3.9.2
+     * @return void
+     */
+    function astra_apply_woocommerce_show_password_icon_css()
+    {
+    }
+    /**
+     * Slide In Cart compatibility for responsive width slider
+     * 
+     * @since x.x.x
+     * @return void
+     */
+    function astra_slide_in_cart_width_responsive_slider()
     {
     }
     /**

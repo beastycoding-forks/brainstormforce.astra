@@ -32,19 +32,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 
 			$_configs = array(
 
-				/**
-				 * Option: Divider
-				 */
-				array(
-					'name'     => ASTRA_THEME_SETTINGS . '[archive-post-content-layout-divider]',
-					'section'  => 'section-blog',
-					'title'    => __( 'Layout', 'astra' ),
-					'type'     => 'control',
-					'control'  => 'ast-heading',
-					'priority' => 5,
-					'settings' => array(),
-					'divider'  => array( 'ast_class' => 'ast-bottom-spacing' ),
-				),
 
 				/**
 				 * Archive / Blog container layout.

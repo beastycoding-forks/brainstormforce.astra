@@ -256,18 +256,16 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			if ( 'inherit' == $site_title_font_family ) {
 				$site_title_font_family = $headings_font_family;
 			}
-			if ( 'inherit' == $site_title_font_weight ) {
-				$site_title_font_weight = 'normal';
-			}
 			if ( '' == $site_title_text_transform ) {
 				$site_title_text_transform = $headings_text_transform;
 			}
 			if ( '' == $site_title_line_height ) {
 				$site_title_line_height = $headings_line_height;
 			}
-			if ( $font_weight_prop === $site_title_font_weight ) {
-				$site_title_font_weight = $headings_font_weight;
+			if ( 'inherit' == $site_title_font_weight || '' == $site_title_font_weight ) {
+				$site_title_font_weight = '400';
 			}
+
 			// check the selection color incase of empty/no theme color.
 			$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;
 

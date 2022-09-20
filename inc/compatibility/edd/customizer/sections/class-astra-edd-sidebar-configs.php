@@ -64,13 +64,13 @@ if ( ! class_exists( 'Astra_Edd_Sidebar_Configs' ) ) {
 						),
 					),
 					'context'           => array(
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[edd-content-layout]',
-								'operator' => '!=',
-								'value'    => 'page-builder',
-							),
-							Astra_Builder_Helper::$general_tab_config,
-						) ,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-content-layout]',
+							'operator' => '!=',
+							'value'    => 'page-builder',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
 				),
 
 				/**
@@ -105,13 +105,13 @@ if ( ! class_exists( 'Astra_Edd_Sidebar_Configs' ) ) {
 						),
 					),
 					'context'           => array(
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-layout]',
-								'operator' => '!=',
-								'value'    => 'page-builder',
-							),
-							Astra_Builder_Helper::$general_tab_config,
-						) ,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-archive-product-layout]',
+							'operator' => '!=',
+							'value'    => 'page-builder',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 
@@ -148,13 +148,13 @@ if ( ! class_exists( 'Astra_Edd_Sidebar_Configs' ) ) {
 						),
 					),
 					'context'           => array(
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[edd-single-product-layout]',
-								'operator' => '!=',
-								'value'    => 'page-builder',
-							),
-							Astra_Builder_Helper::$general_tab_config,
-						) ,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[edd-single-product-layout]',
+							'operator' => '!=',
+							'value'    => 'page-builder',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
 					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
 				),
 

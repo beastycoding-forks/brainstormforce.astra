@@ -79,13 +79,13 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 						),
 					),
 					'context'           => array(
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[lifterlms-content-layout]',
-								'operator' => '!=',
-								'value'    => 'page-builder',
-							),
-							Astra_Builder_Helper::$general_tab_config,
-						) ,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[lifterlms-content-layout]',
+							'operator' => '!=',
+							'value'    => 'page-builder',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
 				),
 
 
@@ -121,14 +121,14 @@ if ( ! class_exists( 'Astra_Lifter_Sidebar_Configs' ) ) {
 						),
 					),
 					'context'           => array(
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[lifterlms-content-layout]',
-								'operator' => '!=',
-								'value'    => 'page-builder',
-							),
-							Astra_Builder_Helper::$general_tab_config,
-						) ,
-						'divider'           => array( 'ast_class' => 'ast-section-spacing ast-top-section-divider' ),
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[lifterlms-content-layout]',
+							'operator' => '!=',
+							'value'    => 'page-builder',
+						),
+						Astra_Builder_Helper::$general_tab_config,
+					),
+					'divider'           => array( 'ast_class' => 'ast-section-spacing ast-top-section-divider' ),
 				),
 			);
 

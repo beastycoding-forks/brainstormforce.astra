@@ -70,7 +70,7 @@ if ( ! class_exists( 'Astra_Learndash_Sidebar_Configs' ) ) {
 							'value'    => 'page-builder',
 						),
 						Astra_Builder_Helper::$general_tab_config,
-					) ,
+					),
 				),
 			);
 

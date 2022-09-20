@@ -99,7 +99,7 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 								'value'    => 'page-builder',
 							),
 							Astra_Builder_Helper::$general_tab_config,
-						) ,
+						),
 						'divider'           => array( 'ast_class' => 'ast-section-spacing ast-top-section-divider' ),
 					),
 

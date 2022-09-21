@@ -69,6 +69,19 @@ html {
   vertical-align: middle;
 }
 
+.edit-post-visual-editor .entry-content h1,
+.edit-post-visual-editor .entry-content h2,
+.edit-post-visual-editor .entry-content h3,
+.edit-post-visual-editor .entry-content h4,
+.edit-post-visual-editor .entry-content h5,
+.edit-post-visual-editor .entry-content h6 {
+  margin-bottom: 10px;
+}
+
+.edit-post-visual-editor p {
+  margin-bottom: 1.75em;
+}
+
 .edit-post-visual-editor blockquote {
   margin: 1.5em 3em 1.5em 1em;
   font-size: 1.1em;
@@ -686,6 +699,10 @@ h6 {
 .block-editor-block-list__layout .block-editor-block-list__block.wp-block-button:not(:first-child) {
   padding-right: 0;
   padding-left: 0;
+}
+
+.block-editor-block-list__layout.block-editor-block-list__layout.block-editor-block-list__layout .wp-block-heading {
+  margin-bottom: 10px;
 }
 
 .block-editor-block-list__empty-block-inserter .block-editor-inserter__toggle.components-button.has-icon {

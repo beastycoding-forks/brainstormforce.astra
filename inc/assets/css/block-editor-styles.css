@@ -447,6 +447,9 @@ h6 {
   background-color: #f5f5f5;
 }
 
+/**
+* Page title alignment with Content-Boxed & Boxed Container.
+*/
 .ast-separate-container .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper, .ast-two-container .edit-post-visual-editor__post-title-wrapper {
   padding-left: calc( 6.67em - 28px);
   padding-right: calc( 6.67em - 28px);
@@ -665,6 +668,9 @@ h6 {
   height: 40px;
 }
 
+/**
+ * Page title alignment with Full-Width layout.
+ */
 .ast-page-builder-template .edit-post-visual-editor__post-title-wrapper {
   margin-left: 0 !important;
 }

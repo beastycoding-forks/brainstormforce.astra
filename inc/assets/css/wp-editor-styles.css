@@ -321,6 +321,9 @@ html {
   height: 40px;
 }
 
+/**
+ * Page title alignment with Full-Width layout.
+ */
 .ast-page-builder-template .edit-post-visual-editor__post-title-wrapper {
   margin-left: 0 !important;
 }

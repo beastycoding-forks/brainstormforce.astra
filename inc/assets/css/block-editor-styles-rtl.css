@@ -447,6 +447,11 @@ h6 {
   background-color: #f5f5f5;
 }
 
+.ast-separate-container .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper, .ast-two-container .edit-post-visual-editor__post-title-wrapper {
+  padding-right: calc( 6.67em - 28px);
+  padding-left: calc( 6.67em - 28px);
+}
+
 /**
  * Woocommerce Gutenberg Blocks Product Grid CSS Compatibility.
  */

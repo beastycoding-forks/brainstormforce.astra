@@ -79,6 +79,7 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'       => __( 'Font Family', 'astra' ),
 					'connect'     => ASTRA_THEME_SETTINGS . '[body-font-weight]',
 					'variant'     => ASTRA_THEME_SETTINGS . '[body-font-variant]',
+					'divider'     => array( 'ast_class' => 'ast-sub-bottom-dotted-divider' ),
 				),
 
 				/**

@@ -383,7 +383,14 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			var control_clean_name = attr.name.replace('[', '-');
 			control_clean_name = control_clean_name.replace(']', '');
 
-			fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control + "' >";
+			let ast_class = '';
+			
+			if ( attr ?. divider ?. ast_class ) {
+				
+				ast_class = `${ attr.divider.ast_class} `;
+			}
+
+			fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control " + ast_class + "customize-control-" + attr.control + "' >";
 
 			if( jQuery( '#tmpl-' + template_id ).length ) {
 				fields_html += template(attr);

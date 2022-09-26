@@ -30,7 +30,7 @@ $astra_search_input_value       = isset( $args['input_value'] ) ? $args['input_v
 			define( 'ABSPATH', __DIR__ . '/' );
 		}
 		 require_once ABSPATH . 'wp-admin/includes/plugin.php';
-		if ( isset("ASTRA_EXT_BASE") ) {
+		if ( defined( 'ASTRA_EXT_VER' ) ) {
 			if ( class_exists( 'Astra_Icons' ) && Astra_Icons::is_svg_icons() ) { 
 				?>
 			<button class="search-submit ast-search-submit" aria-label="<?php echo esc_attr__( 'Search Submit', 'astra' ); ?>">
@@ -43,7 +43,7 @@ $astra_search_input_value       = isset( $args['input_value'] ) ? $args['input_v
 		?>
 	</label>
 	<?php  
-	if ( ! isset("ASTRA_EXT_BASE") ) {
+	if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 		if ( $astra_search_show_input_submit ) { 
 			?>
 		<input type="submit" class="search-submit" value="<?php echo esc_attr__( 'Search', 'astra' ); ?>">

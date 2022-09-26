@@ -27,7 +27,7 @@ $astra_search_input_value       = isset( $args['input_value'] ) ? $args['input_v
 		<input type="search" class="search-field" <?php echo esc_html( $astra_search_data_attrs ); ?> placeholder="<?php echo esc_html( $astra_search_input_placeholder ); ?>" value="<?php echo esc_attr( $astra_search_input_value ); ?>" name="s" tabindex="-1">
 		<?php 
 		if ( ! defined( 'ABSPATH' ) ) {
-			define( 'ABSPATH', __DIR__ . '/' );
+			exit; // Exit if accessed directly.
 		}
 		 require_once ABSPATH . 'wp-admin/includes/plugin.php';
 		if ( defined( 'ASTRA_EXT_VER' ) ) {

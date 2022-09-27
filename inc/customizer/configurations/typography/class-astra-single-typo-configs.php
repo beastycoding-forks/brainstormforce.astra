@@ -60,7 +60,7 @@ if ( ! class_exists( 'Astra_Single_Typo_Configs' ) ) {
 							'four'  => array(
 								'title' => __( 'Custom Featured Images Size', 'astra' ),
 							),
-							'seven'   => array(
+							'seven' => array(
 								'title' => __( 'Single Post Read Time', 'astra' ),
 							),
 							'five'  => array(

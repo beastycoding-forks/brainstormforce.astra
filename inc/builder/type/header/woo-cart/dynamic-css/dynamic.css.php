@@ -254,7 +254,7 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 	);
 
 	// Offcanvas cart.
-	$flyout_cart_width = astra_get_option( 'woo-slide-in-cart-width' );
+	$flyout_cart_width              = astra_get_option( 'woo-slide-in-cart-width' );
 	$flyout_cart_width_desktop      = ( isset( $flyout_cart_width['desktop'] ) ) ? $flyout_cart_width['desktop'] : '';
 	$flyout_cart_width_tablet       = ( isset( $flyout_cart_width['tablet'] ) ) ? $flyout_cart_width['tablet'] : '';
 	$flyout_cart_width_mobile       = ( isset( $flyout_cart_width['mobile'] ) ) ? $flyout_cart_width['mobile'] : '';

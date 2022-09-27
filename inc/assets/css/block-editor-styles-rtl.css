@@ -764,3 +764,12 @@ h6 {
   text-align: right;
   padding-right: 5px;
 }
+
+h1.wp-block.has-background,
+h2.wp-block.has-background,
+h3.wp-block.has-background,
+h4.wp-block.has-background,
+h5.wp-block.has-background,
+h6.wp-block.has-background {
+  padding: 1.25em 2.375em;
+}

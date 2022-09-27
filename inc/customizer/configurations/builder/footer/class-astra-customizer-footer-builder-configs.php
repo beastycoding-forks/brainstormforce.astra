@@ -205,7 +205,7 @@ class Astra_Customizer_Footer_Builder_Configs extends Astra_Customizer_Config_Ba
 				'control'     => 'ast-builder-header-control',
 				'priority'    => 20,
 				'description' => '',
-				'context'   => array(),
+				'context'     => array(),
 				'divider'     => ( astra_showcase_upgrade_notices() ) ? array() : array( 'ast_class' => 'ast-pro-available' ),
 			),
 

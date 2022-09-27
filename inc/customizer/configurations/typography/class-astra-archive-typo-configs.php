@@ -67,10 +67,10 @@ if ( ! class_exists( 'Astra_Archive_Typo_Configs' ) ) {
 							'eight' => array(
 								'title' => __( 'Archive Read Time', 'astra' ),
 							),
-							'nine' => array(
+							'nine'  => array(
 								'title' => __( 'Archive Excerpt Options', 'astra' ),
 							),
-							'ten' => array(
+							'ten'   => array(
 								'title' => __( 'Extended Spacing Options', 'astra' ),
 							),
 						),

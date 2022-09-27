@@ -6,6 +6,7 @@ v3.9.3 (Unreleased)
 - Fix: WooCommerce - Content background color preview not working in customizer preview.
 - Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend.
 - Fix: Block Editor - Astra Meta settings does not save when Custom Fields option is enabled from the preferences.
+- Fix: Disabled Astra meta setting for Blog page which does not not work from metabox, as it acts like a archive page on the frontend.
 
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.

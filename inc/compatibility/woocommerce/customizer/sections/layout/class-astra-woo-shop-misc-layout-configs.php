@@ -88,10 +88,10 @@ if ( ! class_exists( 'Astra_Woo_Shop_Misc_Layout_Configs' ) ) {
 						'five'  => array(
 							'title' => __( 'Modern My Account Page', 'astra' ),
 						),
-						'six'  => array(
+						'six'   => array(
 							'title' => __( 'Downloads, Orders Grid View', 'astra' ),
 						),
-						'seven'  => array(
+						'seven' => array(
 							'title' => __( 'Modern Thank You Page Design', 'astra' ),
 						),
 					),

@@ -20,6 +20,7 @@ const MetaSettings = props => {
 
     const [ isOpen, setOpen ] = useState( false );
 
+	const [ contentLayout, setContentLayout ] = useState(props.meta['site-content-layout']);
     const openModal = () => setOpen( true );
     const closeModal = () => setOpen( false );
 
@@ -120,6 +121,8 @@ const MetaSettings = props => {
 								choices = { contentLayoutOptions }
 								id = { 'site-content-layout' }
 								onChange={ ( val ) => {
+									setContentLayout(val);
+									if(val === 'page-builder') props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
 									props.setMetaFieldValue( val, 'site-content-layout' );
 								} }
 							/>
@@ -127,7 +130,8 @@ const MetaSettings = props => {
 					</PanelBody>
 
 					{/* Sidebar Setting */}
-					<PanelBody
+					<div style = {contentLayout === 'page-builder' ? {display:'none'} : {display: 'block'}}>
+					<PanelBody 
 						title={ __( 'Sidebar', 'astra' ) }
 						initialOpen={ false }
 					>
@@ -143,6 +147,8 @@ const MetaSettings = props => {
 						</div>
 					</PanelBody>
 
+					</div>
+					
 					{/* Disable Section Setting */}
 					<PanelBody
 						title={ __( 'Disable Elements', 'astra' ) }

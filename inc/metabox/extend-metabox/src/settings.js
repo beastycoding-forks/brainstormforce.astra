@@ -19,7 +19,7 @@ const MetaSettings = props => {
 	const brandIcon = astMetaParams.isWhiteLabelled ? '' : parse( svgIcons['astra-brand-icon'] );
 
     const [ isOpen, setOpen ] = useState( false );
-
+	
 	const [ contentLayout, setContentLayout ] = useState(props.meta['site-content-layout']);
     const openModal = () => setOpen( true );
     const closeModal = () => setOpen( false );

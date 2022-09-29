@@ -80,6 +80,8 @@ function astra_container_layout_css() {
 	$page_container_css        = '';
 	$customizer_default_update = astra_check_is_structural_setup();
 	$page_title_header_padding = ( true === $customizer_default_update ) ? '2em' : '4em';
+	$astra_settings                       = get_option( ASTRA_THEME_SETTINGS );
+	$full_width_padding_left = isset( $astra_settings['full-width-padding-left'] ) ? false : true;
 
 	/** @psalm-suppress InvalidCast */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$tablet_breakpoint = (string) astra_get_tablet_breakpoint();
@@ -125,6 +127,12 @@ function astra_container_layout_css() {
             max-width: 100%;
           }';
 
+		if( $full_width_padding_left ) {
+			$page_container_css .= '.ast-page-builder-template .entry-header {
+				padding-left: 0;
+			}';
+		}
+
 		if ( true === $customizer_default_update ) {
 			$page_container_css .= '
 				.ast-page-builder-template .entry-header {
@@ -157,6 +165,7 @@ function astra_container_layout_css() {
 					padding-left: 20px;
 					padding-right: 20px;
 				}
+
 			';
 		}
 

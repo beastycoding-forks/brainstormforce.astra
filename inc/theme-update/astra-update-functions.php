@@ -1078,3 +1078,20 @@ function astra_slide_in_cart_width_responsive_slider() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Do not remove padding left for existing users on full-width/stretched layouts.
+ *
+ * @since x.x.x
+ *
+ * @return void
+ */
+function astra_full_width_layout_padding_css() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	// Set flag to not remove padding left for existing users.
+	if ( ! isset( $theme_options['full-width-padding-left'] ) ) {
+		$theme_options['full-width-padding-left'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

@@ -127,6 +127,7 @@ function astra_container_layout_css() {
             max-width: 100%;
           }';
 
+		// Full Width Stretched layout page title alignment.
 		if( $full_width_padding_left ) {
 			$page_container_css .= '.ast-page-builder-template .entry-header {
 				padding-left: 0;

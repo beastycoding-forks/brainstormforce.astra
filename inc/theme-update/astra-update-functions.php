@@ -1059,7 +1059,9 @@ function astra_apply_woocommerce_show_password_icon_css() {
 }
 
 /**
- * Slide In Cart compatibility for responsive width slider
+ * Slide In Cart compatibility for responsive 
+
+width slider
  * 
  * @since x.x.x
  * @return void
@@ -1078,7 +1080,6 @@ function astra_slide_in_cart_width_responsive_slider() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
-
 /**
  * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
  *
@@ -1087,10 +1088,10 @@ function astra_slide_in_cart_width_responsive_slider() {
  * @since x.x.x
  * @return void
  */
-function astra_backward_manager_v4_0_0() {
+function astra_backward_manager_v3_9_3() {
 	$theme_options = get_option( 'astra-settings', array() );
-	if ( ! isset( $theme_options['compatibility-v4.0.0'] ) ) {
-		$theme_options['compatibility-v4.0.0'] = true;
+	if ( ! isset( $theme_options['compatibility-v3.9.3'] ) ) {
+		$theme_options['compatibility-v3.9.3'] = true;
 		update_option( 'astra-settings', $theme_options );
 	}
 }

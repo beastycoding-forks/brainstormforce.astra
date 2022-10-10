@@ -3588,6 +3588,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					echo '</div>';
 				}
 			}
+
+			if ( class_exists( 'ASTRA_Ext_WooCommerce_Markup' ) ) {
+				$is_product_archive = ( is_shop() || is_product_taxonomy() ) ? true : false;
+				if ( $is_product_archive && ( true === ASTRA_Ext_WooCommerce_Markup::astra_is_shop_page_modern_style() || true === ASTRA_Ext_WooCommerce_Markup::is_easy_view_switcher_enable() ) ) {
+					$output = '<script  type="text/javascript">';
+					$output .= 'jQuery( document ).ready(function($) {';
+					$output .= '$(document).on("change",".woocommerce-ordering select.orderby",function() {';
+					$output .= '$( ".woocommerce-ordering" ).trigger( "submit" );';
+					$output .= '});';
+					$output .= '});';
+					$output .= '</script>';
+					echo $output;
+				}
+			}
 		}
 	}
 

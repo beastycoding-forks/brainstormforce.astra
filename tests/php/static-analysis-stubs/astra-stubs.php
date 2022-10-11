@@ -11139,64 +11139,6 @@ namespace {
         {
         }
     }
-    /*!
-     * ISC License
-     * 
-     * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
-     *
-     * Permission to use, copy, modify, and/or distribute this software for any
-     * purpose with or without fee is hereby granted, provided that the above
-     * copyright notice and this permission notice appear in all copies.
-     *
-     * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
-     * REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
-     * AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
-     * INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
-     * LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE
-     * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
-     * PERFORMANCE OF THIS SOFTWARE.
-     */
-    class FlattedString
-    {
-        public function __construct($value)
-        {
-        }
-    }
-    class Flatted
-    {
-        // public utilities
-        public static function parse($json, $assoc = \false, $depth = 512, $options = 0)
-        {
-        }
-        public static function stringify($value, $options = 0, $depth = 512)
-        {
-        }
-        // private helpers
-        private static function asString($value)
-        {
-        }
-        private static function index(&$known, &$input, &$value)
-        {
-        }
-        private static function keys(&$value)
-        {
-        }
-        private static function loop($obj, $keys, &$input, &$set, &$output)
-        {
-        }
-        private static function relate(&$known, &$input, &$value)
-        {
-        }
-        private static function ref($obj, &$key, &$value, &$input, &$set, &$output)
-        {
-        }
-        private static function transform(&$known, &$input, &$value)
-        {
-        }
-        private static function wrap($value)
-        {
-        }
-    }
     /**
      * Customizer Initialization
      *
@@ -11942,64 +11884,6 @@ namespace {
         }
     }
     /**
-     * Astra_PB_Compatibility initial setup
-     *
-     * @since 1.0.13
-     */
-    class Astra_PB_Compatibility
-    {
-        /**
-         * Class instance.
-         *
-         * @access private
-         * @var $instance Class instance.
-         */
-        private static $instance;
-        /**
-         * Initiator
-         */
-        public static function get_instance()
-        {
-        }
-        /**
-         *  Constructor
-         */
-        public function __construct()
-        {
-        }
-        /**
-         * Page builder compatibility database migration was added in v1.0.14, This was 2 Years ago as of right now.
-         * After version 1.8.7 we are stopping from running this to avoid execution of unnecessary database queries.
-         * This code will be removed alltogether in newer versions as it is not working
-         *
-         * @since 2.0.0
-         *
-         * @return void
-         */
-        public function maybe_run_pb_compatibility()
-        {
-        }
-        /**
-         * Update options of older version than 1.0.13.
-         *
-         * @since 1.0.13
-         * @return void
-         */
-        public function page_builder_compatibility()
-        {
-        }
-        /**
-         * Update meta values
-         *
-         * @since 1.0.13
-         * @param  int $id Post id.
-         * @return void
-         */
-        public function update_meta_values($id)
-        {
-        }
-    }
-    /**
      * Astra_Theme_Background_Updater Class.
      */
     class Astra_Theme_Background_Updater
@@ -12015,7 +11899,7 @@ namespace {
          *
          * @var array
          */
-        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.1' => array('astra_apply_modern_block_editor_ui'), '3.8.3' => array('astra_update_customizer_layout_defaults', 'astra_apply_modern_block_editor_v2_ui'), '3.9.0' => array('astra_update_single_product_breadcrumb', 'astra_display_cart_total_title_compatibility', 'astra_update_woocommerce_cart_icons', 'astra_legacy_customizer_maintenance', 'astra_apply_modern_ecommerce_setup', 'astra_responsive_shop_content_alignment'), '3.9.2' => array('astra_apply_woocommerce_show_password_icon_css', 'astra_shop_style_design_layout'), '3.9.3' => array('astra_slide_in_cart_width_responsive_slider'));
+        private static $db_updates = array('2.1.3' => array('astra_submenu_below_header'), '2.2.0' => array('astra_page_builder_button_color_compatibility', 'astra_vertical_horizontal_padding_migration'), '2.3.0' => array('astra_header_button_new_options'), '2.3.3' => array('astra_elementor_default_color_typo_comp'), '2.3.4' => array('astra_breadcrumb_separator_fix'), '2.4.0' => array('astra_responsive_base_background_option', 'astra_update_theme_tablet_breakpoint'), '2.4.4' => array('astra_gtn_full_wide_image_group_css'), '2.5.0' => array('astra_global_button_woo_css', 'astra_gtn_full_wide_group_cover_css'), '2.5.2' => array('astra_footer_widget_bg'), '2.6.0' => array('astra_bg_control_migration', 'astra_bg_responsive_control_migration', 'astra_gutenberg_core_blocks_design_compatibility'), '2.6.1' => array('astra_gutenberg_media_text_block_css_compatibility'), '3.0.0' => array('astra_header_builder_compatibility'), '3.0.1' => array('astra_clear_assets_cache'), '3.3.0' => array('astra_gutenberg_pattern_compatibility', 'astra_icons_svg_compatibility', 'astra_check_flex_based_css'), '3.4.0' => array('astra_update_cart_style'), '3.5.0' => array('astra_update_related_posts_grid_layout', 'astra_site_title_tagline_responsive_control_migration'), '3.6.0' => array('astra_headings_font_support', 'astra_remove_logo_max_width', 'astra_transparent_header_default_value'), '3.6.3' => array('astra_button_default_values_updated'), '3.6.4' => array('astra_update_underline_link_setting'), '3.6.5' => array('astra_support_block_editor'), '3.6.7' => array('astra_fix_footer_widget_right_margin_case', 'astra_remove_elementor_toc_margin'), '3.6.8' => array('astra_set_removal_widget_design_options_flag'), '3.6.9' => array('astra_zero_font_size_comp', 'astra_unset_builder_elements_underline', 'astra_remove_responsive_account_menu_colors_support'), '3.7.0' => array('astra_global_color_compatibility'), '3.7.4' => array('astra_improve_gutenberg_editor_ui'), '3.7.9' => array('astra_set_default_breadcrumb_separator_option', 'astra_fullwidth_layouts_apply_content_background'), '3.8.1' => array('astra_apply_modern_block_editor_ui'), '3.8.3' => array('astra_update_customizer_layout_defaults', 'astra_apply_modern_block_editor_v2_ui'), '3.9.0' => array('astra_update_single_product_breadcrumb', 'astra_display_cart_total_title_compatibility', 'astra_update_woocommerce_cart_icons', 'astra_legacy_customizer_maintenance', 'astra_apply_modern_ecommerce_setup', 'astra_responsive_shop_content_alignment'), '3.9.2' => array('astra_apply_woocommerce_show_password_icon_css', 'astra_shop_style_design_layout'), '3.9.3' => array('astra_theme_bg_updater_3_9_3'));
         /**
          *  Constructor
          */
@@ -12105,281 +11989,6 @@ namespace {
          * @param string|null $version New Astra theme version or null.
          */
         public static function update_db_version($version = \null)
-        {
-        }
-    }
-    /**
-     * Astra_Theme_Update initial setup
-     *
-     * @since 1.0.0
-     */
-    class Astra_Theme_Update
-    {
-        /**
-         * Class instance.
-         *
-         * @access private
-         * @var $instance Class instance.
-         */
-        private static $instance;
-        /**
-         * Process All
-         *
-         * @since 2.0.0
-         * @var object Class object.
-         * @access public
-         */
-        public static $process_all;
-        /**
-         * Initiator
-         */
-        public static function get_instance()
-        {
-        }
-        /**
-         *  Constructor
-         */
-        public function __construct()
-        {
-        }
-        /**
-         * Implement theme update logic.
-         *
-         * @since 1.0.0
-         */
-        public static function init()
-        {
-        }
-        /**
-         * Footer Widgets compatibilty for astra pro.
-         */
-        public static function astra_pro_compatibility()
-        {
-        }
-        /**
-         * Update options of older version than 1.0.4.
-         *
-         * @since 1.0.4
-         */
-        public static function v_1_0_4()
-        {
-        }
-        /**
-         * Update options of older version than 1.0.5.
-         *
-         * @since 1.0.5
-         */
-        public static function v_1_0_5()
-        {
-        }
-        /**
-         * Update options of older version than 1.0.8.
-         *
-         * @since 1.0.8
-         */
-        public static function v_1_0_8()
-        {
-        }
-        /**
-         * Update options of older version than 1.0.12.
-         *
-         * @since 1.0.12
-         */
-        public static function v_1_0_12()
-        {
-        }
-        /**
-         * Update options of older version than 1.0.14.
-         *
-         * @since 1.0.14
-         * @return void
-         */
-        public static function v_1_0_14()
-        {
-        }
-        /**
-         * Update page meta settings for all the themer layouts which are not already set.
-         * Default settings to previous versions was `no-sidebar` and `page-builder` through filters.
-         *
-         * @since  1.0.28
-         * @return void
-         */
-        public static function v_1_0_28()
-        {
-        }
-        /**
-         * Update options of older version than 1.1.0-beta.3.
-         *
-         * @since 1.1.0-beta.3
-         */
-        public static function v_1_1_0_beta_3()
-        {
-        }
-        /**
-         * Update options of older version than 1.1.0-beta.3.
-         *
-         * Container Style
-         * Sidebar
-         * Grid
-         *
-         * @since 1.1.0-beta.3
-         */
-        public static function v_1_1_0_beta_4()
-        {
-        }
-        /**
-         * Update options of older version than 1.2.2.
-         *
-         * Logo Width
-         *
-         * @since 1.2.2
-         */
-        public static function v_1_2_2()
-        {
-        }
-        /**
-         * Update Theme Color value same as Link Color for older version than 1.2.4.
-         *
-         * Theme Color update
-         *
-         * @since 1.2.4
-         */
-        public static function v_1_2_4()
-        {
-        }
-        /**
-         * Update Google Fonts value with font categories
-         *
-         * Google Font Update
-         *
-         * @since 1.2.7
-         */
-        public static function v_1_2_7()
-        {
-        }
-        /**
-         * Update options of older version than 1.3.0.
-         *
-         * Background options
-         *
-         * @since 1.3.0
-         */
-        public static function v_1_3_0()
-        {
-        }
-        /**
-         * Mobile Header - Border new param introduced for Top, Right, Bottom and left border.
-         * Update options of older version than 1.4.0-beta.3.
-         *
-         * @since 1.4.0-beta.3
-         */
-        public static function v_1_4_0_beta_3()
-        {
-        }
-        /**
-         * Introduced different logo for mobile devices option
-         *
-         * @since 1.4.0-beta.4
-         */
-        public static function v_1_4_0_beta_4()
-        {
-        }
-        /**
-         * Function to backward compatibility for version less than 1.4.0
-         *
-         * @since 1.4.0-beta.5
-         */
-        public static function v_1_4_0_beta_5()
-        {
-        }
-        /**
-         * Function to backward compatibility for version less than 1.4.3
-         * Set the new option different-retina-logo to true for users who are already using a retina logo.
-         *
-         * @since 1.4.3-aplha.1
-         */
-        public static function v_1_4_3_alpha_1()
-        {
-        }
-        /**
-         * Manage backwards compatibility when migrating to v1.4.9
-         *
-         * @since 1.4.9
-         * @return void
-         */
-        public static function v_1_4_9()
-        {
-        }
-        /**
-         * Added Submenu Border options into theme from Addon
-         *
-         * @since 1.5.0-beta.4
-         *
-         * @return void
-         */
-        public static function v_1_5_0_beta_4()
-        {
-        }
-        /**
-         * Set flag 'submenu-below-header' to false to load fallback CSS to force menu load right after the container cropping logo and header.
-         *
-         * @see https://github.com/brainstormforce/astra/pull/820/
-         *
-         * @return void
-         */
-        public static function v_1_5_0_rc_1()
-        {
-        }
-        /**
-         * Set Primary Header submenu border color 'primary-submenu-b-color' to '#eaeaea' for old users who doesn't set any color and set the theme color who install the fresh 1.5.0-rc.3 theme.
-         *
-         * @see https://github.com/brainstormforce/astra/pull/835
-         *
-         * @return void
-         */
-        public static function v_1_5_0_rc_3()
-        {
-        }
-        /**
-         * Change the Primary submenu option to be checkbpx rather than border selection.
-         *
-         * @return void
-         */
-        public static function v_1_5_1()
-        {
-        }
-        /**
-         * Add same font variant as font weight for body and heading.
-         *
-         * @return void
-         */
-        public static function v_1_5_2()
-        {
-        }
-        /**
-         * Disable transparent header in customizer if the transparent header addon was disabled.
-         *
-         * @return void
-         */
-        public static function v_1_6_0()
-        {
-        }
-        /**
-         * Add backward compatibility for Heading tags previous default values.
-         * Set Inline Logo & Site Title as false if user had not changed its value.
-         * Change default value for blog archive blog title.
-         *
-         * @return void
-         */
-        public static function v_1_6_1()
-        {
-        }
-        /**
-         * Flush bundled products After udpating to version 2.0.0
-         *
-         * @return void
-         */
-        public static function v_2_0_0()
         {
         }
     }
@@ -13964,11 +13573,19 @@ namespace {
     {
     }
     /**
-     * Check is new strctural things are updated.
+     * Check is new structural things are updated.
      *
      * @return bool true|false.
      */
     function astra_check_is_structural_setup()
+    {
+    }
+    /**
+     * Check if the user is old sidebar user.
+     *
+     * @return bool true|false.
+     */
+    function astra_check_old_sidebar_user()
     {
     }
     /**
@@ -16473,12 +16090,12 @@ namespace {
     {
     }
     /**
-     * Slide In Cart compatibility for responsive width slider
+     * Handle backward compatibility on version 3.9.3
      * 
      * @since x.x.x
      * @return void
      */
-    function astra_slide_in_cart_width_responsive_slider()
+    function astra_theme_bg_updater_3_9_3()
     {
     }
     /**

@@ -4,6 +4,7 @@ v3.9.3 (Unreleased)
 - Improvement: WooCommerce - Clear button is aligned on top for woocommerce active filter widget when "Chips" option is enabled.
 - Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
 - Improvement: WooCommerce - Added product image on cart page for tablet users.
+- Improvement: To have elegant fresh setup UI, updated the customizer sidebar layout by default to No-Sideebar.
 - Fix: WooCommerce - Content background color preview not working in customizer preview.
 - Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend.
 - Fix: WooCommerce - Payment list styling broken inside quick view.

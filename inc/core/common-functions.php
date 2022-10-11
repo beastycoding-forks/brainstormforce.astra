@@ -1590,13 +1590,23 @@ function astra_block_based_legacy_setup() {
 }
 
 /**
- * Check is new strctural things are updated.
+ * Check is new structural things are updated.
  *
  * @return bool true|false.
  */
 function astra_check_is_structural_setup() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-	return apply_filters( 'astra_get_option_customizer-default-layout-update', isset( $astra_settings['customizer-default-layout-update'] ) ? false : true );
+	return apply_filters( 'astra_get_option_customizer-default-layout-update', isset( $astra_settings['customizer-default-layout-update'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+}
+
+/**
+ * Check if the user is old sidebar user.
+ * @since x.x.x
+ * @return bool true|false.
+ */
+function astra_check_old_sidebar_user() {
+	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	return apply_filters( 'astra_old_global_sidebar_defaults', isset( $astra_settings['astra-old-global-sidebar-default'] ) ? false : true );
 }
 
 /**
@@ -1607,5 +1617,5 @@ function astra_check_is_structural_setup() {
  */
 function astra_load_woocommerce_login_form_password_icon() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-	return apply_filters( 'astra_get_option_woo-show-password-icon', isset( $astra_settings['woo-show-password-icon'] ) ? false : true );
+	return apply_filters( 'astra_get_option_woo-show-password-icon', isset( $astra_settings['woo-show-password-icon'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 }

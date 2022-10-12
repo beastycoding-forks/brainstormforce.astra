@@ -20,7 +20,7 @@
 	align-self: center;
 }
 
-.ast-menu-toggle {
+.ast-menu-toggle:not(.elementor-button) {
 	display: none;
 	background: transparent;
 	color: inherit;

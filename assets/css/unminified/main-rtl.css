@@ -2270,7 +2270,7 @@ body {
   align-self: center;
 }
 
-.ast-menu-toggle {
+.ast-menu-toggle:not(.elementor-button) {
   display: none;
   background: transparent;
   color: inherit;
@@ -2278,13 +2278,13 @@ body {
   border-color: transparent;
 }
 
-.ast-menu-toggle:focus, .ast-menu-toggle:hover {
+.ast-menu-toggle:not(.elementor-button):focus, .ast-menu-toggle:not(.elementor-button):hover {
   background: transparent;
   border-color: inherit;
   color: inherit;
 }
 
-.ast-menu-toggle:focus {
+.ast-menu-toggle:not(.elementor-button):focus {
   outline: thin dotted;
 }
 

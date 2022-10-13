@@ -363,6 +363,20 @@ if ( ! class_exists( 'Astra_Body_Typo_Configs' ) ) {
 					'title'     => __( 'Underline Content Links', 'astra' ),
 					'transport' => 'postMessage',
 				),
+
+				/**
+				 * Option: Remove input dotted focus.
+				 */
+				array(
+					'name'     => ASTRA_THEME_SETTINGS . '[enable-dotted-focus]',
+					'default'  => astra_get_option( 'enable-dotted-focus' ),
+					'type'     => 'control',
+					'control'  => 'ast-toggle-control',
+					'section'  => $typo_section,
+					'priority' => 32,
+					'divider'  => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'title'    => __( 'Enable Dotted Focus', 'astra' ),
+				),
 			);
 
 			if ( astra_has_gcp_typo_preset_compatibility() ) {

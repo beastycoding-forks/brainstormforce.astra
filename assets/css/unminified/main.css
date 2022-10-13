@@ -225,6 +225,7 @@ input[type="search"] {
   border: 0;
 }
 
+.archive .no-results .ast-search-submit,
 .search .site-main .ast-search-submit {
   display: none;
 }
@@ -1574,6 +1575,10 @@ body {
 .entry-content > :last-child,
 .entry-summary > :last-child {
   margin-bottom: 0;
+}
+
+.wp-block-separator:not(.is-style-wide):not(.is-style-dots) {
+  margin: 20px auto;
 }
 
 .bypostauthor {

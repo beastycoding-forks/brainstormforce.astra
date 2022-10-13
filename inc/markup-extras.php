@@ -1315,12 +1315,18 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 			?>
 			<div class="widget ast-no-widget-row">
 				<h2 class='widget-title'><?php echo esc_html( $sidebar_name ); ?></h2>
-
-				<p class='no-widget-text'>
-					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-						<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra' ); ?>
-					</a>
-				</p>
+				<?php if ( is_customize_preview() ) { ?>
+					<div class="customizer-navigate-on-focus" data-section="widgets" data-type="panel">
+						<?php Astra_Builder_UI_Controller::render_customizer_edit_button(); ?>
+				<?php } ?>
+						<p class='no-widget-text'>
+							<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
+								<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra' ); ?>
+							</a>
+						</p>
+				<?php if ( is_customize_preview() ) { ?>
+					</div>
+				<?php } ?>
 			</div>
 			<?php
 		}

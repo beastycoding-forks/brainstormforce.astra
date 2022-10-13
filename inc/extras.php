@@ -586,7 +586,7 @@ function astra_addon_has_3_5_0_version() {
 /**
  * Check the Astra addon version.
  * For  major update and frequently we used version_compare, added a function for this for easy maintenance.
- * 
+ *
  * @param string $version Astra addon version.
  * @param string $compare Compare symbols.
  * @since  3.9.2
@@ -970,4 +970,14 @@ function astra_search_static_css() {
 	}
 
 	return Astra_Enqueue_Scripts::trim_css( $search_css );
+}
+
+/**
+ * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
+ *
+ * @since x.x.x
+ * @return bool
+ */
+function astra_showcase_upgrade_notices() {
+	return ( ! defined( 'ASTRA_EXT_VER' ) && astra_get_option( 'ast-disable-upgrade-notices', true ) ) ? true : false;
 }

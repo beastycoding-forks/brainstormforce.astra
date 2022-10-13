@@ -1,3 +1,21 @@
+v3.9.3 (Unreleased)
+- New: WooCommerce Cart - "Cart Page" click action introduced to redirect user on cart page.
+- New: Global - Typography - Introduced an option to remove dotted border on focus of input fields.
+- Improvement: WooCommerce - Moved border width option for cart icon from addon to theme.
+- Improvement: WooCommerce - Clear button is aligned on top for woocommerce active filter widget when "Chips" option is enabled.
+- Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
+- Improvement: WooCommerce - Added product image on cart page for tablet users.
+- Improvement: To have elegant fresh setup UI, updated the customizer sidebar layout by default to No-Sideebar.
+- Fix: WooCommerce - Content background color preview not working in customizer preview.
+- Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend.
+- Fix: WooCommerce - Payment list styling broken inside quick view.
+- Fix: Block Editor - Astra Meta settings does not save when Custom Fields option is enabled from the preferences.
+- Fix: Two search buttons visible on the empty archive search result page.
+- Fix: Disabled Astra meta setting for Blog page which does not not work from metabox, as it acts like a archive page on the frontend.
+- Fix: Megamenu spacing conflict with primary menu top offset option on mobile devices.
+- Fix: Woocommerce - Cart icon size is not working on starter template site.
+- Fix: Top border showing up for related post section on single post when Boxed & Content Boxed layout is active.
+
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.
 - Improvement: WooCommerce - Added WPML translation support for cart dynamic input, proceed to checkout input & free-shipping text input through wpml-config.xml file. (Props - OnTheGoSystems)

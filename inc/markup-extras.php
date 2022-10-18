@@ -1356,6 +1356,8 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 			$classes[] = 'ast-header-without-markup';
 		} elseif ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
 			$classes[] = 'ast-header-without-markup';
+		} elseif ( is_page() || empty( $post_meta_markup ) ) {
+			$classes[] = 'ast-header-without-markup';
 		} else {
 
 			if ( empty( $title_markup ) ) {

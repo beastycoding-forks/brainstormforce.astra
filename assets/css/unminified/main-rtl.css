@@ -1508,7 +1508,7 @@ body {
   line-height: calc(2.33333em - 3px);
 }
 
-.content-align-flex-start {
+#ast-mobile-header .content-align-flex-start {
   max-height: 60vh;
   overflow: auto;
 }

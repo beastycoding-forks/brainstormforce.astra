@@ -113,7 +113,12 @@
 	table.cart,
 	#content table.cart {
 		.product-thumbnail {
-			display: none;
+			display: block;
+			text-align: center !important;
+
+			&:before {
+				display: none;
+			}
 		}
 
 		td.actions {

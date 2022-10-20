@@ -165,21 +165,18 @@ if ( ! class_exists( 'Astra_Body_Colors_Configs' ) ) {
 			);
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
+			if ( astra_showcase_upgrade_notices() ) {
 				$_configs[] = array(
-
-					'name'     => ASTRA_THEME_SETTINGS . '[section-body-colors-ast-button-link]',
+					'name'     => ASTRA_THEME_SETTINGS . '[colors-pro-upgrade]',
 					'type'     => 'control',
-					'control'  => 'ast-button-link',
+					'control'  => 'ast-upgrade',
 					'section'  => $_section,
-					'priority' => 999,
-					'title'    => __( 'View Astra Pro Features', 'astra' ),
-					'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-					'settings' => array(),
+					'svg'      => 'color-upgrade-svg',
+					'default'  => '',
+					'priority' => 998,
+					'title'    => __( 'Unlimited color options with Pro', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 				);
-
 			}
 
 			$configurations = array_merge( $configurations, $_configs );

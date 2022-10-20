@@ -397,9 +397,9 @@ if ( ! function_exists( 'astra_parse_css' ) ) {
 	/**
 	 * Parse CSS
 	 *
-	 * @param  array  $css_output Array of CSS.
-	 * @param  string $min_media  Min Media breakpoint.
-	 * @param  string $max_media  Max Media breakpoint.
+	 * @param  array $css_output Array of CSS.
+	 * @param  mixed $min_media  Min Media breakpoint.
+	 * @param  mixed $max_media  Max Media breakpoint.
 	 * @return string             Generated CSS.
 	 */
 	function astra_parse_css( $css_output = array(), $min_media = '', $max_media = '' ) {
@@ -1173,12 +1173,12 @@ if ( ! function_exists( 'astra_get_pro_url' ) ) :
 			$astra_pro_url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $astra_pro_url );
 		}
 
-		$astra_pro_url = esc_url( apply_filters( 'astra_get_pro_url', $astra_pro_url, $url ) );
+		$astra_pro_url = apply_filters( 'astra_get_pro_url', $astra_pro_url, $url );
 		$astra_pro_url = remove_query_arg( 'bsf', $astra_pro_url );
 
 		$ref = get_option( 'astra_partner_url_param', '' );
 		if ( ! empty( $ref ) ) {
-			$astra_pro_url = esc_url_raw( add_query_arg( 'bsf', sanitize_text_field( $ref ), $astra_pro_url ) );
+			$astra_pro_url = add_query_arg( 'bsf', sanitize_text_field( $ref ), $astra_pro_url );
 		}
 
 		return $astra_pro_url;
@@ -1272,8 +1272,8 @@ if ( ! function_exists( 'astra_responsive_spacing' ) ) {
 /**
  * Get the tablet breakpoint value.
  *
- * @param string $min min.
- * @param string $max max.
+ * @param mixed $min min.
+ * @param mixed $max max.
  *
  * @since 2.4.0
  *
@@ -1590,11 +1590,33 @@ function astra_block_based_legacy_setup() {
 }
 
 /**
- * Check is new strctural things are updated.
+ * Check is new structural things are updated.
  *
  * @return bool true|false.
  */
 function astra_check_is_structural_setup() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
-	return apply_filters( 'astra_get_option_customizer-default-layout-update', isset( $astra_settings['customizer-default-layout-update'] ) ? false : true );
+	return apply_filters( 'astra_get_option_customizer-default-layout-update', isset( $astra_settings['customizer-default-layout-update'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+}
+
+/**
+ * Check if the user is old sidebar user.
+ *
+ * @since x.x.x
+ * @return bool true|false.
+ */
+function astra_check_old_sidebar_user() {
+	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	return apply_filters( 'astra_old_global_sidebar_defaults', isset( $astra_settings['astra-old-global-sidebar-default'] ) ? false : true );
+}
+
+/**
+ * Check if user is old for hiding/showing password icon field for login my-account form.
+ *
+ * @since 3.9.2
+ * @return bool true|false.
+ */
+function astra_load_woocommerce_login_form_password_icon() {
+	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+	return apply_filters( 'astra_get_option_woo-show-password-icon', isset( $astra_settings['woo-show-password-icon'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
 }

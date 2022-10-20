@@ -22,7 +22,6 @@ import { responsiveSpacingControl }  from './responsive-spacing/control';
 import { selectControl } from './select/control';
 import { astFontFamilyControl } from './ast-font-family/control';
 import { astFontWeightControl } from './ast-font-weight/control';
-import { responsiveSelectControl } from './responsive-select/control';
 import { BuilderHeaderControl } from './builder-layout/builder-header-control'
 import { BuilderControl } from './builder-layout/control';
 import { SocialControl } from './social-icons/control';
@@ -44,6 +43,7 @@ import { astFontVariantControl } from './ast-font-variant/control';
 import { astGroupTitleControl } from './ast-group-title/control';
 import { astMenuSelect } from './ast-menu-select/control';
 import { astButtonLinkControl } from './ast-button-link/control';
+import { astUpgradeControl } from './ast-upgrade/control';
 
 window.svgIcons = svgIcons;
 wp.customize.controlConstructor['ast-heading'] = headingControl;
@@ -63,7 +63,6 @@ wp.customize.controlConstructor['ast-builder-header-control'] = BuilderHeaderCon
 wp.customize.controlConstructor['ast-sortable'] = sortableControl;
 wp.customize.controlConstructor['ast-font-family'] = astFontFamilyControl;
 wp.customize.controlConstructor['ast-font-weight'] = astFontWeightControl;
-wp.customize.controlConstructor['ast-responsive-select'] = responsiveSelectControl;
 wp.customize.controlConstructor['ast-responsive-slider'] = responsiveSliderControl;
 wp.customize.controlConstructor['ast-responsive-spacing'] = responsiveSpacingControl;
 wp.customize.controlConstructor['ast-border'] = borderControl;
@@ -89,6 +88,7 @@ wp.customize.controlConstructor['ast-font-variant'] = astFontVariantControl;
 wp.customize.controlConstructor['ast-group-title'] = astGroupTitleControl;
 wp.customize.controlConstructor['ast-menu-select'] = astMenuSelect;
 wp.customize.controlConstructor["ast-button-link"] = astButtonLinkControl;
+wp.customize.controlConstructor["ast-upgrade"] = astUpgradeControl;
 
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;
 import { Base } from './customizer';

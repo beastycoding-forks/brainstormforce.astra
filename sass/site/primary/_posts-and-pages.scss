@@ -56,3 +56,12 @@
 .entry-summary > :last-child {
     margin-bottom: 0;
 }
+
+// Align separator block hr in center when default is set.
+.wp-block-separator {
+	&:not(.is-style-wide) {
+		&:not(.is-style-dots) {
+			margin: 20px auto;
+		}
+	}
+}

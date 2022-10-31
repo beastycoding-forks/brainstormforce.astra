@@ -561,6 +561,11 @@ class Astra_WP_Editor_CSS {
 			'padding-right'     => $page_title_internal_padding,
 		);
 
+		// Spectra heading blocks BG color padding.
+		$desktop_css['.wp-block-uagb-advanced-heading .uagb-heading-text'] = array(
+			"padding-bottom" => '15px',
+		);
+
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {

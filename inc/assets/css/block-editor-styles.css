@@ -755,3 +755,10 @@ h5.wp-block.has-background,
 h6.wp-block.has-background {
   padding: 1.25em 2.375em;
 }
+
+.components-toggle-control .components-base-control__field {
+  display: flex;
+  margin-bottom: 12px;
+  line-height: initial;
+  align-items: center;
+}

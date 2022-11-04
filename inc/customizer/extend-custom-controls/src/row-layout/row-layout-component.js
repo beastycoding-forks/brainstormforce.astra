@@ -139,7 +139,6 @@ class RowLayoutComponent extends Component {
 			value.tablet  = defaults[columns];
 			value.mobile  = 'full';
 			this.setState( { value : value } );
-			this.updateValues();
 		}
 	}
 

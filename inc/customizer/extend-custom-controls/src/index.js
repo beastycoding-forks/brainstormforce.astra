@@ -44,6 +44,7 @@ import { astGroupTitleControl } from './ast-group-title/control';
 import { astMenuSelect } from './ast-menu-select/control';
 import { astButtonLinkControl } from './ast-button-link/control';
 import { astUpgradeControl } from './ast-upgrade/control';
+import { radioIconControl } from './radio-icon/control';
 
 window.svgIcons = svgIcons;
 wp.customize.controlConstructor['ast-heading'] = headingControl;
@@ -89,7 +90,7 @@ wp.customize.controlConstructor['ast-group-title'] = astGroupTitleControl;
 wp.customize.controlConstructor['ast-menu-select'] = astMenuSelect;
 wp.customize.controlConstructor["ast-button-link"] = astButtonLinkControl;
 wp.customize.controlConstructor["ast-upgrade"] = astUpgradeControl;
-
+wp.customize.controlConstructor["ast-radio-icon"] = radioIconControl;
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;
 import { Base } from './customizer';
 import { ControlBase } from './control-customizer';

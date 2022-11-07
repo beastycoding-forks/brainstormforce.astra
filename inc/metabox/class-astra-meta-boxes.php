@@ -251,6 +251,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					<option value="content-boxed-container" <?php selected( $site_content_layout, 'content-boxed-container' ); ?> > <?php esc_html_e( 'Content Boxed', 'astra' ); ?></option>
 					<option value="plain-container" <?php selected( $site_content_layout, 'plain-container' ); ?> > <?php esc_html_e( 'Full Width / Contained', 'astra' ); ?></option>
 					<option value="page-builder" <?php selected( $site_content_layout, 'page-builder' ); ?> > <?php esc_html_e( 'Full Width / Stretched', 'astra' ); ?></option>
+					<option value="narrow-container" <?php selected( $site_content_layout, 'narrow-container' ); ?> > <?php esc_html_e( 'Narrow Width', 'astra' ); ?></option>
 				</select>
 			</div>
 			<?php
@@ -542,6 +543,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
 				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+				'narrow-container'        => __( 'Narrow Container', 'astra' ),
 			);
 		}
 

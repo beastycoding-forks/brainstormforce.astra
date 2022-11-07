@@ -1276,6 +1276,10 @@ body {
   }
 }
 
+.ast-narrow-container .site-content > .ast-container {
+  max-width: 750px;
+}
+
 /*----------  Navigation  ----------*/
 /**
  * 	Navigations
@@ -2146,7 +2150,6 @@ body {
 }
 
 .ast-search-menu-icon.slide-search .search-form {
-  -webkit-backface-visibility: visible;
   backface-visibility: visible;
   visibility: hidden;
   opacity: 0;
@@ -2169,7 +2172,6 @@ body {
   padding: 0 0 0 3em;
   border-radius: 2px;
   display: inline-block;
-  -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: relative;
   color: inherit;

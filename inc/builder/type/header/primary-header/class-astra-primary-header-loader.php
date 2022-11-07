@@ -62,7 +62,10 @@ class Astra_Primary_Header_Loader {
 			$classes[] = 'ast-page-builder-template';
 		} elseif ( 'plain-container' == $content_layout ) {
 			$classes[] = 'ast-plain-container';
-		}
+		} elseif ( 'narrow-container' == $content_layout ) {
+            $classes[] = 'ast-narrow-container';
+        }
+
 		// Sidebar location.
 		$page_layout = 'ast-' . astra_page_layout();
 		$classes[]   = esc_attr( $page_layout );

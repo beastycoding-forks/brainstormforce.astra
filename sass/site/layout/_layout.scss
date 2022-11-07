@@ -162,3 +162,9 @@ body{
 		}
 	}
 }
+
+.ast-narrow-container {
+    .site-content > .ast-container {
+        max-width: 750px;
+    }
+}

@@ -8,7 +8,7 @@ class RowLayoutComponent extends Component {
 	constructor() {
 
 		super( ...arguments );
-
+		this.counter = 0;
 		this.updateValues = this.updateValues.bind( this );
 		this.onFooterUpdate = this.onFooterUpdate.bind( this );
 		this.onColumnUpdate();
@@ -139,6 +139,7 @@ class RowLayoutComponent extends Component {
 			value.tablet  = defaults[columns];
 			value.mobile  = 'full';
 			this.setState( { value : value } );
+			this.updateValues();
 		}
 	}
 
@@ -153,6 +154,11 @@ class RowLayoutComponent extends Component {
 
 	updateValues() {
 
+		this.counter += 1;
+		  if(this.counter > 1) {
+			this.counter = 0;
+			return;
+		}
 		let event = new CustomEvent(
 			'AstraBuilderChangeRowLayout', {
 				'detail': {

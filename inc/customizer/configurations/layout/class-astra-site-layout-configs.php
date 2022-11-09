@@ -55,6 +55,29 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 						'max'  => 1920,
 					),
 				),
+				array(
+					'name'        => ASTRA_THEME_SETTINGS . '[narrow-container-max-width]',
+					'type'        => 'control',
+					'control'     => 'ast-slider',
+					'default'     => astra_get_option( 'narrow-container-max-width' ),
+					'section'     => 'section-container-layout',
+					'priority'    => 10,
+					'title'       => __( 'Narrow Container Max Width', 'astra' ),
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[site-content-layout]',
+							'operator' => '==',
+							'value'    => 'narrow-container',
+						),
+					),
+					'suffix'      => 'px',
+					'input_attrs' => array(
+						'min'  => 400,
+						'step' => 1,
+						'max'  => 1920,
+					),
+				),
 			);
 
 			return array_merge( $configurations, $_configs );

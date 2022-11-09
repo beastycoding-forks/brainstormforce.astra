@@ -3033,6 +3033,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			/* Parse CSS from array()*/
 			$parse_css .= astra_parse_css( $site_width, astra_get_tablet_breakpoint( '', 1 ) );
 
+			/* Narrow Width Container Layout dynamic css */
+			if( 'narrow-container' === $container_layout ) {
+
+				$narrow_container_css = array(
+					'.ast-narrow-container .site-content > .ast-container' => array(
+						'max-width' => '750px',
+					)
+				);
+
+				$parse_css .= astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) );
+
+			}
+
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(
 					'.site-content .ast-container' => array(

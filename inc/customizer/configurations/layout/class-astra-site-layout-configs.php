@@ -47,7 +47,22 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 							'operator' => '==',
 							'value'    => 'ast-full-width-layout',
 						),
-					) : array(),
+						array(
+							Astra_Builder_Helper::$general_tab_config,
+							array(
+								'setting'  => ASTRA_THEME_SETTINGS . '[site-content-layout]',
+								'operator' => '!=',
+								'value'    => 'narrow-container',
+							),
+						)
+					) : array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[site-content-layout]',
+							'operator' => '!=',
+							'value'    => 'narrow-container',
+						),
+					),
 					'suffix'      => 'px',
 					'input_attrs' => array(
 						'min'  => 768,
@@ -75,7 +90,7 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 					'input_attrs' => array(
 						'min'  => 400,
 						'step' => 1,
-						'max'  => 1920,
+						'max'  => 1000,
 					),
 				),
 			);

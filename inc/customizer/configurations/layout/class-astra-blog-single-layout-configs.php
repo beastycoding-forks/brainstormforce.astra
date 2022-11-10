@@ -88,6 +88,14 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'section'           => 'section-blog-single',
 					'default'           => astra_get_option( 'single-post-sidebar-layout' ),
 					'priority'          => 5,
+					'context'     => array(
+						Astra_Builder_Helper::$general_tab_config,
+						array(
+							'setting'  => ASTRA_THEME_SETTINGS . '[single-post-content-layout]',
+							'operator' => '!=',
+							'value'    => 'narrow-container',
+						),
+					),
 					'title'             => __( 'Sidebar Layout', 'astra' ),
 					'choices'           => array(
 						'default'       => array(

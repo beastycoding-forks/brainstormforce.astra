@@ -3042,14 +3042,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$narrow_container_css = array(
 					'.ast-narrow-container .ast-container' => array(
 						'max-width' => astra_get_css_value( $narrow_container_max_width, 'px' ),
-					),
-					'.ast-narrow-container .ast-right-sidebar' => array(
-						'display'  => 'none'
-					),
-					'.ast-narrow-container .ast-left-sidebar' => array(
-						'display'  => 'none'
 					)
 				);
+
+				// Remove Sidebar for Narrow Width Container Layout.
+				add_filter('astra_page_layout', function() {
+					return 'no-sidebar';
+				});
 
 				$parse_css .= astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) );
 

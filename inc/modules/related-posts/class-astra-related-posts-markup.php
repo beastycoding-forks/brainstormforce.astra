@@ -57,12 +57,9 @@ class Astra_Related_Posts_Markup {
 		// Get related posts by WP_Query.
 		$query_posts = $this->astra_get_related_posts_by_query( $post_id );
 
-		if ( $query_posts ) {
-
-			if ( ! $query_posts->have_posts() ) {
-				return apply_filters( 'astra_related_posts_no_posts_avilable_message', '', $post_id );
-			}
-
+		if ( empty($query_posts) ) {
+			return apply_filters( 'astra_related_posts_no_posts_avilable_message', '', $post_id );
+		} else {
 			// Added flag to load wrapper section 'ast-single-related-posts-container' only once, because as we removed 'posts__not_in' param from WP_Query and we conditionally handle posts__not_in below so it needs to verify if there are other posts as well to load, then only we will display wrapper.
 			$related_posts_section_loaded = false;
 
@@ -84,78 +81,80 @@ class Astra_Related_Posts_Markup {
 			$post_counter      = 1;
 			$total_posts_count = $related_posts_total_count + 1;
 
-			while ( $query_posts->have_posts() && $post_counter < $total_posts_count ) {
-				$query_posts->the_post();
-				$post_id    = get_the_ID();
-				$output_str = astra_get_post_meta( $related_post_meta );
+			if ($post_counter < $total_posts_count) {
+				foreach( $query_posts as $post) :
+					setup_postdata($post);
 
-				if ( is_array( $exclude_ids ) && ! in_array( $post_id, $exclude_ids ) ) {
+					$post_id    = get_the_ID();
+					$output_str = astra_get_post_meta( $related_post_meta );
 
-					if ( false === $related_posts_section_loaded ) {
+					if ( is_array( $exclude_ids ) && ! in_array( $post_id, $exclude_ids ) ) {
 
-						echo '<div class="ast-single-related-posts-container">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+						if ( false === $related_posts_section_loaded ) {
 
-						do_action( 'astra_related_posts_title_before' );
+							echo '<div class="ast-single-related-posts-container">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 
-						if ( '' !== $related_posts_title ) {
-							echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-								'astra_related_posts_title',
-								sprintf(
-									'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
-									'h2',
-									$related_posts_title
-								)
-							);
+							do_action( 'astra_related_posts_title_before' );
+
+							if ( '' !== $related_posts_title ) {
+								echo apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+									'astra_related_posts_title',
+									sprintf(
+										'<div class="ast-related-posts-title-section"> <%1$s class="ast-related-posts-title"> %2$s </%1$s> </div>',
+										'h2',
+										$related_posts_title
+									)
+								);
+							}
+
+							do_action( 'astra_related_posts_title_after' );
+
+							echo '<div class="ast-related-posts-wrapper">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
+							$related_posts_section_loaded = true;
 						}
 
-						do_action( 'astra_related_posts_title_after' );
-
-						echo '<div class="ast-related-posts-wrapper">'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-						$related_posts_section_loaded = true;
-					}
-
-					?>
-						<article <?php post_class( 'ast-related-post' ); ?>>
-							<div class="ast-related-posts-inner-section">
-								<div class="ast-related-post-content">
-									<?php
-										// Render post based on order of Featured Image & Title-Meta.
-									if ( is_array( $related_post_structure ) ) {
-										foreach ( $related_post_structure as $post_thumb_title_order ) {
-											if ( 'featured-image' === $post_thumb_title_order ) {
-												do_action( 'astra_related_post_before_featured_image', $post_id );
-												$this->astra_get_related_post_featured_image( $post_id );
-												do_action( 'astra_related_post_after_featured_image', $post_id );
-											} else {
-												?>
-														<header class="entry-header">
+						?>
+							<article <?php post_class( 'ast-related-post' ); ?>>
+								<div class="ast-related-posts-inner-section">
+									<div class="ast-related-post-content">
+										<?php
+											// Render post based on order of Featured Image & Title-Meta.
+										if ( is_array( $related_post_structure ) ) {
+											foreach ( $related_post_structure as $post_thumb_title_order ) {
+												if ( 'featured-image' === $post_thumb_title_order ) {
+													do_action( 'astra_related_post_before_featured_image', $post_id );
+													$this->astra_get_related_post_featured_image( $post_id );
+													do_action( 'astra_related_post_after_featured_image', $post_id );
+												} else {
+													?>
+															<header class="entry-header">
+															<?php
+																$this->astra_get_related_post_title( $post_id );
+																echo apply_filters( 'astra_related_posts_meta_html', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+															?>
+															</header>
 														<?php
-															$this->astra_get_related_post_title( $post_id );
-															echo apply_filters( 'astra_related_posts_meta_html', '<div class="entry-meta">' . $output_str . '</div>', $output_str ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-														?>
-														</header>
-													<?php
+												}
 											}
 										}
-									}
-									?>
-									<div class="entry-content clear">
-										<?php
-											$this->astra_get_related_post_excerpt( $post_id );
-											$this->astra_get_related_post_read_more( $post_id );
 										?>
+										<div class="entry-content clear">
+											<?php
+												$this->astra_get_related_post_excerpt( $post_id );
+												$this->astra_get_related_post_read_more( $post_id );
+											?>
+										</div>
 									</div>
 								</div>
-							</div>
-						</article>
-					<?php
-					$post_counter++;
-				}
-
-				wp_reset_postdata();
+							</article>
+						<?php
+						$post_counter++;
+					}
+				endforeach;
 			}
 
+			wp_reset_postdata();
 			if ( true === $related_posts_section_loaded ) {
 				echo '</div> </div>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			}
@@ -382,8 +381,7 @@ class Astra_Related_Posts_Markup {
 		}
 
 		$query_args = apply_filters( 'astra_related_posts_query_args', $query_args );
-
-		return new WP_Query( $query_args );
+		return get_posts( $query_args );
 	}
 }
 

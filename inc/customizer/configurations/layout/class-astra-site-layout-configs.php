@@ -69,7 +69,7 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 					'default'     => astra_get_option( 'narrow-container-max-width' ),
 					'section'     => 'section-container-layout',
 					'priority'    => 10,
-					'title'       => __( 'Narrow Width', 'astra' ),
+					'title'       => __( 'Narrow Container Width', 'astra' ),
 					'context'     => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(

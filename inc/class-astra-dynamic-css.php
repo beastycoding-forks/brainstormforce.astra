@@ -3039,9 +3039,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Narrow Width Container Layout dynamic css */
 
-			// Global
+			// Global.
 			$parse_css .= astra_narrow_container_width( $container_layout, $narrow_container_max_width );
-
 
 			// Archive.
 			$parse_css .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
@@ -3049,27 +3048,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Single Post.
 			$parse_css .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
 
-
-			// Page
-			if ( 'narrow-container' === $page_container_layout ) {
-
-				$narrow_container_css = array(
-					'.ast-narrow-container .ast-container' => array(
-						'max-width' => astra_get_css_value( $narrow_container_max_width, 'px' ),
-					),
-				);
-
-				// Remove Sidebar for Narrow Width Container Layout.
-				add_filter(
-					'astra_page_layout',
-					function() {
-						return 'no-sidebar';
-					}
-				);
-
-				$parse_css .= astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) );
-
-			}
+			// Page.
+			$parse_css .= astra_narrow_container_width( $page_container_layout, $narrow_container_max_width );
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(

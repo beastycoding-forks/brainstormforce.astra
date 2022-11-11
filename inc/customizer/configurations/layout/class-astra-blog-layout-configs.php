@@ -65,10 +65,10 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 							'label' => __( 'Full Width / Stretched', 'astra' ),
 							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'container-full-width-stretched', false ) : '',
 						),
-						'narrow-container'            => array(
-                            'label' => __( 'Narrow Width', 'astra' ),
-                            'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
-                        ),
+						'narrow-container'        => array(
+							'label' => __( 'Narrow Width', 'astra' ),
+							'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'narrow-container', false ) : '',
+						),
 					),
 				),
 
@@ -84,7 +84,7 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'default'           => astra_get_option( 'archive-post-sidebar-layout' ),
 					'priority'          => 5,
 					'title'             => __( 'Sidebar Layout', 'astra' ),
-					'context'     => array(
+					'context'           => array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(
 							'setting'  => ASTRA_THEME_SETTINGS . '[archive-post-content-layout]',
@@ -123,7 +123,6 @@ if ( ! class_exists( 'Astra_Blog_Layout_Configs' ) ) {
 					'control'    => 'ast-selector',
 					'section'    => 'section-blog',
 					'priority'   => 50,
-					'transport'  => 'postMessage',
 					'title'      => __( 'Content Width', 'astra' ),
 					'choices'    => array(
 						'default' => __( 'Default', 'astra' ),

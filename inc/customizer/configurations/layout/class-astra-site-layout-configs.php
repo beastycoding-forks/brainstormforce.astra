@@ -47,14 +47,6 @@ if ( ! class_exists( 'Astra_Site_Layout_Configs' ) ) {
 							'operator' => '==',
 							'value'    => 'ast-full-width-layout',
 						),
-						array(
-							Astra_Builder_Helper::$general_tab_config,
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[site-content-layout]',
-								'operator' => '!=',
-								'value'    => 'narrow-container',
-							),
-						)
 					) : array(
 						Astra_Builder_Helper::$general_tab_config,
 						array(

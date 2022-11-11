@@ -3079,7 +3079,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if( 'narrow-container' === $single_container_layout ) {
 
 				$narrow_container_css = array(
-					'.ast-container' => array(
+					'.ast-narrow-container .ast-container' => array(
 						'max-width' => astra_get_css_value( $narrow_container_max_width, 'px' ),
 					)
 				);

@@ -65,9 +65,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', 750 );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
 			$container_layout           = astra_get_option( 'site-content-layout' );
-			$archive_container_layout   = astra_get_option('archive-post-sidebar-layout');
-			$single_container_layout    = astra_get_option('single-post-content-layout');
-			$page_container_layout      = astra_get_option('single-page-content-layout');
+			$archive_container_layout   = astra_get_option( 'archive-post-sidebar-layout' );
+			$single_container_layout    = astra_get_option( 'single-post-content-layout' );
+			$page_container_layout      = astra_get_option( 'single-page-content-layout' );
 			$title_color                = astra_get_option( 'header-color-site-title' );
 			$title_hover_color          = astra_get_option( 'header-color-h-site-title' );
 			$tagline_color              = astra_get_option( 'header-color-site-tagline' );
@@ -3039,77 +3039,17 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Narrow Width Container Layout dynamic css */
 
-			//Global
-			if( 'narrow-container' === $container_layout ) {
+			// Global.
+			$parse_css .= astra_narrow_container_width( $container_layout, $narrow_container_max_width );
 
-				$narrow_container_css = array(
-					'.ast-narrow-container .ast-container' => array(
-						'max-width' => astra_get_css_value( $narrow_container_max_width, 'px' ),
-					)
-				);
+			// Archive.
+			$parse_css .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
 
-				// Remove Sidebar for Narrow Width Container Layout.
-				add_filter('astra_page_layout', function() {
-					return 'no-sidebar';
-				});
+			// Single Post.
+			$parse_css .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
 
-				$parse_css .= astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) );
-
-			}
-
-			// Archive
-			if( 'narrow-container' === $archive_container_layout ) {
-
-				$narrow_container_css = array(
-					'.ast-narrow-container .ast-container' => array(
-						'max-width' => astra_get_css_value( $narrow_container_max_width, 'px' ),
-					)
-				);
-
-				// Remove Sidebar for Narrow Width Container Layout.
-				add_filter('astra_page_layout', function() {
-					return 'no-sidebar';
-				});
-
-				$parse_css .= astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) );
-
-			}
-
-			// Single Post
-			if( 'narrow-container' === $single_container_layout ) {
-
-				$narrow_container_css = array(
-					'.ast-narrow-container .ast-container' => array(
-						'max-width' => astra_get_css_value( $narrow_container_max_width, 'px' ),
-					)
-				);
-
-				// Remove Sidebar for Narrow Width Container Layout.
-				add_filter('astra_page_layout', function() {
-					return 'no-sidebar';
-				});
-
-				$parse_css .= astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) );
-
-			}
-
-			// Page
-			if( 'narrow-container' === $page_container_layout ) {
-
-				$narrow_container_css = array(
-					'.ast-narrow-container .ast-container' => array(
-						'max-width' => astra_get_css_value( $narrow_container_max_width, 'px' ),
-					)
-				);
-
-				// Remove Sidebar for Narrow Width Container Layout.
-				add_filter('astra_page_layout', function() {
-					return 'no-sidebar';
-				});
-
-				$parse_css .= astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) );
-
-			}
+			// Page.
+			$parse_css .= astra_narrow_container_width( $page_container_layout, $narrow_container_max_width );
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$max_site_container_css = array(
@@ -4177,7 +4117,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function spectra_gutenberg_compat_css() {
-			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                                 = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['spectra-gutenberg-compat-css'] = isset( $astra_settings['spectra-gutenberg-compat-css'] ) ? false : true;
 			return apply_filters( 'astra_spectra_gutenberg_compat_css', $astra_settings['spectra-gutenberg-compat-css'] );
 		}

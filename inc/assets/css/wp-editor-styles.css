@@ -251,12 +251,12 @@ html {
   transition: all 0.2s;
 }
 
-.edit-post-visual-editor__post-title-wrapper .title-visibility:hover {
+.edit-post-visual-editor__post-title-wrapper .title-visibility:focus {
   opacity: 1;
   color: var(--wp-admin-theme-color);
 }
 
-.edit-post-visual-editor__post-title-wrapper .title-visibility:hover:after {
+.edit-post-visual-editor__post-title-wrapper .title-visibility:focus:after {
   opacity: 1;
   visibility: visible;
 }

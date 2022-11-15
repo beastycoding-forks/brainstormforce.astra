@@ -225,11 +225,11 @@ html {
   margin-bottom: 1.5em;
 }
 
-.edit-post-visual-editor__post-title-wrapper:hover h1.editor-post-title__input {
+.edit-post-visual-editor__post-title-wrapper:focus h1.editor-post-title__input {
   box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 }
 
-.edit-post-visual-editor__post-title-wrapper:hover .title-visibility {
+.edit-post-visual-editor__post-title-wrapper:focus .title-visibility {
   opacity: 1;
 }
 

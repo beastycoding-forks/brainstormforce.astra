@@ -1396,9 +1396,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$js_uri = ASTRA_THEME_URI . 'inc/compatibility/woocommerce/assets/js/' . $dir_name . '/';
 
-			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
+			$astra_shop_add_to_cart      = astra_get_option( 'shop-add-to-cart-action' );
+			$is_ajax_add_to_cart_enabled = get_option( 'woocommerce_enable_ajax_add_to_cart' );
 
-			if ( $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart ) {
+			if ( ( is_shop() || is_product_taxonomy() ) && $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart && 'yes' === $is_ajax_add_to_cart_enabled ) {
 
 				wp_register_script( 'astra-shop-add-to-cart', $js_uri . 'shop-add-to-cart' . $file_prefix . '.js', array( 'jquery' ), ASTRA_THEME_VERSION, false );
 

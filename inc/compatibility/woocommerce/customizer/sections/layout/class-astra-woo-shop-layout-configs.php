@@ -31,27 +31,33 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$astra_addon_with_woo = ( astra_has_pro_woocommerce_addon() ) ? true : false;
+			$astra_addon_with_woo        = ( astra_has_pro_woocommerce_addon() ) ? true : false;
+			$is_ajax_add_to_cart_enabled = get_option( 'woocommerce_enable_ajax_add_to_cart' );
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$add_to_cart_attr             = array();
 			$astra_shop_page_pro_features = array();
 
-			$astra_shop_page_pro_features = array(
-				'redirect_cart_page'     => __( 'Redirect To Cart Page', 'astra' ),
-				'redirect_checkout_page' => __( 'Redirect To Checkout Page', 'astra' ),
-			);
+			if ( 'yes' === $is_ajax_add_to_cart_enabled ) {
+				
+				$astra_shop_page_pro_features = array(
+					'redirect_cart_page'     => __( 'Redirect To Cart Page', 'astra' ),
+					'redirect_checkout_page' => __( 'Redirect To Checkout Page', 'astra' ),
+				);
 
-			/**
-			 * Shop product add to cart control.
-			 */
-			$add_to_cart_attr['add_cart'] = array(
-				'clone'       => false,
-				'is_parent'   => true,
-				'main_index'  => 'add_cart',
-				'clone_limit' => 2,
-				'title'       => __( 'Add To Cart', 'astra' ),
-			);
+				/**
+				 * Shop product add to cart control.
+				 */
+				$add_to_cart_attr['add_cart'] = array(
+					'clone'       => false,
+					'is_parent'   => true,
+					'main_index'  => 'add_cart',
+					'clone_limit' => 2,
+					'title'       => __( 'Add To Cart', 'astra' ),
+				);
+			}
+
+
 
 			if ( $astra_addon_with_woo ) {
 				$current_shop_layouts = array(
@@ -302,30 +308,34 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				),
 			);
 
-			/**
-			 * Option: Shop add to cart action.
-			 */
-			$_configs[] = array(
-				'name'       => 'shop-add-to-cart-action',
-				'parent'     => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
-				'default'    => astra_get_option( 'shop-add-to-cart-action' ),
-				'section'    => 'woocommerce_product_catalog',
-				'title'      => __( 'Add To Cart Action', 'astra-addon' ),
-				'type'       => 'sub-control',
-				'control'    => 'ast-select',
-				'linked'     => 'add_cart',
-				'priority'   => 10,
-				'choices'    =>
-				array_merge(
-					array(
-						'default'       => __( 'Default', 'astra' ),
-						'slide_in_cart' => __( 'Slide In Cart', 'astra' ),
+
+			if ( 'yes' === $is_ajax_add_to_cart_enabled ) {
+				/**
+				 * Option: Shop add to cart action.
+				 */
+				$_configs[] = array(
+					'name'       => 'shop-add-to-cart-action',
+					'parent'     => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
+					'default'    => astra_get_option( 'shop-add-to-cart-action' ),
+					'section'    => 'woocommerce_product_catalog',
+					'title'      => __( 'Add To Cart Action', 'astra-addon' ),
+					'type'       => 'sub-control',
+					'control'    => 'ast-select',
+					'linked'     => 'add_cart',
+					'priority'   => 10,
+					'choices'    =>
+					array_merge(
+						array(
+							'default'       => __( 'Default', 'astra' ),
+							'slide_in_cart' => __( 'Slide In Cart', 'astra' ),
+						),
+						$astra_shop_page_pro_features
 					),
-					$astra_shop_page_pro_features
-				),
-				'responsive' => false,
-				'renderAs'   => 'text',
-			);
+					'responsive' => false,
+					'renderAs'   => 'text',
+				);
+			}
+		
 
 			// Learn More link if Astra Pro is not activated.
 			if ( astra_showcase_upgrade_notices() ) {

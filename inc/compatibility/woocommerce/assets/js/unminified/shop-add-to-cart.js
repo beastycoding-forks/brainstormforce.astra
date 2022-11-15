@@ -6,7 +6,7 @@ jQuery( document ).ready(function() {
 			slideInCart.addClass( 'active' );
 			jQuery( 'html' ).addClass( 'ast-mobile-cart-active' );
 		}
-		if( is_astra_pro ) {
+		if( astraShopAddToCart.is_astra_pro ) {
 
 			if( 'redirect_cart_page' === astraShopAddToCart.shop_add_to_cart_action ) {
 				window.open( astraShopAddToCart.cart_url ,"_self");

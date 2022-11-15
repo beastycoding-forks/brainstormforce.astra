@@ -1,3 +1,6 @@
+v4.0.1 (Unreleased)
+- New : Add to cart actions added on shop for woocommerce.
+
 v4.0.0 (Unreleased)
 - Fix: Off-canvas - Full screen - Mobile Menu gets very long scroll when Elementor plugin is activated.
 - Fix: Full Width/Contained layout Layout is showing extra padding above in the Transparent Header.

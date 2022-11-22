@@ -82,9 +82,9 @@ class Astra_Related_Posts_Markup {
 			$total_posts_count = $related_posts_total_count + 1;
 
 			if ( $post_counter < $total_posts_count ) {
-				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				foreach ( $query_posts as $post ) :
-				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					setup_postdata( $post );
 
 					$post_id    = get_the_ID();
@@ -383,9 +383,9 @@ class Astra_Related_Posts_Markup {
 		}
 
 		$query_args = apply_filters( 'astra_related_posts_query_args', $query_args );
-		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		return get_posts( $query_args );
-		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	}
 }
 

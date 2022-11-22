@@ -1738,7 +1738,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				global $post;
 				if (isset($post) && !is_wp_error($post)) {
-					$title_bar_display = get_post_meta( $post->ID, 'site-post-title', true);
+					
+					$title_bar_display = astra_get_option_meta( 'site-post-title', '', true );
 
 					if ($title_bar_display == 'disabled') {
 						$default_layout_update_css['.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container,.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond'] = array (

@@ -82,7 +82,7 @@ class Astra_Related_Posts_Markup {
 			$total_posts_count = $related_posts_total_count + 1;
 
 			if ( $post_counter < $total_posts_count ) {
-				foreach ( $query_posts as $post ) :
+				foreach ( $query_posts as $post ) :  // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					setup_postdata( $post );
 
 					$post_id    = get_the_ID();
@@ -381,7 +381,7 @@ class Astra_Related_Posts_Markup {
 		}
 
 		$query_args = apply_filters( 'astra_related_posts_query_args', $query_args );
-		return get_posts( $query_args );
+		return get_posts( $query_args ); // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	}
 }
 

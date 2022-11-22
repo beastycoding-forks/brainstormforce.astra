@@ -568,6 +568,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// toogle menu target.
 					'mobile-header-toggle-target'          => 'icon',
+
+					// Misc.
+					'enable-scroll-to-id'                  => true,
 				)
 			);
 

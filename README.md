@@ -78,6 +78,12 @@ The same site as screenshot can be imported from here https://websitedemos.net/w
 
 For more information, refer to this document on how to create a page like in the screenshot - https://wpastra.com/docs/replicating-the-screenshot/.
 
+### WP-Preview Starter Content Licenses ###
+
+Images used in the WordPress preview starter content are all licensed under Creative Commons ( CC0 ) License ( https://pxhere.com )
+
+Icon used in WordPress preview starter content are all licensed under Massachusetts Institute of Technology ( MIT ) License ( https://heroicons.com )
+
 ### Normalizing styles ###
 
 Normalizing styles have been helped along thanks to the fine work of.

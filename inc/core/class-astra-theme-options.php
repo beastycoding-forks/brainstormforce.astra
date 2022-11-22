@@ -322,6 +322,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// Site Layout.
 					'site-layout'                          => 'ast-full-width-layout',
 					'site-content-width'                   => 1200,
+					'narrow-container-max-width'           => 750,
 					'site-layout-outside-bg-obj-responsive' => array(
 						'desktop' => array(
 							'background-color'      => '',
@@ -568,9 +569,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					// toogle menu target.
 					'mobile-header-toggle-target'          => 'icon',
 
-					// Performance.
-					'load-google-fonts-locally'            => false,
-					'preload-local-fonts'                  => false,
+					// Misc.
+					'enable-scroll-to-id'                  => true,
 				)
 			);
 

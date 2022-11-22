@@ -764,7 +764,7 @@ function astra_remove_widget_design_options() {
  * @since 3.7.0
  */
 function astra_get_palette_colors() {
-	return get_option( 'astra-color-palettes', Astra_Global_Palette::get_default_color_palette() );
+	return get_option( 'astra-color-palettes', apply_filters( 'astra_global_color_palette', Astra_Global_Palette::get_default_color_palette() ) );
 }
 
 /**
@@ -975,7 +975,7 @@ function astra_search_static_css() {
 /**
  * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
  *
- * @since x.x.x
+ * @since 3.9.4
  * @return bool
  */
 function astra_showcase_upgrade_notices() {

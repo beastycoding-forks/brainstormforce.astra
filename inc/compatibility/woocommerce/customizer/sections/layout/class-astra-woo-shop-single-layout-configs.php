@@ -617,16 +617,16 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 			 * Single product extras list.
 			 */
 			$_configs[] = array(
-				'name'     => 'single-product-payment-list',
-				'parent'   => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-				'default'  => astra_get_option( 'single-product-payment-list' ),
-				'linked'   => 'single-product-payments',
-				'type'     => 'sub-control',
-				'control'  => 'ast-list-icons',
-				'section'  => 'section-woo-shop-single',
-				'priority' => 10,
-				'divider'  => array( 'ast_class' => 'ast-bottom-divider' ),
-				'disable'  => false,
+				'name'        => 'single-product-payment-list',
+				'parent'      => ASTRA_THEME_SETTINGS . '[single-product-structure]',
+				'default'     => astra_get_option( 'single-product-payment-list' ),
+				'linked'      => 'single-product-payments',
+				'type'        => 'sub-control',
+				'control'     => 'ast-list-icons',
+				'section'     => 'section-woo-shop-single',
+				'priority'    => 10,
+				'divider'     => array( 'ast_class' => 'ast-bottom-divider' ),
+				'disable'     => false,
 				'input_attrs' => array(
 					'text_control_label'       => __( 'Payment Title', 'astra' ),
 					'text_control_placeholder' => __( 'Add payment title', 'astra' ),

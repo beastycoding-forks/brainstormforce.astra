@@ -38,6 +38,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 			$ltr_right   = $is_site_rtl ? 'left' : 'right';
 
 			$site_content_width          = astra_get_option( 'site-content-width', 1200 ) + 56;
+			$ast_narrow_width            = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) ) . 'px';
 			$headings_font_family        = astra_get_option( 'headings-font-family' );
 			$headings_font_weight        = astra_get_option( 'headings-font-weight' );
 			$headings_text_transform     = astra_get_option( 'headings-text-transform' );
@@ -282,7 +283,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 
 			$content_width_size = ( true === $improve_gb_ui ) ? $ast_content_width : '1200px';
 			$css                = ':root{ --wp--custom--ast-content-width-size: ' . $content_width_size . ' }';
-
+			$css                .= '.ast-narrow-container { --wp--custom--ast-content-width-size: ' . $ast_narrow_width . ' }';
 			$astra_apply_content_background = astra_apply_content_background_fullwidth_layouts();
 
 			$desktop_css = array(
@@ -521,7 +522,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					'float' => 'none !important',
 				);
 				if ( false === $astra_apply_content_background ) {
-					$desktop_css['.ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper'] = $background_style_data;
+					$desktop_css['.ast-page-builder-template .editor-styles-wrapper, .ast-plain-container .editor-styles-wrapper, .ast-narrow-container .editor-styles-wrapper'] = $background_style_data;
 				}
 			}
 
@@ -1472,6 +1473,17 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 				$css .= astra_parse_css( $boxed_container );
 
 			}
+
+			/* Narrow Width Container CSS */
+			$narrow_container = array(
+				// Visibility icon alignment.
+				'.ast-narrow-container .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper' => array(
+					'max-width' => 'var(--wp--custom--ast-content-width-size)',
+					'padding'   => 0,
+				),
+			);
+
+			$css .= astra_parse_css( $narrow_container );
 
 			return $css;
 		}

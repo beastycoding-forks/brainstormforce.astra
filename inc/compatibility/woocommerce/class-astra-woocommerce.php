@@ -159,7 +159,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Add active filter widget class when "chip" toggle enabled.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 * @access public
 		 *
 		 * @param string $block_content Rendered block content.

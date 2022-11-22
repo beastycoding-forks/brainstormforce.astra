@@ -39,33 +39,40 @@ function astra_onload_function() {
 			switch( contentLayout ) {
 				case 'boxed-container':
 					bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
-					bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container');
+					bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
 				break;
 				case 'content-boxed-container':
 					bodyClass.classList.add('ast-separate-container');
-					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container');
+					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
 				break;
 				case 'plain-container':
 					bodyClass.classList.add('ast-plain-container');
-					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container');
+					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-narrow-container');
 				break;
 				case 'page-builder':
 					bodyClass.classList.add('ast-page-builder-template');
-					bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container');
+					bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container', 'ast-narrow-container');
+				break;
+				case 'narrow-container':
+					bodyClass.classList.add('ast-narrow-container');
+					bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container', 'ast-page-builder-template');
 				break;
 				case 'default':
 					if( bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ) {
 						bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
-						bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container');
+						bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
 					} else if( bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ) {
 						bodyClass.classList.add('ast-separate-container');
-						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
 					} else if( bodyClass.classList.contains( 'ast-default-layout-page-builder' ) ) {
 						bodyClass.classList.add('ast-page-builder-template');
-						bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container');
-					} else {
+						bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container', 'ast-narrow-container');
+					} else if( bodyClass.classList.contains( 'ast-default-layout-plain-container' ) ) {
 						bodyClass.classList.add('ast-plain-container');
-						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-narrow-container');
+					} else {
+						bodyClass.classList.add('ast-narrow-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-plain-container');
 					}
 				break;
 			}
@@ -74,7 +81,7 @@ function astra_onload_function() {
 
 			if( null !== editorStylesWrapper ) {
 				const editorStylesWrapperWidth = parseInt( editorStylesWrapper.offsetWidth )
-				if( editorStylesWrapperWidth < 1250 ) {
+				if( editorStylesWrapperWidth < 1350 ) {
 					editorStylesWrapper.classList.remove( 'ast-stacked-title-visibility' );
 					editorStylesWrapper.classList.add( 'ast-stacked-title-visibility' );
 				} else {
@@ -145,7 +152,7 @@ function astra_onload_function() {
 			}
 
 			// Adding 'inherit-container-width' width to Group block externally.
-			let postBlocks = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getCurrentPost() && undefined !== wp.data.select( 'core/editor' ).getBlocks() ) ? wp.data.select( 'core/editor' ).getBlocks() : false,
+			let postBlocks = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getCurrentPost() && undefined !== wp.data.select( 'core/block-editor' ).getBlocks() ) ? wp.data.select( 'core/block-editor' ).getBlocks() : false,
 				groupBlocks = document.querySelectorAll( '.block-editor-block-list__layout.is-root-container > .wp-block-group' );
 			if( postBlocks && groupBlocks ) {
 				for ( let blockNum = 0; blockNum < postBlocks.length; blockNum++ ) {
@@ -173,12 +180,12 @@ document.body.addEventListener('mousedown', function () {
 if(true === blockCssMode){
 	var blockCss = document.getElementById('astra-block-editor-styles-css');
 	var inlineCss = document.getElementById('astra-block-editor-styles-inline-css');
-	
+
 }else {
 	var blockCss = document.getElementById('astra-wp-editor-styles-css');
 	var inlineCss = document.getElementById('astra-wp-editor-styles-inline-css');
 }
-	
+
 
 	var blockFixCss = null !== blockCss ? blockCss.cloneNode(true) : null;
 	var blockInlineCss = null !== inlineCss ?  inlineCss.cloneNode(true) : null;
@@ -194,7 +201,7 @@ if(true === blockCssMode){
 			if(true === blockCssMode){
 				var styleTagId = 'astra-block-editor-styles-inline-css';
 				var styleTagBlockId = 'astra-block-editor-styles-css';
-				
+
 			} else{
 				var styleTagId = 'astra-wp-editor-styles-inline-css';
 				var styleTagBlockId = 'astra-wp-editor-styles-css';

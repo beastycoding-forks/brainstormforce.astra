@@ -1602,7 +1602,7 @@ function astra_check_is_structural_setup() {
 /**
  * Check if the user is old sidebar user.
  *
- * @since x.x.x
+ * @since 3.9.4
  * @return bool true|false.
  */
 function astra_check_old_sidebar_user() {
@@ -1619,4 +1619,39 @@ function astra_check_old_sidebar_user() {
 function astra_load_woocommerce_login_form_password_icon() {
 	$astra_settings = get_option( ASTRA_THEME_SETTINGS );
 	return apply_filters( 'astra_get_option_woo-show-password-icon', isset( $astra_settings['woo-show-password-icon'] ) ? false : true ); // phpcs:ignore WordPress.NamingConventions.ValidHookName.UseUnderscores
+}
+
+/**
+ * Function to add narrow width properties in the frontend.
+ *
+ * @since x.x.x
+ * @param string  $location container layout for single-post, archives, pages, page meta.
+ * @param string $narrow_container_max_width  dynamic container width in px.
+ * @return string Parsed CSS based on $location and $narrow_container_max_width.
+ */
+function astra_narrow_container_width( $location, $narrow_container_max_width ) {
+
+	if ( 'narrow-container' === $location ) {
+
+		$narrow_container_css = array(
+			'.ast-narrow-container .site-content > .ast-container' => array(
+				'max-width' => astra_get_css_value( $narrow_container_max_width, 'px' ),
+			),
+		);
+
+		// Remove Sidebar for Narrow Width Container Layout.
+		if ( 'narrow-container' === astra_get_content_layout() ) {
+			add_filter(
+				'astra_page_layout',
+				function() { // phpcs:ignore PHPCompatibility.FunctionDeclarations.NewClosure.Found
+					return 'no-sidebar';
+				}
+			);
+		}
+
+		return astra_parse_css( $narrow_container_css, astra_get_tablet_breakpoint( '', 1 ) );
+
+	} else {
+		return '';
+	}
 }

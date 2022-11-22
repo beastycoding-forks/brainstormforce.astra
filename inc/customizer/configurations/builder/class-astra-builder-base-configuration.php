@@ -239,6 +239,7 @@ final class Astra_Builder_Base_Configuration {
 				'title'     => __( 'Hide on Tablet', 'astra' ),
 				'transport' => 'postMessage',
 				'context'   => Astra_Builder_Helper::$tablet_general_tab,
+				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 
 			/**
@@ -254,6 +255,7 @@ final class Astra_Builder_Base_Configuration {
 				'title'     => __( 'Hide on Mobile', 'astra' ),
 				'transport' => 'postMessage',
 				'context'   => Astra_Builder_Helper::$mobile_general_tab,
+				'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
 			),
 		);
 

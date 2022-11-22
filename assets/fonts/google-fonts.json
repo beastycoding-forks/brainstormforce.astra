@@ -4437,6 +4437,15 @@
         }
     },
     {
+        "Fragment Mono": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
         "Francois One": {
             "variants": [
                 "regular"
@@ -5580,6 +5589,20 @@
     },
     {
         "IBM Plex Sans Hebrew": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "IBM Plex Sans JP": {
             "variants": [
                 "100",
                 "200",
@@ -7766,6 +7789,18 @@
         }
     },
     {
+        "Marhey": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Markazi Text": {
             "variants": [
                 "regular",
@@ -7936,8 +7971,13 @@
     {
         "Merienda": {
             "variants": [
+                "300",
                 "regular",
-                "700"
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
             ],
             "category": "handwriting"
         }
@@ -8999,7 +9039,10 @@
     {
         "Noto Sans Bassa Vah": {
             "variants": [
-                "regular"
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -9550,6 +9593,22 @@
         }
     },
     {
+        "Noto Sans Lao Looped": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Sans Lepcha": {
             "variants": [
                 "regular"
@@ -9708,6 +9767,14 @@
         }
     },
     {
+        "Noto Sans Mende Kikakui": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Sans Meroitic": {
             "variants": [
                 "regular"
@@ -9806,7 +9873,10 @@
     {
         "Noto Sans New Tai Lue": {
             "variants": [
-                "regular"
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -10692,6 +10762,17 @@
     },
     {
         "Noto Serif Nyiakeng Puachue Hmong": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Noto Serif Oriya": {
             "variants": [
                 "regular",
                 "500",
@@ -13588,6 +13669,20 @@
         }
     },
     {
+        "Sono": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Sonsie One": {
             "variants": [
                 "regular"
@@ -15241,7 +15336,7 @@
             "variants": [
                 "regular"
             ],
-            "category": "display"
+            "category": "sans-serif"
         }
     },
     {
@@ -15249,7 +15344,7 @@
             "variants": [
                 "regular"
             ],
-            "category": "display"
+            "category": "sans-serif"
         }
     },
     {
@@ -15257,7 +15352,7 @@
             "variants": [
                 "regular"
             ],
-            "category": "serif"
+            "category": "sans-serif"
         }
     },
     {
@@ -15341,6 +15436,8 @@
         "Zen Old Mincho": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700",
                 "900"
             ],

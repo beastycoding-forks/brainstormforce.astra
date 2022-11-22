@@ -252,7 +252,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 						'section'  => 'section-edd-archive',
 						'priority' => 999,
 						'title'    => __( 'View Astra Pro Features', 'astra' ),
-						'url'      => astra_get_pro_url( 'https://wpastra.com/pro', 'customizer', 'learn-more', 'upgrade-to-pro' ),
+						'url'      => astra_get_pro_url( ASTRA_PRO_UPGRADE_URL, 'customizer', 'learn-more', 'upgrade-to-pro' ),
 						'settings' => array(),
 						'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
 					);

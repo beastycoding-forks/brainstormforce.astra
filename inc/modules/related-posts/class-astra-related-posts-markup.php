@@ -57,7 +57,7 @@ class Astra_Related_Posts_Markup {
 		// Get related posts by WP_Query.
 		$query_posts = $this->astra_get_related_posts_by_query( $post_id );
 
-		if ( empty($query_posts) ) {
+		if ( empty( $query_posts ) ) {
 			return apply_filters( 'astra_related_posts_no_posts_avilable_message', '', $post_id );
 		} else {
 			// Added flag to load wrapper section 'ast-single-related-posts-container' only once, because as we removed 'posts__not_in' param from WP_Query and we conditionally handle posts__not_in below so it needs to verify if there are other posts as well to load, then only we will display wrapper.
@@ -81,9 +81,9 @@ class Astra_Related_Posts_Markup {
 			$post_counter      = 1;
 			$total_posts_count = $related_posts_total_count + 1;
 
-			if ($post_counter < $total_posts_count) {
-				foreach( $query_posts as $post) :
-					setup_postdata($post);
+			if ( $post_counter < $total_posts_count ) {
+				foreach ( $query_posts as $post ) :
+					setup_postdata( $post );
 
 					$post_id    = get_the_ID();
 					$output_str = astra_get_post_meta( $related_post_meta );

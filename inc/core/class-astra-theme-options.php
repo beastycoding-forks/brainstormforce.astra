@@ -568,10 +568,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 
 					// toogle menu target.
 					'mobile-header-toggle-target'          => 'icon',
-
-					// Performance.
-					'load-google-fonts-locally'            => false,
-					'preload-local-fonts'                  => false,
 				)
 			);
 

@@ -750,33 +750,6 @@
 			AstCustomizerAPI.setDefaultControlContext();
 			astra_builder_clear_operation_session();
 
-			// Local font files regeneration logic.
-			$( 'input.ast-flush-font-files' ).on( 'click', function( e ) {
-
-				var data = {
-					action: 'astra_regenerate_fonts_folder',
-					nonce: AstraBuilderCustomizerData.astraRegenerateFonts
-				};
-
-				$( 'input.ast-flush-font-files' ).attr('disabled', 'disabled');
-
-				$.post( ajaxurl, data, function ( response ) {
-					if ( response && response.success ) {
-						$( 'input.ast-flush-font-files' ).val( AstraBuilderCustomizerData.successFlushed );
-						setTimeout(function () {
-							$( 'input.ast-flush-font-files' ).prop('disabled', false);
-							$( 'input.ast-flush-font-files' ).val( AstraBuilderCustomizerData.initialFlushText );
-						}, 1000);
-					} else {
-						$( 'input.ast-flush-font-files' ).val( AstraBuilderCustomizerData.failedFlushed );
-						setTimeout(function () {
-							$( 'input.ast-flush-font-files' ).prop('disabled', false);
-							$( 'input.ast-flush-font-files' ).val( AstraBuilderCustomizerData.initialFlushText );
-						}, 1000);
-					}
-				});
-			});
-
 			api.previewer.bind('AstraBuilderPartialContentRendered', function (message) {
 
 				// Clear clone process if partially refreshed.

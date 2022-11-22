@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Define Constants
  */
-define( 'ASTRA_THEME_VERSION', '3.9.4' );
+define( 'ASTRA_THEME_VERSION', '4.0.0' );
 define( 'ASTRA_THEME_SETTINGS', 'astra-settings' );
 define( 'ASTRA_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ASTRA_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
@@ -25,7 +25,7 @@ define( 'ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/' );
  * Minimum Version requirement of the Astra Pro addon.
  * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
  */
-define( 'ASTRA_EXT_MIN_VER', '3.9.2' );
+define( 'ASTRA_EXT_MIN_VER', '4.0.0' );
 
 /**
  * Setup helper functions of Astra.
@@ -102,11 +102,15 @@ require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-helper.php';
 
 require_once ASTRA_THEME_DIR . 'inc/schema/class-astra-schema.php';
 
+/* Setup API */
+require_once ASTRA_THEME_DIR . 'admin/includes/class-astra-api-init.php';
+
 if ( is_admin() ) {
 	/**
 	 * Admin Menu Settings
 	 */
 	require_once ASTRA_THEME_DIR . 'inc/core/class-astra-admin-settings.php';
+	require_once ASTRA_THEME_DIR . 'admin/class-astra-admin-loader.php';
 	require_once ASTRA_THEME_DIR . 'inc/lib/astra-notices/class-astra-notices.php';
 }
 
@@ -172,3 +176,4 @@ require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
+

@@ -243,18 +243,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				/**
-				 * Performance Panel
-				 *
-				 * @since 3.6.0
-				 */
-				array(
-					'name'     => 'section-performance',
-					'type'     => 'section',
-					'priority' => 65,
-					'title'    => __( 'Performance', 'astra' ),
-				),
-
-				/**
 				 * Colors Panel
 				 */
 				array(

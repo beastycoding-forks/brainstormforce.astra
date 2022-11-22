@@ -1748,6 +1748,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						$default_layout_update_css['.ast-separate-container #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container.ast-right-sidebar #primary'] = [
 							'margin' =>  '0em 0'
 						];
+
+						$default_layout_update_css['.ast-single-post.ast-page-builder-template .site-main > article, .woocommerce.ast-page-builder-template .site-main'] = [
+							'padding-top' => '0px !important;'
+						];
+
+						$default_layout_update_css['#page .site-content']  = array(
+							'flex-grow' => '0',
+						);
 					}
 				}
 				

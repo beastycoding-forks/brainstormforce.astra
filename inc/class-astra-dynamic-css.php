@@ -1743,7 +1743,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 					if ($title_bar_display == 'disabled') {
 						$default_layout_update_css['.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container,.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond'] = array (
-							'padding' => '0px 3em !important'
+							'padding' => '0px 3em'
 						);
 
 						$default_layout_update_css['.ast-separate-container #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container.ast-right-sidebar #primary'] = [
@@ -1751,7 +1751,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						];
 
 						$default_layout_update_css['.ast-single-post.ast-page-builder-template .site-main > article, .woocommerce.ast-page-builder-template .site-main'] = [
-							'padding-top' => '0px !important;'
+							'padding-top' => '0px;'
 						];
 
 						$default_layout_update_css['#page .site-content']  = array(

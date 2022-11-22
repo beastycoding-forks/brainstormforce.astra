@@ -96,6 +96,8 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-page-builder-template';
 		} elseif ( 'plain-container' == $content_layout ) {
 			$classes[] = 'ast-plain-container';
+		} elseif ( 'narrow-container' == $content_layout ) {
+			$classes[] = 'ast-narrow-container';
 		}
 
 		// Sidebar location.
@@ -105,22 +107,23 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		// Current Astra verion.
 		$classes[] = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
 
-		$menu_item    = astra_get_option( 'header-main-rt-section' );
-		$outside_menu = astra_get_option( 'header-display-outside-menu' );
+		if( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			$menu_item    = astra_get_option( 'header-main-rt-section' );
+			$outside_menu = astra_get_option( 'header-display-outside-menu' );
 
-		if ( 'none' !== $menu_item && $outside_menu ) {
-			$classes[] = 'ast-header-custom-item-outside';
-		} else {
-			$classes[] = 'ast-header-custom-item-inside';
-		}
+			if ( 'none' !== $menu_item && $outside_menu ) {
+				$classes[] = 'ast-header-custom-item-outside';
+			} else {
+				$classes[] = 'ast-header-custom-item-inside';
+			}
+			/**
+			 * Add class for header width
+			 */
+			$header_content_layout = astra_get_option( 'header-main-layout-width' );
 
-		/**
-		 * Add class for header width
-		 */
-		$header_content_layout = astra_get_option( 'header-main-layout-width' );
-
-		if ( 'full' == $header_content_layout ) {
-			$classes[] = 'ast-full-width-primary-header';
+			if ( 'full' == $header_content_layout ) {
+				$classes[] = 'ast-full-width-primary-header';
+			}
 		}
 
 		return $classes;

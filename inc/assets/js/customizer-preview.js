@@ -230,6 +230,9 @@ wp.customize( 'astra-settings[blog-single-width]', function( value ) {
             dynamicStyle += 'max-width: ' + single_post_max_width + 'px;';
             dynamicStyle += '} ';
         }
+        else{
+            wp.customize.preview.send( 'refresh' );
+        }
         astra_add_dynamic_css( 'blog-single-width', dynamicStyle );
     } );
 } );
@@ -247,6 +250,9 @@ wp.customize( 'astra-settings[blog-width]', function( value ) {
             dynamicStyle += '.blog .site-content > .ast-container, .archive .site-content > .ast-container, .search .site-content > .ast-container {';
             dynamicStyle += 'max-width: ' + blog_max_width + 'px;';
             dynamicStyle += '} ';
+        }
+        else{
+            wp.customize.preview.send( 'refresh' );
         }
         astra_add_dynamic_css( 'blog-width', dynamicStyle );
     } );

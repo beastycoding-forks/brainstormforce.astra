@@ -1067,14 +1067,23 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 
 			if ( is_rtl() ) {
 				$builder_customizer_css_file = 'ast-builder-customizer-rtl';
+				$font_icon_picker_css_file   = 'font-icon-picker-rtl';
 			} else {
 				$builder_customizer_css_file = 'ast-builder-customizer';
+				$font_icon_picker_css_file   = 'font-icon-picker';
 			}
 
 			// Enqueue Builder CSS.
 			wp_enqueue_style(
 				'ahfb-customizer-style',
 				ASTRA_THEME_URI . 'inc/assets/css/' . $builder_customizer_css_file . '.css',
+				array( 'wp-components' ),
+				ASTRA_THEME_VERSION
+			);
+
+			wp_enqueue_style(
+				'ahfb-customizer-color-picker-style',
+				ASTRA_THEME_URI . 'inc/assets/css/' . $font_icon_picker_css_file . '.css',
 				array( 'wp-components' ),
 				ASTRA_THEME_VERSION
 			);

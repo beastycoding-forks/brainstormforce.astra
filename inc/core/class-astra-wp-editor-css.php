@@ -374,9 +374,10 @@ class Astra_WP_Editor_CSS {
 		// Preset post title wrapper padding (20px) + post title h1 padding (6px).
 		$page_title_internal_padding = '26px';
 		
-		$ast_content_width = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? $astra_container_width : '910px' );
-		$ast_wide_width    = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(' . esc_attr( $astra_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $astra_container_width );
-		
+		$ast_content_width     = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? $astra_container_width : '910px' );
+		$ast_wide_width        = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(' . esc_attr( $astra_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $astra_container_width );
+		$ast_narrow_width      = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) ) . 'px';
+
 		$css = ':root, body .editor-styles-wrapper {
 			--wp--custom--ast-default-block-top-padding: ' . $desktop_top_spacing . ';
 			--wp--custom--ast-default-block-right-padding: ' . $desktop_right_spacing . ';
@@ -384,6 +385,10 @@ class Astra_WP_Editor_CSS {
 			--wp--custom--ast-default-block-left-padding: ' . $desktop_left_spacing . ';
 			--wp--custom--ast-content-width-size: ' . $ast_content_width . ';
 			--wp--custom--ast-wide-width-size: ' . $ast_wide_width . ';
+		}';
+
+		$css .= '.ast-narrow-container .editor-styles-wrapper {
+			--wp--custom--ast-content-width-size: ' . $ast_narrow_width . ';
 		}';
 
 		// Overriding the previous CSS vars in customizer because there is block editor in customizer widget, where if any container block is used in sidebar widgets then as customizer widget editor is already small (left panel) the blocks does not looks good.
@@ -540,10 +545,9 @@ class Astra_WP_Editor_CSS {
 			),
 		);
 
-		// Boxed, Content-Boxed page title alignment with Spectra Container Blocks.
+		// Boxed, Content-Boxed, page title alignment with Spectra Container Blocks.
 		$desktop_css['.ast-separate-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > .uagb-is-root-container'] = array(
 			'max-width'            => 'var(--wp--custom--ast-content-width-size)',
-			'padding-' . $ltr_left => '0 !important',
 		);
 
 		// Full-Width Stretched Layout page title alignment.
@@ -555,6 +559,28 @@ class Astra_WP_Editor_CSS {
 		$desktop_css['.ast-plain-container .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper'] = array(
 			'padding-left'  => '3px',
 			'padding-right' => '3px',
+		);
+
+		// Core / Spectra blocks compatibility to occupy same width as narrow container.
+		$desktop_css['.ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container'] = array(
+			'max-width'    => 'var(--wp--custom--ast-content-width-size)',
+			'margin-left'  => 'auto',
+			'margin-right' => 'auto',
+		);
+		$desktop_css['.ast-narrow-container .editor-styles-wrapper .block-editor-block-list__layout.is-root-container > *.wp-block, .ast-narrow-container .is-root-container > .alignfull > :where(:not(.alignleft):not(.alignright))'] = array(
+			'max-width'    => 'var(--wp--custom--ast-content-width-size)',
+			'margin-left'  => 'auto',
+			'margin-right' => 'auto',
+		);
+		$desktop_css['.ast-narrow-container .is-root-container > .alignwide > :where(:not(.alignleft):not(.alignright))'] = array(
+			'max-width'    => 'var(--wp--custom--ast-content-width-size)',
+			'margin-left'  => 'auto',
+			'margin-right' => 'auto',
+		);
+		$desktop_css['.ast-narrow-container .editor-styles-wrapper .is-root-container .wp-block-uagb-image--align-full .wp-block-uagb-image__figure'] = array(
+			'max-width'    => '100%',
+			'margin-left'  => 'auto',
+			'margin-right' => 'auto',
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
@@ -602,6 +628,7 @@ class Astra_WP_Editor_CSS {
 				'margin-right' => 'auto', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
 				'margin-left'  => 'auto', // phpcs:ignore WordPress.Arrays.ArrayIndentation.ItemNotAligned
 			); // phpcs:ignore WordPress.Arrays.ArrayIndentation.CloseBraceNotAligned
+
 		} else {
 			$desktop_css['.editor-styles-wrapper .wp-block-latest-posts > li > a'] = array(
 				'text-decoration' => 'none',

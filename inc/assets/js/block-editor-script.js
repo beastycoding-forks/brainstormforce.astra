@@ -39,33 +39,40 @@ function astra_onload_function() {
 			switch( contentLayout ) {
 				case 'boxed-container':
 					bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
-					bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container');
+					bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
 				break;
 				case 'content-boxed-container':
 					bodyClass.classList.add('ast-separate-container');
-					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container');
+					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
 				break;
 				case 'plain-container':
 					bodyClass.classList.add('ast-plain-container');
-					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container');
+					bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-narrow-container');
 				break;
 				case 'page-builder':
 					bodyClass.classList.add('ast-page-builder-template');
-					bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container');
+					bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container', 'ast-narrow-container');
+				break;
+				case 'narrow-container':
+					bodyClass.classList.add('ast-narrow-container');
+					bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container', 'ast-page-builder-template');
 				break;
 				case 'default':
 					if( bodyClass.classList.contains( 'ast-default-layout-boxed-container' ) ) {
 						bodyClass.classList.add('ast-separate-container' , 'ast-two-container');
-						bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container');
+						bodyClass.classList.remove('ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
 					} else if( bodyClass.classList.contains( 'ast-default-layout-content-boxed-container' ) ) {
 						bodyClass.classList.add('ast-separate-container');
-						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-plain-container', 'ast-narrow-container');
 					} else if( bodyClass.classList.contains( 'ast-default-layout-page-builder' ) ) {
 						bodyClass.classList.add('ast-page-builder-template');
-						bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container');
-					} else {
+						bodyClass.classList.remove('ast-two-container' , 'ast-plain-container' , 'ast-separate-container', 'ast-narrow-container');
+					} else if( bodyClass.classList.contains( 'ast-default-layout-plain-container' ) ) {
 						bodyClass.classList.add('ast-plain-container');
-						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-narrow-container');
+					} else {
+						bodyClass.classList.add('ast-narrow-container');
+						bodyClass.classList.remove('ast-two-container' , 'ast-page-builder-template' , 'ast-separate-container', 'ast-plain-container');
 					}
 				break;
 			}

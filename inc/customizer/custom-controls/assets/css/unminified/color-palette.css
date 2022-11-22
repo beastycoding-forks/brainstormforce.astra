@@ -9,6 +9,7 @@
 	right: unset;
 	top: unset;
 	vertical-align: sub;
+	z-index: 10;
 }
 
 #customize-control-astra-color-palettes .astra-color-picker-wrap {
@@ -68,7 +69,6 @@
 	.ast-color-palette-wrapper
 	.ast-color-picker-wrap {
 	margin-top: 12px;
-	position: relative;
 	cursor: pointer;
 }
 
@@ -158,16 +158,14 @@
 
 .color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color{
     color: #fff;
-	display: block;
+    display: block;
     opacity: 1;
     position: absolute;
     left: 50%;
     top: 50%;
     display: block;
-    transform: translate(-50%, -50%);
     text-align: center;
-	font-size: 12px;
-	mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
 }
 .color-button-wrap.has-global-palette-color .astra-advanced-color-indicate .global-color svg{
     width: 10px;
@@ -181,7 +179,7 @@
 
 .ast-color-picker-custom-tooltip {
 	position: absolute;
-    top: 0;
+    top: -30px;
     bottom: 0;
     left: 0;
     right: 0;
@@ -217,7 +215,11 @@
     transform: translate(-50%,-0.5em);
 }
 
-.ast-color-picker-custom-tooltip[data-title]:hover::after{
+.ast-color-picker-custom-tooltip-wrapper {
+	position: relative;
+}
+
+.ast-color-picker-wrap:hover + .ast-color-picker-custom-tooltip-wrapper .ast-color-picker-custom-tooltip[data-title]::after{
 	display: flex;
 	white-space: break-spaces;
 	inline-size: max-content;

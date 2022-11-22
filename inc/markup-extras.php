@@ -96,6 +96,8 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 			$classes[] = 'ast-page-builder-template';
 		} elseif ( 'plain-container' == $content_layout ) {
 			$classes[] = 'ast-plain-container';
+		} elseif ( 'narrow-container' == $content_layout ) {
+			$classes[] = 'ast-narrow-container';
 		}
 
 		// Sidebar location.
@@ -105,22 +107,23 @@ if ( ! function_exists( 'astra_body_classes' ) ) {
 		// Current Astra verion.
 		$classes[] = esc_attr( 'astra-' . ASTRA_THEME_VERSION );
 
-		$menu_item    = astra_get_option( 'header-main-rt-section' );
-		$outside_menu = astra_get_option( 'header-display-outside-menu' );
+		if( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
+			$menu_item    = astra_get_option( 'header-main-rt-section' );
+			$outside_menu = astra_get_option( 'header-display-outside-menu' );
 
-		if ( 'none' !== $menu_item && $outside_menu ) {
-			$classes[] = 'ast-header-custom-item-outside';
-		} else {
-			$classes[] = 'ast-header-custom-item-inside';
-		}
+			if ( 'none' !== $menu_item && $outside_menu ) {
+				$classes[] = 'ast-header-custom-item-outside';
+			} else {
+				$classes[] = 'ast-header-custom-item-inside';
+			}
+			/**
+			 * Add class for header width
+			 */
+			$header_content_layout = astra_get_option( 'header-main-layout-width' );
 
-		/**
-		 * Add class for header width
-		 */
-		$header_content_layout = astra_get_option( 'header-main-layout-width' );
-
-		if ( 'full' == $header_content_layout ) {
-			$classes[] = 'ast-full-width-primary-header';
+			if ( 'full' == $header_content_layout ) {
+				$classes[] = 'ast-full-width-primary-header';
+			}
 		}
 
 		return $classes;
@@ -151,6 +154,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 
 		ob_start();
 		echo "<div class='ast-pagination'>";
+		/** @psalm-suppress ArgumentTypeCoercion */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		the_posts_pagination(
 			array(
 				'prev_text'    => astra_default_strings( 'string-blog-navigation-previous', false ),
@@ -159,6 +163,7 @@ if ( ! function_exists( 'astra_number_pagination' ) ) {
 				'in_same_term' => true,
 			)
 		);
+		/** @psalm-suppress ArgumentTypeCoercion */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		echo '</div>';
 		$output = ob_get_clean();
 		echo apply_filters( 'astra_pagination_markup', $output ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
@@ -1315,12 +1320,18 @@ if ( ! function_exists( 'astra_get_footer_widget' ) ) {
 			?>
 			<div class="widget ast-no-widget-row">
 				<h2 class='widget-title'><?php echo esc_html( $sidebar_name ); ?></h2>
-
-				<p class='no-widget-text'>
-					<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
-						<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra' ); ?>
-					</a>
-				</p>
+				<?php if ( is_customize_preview() ) { ?>
+					<div class="customizer-navigate-on-focus" data-section="widgets" data-type="panel">
+						<?php Astra_Builder_UI_Controller::render_customizer_edit_button(); ?>
+				<?php } ?>
+						<p class='no-widget-text'>
+							<a href='<?php echo esc_url( admin_url( 'widgets.php' ) ); ?>'>
+								<?php esc_html_e( 'Click here to assign a widget for this area.', 'astra' ); ?>
+							</a>
+						</p>
+				<?php if ( is_customize_preview() ) { ?>
+					</div>
+				<?php } ?>
 			</div>
 			<?php
 		}

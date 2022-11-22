@@ -57,6 +57,8 @@ const SelectorComponent = props => {
 					);
 				} else {
 
+					let counterChoice = icon.toString();
+
 					var html = (
 						<div className="ast-alignment-inner-wrap active" key={ value }>
 							<Button
@@ -66,7 +68,7 @@ const SelectorComponent = props => {
 								isPrimary = { value === propsValue }
 								label = { icon }
 							>
-								{ icon }
+								{ counterChoice }
 							</Button>
 						</div>
 					);
@@ -103,6 +105,8 @@ const SelectorComponent = props => {
 
 			var optionsHtml = Object.entries( choices ).map( ( [value, icon] ) => {
 
+				let counterChoice = icon.toString();
+
 				let html = (
 					<div className={ `ast-alignment-inner-wrap ast-alignment-responsive ${device} ${active}` } key={ value } >
 						<Button
@@ -112,7 +116,7 @@ const SelectorComponent = props => {
 							isPrimary = { value === propsValue[device] }
 							label = { icon }
 						>
-							{ icon }
+							{ counterChoice }
 
 						</Button>
 					</div>

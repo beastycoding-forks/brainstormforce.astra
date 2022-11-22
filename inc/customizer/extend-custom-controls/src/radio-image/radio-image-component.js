@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import {Fragment} from '@wordpress/element';
 import {useState} from 'react';
-
+import { __ } from "@wordpress/i18n";
 
 const RadioImageComponent = props => {
 
@@ -20,8 +20,9 @@ const RadioImageComponent = props => {
 		choices,
 		inputAttrs,
 		choices_titles,
+		choices_upgrade,
 		link,
-		labelStyle,
+		labelStyle
 	} = props.control.params;
 
 	let htmlLabel = null,
@@ -62,17 +63,28 @@ const RadioImageComponent = props => {
 
 	htmlRadio = Object.entries(choices).map(([key, value]) => {
 		let checked = props_value === key ? true : false;
-		return <Fragment key={key}>
-			<input {...inp_array} className="image-select" type="radio" value={key} name={`_customize-radio-${id}`}
-				   id={id + key} checked={checked} onChange={() => onLayoutChange(key)}/>
+		if( choices_upgrade[key] ) {
+			return <a href={window.AstraBuilderCustomizerData.upgradeUrl} target='_blank' key={key} className='ast-upgrade-trigger'>
+				<label className={`ast-radio-img-svg ${ ( choices_upgrade[key] ) ? 'ast-pro-option' : '' }`}>
+					<span dangerouslySetInnerHTML={{
+						__html: choices[key]
+					}}/>
+					<span className="image-clickable" data-title={( choices_upgrade[key] ) ? __( 'Upgrade to unlock', 'astra' ) : choices_titles[key]}></span>
+				</label>
+			</a>;
+		} else {
+			return <Fragment key={key}>
+				<input {...inp_array} className="image-select" type="radio" value={key} name={`_customize-radio-${id}`}
+					id={id + key} checked={checked} onChange={() => onLayoutChange(key)}/>
 
-			<label htmlFor={id + key} {...labelStyle} className="ast-radio-img-svg">
-						<span dangerouslySetInnerHTML={{
-							__html: choices[key]
-						}}/>
-				<span className="image-clickable" data-title={choices_titles[key]}></span>
-			</label>
-		</Fragment>;
+				<label htmlFor={id + key} {...labelStyle} className={`ast-radio-img-svg ${ ( choices_upgrade[key] ) ? 'ast-pro-option' : '' }`}>
+							<span dangerouslySetInnerHTML={{
+								__html: choices[key]
+							}}/>
+					<span className="image-clickable" data-title={( choices_upgrade[key] ) ? __( 'Upgrade to unlock', 'astra' ) : choices_titles[key]}></span>
+				</label>
+			</Fragment>;
+		}
 	});
 	return <Fragment>
 		<label className="customizer-text">

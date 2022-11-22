@@ -31,48 +31,36 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 		public function register_configuration( $configurations, $wp_customize ) {
 
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$astra_addon_with_woo = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) ? true : false;
+			$astra_addon_with_woo = ( astra_has_pro_woocommerce_addon() ) ? true : false;
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
-			$current_shop_layouts = array();
-			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$design_1['shop-page-grid-style'] = array(
-				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					'label' => __( 'Design 1', 'astra' ),
-				'path'      => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
-			);
-
-			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$design2['shop-page-list-style'] = array(
-				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					'label' => __( 'Design 2', 'astra' ),
-				'path'      => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
-			);
-
-			/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$design_3['shop-page-modern-style'] = array(
-				/** @psalm-suppress PossiblyUndefinedVariable */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-					'label' => __( 'Design 3', 'astra' ),
-				'path'      => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-modern-view', false ) : '',
-			);
-
-			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'woocommerce' ) ) {
-				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-
-				$current_shop_layouts = array_merge(
-					$design_1,
-					$design2,
-					$design_3
+			if ( $astra_addon_with_woo ) {
+				$current_shop_layouts = array(
+					'shop-page-grid-style'   => array(
+						'label' => __( 'Design 1', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
+					),
+					'shop-page-modern-style' => array(
+						'label' => __( 'Design 2', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-modern-view', false ) : '',
+					),
+					'shop-page-list-style'   => array(
+						'label' => __( 'Design 3', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-list-view', false ) : '',
+					),
 				);
-
 			} else {
-				$current_shop_layouts = array_merge(
-					$design_1,
-					$design_3
+				$current_shop_layouts = array(
+					'shop-page-grid-style'   => array(
+						'label' => __( 'Design 1', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-grid-view', false ) : '',
+					),
+					'shop-page-modern-style' => array(
+						'label' => __( 'Design 2', 'astra' ),
+						'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'shop-modern-view', false ) : '',
+					),
 				);
 			}
-
 
 			$_configs = array(
 
@@ -125,7 +113,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					'context'    => array(
 						Astra_Builder_Helper::$design_tab_config,
 					),
-					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
+					'divider'    => ! defined( 'ASTRA_EXT_VER' ) ? array( 'ast_class' => 'ast-section-spacing' ) : array( 'ast_class' => 'ast-bottom-section-divider ast-section-spacing' ),
 				),
 
 				/**
@@ -292,20 +280,51 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 			);
 
 			// Learn More link if Astra Pro is not activated.
-			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
-
+			if ( astra_showcase_upgrade_notices() ) {
 				$_configs[] = array(
-					'name'     => ASTRA_THEME_SETTINGS . '[woo-shop-ast-button-link]',
+					'name'     => ASTRA_THEME_SETTINGS . '[ast-woo-shop-pro-items]',
 					'type'     => 'control',
-					'control'  => 'ast-button-link',
+					'control'  => 'ast-upgrade',
+					'renderAs' => 'list',
+					'choices'  => array(
+						'two'   => array(
+							'title' => __( 'More shop design layouts', 'astra' ),
+						),
+						'three' => array(
+							'title' => __( 'Shop toolbar structure', 'astra' ),
+						),
+						'five'  => array(
+							'title' => __( 'Offcanvas product filters', 'astra' ),
+						),
+						'six'   => array(
+							'title' => __( 'Products quick view', 'astra' ),
+						),
+						'seven' => array(
+							'title' => __( 'Shop pagination', 'astra' ),
+						),
+						'eight' => array(
+							'title' => __( 'More typography options', 'astra' ),
+						),
+						'nine'  => array(
+							'title' => __( 'More color options', 'astra' ),
+						),
+						'ten'   => array(
+							'title' => __( 'More spacing options', 'astra' ),
+						),
+						'four'  => array(
+							'title' => __( 'Box shadow design options', 'astra' ),
+						),
+						'one'   => array(
+							'title' => __( 'More design controls', 'astra' ),
+						),
+					),
 					'section'  => 'woocommerce_product_catalog',
+					'default'  => '',
 					'priority' => 999,
-					'title'    => __( 'View Astra Pro Features', 'astra' ),
-					'url'      => astra_get_pro_url( 'https://wpastra.com/pro/', 'customizer', 'learn-more', 'upgrade-to-pro' ),
-					'settings' => array(),
-					'context'  => Astra_Builder_Helper::$design_tab_config,
+					'title'    => __( 'Optimize your WooCommerce store for maximum profit with enhanced features', 'astra' ),
+					'divider'  => array( 'ast_class' => 'ast-top-section-divider' ),
+					'context'  => array(),
 				);
-
 			}
 
 			$configurations = array_merge( $configurations, $_configs );

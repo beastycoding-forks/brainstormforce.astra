@@ -29,11 +29,27 @@
         }
     },
     {
+        "Aboreto": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Abril Fatface": {
             "variants": [
                 "regular"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Abyssinica SIL": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
         }
     },
     {
@@ -324,6 +340,14 @@
         }
     },
     {
+        "Alkalami": {
+            "variants": [
+                "regular"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Allan": {
             "variants": [
                 "regular",
@@ -428,12 +452,30 @@
         }
     },
     {
+        "Alumni Sans Collegiate One": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Alumni Sans Inline One": {
             "variants": [
                 "regular",
                 "italic"
             ],
             "category": "display"
+        }
+    },
+    {
+        "Alumni Sans Pinstripe": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -489,6 +531,14 @@
                 "italic",
                 "700",
                 "700italic"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Amiri Quran": {
+            "variants": [
+                "regular"
             ],
             "category": "serif"
         }
@@ -877,6 +927,15 @@
     },
     {
         "Aref Ruqaa": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Aref Ruqaa Ink": {
             "variants": [
                 "regular",
                 "700"
@@ -2041,6 +2100,14 @@
         }
     },
     {
+        "Blaka Ink": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Blinker": {
             "variants": [
                 "100",
@@ -2238,6 +2305,14 @@
         }
     },
     {
+        "Bungee Spice": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Butcherman": {
             "variants": [
                 "regular"
@@ -2317,6 +2392,21 @@
                 "900"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Cairo Play": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "display"
         }
     },
     {
@@ -3502,6 +3592,17 @@
         }
     },
     {
+        "DynaPuff": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Dynalight": {
             "variants": [
                 "regular"
@@ -4112,6 +4213,20 @@
         }
     },
     {
+        "Figtree": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Finger Paint": {
             "variants": [
                 "regular"
@@ -4322,6 +4437,15 @@
         }
     },
     {
+        "Fragment Mono": {
+            "variants": [
+                "regular",
+                "italic"
+            ],
+            "category": "monospace"
+        }
+    },
+    {
         "Francois One": {
             "variants": [
                 "regular"
@@ -4429,7 +4553,8 @@
     {
         "Fruktur": {
             "variants": [
-                "regular"
+                "regular",
+                "italic"
             ],
             "category": "display"
         }
@@ -5477,6 +5602,20 @@
         }
     },
     {
+        "IBM Plex Sans JP": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "IBM Plex Sans KR": {
             "variants": [
                 "100",
@@ -5795,6 +5934,31 @@
                 "700",
                 "800",
                 "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Inter Tight": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "sans-serif"
         }
@@ -6713,9 +6877,15 @@
     {
         "Lateef": {
             "variants": [
-                "regular"
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
             ],
-            "category": "handwriting"
+            "category": "serif"
         }
     },
     {
@@ -7619,6 +7789,18 @@
         }
     },
     {
+        "Marhey": {
+            "variants": [
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Markazi Text": {
             "variants": [
                 "regular",
@@ -7789,8 +7971,13 @@
     {
         "Merienda": {
             "variants": [
+                "300",
                 "regular",
-                "700"
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
             ],
             "category": "handwriting"
         }
@@ -8373,7 +8560,16 @@
                 "600",
                 "700",
                 "800",
-                "900"
+                "900",
+                "100italic",
+                "200italic",
+                "300italic",
+                "italic",
+                "500italic",
+                "600italic",
+                "700italic",
+                "800italic",
+                "900italic"
             ],
             "category": "display"
         }
@@ -8400,6 +8596,14 @@
                 "regular"
             ],
             "category": "sans-serif"
+        }
+    },
+    {
+        "Nabla": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
         }
     },
     {
@@ -8634,6 +8838,14 @@
         }
     },
     {
+        "Noto Color Emoji": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Emoji": {
             "variants": [
                 "300",
@@ -8684,6 +8896,8 @@
         "Noto Nastaliq Urdu": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "serif"
@@ -8825,7 +9039,10 @@
     {
         "Noto Sans Bassa Vah": {
             "variants": [
-                "regular"
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -9064,6 +9281,22 @@
         }
     },
     {
+        "Noto Sans Ethiopic": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Sans Georgian": {
             "variants": [
                 "100",
@@ -9248,6 +9481,8 @@
         "Noto Sans Javanese": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700"
             ],
             "category": "sans-serif"
@@ -9343,6 +9578,22 @@
     },
     {
         "Noto Sans Lao": {
+            "variants": [
+                "100",
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Noto Sans Lao Looped": {
             "variants": [
                 "100",
                 "200",
@@ -9516,6 +9767,14 @@
         }
     },
     {
+        "Noto Sans Mende Kikakui": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Noto Sans Meroitic": {
             "variants": [
                 "regular"
@@ -9614,7 +9873,10 @@
     {
         "Noto Sans New Tai Lue": {
             "variants": [
-                "regular"
+                "regular",
+                "500",
+                "600",
+                "700"
             ],
             "category": "sans-serif"
         }
@@ -9722,8 +9984,13 @@
         "Noto Sans Oriya": {
             "variants": [
                 "100",
+                "200",
+                "300",
                 "regular",
+                "500",
+                "600",
                 "700",
+                "800",
                 "900"
             ],
             "category": "sans-serif"
@@ -10355,6 +10622,21 @@
         }
     },
     {
+        "Noto Serif HK": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800",
+                "900"
+            ],
+            "category": "serif"
+        }
+    },
+    {
         "Noto Serif Hebrew": {
             "variants": [
                 "100",
@@ -10480,6 +10762,17 @@
     },
     {
         "Noto Serif Nyiakeng Puachue Hmong": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "serif"
+        }
+    },
+    {
+        "Noto Serif Oriya": {
             "variants": [
                 "regular",
                 "500",
@@ -12151,6 +12444,25 @@
         }
     },
     {
+        "Reem Kufi Fun": {
+            "variants": [
+                "regular",
+                "500",
+                "600",
+                "700"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
+        "Reem Kufi Ink": {
+            "variants": [
+                "regular"
+            ],
+            "category": "sans-serif"
+        }
+    },
+    {
         "Reenie Beanie": {
             "variants": [
                 "regular"
@@ -12471,7 +12783,55 @@
         }
     },
     {
+        "Rubik Burned": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Dirt": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Distressed": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Rubik Glitch": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Iso": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Marker Hatch": {
+            "variants": [
+                "regular"
+            ],
+            "category": "display"
+        }
+    },
+    {
+        "Rubik Maze": {
             "variants": [
                 "regular"
             ],
@@ -13122,6 +13482,15 @@
         }
     },
     {
+        "Silkscreen": {
+            "variants": [
+                "regular",
+                "700"
+            ],
+            "category": "display"
+        }
+    },
+    {
         "Simonetta": {
             "variants": [
                 "regular",
@@ -13297,6 +13666,20 @@
                 "regular"
             ],
             "category": "serif"
+        }
+    },
+    {
+        "Sono": {
+            "variants": [
+                "200",
+                "300",
+                "regular",
+                "500",
+                "600",
+                "700",
+                "800"
+            ],
+            "category": "sans-serif"
         }
     },
     {
@@ -14953,7 +15336,7 @@
             "variants": [
                 "regular"
             ],
-            "category": "display"
+            "category": "sans-serif"
         }
     },
     {
@@ -14961,7 +15344,7 @@
             "variants": [
                 "regular"
             ],
-            "category": "display"
+            "category": "sans-serif"
         }
     },
     {
@@ -14969,7 +15352,7 @@
             "variants": [
                 "regular"
             ],
-            "category": "serif"
+            "category": "sans-serif"
         }
     },
     {
@@ -15053,6 +15436,8 @@
         "Zen Old Mincho": {
             "variants": [
                 "regular",
+                "500",
+                "600",
                 "700",
                 "900"
             ],

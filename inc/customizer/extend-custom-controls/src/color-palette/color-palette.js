@@ -93,25 +93,27 @@ const ColorPaletteComponent = (props) => {
 				{state.palettes[state.currentPalette].map((value, index) => {
 					const paletteLables = astra.customizer.globalPaletteLabels;
 					return (
-
-							<div className="ast-color-picker-wrap">
-								<AstraColorPickerControl
-									color={value ? value : ""}
-									onChangeComplete={(color, backgroundType) =>
-										handleChangeComplete(index, color)
-									}
-									backgroundType={"color"}
-									allowGradient={false}
-									allowImage={false}
-									disablePalette={true}
-									onColorResetClick={(
-										color,
-										backgroundType
-									) => handleColorReset(index, color)}
-								/>
-								<span className="ast-color-picker-custom-tooltip" data-title={ paletteLables[index] }></span>
+							<div>
+								<div className="ast-color-picker-wrap">
+									<AstraColorPickerControl
+										color={value ? value : ""}
+										onChangeComplete={(color, backgroundType) =>
+											handleChangeComplete(index, color)
+										}
+										backgroundType={"color"}
+										allowGradient={false}
+										allowImage={false}
+										disablePalette={true}
+										onColorResetClick={(
+											color,
+											backgroundType
+										) => handleColorReset(index, color)}
+									/>
+								</div>
+								<div className="ast-color-picker-custom-tooltip-wrapper">
+									<span className="ast-color-picker-custom-tooltip" data-title={ paletteLables[index] }></span>
+								</div>
 							</div>
-
 					);
 				})}
 			</div>

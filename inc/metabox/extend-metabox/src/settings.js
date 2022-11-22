@@ -1,7 +1,7 @@
 /**
  * Meta Options build.
  */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
 import { compose } from '@wordpress/compose';
 import { withSelect, withDispatch } from '@wordpress/data';
@@ -16,12 +16,16 @@ const { __ } = wp.i18n;
 const MetaSettings = props => {
 
 	const modalIcon = parse( svgIcons['meta-popup-icon'] );
+	const astraLogo = parse( svgIcons['astraLogo'] );
 	const brandIcon = astMetaParams.isWhiteLabelled ? '' : parse( svgIcons['astra-brand-icon'] );
 
     const [ isOpen, setOpen ] = useState( false );
 
     const openModal = () => setOpen( true );
     const closeModal = () => setOpen( false );
+
+	const is_hide_contnet_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar;
+	const [ contentLayout, setContentLayout ] = useState(props.meta['site-content-layout']);
 
 	// Adjust spacing & borders for table.
 	const topTableSpacing = <tr className="ast-extra-spacing"><td className="ast-border"></td><td></td></tr>;
@@ -89,6 +93,23 @@ const MetaSettings = props => {
 		/>);
 	});
 
+	const [isDefaultNarrow, setIsDefaultNarrow] = useState(false);
+
+	// Side effect calling DOM API to check if current default layout is set to narrow width content layout.
+	useEffect(() => {
+		if (document.querySelector('body').classList.contains('ast-default-layout-narrow-container')) {
+			setIsDefaultNarrow(true);
+		}
+		else {
+			setIsDefaultNarrow(false);
+		}
+	}, [contentLayout, setIsDefaultNarrow]);
+
+	// Display sidebar options or not.
+	const showSidebar = () => {
+		return (('narrow-container' === contentLayout) || ('default' === contentLayout && isDefaultNarrow)) ? false : true;
+	}
+
 	return (
 		<>
 			{/* Meta settings icon */}
@@ -110,7 +131,7 @@ const MetaSettings = props => {
 				<div className="ast-sidebar-container components-panel__body is-opened" id="astra_settings_meta_box">
 
 					{/* Content Layout Setting */}
-					<PanelBody
+					{ ! is_hide_contnet_layout_sidebar && (<PanelBody
 						title={ __( 'Content Layout', 'astra' ) }
 						initialOpen={ true }
 					>
@@ -120,13 +141,17 @@ const MetaSettings = props => {
 								choices = { contentLayoutOptions }
 								id = { 'site-content-layout' }
 								onChange={ ( val ) => {
+									setContentLayout(val);
+									if ( val === 'narrow-container' ) props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
 									props.setMetaFieldValue( val, 'site-content-layout' );
 								} }
 							/>
 						</div>
 					</PanelBody>
+					)}
 
-					{/* Sidebar Setting */}
+					{/* Sidebar Setting */}	
+					{ ! is_hide_contnet_layout_sidebar && showSidebar() && (
 					<PanelBody
 						title={ __( 'Sidebar', 'astra' ) }
 						initialOpen={ false }
@@ -142,18 +167,28 @@ const MetaSettings = props => {
 							/>
 						</div>
 					</PanelBody>
+					)}
 
 					{/* Disable Section Setting */}
-					<PanelBody
+					{ ! is_hide_contnet_layout_sidebar && ( <PanelBody
 						title={ __( 'Disable Elements', 'astra' ) }
 						initialOpen={ false }
 					>
 						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
 							{ disableSections }
 						</div>
-					</PanelBody>
+					</PanelBody> ) }
 
-					{ ( undefined !== props.meta['ast-global-header-display'] && 'disabled' !== props.meta['ast-global-header-display'] ) &&
+					{ is_hide_contnet_layout_sidebar && ( <PanelBody
+						title={ __( 'Disable Elements', 'astra' ) }
+						initialOpen={ true }
+					>
+						<div className="ast-sidebar-layout-meta-wrap components-base-control__field">
+							{ disableSections }
+						</div>
+					</PanelBody> ) }
+
+					{  ! is_hide_contnet_layout_sidebar && ( undefined !== props.meta['ast-global-header-display'] && 'disabled' !== props.meta['ast-global-header-display'] ) &&
 						<div className="ast-custom-layout-panel components-panel__body">
 							<h2 className="components-panel__body-title">
 								<button className="components-button components-panel__body-toggle" onClick = { openModal }>
@@ -293,6 +328,13 @@ const MetaSettings = props => {
 						</PanelBody>
 					}
 
+					{ ( ! astMetaParams.is_addon_activated && astMetaParams.show_upgrade_notice ) &&
+						<div className="ast-pro-upgrade-cta-wrapper">
+							{astraLogo}
+							<p className="ast-upgrade-description"> { __( 'Unlock your full design potential and build a website to be proud of with Astra Pro.', 'astra' ) } </p>
+							<a href={ astMetaParams.upgrade_pro_link } className='ast-pro-upgrade-link' target='_blank'> { __( 'Upgrade Now', 'astra' ) } </a>
+						</div>
+					}
 				</div>
 			</PluginSidebar>
 		</>

@@ -50,4 +50,8 @@
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<!-- Exclude Libraries -->
 	<exclude-pattern>*/inc/lib/*</exclude-pattern>
+
+	<rule ref="Internal.Exception">
+		<severity>0</severity>
+	</rule>
 </ruleset>

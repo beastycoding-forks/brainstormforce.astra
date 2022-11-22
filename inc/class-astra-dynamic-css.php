@@ -1735,6 +1735,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'line-height' => 'inherit',
 					),
 				);
+
+				global $post;
+				if (isset($post) && !is_wp_error($post)) {
+					$title_bar_display = get_post_meta( $post->ID, 'site-post-title', true);
+
+					if ($title_bar_display == 'disabled') {
+						$default_layout_update_css['.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container,.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-comment-list li.depth-1, .ast-separate-container .comment-respond'] = array (
+							'padding' => '0px 3em !important'
+						);
+
+						$default_layout_update_css['.ast-separate-container #primary, .ast-separate-container.ast-left-sidebar #primary, .ast-separate-container.ast-right-sidebar #primary'] = [
+							'margin' =>  '0em 0'
+						];
+					}
+				}
+				
 				/* Parse CSS from array() -> Desktop CSS */
 				$parse_css .= astra_parse_css( $default_layout_update_css );
 

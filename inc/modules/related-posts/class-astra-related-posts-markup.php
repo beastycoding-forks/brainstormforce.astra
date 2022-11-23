@@ -82,9 +82,9 @@ class Astra_Related_Posts_Markup {
 			$total_posts_count = $related_posts_total_count + 1;
 
 			if ( $post_counter < $total_posts_count ) {
-			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				foreach ( $query_posts as $post ) :
-			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 					setup_postdata( $post );
 
 					$post_id    = get_the_ID();

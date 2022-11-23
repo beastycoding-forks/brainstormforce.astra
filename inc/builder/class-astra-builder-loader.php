@@ -49,9 +49,6 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			require_once ASTRA_THEME_DIR . 'inc/core/builder/class-astra-builder-helper.php';
 			require_once ASTRA_THEME_DIR . 'inc/core/builder/class-astra-builder-options.php';
 
-			if( ! is_customize_preview( ) ){
-				require_once ASTRA_THEME_DIR . 'inc/core/builder/class-astra-builder-admin.php';
-			}
 			/**
 			 * Builder - Header & Footer Markup.
 			 */

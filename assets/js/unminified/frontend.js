@@ -958,4 +958,51 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} );
 	}
 
+	// Scroll to specific hash link.
+	if (astra.is_scroll_to_id) {
+		const links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href="#0"])');
+		if (links) {
+
+			for (const link of links) {
+
+				if (link.hash !== "") {
+					link.addEventListener("click", scrollToClickHandler);
+				}
+			}
+		}
+	}
+
+	function scrollToClickHandler(e) {
+		e.preventDefault();
+
+		let offset = 0;
+		const siteHeader = document.querySelector('.site-header');
+
+		if (siteHeader) {
+
+			//Check and add offset to scroll top if header is sticky.
+			const headerHeight = siteHeader.querySelectorAll('div[data-stick-support]');
+
+			if (headerHeight) {
+				headerHeight.forEach(single => {
+					offset += single.clientHeight;
+				});
+			}
+
+			const href = this.getAttribute("href");
+			if (href) {
+				const scrollOffsetTop = document.querySelector(href).offsetTop - offset;
+
+				if (scrollOffsetTop) {
+					setTimeout(() => {
+						scroll({
+							top: scrollOffsetTop,
+							behavior: "smooth"
+						});
+					}, 100);
+				}
+			}
+		}
+	}
+
 })();

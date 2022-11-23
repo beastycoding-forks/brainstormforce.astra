@@ -152,7 +152,7 @@ function astra_onload_function() {
 			}
 
 			// Adding 'inherit-container-width' width to Group block externally.
-			let postBlocks = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getCurrentPost() && undefined !== wp.data.select( 'core/editor' ).getBlocks() ) ? wp.data.select( 'core/editor' ).getBlocks() : false,
+			let postBlocks = ( undefined !== wp.data.select( 'core/editor' ) && null !== wp.data.select( 'core/editor' ) && undefined !== wp.data.select( 'core/editor' ).getCurrentPost() && undefined !== wp.data.select( 'core/block-editor' ).getBlocks() ) ? wp.data.select( 'core/block-editor' ).getBlocks() : false,
 				groupBlocks = document.querySelectorAll( '.block-editor-block-list__layout.is-root-container > .wp-block-group' );
 			if( postBlocks && groupBlocks ) {
 				for ( let blockNum = 0; blockNum < postBlocks.length; blockNum++ ) {
@@ -180,12 +180,12 @@ document.body.addEventListener('mousedown', function () {
 if(true === blockCssMode){
 	var blockCss = document.getElementById('astra-block-editor-styles-css');
 	var inlineCss = document.getElementById('astra-block-editor-styles-inline-css');
-	
+
 }else {
 	var blockCss = document.getElementById('astra-wp-editor-styles-css');
 	var inlineCss = document.getElementById('astra-wp-editor-styles-inline-css');
 }
-	
+
 
 	var blockFixCss = null !== blockCss ? blockCss.cloneNode(true) : null;
 	var blockInlineCss = null !== inlineCss ?  inlineCss.cloneNode(true) : null;
@@ -201,7 +201,7 @@ if(true === blockCssMode){
 			if(true === blockCssMode){
 				var styleTagId = 'astra-block-editor-styles-inline-css';
 				var styleTagBlockId = 'astra-block-editor-styles-css';
-				
+
 			} else{
 				var styleTagId = 'astra-wp-editor-styles-inline-css';
 				var styleTagBlockId = 'astra-wp-editor-styles-css';

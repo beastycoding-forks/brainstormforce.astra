@@ -20,8 +20,6 @@ add_filter( 'astra_theme_defaults', 'astra_hf_builder_customizer_defaults' );
  */
 function astra_hf_builder_customizer_defaults( $defaults ) {
 
-	$palette_css_var_prefix = Astra_Global_Palette::get_css_variable_prefix();
-
 	/**
 	 * Header Builder - Desktop Defaults.
 	 */

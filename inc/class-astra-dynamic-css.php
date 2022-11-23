@@ -897,16 +897,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 				$parse_css .= astra_parse_css(
 					array(
-						'#ast-desktop-header' => array(
-							'display' => 'none',
-						),
-					),
-					'',
-					astra_get_tablet_breakpoint()
-				);
-
-				$parse_css .= astra_parse_css(
-					array(
 						'#ast-mobile-header' => array(
 							'display' => 'none',
 						),

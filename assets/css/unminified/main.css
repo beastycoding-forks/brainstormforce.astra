@@ -3175,3 +3175,9 @@ input[type="color"]::-webkit-color-swatch {
 .ast-flex-grow-1 {
   flex-grow: 1;
 }
+
+@media (max-width: 921px) {
+  #ast-desktop-header {
+    display: none;
+  }
+}

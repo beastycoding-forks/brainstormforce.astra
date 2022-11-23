@@ -76,3 +76,9 @@
 # Content
 --------------------------------------------------------------*/
 @import "site/main";
+
+@media (max-width: $break-point) {
+	#ast-desktop-header {
+		display: none;
+	}
+}

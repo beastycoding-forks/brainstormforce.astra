@@ -8,11 +8,8 @@ v4.0.0 (Unreleased)
 - Fix: Off-canvas - Full screen - Mobile Menu gets very long scroll when Elementor plugin is activated.
 - Fix: Full Width/Contained layout Layout is showing extra padding above in the Transparent Header.
 - Fix: Block editor - Getting "wp.data.select( 'core/editor' )getBlocks()" console warning in editor as being deprecated in WordPress version 5.3.
-<<<<<<< HEAD
-- Fix: Getting console error in customizer when trying to update footer columns.
-=======
 - Fix: Block editor - Button background colour gets overridden by core styles for Legacy block editor setup.
->>>>>>> 0084fd80a65f0a2749b9c43ed5677bb254a9e212
+- Fix: Getting console error in customizer when trying to update footer columns.
 
 v3.9.4
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect the user to the cart page.

@@ -89,8 +89,6 @@ const TypoPresetControl = ( props ) => {
 			"line-height-h4",
 			"line-height-h5",
 			"line-height-h6",
-			"font-size-entry-title",
-			"font-size-archive-summary-title",
 			"font-size-page-title",
 		];
 
@@ -199,8 +197,6 @@ const TypoPresetControl = ( props ) => {
 			"line-height-h4",
 			"line-height-h5",
 			"line-height-h6",
-			"font-size-entry-title",
-			"font-size-archive-summary-title",
 			"font-size-page-title",
 		];
 

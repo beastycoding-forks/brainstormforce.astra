@@ -12,3 +12,5 @@ define( 'ASTRA_RELATED_POSTS_DIR', '' );
 define( 'ASTRA_THEME_BREADCRUMBS_DIR', '' );
 define( 'ASTRA_THEME_ADMIN_DIR', '' );
 define( 'ASTRA_THEME_ADMIN_URL', '' );
+define( 'ASTRA_THEME_POST_STRUCTURE_DIR', '' );
+define( 'ASTRA_THEME_POST_STRUCTURE_URI', '' );

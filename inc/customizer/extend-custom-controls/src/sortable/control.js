@@ -15,6 +15,7 @@ import SelectorComponent from '../selector/selector-component';
 import ToggleControl from '../toggle-control/toggle-control-component';
 import TextInputControl from '../text-input/text-input-component';
 import ListIconsControl from '../list-icons/list-icons-component';
+import DescriptionComponent from '../description/description-component';
 
 import {
 	astraGetBackground,
@@ -455,7 +456,8 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			'ast-selector' : SelectorComponent,
 			'ast-toggle': ToggleControl,
 			'ast-text-input': TextInputControl,
-			'ast-list-icons': ListIconsControl
+			'ast-list-icons': ListIconsControl,
+			'ast-description': DescriptionComponent
 		};
 
 		if( astra.customizer.is_pro ) {
@@ -482,7 +484,7 @@ export const sortableControl = wp.customize.astraControl.extend( {
 
 	getFinalControlObject: function ( attr, controlObject ) {
 
-		
+
 		if ( undefined !== attr.choices && undefined === controlObject.params['choices'] ) {
 			controlObject.params['choices'] = attr.choices;
 		}

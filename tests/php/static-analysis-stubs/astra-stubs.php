@@ -107,6 +107,8 @@ namespace {
         }
         /**
          * Migrate to New Header Builder
+         *
+         * @since x.x.x
          */
         public function migrate_to_builder()
         {
@@ -278,14 +280,14 @@ namespace {
         /**
          * Page title
          *
-         * @since 1.0
+         * @since x.x.x
          * @var string $page_title
          */
         public static $page_title = 'Astra';
         /**
          * Plugin slug
          *
-         * @since 1.0
+         * @since x.x.x
          * @var string $plugin_slug
          */
         public static $plugin_slug = 'astra';
@@ -354,18 +356,6 @@ namespace {
          * @return void
          */
         public function render_admin_dashboard()
-        {
-        }
-        /**
-         * Renders the admin settings content.
-         *
-         * @since x.x.x
-         * @param sting $menu_page_slug current page name.
-         * @param sting $page_action current page action.
-         *
-         * @return void
-         */
-        public function render_content($menu_page_slug, $page_action)
         {
         }
         /**
@@ -456,17 +446,6 @@ namespace {
          * @access public
          */
         public static function astra_get_integrations_status()
-        {
-        }
-        /**
-         * Get Theme Rollback versions.
-         *
-         * @since x.x.x
-         * @param $product astra-theme / astra-addon
-         * @return array
-         * @access public
-         */
-        public static function astra_get_rollback_versions($product = 'astra-theme')
         {
         }
         /**
@@ -6611,15 +6590,6 @@ namespace {
         {
         }
         /**
-         * Migrate to New Header Builder
-         *
-         * @since 3.0.0
-         * @return void
-         */
-        public function migrate_to_builder_box()
-        {
-        }
-        /**
          * Update Customizer Header Footer quick links from options page.
          *
          * @since 3.0.0
@@ -8417,7 +8387,7 @@ namespace {
          * Tabful sections.
          *
          * @access private
-         * @var object
+         * @var array
          */
         private static $tabbed_sections = array();
         /**
@@ -11419,6 +11389,261 @@ namespace {
         }
     }
     /**
+     * Post Strctures Initial Setup
+     *
+     * @since x.x.x
+     */
+    class Astra_Post_Strctures
+    {
+        /**
+         * Constructor function that loads require files.
+         */
+        public function __construct()
+        {
+        }
+    }
+    /**
+     * Customizer Initialization
+     *
+     * @since x.x.x
+     */
+    class Astra_Posts_Structure_Loader
+    {
+        /**
+         * Instance
+         *
+         * @var array $customizer_defaults
+         */
+        private static $customizer_defaults = array();
+        /**
+         *  Constructor
+         *
+         * @since x.x.x
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Enqueue google fonts.
+         *
+         * @return void
+         * @since x.x.x
+         */
+        public function add_fonts()
+        {
+        }
+        /**
+         * Add postMessage support for site title and description for the Theme Customizer.
+         *
+         * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+         *
+         * @since x.x.x
+         */
+        public function posts_strctures_customize_register($wp_customize)
+        {
+        }
+        /**
+         * Get all supported pots types & filter the public ones for further query.
+         *
+         * @since x.x.x
+         * @return array $post_types
+         */
+        public static function get_supported_post_types()
+        {
+        }
+        /**
+         * Customizer preview support.
+         *
+         * @since x.x.x
+         */
+        public function preview_scripts()
+        {
+        }
+        /**
+         * Get customizer dynamic default.
+         *
+         * @param string $key Retrieve default for this parameter.
+         *
+         * @since x.x.x
+         */
+        public static function get_customizer_default($key)
+        {
+        }
+    }
+    /**
+     * Breadcrumbs Markup Initial Setup
+     *
+     * @since x.x.x
+     */
+    class Astra_Posts_Strctures_Markup
+    {
+        /**
+         *  Constructor
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Check eligibility to override default entry header.
+         *
+         * @since x.x.x
+         * @return void
+         */
+        public function astra_add_hero_section_markup()
+        {
+        }
+        /**
+         * Support custom title & description support for archive.
+         *
+         * @param string $title Default archive title.
+         * @since x.x.x
+         * @return string
+         */
+        public function astra_archive_custom_title($title)
+        {
+        }
+        /**
+         * Override default entry header.
+         *
+         * @since x.x.x
+         * @return void
+         */
+        public function override_entry_header()
+        {
+        }
+    }
+    /**
+     * Register Posts Structures Customizer Configurations.
+     *
+     * @since x.x.x
+     */
+    class Astra_Posts_Archive_Structures_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Getting dynamic context for sidebar.
+         * Compatibility case: Narrow width + dynamic customizer controls.
+         *
+         * @param string $post_type On basis of this will decide to hide sidebar control or not.
+         * @return mixed
+         * @since x.x.x
+         */
+        public function get_sidebar_context($post_type)
+        {
+        }
+        /**
+         * Getting content layout dynamically.
+         * Compatibility case: Narrow width + dynamic customizer controls.
+         *
+         * @param string $post_type On basis of this will decide to show narrow-width layout or not.
+         * @since x.x.x
+         */
+        public function get_content_layout_choices($post_type)
+        {
+        }
+        /**
+         * Register Single Post's Structures Customizer Configurations.
+         *
+         * @param string $parent_section Section of dynamic customizer.
+         * @param string $post_type Post Type.
+         * @since x.x.x
+         *
+         * @return array Customizer Configurations.
+         */
+        public function get_layout_configuration($parent_section, $post_type)
+        {
+        }
+        /**
+         * Register Posts Structures Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Register Posts Strctures Customizer Configurations.
+     *
+     * @since x.x.x
+     */
+    class Astra_Posts_Single_Structures_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Getting dynamic context for sidebar.
+         * Compatibility case: Narrow width + dynamic customizer controls.
+         *
+         * @param string $post_type On basis of this will decide to hide sidebar control or not.
+         * @since x.x.x
+         */
+        public function get_sidebar_context($post_type)
+        {
+        }
+        /**
+         * Getting content layout dynamically.
+         * Compatibility case: Narrow width + dynamic customizer controls.
+         *
+         * @param string $post_type On basis of this will decide to show narrow-width layout or not.
+         * @since x.x.x
+         */
+        public function get_content_layout_choices($post_type)
+        {
+        }
+        /**
+         * Register Single Post's Structures Customizer Configurations.
+         *
+         * @param string $parent_section Section of dynamic customizer.
+         * @param string $post_type Post Type.
+         * @since x.x.x
+         *
+         * @return array Customizer Configurations.
+         */
+        public function get_layout_configuration($parent_section, $post_type)
+        {
+        }
+        /**
+         * Register Posts Strctures Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
+     * Register Posts Structures Customizer Configurations.
+     *
+     * @since x.x.x
+     */
+    class Astra_Posts_Structures_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Excluding some post types with avoiding narrow-width container layout.
+         *
+         * @return array
+         * @since x.x.x
+         */
+        public static function get_narrow_width_exculde_cpts()
+        {
+        }
+        /**
+         * Register Posts Structures Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
      * Customizer Initialization
      *
      * @since 3.5.0
@@ -12445,6 +12670,18 @@ namespace {
     {
     }
     /**
+     * Prepare markup for taxonomies.
+     *
+     * @param string $control_tax Taxonomy subcontrol name.
+     * @param int    $loop_count Meta loop counter to decide separator appearance.
+     * @param string $separator Separator.
+     *
+     * @return string $output Taxonomy output.
+     */
+    function astra_get_dynamic_taxonomy($control_tax, $loop_count, $separator)
+    {
+    }
+    /**
      * Post meta
      *
      * @param  string $post_meta Post meta.
@@ -12621,6 +12858,26 @@ namespace {
      * @return mixed
      */
     function astra_get_video_from_post($post_id)
+    {
+    }
+    /**
+     * Get last word of string to get metakey of custom post structure.
+     *
+     * @since x.x.x
+     * @param string $string from this get last word.
+     * @return string $last_word result.
+     */
+    function astra_get_last_meta_word($string)
+    {
+    }
+    /**
+     * Custom single post Title & Meta order display.
+     *
+     * @since x.x.x
+     * @param array $structure archive or single post structure.
+     * @return mixed
+     */
+    function astra_banner_elements_order($structure = array())
     {
     }
     /**
@@ -13643,6 +13900,23 @@ namespace {
     {
     }
     /**
+     * Don't apply direct new layouts to legacy users.
+     *
+     * @since x.x.x
+     * @return boolean false if it is an existing user , true if not.
+     */
+    function astra_use_dynamic_blog_layouts()
+    {
+    }
+    /**
+     * Get taxonomy archive banner for layout 1.
+     *
+     * @since x.x.x
+     */
+    function astra_get_taxonomy_banner_legacy_layout()
+    {
+    }
+    /**
      * Wrapper function for the_title()
      *
      * Displays title only if the page title bar is disabled.
@@ -13881,7 +14155,7 @@ namespace {
      * Function to add narrow width properties in the frontend.
      *
      * @since x.x.x
-     * @param string  $location container layout for single-post, archives, pages, page meta.
+     * @param string $location container layout for single-post, archives, pages, page meta.
      * @param string $narrow_container_max_width  dynamic container width in px.
      * @return string Parsed CSS based on $location and $narrow_container_max_width.
      */
@@ -13996,8 +14270,8 @@ namespace {
      * Blog post thumbnail & title order
      *
      * @since 1.4.9
-     * @deprecated 1.4.9 Use astra_blog_post_thumbnail_and_title_order()
-     * @see astra_blog_post_thumbnail_and_title_order()
+     * @deprecated 1.4.9 Use astra_banner_elements_order()
+     * @see astra_banner_elements_order()
      *
      * @return void
      */
@@ -14645,6 +14919,14 @@ namespace {
      * Entry content single
      */
     function astra_entry_content_single()
+    {
+    }
+    /**
+     * Entry content single-page.
+     *
+     * @since x.x.x
+     */
+    function astra_entry_content_single_page()
     {
     }
     /**
@@ -15627,6 +15909,32 @@ namespace {
     function astra_footer_bar_display_cb($display_footer)
     {
     }
+    \define('ASTRA_THEME_POST_STRUCTURE_DIR', \ASTRA_THEME_DIR . 'inc/modules/posts-structures/');
+    \define('ASTRA_THEME_POST_STRUCTURE_URI', \ASTRA_THEME_URI . 'inc/modules/posts-structures/');
+    /**
+     * Archive Dynamic CSS
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+     * @return String Generated dynamic CSS for Post Strctures.
+     *
+     * @since x.x.x
+     */
+    function astra_post_archive_strcture_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
+    /**
+     * Dynamic CSS
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+     * @return String Generated dynamic CSS for Post Strctures.
+     *
+     * @since x.x.x
+     */
+    function astra_post_single_structure_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
     \define('ASTRA_RELATED_POSTS_DIR', \ASTRA_THEME_DIR . 'inc/modules/related-posts/');
     /**
      * Related Posts - Dynamic CSS
@@ -15784,6 +16092,18 @@ namespace {
      * @since 1.0.12
      */
     function astra_header_custom_item_outside_menu()
+    {
+    }
+    /**
+     * Single page markup
+     *
+     * => Used in files:
+     *
+     * /template-parts/single/content-header.php
+     *
+     * @since x.x.x
+     */
+    function astra_entry_content_single_page_template()
     {
     }
     /**
@@ -16398,7 +16718,10 @@ namespace {
     {
     }
     /**
-     * Migrate existing setting & do required onboarding for new admin dashboard v4.0.0 app.
+     * x.x.x backward handling part.
+     *
+     * 1. Migrate existing setting & do required onboarding for new admin dashboard v4.0.0 app.
+     * 2. Migrating Post Structure & Meta options in title area meta parts.
      *
      * @since x.x.x
      * @return void

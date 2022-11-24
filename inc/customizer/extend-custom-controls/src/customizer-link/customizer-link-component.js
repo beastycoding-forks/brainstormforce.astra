@@ -1,10 +1,13 @@
 import PropTypes from 'prop-types';
-
+import { ToggleControl } from '@wordpress/components';
+import { useState } from '@wordpress/element';
 import {__} from '@wordpress/i18n';
 
 const { Dashicon } = wp.components;
 
 const CustomizerLinkComponent = props => {
+
+	const [ isStateToggle, setIsStateToggle ] = useState( false );
 
 	const onLinkClick = () => {
 		const {
@@ -32,6 +35,7 @@ const CustomizerLinkComponent = props => {
 		link_text,
 		link_type,
 		is_button_link,
+		is_toggle,
 	} = props.control.params;
 	let linkHtml = null;
 
@@ -48,15 +52,37 @@ const CustomizerLinkComponent = props => {
 		<>
 		<div className="ast-builder-elements-section">
 			<div className="ahfb-builder-item-start">
-				<button onClick={(e) => {
-					e.preventDefault();
-					onLinkClick();
-					}} className="components-button ahfb-builder-item" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}>
-					 {link_text}
-					<span className="ahfb-builder-item-icon">
-						<Dashicon icon="arrow-right-alt2"/>
-					</span>
-				</button>
+			{ is_toggle
+				?	<div className="components-button ahfb-builder-item" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}>
+						{link_text}
+						<ToggleControl
+							checked={ isStateToggle }
+							onChange={ () => {
+								setIsStateToggle( ! isStateToggle );
+							} }
+						/>
+						{
+							isStateToggle
+							? 	<span onClick={(e) => {
+									e.preventDefault();
+									onLinkClick();
+								}} className="ahfb-builder-item-icon">
+									<Dashicon icon="arrow-right-alt2"/>
+								</span>
+							:	<></>
+						}
+
+					</div>
+				:	<button onClick={(e) => {
+						e.preventDefault();
+						onLinkClick();
+						}} className="components-button ahfb-builder-item" data-customizer-linked={linked} data-ast-customizer-link-type={link_type}>
+						{link_text}
+						<span className="ahfb-builder-item-icon">
+							<Dashicon icon="arrow-right-alt2"/>
+						</span>
+					</button>
+				}
 			</div>
 		</div>
 		</>;

@@ -69,8 +69,8 @@ class Astra_Menu {
 	 */
 	public function initialize_hooks() {
 
-		self::$page_title      = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
-		self::$plugin_slug     = self::get_theme_page_slug();
+		self::$page_title  = apply_filters( 'astra_page_title', __( 'Astra', 'astra' ) );
+		self::$plugin_slug = self::get_theme_page_slug();
 
 		add_action( 'admin_menu', array( $this, 'setup_menu' ) );
 		add_action( 'admin_init', array( $this, 'settings_admin_scripts' ) );
@@ -178,7 +178,7 @@ class Astra_Menu {
 			);
 		}
 
-		if( ! astra_is_white_labelled() ) {
+		if ( ! astra_is_white_labelled() ) {
 			// Add Spectra submenu.
 			add_submenu_page(
 				self::$plugin_slug,
@@ -200,7 +200,7 @@ class Astra_Menu {
 	 * @return void
 	 */
 	public function render_admin_dashboard() {
-		$page_action    = '';
+		$page_action = '';
 
 		if ( isset( $_GET['action'] ) ) { //phpcs:ignore
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -234,44 +234,44 @@ class Astra_Menu {
 		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 		$localize = array(
-			'current_user'                       => ! empty( wp_get_current_user()->user_firstname ) ? ucfirst( wp_get_current_user()->user_firstname ) : ucfirst( wp_get_current_user()->display_name ),
-			'admin_base_url'                     => admin_url(),
-			'plugin_dir'                         => ASTRA_THEME_URI,
-			'plugin_ver'                         => ASTRA_THEME_VERSION,
-			'version'                            => ASTRA_THEME_VERSION,
-			'pro_available'                      => defined( 'ASTRA_EXT_VER' ) ? true : false,
-			'pro_installed_status'               => 'installed' === self::get_plugin_status( 'astra-addon/astra-addon.php' ) ? true : false,
-			'spectra_plugin_status'              => self::get_plugin_status( 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' ),
-			'theme_name'                         => astra_get_theme_name(),
-			'plugin_name'                        => astra_get_addon_name(),
-			'quick_settings'                     => self::astra_get_quick_links(),
-			'ajax_url'                           => admin_url( 'admin-ajax.php' ),
-			'is_whitelabel'                      => astra_is_white_labelled(),
-			'show_self_branding'                 => $show_self_branding,
-			'admin_url'                          => admin_url( 'admin.php' ),
-			'home_slug'                          => self::$plugin_slug,
-			'upgrade_url'                        => ASTRA_PRO_UPGRADE_URL,
-			'customize_url'                      => admin_url( 'customize.php' ),
-			'astra_base_url'                     => admin_url( 'admin.php?page=' . self::$plugin_slug ),
-			'astra_changelog_data'               => self::astra_get_theme_changelog_feed_data(),
-			'logo_url'                           => apply_filters( 'astra_admin_menu_icon', ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg' ),
-			'update_nonce'                       => wp_create_nonce( 'astra_update_admin_setting' ),
-			'integrations'                       => self::astra_get_integrations_status(),
-			'show_plugins'                       => apply_filters( 'astra_show_free_extend_plugins', true ), // Legacy filter support.
-			'useful_plugins'                     => self::astra_get_useful_plugins(),
-			'extensions'                         => self::astra_get_pro_extensions(),
-			'plugin_manager_nonce'               => wp_create_nonce( 'astra_plugin_manager_nonce' ),
-			'plugin_installer_nonce'             => wp_create_nonce( 'updates' ),
-			'free_vs_pro_link'                   => admin_url( 'admin.php?page=' . self::$plugin_slug . '&path=free-vs-pro' ),
-			'show_builder_migration'             => Astra_Builder_Helper::is_new_user() ? false : true,
-			'plugin_installing_text'             => __( 'Installing', 'astra' ) . '&hellip;',
-			'plugin_installed_text'              => __( 'Installed', 'astra' ),
-			'plugin_activating_text'             => __( 'Activating', 'astra' ) . '&hellip;',
-			'plugin_activated_text'              => __( 'Activated', 'astra' ),
-			'plugin_activate_text'               => __( 'Activate', 'astra' ),
-			'starter_templates_data'             => self::get_starter_template_plugin_data(),
-			'astra_docs_data'                    => self::astra_get_knowledge_base_data(),
-			'upgrade_notice'                     => astra_showcase_upgrade_notices(),
+			'current_user'           => ! empty( wp_get_current_user()->user_firstname ) ? ucfirst( wp_get_current_user()->user_firstname ) : ucfirst( wp_get_current_user()->display_name ),
+			'admin_base_url'         => admin_url(),
+			'plugin_dir'             => ASTRA_THEME_URI,
+			'plugin_ver'             => ASTRA_THEME_VERSION,
+			'version'                => ASTRA_THEME_VERSION,
+			'pro_available'          => defined( 'ASTRA_EXT_VER' ) ? true : false,
+			'pro_installed_status'   => 'installed' === self::get_plugin_status( 'astra-addon/astra-addon.php' ) ? true : false,
+			'spectra_plugin_status'  => self::get_plugin_status( 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' ),
+			'theme_name'             => astra_get_theme_name(),
+			'plugin_name'            => astra_get_addon_name(),
+			'quick_settings'         => self::astra_get_quick_links(),
+			'ajax_url'               => admin_url( 'admin-ajax.php' ),
+			'is_whitelabel'          => astra_is_white_labelled(),
+			'show_self_branding'     => $show_self_branding,
+			'admin_url'              => admin_url( 'admin.php' ),
+			'home_slug'              => self::$plugin_slug,
+			'upgrade_url'            => ASTRA_PRO_UPGRADE_URL,
+			'customize_url'          => admin_url( 'customize.php' ),
+			'astra_base_url'         => admin_url( 'admin.php?page=' . self::$plugin_slug ),
+			'astra_changelog_data'   => self::astra_get_theme_changelog_feed_data(),
+			'logo_url'               => apply_filters( 'astra_admin_menu_icon', ASTRA_THEME_URI . 'inc/assets/images/astra-logo.svg' ),
+			'update_nonce'           => wp_create_nonce( 'astra_update_admin_setting' ),
+			'integrations'           => self::astra_get_integrations_status(),
+			'show_plugins'           => apply_filters( 'astra_show_free_extend_plugins', true ), // Legacy filter support.
+			'useful_plugins'         => self::astra_get_useful_plugins(),
+			'extensions'             => self::astra_get_pro_extensions(),
+			'plugin_manager_nonce'   => wp_create_nonce( 'astra_plugin_manager_nonce' ),
+			'plugin_installer_nonce' => wp_create_nonce( 'updates' ),
+			'free_vs_pro_link'       => admin_url( 'admin.php?page=' . self::$plugin_slug . '&path=free-vs-pro' ),
+			'show_builder_migration' => Astra_Builder_Helper::is_new_user() ? false : true,
+			'plugin_installing_text' => __( 'Installing', 'astra' ) . '&hellip;',
+			'plugin_installed_text'  => __( 'Installed', 'astra' ),
+			'plugin_activating_text' => __( 'Activating', 'astra' ) . '&hellip;',
+			'plugin_activated_text'  => __( 'Activated', 'astra' ),
+			'plugin_activate_text'   => __( 'Activate', 'astra' ),
+			'starter_templates_data' => self::get_starter_template_plugin_data(),
+			'astra_docs_data'        => self::astra_get_knowledge_base_data(),
+			'upgrade_notice'         => astra_showcase_upgrade_notices(),
 		);
 
 		$this->settings_app_scripts( apply_filters( 'astra_react_admin_localize', $localize ) );

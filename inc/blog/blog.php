@@ -240,6 +240,7 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 	function astra_get_blog_post_title_meta() {
 
 		// Blog Post Title and Blog Post Meta.
+		$blog_title_meta = astra_get_option( 'blog-post-structure' );
 		do_action( 'astra_archive_entry_header_before' );
 		?>
 		<header class="entry-header">
@@ -388,5 +389,24 @@ if ( ! function_exists( 'astra_get_video_from_post' ) ) {
 				return $embed;
 			}
 		}
+	}
+}
+/**
+ * Check whether blogs post structure title & meta is disabled or not
+ */
+if ( ! function_exists( 'astra_is_blog_title_meta_disabled' ) ) {
+
+	/**
+	 * Check whether blogs post structure title & meta is disabled or not.
+	 *
+	 * @since x.x.x
+	 * @return bool True if blogs post structure title & meta is disabled else false.
+	 */
+    function astra_is_blog_title_meta_disabled() {
+        $blog_title_meta = astra_get_option( 'blog-post-structure' );
+		if( is_array( $blog_title_meta ) && ! in_array( 'title-meta', $blog_title_meta ) )  {
+			return true;
+		}
+		return false;
 	}
 }

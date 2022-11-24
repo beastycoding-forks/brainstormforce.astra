@@ -16433,6 +16433,15 @@ namespace {
     {
     }
     /**
+     * Check whether blogs post structure title & meta is disabled or not.
+     *
+     * @since x.x.x
+     * @return bool True if blogs post structure title & meta is disabled else false.
+     */
+    function astra_is_blog_title_meta_disabled()
+    {
+    }
+    /**
      * Search Form for Astra theme.
      *
      * @package     Astra

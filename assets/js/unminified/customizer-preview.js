@@ -1002,8 +1002,6 @@ function hasWordPressWidgetBlockEditor() {
 		} );
 	} );
 
-	astra_responsive_font_size( 'astra-settings[font-size-entry-title]', '.ast-single-post .entry-title, .page-title' );
-	astra_responsive_font_size( 'astra-settings[font-size-archive-summary-title]', '.ast-archive-description .ast-archive-title' );
 	astra_responsive_font_size( 'astra-settings[font-size-page-title]', 'body:not(.ast-single-post) .entry-title' );
 
 	// Check if anchors should be loaded in the CSS for headings.

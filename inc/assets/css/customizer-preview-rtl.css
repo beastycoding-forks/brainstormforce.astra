@@ -187,3 +187,7 @@ body.customize-partial-edit-shortcuts-shown .customize-partial-edit-shortcut but
 	border: unset;
 	border-radius: 0 0 2px 0;
 }
+.ast-archive-entry-banner .customize-partial-edit-shortcut button, .ast-single-entry-banner .customize-partial-edit-shortcut button {
+    font-size: 20px;
+    line-height: 1em;
+}

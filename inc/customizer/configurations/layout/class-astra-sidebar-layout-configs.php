@@ -62,62 +62,6 @@ if ( ! class_exists( 'Astra_Sidebar_Layout_Configs' ) ) {
 				),
 
 				/**
-					 * Option: Sidebar Page
-					 */
-
-					array(
-						'name'              => ASTRA_THEME_SETTINGS . '[single-page-sidebar-layout]',
-						'type'              => 'control',
-						'control'           => 'ast-radio-image',
-						'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_choices' ),
-						'section'           => 'section-page-group',
-						'default'           => astra_get_option( 'single-page-sidebar-layout', 'default' ),
-						'priority'          => 5,
-						'title'             => __( 'Sidebar Layout', 'astra' ),
-						'context'     => array(
-							'relation' => 'AND',
-							Astra_Builder_Helper::$general_tab_config,
-							array(
-								'setting'  => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
-								'operator' => '!=',
-								'value'    => 'narrow-container',
-							),
-							array(
-								'relation' => 'OR',
-								array(
-									'setting'  => ASTRA_THEME_SETTINGS . '[single-page-content-layout]',
-									'operator' => '!=',
-									'value'    => 'default',
-								),
-								array(
-									'setting'  => ASTRA_THEME_SETTINGS . '[site-content-layout]',
-									'operator' => '!=',
-									'value'    => 'narrow-container',
-								),
-							)
-						),
-						'choices'           => array(
-							'default'       => array(
-								'label' => __( 'Default', 'astra' ),
-								'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'layout-default', false ) : '',
-							),
-							'no-sidebar'    => array(
-								'label' => __( 'No Sidebar', 'astra' ),
-								'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'no-sidebar', false ) : '',
-							),
-							'left-sidebar'  => array(
-								'label' => __( 'Left Sidebar', 'astra' ),
-								'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'left-sidebar', false ) : '',
-							),
-							'right-sidebar' => array(
-								'label' => __( 'Right Sidebar', 'astra' ),
-								'path'  => ( class_exists( 'Astra_Builder_UI_Controller' ) ) ? Astra_Builder_UI_Controller::fetch_svg_icon( 'right-sidebar', false ) : '',
-							),
-						),
-						'divider'           => array( 'ast_class' => 'ast-top-section-divider ast-section-spacing' ),
-					),
-
-				/**
 				 * Option: Primary Content Width
 				 */
 				array(

@@ -65,9 +65,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
 			$container_layout           = astra_get_option( 'site-content-layout' );
-			$archive_container_layout   = astra_get_option( 'archive-post-content-layout' );
-			$single_container_layout    = astra_get_option( 'single-post-content-layout' );
-			$page_container_layout      = astra_get_option( 'single-page-content-layout' );
 			$title_color                = astra_get_option( 'header-color-site-title' );
 			$title_hover_color          = astra_get_option( 'header-color-h-site-title' );
 			$tagline_color              = astra_get_option( 'header-color-site-tagline' );
@@ -102,15 +99,13 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$site_title_font_size    = astra_get_option( 'font-size-site-title' );
 			$site_tagline_font_size  = astra_get_option( 'font-size-site-tagline' );
 
-			$single_post_title_font_size     = astra_get_option( 'font-size-entry-title' );
-			$archive_summary_title_font_size = astra_get_option( 'font-size-archive-summary-title' );
-			$archive_post_title_font_size    = astra_get_option( 'font-size-page-title' );
-			$heading_h1_font_size            = astra_get_option( 'font-size-h1' );
-			$heading_h2_font_size            = astra_get_option( 'font-size-h2' );
-			$heading_h3_font_size            = astra_get_option( 'font-size-h3' );
-			$heading_h4_font_size            = astra_get_option( 'font-size-h4' );
-			$heading_h5_font_size            = astra_get_option( 'font-size-h5' );
-			$heading_h6_font_size            = astra_get_option( 'font-size-h6' );
+			$archive_post_title_font_size = astra_get_option( 'font-size-page-title' );
+			$heading_h1_font_size         = astra_get_option( 'font-size-h1' );
+			$heading_h2_font_size         = astra_get_option( 'font-size-h2' );
+			$heading_h3_font_size         = astra_get_option( 'font-size-h3' );
+			$heading_h4_font_size         = astra_get_option( 'font-size-h4' );
+			$heading_h5_font_size         = astra_get_option( 'font-size-h5' );
+			$heading_h6_font_size         = astra_get_option( 'font-size-h6' );
 
 			/**
 			 * Heading Typography - h1 - h3.
@@ -537,9 +532,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.astra-logo-svg:not(.sticky-custom-logo .astra-logo-svg, .transparent-custom-logo .astra-logo-svg, .advanced-header-logo .astra-logo-svg)' => array(
 					'height' => astra_get_css_value( ( ! empty( $header_logo_width['desktop-svg-height'] ) && ! is_customize_preview() ) ? $header_logo_width['desktop-svg-height'] : '', 'px' ),
 				),
-				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'desktop' ),
-				),
 				'.site-header .site-description'         => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'desktop' ),
 					'display'   => esc_attr( $desktop_tagline_visibility ),
@@ -601,9 +593,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h6, .entry-content h6'
 				)                                        => $h6_properties,
 
-				'.ast-single-post .entry-title, .page-title' => array(
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'desktop' ),
-				),
 				// Global CSS.
 				'::selection'                            => array(
 					'background-color' => esc_attr( $theme_color ),
@@ -1725,10 +1714,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'.entry-title'                    => array(
 						'margin-bottom' => '0.5em',
 					),
-					'.ast-archive-description .ast-archive-title' => array(
-						'margin-bottom'  => '10px',
-						'text-transform' => 'capitalize',
-					),
 					'.ast-archive-description p'      => array(
 						'font-size'   => 'inherit',
 						'font-weight' => 'inherit',
@@ -2819,9 +2804,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'font-size' => astra_responsive_font( $site_title_font_size, 'tablet' ),
 					'display'   => esc_attr( $tablet_title_visibility ),
 				),
-				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'tablet', 40 ),
-				),
 				'.site-header .site-description' => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'tablet' ),
 					'display'   => esc_attr( $tablet_tagline_visibility ),
@@ -2877,9 +2859,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				)                                => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'tablet' ),
 				),
-				'.ast-single-post .entry-title, .page-title' => array(
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'tablet', 30 ),
-				),
 				'.astra-logo-svg'                => array(
 					'width' => astra_get_css_value( $header_logo_width['tablet'], 'px' ),
 				),
@@ -2916,9 +2895,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'.site-title'                    => array(
 					'font-size' => astra_responsive_font( $site_title_font_size, 'mobile' ),
 					'display'   => esc_attr( $mobile_title_visibility ),
-				),
-				'.ast-archive-description .ast-archive-title' => array(
-					'font-size' => astra_responsive_font( $archive_summary_title_font_size, 'mobile', 40 ),
 				),
 				'.site-header .site-description' => array(
 					'font-size' => astra_responsive_font( $site_tagline_font_size, 'mobile' ),
@@ -2974,10 +2950,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'h6, .entry-content h6'
 				)                                => array(
 					'font-size' => astra_responsive_font( $heading_h6_font_size, 'mobile' ),
-				),
-
-				'.ast-single-post .entry-title, .page-title' => array(
-					'font-size' => astra_responsive_font( $single_post_title_font_size, 'mobile', 30 ),
 				),
 				'header .custom-logo-link img, .ast-header-break-point .site-branding img, .ast-header-break-point .custom-logo-link img' => array(
 					'max-width' => astra_get_css_value( $header_logo_width['mobile'], 'px' ),
@@ -3042,19 +3014,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Global.
 			$parse_css .= astra_narrow_container_width( $container_layout, $narrow_container_max_width );
 
-			// Archive.
-			if ( is_archive() || is_home() ) {
-				$parse_css .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
-			}
-
-			// Single Post & other post types.
-			if( is_singular() && ! is_singular( 'page' ) ) {
-				$parse_css .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
-			}
-
-			// Page.
-			if( is_singular( 'page' ) ) {
-				$parse_css .= astra_narrow_container_width( $page_container_layout, $narrow_container_max_width );
+			$post_type = strval( get_post_type() );
+			if ( is_singular() ) {
+				// Single layouts.
+				$single_container_layout = astra_get_option( 'single-' . $post_type . '-content-layout', '' );
+				$parse_css              .= astra_narrow_container_width( $single_container_layout, $narrow_container_max_width );
+			} else {
+				// Archive layouts.
+				$archive_container_layout = astra_get_option( 'archive-' . $post_type . '-content-layout', '' );
+				$parse_css               .= astra_narrow_container_width( $archive_container_layout, $narrow_container_max_width );
 			}
 
 			// Page Meta.

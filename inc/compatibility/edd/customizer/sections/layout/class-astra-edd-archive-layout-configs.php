@@ -30,6 +30,10 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 		 */
 		public function register_configuration( $configurations, $wp_customize ) {
 
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$grid_ast_divider = ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'edd' ) ) ? array() : array( 'ast_class' => 'ast-top-section-divider' );
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 			$_configs = array(
 
 				/**
@@ -56,6 +60,7 @@ if ( ! class_exists( 'Astra_Edd_Archive_Layout_Configs' ) ) {
 						'min'  => 1,
 						'max'  => 6,
 					),
+					'divider'           => $grid_ast_divider,
 					'transport'         => 'postMessage',
 				),
 

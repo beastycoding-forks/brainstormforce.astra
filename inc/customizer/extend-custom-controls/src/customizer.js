@@ -387,7 +387,6 @@
 
 				api.panel('panel-header-builder-group', initAstraBuilderPanel)
 				api.panel('panel-footer-builder-group', initAstraBuilderPanel);
-
 			}
 		},
 

@@ -401,8 +401,8 @@ if ( ! function_exists( 'astra_is_blog_title_meta_disabled' ) ) {
 	 * @since x.x.x
 	 * @return bool True if blogs post structure title & meta is disabled else false.
 	 */
-    function astra_is_blog_title_meta_disabled() {
-        $blog_title_meta = astra_get_option( 'blog-post-structure' );
+	function astra_is_blog_title_meta_disabled() {
+		$blog_title_meta = astra_get_option( 'blog-post-structure' );
 		if( is_array( $blog_title_meta ) && ! in_array( 'title-meta', $blog_title_meta ) )  {
 			return true;
 		}

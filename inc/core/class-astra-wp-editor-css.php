@@ -357,7 +357,7 @@ class Astra_WP_Editor_CSS {
 		$astra_wide_particular_selector = $astra_is_block_editor_v2_ui ? '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container .block-list-appender' : '.editor-styles-wrapper .block-editor-block-list__layout.is-root-container > p, .editor-styles-wrapper .block-editor-block-list__layout.is-root-container .block-list-appender';
 
 		$blocks_spacings = self::astra_get_block_spacings();
-		
+
 		$desktop_top_spacing    = isset( $blocks_spacings['desktop']['top'] ) ? $blocks_spacings['desktop']['top'] : '';
 		$desktop_right_spacing  = isset( $blocks_spacings['desktop']['right'] ) ? $blocks_spacings['desktop']['right'] : '';
 		$desktop_bottom_spacing = isset( $blocks_spacings['desktop']['bottom'] ) ? $blocks_spacings['desktop']['bottom'] : '';
@@ -371,9 +371,6 @@ class Astra_WP_Editor_CSS {
 		$mobile_bottom_spacing  = isset( $blocks_spacings['mobile']['bottom'] ) ? $blocks_spacings['mobile']['bottom'] : '';
 		$mobile_left_spacing    = isset( $blocks_spacings['mobile']['left'] ) ? $blocks_spacings['mobile']['left'] : '';
 
-		// Preset post title wrapper padding (20px) + post title h1 padding (6px).
-		$page_title_internal_padding = '26px';
-		
 		$ast_content_width     = apply_filters( 'astra_block_content_width', $astra_is_block_editor_v2_ui ? $astra_container_width : '910px' );
 		$ast_wide_width        = apply_filters( 'astra_block_wide_width', $astra_is_block_editor_v2_ui ? 'calc(' . esc_attr( $astra_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $astra_container_width );
 		$ast_narrow_width      = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) ) . 'px';
@@ -584,7 +581,7 @@ class Astra_WP_Editor_CSS {
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );
-		
+
 		if ( $content_links_underline ) {
 			$desktop_css['.edit-post-visual-editor a'] = array(
 				'text-decoration' => 'underline',

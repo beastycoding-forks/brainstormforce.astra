@@ -130,6 +130,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$classes .= ' ast-page-builder-template';
 			} elseif ( 'plain-container' == $content_layout ) {
 				$classes .= ' ast-plain-container';
+			} elseif ( 'narrow-container' == $content_layout ) {
+				$classes .= ' ast-narrow-container';
 			}
 
 			$site_layout = astra_get_option( 'site-layout' );
@@ -352,8 +354,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$astra_localize = array(
-				'break_point' => astra_header_break_point(),    // Header Break Point.
-				'isRtl'       => is_rtl(),
+				'break_point'     => astra_header_break_point(),    // Header Break Point.
+				'isRtl'           => is_rtl(),
+				'is_scroll_to_id' => astra_get_option( 'enable-scroll-to-id' ),
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );

@@ -243,18 +243,6 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 				),
 
 				/**
-				 * Performance Panel
-				 *
-				 * @since 3.6.0
-				 */
-				array(
-					'name'     => 'section-performance',
-					'type'     => 'section',
-					'priority' => 65,
-					'title'    => __( 'Performance', 'astra' ),
-				),
-
-				/**
 				 * Colors Panel
 				 */
 				array(
@@ -391,6 +379,17 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'type'     => 'section',
 					'priority' => 80,
 					'title'    => __( 'Block Editor', 'astra' ),
+					'panel'    => 'panel-global',
+				),
+
+				/**
+				 * Global Misc specific configs.
+				 */
+				array(
+					'name'     => 'section-global-misc',
+					'type'     => 'section',
+					'priority' => 80,
+					'title'    => __( 'Misc', 'astra' ),
 					'panel'    => 'panel-global',
 				),
 			);

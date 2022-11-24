@@ -198,24 +198,25 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * @since 3.6.0
 		 */
 		public function regenerate_astra_fonts_folder() {
-
-			check_ajax_referer( 'astra-regenerate-local-fonts', 'nonce' );
+			check_ajax_referer( 'astra_update_admin_setting', 'security' );
 
 			if ( ! current_user_can( 'edit_theme_options' ) ) {
 				wp_send_json_error( 'invalid_permissions' );
 			}
 
-			if ( astra_get_option( 'load-google-fonts-locally' ) ) {
+			if ( Astra_API_Init::get_admin_settings_option( 'self_hosted_gfonts', false ) ) {
 				$local_font_loader = astra_webfont_loader_instance( '' );
 				$flushed           = $local_font_loader->astra_delete_fonts_folder();
 
 				if ( ! $flushed ) {
-					wp_send_json_error( 'failed_to_flush' );
+					$response_data = array( 'message' => __( 'Failed to Flush, try again later.', 'astra' ) );
+					wp_send_json_error( $response_data );
 				}
 				wp_send_json_success();
 			}
 
-			wp_send_json_error( 'no_font_loader' );
+			$response_data = array( 'message' => __( 'Local font files not present.', 'astra' ) );
+			wp_send_json_error( $response_data );
 		}
 
 		/**
@@ -225,7 +226,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			delete_option( 'astra_partials_config_cache' );
 
 			// Delete previously stored local fonts data, if exists.
-			if ( astra_get_option( 'load-google-fonts-locally' ) ) {
+			if ( Astra_API_Init::get_admin_settings_option( 'self_hosted_gfonts', false ) ) {
 				$local_webfont_loader = astra_webfont_loader_instance( '' );
 				$local_webfont_loader->astra_delete_fonts_folder();
 			}
@@ -1024,7 +1025,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'0' => __( 'Select Menu', 'astra' ),
 			);
 
-			$all_menus = get_terms( array( 'taxonomy' => 'nav_menu', 'hide_empty' => true ) );
+			$all_menus = get_terms(
+				array(
+					'taxonomy'   => 'nav_menu',
+					'hide_empty' => true,
+				)
+			);
 
 			if ( is_array( $all_menus ) && count( $all_menus ) ) {
 				foreach ( $all_menus as $row ) {
@@ -1186,7 +1192,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-header-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-single-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-global-typo-configs.php';
-			require ASTRA_THEME_DIR . 'inc/customizer/configurations/performance/class-astra-performance-configs.php';
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/global-misc/class-astra-global-misc-configs.php';
 
 			if ( astra_existing_header_footer_configs() ) {
 				require ASTRA_THEME_DIR . 'inc/customizer/configurations/buttons/class-astra-existing-button-configs.php';

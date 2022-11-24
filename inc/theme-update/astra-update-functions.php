@@ -1092,3 +1092,34 @@ function astra_theme_background_updater_3_9_4() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Migrate existing setting & do required onboarding for new admin dashboard v4.0.0 app.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_0_0() {
+	$theme_options = get_option( 'astra-settings', array() );
+
+	$admin_dashboard_settings = get_option( 'astra_admin_settings', array() );
+	if ( ! isset( $admin_dashboard_settings['theme-setup-admin-migrated'] ) ) {
+
+		if ( ! isset( $admin_dashboard_settings['self_hosted_gfonts'] ) ) {
+			$admin_dashboard_settings['self_hosted_gfonts'] = isset( $theme_options['load-google-fonts-locally'] ) ? $theme_options['load-google-fonts-locally'] : false;
+		}
+		if ( ! isset( $admin_dashboard_settings['preload_local_fonts'] ) ) {
+			$admin_dashboard_settings['preload_local_fonts'] = isset( $theme_options['preload-local-fonts'] ) ? $theme_options['preload-local-fonts'] : false;
+		}
+
+		// Consider admin part from theme side migrated.
+		$admin_dashboard_settings['theme-setup-admin-migrated'] = true;
+		update_option( 'astra_admin_settings', $admin_dashboard_settings );
+	}
+
+	// Check if existing user and disable smooth scroll-to-id.
+	if ( ! isset( $theme_options['enable-scroll-to-id'] ) ) {
+		$theme_options['enable-scroll-to-id'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

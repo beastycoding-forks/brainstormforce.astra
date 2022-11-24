@@ -1092,3 +1092,245 @@ function astra_theme_background_updater_3_9_4() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * x.x.x backward handling part.
+ *
+ * 1. Migrate existing setting & do required onboarding for new admin dashboard v4.0.0 app.
+ * 2. Migrating Post Structure & Meta options in title area meta parts.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_0_0() {
+	// Dynamic customizer migration starts here.
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['dynamic-blog-layouts'] ) && ! isset( $theme_options['theme-dynamic-customizer-support'] ) ) {
+		$theme_options['dynamic-blog-layouts']             = false;
+		$theme_options['theme-dynamic-customizer-support'] = true;
+
+		$post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
+
+		// Archive summary box compatibility.
+		$archive_title_font_size = array(
+			'desktop'      => isset( $theme_options['font-size-archive-summary-title']['desktop'] ) ? $theme_options['font-size-archive-summary-title']['desktop'] : 40,
+			'tablet'       => isset( $theme_options['font-size-archive-summary-title']['tablet'] ) ? $theme_options['font-size-archive-summary-title']['tablet'] : '',
+			'mobile'       => isset( $theme_options['font-size-archive-summary-title']['mobile'] ) ? $theme_options['font-size-archive-summary-title']['mobile'] : '',
+			'desktop-unit' => isset( $theme_options['font-size-archive-summary-title']['desktop-unit'] ) ? $theme_options['font-size-archive-summary-title']['desktop-unit'] : 'px',
+			'tablet-unit'  => isset( $theme_options['font-size-archive-summary-title']['tablet-unit'] ) ? $theme_options['font-size-archive-summary-title']['tablet-unit'] : 'px',
+			'mobile-unit'  => isset( $theme_options['font-size-archive-summary-title']['mobile-unit'] ) ? $theme_options['font-size-archive-summary-title']['mobile-unit'] : 'px',
+		);
+		$single_title_font_size  = array(
+			'desktop'      => isset( $theme_options['font-size-entry-title']['desktop'] ) ? $theme_options['font-size-entry-title']['desktop'] : '',
+			'tablet'       => isset( $theme_options['font-size-entry-title']['tablet'] ) ? $theme_options['font-size-entry-title']['tablet'] : '',
+			'mobile'       => isset( $theme_options['font-size-entry-title']['mobile'] ) ? $theme_options['font-size-entry-title']['mobile'] : '',
+			'desktop-unit' => isset( $theme_options['font-size-entry-title']['desktop-unit'] ) ? $theme_options['font-size-entry-title']['desktop-unit'] : 'px',
+			'tablet-unit'  => isset( $theme_options['font-size-entry-title']['tablet-unit'] ) ? $theme_options['font-size-entry-title']['tablet-unit'] : 'px',
+			'mobile-unit'  => isset( $theme_options['font-size-entry-title']['mobile-unit'] ) ? $theme_options['font-size-entry-title']['mobile-unit'] : 'px',
+		);
+		$archive_summary_box_bg  = array(
+			'desktop' => array(
+				'background-color'      => ! empty( $theme_options['archive-summary-box-bg-color'] ) ? $theme_options['archive-summary-box-bg-color'] : '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+			'tablet'  => array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+			'mobile'  => array(
+				'background-color'      => '',
+				'background-image'      => '',
+				'background-repeat'     => 'repeat',
+				'background-position'   => 'center center',
+				'background-size'       => 'auto',
+				'background-attachment' => 'scroll',
+				'background-type'       => '',
+				'background-media'      => '',
+			),
+		);
+		// Single post structure.
+		foreach ( $post_types as $index => $post_type ) {
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$single_post_structure = isset( $theme_options['blog-single-post-structure'] ) ? $theme_options['blog-single-post-structure'] : array( 'single-image', 'single-title-meta' );
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$migrated_post_structure = array();
+
+			if ( ! empty( $single_post_structure ) ) {
+				/** @psalm-suppress PossiblyInvalidIterator */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				foreach ( $single_post_structure as $key ) {
+					/** @psalm-suppress PossiblyInvalidIterator */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					if ( 'single-title-meta' === $key ) {
+						$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title';
+						if ( 'post' === $post_type ) {
+							$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-meta';
+						}
+					}
+					if ( 'single-image' === $key ) {
+						$migrated_post_structure[] = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-image';
+					}
+				}
+
+				$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-structure' ] = $migrated_post_structure;
+			}
+
+			// Single post meta.
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$single_post_meta = isset( $theme_options['blog-single-meta'] ) ? $theme_options['blog-single-meta'] : array( 'comments', 'category', 'author' );
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$migrated_post_metadata = array();
+
+			if ( ! empty( $single_post_meta ) ) {
+				$tax_counter = 0;
+				$tax_slug    = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy';
+				/** @psalm-suppress PossiblyInvalidIterator */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				foreach ( $single_post_meta as $key ) {
+					/** @psalm-suppress PossiblyInvalidIterator */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					switch ( $key ) {
+						case 'author':
+							$migrated_post_metadata[] = 'author';
+							break;
+						case 'date':
+							$migrated_post_metadata[] = 'date';
+							break;
+						case 'comments':
+							$migrated_post_metadata[] = 'comments';
+							break;
+						case 'category':
+							if ( 'post' === $post_type ) {
+								$migrated_post_metadata[]   = $tax_slug;
+								$theme_options[ $tax_slug ] = 'category';
+
+								$tax_counter = $tax_counter + 1;
+								$tax_slug    = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy-' . $tax_counter;
+							}
+							break;
+						case 'tag':
+							if ( 'post' === $post_type ) {
+								$migrated_post_metadata[]   = $tax_slug;
+								$theme_options[ $tax_slug ] = 'post_tag';
+
+								$tax_counter = $tax_counter + 1;
+								$tax_slug    = 'ast-dynamic-single-' . esc_attr( $post_type ) . '-taxonomy-' . $tax_counter;
+							}
+							break;
+						default:
+							break;
+					}
+				}
+
+				$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-metadata' ] = $migrated_post_metadata;
+			}
+
+			// Archive layout compatibilities.
+			$theme_options[ 'ast-archive-' . esc_attr( $post_type ) . '-title' ] = true;
+
+			// Single layout compatibilities.
+			$theme_options[ 'ast-single-' . esc_attr( $post_type ) . '-title' ] = true;
+
+			// BG color support.
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-image-type' ] = ! empty( $theme_options['archive-summary-box-bg-color'] ) ? 'custom' : 'none';
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-custom-bg' ]  = $archive_summary_box_bg;
+
+			// Archive title font support.
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-family' ] = ! empty( $theme_options['font-family-archive-summary-title'] ) ? $theme_options['font-family-archive-summary-title'] : '';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-size' ] = $archive_title_font_size;
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-weight' ] = ! empty( $theme_options['font-weight-archive-summary-title'] ) ? $theme_options['font-weight-archive-summary-title'] : '';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-text-transform' ] = ! empty( $theme_options['text-transform-archive-summary-title'] ) ? $theme_options['text-transform-archive-summary-title'] : 'capitalize';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-line-height' ] = ! empty( $theme_options['line-height-archive-summary-title'] ) ? $theme_options['line-height-archive-summary-title'] : '';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			// Archive title colors support.
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-title-color' ] = ! empty( $theme_options['archive-summary-box-title-color'] ) ? $theme_options['archive-summary-box-title-color'] : '';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-text-color' ] = ! empty( $theme_options['archive-summary-box-text-color'] ) ? $theme_options['archive-summary-box-text-color'] : '';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			// Single title colors support.
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-title-color' ] = ! empty( $theme_options['entry-title-color'] ) ? $theme_options['entry-title-color'] : '';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			// Single title font support.
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-family' ] = ! empty( $theme_options['font-family-entry-title'] ) ? $theme_options['font-family-entry-title'] : '';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size' ] = $single_title_font_size;
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight' ] = ! empty( $theme_options['font-weight-entry-title'] ) ? $theme_options['font-weight-entry-title'] : '';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-text-transform' ] = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : 'capitalize';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height' ] = ! empty( $theme_options['line-height-entry-title'] ) ? $theme_options['line-height-entry-title'] : '';
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		}
+
+		// Set page specific structure, as page only has featured image at top & title beneath to it, hardcoded writing it here.
+		$theme_options['ast-dynamic-single-page-structure'] = array( 'ast-dynamic-single-page-image', 'ast-dynamic-single-page-title' );
+
+		// EDD content layout & sidebar layout migration in new dynamic option.
+		$theme_options['archive-download-content-layout'] = isset( $theme_options['edd-archive-product-layout'] ) ? $theme_options['edd-archive-product-layout'] : 'default';
+		$theme_options['archive-download-sidebar-layout'] = isset( $theme_options['edd-sidebar-layout'] ) ? $theme_options['edd-sidebar-layout'] : 'no-sidebar';
+		$theme_options['single-download-content-layout']  = isset( $theme_options['edd-single-product-layout'] ) ? $theme_options['edd-single-product-layout'] : 'default';
+		$theme_options['single-download-sidebar-layout']  = isset( $theme_options['edd-single-product-sidebar-layout'] ) ? $theme_options['edd-single-product-sidebar-layout'] : 'default';
+
+		update_option( 'astra-settings', $theme_options );
+	}
+
+	// Admin backward handling starts here.
+	$admin_dashboard_settings = get_option( 'astra_admin_settings', array() );
+	if ( ! isset( $admin_dashboard_settings['theme-setup-admin-migrated'] ) ) {
+
+		if ( ! isset( $admin_dashboard_settings['self_hosted_gfonts'] ) ) {
+			$admin_dashboard_settings['self_hosted_gfonts'] = isset( $theme_options['load-google-fonts-locally'] ) ? $theme_options['load-google-fonts-locally'] : false;
+		}
+		if ( ! isset( $admin_dashboard_settings['preload_local_fonts'] ) ) {
+			$admin_dashboard_settings['preload_local_fonts'] = isset( $theme_options['preload-local-fonts'] ) ? $theme_options['preload-local-fonts'] : false;
+		}
+
+		// Consider admin part from theme side migrated.
+		$admin_dashboard_settings['theme-setup-admin-migrated'] = true;
+		update_option( 'astra_admin_settings', $admin_dashboard_settings );
+	}
+
+	// Check if existing user and disable smooth scroll-to-id.
+	if ( ! isset( $theme_options['enable-scroll-to-id'] ) ) {
+		$theme_options['enable-scroll-to-id'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}

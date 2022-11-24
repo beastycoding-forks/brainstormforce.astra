@@ -109,17 +109,15 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$content_layout = astra_get_option( 'site-content-layout' );
 			}
 
-			$post_type                     = get_post_type();
-			$editor_default_content_layout = '';
-			if ( 'post' === $post_type || 'page' === $post_type ) {
-				$editor_default_content_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
-				$classes                      .= ' ast-default-layout-' . $editor_default_content_layout;
-			}
+			$editor_default_content_layout = astra_get_option( 'single-' . strval( get_post_type() ) . '-content-layout' );
+
 			if ( 'default' === $editor_default_content_layout || empty( $editor_default_content_layout ) ) {
 				// Get the GLOBAL content layout value.
 				// NOTE: Here not used `true` in the below function call.
 				$editor_default_content_layout = astra_get_option( 'site-content-layout', 'full-width' );
 				$classes                      .= ' ast-default-layout-' . $editor_default_content_layout;
+			} else {
+				$classes .= ' ast-default-layout-' . $editor_default_content_layout;
 			}
 
 			if ( 'content-boxed-container' == $content_layout ) {
@@ -130,6 +128,8 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 				$classes .= ' ast-page-builder-template';
 			} elseif ( 'plain-container' == $content_layout ) {
 				$classes .= ' ast-plain-container';
+			} elseif ( 'narrow-container' == $content_layout ) {
+				$classes .= ' ast-narrow-container';
 			}
 
 			$site_layout = astra_get_option( 'site-layout' );
@@ -352,8 +352,9 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			$astra_localize = array(
-				'break_point' => astra_header_break_point(),    // Header Break Point.
-				'isRtl'       => is_rtl(),
+				'break_point'     => astra_header_break_point(),    // Header Break Point.
+				'isRtl'           => is_rtl(),
+				'is_scroll_to_id' => astra_get_option( 'enable-scroll-to-id' ),
 			);
 
 			wp_localize_script( 'astra-theme-js', 'astra', apply_filters( 'astra_theme_js_localize', $astra_localize ) );

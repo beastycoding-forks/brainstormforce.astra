@@ -2,8 +2,15 @@ v4.0.1 (Unreleased)
 - New : Add to cart actions added on shop for WooCommerce.
 
 v4.0.0 (Unreleased)
+- New: Redesigned the entire admin area with better user experience.
+- New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
+- New: Introduced Smooth scroll to ID option for smooth scrolling to section ID on one page site navigation.
+- New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
+- New: Added elegant starter-content theme support for wordpress.org preview & for fresh setup.
+- Improvement: Introduced new filter 'astra_global_color_palette' to extend default color palette settings.
 - Fix: Off-canvas - Full screen - Mobile Menu gets very long scroll when Elementor plugin is activated.
 - Fix: Full Width/Contained layout Layout is showing extra padding above in the Transparent Header.
+- Fix: Block editor - Getting "wp.data.select( 'core/editor' )getBlocks()" console warning in editor as being deprecated in WordPress version 5.3.
 
 v3.9.4
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect the user to the cart page.

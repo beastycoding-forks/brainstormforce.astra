@@ -11,6 +11,49 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Prepare markup for taxonomies.
+ *
+ * @param string $control_tax Taxonomy subcontrol name.
+ * @param int    $loop_count Meta loop counter to decide separator appearance.
+ * @param string $separator Separator.
+ *
+ * @return string $output Taxonomy output.
+ */
+function astra_get_dynamic_taxonomy( $control_tax, $loop_count, $separator ) {
+
+	$tax_type = astra_get_option( $control_tax );
+	$post_id  = get_the_ID();
+
+	if ( ! $post_id ) {
+		return '';
+	}
+
+	$terms = get_the_terms( $post_id, $tax_type );
+	/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+	if ( $terms && ! empty( $terms ) && ! is_wp_error( $terms ) ) {
+		/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+		$term_links = array();
+
+		/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		foreach ( $terms as $term ) {
+			/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$term_links[] = '<a href="' . esc_url( get_term_link( $term->slug, $tax_type ) ) . '">' . __( $term->name ) . '</a>';
+			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		}
+
+		$all_terms  = join( ', ', $term_links );
+		$output_str = '<span class="ast-terms-link">' . __( $all_terms ) . '</span>';
+
+		return ( 1 != $loop_count ) ? ' ' . $separator . ' ' . $output_str : $output_str;
+	}
+
+	return '';
+}
+
+/**
  * Common Functions for Blog and Single Blog
  *
  * @return  post meta
@@ -74,6 +117,10 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 				default:
 					$output_str = apply_filters( 'astra_meta_case_' . $meta_value, $output_str, $loop_count, $separator );
 
+			}
+
+			if ( strpos( $meta_value, '-taxonomy' ) !== false ) {
+				$output_str .= astra_get_dynamic_taxonomy( $meta_value, $loop_count, $separator );
 			}
 
 			$loop_count ++;

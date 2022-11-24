@@ -240,7 +240,6 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 	function astra_get_blog_post_title_meta() {
 
 		// Blog Post Title and Blog Post Meta.
-		$blog_title_meta = astra_get_option( 'blog-post-structure' );
 		do_action( 'astra_archive_entry_header_before' );
 		?>
 		<header class="entry-header">

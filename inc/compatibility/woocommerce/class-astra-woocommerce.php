@@ -1387,13 +1387,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since x.x.x
 		 */
 		public function enqueue_scripts() {
-			/**
-			 * Load unminified if SCRIPT_DEBUG is true.
-			 */
-			/* Directory and Extension */
-			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min';
-			$dir_name    = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
-
+			/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$file_prefix = ( SCRIPT_DEBUG ) ? '' : '.min'; 
+			/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$dir_name = ( SCRIPT_DEBUG ) ? 'unminified' : 'minified';
+			/** @psalm-suppress RedundantCondition */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			
 			$js_uri = ASTRA_THEME_URI . 'inc/compatibility/woocommerce/assets/js/' . $dir_name . '/';
 
 			$astra_shop_add_to_cart      = astra_get_option( 'shop-add-to-cart-action' );

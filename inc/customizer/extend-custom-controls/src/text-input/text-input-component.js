@@ -15,6 +15,17 @@ const TextInputComponent = props => {
 		setTextState( event.target.value );
 	};
 
+	if ( undefined !== props.control.params.input_attrs && props.control.params.input_attrs.textarea ) {
+		return <label className='customizer-text'>
+			{ htmlLabel }
+			<textarea
+				onChange={ handleChange }
+				value={ textState }
+				rows="4"
+			></textarea>
+		</label>;
+	}
+
 	return <label className='customizer-text'>
 		{ htmlLabel }
 		<input

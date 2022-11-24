@@ -299,6 +299,12 @@ module.exports = function (grunt) {
                         ],
                         dest: 'inc/builder/type/footer/above-footer/assets/js/minified/customizer-preview.min.js',
                     },
+					{
+                        src: [
+                            'inc/modules/posts-structures/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/modules/posts-structures/assets/js/minified/customizer-preview.min.js',
+                    },
                     {
                         src: [
                             'inc/builder/type/footer/below-footer/assets/js/unminified/customizer-preview.js',

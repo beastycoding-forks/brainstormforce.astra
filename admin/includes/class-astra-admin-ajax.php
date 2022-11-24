@@ -137,6 +137,7 @@ class Astra_Admin_Ajax {
 
 	/**
 	 * Migrate to New Header Builder
+	 *
 	 * @since x.x.x
 	 */
 	public function migrate_to_builder() {
@@ -205,9 +206,9 @@ class Astra_Admin_Ajax {
 
 		$get_bool_settings = $this->astra_admin_settings_typewise();
 		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		$sub_option_key    = isset( $_POST['key'] ) ? sanitize_text_field( wp_unslash( $_POST['key'] ) ) : '';
+		$sub_option_key = isset( $_POST['key'] ) ? sanitize_text_field( wp_unslash( $_POST['key'] ) ) : '';
 		/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		$sub_option_value  = '';
+		$sub_option_value = '';
 
 		// @codingStandardsIgnoreStart
 		if ( isset( $get_bool_settings[ $sub_option_key ] ) ) {

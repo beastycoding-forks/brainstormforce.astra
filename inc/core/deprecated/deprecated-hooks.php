@@ -59,7 +59,7 @@ function astra_deprecated_asta_register_admin_menu_hook( $parent_page, $page_tit
 function astra_show_deprecated_admin_hooks_warnings() {
 	global $pagenow;
 	$screen = get_current_screen();
-	if( 'admin.php' === $pagenow && is_object( $screen ) && 'toplevel_page_' . Astra_Menu::get_theme_page_slug() === $screen->id ) {
+	if ( 'admin.php' === $pagenow && is_object( $screen ) && 'toplevel_page_' . Astra_Menu::get_theme_page_slug() === $screen->id ) {
 		astra_do_action_deprecated( 'astra_welcome_page_content_before', array(), 'x.x.x' );
 		astra_do_action_deprecated( 'astra_welcome_page_content', array(), 'x.x.x' );
 		astra_do_action_deprecated( 'astra_welcome_page_content_after', array(), 'x.x.x' );

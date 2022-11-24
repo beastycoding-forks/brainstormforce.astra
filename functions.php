@@ -129,6 +129,7 @@ require_once ASTRA_THEME_DIR . 'inc/customizer/class-astra-customizer.php';
 /**
  * Astra Modules.
  */
+require_once ASTRA_THEME_DIR . 'inc/modules/posts-structures/class-astra-post-structures.php';
 require_once ASTRA_THEME_DIR . 'inc/modules/related-posts/class-astra-related-posts.php';
 
 /**
@@ -177,4 +178,3 @@ require_once ASTRA_THEME_DIR . 'inc/core/markup/class-astra-markup.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-filters.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-hooks.php';
 require_once ASTRA_THEME_DIR . 'inc/core/deprecated/deprecated-functions.php';
-

@@ -46,7 +46,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * Tabful sections.
 		 *
 		 * @access private
-		 * @var object
+		 * @var array
 		 */
 		private static $tabbed_sections = array();
 
@@ -500,7 +500,9 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					break;
 				case 'ast-border':
 					$configuration['value'] = $val;
-
+					break;
+				case 'ast-section-toggle':
+					$configuration['value'] = $val;
 					break;
 				case 'ast-responsive-slider':
 					if ( ! is_array( $val ) || is_numeric( $val ) ) {
@@ -677,7 +679,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			$sub_control_name = ASTRA_THEME_SETTINGS . '[' . astra_get_prop( $config, 'name' ) . ']';
 			$parent           = astra_get_prop( $config, 'parent' );
 
-			$ignore_controls = array( 'ast-settings-group', 'ast-sortable', 'ast-radio-image', 'ast-slider', 'ast-responsive-slider' );
+			$ignore_controls = array( 'ast-settings-group', 'ast-sortable', 'ast-radio-image', 'ast-slider', 'ast-responsive-slider', 'ast-section-toggle' );
 
 			$sanitize_callback = ( in_array( $config['control'], $ignore_controls, true ) ) ? false : astra_get_prop( $config, 'sanitize_callback', Astra_Customizer_Control_Base::get_sanitize_call( astra_get_prop( $config, 'control' ) ) );
 
@@ -744,7 +746,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			// Remove type from configuration.
 			unset( $config['type'] );
 
-			$ignore_controls = array( 'ast-settings-group', 'ast-sortable', 'ast-radio-image', 'ast-slider', 'ast-responsive-slider' );
+			$ignore_controls = array( 'ast-settings-group', 'ast-sortable', 'ast-radio-image', 'ast-slider', 'ast-responsive-slider', 'ast-section-toggle' );
 
 			if ( ! isset( $config['control'] ) ) {
 				return;
@@ -839,6 +841,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' );
 					break;
 				case 'ast-toggle-control':
+				case 'ast-section-toggle':
 					$config ['sanitize_callback'] = array( 'Astra_Customizer_Sanitizes', 'sanitize_toggle_control' );
 					break;
 				default:
@@ -1584,7 +1587,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					    left: -1.8em;
 					}
 					.customize-partial-edit-shortcut-astra-settings-breadcrumb-position .customize-partial-edit-shortcut-button{
-						top: -0.5em;
+						display: none;
 					}
 					.ast-small-footer-section-1 .ast-footer-widget-1-area .customize-partial-edit-shortcut,
 					.ast-small-footer-section-2 .ast-footer-widget-2-area .customize-partial-edit-shortcut {

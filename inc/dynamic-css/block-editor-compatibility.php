@@ -209,9 +209,9 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	$mobile_bottom_spacing  = isset( $blocks_spacings['mobile']['bottom'] ) ? $blocks_spacings['mobile']['bottom'] : '';
 	$mobile_left_spacing    = isset( $blocks_spacings['mobile']['left'] ) ? $blocks_spacings['mobile']['left'] : '';
 
-	$ast_content_width     = apply_filters( 'astra_block_content_width', $astra_block_editor_v2_ui ? $ast_container_width : '910px' );
-	$ast_wide_width        = apply_filters( 'astra_block_wide_width', $astra_block_editor_v2_ui ? 'calc(' . esc_attr( $ast_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $ast_container_width );
-	$ast_narrow_width      = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) ) . 'px';
+	$ast_content_width = apply_filters( 'astra_block_content_width', $astra_block_editor_v2_ui ? $ast_container_width : '910px' );
+	$ast_wide_width    = apply_filters( 'astra_block_wide_width', $astra_block_editor_v2_ui ? 'calc(' . esc_attr( $ast_container_width ) . ' + var(--wp--custom--ast-default-block-left-padding) + var(--wp--custom--ast-default-block-right-padding))' : $ast_container_width );
+	$ast_narrow_width  = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) ) . 'px';
 
 	// Spectra Compatibility - page title alignment with page container layouts.
 	$spectra_gutenberg_compat_css = Astra_Dynamic_CSS::spectra_gutenberg_compat_css();

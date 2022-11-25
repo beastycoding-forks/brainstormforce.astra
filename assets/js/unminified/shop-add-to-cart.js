@@ -1,9 +1,10 @@
 jQuery( document ).ready(function() {
 
     jQuery( document.body ).on( 'added_to_cart', function() {
+        const singleProductButton = jQuery( '.single_add_to_cart_button' );
 
-        if( astra_shop_add_to_cart.shop_add_to_cart_action ) {
-            
+        if( ! singleProductButton.hasClass('loading') && astra_shop_add_to_cart.shop_add_to_cart_action ) {
+
             const slideInCart = jQuery( '#astra-mobile-cart-drawer' );
 
             if( 'slide_in_cart' === astra_shop_add_to_cart.shop_add_to_cart_action && slideInCart ) {

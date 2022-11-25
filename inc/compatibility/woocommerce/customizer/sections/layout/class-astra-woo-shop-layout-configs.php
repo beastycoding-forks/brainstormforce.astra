@@ -342,6 +342,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					),
 					'responsive' => false,
 					'renderAs'   => 'text',
+					'transport'  => 'postMessage',
 				);
 			}
 

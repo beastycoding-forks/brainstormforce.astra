@@ -193,6 +193,13 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 					$default_assets['js']['astra-sticky-add-to-cart'] = 'sticky-add-to-cart';
 				}
 
+				$astra_shop_add_to_cart      = astra_get_option( 'shop-add-to-cart-action' );
+				$is_ajax_add_to_cart_enabled = get_option( 'woocommerce_enable_ajax_add_to_cart' );
+
+				if ( class_exists( 'WooCommerce' ) && $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart && 'yes' === $is_ajax_add_to_cart_enabled ) {
+					$default_assets['js']['astra-shop-add-to-cart'] = 'shop-add-to-cart';
+				}
+
 				/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 				$astra_add_to_cart_quantity_btn_enabled = apply_filters( 'astra_add_to_cart_quantity_btn_enabled', astra_get_option( 'single-product-plus-minus-button' ) );
 
@@ -372,6 +379,16 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 			);
 
 			wp_localize_script( 'astra-mobile-cart', 'astra_cart', apply_filters( 'astra_cart_js_localize', $astra_cart_localize_data ) );
+
+			$astra_shop_add_to_cart_localize_data = array(
+				'shop_add_to_cart_action' => astra_get_option( 'shop-add-to-cart-action' ),
+				'cart_url'                => wc_get_cart_url(),
+				'checkout_url'            => wc_get_checkout_url(),
+				'is_astra_pro'            => astra_has_pro_woocommerce_addon(),
+				'is_shop_page'            => is_shop() || is_product_taxonomy(),
+			);
+
+			wp_localize_script( 'astra-shop-add-to-cart', 'astra_shop_add_to_cart', apply_filters( 'astra_shop_add_to_cart_js_localize', $astra_shop_add_to_cart_localize_data ) );
 		}
 
 		/**

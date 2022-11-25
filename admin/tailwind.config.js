@@ -13,6 +13,9 @@ module.exports = {
 					hover: '#045CB4',
 				},
 			},
+			blur: {
+				xs: '3px',
+			},
 			fontFamily: {
 				inter: ['"Inter"', 'sans-serif'],
 			},

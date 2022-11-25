@@ -65,21 +65,7 @@ const SpectraScreen = () => {
 				}
 			} );
 		} else if ( 'installed' === spectraPluginStatus ) {
-			formData.append( 'action', 'astra_recommended_plugin_activate' );
-			formData.append( 'security', astra_admin.plugin_manager_nonce );
-			formData.append( 'init', 'ultimate-addons-for-gutenberg/ultimate-addons-for-gutenberg.php' );
-			e.target.innerText = astra_admin.plugin_activating_text;
-
-			apiFetch( {
-				url: astra_admin.ajax_url,
-				method: 'POST',
-				body: formData,
-			} ).then( ( data ) => {
-				if( data.success ) {
-					e.target.innerText = astra_admin.plugin_activated_text;
-					window.open( `${astra_admin.admin_base_url}options-general.php?page=spectra`, '_self' );
-				}
-			} );
+			activatePlugin(e);
 		} else {
 			// Do nothing.
 		}
@@ -99,7 +85,7 @@ const SpectraScreen = () => {
 		} ).then( ( data ) => {
 			if( data.success ) {
 				e.target.innerText = astra_admin.plugin_activated_text;
-				window.open( `${astra_admin.admin_base_url}options-general.php?page=spectra`, '_self' );
+				window.location = `${astra_admin.admin_base_url}options-general.php?page=spectra`;
 			}
 		} );
 	};

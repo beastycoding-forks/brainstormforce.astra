@@ -10,20 +10,7 @@ const UsefulPlugins = () => {
 
 		switch (action) {
 			case 'astra_recommended_plugin_activate':
-				formData.append( 'action', 'astra_recommended_plugin_activate' );
-				formData.append( 'security', astra_admin.plugin_manager_nonce );
-				formData.append( 'init', e.target.dataset.init );
-				e.target.innerText = astra_admin.plugin_activating_text;
-
-				apiFetch( {
-					url: astra_admin.ajax_url,
-					method: 'POST',
-					body: formData,
-				} ).then( ( data ) => {
-					e.target.className = '';
-					e.target.className = 'text-[#4AB866] pointer-events-none capitalize text-sm leading-[0.875rem] font-medium rounded-md';
-					e.target.innerText = astra_admin.plugin_activated_text;
-				} );
+				activatePlugin(e);
 				break;
 
 			case 'astra_recommended_plugin_install':
@@ -66,7 +53,7 @@ const UsefulPlugins = () => {
 			e.target.className = '';
 			e.target.className = 'text-[#4AB866] pointer-events-none capitalize text-sm leading-[0.875rem] font-medium rounded-md';
 			e.target.innerText = astra_admin.plugin_activated_text;
-			location.reload();
+			window.location = e.target.dataset.redirection;
 		} );
 	};
 
@@ -112,6 +99,7 @@ const UsefulPlugins = () => {
 					<button
 						data-slug={plugin.slug}
 						data-init={plugin.path}
+						data-redirection={plugin.redirection}
 						data-action={getAction(plugin.status)}
 						className={` ${getStatusClass(
 							plugin.status

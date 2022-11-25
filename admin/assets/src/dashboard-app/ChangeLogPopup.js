@@ -30,7 +30,7 @@ const ChangeLogPopup = () => {
 			<button
 				onClick={() => setOpen(true)}
 				title={__("What's New?", "astra")}
-				className="w-10 h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200"
+				className="w-8 sm:w-10 h-8 sm:h-10 flex items-center whitespace-nowrap justify-center cursor-pointer rounded-full border border-slate-200"
 			>
 				{Astra_Admin_Icons['horn']}
 			</button>

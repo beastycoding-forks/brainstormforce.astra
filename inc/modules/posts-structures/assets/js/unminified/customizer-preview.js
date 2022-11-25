@@ -134,7 +134,7 @@ function astra_refresh_customizer( control ) {
 		astra_css(
 			'astra-settings[ast-dynamic-single-' + postType + '-elements-gap]',
 			'margin-bottom',
-			postTypeSelector + ' header.entry-header > *:not(:last-child), .ast-single-entry-banner[data-post-type="' + postType + '"] > *:not(:last-child)',
+			postTypeSelector + ' header.entry-header > *:not(:last-child), .ast-single-entry-banner[data-post-type="' + postType + '"] .ast-container > *:not(:last-child)',
 			'px'
 		);
 
@@ -281,7 +281,7 @@ function astra_refresh_customizer( control ) {
 		astra_css(
 			'astra-settings[ast-dynamic-archive-' + postType + '-elements-gap]',
 			'margin-bottom',
-			'body.archive .ast-archive-description > *:not(:last-child), .ast-archive-entry-banner[data-post-type="' + postType + '"] > *:not(:last-child)',
+			'body.archive .ast-archive-description > *:not(:last-child), .ast-archive-entry-banner[data-post-type="' + postType + '"] .ast-container > *:not(:last-child)',
 			'px'
 		);
 

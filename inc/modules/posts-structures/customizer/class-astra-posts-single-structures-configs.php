@@ -292,7 +292,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 
 				array(
 					'name'     => $title_section,
-					'title'    => isset( $post_type_object->labels->name ) ? ucfirst( $post_type_object->labels->name ) . __( ' Single Banner', 'astra' ) : ucfirst( $post_type ) . __( ' Single Banner', 'astra' ),
+					'title'    => isset( $post_type_object->labels->singular_name ) ? ucfirst( $post_type_object->labels->singular_name ) . __( ' Title', 'astra' ) : ucfirst( $post_type ) . __( ' Title', 'astra' ),
 					'type'     => 'section',
 					'section'  => $parent_section,
 					'panel'    => ( 'product' === $post_type ) ? 'woocommerce' : '',
@@ -307,7 +307,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 					'section'  => $parent_section,
 					'priority' => 2,
 					'linked'   => $title_section,
-					'linkText' => __( 'Banner Area', 'astra' ),
+					'linkText' => isset( $post_type_object->labels->singular_name ) ? ucfirst( $post_type_object->labels->singular_name ) . __( ' Title', 'astra' ) : ucfirst( $post_type ) . __( ' Title', 'astra' ),
 					'divider'  => array( 'ast_class' => 'ast-bottom-divider ast-bottom-section-divider' ),
 				),
 

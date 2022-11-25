@@ -25,7 +25,7 @@ const ExtensionCard = ( props ) => {
 	const moduleActivationStatus = ( blocksStatuses && undefined !== blocksStatuses[slug] && slug == blocksStatuses[slug] ) ? true : false;
 
 	function getAddonTitleColorClass( condition ) {
-		if( condition ) {
+		if( condition || ! astra_admin.pro_available ) {
 			return 'text-slate-800';
 		} else {
 			return 'text-[#475569]';
@@ -33,10 +33,18 @@ const ExtensionCard = ( props ) => {
 	}
 
 	function getAddonLinksColorClass( condition, classes ) {
-		if( condition ) {
+		if( condition || ! astra_admin.pro_available ) {
 			return classes;
 		} else {
 			return 'text-[#CBD5E1] ' + classes;
+		}
+	}
+
+	function getWrapperClass( condition, addon ) {
+		if( condition || 'white-label' === addon ) {
+			return 'ast-addon-active';
+		} else {
+			return 'ast-addon-inactive';
 		}
 	}
 
@@ -46,7 +54,7 @@ const ExtensionCard = ( props ) => {
 			className={ classNames(
 				! astra_admin.pro_available || ! condition
 				? classNames( ! astra_admin.pro_available ? 'group' : '', 'bg-slate-50' )
-				: `bg-white ${moduleActivationStatus ? 'ast-addon-active' : 'ast-addon-inactive'} `,
+				: `bg-white ${getWrapperClass( moduleActivationStatus, slug )} `,
 				'box-border relative border rounded-md h-20 z-0 px-4 py-3 flex items-start gap-x-4 snap-start hover:shadow-md transition astra-icon-transition'
 			) }
 		>
@@ -98,7 +106,7 @@ const ExtensionCard = ( props ) => {
 			{
 				<div
 					className={ classNames(
-						! astra_admin.pro_available ? 'text-[0.625rem] leading-[0.7rem] text-white bg-slate-800 rounded-[0.1875rem]' : 'self-center',
+						! astra_admin.pro_available ? 'text-[0.625rem] leading-[0.7rem] text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem]' : 'self-center',
 						( astra_admin.pro_available && ! condition ) ? 'relative inline-flex flex-shrink-0 py-0.5 px-1 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 py-0.5 px-1'
 					) }
 				>
@@ -133,7 +141,7 @@ const ExtensionCard = ( props ) => {
 										body: formData,
 									} ).then( ( data ) => {
 										if ( data.success ) {
-											dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
+											dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!', 'astra' ) } );
 
 											const reFormData = new window.FormData();
 

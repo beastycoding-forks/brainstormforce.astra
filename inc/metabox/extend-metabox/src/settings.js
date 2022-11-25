@@ -16,8 +16,8 @@ const { __ } = wp.i18n;
 const MetaSettings = props => {
 
 	const modalIcon = parse( svgIcons['meta-popup-icon'] );
-	const astraLogo = parse( astMetaParams.brandLogo );
-	const brandIcon = parse( astMetaParams.brandLogo );
+	const astraLogo = parse( svgIcons['astra-brand-icon'] );
+	const brandIcon = parse( svgIcons['astra-brand-icon'] );
 
     const [ isOpen, setOpen ] = useState( false );
 
@@ -31,7 +31,7 @@ const MetaSettings = props => {
 	const topTableSpacing = <tr className="ast-extra-spacing"><td className="ast-border"></td><td></td></tr>;
 	const bottomTableSpacing = <tr className="ast-extra-spacing ast-extra-spacing-bottom"><td className="ast-border"></td><td></td></tr>;
 
-	const icon = parse( astMetaParams.brandLogo );
+	const icon = parse( svgIcons['astra-meta-settings'] );
 	const sidebarOptions = Object.entries( astMetaParams.sidebar_options ).map( ( [ key, name ] ) => {
 		return ( { label: name, value: key } );
 	} );
@@ -150,7 +150,7 @@ const MetaSettings = props => {
 					</PanelBody>
 					)}
 
-					{/* Sidebar Setting */}	
+					{/* Sidebar Setting */}
 					{ ! is_hide_contnet_layout_sidebar && showSidebar() && (
 					<PanelBody
 						title={ __( 'Sidebar', 'astra' ) }

@@ -604,7 +604,7 @@ if ( ! class_exists( 'Gutenberg_Editor_CSS' ) ) :
 					/**
 					 * Gutenberg button compatibility for default styling.
 					 */
-					'.wp-block-button .wp-block-button__link' . $search_button_selector . $file_block_button_selector => array(
+					'.editor-styles-wrapper .wp-block-button .wp-block-button__link' . $search_button_selector . $file_block_button_selector => array(
 						'border-style'        => 'solid',
 						'border-top-width'    => $theme_btn_top_border,
 						'border-right-width'  => $theme_btn_right_border,

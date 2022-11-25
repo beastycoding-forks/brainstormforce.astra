@@ -34,10 +34,12 @@ if ( 'layout-2' === $layout_type && $featured_background ) {
 ?>
 
 <section <?php echo $attr . ' ' . $data_attrs; ?>>
-	<?php
-	if ( is_customize_preview() ) {
-		Astra_Builder_UI_Controller::render_banner_customizer_edit_button();
-	}
-		astra_banner_elements_order();
-	?>
+	<div class="ast-container">
+		<?php
+		if ( is_customize_preview() ) {
+			Astra_Builder_UI_Controller::render_banner_customizer_edit_button();
+		}
+			astra_banner_elements_order();
+		?>
+	</div>
 </section>

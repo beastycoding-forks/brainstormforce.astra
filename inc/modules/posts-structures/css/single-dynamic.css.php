@@ -1,6 +1,6 @@
 <?php
 /**
- * Post Strctures - Dynamic CSS
+ * Post Structures - Dynamic CSS
  *
  * @package Astra
  * @since x.x.x
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Post Strctures
+ * Post Structures
  */
 add_filter( 'astra_dynamic_theme_css', 'astra_post_single_structure_dynamic_css' );
 
@@ -20,7 +20,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_post_single_structure_dynamic_css'
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return String Generated dynamic CSS for Post Strctures.
+ * @return String Generated dynamic CSS for Post Structures.
  *
  * @since x.x.x
  */
@@ -157,7 +157,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'line-height'    => esc_attr( $banner_text_line_height ),
 				'text-transform' => esc_attr( $banner_text_transform ),
 			),
-			$selector . ' > *:not(:last-child)'     => array(
+			$selector . ' .ast-container > *:not(:last-child)' => array(
 				'margin-bottom' => $elements_gap . 'px',
 			),
 			$selector . ' .entry-title'             => array(
@@ -244,8 +244,11 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'line-height'    => esc_attr( $banner_text_line_height ),
 				'text-transform' => esc_attr( $banner_text_transform ),
 			),
-			$selector . ' > *:not(:last-child)'           => array(
+			$selector . ' .ast-container > *:not(:last-child)' => array(
 				'margin-bottom' => $elements_gap . 'px',
+			),
+			'.ast-page-builder-template ' . $selector . ' .ast-container' => array(
+				'max-width' => '100%',
 			),
 			$selector . ' .entry-title'                   => array(
 				'color'          => esc_attr( $title_color ),
@@ -285,6 +288,10 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'margin-right'   => astra_responsive_spacing( $banner_margin, 'right', 'tablet' ),
 				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'tablet' ),
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'tablet' ),
+			),
+			$selector . ' .ast-container'                 => array(
+				'padding-left'  => '0',
+				'padding-right' => '0',
 			),
 			$selector . '[data-banner-layout="layout-2"]' => astra_get_responsive_background_obj( $custom_background, 'tablet' ),
 			$selector . ' .entry-title'                   => array(

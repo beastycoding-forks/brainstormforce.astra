@@ -47,7 +47,7 @@ jobs:
         if: always()
         uses: chekalsky/phpcs-action@v1
         with:
-          phpcs_bin_path: './vendor/bin/phpcs -d memory_limit=128M'
+          phpcs_bin_path: './vendor/bin/phpcs -d memory_limit=256M'
 
       - name: "Static Analysis"
         if: always()

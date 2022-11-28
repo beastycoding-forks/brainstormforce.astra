@@ -574,6 +574,11 @@ class Astra_WP_Editor_CSS {
 			'margin-right' => 'auto',
 		);
 
+		// Override inline css which is explicitly setting content bg as white in responsive preview.
+		$desktop_css['.edit-post-visual-editor__content-area > div'] = array(
+			'background' => 'inherit !important',
+		);
+
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {

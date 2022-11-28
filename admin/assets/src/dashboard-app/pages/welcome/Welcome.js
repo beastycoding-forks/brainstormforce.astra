@@ -88,11 +88,11 @@ const Welcome = () => {
 												)}
 											</h2>
 											{ astra_admin.pro_available ? (
-												<span className="ml-2 h-full inline-flex leading-[0.7rem] flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 rounded-[0.1875rem] -tablet:mt:10">
+												<span className="ml-2 h-full inline-flex leading-[0.7rem] flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem] -tablet:mt:10">
 													{ __( 'PRO', 'astra' ) }
 												</span> )
 											:
-												( <span className="ml-2 h-full inline-flex leading-4 flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-astra bg-blue-50 rounded-[0.1875rem] font-semibold -tablet:mt:10">
+												( <span className="ml-2 h-full inline-flex leading-[0.7rem] flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-astra bg-blue-50 border border-blue-50 rounded-[0.1875rem] font-semibold -tablet:mt:10">
 													{ __( 'FREE', 'astra' ) }
 												</span> )
 											}
@@ -304,7 +304,7 @@ const Welcome = () => {
 													"astra"
 												)}
 											</span>
-											<span className="text-[0.625rem] leading-[0.7rem] text-white bg-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-0.5 px-1 self-start">
+											<span className="text-[0.625rem] leading-[0.7rem] text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-0.5 px-1 self-start">
 												{__("PRO", "astra")}
 											</span>
 										</h3>

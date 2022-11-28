@@ -514,7 +514,6 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 					'is_hide_contnet_layout_sidebar' => $ast_content_layout_sidebar,
 					'upgrade_pro_link'               => ASTRA_PRO_UPGRADE_URL,
 					'show_upgrade_notice'            => astra_showcase_upgrade_notices(),
-					'brandLogo'                      => '<svg data-ast-logo="true" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15 30C23.2843 30 30 23.2843 30 15C30 6.71573 23.2843 0 15 0C6.71573 0 0 6.71573 0 15C0 23.2843 6.71573 30 15 30Z" fill="url(#paint0_linear_3_65)"/><path d="M14.8187 6.65326C12.2784 12.0121 9.73808 17.3831 7.19775 22.742C8.28646 22.742 9.37517 22.742 10.4639 22.742C12.5203 18.5928 14.5768 14.4315 16.6332 10.2823L14.8187 6.65326Z" fill="white"/><path d="M18.2056 13.3065C17.1532 15.4839 16.1129 17.6614 15.0605 19.8388L15 19.9597H15.0605C16.0645 19.9597 17.0806 19.9597 18.0847 19.9597C18.4839 20.8912 18.8952 21.8106 19.2944 22.742C20.4677 22.742 21.629 22.742 22.8024 22.742C21.2661 19.5968 19.7419 16.4517 18.2056 13.3065Z" fill="white"/><defs><linearGradient id="paint0_linear_3_65" x1="3.85272" y1="25.037" x2="26.1473" y2="4.96296" gradientUnits="userSpaceOnUse"><stop stop-color="#492CDD"/><stop offset="1" stop-color="#AD38E2"/></linearGradient></defs></svg>',
 				)
 			);
 

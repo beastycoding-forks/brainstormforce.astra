@@ -267,7 +267,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 
 				array(
 					'name'     => $title_section,
-					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Archive Banner', 'astra' ) : ucfirst( $post_type ) . __( ' Archive Banner', 'astra' ),
+					'title'    => isset( $post_type_object->labels->name ) ? $post_type_object->labels->name . __( ' Title', 'astra' ) : ucfirst( $post_type ) . __( ' Title', 'astra' ),
 					'type'     => 'section',
 					'section'  => $parent_section,
 					'panel'    => ( 'product' === $post_type ) ? 'woocommerce' : '',
@@ -282,7 +282,7 @@ class Astra_Posts_Archive_Structures_Configs extends Astra_Customizer_Config_Bas
 					'section'  => $parent_section,
 					'priority' => 2,
 					'linked'   => $title_section,
-					'linkText' => __( 'Banner Area', 'astra' ),
+					'linkText' => ( 'post' === $post_type ) ? __( 'Blog Title', 'astra' ) : ucfirst( $post_type ) . __( ' Title', 'astra' ),
 				),
 
 				/**

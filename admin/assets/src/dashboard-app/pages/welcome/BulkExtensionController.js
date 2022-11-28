@@ -30,7 +30,7 @@ const BulkExtensionController = () => {
 			body: formData,
 		} ).then( (data) => {
 			if ( data.success ) {
-				dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
+				dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!', 'astra' ) } );
 
 				const reFormData = new window.FormData();
 
@@ -42,7 +42,8 @@ const BulkExtensionController = () => {
 					method: 'POST',
 					body: reFormData,
 				} ).then( ( data ) => {
-					// Do nothing.
+					dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!', 'astra' ) } );
+					location.reload();
 				} );
 			}
 		} );
@@ -70,7 +71,7 @@ const BulkExtensionController = () => {
 			body: formData,
 		} ).then( (data) => {
 			if ( data.success ) {
-				dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!' ) } );
+				dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!', 'astra' ) } );
 
 				const reFormData = new window.FormData();
 
@@ -82,7 +83,8 @@ const BulkExtensionController = () => {
 					method: 'POST',
 					body: reFormData,
 				} ).then( ( data ) => {
-					// Do nothing.
+					dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Cache Cleared!', 'astra' ) } );
+					location.reload();
 				} );
 			}
 		} );

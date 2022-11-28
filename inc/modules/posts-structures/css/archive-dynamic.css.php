@@ -1,6 +1,6 @@
 <?php
 /**
- * Post Strctures - Archive Dynamic CSS
+ * Post Structures - Archive Dynamic CSS
  *
  * @package Astra
  * @since x.x.x
@@ -11,20 +11,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Post Strctures
+ * Post Structures
  */
-add_filter( 'astra_dynamic_theme_css', 'astra_post_archive_strcture_dynamic_css' );
+add_filter( 'astra_dynamic_theme_css', 'astra_post_archive_structure_dynamic_css' );
 
 /**
  * Archive Dynamic CSS
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return String Generated dynamic CSS for Post Strctures.
+ * @return String Generated dynamic CSS for Post Structures.
  *
  * @since x.x.x
  */
-function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
+function astra_post_archive_structure_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' ) {
 
 	$current_post_type    = strval( get_post_type() );
 	$supported_post_types = Astra_Posts_Structure_Loader::get_supported_post_types();
@@ -89,6 +89,9 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$banner_title_line_height = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-line-height' );
 	$banner_title_transform   = astra_get_option( 'ast-dynamic-archive-' . $current_post_type . '-title-text-transform', 'capitalize' );
 
+	$css_output_min_tablet  = array();
+	$narrow_container_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
+
 	// Few settings from banner section are also applicable to 'layout-1' so adding this condition & compatibility.
 	if ( 'layout-1' === $layout_type ) {
 		$site_content_width = astra_get_option( 'site-content-width', 1200 );
@@ -132,7 +135,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' > *:not(:last-child)'     => array(
+			$selector . ' .ast-container > *:not(:last-child)' => array(
 				'margin-bottom' => $elements_gap . 'px',
 			),
 		);
@@ -264,14 +267,34 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'line-height'    => esc_attr( $banner_title_line_height ),
 				'text-transform' => esc_attr( $banner_title_transform ),
 			),
+			$selector . ' .ast-container'           => array(
+				'width' => '100%',
+			),
+			'.ast-page-builder-template ' . $selector . ' .ast-container' => array(
+				'max-width' => '100%',
+			),
+			'.ast-narrow-container ' . $selector . ' .ast-container' => array(
+				'max-width' => $narrow_container_width . 'px',
+			),
 			$selector . ' a, ' . $selector . ' a *' => array(
 				'color' => esc_attr( $link_color ),
 			),
 			$selector . ' a:hover, ' . $selector . ' a:hover *' => array(
 				'color' => esc_attr( $link_hover_color ),
 			),
-			$selector . ' > *:not(:last-child)'     => array(
+			$selector . ' .ast-container > *:not(:last-child)' => array(
 				'margin-bottom' => $elements_gap . 'px',
+			),
+		);
+
+		/**
+		 * Min tablet width CSS.
+		 */
+		$css_output_min_tablet = array(
+			'.ast-narrow-container ' . $selector . ' .ast-container' => array(
+				'max-width'     => $narrow_container_width . 'px',
+				'padding-left'  => '0',
+				'padding-right' => '0',
 			),
 		);
 
@@ -279,7 +302,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 		 * Tablet CSS.
 		 */
 		$css_output_tablet = array(
-			$selector         => array(
+			$selector                     => array(
 				'text-align'     => $tab_h_alignment,
 				'min-height'     => $tab_banner_height,
 				'padding-top'    => astra_responsive_spacing( $banner_padding, 'top', 'tablet' ),
@@ -291,10 +314,14 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'margin-bottom'  => astra_responsive_spacing( $banner_margin, 'bottom', 'tablet' ),
 				'margin-left'    => astra_responsive_spacing( $banner_margin, 'left', 'tablet' ),
 			),
-			$selector . ' h1' => array(
+			$selector . ' .ast-container' => array(
+				'padding-left'  => '0',
+				'padding-right' => '0',
+			),
+			$selector . ' h1'             => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'tablet' ),
 			),
-			$selector . ' *'  => array(
+			$selector . ' *'              => array(
 				'font-size' => astra_responsive_font( $banner_text_font_size, 'tablet' ),
 			),
 		);
@@ -400,6 +427,7 @@ function astra_post_archive_strcture_dynamic_css( $dynamic_css, $dynamic_css_fil
 
 	/* Parse CSS from array() */
 	$dynamic_css .= astra_parse_css( $css_output_desktop );
+	$dynamic_css .= astra_parse_css( $css_output_min_tablet, astra_get_tablet_breakpoint( '', 1 ) );
 	$dynamic_css .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$dynamic_css .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 

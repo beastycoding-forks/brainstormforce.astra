@@ -1,6 +1,6 @@
 <?php
 /**
- * Post Strctures - Dynamic CSS
+ * Post Structures - Dynamic CSS
  *
  * @package Astra
  * @since x.x.x
@@ -11,7 +11,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Post Strctures
+ * Post Structures
  */
 add_filter( 'astra_dynamic_theme_css', 'astra_post_single_structure_dynamic_css' );
 
@@ -20,7 +20,7 @@ add_filter( 'astra_dynamic_theme_css', 'astra_post_single_structure_dynamic_css'
  *
  * @param  string $dynamic_css          Astra Dynamic CSS.
  * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
- * @return String Generated dynamic CSS for Post Strctures.
+ * @return String Generated dynamic CSS for Post Structures.
  *
  * @since x.x.x
  */
@@ -132,6 +132,9 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 	$banner_meta_line_height = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-meta-line-height' );
 	$banner_meta_transform   = astra_get_option( 'ast-dynamic-single-' . $current_post_type . '-meta-transform' );
 
+	$css_output_min_tablet  = array();
+	$narrow_container_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
+
 	// Few settings from banner section are also applicable to 'layout-1' so adding this condition & compatibility.
 	if ( 'layout-1' === $layout_type ) {
 		/**
@@ -156,9 +159,6 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'font-size'      => astra_responsive_font( $banner_text_font_size, 'desktop' ),
 				'line-height'    => esc_attr( $banner_text_line_height ),
 				'text-transform' => esc_attr( $banner_text_transform ),
-			),
-			$selector . ' > *:not(:last-child)'     => array(
-				'margin-bottom' => $elements_gap . 'px',
 			),
 			$selector . ' .entry-title'             => array(
 				'color'          => esc_attr( $title_color ),
@@ -244,8 +244,14 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'line-height'    => esc_attr( $banner_text_line_height ),
 				'text-transform' => esc_attr( $banner_text_transform ),
 			),
-			$selector . ' > *:not(:last-child)'           => array(
+			$selector . ' .ast-container > *:not(:last-child)' => array(
 				'margin-bottom' => $elements_gap . 'px',
+			),
+			'.ast-page-builder-template ' . $selector . ' .ast-container' => array(
+				'max-width' => '100%',
+			),
+			$selector . ' .ast-container'                 => array(
+				'width' => '100%',
 			),
 			$selector . ' .entry-title'                   => array(
 				'color'          => esc_attr( $title_color ),
@@ -271,6 +277,17 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 		);
 
 		/**
+		 * Min tablet width CSS.
+		 */
+		$css_output_min_tablet = array(
+			'.ast-narrow-container ' . $selector . ' .ast-container' => array(
+				'max-width'     => $narrow_container_width . 'px',
+				'padding-left'  => '0',
+				'padding-right' => '0',
+			),
+		);
+
+		/**
 		 * Tablet CSS.
 		 */
 		$css_output_tablet = array(
@@ -289,6 +306,10 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 			$selector . '[data-banner-layout="layout-2"]' => astra_get_responsive_background_obj( $custom_background, 'tablet' ),
 			$selector . ' .entry-title'                   => array(
 				'font-size' => astra_responsive_font( $banner_title_font_size, 'tablet' ),
+			),
+			$selector . ' .ast-container'                 => array(
+				'padding-left'  => '0',
+				'padding-right' => '0',
 			),
 			$selector . ' *'                              => array(
 				'font-size' => astra_responsive_font( $banner_text_font_size, 'tablet' ),
@@ -379,6 +400,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 
 	/* Parse CSS from array() */
 	$dynamic_css .= astra_parse_css( $css_output_desktop );
+	$dynamic_css .= astra_parse_css( $css_output_min_tablet, astra_get_tablet_breakpoint( '', 1 ) );
 	$dynamic_css .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$dynamic_css .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );
 

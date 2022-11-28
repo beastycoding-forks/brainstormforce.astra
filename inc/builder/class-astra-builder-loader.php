@@ -91,10 +91,10 @@ if ( ! class_exists( 'Astra_Builder_Loader' ) ) {
 			}
 
 			$quick_settings['header']['title']     = __( 'Header Builder', 'astra' );
-			$quick_settings['header']['quick_url'] = admin_url( 'customize.php?autofocus[section]=section-header-builder-layout' );
+			$quick_settings['header']['quick_url'] = admin_url( 'customize.php?autofocus[panel]=panel-header-builder-group' );
 
 			$quick_settings['footer']['title']     = __( 'Footer Builder', 'astra' );
-			$quick_settings['footer']['quick_url'] = admin_url( 'customize.php?autofocus[section]=section-footer-builder-layout' );
+			$quick_settings['footer']['quick_url'] = admin_url( 'customize.php?autofocus[panel]=panel-footer-builder-group' );
 
 			return $quick_settings;
 		}

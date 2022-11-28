@@ -9,7 +9,7 @@ const QuickSettings = () => {
 	const onQuickSettingTrigger = ( sectionLink ) => {
 		window.open(
 			sectionLink,
-			'_self'
+			'_blank'
 		);
 	};
 
@@ -40,7 +40,7 @@ const QuickSettings = () => {
 						: '',
 						'focus:text-slate-400 text-slate-400 text-base truncate leading-7 focus:text-slate-400 focus-visible:text-slate-400-hover active:text-astra-hover group-hover:text-astra-hover'
 					) }
-					href={ block.quick_url } rel="noreferrer">{__( 'Customize', 'astra' )}
+					href={ block.quick_url } rel="noreferrer" target="_blank">{__( 'Customize', 'astra' )}
 				</a>
 			</div>
 

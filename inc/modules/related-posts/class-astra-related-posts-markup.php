@@ -82,9 +82,9 @@ class Astra_Related_Posts_Markup {
 			$total_posts_count = $related_posts_total_count + 1;
 
 			if ( $post_counter < $total_posts_count ) {
-				/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+				// @codingStandardsIgnoreStart
 				foreach ( $query_posts as $post ) :
-					/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+					// @codingStandardsIgnoreEnd
 					setup_postdata( $post );
 
 					$post_id    = get_the_ID();
@@ -340,7 +340,7 @@ class Astra_Related_Posts_Markup {
 	 *
 	 * @since 3.5.0
 	 *
-	 * @return WP_Query|bool
+	 * @return array
 	 */
 	public function astra_get_related_posts_by_query( $post_id ) {
 		$term_ids                  = array();

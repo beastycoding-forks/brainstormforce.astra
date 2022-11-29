@@ -11776,7 +11776,7 @@ namespace {
          *
          * @since 3.5.0
          *
-         * @return WP_Query|bool
+         * @return array
          */
         public function astra_get_related_posts_by_query($post_id)
         {

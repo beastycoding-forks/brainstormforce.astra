@@ -63,7 +63,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 	/**
 	 * Post meta
 	 *
-	 * @param  string $post_meta Post meta.
+	 * @param  array $post_meta Post meta.
 	 * @param  string $separator Separator.
 	 * @return string            post meta markup.
 	 */

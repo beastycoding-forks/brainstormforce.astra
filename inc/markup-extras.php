@@ -1346,40 +1346,69 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 	/**
 	 * Astra entry header class
 	 *
+	 * @param bool $echo output being echoed or not.
+	 *
 	 * @since 1.0.15
 	 */
-	function astra_entry_header_class() {
+	function astra_entry_header_class( $echo = true ) {
 
-		$post_id                    = astra_get_post_id();
-		$classes                    = array();
-		$title_markup               = astra_the_title( '', '', $post_id, false );
-		$thumb_markup               = astra_get_post_thumbnail( '', '', false );
-		$post_meta_markup           = astra_single_get_post_meta( '', '', false );
-		$blog_single_post_structure = astra_get_option( 'ast-single-post-structure', array( 'ast-dynamic-single-post-title', 'ast-dynamic-single-post-breadcrumb' ) );
+		$post_id          = astra_get_post_id();
+		$post_type        = strval( get_post_type() );
+		$classes          = array();
+		$title_markup     = astra_the_title( '', '', $post_id, false );
+		$thumb_markup     = astra_get_post_thumbnail( '', '', false );
+		$post_meta_markup = astra_single_get_post_meta( false );
+		$single_structure = 'page' === $post_type ? astra_get_option( 'ast-dynamic-single-page-structure', array( 'ast-dynamic-single-page-image', 'ast-dynamic-single-page-title' ) ) : astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-structure', array( 'ast-dynamic-single-' . $post_type . '-title', 'ast-dynamic-single-' . $post_type . '-meta' ) );
 
-		if ( ! $blog_single_post_structure || ( 'ast-dynamic-single-post-image' === astra_get_prop( $blog_single_post_structure, 0 ) && empty( $thumb_markup ) && ( in_array( 'ast-dynamic-single-post-title', $blog_single_post_structure ) || in_array( 'ast-dynamic-single-post-meta', $blog_single_post_structure ) ) ) ) {
-			$classes[] = 'ast-header-without-markup';
-		} elseif ( empty( $title_markup ) && empty( $thumb_markup ) && ( is_page() || empty( $post_meta_markup ) ) ) {
+		if ( empty( $single_structure ) ) {
 			$classes[] = 'ast-header-without-markup';
 		} else {
-
-			if ( empty( $title_markup ) ) {
-				$classes[] = 'ast-no-title';
+			$header_without_markup_counter = 0;
+			foreach ( $single_structure as $key ) {
+				$structure_key = 'single-' . astra_get_last_meta_word( $key );
+				switch ( $structure_key ) {
+					case 'single-title':
+						if ( empty( $title_markup ) ) {
+							$classes[] = 'ast-no-title';
+							$header_without_markup_counter += 1;
+						}
+					break;
+					case 'single-excerpt':
+						if ( empty( get_the_excerpt() ) ) {
+							$classes[] = 'ast-no-excerpt';
+							$header_without_markup_counter += 1;
+						}
+					break;
+					case 'single-meta':
+						if ( empty( $post_meta_markup ) ) {
+							$classes[] = 'ast-no-meta';
+							$header_without_markup_counter += 1;
+						}
+					break;
+					case 'single-image':
+						if ( empty( $thumb_markup ) ) {
+							$classes[] = 'ast-no-thumbnail';
+							$header_without_markup_counter += 1;
+						}
+					break;
+					default:
+					break;
+				}
 			}
 
-			if ( empty( $thumb_markup ) ) {
-				$classes[] = 'ast-no-thumbnail';
-			}
-
-			if ( is_page() || empty( $post_meta_markup ) ) {
-				$classes[] = 'ast-no-meta';
+			if ( $header_without_markup_counter === count( $single_structure ) ) {
+				$classes[] = 'ast-header-without-markup';
 			}
 		}
 
 		$classes = array_unique( apply_filters( 'astra_entry_header_class', $classes ) );
 		$classes = array_map( 'sanitize_html_class', $classes );
 
-		echo esc_attr( join( ' ', $classes ) );
+		if ( $echo ) {
+			echo esc_attr( join( ' ', $classes ) );
+		} else {
+			return ( join( ' ', $classes ) );
+		}
 	}
 }
 

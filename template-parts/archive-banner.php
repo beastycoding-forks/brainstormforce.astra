@@ -10,6 +10,13 @@
 
 $post_type      = strval( get_post_type() );
 $banner_control = 'ast-dynamic-archive-' . esc_attr( $post_type );
+
+// If description is the only meta available in structure & its blank then no need to render banner markup.
+$archive_structure = astra_get_option( $banner_control . '-structure', array( $banner_control . '-title', $banner_control . '-description' ) );
+if ( 1 === count( $archive_structure ) && in_array( $banner_control . '-description', $archive_structure ) && empty( astra_get_archive_description( $post_type ) ) ) {
+	return;
+}
+
 // Conditionally updating data section & class.
 $attr = 'class="ast-archive-entry-banner"';
 if ( is_customize_preview() ) {

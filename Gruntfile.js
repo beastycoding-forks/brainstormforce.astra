@@ -449,6 +449,12 @@ module.exports = function (grunt) {
                         ],
                         dest: 'inc/builder/type/header/woo-cart/assets/js/minified/customizer-preview.min.js',
                     },
+					{
+						src: [
+							'inc/addons/scroll-to-top/assets/js/unminified/customizer-preview.js',
+						],
+						dest: 'inc/addons/scroll-to-top/assets/js/minified/customizer-preview.min.js',
+					},
                 ]
             }
         },

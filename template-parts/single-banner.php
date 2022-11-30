@@ -11,6 +11,11 @@
 $post_type      = strval( get_post_type() );
 $banner_control = 'ast-dynamic-single-' . esc_attr( $post_type );
 
+// If banner will be with empty markup then better to skip it.
+if ( false !== strpos( astra_entry_header_class( false ), 'ast-header-without-markup' ) ) {
+	return;
+}
+
 // Conditionally updating data section & class.
 $attr = 'class="ast-single-entry-banner"';
 if ( is_customize_preview() ) {

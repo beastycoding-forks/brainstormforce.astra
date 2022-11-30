@@ -6,7 +6,7 @@ const StarterTemplates = () => {
 
 	if ( astra_admin.starter_templates_data.is_available ) {
 		window.open(
-			astra_admin.starter_templates_data.redirection_link,
+			astra_admin.starter_templates_data.redirection,
 			'_self'
 		);
 		return;
@@ -62,7 +62,7 @@ const StarterTemplates = () => {
 				e.target.className = '';
 				e.target.className = 'text-[#4AB866] pointer-events-none capitalize text-sm leading-[0.875rem] font-medium rounded-md';
 				e.target.innerText = astra_admin.plugin_activated_text;
-				window.location = astra_admin.starter_templates_data.redirection_link;
+				window.location = astra_admin.starter_templates_data.redirection;
 			}
 		} );
 	};

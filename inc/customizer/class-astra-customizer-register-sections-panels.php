@@ -392,6 +392,17 @@ if ( ! class_exists( 'Astra_Customizer_Register_Sections_Panels' ) ) {
 					'title'    => __( 'Misc', 'astra' ),
 					'panel'    => 'panel-global',
 				),
+
+				/**
+				 * Option: Scroll To Top
+				 */
+				array(
+					'name'     => 'section-scroll-to-top',
+					'title'    => __( 'Scroll To Top', 'astra' ),
+					'type'     => 'section',
+					'panel'    => 'panel-global',
+					'priority' => 60,
+				),
 			);
 
 			return array_merge( $configurations, $configs );

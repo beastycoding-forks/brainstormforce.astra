@@ -176,7 +176,7 @@ body.customize-partial-edit-shortcuts-shown .customize-partial-edit-shortcut but
 
 .ast-post-banner-highlight:hover {
 	outline: 1px solid #007cba;
-	z-index: 99;
+	z-index: 9;
 }
 .ast-post-banner-highlight .banner-editor-shortcut {
     top: -2px;

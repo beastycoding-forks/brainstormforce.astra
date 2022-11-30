@@ -16,7 +16,7 @@ const QuickSettings = () => {
 	const renderQuickLinks = Object.entries( allQuickLinks ).map( ( [ index, block ] ) => {
 		return <div
 			key={index}
-			data-redirection_link={block.quick_url}
+			data-redirection={block.quick_url}
 			onClick={() =>
 				onQuickSettingTrigger(
 					block.quick_url

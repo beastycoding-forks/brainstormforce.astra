@@ -2027,12 +2027,6 @@ function hasWordPressWidgetBlockEditor() {
 			} );
 		} );
 
-		wp.customize( 'astra-settings[shop-add-to-cart-action]', function( setting ) {
-			setting.bind( function() {
-				wp.customize.preview.send( 'refresh' );
-			} );
-		} );
-
 	}
 
 } )( jQuery );

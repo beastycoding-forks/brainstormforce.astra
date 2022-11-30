@@ -154,6 +154,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			add_filter( 'render_block_woocommerce/active-filters', array( $this, 'add_active_filter_widget_class' ), 10, 2 );
+
+			add_filter( 'option_woocommerce_enable_ajax_add_to_cart', array( $this, 'option_woocommerce_enable_ajax_add_to_cart' ) );
+
 		}
 
 		/**
@@ -1333,7 +1336,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * Remove Woo-Commerce Default actions
 		 */
 		public function woocommerce_init() {
-			add_action( 'woocommerce_after_mini_cart', array( $this, 'astra_update_flyout_cart_layout' ) );
+			add_action( 'woocommerce_after_mini_cart', array( $this, 'astra_update_cart_layout' ) );
 
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
@@ -3223,12 +3226,12 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		}
 
 		/**
-		 * Add shopping CTA in cart flyout.
+		 * Add shopping CTA in cart flyout and dropdown.
 		 *
 		 * @since 3.9.0
 		 */
-		public function astra_update_flyout_cart_layout() {
-			if ( WC()->cart->is_empty() && 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+		public function astra_update_cart_layout() {
+			if ( WC()->cart->is_empty() ) {
 				?>
 					<div class="ast-mini-cart-empty">
 						<div class="ast-mini-cart-message">
@@ -3640,6 +3643,20 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					echo '</div>';
 				}
 			}
+		}
+		
+		/**
+		 * Enable ajax add to cart for shop page.
+		 * @param string $value ajax add to cart value.
+		 * @return string yes | no  enable / disable ajax add to cart.
+		 * @since x.x.x
+		 */
+		public function option_woocommerce_enable_ajax_add_to_cart( $value ) {
+			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
+			if ( $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart ) {
+				return 'yes';
+			}
+			return $value;
 		}
 	}
 

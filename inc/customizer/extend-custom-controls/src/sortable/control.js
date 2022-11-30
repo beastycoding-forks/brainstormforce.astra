@@ -492,6 +492,10 @@ export const sortableControl = wp.customize.astraControl.extend( {
 			controlObject.params['inputAttrs'] = attr.inputAttrs;
 		}
 
+		if ( undefined !== attr.description && undefined === controlObject.params['description'] ) {
+			controlObject.params['description'] = attr.description;
+		}
+
 		if ( undefined !== attr.input_attrs && undefined === controlObject.params['input_attrs'] ) {
 			controlObject.params['input_attrs'] = attr.input_attrs;
 		}

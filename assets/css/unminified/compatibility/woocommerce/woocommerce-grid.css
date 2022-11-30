@@ -294,9 +294,9 @@ p.demo_store[data-position="bottom"],
   right: 7px;
 }
 
-.woocommerce .ast-site-header-cart .widget_shopping_cart .widget_shopping_cart_content,
-.ast-site-header-cart .widget_shopping_cart .widget_shopping_cart_content {
-  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.07);
+.woocommerce .ast-site-header-cart .widget_shopping_cart .widget_shopping_cart_content > .woocommerce-mini-cart__empty-message,
+.ast-site-header-cart .widget_shopping_cart .widget_shopping_cart_content > .woocommerce-mini-cart__empty-message {
+  display: none;
 }
 
 .woocommerce .ast-site-header-cart .widget_shopping_cart .product_list_widget,

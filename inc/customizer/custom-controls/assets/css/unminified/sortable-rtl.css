@@ -180,6 +180,10 @@
     margin-top: 3px;
 }
 
+.customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-description {
+    margin-top: 5px
+}
+
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .ast-responsive-btns {
     top: 7px;
 }

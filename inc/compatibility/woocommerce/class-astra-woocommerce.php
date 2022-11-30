@@ -1337,7 +1337,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function woocommerce_init() {
 			add_action( 'woocommerce_after_mini_cart', array( $this, 'astra_update_cart_layout' ) );
-
+			
 			remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10 );
 			remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10 );
 			remove_action( 'woocommerce_sidebar', 'woocommerce_get_sidebar', 10 );
@@ -3647,6 +3647,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		
 		/**
 		 * Enable ajax add to cart for shop page.
+		 *
 		 * @param string $value ajax add to cart value.
 		 * @return string yes | no  enable / disable ajax add to cart.
 		 * @since x.x.x

@@ -312,22 +312,20 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				),
 			);
 
-
-
 			/**
 			 * Option: Shop add to cart action.
 			 */
 			$_configs[] = array(
-				'name'        => 'shop-add-to-cart-action',
-				'parent'      => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
-				'default'     => astra_get_option( 'shop-add-to-cart-action' ),
-				'section'     => 'woocommerce_product_catalog',
-				'title'       => __( 'Add To Cart Action', 'astra-addon' ),
-				'type'        => 'sub-control',
-				'control'     => 'ast-select',
-				'linked'      => 'add_cart',
-				'priority'    => 10,
-				'choices'     =>
+				'name'       => 'shop-add-to-cart-action',
+				'parent'     => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
+				'default'    => astra_get_option( 'shop-add-to-cart-action' ),
+				'section'    => 'woocommerce_product_catalog',
+				'title'      => __( 'Add To Cart Action', 'astra-addon' ),
+				'type'       => 'sub-control',
+				'control'    => 'ast-select',
+				'linked'     => 'add_cart',
+				'priority'   => 10,
+				'choices'    =>
 				array_merge(
 					array(
 						'default'       => __( 'Default', 'astra' ),
@@ -335,12 +333,25 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 					),
 					$astra_shop_page_pro_features
 				),
-				'description' => __( 'Slide in cart requires Cart added inside Header Builder. Please Save and check changes in frontend.', 'astra' ),
-				'responsive'  => false,
-				'renderAs'    => 'text',
-				'transport'   => 'postMessage',
+				'responsive' => false,
+				'renderAs'   => 'text',
+				'transport'  => 'postMessage',
 			);
 
+			/**
+			 * Option: Shop add to cart action notice.
+			 */
+			$_configs[] = array(
+				'name'     => 'shop-add-to-cart-action-notice',
+				'parent'   => ASTRA_THEME_SETTINGS . '[shop-product-structure]',
+				'type'     => 'sub-control',
+				'control'  => 'ast-description',
+				'section'  => 'woocommerce_product_catalog',
+				'priority' => 10,
+				'label'    => '',
+				'linked'   => 'add_cart',
+				'help'     => __( 'Slide in cart requires Cart added inside Header Builder. Please Save and check changes in frontend.', 'astra' ),
+			);
 
 			// Learn More link if Astra Pro is not activated.
 			if ( astra_showcase_upgrade_notices() ) {

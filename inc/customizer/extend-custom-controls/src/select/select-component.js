@@ -37,6 +37,7 @@ const SelectComponent = props => {
 
 	return <>
 		{htmlLabel}
+		{descriptionHtml}
 		<div className="customize-control-content">
 			<select className="ast-select-input" data-name={name} data-value={props_value} value={props_value}
 					onChange={() => {
@@ -45,7 +46,6 @@ const SelectComponent = props => {
 				{optionsHtml}
 			</select>
 		</div>
-		{descriptionHtml}
 	</>;
 
 };

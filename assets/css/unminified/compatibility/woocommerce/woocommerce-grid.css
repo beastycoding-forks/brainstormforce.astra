@@ -1338,7 +1338,6 @@ p.demo_store[data-position="bottom"],
 .woocommerce div.product form.cart .button {
   vertical-align: middle;
   float: left;
-  width: auto;
   margin-bottom: 1em;
 }
 

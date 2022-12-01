@@ -38,28 +38,25 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 			$add_to_cart_attr             = array();
 			$astra_shop_page_pro_features = array();
 
-				
+
 			if ( $astra_addon_with_woo ) {
 				$astra_shop_page_pro_features = array(
 					'redirect_cart_page'     => __( 'Redirect To Cart Page', 'astra' ),
 					'redirect_checkout_page' => __( 'Redirect To Checkout Page', 'astra' ),
 				);
-
-				/**
-				 * Shop product add to cart control.
-				 */
-				$add_to_cart_attr['add_cart'] = array(
-					'clone'       => false,
-					'is_parent'   => true,
-					'main_index'  => 'add_cart',
-					'clone_limit' => 2,
-					'title'       => __( 'Add To Cart', 'astra' ),
-				);
-			} else {
-				$add_to_cart_attr = array(
-					'add_cart' => __( 'Add To Cart', 'astra' ),
-				);
 			}
+
+			/**
+			 * Shop product add to cart control.
+			 */
+			$add_to_cart_attr['add_cart'] = array(
+				'clone'       => false,
+				'is_parent'   => true,
+				'main_index'  => 'add_cart',
+				'clone_limit' => 2,
+				'title'       => __( 'Add To Cart', 'astra' ),
+			);
+			
 
 
 

@@ -656,50 +656,6 @@ if ( ! class_exists( 'Astra_Woo_Shop_Single_Layout_Configs' ) ) {
 				),
 			);
 
-			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			if ( astra_has_pro_woocommerce_addon() ) {
-				/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$_configs[] = array(
-					'name'        => 'single-product-cart-button-width',
-					'parent'      => ASTRA_THEME_SETTINGS . '[single-product-structure]',
-					'default'     => astra_get_option( 'single-product-cart-button-width' ),
-					'linked'      => 'add_cart',
-					'type'        => 'sub-control',
-					'control'     => 'ast-responsive-slider',
-					'responsive'  => true,
-					'section'     => 'section-woo-shop-single',
-					'priority'    => 11,
-					'title'       => __( 'Button Width', 'astra' ),
-					'transport'   => 'postMessage',
-					'suffix'      => '%',
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
-				);
-
-			} else {
-				$_configs[] = array(
-					'name'        => ASTRA_THEME_SETTINGS . '[single-product-cart-button-width]',
-					'default'     => astra_get_option( 'single-product-cart-button-width' ),
-					'type'        => 'control',
-					'transport'   => 'postMessage',
-					'responsive'  => true,
-					'control'     => 'ast-responsive-slider',
-					'section'     => 'section-woo-shop-single',
-					'title'       => __( 'Button Width', 'astra' ),
-					'suffix'      => '%',
-					'priority'    => 16,
-					'input_attrs' => array(
-						'min'  => 1,
-						'step' => 1,
-						'max'  => 100,
-					),
-					'divider'     => array( 'ast_class' => 'ast-top-section-divider ast-bottom-section-divider' ),
-				);
-			}
-
 			if ( ! defined( 'ASTRA_EXT_VER' ) ) {
 				$_configs[] = array(
 					'name'     => ASTRA_THEME_SETTINGS . '[sticky-add-to-cart-notice]',

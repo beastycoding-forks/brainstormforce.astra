@@ -347,7 +347,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Layout_Configs' ) ) {
 				'priority' => 10,
 				'label'    => '',
 				'linked'   => 'add_cart',
-				'help'     => __( 'Slide in cart requires Cart added inside Header Builder. Please Save and check changes in frontend.', 'astra' ),
+				'help'     => __( 'Please save and see changes in frontend.<br />[Slide in cart requires Cart added inside Header Builder]', 'astra' ),
 			);
 
 			// Learn More link if Astra Pro is not activated.

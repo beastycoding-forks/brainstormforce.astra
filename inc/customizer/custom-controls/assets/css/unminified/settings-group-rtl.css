@@ -178,6 +178,10 @@
   padding-left: 15px;
   box-sizing: border-box;
 }
+.ast-control-wrap .ast-color-picker-alpha {
+    margin-right: -5px;
+    margin-left: -5px;
+}
 
 .ast-field-settings-modal .customize-control:first-child {
   margin-top: 15px;

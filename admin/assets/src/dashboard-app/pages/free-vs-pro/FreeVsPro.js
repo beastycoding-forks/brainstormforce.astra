@@ -18,6 +18,13 @@ const FreeVsPro = () => {
 		return astra_admin.pro_installed_status ? __( 'Activate Now' ) : __( 'Upgrade Now' );
 	}
 
+	const redirectUpgradeAstraProPurchase = () => {
+		window.open(
+			astra_admin.upgrade_url,
+			'_blank'
+		);
+	}
+
 	const onGetAstraPro = ( e ) => {
 		if( astra_admin.pro_installed_status ) {
 			const formData = new window.FormData();
@@ -36,10 +43,7 @@ const FreeVsPro = () => {
 				}
 			} );
 		} else {
-			window.open(
-				astra_admin.upgrade_url,
-				'_blank'
-			);
+			redirectUpgradeAstraProPurchase();
 		}
 	};
 
@@ -104,7 +108,7 @@ const FreeVsPro = () => {
 									</tbody>
 								</table>
 								<div className="flex items-center justify-center text-astra hover:text-astra-hover text-base font-medium text-center bg-white py-4 border-t border-t-slate-200">
-									<button onClick={ onGetAstraPro } className="flex items-center justify-center">
+									<button onClick={ redirectUpgradeAstraProPurchase } className="flex items-center justify-center">
 										<span className="mr-2">
 											{__(
 												"See all Astra Pro features",

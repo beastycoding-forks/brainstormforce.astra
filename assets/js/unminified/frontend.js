@@ -122,6 +122,60 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	el.dispatchEvent(event);
 };
 
+/**
+ * Scroll to ID/Top with smooth scroll behavior.
+ *
+ * @since x.x.x
+ *
+ * @param {Event} e Event which is been fired.
+ * @param {String} top offset from top.
+ */
+astraSmoothScroll = function astraSmoothScroll( e, top ) {
+	e.preventDefault();
+	window.scrollTo({
+		top: top,
+		left: 0,
+		behavior: 'smooth'
+	});
+};
+
+/**
+ * Scroll to Top trigger visibility adjustments.
+ *
+ * @since x.x.x
+ *
+ * @param {Node} masthead Page header.
+ * @param {Node} astScrollTop Scroll to Top selector.
+ */
+astScrollToTopHandler = function ( masthead, astScrollTop ) {
+
+	var content = getComputedStyle(astScrollTop).content,
+		device  = astScrollTop.dataset.onDevices;
+	content = content.replace( /[^0-9]/g, '' );
+
+	if( 'both' == device || ( 'desktop' == device && '769' == content ) || ( 'mobile' == device && '' == content ) ) {
+		// Get current window / document scroll.
+		var  scrollTop = window.pageYOffset || document.body.scrollTop;
+		// If masthead found.
+		if( masthead && masthead.length ) {
+			if (scrollTop > masthead.offsetHeight + 100) {
+				astScrollTop.style.display = "block";
+			} else {
+				astScrollTop.style.display = "none";
+			}
+		} else {
+			// If there is no masthead set default start scroll
+			if ( window.pageYOffset > 300 ) {
+				astScrollTop.style.display = "block";
+			} else {
+				astScrollTop.style.display = "none";
+			}
+		}
+	} else {
+		astScrollTop.style.display = "none";
+	}
+};
+
 ( function() {
 
 	var menu_toggle_all 	 = document.querySelectorAll( '#masthead .main-header-menu-toggle' ),
@@ -958,51 +1012,68 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 		} );
 	}
 
-	// Scroll to specific hash link.
-	if (astra.is_scroll_to_id) {
+	/**
+	 * Scroll to specific hash link.
+	 *
+	 * @since x.x.x
+	 */
+	if ( astra.is_scroll_to_id ) {
 		const links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href="#0"])');
 		if (links) {
 
 			for (const link of links) {
 
 				if (link.hash !== "") {
-					link.addEventListener("click", scrollToClickHandler);
+					link.addEventListener("click", scrollToIDHandler);
+				}
+			}
+		}
+
+		function scrollToIDHandler(e) {
+			e.preventDefault();
+
+			let offset = 0;
+			const siteHeader = document.querySelector('.site-header');
+
+			if (siteHeader) {
+
+				//Check and add offset to scroll top if header is sticky.
+				const headerHeight = siteHeader.querySelectorAll('div[data-stick-support]');
+
+				if (headerHeight) {
+					headerHeight.forEach(single => {
+						offset += single.clientHeight;
+					});
+				}
+
+				const href = this.getAttribute("href");
+				if (href) {
+					const scrollOffsetTop = document.querySelector(href).offsetTop - offset;
+					if (scrollOffsetTop) {
+						astraSmoothScroll( e, scrollOffsetTop );
+					}
 				}
 			}
 		}
 	}
 
-	function scrollToClickHandler(e) {
-		e.preventDefault();
+	/**
+	 * Scroll to top.
+	 *
+	 * @since x.x.x
+	 */
+	if ( astra.is_scroll_to_top ) {
+		var masthead     = document.querySelector( '#page header' );
+		var astScrollTop = document.getElementById( 'ast-scroll-top' );
 
-		let offset = 0;
-		const siteHeader = document.querySelector('.site-header');
+		astScrollToTopHandler(masthead, astScrollTop);
 
-		if (siteHeader) {
+		window.addEventListener('scroll', function () {
+			astScrollToTopHandler(masthead, astScrollTop);
+		});
 
-			//Check and add offset to scroll top if header is sticky.
-			const headerHeight = siteHeader.querySelectorAll('div[data-stick-support]');
-
-			if (headerHeight) {
-				headerHeight.forEach(single => {
-					offset += single.clientHeight;
-				});
-			}
-
-			const href = this.getAttribute("href");
-			if (href) {
-				const scrollOffsetTop = document.querySelector(href).offsetTop - offset;
-
-				if (scrollOffsetTop) {
-					setTimeout(() => {
-						scroll({
-							top: scrollOffsetTop,
-							behavior: "smooth"
-						});
-					}, 100);
-				}
-			}
-		}
+		astScrollTop.onclick = function(e){
+			astraSmoothScroll( e, 0 );
+		};
 	}
-
 })();

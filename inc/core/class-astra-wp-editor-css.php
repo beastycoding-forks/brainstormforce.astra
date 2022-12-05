@@ -424,7 +424,7 @@ class Astra_WP_Editor_CSS {
 			),
 
 			'#editor .edit-post-visual-editor' => $background_style_data,
-			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'desktop' ),
+			'.editor-styles-wrapper'           => astra_get_responsive_background_obj( $content_background, 'desktop' ),
 
 			'.editor-styles-wrapper, #customize-controls .editor-styles-wrapper' => array(
 				'font-family'    => astra_get_font_family( $body_font_family ),
@@ -654,7 +654,7 @@ class Astra_WP_Editor_CSS {
 				'font-size' => astra_responsive_font( $heading_h6_font_size, 'tablet' ),
 			),
 			'#editor .edit-post-visual-editor'   => astra_get_responsive_background_obj( $site_background, 'tablet' ),
-			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'tablet' ),
+			'.editor-styles-wrapper'             => astra_get_responsive_background_obj( $content_background, 'tablet' ),
 		);
 
 		$mobile_css = array(
@@ -684,7 +684,7 @@ class Astra_WP_Editor_CSS {
 				'font-size' => astra_responsive_font( $heading_h6_font_size, 'mobile' ),
 			),
 			'#editor .edit-post-visual-editor'   => astra_get_responsive_background_obj( $site_background, 'mobile' ),
-			'.edit-post-visual-editor .editor-styles-wrapper' => astra_get_responsive_background_obj( $content_background, 'mobile' ),
+			'.editor-styles-wrapper'             => astra_get_responsive_background_obj( $content_background, 'mobile' ),
 		);
 
 		$css .= astra_parse_css( $desktop_css );

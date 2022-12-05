@@ -9,6 +9,9 @@ v4.0.0 (Unreleased)
 - Fix: Full Width/Contained layout Layout is showing extra padding above in the Transparent Header.
 - Fix: Block editor - Getting "wp.data.select( 'core/editor' )getBlocks()" console warning in editor as being deprecated in WordPress version 5.3.
 - Fix: Block editor - Button background colour gets overridden by core styles for Legacy block editor setup.
+- Fix: Elementor Global button style overwrites Astra submenu button style.
+- Fix: Getting console error in customizer when trying to update footer columns.
+- Fix: Block editor - Content background gets explicitly set to white in responsive view.
 - Fix: Top Margin on Fullwidth container without page title.
 
 v3.9.4

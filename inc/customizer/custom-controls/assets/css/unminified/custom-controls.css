@@ -418,7 +418,6 @@
 
 
 .color-group-item .components-tooltip .components-popover__content {
-  margin-bottom: 12px;
   border-radius: 3px;
 }
 
@@ -769,6 +768,38 @@
 	inline-size: max-content;
 }
 
+.ast-color-palette .components-popover.components-tooltip {
+    position: relative !important;
+    left: 5px !important;
+    top: -35px !important;
+}
+.color-group-item .components-popover .components-popover__content,
+.ast-color-palette .components-popover .components-popover__content {
+    min-width: 3em;
+    max-width: 10em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1ch 1.5ch;
+    border-radius: 0.3ch;
+    box-shadow: 0 1em 2em -0.5em rgb(0 0 0 / 35%);
+    background: var(--ast-customizer-color-12);
+    color: var(--ast-customizer-color-10);
+    z-index: 1000;
+    text-align: center;
+    text-transform: none;
+    font-size: .9em;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+}
+.ast-color-palette .components-popover .components-popover__content {
+    bottom: calc(100% + 5px);
+    animation: tooltips-vert .3s ease-out forwards;
+    left: 50%;
+    transform: translate(-50%,-0.5em);
+}
+
  /** Remove Button Color */
 
 .astra-control-field.astra-color-control {
@@ -1076,12 +1107,6 @@
 	display: none;
 }
 
-.astra-color-picker-wrap .astra-popover-color .components-popover__content {
-    width: 248px;
-    margin-bottom: 10px;
-    margin-top:10px;
-}
-
 .astra-color-picker-wrap .astra-popover-color .components-color-picker,
 .astra-color-picker-wrap .astra-popover-color .react-colorful {
     width: 100%;
@@ -1104,6 +1129,8 @@
 .ast-color-palette .components-circular-option-picker__option-wrapper {
     margin-right: 6px;
     position: relative;
+	height: 25px;
+    width: 25px;
 }
 /* Clear Button CSS */
 .ast-color-btn-clear-wrap {
@@ -1282,15 +1309,16 @@
         padding: 0 4px;
 	}
 	/** Modal Popup */
-	.ast-field-settings-modal .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
+	.ast-fields-wrap .components-circular-option-picker__option-wrapper .components-circular-option-picker__option:focus::after {
 		width: 21px;
 		height: 21px;
 	}
-	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option-wrapper {
-		height: 22px;
-		width: 22px;
+	.ast-fields-wrap .ast-color-palette .components-circular-option-picker__option-wrapper,
+	.ast-fields-wrap .ast-color-palette .components-circular-option-picker__option-wrapper {
+		height: 20px;
+		width: 20px;
 	}
-	.ast-field-settings-modal .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
+	.ast-fields-wrap .ast-color-palette .components-circular-option-picker__option.is-pressed + svg {
 		left: 2.5px;
 		top: -1px;
 		width: 18px;
@@ -3412,6 +3440,10 @@ span.customize-control-title.ast-group-section-title {
   padding-right: 15px;
   box-sizing: border-box;
 }
+.ast-control-wrap .ast-color-picker-alpha {
+    margin-left: -5px;
+    margin-right: -5px;
+}
 
 .ast-field-settings-modal .customize-control:first-child {
   margin-top: 15px;
@@ -3811,7 +3843,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-subfields-wrap .customize-control {
 	box-sizing: border-box;
     position: relative;
-    padding-left: 12px;
+    padding-left: 9px;
 }
 /**
  * ast-list-icons inside sortable compatibility CSS.

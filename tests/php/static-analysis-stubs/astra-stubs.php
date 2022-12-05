@@ -205,6 +205,33 @@ namespace {
         {
         }
         /**
+         * Astra's REST knowledge base data.
+         *
+         * @since x.x.x
+         * @return mixed
+         */
+        public static function astra_get_knowledge_base_data()
+        {
+        }
+        /**
+         * Perform scheduler for Astra knowledge base data retriever for processing further in admin dashboard.
+         *
+         * @since x.x.x
+         * @return void
+         */
+        public function astra_kb_data_scheduler()
+        {
+        }
+        /**
+         * Run scheduled job for Astra knowledge base data.
+         *
+         * @since x.x.x
+         * @return void
+         */
+        public function astra_run_scheduled_docs_job()
+        {
+        }
+        /**
          * Register API routes.
          *
          * @since x.x.x
@@ -412,6 +439,8 @@ namespace {
          * array(
          *      'title' => "Plugin Name",
          *      'subtitle' => "Plugin description goes here.",
+         *      'path' => 'plugin-slug/plugin-slug.php',
+         *      'redirection' => admin_url( 'admin.php?page=sc-dashboard' ),
          *      'status' => self::get_plugin_status( 'plugin-slug/plugin-slug.php' ),
          *      'logoPath' => array(
          *          'internal_icon' => true, // true = will take internal Astra's any icon. false = provide next custom icon link.
@@ -435,6 +464,8 @@ namespace {
          *      'subtitle' => "Plugin description goes here.",
          *      'isPro' => false,
          *      'status' => self::get_plugin_status( 'plugin-slug/plugin-slug.php' ),
+         *      'path' => 'plugin-slug/plugin-slug.php',
+         *      'redirection' => admin_url( 'admin.php?page=sc-dashboard' ),
          *      'logoPath' => array(
          *          'internal_icon' => true, // true = will take internal Astra's any icon. false = provide next custom icon link.
          *          'icon_path' => "spectra", // If internal_icon false then - example custom SVG URL: ASTRA_THEME_URI . 'inc/assets/images/astra.svg'.
@@ -472,15 +503,6 @@ namespace {
          * @since x.x.x
          */
         public function astra_admin_footer_link()
-        {
-        }
-        /**
-         * Get Docs from API.
-         *
-         * @since x.x.x
-         * @return array $astra_docs_data Astra Docs Data.
-         */
-        public static function astra_get_knowledge_base_data()
         {
         }
     }
@@ -1242,6 +1264,120 @@ namespace {
         }
     }
     /**
+     * Scroll To Top Initial Setup
+     *
+     * @since x.x.x
+     */
+    class Astra_Scroll_To_Top
+    {
+        /**
+         * Member Variable
+         *
+         * @var null $instance
+         */
+        private static $instance;
+        /**
+         *  Initiator
+         */
+        public static function get_instance()
+        {
+        }
+        /**
+         * Constructor function that initializes required actions and hooks
+         */
+        public function __construct()
+        {
+        }
+    }
+    /**
+     * Scroll to Top - Customizer.
+     *
+     * @package Astra
+     * @since x.x.x
+     */
+    /**
+     * Customizer Initialization
+     *
+     * @since x.x.x
+     */
+    class Astra_Scroll_To_Top_Loader
+    {
+        /**
+         * Member Variable
+         *
+         * @var null $instance
+         */
+        private static $instance;
+        /**
+         *  Initiator
+         */
+        public static function get_instance()
+        {
+        }
+        /**
+         *  Constructor
+         *
+         * @since x.x.x
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Set Options Default Values
+         *
+         * @param  array $defaults  Astra options default value array.
+         * @return array
+         * @since x.x.x
+         */
+        public function theme_defaults($defaults)
+        {
+        }
+        /**
+         * Add customizer configs for scroll to top in the Theme Customizer.
+         *
+         * @param WP_Customize_Manager $wp_customize Theme Customizer object.
+         * @since x.x.x
+         */
+        public function new_customize_register($wp_customize)
+        {
+        }
+        /**
+         * Customizer Preview
+         *
+         * @since x.x.x
+         */
+        public function preview_scripts()
+        {
+        }
+        /**
+         * Scroll to Top addon markup loader
+         *
+         * Loads appropriate template file based on the style option selected in options panel.
+         *
+         * @since x.x.x
+         */
+        public function html_markup_loader()
+        {
+        }
+    }
+    /**
+     * Register Scroll To Top Customizer Configurations.
+     */
+    class Astra_Scroll_To_Top_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Scroll To Top Customizer Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
      * Sticky Header Initial Setup
      *
      * @since 1.0.0
@@ -1317,7 +1453,7 @@ namespace {
         }
     }
     /**
-     * Sticky Header Markup Initial Setup
+     * Transparent Header Markup Initial Setup
      *
      * @since 1.0.0
      */
@@ -4921,6 +5057,87 @@ namespace {
          * @since 1.0.0
          */
         public function add_styles($assets)
+        {
+        }
+    }
+    /**
+     * Starter Content Compatibility.
+     *
+     * @since x.x.x
+     * @package Astra
+     */
+    /**
+     * Class Astre_Starter_Content
+     */
+    class Astra_Starter_Content
+    {
+        const HOME_SLUG = 'home';
+        const ABOUT_SLUG = '#about';
+        const SERVICES_SLUG = '#services';
+        const REVIEWS_SLUG = '#reviews';
+        const WHY_US_SLUG = '#whyus';
+        const CONTACT_SLUG = '#contact';
+        /**
+         * Constructor
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Register listener to insert post.
+         *
+         * @since x.x.x
+         * @param int      $post_ID Post Id.
+         * @param \WP_Post $post Post object.
+         * @param bool     $update Is update.
+         */
+        public function register_listener($post_ID, $post, $update)
+        {
+        }
+        /**
+         *  Get customizer json
+         *
+         * @since x.x.x
+         *  @return mixed value.
+         */
+        public function get_customizer_json()
+        {
+        }
+        /**
+         *  Save Astra customizer settings into database.
+         *
+         * @since x.x.x
+         */
+        public function save_astra_settings()
+        {
+        }
+        /**
+         * Load default astra settings.
+         *
+         * @since x.x.x
+         * @param mixed $defaults defaults.
+         * @return mixed value.
+         */
+        public function theme_defaults($defaults)
+        {
+        }
+        /**
+         * Load default color palettes.
+         *
+         * @since x.x.x
+         * @param mixed $defaults defaults.
+         * @return mixed value.
+         */
+        public function theme_color_palettes_defaults($defaults)
+        {
+        }
+        /**
+         * Return starter content definition.
+         *
+         * @return mixed|void
+         * @since x.x.x
+         */
+        public function get()
         {
         }
     }
@@ -9659,6 +9876,23 @@ namespace {
         }
     }
     /**
+     * Register Astra Global Misc Configurations.
+     */
+    class Astra_Global_Misc_Configs extends \Astra_Customizer_Config_Base
+    {
+        /**
+         * Register Astra Global Misc  Configurations.
+         *
+         * @param Array                $configurations Astra Customizer Configurations.
+         * @param WP_Customize_Manager $wp_customize instance of WP_Customize_Manager.
+         * @since x.x.x
+         * @return Array Astra Customizer Configurations with updated configurations.
+         */
+        public function register_configuration($configurations, $wp_customize)
+        {
+        }
+    }
+    /**
      * Register Blog Layout Customizer Configurations.
      */
     class Astra_Blog_Layout_Configs extends \Astra_Customizer_Config_Base
@@ -11393,12 +11627,54 @@ namespace {
      *
      * @since x.x.x
      */
-    class Astra_Post_Strctures
+    class Astra_Post_Structures
     {
         /**
          * Constructor function that loads require files.
          */
         public function __construct()
+        {
+        }
+    }
+    /**
+     * Breadcrumbs Markup Initial Setup
+     *
+     * @since x.x.x
+     */
+    class Astra_Posts_Strctures_Markup
+    {
+        /**
+         *  Constructor
+         */
+        public function __construct()
+        {
+        }
+        /**
+         * Check eligibility to override default entry header.
+         *
+         * @since x.x.x
+         * @return void
+         */
+        public function astra_add_hero_section_markup()
+        {
+        }
+        /**
+         * Support custom title & description support for archive.
+         *
+         * @param string $title Default archive title.
+         * @since x.x.x
+         * @return string
+         */
+        public function astra_archive_custom_title($title)
+        {
+        }
+        /**
+         * Override default entry header.
+         *
+         * @since x.x.x
+         * @return void
+         */
+        public function override_entry_header()
         {
         }
     }
@@ -11467,48 +11743,6 @@ namespace {
          * @since x.x.x
          */
         public static function get_customizer_default($key)
-        {
-        }
-    }
-    /**
-     * Breadcrumbs Markup Initial Setup
-     *
-     * @since x.x.x
-     */
-    class Astra_Posts_Strctures_Markup
-    {
-        /**
-         *  Constructor
-         */
-        public function __construct()
-        {
-        }
-        /**
-         * Check eligibility to override default entry header.
-         *
-         * @since x.x.x
-         * @return void
-         */
-        public function astra_add_hero_section_markup()
-        {
-        }
-        /**
-         * Support custom title & description support for archive.
-         *
-         * @param string $title Default archive title.
-         * @since x.x.x
-         * @return string
-         */
-        public function astra_archive_custom_title($title)
-        {
-        }
-        /**
-         * Override default entry header.
-         *
-         * @since x.x.x
-         * @return void
-         */
-        public function override_entry_header()
         {
         }
     }
@@ -12629,6 +12863,35 @@ namespace {
     function astra_heading_colors_section_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    /**
+     * Scroll To Top Addon
+     *
+     * @since x.x.x
+     * @package Astra
+     */
+    \define('ASTRA_SCROLL_TO_TOP_DIR', \ASTRA_THEME_DIR . 'inc/addons/scroll-to-top/');
+    \define('ASTRA_SCROLL_TO_TOP_URL', \ASTRA_THEME_URI . 'inc/addons/scroll-to-top/');
+    /**
+     * Dynamic CSS
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
+     * @return string
+     */
+    function astra_scroll_to_top_dynamic_css($dynamic_css, $dynamic_css_filtered = '')
+    {
+    }
+    /**
+     * Scroll to Top - Static CSS
+     *
+     * @param  string $dynamic_css          Astra Dynamic CSS.
+     * @return String Generated dynamic CSS for Scroll to Top.
+     *
+     * @since x.x.x
+     */
+    function astra_scroll_to_top_static_css($dynamic_css)
+    {
+    }
     \define('ASTRA_THEME_TRANSPARENT_HEADER_DIR', \ASTRA_THEME_DIR . 'inc/addons/transparent-header/');
     \define('ASTRA_THEME_TRANSPARENT_HEADER_URI', \ASTRA_THEME_URI . 'inc/addons/transparent-header/');
     /**
@@ -12684,7 +12947,7 @@ namespace {
     /**
      * Post meta
      *
-     * @param  string $post_meta Post meta.
+     * @param  array $post_meta Post meta.
      * @param  string $separator Separator.
      * @return string            post meta markup.
      */
@@ -12697,6 +12960,14 @@ namespace {
      * @return html                Markup.
      */
     function astra_post_date()
+    {
+    }
+	/**
+	 * Function to get Author name.
+	 *
+	 * @return null|string $author_name Author name.
+	 */
+    function astra_post_author_name()
     {
     }
     /**
@@ -12834,14 +13105,6 @@ namespace {
     {
     }
     /**
-     * Blog post Thumbnail
-     *
-     * @since  1.0.8
-     */
-    function astra_get_single_post_title_meta()
-    {
-    }
-    /**
      * Get audio files from post content
      *
      * @param  number $post_id Post id.
@@ -12861,13 +13124,23 @@ namespace {
     {
     }
     /**
-     * Get last word of string to get metakey of custom post structure.
+     * Get last word of string to get meta-key of custom post structure.
      *
      * @since x.x.x
      * @param string $string from this get last word.
      * @return string $last_word result.
      */
     function astra_get_last_meta_word($string)
+    {
+    }
+	/**
+	 * Get the current archive description.
+	 *
+	 * @since x.x.x
+	 * @param string $post_type post type.
+	 * @return string $description Description for archive.
+	 */
+    function astra_get_archive_description($post_type)
     {
     }
     /**
@@ -13447,6 +13720,235 @@ namespace {
     function astra_edd_cart_button_markup()
     {
     }
+    /**
+     * Home starter content.
+     *
+     * @since x.x.x
+     * @package Astra\Compatibility\Starter_Content
+     */
+    $astra_default_home_content = '<!-- wp:cover {"minHeight":720,"minHeightUnit":"px","customGradient":"linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 73%,rgb(193,15,255) 100%)","isDark":false,"align":"full"} -->
+<div class="wp-block-cover alignfull is-light" style="min-height:720px"><span aria-hidden="true" class="wp-block-cover__background has-background-dim-100 has-background-dim has-background-gradient" style="background:linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 73%,rgb(193,15,255) 100%)"></span><div class="wp-block-cover__inner-container"><!-- wp:group {"align":"wide","layout":{"inherit":true,"type":"constrained"}} -->
+<div class="wp-block-group alignwide"><!-- wp:media-text {"mediaPosition":"right","mediaId":118,"mediaLink":"","mediaType":"image","mediaWidth":43,"verticalAlignment":"center"} -->
+<div class="wp-block-media-text alignwide has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center" style="grid-template-columns:auto 43%"><div class="wp-block-media-text__content"><!-- wp:heading {"textAlign":"left","level":1,"textColor":"white"} -->
+<h1 class="has-text-align-left has-white-color has-text-color">Your Idea Matters!</h1>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Pulvinar enim ac tortor nulla facilisi tristique facilisi <br>elementum sollicitudin eget lorem.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:buttons {"align":"wide"} -->
+<div class="wp-block-buttons alignwide"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="#">Make a Website</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div><figure class="wp-block-media-text__media"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/hero-img.svg" alt="" class="wp-image-118 size-full"/></figure></div>
+<!-- /wp:media-text --></div>
+<!-- /wp:group --></div></div>
+<!-- /wp:cover -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"bottom":"0px"}}},"backgroundColor":"ast-global-color-5","layout":{"inherit":false,"contentSize":"1200px","type":"constrained"}} -->
+<div class="wp-block-group alignfull has-ast-global-color-5-background-color has-background" style="padding-bottom:0px"><!-- wp:columns {"verticalAlignment":"top","style":{"spacing":{"blockGap":"40px"}}} -->
+<div class="wp-block-columns are-vertically-aligned-top"><!-- wp:column {"verticalAlignment":"top","style":{"spacing":{"blockGap":"8px"}}} -->
+<div class="wp-block-column is-vertically-aligned-top"><!-- wp:image {"id":134,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/building.svg" alt="" class="wp-image-134"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"left","level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+<h3 class="has-text-align-left" style="margin-top:16px">Local Business</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"left"} -->
+<p class="has-text-align-left">Lorem ipsum dolor consectetur adipiscing elit eiusmod.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"top","style":{"spacing":{"blockGap":"8px"}}} -->
+<div class="wp-block-column is-vertically-aligned-top"><!-- wp:image {"id":135,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/shopping-bag.svg" alt="" class="wp-image-135"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"left","level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+<h3 class="has-text-align-left" style="margin-top:16px">Online Store</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"left"} -->
+<p class="has-text-align-left">Lorem ipsum dolor consectetur adipiscing elit eiusmod.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"top","style":{"spacing":{"blockGap":"8px"}}} -->
+<div class="wp-block-column is-vertically-aligned-top"><!-- wp:image {"id":136,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/blog.svg" alt="" class="wp-image-136"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"left","level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+<h3 class="has-text-align-left" style="margin-top:16px">Blogging</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"left"} -->
+<p class="has-text-align-left">Lorem ipsum dolor consectetur adipiscing elit eiusmod.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"verticalAlignment":"top","style":{"spacing":{"blockGap":"8px"}}} -->
+<div class="wp-block-column is-vertically-aligned-top"><!-- wp:image {"id":137,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/portfolio.svg" alt="" class="wp-image-137"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"textAlign":"left","level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+<h3 class="has-text-align-left" style="margin-top:16px">Portfolio</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph {"align":"left"} -->
+<p class="has-text-align-left">Lorem ipsum dolor consectetur adipiscing elit eiusmod.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"bottom":"0px","top":"144px"}}},"layout":{"inherit":false,"contentSize":"1200px","type":"constrained"}} -->
+<div class="wp-block-group alignfull" id="services" style="padding-top:144px;padding-bottom:0px"><!-- wp:heading -->
+<h2>Our Services</h2>
+<!-- /wp:heading -->
+
+<!-- wp:columns {"style":{"spacing":{"margin":{"top":"50px"}}}} -->
+<div class="wp-block-columns" style="margin-top:50px"><!-- wp:column {"style":{"spacing":{"blockGap":"8px"}}} -->
+<div class="wp-block-column"><!-- wp:image {"id":230,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/branding.jpg" alt="" class="wp-image-230"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+<h3 style="margin-top:16px">Branding Design</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Sem quis erat nibh id neque tincidunt molestie convallis ut nibh vel, lorem consequat ullamcorper.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"style":{"spacing":{"blockGap":"8px"}}} -->
+<div class="wp-block-column"><!-- wp:image {"id":232,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/graphic.jpg" alt="" class="wp-image-232"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+<h3 style="margin-top:16px">Graphic Design</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Sem quis erat nibh id neque tincidunt molestie convallis ut nibh vel, lorem consequat ullamcorper.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"style":{"spacing":{"blockGap":"8px"}}} -->
+<div class="wp-block-column"><!-- wp:image {"id":231,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image size-full"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/web.jpg" alt="" class="wp-image-231"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+<h3 style="margin-top:16px">Web Development</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Sem quis erat nibh id neque tincidunt molestie convallis ut nibh vel, lorem consequat ullamcorper.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"143px","bottom":"144px"}}},"backgroundColor":"ast-global-color-5","layout":{"inherit":false,"contentSize":"1200px","type":"constrained"}} -->
+<div class="wp-block-group alignfull has-ast-global-color-5-background-color has-background" id="about" style="padding-top:143px;padding-bottom:144px"><!-- wp:media-text {"align":"","mediaPosition":"right","mediaId":237,"mediaLink":"","mediaType":"image","verticalAlignment":"center"} -->
+<div class="wp-block-media-text has-media-on-the-right is-stacked-on-mobile is-vertically-aligned-center"><div class="wp-block-media-text__content"><!-- wp:group {"style":{"spacing":{"padding":{"right":"80px"}}},"layout":{"inherit":true,"type":"constrained"}} -->
+<div class="wp-block-group" style="padding-right:80px"><!-- wp:heading {"style":{"spacing":{"padding":{"right":"40px"}}}} -->
+<h2 style="padding-right:40px">We help teams build the business of their dreams</h2>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Et in risus egestas nec vitae odio ac nibh vestibulum volutpat aliquet aenean erat lobortis non.</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph -->
+<p>Nibh egestas dictumst cursus est turpis quis tincidunt pulvinar maecenas eget massa vel, ante nam blandit egestas enim id quis sit maecenas id nunc tempus auctor orci, enim imperdiet proin nibh mattis.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div><figure class="wp-block-media-text__media"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/about-us.jpg" alt="" class="wp-image-237 size-full"/></figure></div>
+<!-- /wp:media-text --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","backgroundColor":"ast-global-color-4","layout":{"inherit":false,"contentSize":"800px","type":"constrained"}} -->
+<div class="wp-block-group alignfull has-ast-global-color-4-background-color has-background" id="reviews"><!-- wp:image {"align":"center","id":235,"sizeSlug":"full","linkDestination":"none"} -->
+<figure class="wp-block-image aligncenter size-full"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/avatar.png" alt="" class="wp-image-235"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:paragraph {"align":"center","style":{"typography":{"fontSize":"22px","lineHeight":1.6}}} -->
+<p class="has-text-align-center" style="font-size:22px;line-height:1.6">“The best part is that Astra comes with hundreds of professionally designed templates for just about every industry, makes it super easy for non-techy users to build a website.”</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:paragraph {"align":"center"} -->
+<p class="has-text-align-center"><strong>Wade Warren</strong></p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"spacing":{"padding":{"top":"144px","bottom":"144px"}}},"layout":{"inherit":false,"contentSize":"1200px","type":"constrained"}} -->
+<div class="wp-block-group alignfull" id="whyus" style="padding-top:144px;padding-bottom:144px"><!-- wp:heading -->
+<h2>Why Choose Us</h2>
+<!-- /wp:heading -->
+
+<!-- wp:columns {"style":{"spacing":{"blockGap":"80px","margin":{"top":"60px"}}}} -->
+<div class="wp-block-columns" style="margin-top:60px"><!-- wp:column {"style":{"spacing":{"blockGap":"8px"}}} -->
+<div class="wp-block-column"><!-- wp:image {"id":162,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/passionate.svg" alt="" class="wp-image-162"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+<h3 style="margin-top:16px">Passionate</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Tempor ullamcorper urna, est, lectus amet sit tempor pretium mi sed morbi cras posuere sit ultrices bibendum augue sit ornare.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"style":{"spacing":{"blockGap":"8px"}}} -->
+<div class="wp-block-column"><!-- wp:image {"id":163,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/professional.svg" alt="" class="wp-image-163"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+<h3 style="margin-top:16px">Professional</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Tempor ullamcorper urna, est, lectus amet sit tempor pretium mi sed morbi cras posuere sit ultrices bibendum augue sit ornare.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column -->
+
+<!-- wp:column {"style":{"spacing":{"blockGap":"8px"}}} -->
+<div class="wp-block-column"><!-- wp:image {"id":164,"sizeSlug":"large","linkDestination":"none"} -->
+<figure class="wp-block-image size-large"><img src="' . \trailingslashit(\get_template_directory_uri()) . 'inc/assets/images/starter-content/support.svg" alt="" class="wp-image-164"/></figure>
+<!-- /wp:image -->
+
+<!-- wp:heading {"level":3,"style":{"spacing":{"margin":{"top":"16px"}}}} -->
+<h3 style="margin-top:16px">Support</h3>
+<!-- /wp:heading -->
+
+<!-- wp:paragraph -->
+<p>Tempor ullamcorper urna, est, lectus amet sit tempor pretium mi sed morbi cras posuere sit ultrices bibendum augue sit ornare.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:column --></div>
+<!-- /wp:columns --></div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","style":{"color":{"gradient":"linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 64%,rgb(193,15,255) 98%)"},"spacing":{"padding":{"top":"104px","bottom":"104px"}}},"layout":{"inherit":false,"contentSize":"520px","type":"constrained"}} -->
+<div class="wp-block-group alignfull has-background" id="contact" style="background:linear-gradient(35deg,rgb(6,0,151) 0%,rgb(130,4,255) 64%,rgb(193,15,255) 98%);padding-top:104px;padding-bottom:104px"><!-- wp:heading {"textAlign":"center","style":{"color":{"text":"#ffffff"}}} -->
+<h2 class="has-text-align-center has-text-color" style="color:#ffffff">Get a professional website today!</h2>
+<!-- /wp:heading -->
+
+<!-- wp:buttons {"align":"wide","layout":{"type":"flex","justifyContent":"center","orientation":"horizontal"},"style":{"spacing":{"margin":{"top":"50px"}}}} -->
+<div class="wp-block-buttons alignwide" style="margin-top:50px"><!-- wp:button -->
+<div class="wp-block-button"><a class="wp-block-button__link wp-element-button">Make a Website</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->';
     /**
      * Shop Page product titles with anchor
      *
@@ -15828,10 +16330,12 @@ namespace {
     }
     /**
      * Astra entry header class
+	 *
+	 * @param bool $echo output being echoed or not.
      *
      * @since 1.0.15
      */
-    function astra_entry_header_class()
+    function astra_entry_header_class($echo = \true)
     {
     }
     /**
@@ -15916,7 +16420,7 @@ namespace {
      *
      * @param  string $dynamic_css          Astra Dynamic CSS.
      * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
-     * @return String Generated dynamic CSS for Post Strctures.
+     * @return String Generated dynamic CSS for Post Structures.
      *
      * @since x.x.x
      */
@@ -15928,7 +16432,7 @@ namespace {
      *
      * @param  string $dynamic_css          Astra Dynamic CSS.
      * @param  string $dynamic_css_filtered Astra Dynamic CSS Filters.
-     * @return String Generated dynamic CSS for Post Strctures.
+     * @return String Generated dynamic CSS for Post Structures.
      *
      * @since x.x.x
      */
@@ -16782,6 +17286,15 @@ namespace {
      */
     $astra_404_subtitle_tag = \true === \astra_check_is_structural_setup() ? 'h3' : 'div';
     /**
+     * Template part for displaying archive post's entry banner.
+     *
+     * @link https://codex.wordpress.org/Template_Hierarchy
+     *
+     * @package Astra
+     * @since x.x.x
+     */
+    $post_type = \strval(\get_post_type());
+    /**
      * Template part for displaying the footer component.
      *
      * @package Astra
@@ -16843,4 +17356,20 @@ namespace {
      * @package Astra Builder
      */
     $astra_row = \get_query_var('row');
+    /**
+     * Scroll To Top Template
+     *
+     * @package Astra
+     * @since x.x.x
+     */
+    $astra_addon_scroll_top_alignment = \astra_get_option('scroll-to-top-icon-position');
+    /**
+     * Template part for displaying single post's entry banner.
+     *
+     * @link https://codex.wordpress.org/Template_Hierarchy
+     *
+     * @package Astra
+     * @since x.x.x
+     */
+    $post_type = \strval(\get_post_type());
 }

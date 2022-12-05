@@ -58,7 +58,7 @@ export default function MainNav() {
 							{ menus.map( ( menu, key ) => (
 								<Fragment key={ `?page=${ menu.slug }&path=${ menu.path }` }>
 									{ menu.path === 'starter-templates' && astra_admin.starter_templates_data.is_available
-										? ( <a index={ key } href={ astra_admin.starter_templates_data.redirection_link } target="_self" className={ `${
+										? ( <a index={ key } href={ astra_admin.starter_templates_data.redirection } target="_self" className={ `${
 											activePage === menu.slug && activePath === menu.path
 												? 'mb-4 sm:mb-0 border-astra text-astra active:text-astra focus:text-astra focus-visible:text-astra-hover hover:text-astra-hover inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'
 												: 'mb-4 sm:mb-0 border-transparent text-slate-500 active:text-astra focus-visible:border-slate-300 focus-visible:text-slate-800 hover:border-slate-300 hover:text-slate-800 inline-flex items-center px-1 border-b-2 text-sm leading-[0.875rem] font-medium'

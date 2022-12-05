@@ -66,6 +66,12 @@ function astra_show_deprecated_admin_hooks_warnings() {
 		astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_before', array(), 'x.x.x' );
 		astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_content', array(), 'x.x.x' );
 		astra_do_action_deprecated( 'astra_welcome_page_right_sidebar_after', array(), 'x.x.x' );
+		astra_do_action_deprecated( 'astra_single_post_order_before', array(), 'x.x.x' );
+		astra_do_action_deprecated( 'astra_single_post_title_before', array(), 'x.x.x' );
+		astra_do_action_deprecated( 'astra_single_post_title_after', array(), 'x.x.x' );
+		astra_do_action_deprecated( 'astra_single_post_meta_before', array(), 'x.x.x' );
+		astra_do_action_deprecated( 'astra_single_post_meta_after', array(), 'x.x.x' );
+		astra_do_action_deprecated( 'astra_single_post_order_after', array(), 'x.x.x' );
 	}
 }
 

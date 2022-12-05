@@ -1,6 +1,7 @@
 import { Fragment, useEffect } from 'react'
 import { Transition } from '@headlessui/react';
 import { CheckCircleIcon } from '@heroicons/react/outline'
+import { useLocation } from "react-router-dom";
 import { XIcon } from '@heroicons/react/solid'
 import { useSelector, useDispatch } from 'react-redux';
 import { __ } from '@wordpress/i18n';
@@ -10,6 +11,16 @@ export default function SettingsSavedNotification() {
 	const dispatch = useDispatch();
 
 	const settingsSavedNotification = useSelector( ( state ) => state.settingsSavedNotification );
+
+	const query = new URLSearchParams( useLocation()?.search );
+	const status = query.get("status") ? query.get("status") : "";
+
+	if ( '' !== status && 'imported' === status ) {
+		dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully imported!', 'astra' ) } );
+		setTimeout( ()=>{
+			window.location = astra_admin.astra_base_url;
+		}, 1000 );
+	}
 
 	useEffect( () => {
 		if ( '' !== settingsSavedNotification ) {

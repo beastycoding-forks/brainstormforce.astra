@@ -270,53 +270,6 @@ if ( ! function_exists( 'astra_get_blog_post_title_meta' ) ) {
 }
 
 /**
- * Single Post Title & Meta Order
- */
-if ( ! function_exists( 'astra_get_single_post_title_meta' ) ) {
-
-	/**
-	 * Blog post Thumbnail
-	 *
-	 * @since  1.0.8
-	 */
-	function astra_get_single_post_title_meta() {
-
-		// Single Post Title and Single Post Meta.
-		do_action( 'astra_single_post_order_before' );
-
-		?>
-		<div class="ast-single-post-order">
-			<?php
-
-			do_action( 'astra_single_post_title_before' );
-
-			astra_the_title(
-				'<h1 class="entry-title" ' . astra_attr(
-					'article-title-blog-single',
-					array(
-						'class' => '',
-					)
-				) . '>',
-				'</h1>'
-			);
-
-			do_action( 'astra_single_post_title_after' );
-
-			do_action( 'astra_single_post_meta_before' );
-
-			astra_single_get_post_meta();
-
-			do_action( 'astra_single_post_meta_after' );
-
-			?>
-		</div>
-		<?php
-
-		do_action( 'astra_single_post_order_after' );
-	}
-}
-
-/**
  * Get audio files from post content
  */
 if ( ! function_exists( 'astra_get_audios_from_post' ) ) {
@@ -379,7 +332,7 @@ if ( ! function_exists( 'astra_get_video_from_post' ) ) {
 }
 
 /**
- * Get last word of string to get metakey of custom post structure.
+ * Get last word of string to get meta-key of custom post structure.
  *
  * @since x.x.x
  * @param string $string from this get last word.
@@ -389,6 +342,37 @@ function astra_get_last_meta_word( $string ) {
 	$string    = explode( '-', $string );
 	$last_word = array_pop( $string );
 	return $last_word;
+}
+
+/**
+ * Get the current archive description.
+ *
+ * @since x.x.x
+ * @param string $post_type post type.
+ * @return string $description Description for archive.
+ */
+function astra_get_archive_description( $post_type ) {
+	$description = '';
+	if ( ! is_search() ) {
+		if ( ! empty( get_the_archive_description() ) ) {
+			$description = get_the_archive_description();
+		}
+		if ( is_author() ) {
+			if ( ! empty( trim( get_the_author_meta( 'description' ) ) ) ) {
+				$description = get_the_author_meta( 'description' );
+			}
+		}
+		if ( empty( $description ) && ! have_posts() ) {
+			$description = esc_html( astra_default_strings( 'string-content-nothing-found-message', false ) );
+		}
+	}
+	if ( is_post_type_archive( $post_type ) ) {
+		$description = astra_get_option( 'ast-dynamic-archive-' . $post_type . '-custom-description', '' );
+	}
+	if ( 'post' === $post_type && ( ( is_front_page() && is_home() ) || is_home() ) ) {
+		$description = astra_get_option( 'ast-dynamic-archive-post-custom-description', '' );
+	}
+	return $description;
 }
 
 /**
@@ -509,27 +493,7 @@ function astra_banner_elements_order( $structure = array() ) {
 
 			case 'archive-description':
 				do_action( 'astra_blog_archive_description_before' );
-				$description = '';
-				if ( ! is_search() ) {
-					if ( ! empty( get_the_archive_description() ) ) {
-						$description = get_the_archive_description();
-					}
-					if ( is_author() ) {
-						if ( ! empty( trim( get_the_author_meta( 'description' ) ) ) ) {
-							$description = get_the_author_meta( 'description' );
-						}
-					}
-					if ( empty( $description ) && ! have_posts() ) {
-						$description = esc_html( astra_default_strings( 'string-content-nothing-found-message', false ) );
-					}
-				}
-				if ( is_post_type_archive( $post_type ) ) {
-					$description = astra_get_option( 'ast-dynamic-archive-' . $post_type . '-custom-description', '' );
-				}
-				if ( 'post' === $post_type && ( ( is_front_page() && is_home() ) || is_home() ) ) {
-					$description = astra_get_option( 'ast-dynamic-archive-post-custom-description', '' );
-				}
-				echo wp_kses_post( wpautop( $description ) );
+				echo wp_kses_post( wpautop( astra_get_archive_description( $post_type ) ) );
 				do_action( 'astra_blog_archive_description_after' );
 				break;
 		}

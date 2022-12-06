@@ -422,6 +422,7 @@
     width: max-content;
 }
 
+.astra-color-picker-wrap .components-custom-gradient-picker__inserter .components-color-picker,
 .astra-color-picker-wrap .astra-popover-color .ast-gradient-ui .components-color-picker,
 .astra-color-picker-wrap .astra-popover-color .ast-gradient-ui .react-colorful {
     width: 216px;

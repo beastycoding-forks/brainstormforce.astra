@@ -1176,15 +1176,15 @@ if ( ! function_exists( 'astra_get_pro_url' ) ) :
 		$astra_pro_url = trailingslashit( $url );
 
 		// Set up our URL if we have a source.
-		if ( isset( $source ) ) {
+		if ( ! empty( $source ) ) {
 			$astra_pro_url = add_query_arg( 'utm_source', sanitize_text_field( $source ), $url );
 		}
 		// Set up our URL if we have a medium.
-		if ( isset( $medium ) ) {
+		if ( ! empty( $medium ) ) {
 			$astra_pro_url = add_query_arg( 'utm_medium', sanitize_text_field( $medium ), $astra_pro_url );
 		}
 		// Set up our URL if we have a campaign.
-		if ( isset( $campaign ) ) {
+		if ( ! empty( $campaign ) ) {
 			$astra_pro_url = add_query_arg( 'utm_campaign', sanitize_text_field( $campaign ), $astra_pro_url );
 		}
 

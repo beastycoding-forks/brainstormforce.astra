@@ -261,6 +261,7 @@ function astra_post_single_structure_dynamic_css( $dynamic_css, $dynamic_css_fil
 				'font-size'      => astra_responsive_font( $banner_title_font_size, 'desktop' ),
 				'line-height'    => esc_attr( $banner_title_line_height ),
 				'text-transform' => esc_attr( $banner_title_transform ),
+				'margin-bottom'  => '0',
 			),
 			$selector . ' .entry-meta, ' . $selector . ' .entry-meta *' => array(
 				'font-family'    => astra_get_css_value( $banner_meta_font_family, 'font' ),

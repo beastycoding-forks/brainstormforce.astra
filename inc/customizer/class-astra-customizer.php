@@ -1389,7 +1389,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 							'sortable_modal_tmpl' => $sortable_subcontrol_template,
 							'is_pro'              => defined( 'ASTRA_EXT_VER' ),
 							'show_upgrade_notice' => ( astra_showcase_upgrade_notices() ) ? true : false,
-							'upgrade_link'        => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
+							'upgrade_link'        => htmlspecialchars_decode( astra_get_pro_url( 'https://wpastra.com/pricing/?utm_source=wp&utm_medium=dashboard/', 'customizer', 'upgrade-link', 'upgrade-to-pro' ) ),
 							'is_block_widget'     => astra_has_widgets_block_editor(),
 						),
 						'theme'      => array(

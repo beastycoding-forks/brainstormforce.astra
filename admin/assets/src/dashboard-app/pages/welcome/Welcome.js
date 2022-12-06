@@ -316,7 +316,7 @@ const Welcome = () => {
 										</p>
 										<a
 											className="text-sm text-astra focus:text-astra focus-visible:text-astra-hover active:text-astra-hover hover:text-astra-hover no-underline"
-											href="https://wpastra.com/support/"
+											href="https://wpastra.com/support/?utm_source=wp&utm_medium=dashboard"
 											target="_blank"
 											rel="noreferrer"
 										>

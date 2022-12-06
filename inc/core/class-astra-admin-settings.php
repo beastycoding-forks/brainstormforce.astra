@@ -66,6 +66,8 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 
 			add_action( 'customize_controls_enqueue_scripts', __CLASS__ . '::customizer_scripts' );
 
+			add_action( 'astra_notice_before_markup_astra-sites-on-active', __CLASS__ . '::load_astra_admin_script' );
+
 			add_action( 'admin_init', __CLASS__ . '::register_notices' );
 			add_action( 'astra_notice_before_markup', __CLASS__ . '::notice_assets' );
 
@@ -101,6 +103,35 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 					</a>
 				</p>
 			<?php
+		}
+
+		/**
+		 * Get register & enqueue astra-admin scripts.
+		 *
+		 * @since 3.6.6
+		 */
+		public static function load_astra_admin_script() {
+
+			if ( ! current_user_can( 'manage_options' ) ) {
+				return;
+			}
+
+			wp_register_script( 'astra-admin-settings', ASTRA_THEME_URI . 'inc/assets/js/astra-admin-menu-settings.js', array( 'jquery', 'wp-util', 'updates' ), ASTRA_THEME_VERSION, false );
+
+			$localize = array(
+				'ajaxUrl'                            => admin_url( 'admin-ajax.php' ),
+				'astraSitesLink'                     => admin_url( 'themes.php?page=starter-templates' ),
+				'recommendedPluiginActivatingText'   => __( 'Activating', 'astra' ) . '&hellip;',
+				'recommendedPluiginDeactivatingText' => __( 'Deactivating', 'astra' ) . '&hellip;',
+				'recommendedPluiginActivateText'     => __( 'Activate', 'astra' ),
+				'recommendedPluiginDeactivateText'   => __( 'Deactivate', 'astra' ),
+				'recommendedPluiginSettingsText'     => __( 'Settings', 'astra' ),
+				'astraPluginManagerNonce'            => wp_create_nonce( 'astra_plugin_manager_nonce' ),
+			);
+			wp_localize_script( 'astra-admin-settings', 'astra', apply_filters( 'astra_theme_js_localize', $localize ) );
+
+			// Script.
+			wp_enqueue_script( 'astra-admin-settings' );
 		}
 
 		/**
@@ -152,7 +183,7 @@ if ( ! class_exists( 'Astra_Admin_Settings' ) ) {
 							</div>',
 						$image_path,
 						__( 'Thank you for installing Astra!', 'astra' ),
-						__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/starter-templates/?utm_source=welcome_page&utm_medium=helpful_information&utm_campaign=astra_theme" target="_blank">starter templates</a>? Install the Starter Templates plugin to get started.', 'astra' ),
+						__( 'Did you know Astra comes with dozens of ready-to-use <a href="https://wpastra.com/starter-templates/?utm_source=wp&utm_medium=dashboard" target="_blank">starter templates</a>? Install the Starter Templates plugin to get started.', 'astra' ),
 						esc_attr( $ast_sites_notice_btn['class'] ),
 						'href="' . astra_get_prop( $ast_sites_notice_btn, 'link', '' ) . '"',
 						'data-slug="' . astra_get_prop( $ast_sites_notice_btn, 'data_slug', '' ) . '"',

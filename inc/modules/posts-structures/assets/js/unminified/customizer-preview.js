@@ -114,9 +114,9 @@ function astra_refresh_customizer( control ) {
 			'astra-settings[ast-dynamic-single-' + postType + '-banner-featured-overlay]'
 		);
 
-		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-single-' + postType + '-banner-background]', '.single .ast-single-entry-banner[data-post-type="' + postType + '"]', 'desktop' );
-		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-single-' + postType + '-banner-background]', '.single .ast-single-entry-banner[data-post-type="' + postType + '"]', 'tablet' );
-		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-single-' + postType + '-banner-background]', '.single .ast-single-entry-banner[data-post-type="' + postType + '"]', 'mobile' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-single-' + postType + '-banner-background]', postTypeSelector + ' .ast-single-entry-banner[data-post-type="' + postType + '"]', 'desktop' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-single-' + postType + '-banner-background]', postTypeSelector + ' .ast-single-entry-banner[data-post-type="' + postType + '"]', 'tablet' );
+		astra_apply_responsive_background_css( 'astra-settings[ast-dynamic-single-' + postType + '-banner-background]', postTypeSelector + ' .ast-single-entry-banner[data-post-type="' + postType + '"]', 'mobile' );
 
 		astra_css(
 			'astra-settings[ast-dynamic-single-' + postType + '-vertical-alignment]',

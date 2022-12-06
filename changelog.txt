@@ -11,6 +11,7 @@ v4.0.0 (Unreleased)
 - Fix: Block editor - Button background colour gets overridden by core styles for Legacy block editor setup.
 - Fix: Elementor Global button style overwrites Astra submenu button style.
 - Fix: Getting console error in customizer when trying to update footer columns.
+- Fix: Block editor - Color gradient angle input field not visible in the block settings.
 - Fix: Block editor - Content background gets explicitly set to white in responsive view.
 - Fix: Top Margin on Fullwidth container without page title.
 

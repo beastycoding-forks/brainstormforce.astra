@@ -686,3 +686,8 @@ pre.wp-block.wp-block-code {
   right: auto;
   margin: -0.5em 0 0 -0.5em;
 }
+
+.wp-core-ui .components-angle-picker-control .components-input-control__container .components-input-control__input {
+  padding-right: 10px;
+  padding-left: 10px;
+}

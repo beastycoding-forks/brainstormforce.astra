@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * Astra Theme Customizer
  *
@@ -1024,7 +1024,12 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 				'0' => __( 'Select Menu', 'astra' ),
 			);
 
-			$all_menus = get_terms( array( 'taxonomy' => 'nav_menu', 'hide_empty' => true ) );
+			$all_menus = get_terms(
+				array(
+					'taxonomy'   => 'nav_menu',
+					'hide_empty' => true,
+				) 
+			);
 
 			if ( is_array( $all_menus ) && count( $all_menus ) ) {
 				foreach ( $all_menus as $row ) {

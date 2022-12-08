@@ -64,8 +64,8 @@
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-.ast-sortable-item .dashicons-arrow-down-alt2 {
-	margin-left: -6px;
+.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-remove {
+    margin-left: -6px;
 }
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     cursor: pointer;
@@ -87,7 +87,7 @@
 .ast-sortable-subfields-wrap .customize-control {
 	box-sizing: border-box;
     position: relative;
-    padding-right: 12px;
+    padding-right: 9px;
 }
 /**
  * ast-list-icons inside sortable compatibility CSS.
@@ -121,11 +121,18 @@
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .dashicons-admin-page {
     color: #556068;
 }
+
 .customize-control-ast-sortable .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-item-panel-header {
     border: 1px solid #ddd;
 	border-right: 0;
     border-bottom: 0;
 	overflow: hidden;
+}
+
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity svg,
+.ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity .ast-media-image-preview {
+    height: 14px;
+    width: 14px;
 }
 .ast-sortable-subfields-wrap .customize-control-ast-list-icons .ahfb-sorter-visiblity span {
     display: flex;
@@ -219,4 +226,21 @@
 }
 .ast-sortable-subfields-wrap .customize-control-ast-responsive-slider .ast-responsive-slider-btns {
     top: -2px;
+}
+
+/**
+ * Dynamic featured-image section compat.
+ */
+.ast-sortable-item .customize-control-ast-color .ast-color-btn-reset-wrap {
+    top: 12px;
+}
+.ast-sortable-item .customize-control-ast-color .color-button-wrap {
+    top: 8px;
+}
+.ast-sortable-item .customize-control-ast-color .astra-color-picker-wrap {
+    position: relative;
+    top: 8px;
+}
+.ast-sortable-subfields-wrap .customize-control-ast-description {
+    line-height: 1;
 }

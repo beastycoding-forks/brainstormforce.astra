@@ -47,6 +47,16 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: [
+					{
+                        expand: true,
+                        cwd: 'admin/assets/build',
+                        src: [
+                            '*.css',
+                            '!*-rtl.css',
+                        ],
+                        dest: 'admin/assets/build',
+                        ext: '-rtl.css'
+                    },
                     {
                         expand: true,
                         cwd: 'assets/css/unminified/',
@@ -58,7 +68,6 @@ module.exports = function (grunt) {
                         ],
                         dest: 'assets/css/unminified',
                         ext: '-rtl.css'
-
                     },
                     {
                         expand: true,
@@ -290,6 +299,12 @@ module.exports = function (grunt) {
                         ],
                         dest: 'inc/builder/type/footer/above-footer/assets/js/minified/customizer-preview.min.js',
                     },
+					{
+                        src: [
+                            'inc/modules/posts-structures/assets/js/unminified/customizer-preview.js',
+                        ],
+                        dest: 'inc/modules/posts-structures/assets/js/minified/customizer-preview.min.js',
+                    },
                     {
                         src: [
                             'inc/builder/type/footer/below-footer/assets/js/unminified/customizer-preview.js',
@@ -434,6 +449,12 @@ module.exports = function (grunt) {
                         ],
                         dest: 'inc/builder/type/header/woo-cart/assets/js/minified/customizer-preview.min.js',
                     },
+					{
+						src: [
+							'inc/addons/scroll-to-top/assets/js/unminified/customizer-preview.js',
+						],
+						dest: 'inc/addons/scroll-to-top/assets/js/minified/customizer-preview.min.js',
+					},
                 ]
             }
         },
@@ -631,6 +652,12 @@ module.exports = function (grunt) {
                     '!inc/metabox/extend-metabox/package.json',
                     '!inc/metabox/extend-metabox/package-lock.json',
                     '!inc/metabox/extend-metabox/build/index.asset.php',
+					'!admin/assets/src/**',
+					'!admin/package.json',
+					'!admin/package-lock.json',
+					'!admin/postcss.config.js',
+					'!admin/tailwind.config.js',
+					'!admin/webpack.config.js',
                 ],
                 dest: 'astra/'
             }

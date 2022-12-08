@@ -140,8 +140,11 @@ if ( ! class_exists( 'Astra_Theme_Background_Updater' ) ) {
 				'astra_apply_woocommerce_show_password_icon_css',
 				'astra_shop_style_design_layout',
 			),
-			'3.9.3' => array(
-				'astra_theme_background_updater_3_9_3',
+			'3.9.4' => array(
+				'astra_theme_background_updater_3_9_4',
+			),
+			'4.0.0' => array(
+				'astra_theme_background_updater_4_0_0',
 			),
 		);
 

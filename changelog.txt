@@ -1,20 +1,43 @@
-v3.9.3 (Unreleased)
-- New: WooCommerce Cart - "Cart Page" click action introduced to redirect user on cart page.
-- New: Global - Typography - Introduced an option to remove dotted border on focus of input fields.
-- Improvement: WooCommerce - Moved border width option for cart icon from addon to theme.
-- Improvement: WooCommerce - Clear button is aligned on top for woocommerce active filter widget when "Chips" option is enabled.
-- Improvement: Customizer - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
-- Improvement: WooCommerce - Added product image on cart page for tablet users.
-- Improvement: To have elegant fresh setup UI, updated the customizer sidebar layout by default to No-Sideebar.
-- Fix: WooCommerce - Content background color preview not working in customizer preview.
-- Fix: WooCommerce - Shop - Sale badge text is misaligned on the frontend.
-- Fix: WooCommerce - Payment list styling broken inside quick view.
-- Fix: Block Editor - Astra Meta settings does not save when Custom Fields option is enabled from the preferences.
-- Fix: Two search buttons visible on the empty archive search result page.
-- Fix: Disabled Astra meta setting for Blog page which does not not work from metabox, as it acts like a archive page on the frontend.
-- Fix: Megamenu spacing conflict with primary menu top offset option on mobile devices.
-- Fix: Woocommerce - Cart icon size is not working on starter template site.
-- Fix: Top border showing up for related post section on single post when Boxed & Content Boxed layout is active.
+v4.0.0 (Unreleased)
+- New: Redesigned the entire admin area with better user experience.
+- New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
+- New: Introduced Smooth scroll to ID option for smooth scrolling to section ID on one page site navigation.
+- New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
+- New: Added elegant starter-content theme support for wordpress.org preview & for fresh setup.
+- Improvement: Introduced new filter 'astra_global_color_palette' to extend default color palette settings.
+- Fix: Off-canvas - Full screen - Mobile Menu gets very long scroll when Elementor plugin is activated.
+- Fix: Full Width/Contained layout Layout is showing extra padding above in the Transparent Header.
+- Fix: Block editor - Getting "wp.data.select( 'core/editor' )getBlocks()" console warning in editor as being deprecated in WordPress version 5.3.
+- Fix: Block editor - Button background colour gets overridden by core styles for Legacy block editor setup.
+- Fix: Elementor Global button style overwrites Astra submenu button style.
+- Fix: Getting console error in customizer when trying to update footer columns.
+- Fix: Block editor - Color gradient angle input field not visible in the block settings.
+- Fix: Block editor - Content background gets explicitly set to white in responsive view.
+
+v3.9.4
+- New: WooCommerce Cart - "Cart Page" click action introduced to redirect the user to the cart page.
+- Improvement: Added Spectra plugin compatibility for a better experience.
+- Improvement: WooCommerce Cart - Moved border width option for cart icon from the addon to theme.
+- Improvement: WooCommerce - Clear button is aligned on top for WooCommerce active filter widget when the "Chips" option is enabled.
+- Improvement: WooCommerce - Single Product - Edit shortcut link assigned to sticky add to cart for easy navigation in respective customizer section.
+- Improvement: WooCommerce - Added product images for tablet users on the cart page.
+- Improvement: To have an elegant fresh setup UI, updated the customizer sidebar layout by default to No-Sidebar.
+- Improvement: WooCommerce Cart - Responsive slider option to adjust Slide-in Cart width for Desktop, Tablet, & Mobile devices.
+- Fix: WooCommerce - Content background colour not working in the customizer preview.
+- Fix: WooCommerce - Shop - Sale badge text is misaligned on the front end.
+- Fix: WooCommerce - Custom image and icon support for payment section.
+- Fix: WooCommerce - Payment list styling is broken inside quick view.
+- Fix: Block Editor - Astra Meta settings do not save when the Custom Fields option is enabled from the preferences.
+- Fix: Two search buttons are visible on the empty archive search result page.
+- Fix: Disabled Astra meta setting for the Blog page, which does not work from meta box, as it acts like an archive page on the frontend.
+- Fix: Megamenu spacing conflicts with the primary menu top offset option on mobile devices.
+- Fix: WooCommerce - Cart icon size is not working on the starter template site.
+- Fix: Top border showing up for related post section on a single post when Boxed & Content Boxed layout is active.
+- Fix: Editor - External toggle controls reverse their direction due to the theme's CSS.
+- Fix: Block editor - Getting console error for reading properties of undefined for getEditedPostAttribute.
+
+v3.9.3
+- Improvement: Compatibility with WordPress 6.1.
 
 v3.9.2
 - Improvement: WooCommerce - Admin bar's customize link updated on WooCommerce pages for quick landing to it's respected customizer section.

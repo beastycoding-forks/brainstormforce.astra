@@ -542,6 +542,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
 				'content-boxed-container' => __( 'Content Boxed', 'astra' ),
 				'plain-container'         => __( 'Full Width / Contained', 'astra' ),
 				'page-builder'            => __( 'Full Width / Stretched', 'astra' ),
+				'narrow-container'        => __( 'Narrow Width', 'astra' ),
 			);
 		}
 
@@ -984,7 +985,7 @@ if ( ! class_exists( 'Astra_Meta_Boxes' ) ) {
  *
  * @param bool $display_footer for controling the header and footer enable/disable options.
  *
- * @since x.x.x
+ * @since 3.9.4
  */
 function astra_footer_bar_display_cb( $display_footer ) {
 	if ( is_home() && ! is_front_page() ) {

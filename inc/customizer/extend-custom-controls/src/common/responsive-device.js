@@ -4,6 +4,7 @@ const {__} = wp.i18n;
 const {Fragment} = wp.element;
 import {useEffect, useState} from 'react';
 import parse from 'html-react-parser';
+const { Button } = wp.components;
 import svgIcons from '../../../../../assets/svg/svgs.json';
 
 const ResponsiveDeviceControl = props => {
@@ -74,9 +75,8 @@ const ResponsiveDeviceControl = props => {
 			{!props.hideResponsive && <div className="floating-controls">
 				<ul key={'ast-resp-ul'} className="ast-responsive-btns">
 					{Object.keys(deviceMap).map(device => {
-						return <li key={device} className={device}
-								   className={(device === view ? 'active ' : '') + `${device}`}>
-							<button type="button" data-device={device}
+						return <li key={device} className={(device === view ? 'active ' : '') + `${device}`}>
+							<Button type="button" data-device={device}
 									className={(device === view ? 'active ' : '') + `preview-${device}`}
 									onClick={() => {
 										let event = new CustomEvent('AstraChangedRepsonsivePreview', {
@@ -87,7 +87,7 @@ const ResponsiveDeviceControl = props => {
 									{( device === 'desktop' ) ? responsiveDesktop  : ''}
 									{( device === 'tablet' ) ? responsiveTablet  : ''}
 									{( device === 'mobile' ) ? responsiveMobile  : ''}
-							</button>
+							</Button>
 						</li>;
 					})}
 				</ul>

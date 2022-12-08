@@ -447,6 +447,10 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 	},
 	getFinalControlObject: function ( attr, controlObject ) {
 
+		if ( undefined !== attr.disable && undefined === controlObject.params['disable'] ) {
+			controlObject.params['disable'] = attr.disable;
+		}
+
 		if ( undefined !== attr.choices && undefined === controlObject.params['choices'] ) {
 			controlObject.params['choices'] = attr.choices;
 		}

@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 import ResponsiveDeviceControl from '../common/responsive-device';
 
-const { __ } = wp.i18n;
 const { ButtonGroup, Dashicon, Button } = wp.components;
 const { Component } = wp.element;
 
@@ -9,7 +8,7 @@ class RowLayoutComponent extends Component {
 	constructor() {
 
 		super( ...arguments );
-
+		this.counter = 0;
 		this.updateValues = this.updateValues.bind( this );
 		this.onFooterUpdate = this.onFooterUpdate.bind( this );
 		this.onColumnUpdate();
@@ -28,7 +27,7 @@ class RowLayoutComponent extends Component {
 		let baseDefault;
 		let type = this.props.control.id.replace( 'astra-settings[', '' ).replace( '-footer-layout]', '' );
 		this.type = type;
-		this.footer_type = ( this.type === 'hb' ) ? 'primary' : ( ( this.type === 'hba' ) ? 'above' : 'below' );
+		this.footer_type = this.props.control.params.input_attrs.footer ? this.props.control.params.input_attrs.footer : ( this.type === 'hb' ) ? 'primary' : ( ( this.type === 'hba' ) ? 'above' : 'below' );
 		if ( this.controlParams.responsive ) {
 			baseDefault = responsiveDefault;
 			this.defaultValue = this.props.control.params.default ? {
@@ -155,10 +154,15 @@ class RowLayoutComponent extends Component {
 
 	updateValues() {
 
+		this.counter += 1;
+		  if(this.counter > 1) {
+			this.counter = 0;
+			return;
+		}
 		let event = new CustomEvent(
 			'AstraBuilderChangeRowLayout', {
 				'detail': {
-					'columns' : wp.customize.value('astra-settings[' + this.type + '-footer-column]').get(),
+					'columns' : parseInt( wp.customize.value('astra-settings[' + this.type + '-footer-column]').get(), 10 ),
 					'layout' : this.state.value,
 					'type' : this.footer_type
 				},

@@ -131,11 +131,9 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 
 			if ( empty( $content_layout ) ) {
 
-				$post_type = get_post_type();
+				$post_type = strval( get_post_type() );
 
-				if ( 'post' === $post_type || 'page' === $post_type ) {
-					$content_layout = astra_get_option( 'single-' . get_post_type() . '-content-layout' );
-				}
+				$content_layout = astra_get_option( 'single-' . $post_type . '-content-layout' );
 
 				if ( 'default' == $content_layout || empty( $content_layout ) ) {
 
@@ -147,11 +145,9 @@ if ( ! function_exists( 'astra_get_content_layout' ) ) {
 		} else {
 
 			$content_layout = '';
-			$post_type      = get_post_type();
+			$post_type      = strval( get_post_type() );
 
-			if ( 'post' === $post_type ) {
-				$content_layout = astra_get_option( 'archive-' . get_post_type() . '-content-layout' );
-			}
+			$content_layout = astra_get_option( 'archive-' . $post_type . '-content-layout' );
 
 			if ( is_search() ) {
 				$content_layout = astra_get_option( 'archive-post-content-layout' );
@@ -635,7 +631,7 @@ function astra_load_preload_local_fonts( $url, $format = 'woff2' ) {
 		$font_format = apply_filters( 'astra_local_google_fonts_format', $format );
 		foreach ( $astra_local_font_files as $key => $local_font ) {
 			if ( $local_font ) {
-				echo '<link rel="preload" href="' . esc_url( $local_font ) . '" as="font" type="font/' . esc_attr( $font_format ) . '" crossorigin>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<link rel="preload" href="' . esc_url( $local_font ) . '" as="font" type="font/' . esc_attr( $font_format ) . '" crossorigin>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Preparing HTML link tag.
 			}
 		}
 		return;
@@ -764,7 +760,7 @@ function astra_remove_widget_design_options() {
  * @since 3.7.0
  */
 function astra_get_palette_colors() {
-	return get_option( 'astra-color-palettes', Astra_Global_Palette::get_default_color_palette() );
+	return get_option( 'astra-color-palettes', apply_filters( 'astra_global_color_palette', Astra_Global_Palette::get_default_color_palette() ) );
 }
 
 /**
@@ -975,7 +971,7 @@ function astra_search_static_css() {
 /**
  * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
  *
- * @since x.x.x
+ * @since 3.9.4
  * @return bool
  */
 function astra_showcase_upgrade_notices() {

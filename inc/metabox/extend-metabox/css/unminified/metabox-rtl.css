@@ -1,3 +1,7 @@
+.ast-header-settings-modal .components-modal__header svg {
+    width: 30px;
+    height: 30px;
+}
 .ast-sidebar-container .ast-sidebar-layout-meta-wrap .components-input-control__container .components-select-control__input {
 	padding: 3px 8px 3px 24px;
 	font-size: 14px;
@@ -130,7 +134,10 @@ div#astra_settings_meta_box {
 .ast-meta-selector-controller .ast-selector-inner-wrap .components-button:focus:not(:disabled) {
     box-shadow: none;
 }
-.components-toggle-control .components-base-control__field {
+.ast-meta-settings-content .components-toggle-control .components-base-control__field,
+.ast-sidebar-container .components-toggle-control .components-base-control__field,
+.ast-meta-settings-content .components-toggle-control .components-base-control__field .components-flex,
+.ast-sidebar-container .components-toggle-control .components-base-control__field .components-flex {
 	justify-content: space-between;
 	flex-direction: row-reverse;
 	margin-bottom: 0;

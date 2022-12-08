@@ -159,7 +159,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		/**
 		 * Add active filter widget class when "chip" toggle enabled.
 		 *
-		 * @since x.x.x
+		 * @since 3.9.4
 		 * @access public
 		 *
 		 * @param string $block_content Rendered block content.
@@ -902,6 +902,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['single-product-payment-discover']   = true;
 			$defaults['single-product-payment-paypal']     = false;
 			$defaults['single-product-payment-apple-pay']  = false;
+
+			$defaults['single-product-payment-list'] = array(
+				'items' =>
+					array(
+						array(
+							'id'      => 'item-1',
+							'enabled' => true,
+							'source'  => 'icon',
+							'icon'    => '',
+							'image'   => '',    
+						),
+					),
+			);
 
 			return $defaults;
 		}
@@ -2725,6 +2738,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						fill: var(--ast-global-color-3);
 					}
 
+					.ast-single-product-payments.ast-text-color-version img {
+						filter: grayscale(100%);
+					}
+
 					.ast-single-product-payments legend {
 						padding: 0 8px;
 						margin-bottom: 0;
@@ -2748,7 +2765,8 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						margin: 0 0.5em 0.5em 0.5em;
 					}
 
-					.ast-single-product-payments ul li svg {
+					.ast-single-product-payments ul li svg, 
+					.ast-single-product-payments ul li img {
 						height: 30px;
 						width: auto;
 					}
@@ -3415,6 +3433,38 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 						<li class="ast-payment-apple-pay">
 							<?php echo $applepay_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 						</li>
+						<?php 
+					} 
+
+					$payment_list = astra_get_option( 'single-product-payment-list' );
+
+					if ( isset( $payment_list['items'] ) ) {
+						?>
+							<?php foreach ( $payment_list['items'] as $single ) { ?>
+								<?php if ( isset( $single['enabled'] ) && true === $single['enabled'] ) { ?>
+										<?php
+										if ( isset( $single['source'] ) && $single['source'] ) {
+											if ( 'image' === $single['source'] ) {
+												if ( isset( $single['image'] ) && $single['image'] ) { 
+													?>
+															<li class="ast-custom-payment">
+																<img src="<?php echo esc_attr( $single['image'] ); ?>" />
+												</li>
+														<?php
+												}
+											} else {
+												if ( isset( $single['icon'] ) && $single['icon'] ) {
+													?>
+															<li class="ast-custom-payment">
+															<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( $single['icon'], false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+															</li>
+														<?php
+												}
+											}
+										}
+										?>
+								<?php } ?>
+							<?php } ?>
 					<?php } ?>
 				</ul>
 			</fieldset>

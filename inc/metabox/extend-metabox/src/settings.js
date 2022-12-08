@@ -1,7 +1,7 @@
 /**
  * Meta Options build.
  */
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PluginSidebar, PluginSidebarMoreMenuItem } from '@wordpress/edit-post';
 import { compose } from '@wordpress/compose';
 import { withSelect, withDispatch } from '@wordpress/data';
@@ -16,8 +16,8 @@ const { __ } = wp.i18n;
 const MetaSettings = props => {
 
 	const modalIcon = parse( svgIcons['meta-popup-icon'] );
-	const astraLogo = parse( svgIcons['astraLogo'] );
-	const brandIcon = astMetaParams.isWhiteLabelled ? '' : parse( svgIcons['astra-brand-icon'] );
+	const astraLogo = parse( svgIcons['astra-brand-icon'] );
+	const brandIcon = parse( svgIcons['astra-brand-icon'] );
 
     const [ isOpen, setOpen ] = useState( false );
 
@@ -25,6 +25,7 @@ const MetaSettings = props => {
     const closeModal = () => setOpen( false );
 
 	const is_hide_contnet_layout_sidebar = astMetaParams.is_hide_contnet_layout_sidebar;
+	const [ contentLayout, setContentLayout ] = useState(props.meta['site-content-layout']);
 
 	// Adjust spacing & borders for table.
 	const topTableSpacing = <tr className="ast-extra-spacing"><td className="ast-border"></td><td></td></tr>;
@@ -92,6 +93,23 @@ const MetaSettings = props => {
 		/>);
 	});
 
+	const [isDefaultNarrow, setIsDefaultNarrow] = useState(false);
+
+	// Side effect calling DOM API to check if current default layout is set to narrow width content layout.
+	useEffect(() => {
+		if (document.querySelector('body').classList.contains('ast-default-layout-narrow-container')) {
+			setIsDefaultNarrow(true);
+		}
+		else {
+			setIsDefaultNarrow(false);
+		}
+	}, [contentLayout, setIsDefaultNarrow]);
+
+	// Display sidebar options or not.
+	const showSidebar = () => {
+		return (('narrow-container' === contentLayout) || ('default' === contentLayout && isDefaultNarrow)) ? false : true;
+	}
+
 	return (
 		<>
 			{/* Meta settings icon */}
@@ -123,6 +141,8 @@ const MetaSettings = props => {
 								choices = { contentLayoutOptions }
 								id = { 'site-content-layout' }
 								onChange={ ( val ) => {
+									setContentLayout(val);
+									if ( val === 'narrow-container' ) props.setMetaFieldValue( 'no-sidebar', 'site-sidebar-layout');
 									props.setMetaFieldValue( val, 'site-content-layout' );
 								} }
 							/>
@@ -131,7 +151,7 @@ const MetaSettings = props => {
 					)}
 
 					{/* Sidebar Setting */}
-					{ ! is_hide_contnet_layout_sidebar && (
+					{ ! is_hide_contnet_layout_sidebar && showSidebar() && (
 					<PanelBody
 						title={ __( 'Sidebar', 'astra' ) }
 						initialOpen={ false }

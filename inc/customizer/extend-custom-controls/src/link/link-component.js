@@ -76,20 +76,20 @@ const LinkComponent = props => {
 				onUrlChange(value);
 			}}/>
 		</div>
-		<div className="customize-control-content ast-link-open-in-new-tab-wrapper ast-togglecontrol-wrapper">
-			<ToggleControl
-            label={ __('Open in a New Tab', 'astra') }
-            checked={new_tab}
-            onChange={() => onCheckboxChange()}
-            />
-		</div>
-		<div className="customize-control-content">
+		<div className="customize-control-content ast-link-label-wrapper">
 			<label>
 				<span className="customize-control-title">{__('Link Rel')}</span>
 			</label>
 			<TextControl value={link_rel} className={'ast-link-relationship'} onChange={value => {
 				onRelChange(value);
 			}}/>
+		</div>
+		<div className="customize-control-content ast-link-open-in-new-tab-wrapper ast-togglecontrol-wrapper">
+			<ToggleControl
+            label={ __('Open in a New Tab', 'astra') }
+            checked={new_tab}
+            onChange={() => onCheckboxChange()}
+            />
 		</div>
 		<input type="hidden" id={`_customize-input-${settings.default}`} className="customize-link-control-data"
 			   name={name} data-customize-setting-link={settings.default} data-value={JSON.stringify(value)}></input>

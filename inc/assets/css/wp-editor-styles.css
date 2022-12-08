@@ -313,7 +313,6 @@ html {
 
 .ast-page-builder-template .edit-post-visual-editor__post-title-wrapper, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper {
   max-width: none;
-  padding: 0 20px;
 }
 
 .ast-page-builder-template .edit-post-visual-editor__post-title-wrapper .title-visibility, .ast-stacked-title-visibility .edit-post-visual-editor__post-title-wrapper .title-visibility {
@@ -686,4 +685,9 @@ pre.wp-block.wp-block-code {
   right: 15px;
   left: auto;
   margin: -0.5em -0.5em 0 0;
+}
+
+.wp-core-ui .components-angle-picker-control .components-input-control__container .components-input-control__input {
+  padding-left: 10px;
+  padding-right: 10px;
 }

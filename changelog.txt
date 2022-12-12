@@ -1,3 +1,6 @@
+v4.0.1 (Unreleased)
+- Fix: Astra custom layout content_top and content_bottom breaking layout.
+
 v4.0.0 (Unreleased)
 - New: Redesigned the entire admin area with better user experience.
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.

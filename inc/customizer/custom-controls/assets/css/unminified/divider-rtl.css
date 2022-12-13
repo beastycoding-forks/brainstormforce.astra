@@ -217,3 +217,12 @@
 #customize-control-headings-font-variant .customize-control-title {
     margin-top: 23px;
 }
+
+/* sidebar specific  */
+#sub-accordion-section-section-sidebars > .customize-control-ast-heading {
+    margin-top: 16px;
+}
+
+#sub-accordion-section-section-sidebars > .customize-control-ast-heading ~ .customize-control-ast-heading  {
+    margin-top: 32px;
+}

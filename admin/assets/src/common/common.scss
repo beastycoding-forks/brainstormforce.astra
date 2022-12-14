@@ -161,6 +161,12 @@
     transform: translateX(18px);
 }
 
+/** Reverting tailwind build CSS for admin bar. */
+#wpadminbar img, #adminmenumain img {
+    display: initial;
+    vertical-align: initial;
+}
+
 @media (max-width: 781px) {
 	div.ast-changelog-popup-wrap {
 		margin-top: 46px; // Managed as per admin bar height.

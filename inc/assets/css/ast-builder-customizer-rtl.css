@@ -2134,3 +2134,7 @@ li#accordion-section-ast-archive-post, li#accordion-section-ast-archive-product 
 .ahfb-sorter-item-remove {
 	margin-right: -12px;
 }
+/** Site icon control specific CSS as divider attr can't accessible to core control. */
+li#customize-control-site_icon {
+    margin-bottom: 16px;
+}

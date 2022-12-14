@@ -1759,7 +1759,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				}
 
 				$default_medium_layout_css = array(
-					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-archive-description, .ast-separate-container .ast-author-box, .ast-separate-container .ast-404-layout-1, .ast-separate-container .no-results' => array(
+					'.ast-separate-container .ast-article-post, .ast-separate-container .ast-article-single, .ast-separate-container .ast-author-box, .ast-separate-container .ast-404-layout-1, .ast-separate-container .no-results' => array(
 						'padding' => '3em',
 					),
 				);
@@ -4029,6 +4029,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                   = get_option( ASTRA_THEME_SETTINGS );
 			$unset_builder_elements_underline = isset( $astra_settings['unset-builder-elements-underline'] ) ? false : true;
 			return apply_filters( 'astra_unset_builder_elements_underline', $unset_builder_elements_underline );
+		}
+
+		/**
+		 * Block editor experience improvements css introduced with v4.0.0.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user , true if not.
+		 */
+		public static function v4_block_editor_compat() {
+			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['v4-block-editor-compat'] = isset( $astra_settings['v4-block-editor-compat'] ) ? false : true;
+			return apply_filters( 'astra_v4_block_editor_compat', $astra_settings['v4-block-editor-compat'] );
 		}
 
 		/**

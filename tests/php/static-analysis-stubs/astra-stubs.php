@@ -3550,6 +3550,15 @@ namespace {
         {
         }
         /**
+         * Block editor experience improvements css introduced with v4.0.0.
+         *
+         * @since x.x.x
+         * @return boolean false if it is an existing user, true if not.
+         */
+        public static function v4_block_editor_compat()
+        {
+        }
+        /**
          * Font CSS support for widget-title heading fonts & fonts which are not working in editor.
          *
          * 1. Adding Font-weight support to widget titles.
@@ -9247,9 +9256,10 @@ namespace {
          *
          * @param string $section_id section id.
          * @param array  $required_condition Required Condition.
+		 * @param array  $divider_setup Required divider setup.
          * @return array
          */
-        public static function prepare_typography_options($section_id, $required_condition = array())
+        public static function prepare_typography_options($section_id, $required_condition = array(), $divider_setup = array())
         {
         }
         /**

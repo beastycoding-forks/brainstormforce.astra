@@ -37,6 +37,10 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 
 			$component_limit = defined( 'ASTRA_EXT_VER' ) ? Astra_Builder_Helper::$component_limit : Astra_Builder_Helper::$num_of_header_menu;
 
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$custom_req_divider = array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'colors-and-background' ) ) ? 'ast-bottom-dotted-divider' : '' );
+			/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
 			for ( $index = 1; $index <= $component_limit; $index++ ) {
 
 				$_section = 'section-hb-menu-' . $index;
@@ -345,8 +349,9 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'control'   => 'ast-toggle-control',
 						'section'   => $_section,
 						'priority'  => 41,
-						'title'     => __( 'Stack on Mobile', 'astra' ),
-						'context'   => Astra_Builder_Helper::$general_tab,
+						'divider'   => array( 'ast_class' => 'ast-top-section-divider' ),
+						'title'     => __( 'Stack on Responsive', 'astra' ),
+						'context'   => Astra_Builder_Helper::$responsive_general_tab,
 						'transport' => 'postMessage',
 					),
 
@@ -400,7 +405,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 						'priority'   => 90,
 						'context'    => Astra_Builder_Helper::$design_tab,
 						'responsive' => true,
-						'divider'    => array( 'ast_class' => ( defined( 'ASTRA_EXT_VER' ) ) ? 'ast-bottom-dotted-divider' : '' ),
+						'divider'    => $custom_req_divider,
 					),
 
 					// Option: Menu Color.

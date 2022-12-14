@@ -1345,4 +1345,11 @@ function astra_theme_background_updater_4_0_0() {
 		$theme_options['scroll-to-top-enable'] = $scroll_to_top_visibility;
 		update_option( 'astra-settings', $theme_options );
 	}
+
+	// Block editor experience improvements compatibility flag.
+	if ( ! isset( $theme_options['v4-block-editor-compat'] ) ) {
+		$theme_options['v4-block-editor-compat'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+
 }

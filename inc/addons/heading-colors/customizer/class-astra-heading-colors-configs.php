@@ -63,7 +63,7 @@ if ( ! class_exists( 'Astra_Heading_Colors_Configs' ) ) {
 					'section'   => 'section-buttons',
 					'transport' => 'postMessage',
 					'priority'  => 18.5,
-					'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				),
 
 				/**

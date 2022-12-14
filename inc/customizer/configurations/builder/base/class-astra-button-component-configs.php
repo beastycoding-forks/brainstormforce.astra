@@ -231,7 +231,7 @@ class Astra_Button_Component_Configs {
 					'title'      => __( 'Hover', 'astra' ),
 				),
 
-				
+
 				array(
 					'name'       => ASTRA_THEME_SETTINGS . '[' . $builder_type . '-' . $_prefix . '-builder-button-border-colors-group]',
 					'type'       => 'control',
@@ -242,7 +242,7 @@ class Astra_Button_Component_Configs {
 					'transport'  => 'postMessage',
 					'context'    => Astra_Builder_Helper::$design_tab,
 					'responsive' => true,
-					'divider'    => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'    => array( 'ast_class' => 'ast-bottom-divider' ),
 				),
 
 				/**

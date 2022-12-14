@@ -90,6 +90,30 @@ class Astra_Posts_Structure_Loader {
 			'mobile-unit'  => 'px',
 		);
 
+		self::$customizer_defaults['responsive-padding'] = array(
+			'desktop'      => array(
+				'top'    => 3,
+				'right'  => 3,
+				'bottom' => 3,
+				'left'   => 3,
+			),
+			'tablet'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'mobile'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'desktop-unit' => 'em',
+			'tablet-unit'  => 'em',
+			'mobile-unit'  => 'em',
+		);
+
 		self::$customizer_defaults['font-size'] = array(
 			'desktop'      => '',
 			'tablet'       => '',

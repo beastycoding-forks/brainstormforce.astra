@@ -92,12 +92,13 @@ function astra_onload_function() {
 			/**
 			 * In WP-5.9 block editor comes up with color palette showing color-code canvas, but with theme var() CSS its appearing directly as it is. So updated them on wp.data event.
 			 */
-			const customColorPickerButtons = document.querySelectorAll( '.components-color-palette__custom-color' );
+			const customColorPickerButtons = document.querySelectorAll( '.components-color-palette__custom-color-value' );
 
 			for ( let btnCount = 0; btnCount < customColorPickerButtons.length; btnCount++ ) {
-				const colorCode = customColorPickerButtons[btnCount].innerText;
-				if ( colorCode.indexOf( 'var(--ast-global-color' ) > -1 ) {
-					customColorPickerButtons[btnCount].innerHTML = '<span class="ast-theme-block-color-name">' + astraColors[ colorCode ] + '</span>';
+				let colorCode = customColorPickerButtons[btnCount].innerText,
+					transformedCode = colorCode.toLowerCase();
+				if ( colorCode.indexOf( 'VAR(--AST-GLOBAL-COLOR' ) > -1 ) {
+					customColorPickerButtons[btnCount].innerHTML = astraColors[ transformedCode ];
 				}
 			}
 
@@ -141,6 +142,34 @@ function astra_onload_function() {
 							}
 						);
 					}
+				});
+			}
+
+			// Show post/page title wrapper outline & eye icon only when clicked.
+			const titleInput     = document.querySelector('.editor-post-title__input');
+			const visibilityIcon = document.querySelector('.title-visibility');
+			if( null != titleInput && null != visibilityIcon ) {
+				document.addEventListener('click', function (event){
+					if( ! titleBlock.contains( event.target ) ){
+						visibilityIcon.classList.remove('ast-show-visibility-icon');
+						titleInput.classList.remove('ast-show-editor-title-outline');
+					}
+				});
+				document.addEventListener('visibilitychange', function (){
+						visibilityIcon.classList.remove('ast-show-visibility-icon');
+						titleInput.classList.remove('ast-show-editor-title-outline');
+				});
+				titleBlock.addEventListener('focusout', function (){
+					visibilityIcon.classList.remove('ast-show-visibility-icon');
+					titleInput.classList.remove('ast-show-editor-title-outline');
+				});
+				titleBlock.addEventListener('click', function (){
+					visibilityIcon.classList.add('ast-show-visibility-icon');
+					titleInput.classList.add('ast-show-editor-title-outline');
+				});
+				titleInput.addEventListener('input', function (){
+					visibilityIcon.classList.add('ast-show-visibility-icon');
+					this.classList.add('ast-show-editor-title-outline');
 				});
 			}
 

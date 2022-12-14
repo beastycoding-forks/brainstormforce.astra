@@ -215,6 +215,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 
 	// Spectra Compatibility - page title alignment with page container layouts.
 	$spectra_gutenberg_compat_css = Astra_Dynamic_CSS::spectra_gutenberg_compat_css();
+	$v4_block_editor_compat       = Astra_Dynamic_CSS::v4_block_editor_compat();
 
 	$dynamic_css .= '
 		html body {
@@ -488,9 +489,6 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 					margin-right: 0;
 				}
 			}
-			.entry-content[ast-blocks-layout] > ul, .entry-content[ast-blocks-layout] > ol {
-				margin-' . esc_attr( $ltr_left ) . ': 1em;
-			}
 		';
 	}
 
@@ -506,6 +504,20 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 			margin-right: auto;
 		}
 	';
+
+	// Block editor experience improvements introduced with v4.0.0.
+	if ( $v4_block_editor_compat ) {
+		$dynamic_css .= '
+			@media(max-width: ' . $tablet_breakpoint . 'px) {	
+				.ast-plain-container .site-main .entry-header {
+					margin-top: 1.5em;
+				}
+			}
+			.entry-content[ast-blocks-layout] > ul, .entry-content[ast-blocks-layout] > ol {
+				padding: revert;
+			}
+		';
+	}
 
 	return $dynamic_css;
 }

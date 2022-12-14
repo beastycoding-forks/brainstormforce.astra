@@ -8,6 +8,7 @@ v4.0.0 (Unreleased)
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
 - New: Added elegant starter-content theme support for wordpress.org preview & for fresh setup.
 - Improvement: Introduced new filter 'astra_global_color_palette' to extend default color palette settings.
+- Improvement: Block Editor - Editor experience improved in relative with the frontend.
 - Fix: Off-canvas - Full screen - Mobile Menu gets very long scroll when Elementor plugin is activated.
 - Fix: Full Width/Contained layout Layout is showing extra padding above in the Transparent Header.
 - Fix: Block editor - Getting "wp.data.select( 'core/editor' )getBlocks()" console warning in editor as being deprecated in WordPress version 5.3.

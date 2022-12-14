@@ -307,7 +307,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					'section'   => 'section-buttons',
 					'transport' => 'postMessage',
 					'priority'  => 18.5,
-					'divider'   => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'   => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				),
 
 				/**
@@ -418,7 +418,7 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 					),
 					'priority'          => 19,
 					'connected'         => false,
-					'divider'           => array( 'ast_class' => 'ast-bottom-section-divider' ),
+					'divider'           => array( 'ast_class' => 'ast-bottom-dotted-divider' ),
 				),
 
 				/**

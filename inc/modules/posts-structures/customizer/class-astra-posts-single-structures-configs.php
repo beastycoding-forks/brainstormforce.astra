@@ -1107,7 +1107,7 @@ class Astra_Posts_Single_Structures_Configs extends Astra_Customizer_Config_Base
 
 				array(
 					'name'              => ASTRA_THEME_SETTINGS . '[' . $title_section . '-banner-padding]',
-					'default'           => astra_get_option( $title_section . '-banner-padding', Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-spacing' ) ),
+					'default'           => astra_get_option( $title_section . '-banner-padding', Astra_Posts_Structure_Loader::get_customizer_default( 'responsive-padding' ) ),
 					'type'              => 'control',
 					'control'           => 'ast-responsive-spacing',
 					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),

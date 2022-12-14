@@ -123,9 +123,10 @@ final class Astra_Builder_Base_Configuration {
 	 *
 	 * @param string $section_id section id.
 	 * @param array  $required_condition Required Condition.
+	 * @param array  $divider_setup Required divider setup.
 	 * @return array
 	 */
-	public static function prepare_typography_options( $section_id, $required_condition = array() ) {
+	public static function prepare_typography_options( $section_id, $required_condition = array(), $divider_setup = array() ) {
 
 		$parent = ASTRA_THEME_SETTINGS . '[' . $section_id . '-typography]';
 
@@ -140,6 +141,7 @@ final class Astra_Builder_Base_Configuration {
 					'control'   => 'ast-settings-group',
 					'title'     => __( 'Text Font', 'astra' ),
 					'section'   => $section_id,
+					'divider'   => $divider_setup,
 					'transport' => 'postMessage',
 					'priority'  => 16,
 					'context'   => empty( $required_condition ) ? Astra_Builder_Helper::$design_tab : $required_condition,

@@ -468,6 +468,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
+					'single-post-navigation-position'      => 'outside',
 					'font-size-page-title'                 => array(
 						'desktop'      => 30,
 						'tablet'       => '',

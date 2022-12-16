@@ -1720,8 +1720,23 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'line-height' => 'inherit',
 					),
 				);
+				
 				/* Parse CSS from array() -> Desktop CSS */
 				$parse_css .= astra_parse_css( $default_layout_update_css );
+
+				$navigation_layout = astra_get_option( 'single-post-navigation-position' );
+
+				if ( $navigation_layout && 'inside' === $navigation_layout ) {
+
+					$navigation_layout_css = array(
+						'.single .post-navigation' => array(
+							'padding-left'  => 0,
+							'padding-right' => 0,
+						),
+					);
+
+					$parse_css .= astra_parse_css( $navigation_layout_css );
+				}
 
 				$default_tablet_layout_css = array(
 					'.ast-left-sidebar.ast-page-builder-template #secondary, .archive.ast-right-sidebar.ast-page-builder-template .site-main' => array(
@@ -4014,7 +4029,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function v4_block_editor_compat() {
-			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['v4-block-editor-compat'] = isset( $astra_settings['v4-block-editor-compat'] ) ? false : true;
 			return apply_filters( 'astra_v4_block_editor_compat', $astra_settings['v4-block-editor-compat'] );
 		}

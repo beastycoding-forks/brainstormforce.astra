@@ -3030,30 +3030,43 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 
-				$result = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( ASTRA_ADVANCED_HOOKS_POST_TYPE, $option );
+				$max_site_container_css = array(
+					'.site-content .ast-container' => array(
+						'display' => 'flex',
+					),
+				);
 
-				foreach ( $result as $post_id => $post_data ) {
-					$post_type = get_post_type();
+				if ( defined( 'ASTRA_ADVANCED_HOOKS_POST_TYPE' ) ) {
 
-					if ( ASTRA_ADVANCED_HOOKS_POST_TYPE !== $post_type ) {
+					$option = array(
+						'location'  => 'ast-advanced-hook-location',
+						'exclusion' => 'ast-advanced-hook-exclusion',
+						'users'     => 'ast-advanced-hook-users',
+					);
 
-						$action = get_post_meta( $post_id, 'ast-advanced-hook-action', true );
+					$result = Astra_Target_Rules_Fields::get_instance()->get_posts_by_conditions( ASTRA_ADVANCED_HOOKS_POST_TYPE, $option );
 
-						if ( $action && ( 'astra_content_top' === $action || 'astra_content_bottom' === $action ) ) {
-							$max_site_container_css = array(
-								'.site-content .ast-container' => array(
-									'display'   => 'flex',
-									'flex-wrap' => 'wrap',
-								),
-							);
+					if ( $result ) {
 
-							break;
-						} else {
-							$max_site_container_css = array(
-								'.site-content .ast-container' => array(
-									'display' => 'flex',
-								),
-							);
+						foreach ( $result as $post_id => $post_data ) {
+							
+							$post_type = get_post_type();
+		
+							if ( ASTRA_ADVANCED_HOOKS_POST_TYPE !== $post_type ) {
+		
+								$action = get_post_meta( $post_id, 'ast-advanced-hook-action', true );
+		
+								if ( $action && ( 'astra_content_top' === $action || 'astra_content_bottom' === $action ) ) {
+									$max_site_container_css = array(
+										'.site-content .ast-container' => array(
+											'display'   => 'flex',
+											'flex-wrap' => 'wrap',
+										),
+									);
+		
+									break;
+								}
+							}
 						}
 					}
 				}
@@ -4038,7 +4051,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user , true if not.
 		 */
 		public static function v4_block_editor_compat() {
-			$astra_settings = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['v4-block-editor-compat'] = isset( $astra_settings['v4-block-editor-compat'] ) ? false : true;
 			return apply_filters( 'astra_v4_block_editor_compat', $astra_settings['v4-block-editor-compat'] );
 		}

@@ -252,7 +252,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	';
 
 	$astra_wide_particular_selector = $astra_block_editor_v2_ui ? '.entry-content[ast-blocks-layout] > .alignwide' : '.entry-content[ast-blocks-layout] > .alignwide, .entry-content[ast-blocks-layout] .wp-block-cover__inner-container, .entry-content[ast-blocks-layout] > p';
-	$astra_full_stretched_selector  = $astra_block_editor_v2_ui ? '.ast-plain-container.ast-no-sidebar .entry-content > .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content > .alignfull' : '.ast-plain-container.ast-no-sidebar .entry-content .alignfull, .ast-page-builder-template .ast-no-sidebar .entry-content .alignfull';
+	$astra_full_stretched_selector  = $astra_block_editor_v2_ui ? '.ast-plain-container.ast-no-sidebar .entry-content > .alignfull:not(.wp-block-uagb-container), .ast-page-builder-template .ast-no-sidebar .entry-content > .alignfull' : '.ast-plain-container.ast-no-sidebar .entry-content .alignfull:not(.wp-block-uagb-container), .ast-page-builder-template .ast-no-sidebar .entry-content .alignfull';
 
 	$dynamic_css .= '
 	.entry-content > .wp-block-group, .entry-content > .wp-block-cover, .entry-content > .wp-block-columns {
@@ -401,7 +401,7 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 				width: auto;
 			}
 			@media(max-width: 1200px) {
-				.ast-separate-container .entry-content > .alignfull, .ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content .alignfull {
+				.ast-separate-container .entry-content > .alignfull:not(.wp-block-uagb-container), .ast-separate-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content[ast-blocks-layout] > .alignwide, .ast-plain-container .entry-content .alignfull:not(.wp-block-uagb-container) {
 					margin-left: ' . $alignwide_1200_left_negative_margin . ' ;
 					margin-right: ' . $alignwide_1200_right_negative_margin . ';
 				}

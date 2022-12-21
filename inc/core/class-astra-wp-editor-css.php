@@ -334,9 +334,8 @@ class Astra_WP_Editor_CSS {
 		// Site title (Page Title) on Block Editor.
 		$post_type                           = strval( get_post_type() );
 		$site_title_font_family              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-family', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-family' ) );
-		$site_title_font_weight              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-weight' ) );
-		$site_title_font_size                = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size' );
-		$site_title_font_size_fallback       = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-size', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' ) );
+		$site_title_font_weight              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-weight' ) );
+		$site_title_font_size                = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' ) );
 		$site_title_color                    = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-title-color', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-text-color' ) );
 		$site_title_font_extras              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-extras' );
 		$site_text_decoration                = astra_get_font_extras( $site_title_font_extras, 'text-decoration' );
@@ -361,9 +360,6 @@ class Astra_WP_Editor_CSS {
 		}
 		if ( '' == $site_title_font_size ) {
 			$site_title_font_size = $site_title_font_size_fallback;
-		}
-		if ( '' === $site_title_font_size['desktop'] ) {
-			$font_size_desktop_fallback = Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' );
 		}
 
 		// check the selection color in-case of empty/no theme color.
@@ -601,7 +597,7 @@ class Astra_WP_Editor_CSS {
 		 * Desktop site title.
 		 */
 		$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > h1'] = array(
-			'font-size'       => astra_responsive_font( isset( $font_size_desktop_fallback ) ? $font_size_desktop_fallback : $site_title_font_size, 'desktop' ),
+			'font-size'       => astra_responsive_font( $site_title_font_size, 'desktop' ),
 			'font-weight'     => astra_get_css_value( $site_title_font_weight, 'font' ),
 			'font-family'     => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
 			'text-transform'  => esc_attr( $site_title_text_transform ),

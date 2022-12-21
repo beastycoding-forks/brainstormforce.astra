@@ -610,10 +610,6 @@ class Astra_WP_Editor_CSS {
 			'text-decoration' => esc_attr( $site_title_decoration ),
 		);
 
-		$desktop_css['.editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper'] = array(
-			'text-decoration' => esc_attr( $site_text_decoration ),
-		);
-
 		/**
 		 * Block editor experience improvements & fixes introduced with v4.0.0.
 		 */

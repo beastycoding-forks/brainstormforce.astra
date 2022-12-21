@@ -358,9 +358,6 @@ class Astra_WP_Editor_CSS {
 		if ( 'inherit' == $site_title_font_weight || '' == $site_title_font_weight ) {
 			$site_title_font_weight = Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-weight' );
 		}
-		if ( '' == $site_title_font_size ) {
-			$site_title_font_size = $site_title_font_size_fallback;
-		}
 
 		// check the selection color in-case of empty/no theme color.
 		$selection_text_color = ( 'transparent' === $highlight_theme_color ) ? '' : $highlight_theme_color;

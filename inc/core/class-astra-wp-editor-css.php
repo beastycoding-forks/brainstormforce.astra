@@ -633,6 +633,9 @@ class Astra_WP_Editor_CSS {
 			'margin-top'    => '1.5em',
 			'margin-bottom' => '1.5em',
 		);
+		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-quote > p']            = array(
+			'margin-top'    => '0',
+		);
 		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-image']            = array(
 			'margin-bottom' => '1em',
 		);

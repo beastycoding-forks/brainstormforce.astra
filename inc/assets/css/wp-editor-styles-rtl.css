@@ -236,7 +236,6 @@ html {
   padding: 0 !important;
   box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
   transition: all 0.2s;
-  text-decoration: none;
 }
 
 .edit-post-visual-editor__post-title-wrapper .title-visibility:before {
@@ -461,7 +460,7 @@ pre.wp-block.wp-block-code {
 }
 
 .editor-styles-wrapper blockquote {
-  padding: 1.2em 1.2em 1.2em;
+  padding: 20px 20px 20px;
   margin: 1.5em;
   border: none;
 }

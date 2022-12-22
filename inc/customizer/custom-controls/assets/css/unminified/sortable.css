@@ -64,7 +64,7 @@
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-remove {
+.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     margin-right: -6px;
 }
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {

@@ -1987,46 +1987,6 @@ function hasWordPressWidgetBlockEditor() {
 			} );
 		} );
 
-		/**
-		 * Single product payments.
-		 */
-
-		wp.customize( 'astra-settings[single-product-payment-visa]', function( setting ) {
-			setting.bind( function( value ) {
-				wp.customize.preview.send( 'refresh' );
-			} );
-		} );
-
-		wp.customize( 'astra-settings[single-product-payment-mastercard]', function( setting ) {
-			setting.bind( function( value ) {
-				wp.customize.preview.send( 'refresh' );
-			} );
-		} );
-
-		wp.customize( 'astra-settings[single-product-payment-amex]', function( setting ) {
-			setting.bind( function( value ) {
-				wp.customize.preview.send( 'refresh' );
-			} );
-		} );
-
-		wp.customize( 'astra-settings[single-product-payment-discover]', function( setting ) {
-			setting.bind( function( value ) {
-				wp.customize.preview.send( 'refresh' );
-			} );
-		} );
-
-		wp.customize( 'astra-settings[single-product-payment-paypal]', function( setting ) {
-			setting.bind( function( value ) {
-				wp.customize.preview.send( 'refresh' );
-			} );
-		} );
-
-		wp.customize( 'astra-settings[single-product-payment-apple-pay]', function( setting ) {
-			setting.bind( function( value ) {
-				wp.customize.preview.send( 'refresh' );
-			} );
-		} );
-
 		wp.customize( 'astra-settings[single-product-payment-icon-color]', function( setting ) {
 			setting.bind( function( value ) {
 				wp.customize.preview.send( 'refresh' );

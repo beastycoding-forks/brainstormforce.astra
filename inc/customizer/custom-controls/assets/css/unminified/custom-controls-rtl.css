@@ -5474,7 +5474,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-remove {
+.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     margin-left: -6px;
 }
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
@@ -8655,7 +8655,7 @@ span.customize-control-title.ast-group-section-title {
 .ast-sortable-item.show:hover {
   opacity: 1;
 }
-.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-remove {
+.ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {
     margin-left: -6px;
 }
 .ast-sortable-item .dashicons-admin-page, .ast-sortable-item .dashicons-arrow-down-alt2, .ast-sortable-item .dashicons-remove {

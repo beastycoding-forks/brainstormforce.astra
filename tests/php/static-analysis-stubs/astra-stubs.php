@@ -2940,9 +2940,10 @@ namespace {
         /**
          * Secondary navigation markup
          *
-         * @param int $index index.
+         * @param int    $index index.
+         * @param string $device device.
          */
-        public static function menu_markup($index)
+        public static function menu_markup($index, $device = 'desktop')
         {
         }
     }
@@ -13513,7 +13514,7 @@ namespace {
     }
     /**
      * Load Menu hover style static CSS if any one of the menu hover style is selected.
-     *
+     * 
      * @return string
      * @since 3.5.0
      */

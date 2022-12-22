@@ -1,5 +1,7 @@
 v4.0.1 (Unreleased)
 - New : Add to cart actions added on shop for WooCommerce.
+- Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
+- New: WooCommerce - Sortable support for default payment options on single product page.
 
 v4.0.0 (Unreleased)
 - New: Redesigned the entire admin area with better user experience.

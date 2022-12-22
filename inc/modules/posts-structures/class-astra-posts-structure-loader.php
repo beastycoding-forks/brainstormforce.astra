@@ -33,6 +33,13 @@ class Astra_Posts_Structure_Loader {
 	 * @since x.x.x
 	 */
 	public function __construct() {
+		/**
+		 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.
+		 *
+		 * @since x.x.x
+		 */
+		$apply_new_default_color_typo_values = Astra_Dynamic_CSS::astra_check_default_color_typo();
+
 		self::$customizer_defaults['responsive-background'] = array(
 			'desktop' => array(
 				'background-color'      => '',
@@ -90,6 +97,30 @@ class Astra_Posts_Structure_Loader {
 			'mobile-unit'  => 'px',
 		);
 
+		self::$customizer_defaults['responsive-padding'] = array(
+			'desktop'      => array(
+				'top'    => 3,
+				'right'  => 3,
+				'bottom' => 3,
+				'left'   => 3,
+			),
+			'tablet'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'mobile'       => array(
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			),
+			'desktop-unit' => 'em',
+			'tablet-unit'  => 'em',
+			'mobile-unit'  => 'em',
+		);
+
 		self::$customizer_defaults['font-size'] = array(
 			'desktop'      => '',
 			'tablet'       => '',
@@ -98,6 +129,17 @@ class Astra_Posts_Structure_Loader {
 			'tablet-unit'  => 'px',
 			'mobile-unit'  => 'px',
 		);
+
+		self::$customizer_defaults['title-font-size'] = array(
+			'desktop'      => $apply_new_default_color_typo_values ? '32' : '',
+			'tablet'       => '',
+			'mobile'       => '',
+			'desktop-unit' => 'px',
+			'tablet-unit'  => 'px',
+			'mobile-unit'  => 'px',
+		);
+
+		self::$customizer_defaults['title-font-weight'] = $apply_new_default_color_typo_values ? '600' : 'inherit';
 
 		self::$customizer_defaults['responsive-slider'] = array(
 			'desktop' => '',
@@ -264,6 +306,40 @@ class Astra_Posts_Structure_Loader {
 	 */
 	public static function get_customizer_default( $key ) {
 		return isset( self::$customizer_defaults[ $key ] ) ? self::$customizer_defaults[ $key ] : array();
+	}
+
+	/**
+	 * Get dynamic font default.
+	 *
+	 * @param string $key Retrieve default for this parameter.
+	 *
+	 * @since x.x.x
+	 */
+	public static function astra_get_dynamic_font_extras_default( $dynamic_font_extras, $line_height, $text_transform, $type ) {
+		$astra_options = Astra_Theme_Options::get_astra_options();
+		switch ( $type ) {
+			case 'title':
+				$dynamic_line_height = '1.25';
+				break;
+			case 'text':
+				$dynamic_line_height = '1.625';
+				break;
+			case 'meta':
+				$dynamic_line_height = '1.45';
+				break;
+			default:
+				$dynamic_line_height = '';
+				break;
+		}
+
+		return array(
+			'line-height'         => ! isset( $astra_options[ $dynamic_font_extras ] ) && isset( $astra_options[ $line_height ] ) ? $astra_options[ $line_height ] : $dynamic_line_height,
+			'line-height-unit'    => 'em',
+			'letter-spacing'      => '',
+			'letter-spacing-unit' => 'px',
+			'text-transform'      => ! isset( $astra_options[ $dynamic_font_extras ] ) && isset( $astra_options[ $text_transform ] ) ? $astra_options[ $text_transform ] : '',
+			'text-decoration'     => '',
+		);
 	}
 }
 

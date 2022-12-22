@@ -87,7 +87,7 @@
 .ast-sortable-subfields-wrap .customize-control {
 	box-sizing: border-box;
     position: relative;
-    padding-right: 12px;
+    padding-right: 9px;
 }
 /**
  * ast-list-icons inside sortable compatibility CSS.

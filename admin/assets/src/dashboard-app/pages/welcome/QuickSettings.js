@@ -38,7 +38,7 @@ const QuickSettings = () => {
 						block.isPro
 						? 'pointer-events-none'
 						: '',
-						'focus:text-slate-400 text-slate-400 text-base truncate leading-7 focus:text-slate-400 focus-visible:text-slate-400-hover active:text-astra-hover group-hover:text-astra-hover'
+						'focus:text-slate-400 text-slate-400 text-base truncate leading-[1.625rem] focus-visible:text-slate-400-hover active:text-astra-hover group-hover:text-astra-hover'
 					) }
 					href={ block.quick_url } rel="noreferrer" target="_blank">{__( 'Customize', 'astra' )}
 				</a>

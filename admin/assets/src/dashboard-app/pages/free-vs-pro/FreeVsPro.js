@@ -94,12 +94,12 @@ const FreeVsPro = () => {
 													{ feature.name }
 												</td>
 												<td className="whitespace-nowrap capitalize px-3 py-4 text-base text-center text-slate-600">
-													<div className="flex justify-center">
+													<div className="flex justify-center font-medium">
 														{ checkStatus(feature.free) }
 													</div>
 												</td>
 												<td className="whitespace-nowrap capitalize px-3 py-4 text-base text-center text-slate-600">
-													<div className="flex justify-center">
+													<div className="flex justify-center font-medium">
 														{ checkStatus(feature.pro) }
 													</div>
 												</td>
@@ -135,7 +135,7 @@ const FreeVsPro = () => {
 					<div className="max-w-2xl text-center text-base text-slate-600 mb-7">
 						{__( "Get access to powerful features for painless WordPress designing, without the high costs. With all the time you will save, it’s a product that pays for itself!", "astra" )}
 					</div>
-					<button onClick={ onGetAstraPro } className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none">
+					<button onClick={ onGetAstraPro } className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-astra focus-visible:bg-astra-hover hover:bg-astra-hover focus:outline-none">
 						{ getAstraProTitle() }
 					</button>
 				</section>

@@ -67,7 +67,7 @@
 	opacity: 0.4;
 }
 
-.ast-menu-page-wrapper {
+.ast-menu-page-wrapper, .ast-kb-section {
 	font-family: Inter, sans-serif;
 }
 
@@ -159,6 +159,12 @@
 }
 [dir=rtl] .astra-dashboard-app button.bg-astra[aria-checked=true] .toggle-bubble {
     transform: translateX(18px);
+}
+
+/** Reverting tailwind build CSS for admin bar. */
+#wpadminbar img, #adminmenumain img {
+    display: initial;
+    vertical-align: initial;
 }
 
 @media (max-width: 781px) {

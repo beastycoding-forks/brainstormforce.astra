@@ -154,22 +154,8 @@ function astra_builder_button_css( builder_type = 'header', button_count ) {
 			'font-weight',
 			button_selector + ' .ast-custom-button'
 		);
-		astra_css(
-			'astra-settings[' + builder_type + '-' + prefix + '-text-transform]',
-			'text-transform',
-			button_selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[' + builder_type + '-' + prefix + '-line-height]',
-			'line-height',
-			button_selector + ' .ast-custom-button'
-		);
-		astra_css(
-			'astra-settings[' + builder_type + '-' + prefix + '-letter-spacing]',
-			'letter-spacing',
-			button_selector + ' .ast-custom-button',
-			'px'
-		);
+
+		astra_font_extras_css( builder_type + '-' + prefix + '-font-extras', button_selector + ' .ast-custom-button' );
 
 		// Border Radius.
 		astra_css(

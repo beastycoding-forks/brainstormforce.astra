@@ -49,12 +49,38 @@ const UpgradeNotices = () => {
 		} );
 	};
 
+	const onGetAstraPro = ( e ) => {
+		if( astra_admin.pro_installed_status ) {
+			const formData = new window.FormData();
+			formData.append( 'action', 'astra_recommended_plugin_activate' );
+			formData.append( 'security', astra_admin.plugin_manager_nonce );
+			formData.append( 'init', 'astra-addon/astra-addon.php' );
+			e.target.innerText = astra_admin.plugin_activating_text;
+
+			apiFetch( {
+				url: astra_admin.ajax_url,
+				method: 'POST',
+				body: formData,
+			} ).then( ( data ) => {
+				if( data.success ) {
+					window.open( astra_admin.astra_base_url, '_self' );
+				}
+			} );
+		} else {
+			onUpgradeLinkTrigger();
+		}
+	};
+
 	const onUpgradeLinkTrigger = () => {
 		window.open(
 			astra_admin.upgrade_url,
 			'_blank'
 		);
 	};
+
+	const getAstraProTitle = () => {
+		return astra_admin.pro_installed_status ? __( 'Activate Now', 'astra' ) : __( 'Upgrade Now', 'astra' );
+	}
 
 	return (
 		<section className='block px-8 py-8 justify-between'>
@@ -65,9 +91,9 @@ const UpgradeNotices = () => {
 				<button
 					type="button"
 					className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-astra transition focus:bg-astra-hover hover:bg-astra-hover focus:outline-none h-9"
-					onClick={onUpgradeLinkTrigger}
+					onClick={onGetAstraPro}
 				>
-					{__("Upgrade to Astra Pro", "astra")}
+					{ getAstraProTitle() }
 				</button>
 			</div>
 			<p className="mt-2 w-full md:w-9/12 text-sm text-slate-500 tablet:w-full">

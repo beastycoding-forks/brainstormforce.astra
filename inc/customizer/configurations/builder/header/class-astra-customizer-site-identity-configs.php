@@ -58,7 +58,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'type'           => 'control',
 					'control'        => 'ast-customizer-link',
 					'section'        => 'astra-site-identity',
-					'priority'       => 5,
+					'priority'       => 100,
 					'link_type'      => 'section',
 					'is_button_link' => true,
 					'linked'         => 'title_tagline',
@@ -125,7 +125,7 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'context'   => Astra_Builder_Helper::$design_tab,
 				),
 
-				
+
 				/**
 						 * Option: Divider
 						 */

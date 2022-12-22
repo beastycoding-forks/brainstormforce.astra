@@ -79,7 +79,7 @@ const UsefulPlugins = () => {
 		<div>
 			{astra_admin.useful_plugins.map((plugin, key) => (
 				<div
-					className={`${plugin.status === 'activated' ? '' : 'cursor-pointer hover:bg-[#F8FAFC] hover:shadow-hover'} flex justify-between items-start p-4 border-t border-slate-200 bg-white transition `}
+					className={`${plugin.status === 'activated' ? '' : 'hover:bg-[#F8FAFC] hover:shadow-hover'} flex justify-between items-start p-4 border-t border-slate-200 bg-white transition `}
 					key={key}
 				>
 					<div className="flex">
@@ -103,7 +103,7 @@ const UsefulPlugins = () => {
 						data-action={getAction(plugin.status)}
 						className={` ${getStatusClass(
 							plugin.status
-						)} p-0 m-0 capitalize text-sm leading-4 font-medium`}
+						)} p-0 m-0 capitalize text-sm leading-4 font-medium cursor-pointer`}
 						onClick={ handlePluginActionTrigger }
 					>
 						{ 'installed' == plugin.status ? astra_admin.plugin_activate_text : plugin.status }

@@ -263,6 +263,10 @@ input[type="text"].select2-search__field {
   font-weight: 600;
 }
 
+.ast-section-toggle:not(.active) > label {
+  cursor: default;
+}
+
 .ast-section-toggle-icon {
   color: var(--wp-admin-theme-color);
   cursor: pointer;

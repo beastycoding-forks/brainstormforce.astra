@@ -39,32 +39,40 @@ function astra_related_posts_css( $dynamic_css ) {
 		$mobile_grid        = ( isset( $related_posts_grid['mobile'] ) ) ? $related_posts_grid['mobile'] : 'full';
 
 		// Related Posts -> Post Title typography dyanamic stylings.
-		$related_post_title_font_family    = astra_get_option( 'related-posts-title-font-family' );
-		$related_post_title_font_weight    = astra_get_option( 'related-posts-title-font-weight' );
-		$related_post_title_font_size      = astra_get_option( 'related-posts-title-font-size' );
-		$related_post_title_line_height    = astra_get_option( 'related-posts-title-line-height' );
-		$related_post_title_text_transform = astra_get_option( 'related-posts-title-text-transform' );
+		$related_post_title_font_family     = astra_get_option( 'related-posts-title-font-family' );
+		$related_post_title_font_weight     = astra_get_option( 'related-posts-title-font-weight' );
+		$related_post_title_font_size       = astra_get_option( 'related-posts-title-font-size' );
+		$related_post_title_text_transform  = astra_get_font_extras( astra_get_option( 'related-posts-title-font-extras' ), 'text-transform' );
+		$related_post_title_line_height     = astra_get_font_extras( astra_get_option( 'related-posts-title-font-extras' ), 'line-height', 'line-height-unit' );
+		$related_post_title_letter_spacing  = astra_get_font_extras( astra_get_option( 'related-posts-title-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
+		$related_post_title_text_decoration = astra_get_font_extras( astra_get_option( 'related-posts-title-font-extras' ), 'text-decoration' );
 
 		// Related Posts -> Post Meta typography dyanamic stylings.
-		$related_post_meta_font_family    = astra_get_option( 'related-posts-meta-font-family' );
-		$related_post_meta_font_weight    = astra_get_option( 'related-posts-meta-font-weight' );
-		$related_post_meta_font_size      = astra_get_option( 'related-posts-meta-font-size' );
-		$related_post_meta_line_height    = astra_get_option( 'related-posts-meta-line-height' );
-		$related_post_meta_text_transform = astra_get_option( 'related-posts-meta-text-transform' );
+		$related_post_meta_font_family     = astra_get_option( 'related-posts-meta-font-family' );
+		$related_post_meta_font_weight     = astra_get_option( 'related-posts-meta-font-weight' );
+		$related_post_meta_font_size       = astra_get_option( 'related-posts-meta-font-size' );
+		$related_post_meta_text_transform  = astra_get_font_extras( astra_get_option( 'related-posts-meta-font-extras' ), 'text-transform' );
+		$related_post_meta_line_height     = astra_get_font_extras( astra_get_option( 'related-posts-meta-font-extras' ), 'line-height', 'line-height-unit' );
+		$related_post_meta_letter_spacing  = astra_get_font_extras( astra_get_option( 'related-posts-meta-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
+		$related_post_meta_text_decoration = astra_get_font_extras( astra_get_option( 'related-posts-meta-font-extras' ), 'text-decoration' );
 
 		// Related Posts -> Content typography dyanamic stylings.
-		$related_post_content_font_family    = astra_get_option( 'related-posts-content-font-family' );
-		$related_post_content_font_weight    = astra_get_option( 'related-posts-content-font-weight' );
-		$related_post_content_font_size      = astra_get_option( 'related-posts-content-font-size' );
-		$related_post_content_line_height    = astra_get_option( 'related-posts-content-line-height' );
-		$related_post_content_text_transform = astra_get_option( 'related-posts-content-text-transform' );
+		$related_post_content_font_family     = astra_get_option( 'related-posts-content-font-family' );
+		$related_post_content_font_weight     = astra_get_option( 'related-posts-content-font-weight' );
+		$related_post_content_font_size       = astra_get_option( 'related-posts-content-font-size' );
+		$related_post_content_text_transform  = astra_get_font_extras( astra_get_option( 'related-posts-content-font-extras' ), 'text-transform' );
+		$related_post_content_line_height     = astra_get_font_extras( astra_get_option( 'related-posts-content-font-extras' ), 'line-height', 'line-height-unit' );
+		$related_post_content_letter_spacing  = astra_get_font_extras( astra_get_option( 'related-posts-content-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
+		$related_post_content_text_decoration = astra_get_font_extras( astra_get_option( 'related-posts-content-font-extras' ), 'text-decoration' );
 
 		// Related Posts -> Section Title typography dyanamic stylings.
-		$related_posts_section_title_font_family    = astra_get_option( 'related-posts-section-title-font-family' );
-		$related_posts_section_title_font_size      = astra_get_option( 'related-posts-section-title-font-size' );
-		$related_posts_section_title_font_weight    = astra_get_option( 'related-posts-section-title-font-weight' );
-		$related_posts_section_title_line_height    = astra_get_option( 'related-posts-section-title-line-height' );
-		$related_posts_section_title_text_transform = astra_get_option( 'related-posts-section-title-text-transform' );
+		$related_posts_section_title_font_family     = astra_get_option( 'related-posts-section-title-font-family' );
+		$related_posts_section_title_font_size       = astra_get_option( 'related-posts-section-title-font-size' );
+		$related_posts_section_title_font_weight     = astra_get_option( 'related-posts-section-title-font-weight' );
+		$related_posts_section_title_text_transform  = astra_get_font_extras( astra_get_option( 'related-posts-section-title-font-extras' ), 'text-transform' );
+		$related_posts_section_title_line_height     = astra_get_font_extras( astra_get_option( 'related-posts-section-title-font-extras' ), 'line-height', 'line-height-unit' );
+		$related_posts_section_title_letter_spacing  = astra_get_font_extras( astra_get_option( 'related-posts-section-title-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
+		$related_posts_section_title_text_decoration = astra_get_font_extras( astra_get_option( 'related-posts-section-title-font-extras' ), 'text-decoration' );
 
 		// Setting up container BG color by default to Related Posts's section BG color.
 		$content_bg_obj     = astra_get_option( 'content-bg-obj-responsive' );
@@ -101,35 +109,41 @@ function astra_related_posts_css( $dynamic_css ) {
 			 * Related Posts - Section Title
 			 */
 			'.ast-related-posts-title'            => array(
-				'color'          => esc_attr( $related_posts_title_color ),
-				'font-family'    => astra_get_css_value( $related_posts_section_title_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $related_posts_section_title_font_weight, 'font' ),
-				'font-size'      => astra_responsive_font( $related_posts_section_title_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $related_posts_section_title_line_height ),
-				'text-transform' => esc_attr( $related_posts_section_title_text_transform ),
-				'text-align'     => esc_attr( $related_posts_title_alignment ),
+				'color'           => esc_attr( $related_posts_title_color ),
+				'font-family'     => astra_get_css_value( $related_posts_section_title_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $related_posts_section_title_font_weight, 'font' ),
+				'font-size'       => astra_responsive_font( $related_posts_section_title_font_size, 'desktop' ),
+				'line-height'     => esc_attr( $related_posts_section_title_line_height ),
+				'text-transform'  => esc_attr( $related_posts_section_title_text_transform ),
+				'text-decoration' => esc_attr( $related_posts_section_title_text_decoration ),
+				'letter-spacing'  => esc_attr( $related_posts_section_title_letter_spacing ),
+				'text-align'      => esc_attr( $related_posts_title_alignment ),
 			),
 			/**
 			 * Related Posts - Post Title
 			 */
 			'.ast-related-post-content .entry-header .ast-related-post-title, .ast-related-post-content .entry-header .ast-related-post-title a' => array(
-				'font-family'    => astra_get_css_value( $related_post_title_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $related_post_title_font_weight, 'font' ),
-				'font-size'      => astra_responsive_font( $related_post_title_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $related_post_title_line_height ),
-				'text-transform' => esc_attr( $related_post_title_text_transform ),
-				'color'          => esc_attr( $related_post_text_color ),
+				'font-family'     => astra_get_css_value( $related_post_title_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $related_post_title_font_weight, 'font' ),
+				'font-size'       => astra_responsive_font( $related_post_title_font_size, 'desktop' ),
+				'line-height'     => esc_attr( $related_post_title_line_height ),
+				'text-transform'  => esc_attr( $related_post_title_text_transform ),
+				'text-decoration' => esc_attr( $related_post_title_text_decoration ),
+				'letter-spacing'  => esc_attr( $related_post_title_letter_spacing ),
+				'color'           => esc_attr( $related_post_text_color ),
 			),
 			/**
 			 * Related Posts - Meta
 			 */
 			'.ast-related-post-content .entry-meta, .ast-related-post-content .entry-meta *' => array(
-				'font-family'    => astra_get_css_value( $related_post_meta_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $related_post_meta_font_weight, 'font' ),
-				'font-size'      => astra_responsive_font( $related_post_meta_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $related_post_meta_line_height ),
-				'text-transform' => esc_attr( $related_post_meta_text_transform ),
-				'color'          => esc_attr( $related_posts_meta_color ),
+				'font-family'     => astra_get_css_value( $related_post_meta_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $related_post_meta_font_weight, 'font' ),
+				'font-size'       => astra_responsive_font( $related_post_meta_font_size, 'desktop' ),
+				'line-height'     => esc_attr( $related_post_meta_line_height ),
+				'text-transform'  => esc_attr( $related_post_meta_text_transform ),
+				'text-decoration' => esc_attr( $related_post_meta_text_decoration ),
+				'letter-spacing'  => esc_attr( $related_post_meta_letter_spacing ),
+				'color'           => esc_attr( $related_posts_meta_color ),
 			),
 			'.ast-related-post-content .entry-meta a:hover, .ast-related-post-content .entry-meta span a span:hover' => array(
 				'color' => esc_attr( $related_posts_meta_link_hover_color ),
@@ -147,12 +161,14 @@ function astra_related_posts_css( $dynamic_css ) {
 			 * Related Posts - Content
 			 */
 			'.ast-related-post-excerpt'           => array(
-				'font-family'    => astra_get_css_value( $related_post_content_font_family, 'font' ),
-				'font-weight'    => astra_get_css_value( $related_post_content_font_weight, 'font' ),
-				'font-size'      => astra_responsive_font( $related_post_content_font_size, 'desktop' ),
-				'line-height'    => esc_attr( $related_post_content_line_height ),
-				'text-transform' => esc_attr( $related_post_content_text_transform ),
-				'color'          => esc_attr( $related_post_text_color ),
+				'font-family'     => astra_get_css_value( $related_post_content_font_family, 'font' ),
+				'font-weight'     => astra_get_css_value( $related_post_content_font_weight, 'font' ),
+				'font-size'       => astra_responsive_font( $related_post_content_font_size, 'desktop' ),
+				'line-height'     => esc_attr( $related_post_content_line_height ),
+				'text-transform'  => esc_attr( $related_post_content_text_transform ),
+				'text-decoration' => esc_attr( $related_post_content_text_decoration ),
+				'letter-spacing'  => esc_attr( $related_post_content_letter_spacing ),
+				'color'           => esc_attr( $related_post_text_color ),
 			),
 		);
 

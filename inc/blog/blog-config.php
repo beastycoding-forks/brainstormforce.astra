@@ -63,7 +63,7 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 	/**
 	 * Post meta
 	 *
-	 * @param  array $post_meta Post meta.
+	 * @param  array  $post_meta Post meta.
 	 * @param  string $separator Separator.
 	 * @return string            post meta markup.
 	 */
@@ -79,11 +79,8 @@ if ( ! function_exists( 'astra_get_post_meta' ) ) {
 			switch ( $meta_value ) {
 
 				case 'author':
-					$author = get_the_author();
-					if ( ! empty( $author ) ) {
-						$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
-						$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
-					}
+					$output_str .= ( 1 != $loop_count && '' != $output_str ) ? ' ' . $separator . ' ' : '';
+					$output_str .= esc_html( astra_default_strings( 'string-blog-meta-author-by', false ) ) . astra_post_author();
 					break;
 
 				case 'date':
@@ -166,6 +163,37 @@ if ( ! function_exists( 'astra_post_date' ) ) {
 }
 
 /**
+ * Function to get Author name.
+ *
+ * @return null|string $author_name Author name.
+ * @since x.x.x
+ */
+function astra_post_author_name() {
+	$author_name = '';
+	if ( empty( get_the_author() ) ) {
+		/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		global $post;
+		/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		if ( is_object( $post ) && isset( $post->post_author ) ) {
+			$user_id = $post->post_author;
+			/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			global $authordata;
+				/** @psalm-suppress InvalidGlobal */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$author_data = '';
+			if ( ! $authordata ) {
+				$author_data = get_userdata( $user_id );
+			}
+
+			$author_name = esc_attr( ! empty( $author_data ) ? $author_data->display_name : '' );
+		}
+	} else {
+		$author_name = get_the_author();
+	}
+
+	return $author_name;
+}
+
+/**
  * Function to get Author of Post
  *
  * @since 1.0.0
@@ -212,7 +240,7 @@ if ( ! function_exists( 'astra_post_author' ) ) {
 						)
 					);
 				?>
-				><?php echo get_the_author(); ?></span>
+				><?php echo astra_post_author_name(); ?></span>
 			</a>
 		</span>
 

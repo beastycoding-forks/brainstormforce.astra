@@ -193,11 +193,6 @@ html {
   padding-left: 10px;
 }
 
-.wp-embed-responsive.editor-styles-wrapper [data-block] {
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
 .wp-embed-responsive.editor-styles-wrapper .wp-block-pullquote {
   border: none;
 }
@@ -225,14 +220,6 @@ html {
   margin-bottom: 1.5em;
 }
 
-.edit-post-visual-editor__post-title-wrapper:hover h1.editor-post-title__input {
-  box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
-}
-
-.edit-post-visual-editor__post-title-wrapper:hover .title-visibility {
-  opacity: 1;
-}
-
 .edit-post-visual-editor__post-title-wrapper .title-visibility {
   cursor: pointer;
   font-size: 18px;
@@ -249,16 +236,7 @@ html {
   padding: 0 !important;
   box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
   transition: all 0.2s;
-}
-
-.edit-post-visual-editor__post-title-wrapper .title-visibility:hover {
-  opacity: 1;
-  color: var(--wp-admin-theme-color);
-}
-
-.edit-post-visual-editor__post-title-wrapper .title-visibility:hover:after {
-  opacity: 1;
-  visibility: visible;
+  text-decoration: none;
 }
 
 .edit-post-visual-editor__post-title-wrapper .title-visibility:before {
@@ -305,6 +283,15 @@ html {
 .edit-post-visual-editor__post-title-wrapper h1.editor-post-title__input.is-selected + .title-visibility {
   opacity: 1;
   color: var(--wp-admin-theme-color);
+}
+
+.edit-post-visual-editor__post-title-wrapper .ast-show-visibility-icon {
+  opacity: 1;
+  color: var(--wp-admin-theme-color);
+}
+
+.edit-post-visual-editor__post-title-wrapper .ast-show-editor-title-outline {
+  box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 }
 
 .edit-post-visual-editor__post-title-wrapper.invisible {
@@ -474,7 +461,7 @@ pre.wp-block.wp-block-code {
 }
 
 .editor-styles-wrapper blockquote {
-  padding: 0 1.2em 1.2em;
+  padding: 1.2em 1.2em 1.2em;
   margin: 1.5em;
   border: none;
 }
@@ -685,4 +672,9 @@ pre.wp-block.wp-block-code {
   left: 15px;
   right: auto;
   margin: -0.5em 0 0 -0.5em;
+}
+
+.wp-core-ui .components-angle-picker-control .components-input-control__container .components-input-control__input {
+  padding-right: 10px;
+  padding-left: 10px;
 }

@@ -969,6 +969,26 @@ function astra_search_static_css() {
 }
 
 /**
+ * Function which will return CSS for font-extras control.
+ * It includes - line-height, letter-spacing, text-decoration, font-style.
+ *
+ * @param array  $config contains extra font settings.
+ * @param string $setting basis on this setting will return.
+ * @param mixed  $unit Unit.
+ *
+ * @since x.x.x
+ */
+function astra_get_font_extras( $config, $setting, $unit = false ) {
+	$css = isset( $config[ $setting ] ) ? $config[ $setting ] : '';
+
+	if ( $unit && $css ) {
+		$css .= isset( $config[ $unit ] ) ? $config[ $unit ] : '';
+	}
+
+	return $css;
+}
+
+/**
  * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
  *
  * @since 3.9.4

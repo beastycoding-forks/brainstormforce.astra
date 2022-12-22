@@ -1369,30 +1369,30 @@ if ( ! function_exists( 'astra_entry_header_class' ) ) {
 				switch ( $structure_key ) {
 					case 'single-title':
 						if ( empty( $title_markup ) ) {
-							$classes[] = 'ast-no-title';
+							$classes[]                      = 'ast-no-title';
 							$header_without_markup_counter += 1;
 						}
-					break;
+						break;
 					case 'single-excerpt':
 						if ( empty( get_the_excerpt() ) ) {
-							$classes[] = 'ast-no-excerpt';
+							$classes[]                      = 'ast-no-excerpt';
 							$header_without_markup_counter += 1;
 						}
-					break;
+						break;
 					case 'single-meta':
 						if ( empty( $post_meta_markup ) ) {
-							$classes[] = 'ast-no-meta';
+							$classes[]                      = 'ast-no-meta';
 							$header_without_markup_counter += 1;
 						}
-					break;
+						break;
 					case 'single-image':
 						if ( empty( $thumb_markup ) ) {
-							$classes[] = 'ast-no-thumbnail';
+							$classes[]                      = 'ast-no-thumbnail';
 							$header_without_markup_counter += 1;
 						}
-					break;
+						break;
 					default:
-					break;
+						break;
 				}
 			}
 

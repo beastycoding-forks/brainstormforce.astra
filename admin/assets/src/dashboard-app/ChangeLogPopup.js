@@ -123,7 +123,7 @@ const ChangeLogPopup = () => {
 																index
 															].description;
 														const link =
-															"https://wpastra.com/changelog/";
+															"https://wpastra.com/changelog/?utm_source=wp&utm_medium=dashboard";
 														const pubDate =
 															activeChangeLog[
 																index

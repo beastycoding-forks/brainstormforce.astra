@@ -195,18 +195,20 @@ if ( ! class_exists( 'Astra_Enqueue_Scripts' ) ) {
 
 				if( ! is_customize_preview() ) {
 					$astra_shop_add_to_cart      = astra_get_option( 'shop-add-to-cart-action' );
-
+	
 					if ( class_exists( 'WooCommerce' ) && $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart ) {
 						$default_assets['js']['astra-shop-add-to-cart'] = 'shop-add-to-cart';
 					}
 				}
-				/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-				$astra_add_to_cart_quantity_btn_enabled = apply_filters( 'astra_add_to_cart_quantity_btn_enabled', astra_get_option( 'single-product-plus-minus-button' ) );
-
-				if ( class_exists( 'WooCommerce' ) && $astra_add_to_cart_quantity_btn_enabled ) {
-					$default_assets['js']['astra-add-to-cart-quantity-btn'] = 'add-to-cart-quantity-btn';
-				}
 			}
+
+			/** @psalm-suppress UndefinedFunction */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$astra_add_to_cart_quantity_btn_enabled = apply_filters( 'astra_add_to_cart_quantity_btn_enabled', astra_get_option( 'single-product-plus-minus-button' ) );
+
+			if ( class_exists( 'WooCommerce' ) && $astra_add_to_cart_quantity_btn_enabled ) {
+				$default_assets['js']['astra-add-to-cart-quantity-btn'] = 'add-to-cart-quantity-btn';
+			}
+
 			return apply_filters( 'astra_theme_assets', $default_assets );
 		}
 

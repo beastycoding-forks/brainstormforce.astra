@@ -3550,6 +3550,15 @@ namespace {
         {
         }
         /**
+         * Block editor experience improvements css introduced with v4.0.0.
+         *
+         * @since x.x.x
+         * @return boolean false if it is an existing user, true if not.
+         */
+        public static function v4_block_editor_compat()
+        {
+        }
+        /**
          * Font CSS support for widget-title heading fonts & fonts which are not working in editor.
          *
          * 1. Adding Font-weight support to widget titles.
@@ -3607,6 +3616,14 @@ namespace {
          * @return string static css for Woocommerce and EDD card.
          */
         public static function load_cart_static_css()
+        {
+        }
+        /**
+         * Check is new structural things are updated.
+         *
+         * @return bool true|false.
+         */
+        public static function astra_check_default_color_typo()
         {
         }
     }
@@ -5134,7 +5151,7 @@ namespace {
         /**
          * Return starter content definition.
          *
-         * @return mixed|void
+         * @return mixed|void 
          * @since x.x.x
          */
         public function get()
@@ -6897,6 +6914,12 @@ namespace {
          */
         public static $default_responsive_spacing = array('desktop' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'tablet' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'mobile' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'desktop-unit' => 'px', 'tablet-unit' => 'px', 'mobile-unit' => 'px');
         /**
+         * Default button responsive spacing control value.
+         *
+         * @var string[][]
+         */
+        public static $default_button_responsive_spacing = array('desktop' => array('top' => '12', 'right' => '20', 'bottom' => '12', 'left' => '20'), 'tablet' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'mobile' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'desktop-unit' => 'px', 'tablet-unit' => 'px', 'mobile-unit' => 'px');
+        /**
          * Config Tablet device context.
          *
          * @var string[][]
@@ -7267,6 +7290,14 @@ namespace {
          * @since 3.9.4
          */
         public static function add_custom_fields($id, $item, $depth, $args)
+        {
+        }
+        /**
+         * Get register & enqueue astra-admin scripts.
+         *
+         * @since 3.6.6
+         */
+        public static function load_astra_admin_script()
         {
         }
         /**
@@ -7649,6 +7680,14 @@ namespace {
         {
         }
         /**
+         * Get astra-options DB values.
+         *
+         * @return array Return array of theme options from database.
+         */
+        public static function get_astra_options()
+        {
+        }
+        /**
          * Get theme options from static array() from database
          *
          * @return array    Return array of theme options from database.
@@ -7748,7 +7787,7 @@ namespace {
         public function __construct()
         {
         }
-        /**
+        /** 
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7758,7 +7797,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /**
+        /** 
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7768,7 +7807,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7778,7 +7817,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7788,7 +7827,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -7798,7 +7837,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /**
+        /** 
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -7808,7 +7847,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /**
+        /** 
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -7817,7 +7856,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /**
+        /** 
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -7862,16 +7901,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /**
+        /** 
          * Comment form grid classes.
          *
-         * @since 3.3.0
+         * @since 3.3.0 
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /**
+        /** 
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -7880,7 +7919,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /**
+        /** 
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -7888,7 +7927,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /**
+        /** 
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -7896,7 +7935,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /**
+        /** 
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -7904,7 +7943,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /**
+        /** 
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -7912,7 +7951,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /**
+        /** 
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -7920,7 +7959,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /**
+        /** 
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -7930,7 +7969,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7940,7 +7979,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -7970,7 +8009,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         *
+         * 
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -9247,9 +9286,10 @@ namespace {
          *
          * @param string $section_id section id.
          * @param array  $required_condition Required Condition.
+         * @param array  $divider_setup Required divider setup.
          * @return array
          */
-        public static function prepare_typography_options($section_id, $required_condition = array())
+        public static function prepare_typography_options($section_id, $required_condition = array(), $divider_setup = array())
         {
         }
         /**
@@ -11745,6 +11785,16 @@ namespace {
         public static function get_customizer_default($key)
         {
         }
+        /**
+         * Get dynamic font default.
+         *
+         * @param string $key Retrieve default for this parameter.
+         *
+         * @since x.x.x
+         */
+        public static function astra_get_dynamic_font_extras_default($dynamic_font_extras, $line_height, $text_transform, $type)
+        {
+        }
     }
     /**
      * Register Posts Structures Customizer Configurations.
@@ -12780,7 +12830,7 @@ namespace {
     \define('ASTRA_THEME_SETTINGS', 'astra-settings');
     \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
     \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
-    \define('ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/');
+    \define('ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/?utm_source=wp&utm_medium=dashboard');
     /**
      * Minimum Version requirement of the Astra Pro addon.
      * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
@@ -12947,7 +12997,7 @@ namespace {
     /**
      * Post meta
      *
-     * @param  array $post_meta Post meta.
+     * @param  array  $post_meta Post meta.
      * @param  string $separator Separator.
      * @return string            post meta markup.
      */
@@ -12960,6 +13010,15 @@ namespace {
      * @return html                Markup.
      */
     function astra_post_date()
+    {
+    }
+    /**
+     * Function to get Author name.
+     *
+     * @return null|string $author_name Author name.
+     * @since x.x.x
+     */
+    function astra_post_author_name()
     {
     }
     /**
@@ -13097,14 +13156,6 @@ namespace {
     {
     }
     /**
-     * Blog post Thumbnail
-     *
-     * @since  1.0.8
-     */
-    function astra_get_single_post_title_meta()
-    {
-    }
-    /**
      * Get audio files from post content
      *
      * @param  number $post_id Post id.
@@ -13133,13 +13184,13 @@ namespace {
     function astra_get_last_meta_word($string)
     {
     }
-	/**
-	 * Get the current archive description.
-	 *
-	 * @since x.x.x
-	 * @param string $post_type post type.
-	 * @return string $description Description for archive.
-	 */
+    /**
+     * Get the current archive description.
+     *
+     * @since x.x.x
+     * @param string $post_type post type.
+     * @return string $description Description for archive.
+     */
     function astra_get_archive_description($post_type)
     {
     }
@@ -13722,7 +13773,7 @@ namespace {
     }
     /**
      * Home starter content.
-     *
+     * 
      * @since x.x.x
      * @package Astra\Compatibility\Starter_Content
      */
@@ -15558,7 +15609,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css
+     * @param string $dynamic_css 
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -15985,6 +16036,19 @@ namespace {
     {
     }
     /**
+     * Function which will return CSS for font-extras control.
+     * It includes - line-height, letter-spacing, text-decoration, font-style.
+     *
+     * @param array  $config contains extra font settings.
+     * @param string $setting basis on this setting will return.
+     * @param mixed  $unit Unit.
+     *
+     * @since x.x.x
+     */
+    function astra_get_font_extras($config, $setting, $unit = \false)
+    {
+    }
+    /**
      * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
      *
      * @since 3.9.4
@@ -16330,8 +16394,8 @@ namespace {
     }
     /**
      * Astra entry header class
-	 *
-	 * @param bool $echo output being echoed or not.
+     *
+     * @param bool $echo output being echoed or not.
      *
      * @since 1.0.15
      */

@@ -78,11 +78,16 @@ class Astra_Button_Component_Dynamic_CSS {
 			$button_border_h_color_mobile  = astra_get_prop( astra_get_option( $builder_type . '-' . $_prefix . '-border-h-color' ), 'mobile' );
 
 			// Typography controls.
-			$button_font_family    = astra_get_option( $builder_type . '-' . $_prefix . '-font-family', 'inherit' );
-			$button_font_weight    = astra_get_option( $builder_type . '-' . $_prefix . '-font-weight', 'inherit' );
-			$button_text_transform = astra_get_option( $builder_type . '-' . $_prefix . '-text-transform' );
-			$button_line_height    = astra_get_option( $builder_type . '-' . $_prefix . '-line-height' );
-			$button_letter_spacing = astra_get_option( $builder_type . '-' . $_prefix . '-letter-spacing' );
+			$button_font_family = astra_get_option( $builder_type . '-' . $_prefix . '-font-family', 'inherit' );
+			$button_font_weight = astra_get_option( $builder_type . '-' . $_prefix . '-font-weight', 'inherit' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$button_text_transform = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'text-transform' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$button_line_height = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'line-height', 'line-height-unit' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$button_letter_spacing = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'letter-spacing', 'letter-spacing-unit' );
+			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$button_text_decoration = astra_get_font_extras( astra_get_option( $builder_type . '-' . $_prefix . '-font-extras' ), 'text-decoration' );
 
 			/**
 			 * Button CSS.
@@ -94,12 +99,13 @@ class Astra_Button_Component_Dynamic_CSS {
 				 */
 				$selector . '[data-section*="section-' . $context . '-button-"] .ast-builder-button-wrap .ast-custom-button' => array(
 					// Typography.
-					'font-family'    => astra_get_css_value( $button_font_family, 'font' ),
-					'font-weight'    => astra_get_css_value( $button_font_weight, 'font' ),
-					'line-height'    => esc_attr( $button_line_height ),
-					'text-transform' => esc_attr( $button_text_transform ),
-					'letter-spacing' => astra_get_css_value( $button_letter_spacing, 'px' ),
-					'font-size'      => astra_responsive_font( $button_font_size, 'desktop' ),
+					'font-family'     => astra_get_css_value( $button_font_family, 'font' ),
+					'font-weight'     => astra_get_css_value( $button_font_weight, 'font' ),
+					'line-height'     => esc_attr( $button_line_height ),
+					'text-transform'  => esc_attr( $button_text_transform ),
+					'letter-spacing'  => esc_attr( $button_letter_spacing ),
+					'font-size'       => astra_responsive_font( $button_font_size, 'desktop' ),
+					'text-decoration' => esc_attr( $button_text_decoration ),
 				),
 
 				/**

@@ -889,7 +889,7 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 			'background-attachment' => 'scroll',
 		),
 		'tablet'  => array(
-			'background-color'      => '',
+			'background-color'      => $apply_new_default_color_typo_values ? 'var(--ast-global-color-5)' : '',
 			'background-image'      => '',
 			'background-repeat'     => 'repeat',
 			'background-position'   => 'center center',
@@ -907,32 +907,32 @@ function astra_hf_builder_customizer_defaults( $defaults ) {
 	);
 
 	$defaults['header-mobile-menu-color-responsive'] = array(
-		'desktop' => '',
-		'tablet'  => '',
+		'desktop' => $apply_new_default_color_typo_values ? 'var(--ast-global-color-3)' : '',
+		'tablet'  => $apply_new_default_color_typo_values ? 'var(--ast-global-color-3)' : '',
+		'mobile'  => '',
+	);
+
+	$defaults['header-mobile-menu-h-color-responsive'] = array(
+		'desktop' => $apply_new_default_color_typo_values ? 'var(--ast-global-color-1)' : '',
+		'tablet'  => $apply_new_default_color_typo_values ? 'var(--ast-global-color-1)' : '',
+		'mobile'  => '',
+	);
+
+	$defaults['header-mobile-menu-a-color-responsive'] = array(
+		'desktop' => $apply_new_default_color_typo_values ? 'var(--ast-global-color-1)' : '',
+		'tablet'  => $apply_new_default_color_typo_values ? 'var(--ast-global-color-1)' : '',
 		'mobile'  => '',
 	);
 
 	$defaults['header-mobile-menu-h-bg-color-responsive'] = array(
 		'desktop' => '',
-		'tablet'  => '',
-		'mobile'  => '',
-	);
-
-	$defaults['header-mobile-menu-h-color-responsive'] = array(
-		'desktop' => '',
-		'tablet'  => '',
+		'tablet'  => $apply_new_default_color_typo_values ? 'var(--ast-global-color-4)' : '',
 		'mobile'  => '',
 	);
 
 	$defaults['header-mobile-menu-a-bg-color-responsive'] = array(
 		'desktop' => '',
-		'tablet'  => '',
-		'mobile'  => '',
-	);
-
-	$defaults['header-mobile-menu-a-color-responsive'] = array(
-		'desktop' => '',
-		'tablet'  => '',
+		'tablet'  => $apply_new_default_color_typo_values ? 'var(--ast-global-color-4)' : '',
 		'mobile'  => '',
 	);
 

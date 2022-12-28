@@ -335,7 +335,6 @@ class Astra_WP_Editor_CSS {
 		$site_title_font_weight              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-weight', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-weight' ) );
 		$site_title_font_size                = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-size' );
 		$site_title_font_size_fallback       = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-size', Astra_Posts_Structure_Loader::get_customizer_default( 'title-font-size' ) );
-		$site_title_color                    = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-title-color', astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-banner-text-color' ) );
 		$site_title_font_extras              = astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-text-font-extras' );
 		$site_text_decoration                = astra_get_font_extras( $site_title_font_extras, 'text-decoration' );
 		$site_title_text_transform           = astra_get_font_extras( astra_get_option( 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras', $site_title_font_extras ), 'text-transform' );
@@ -597,7 +596,6 @@ class Astra_WP_Editor_CSS {
 			'font-weight'     => astra_get_css_value( $site_title_font_weight, 'font' ),
 			'font-family'     => astra_get_css_value( $site_title_font_family, 'font', $body_font_family ),
 			'text-transform'  => esc_attr( $site_title_text_transform ),
-			'color'           => esc_attr( $site_title_color ),
 			'letter-spacing'  => esc_attr( $site_title_spacing ),
 			'text-decoration' => esc_attr( $site_title_decoration ),
 		);

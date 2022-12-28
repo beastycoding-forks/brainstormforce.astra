@@ -274,20 +274,20 @@ if ( ! function_exists( 'astra_single_post_navigation_markup' ) ) {
 	}
 }
 
+
 /**
  * Set post navigation layout.
+ *
+ * @since x.x.x
  */
-if ( ! function_exists( 'astra_set_single_post_navigation_position' ) ) {
+function astra_set_single_post_navigation_position() {
+	$navigation_position = astra_get_option( 'single-post-navigation-position' );
 
-	function astra_set_single_post_navigation_position() {
-		$navigation_position = astra_get_option( 'single-post-navigation-position' );
-
-		if( $navigation_position && 'inside' === $navigation_position ) {
-			add_action( 'astra_entry_bottom', 'astra_single_post_navigation_markup' );
-		} else {
-			add_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
-		}
+	if ( $navigation_position && 'inside' === $navigation_position ) {
+		add_action( 'astra_entry_bottom', 'astra_single_post_navigation_markup' );
+	} else {
+		add_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
 	}
 }
 
-add_action( 'wp', 'astra_set_single_post_navigation_position');
+add_action( 'wp', 'astra_set_single_post_navigation_position' );

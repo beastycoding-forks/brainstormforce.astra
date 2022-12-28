@@ -81,24 +81,24 @@ const Welcome = () => {
 												","}
 										</p>
 										<div className="flex">
-											<h2 className="text-slate-800 text-[2rem] leading-10 pb-3 font-medium text-left">
+											<h2 className="text-slate-800 text-[2rem] leading-10 pb-3 font-semibold text-left">
 												{__(
 													`Welcome to ${astra_admin.theme_name}`,
 													"astra"
 												)}
 											</h2>
 											{ astra_admin.pro_available ? (
-												<span className="ml-2 h-full inline-flex leading-[0.7rem] flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem] -tablet:mt:10">
+												<span className="ml-2 h-full inline-flex leading-[1rem] font-medium flex-shrink-0 py-[0rem] px-1.5 text-[0.625rem] text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem] -tablet:mt:10">
 													{ __( 'PRO', 'astra' ) }
 												</span> )
 											:
-												( <span className="ml-2 h-full inline-flex leading-[0.7rem] flex-shrink-0 py-0.5 px-1 text-[0.625rem] text-astra bg-blue-50 border border-blue-50 rounded-[0.1875rem] font-semibold -tablet:mt:10">
+												( <span className="ml-2 h-full inline-flex leading-[1rem] flex-shrink-0 py-[0rem] px-1.5 text-[0.625rem] text-astra bg-blue-50 border border-blue-50 rounded-[0.1875rem] font-medium -tablet:mt:10">
 													{ __( 'FREE', 'astra' ) }
 												</span> )
 											}
 										</div>
 
-										<p className="text-base leading-[1.625rem] text-slate-500 pb-7">
+										<p className="text-base leading-[1.625rem] text-slate-600 pb-7">
 											{__(
 												`${astra_admin.theme_name} is fast, fully customizable & beautiful WordPress theme suitable for blog, personal portfolio, business website and WooCommerce storefront. It is very lightweight and offers unparalleled speed.`,
 												"astra"
@@ -297,14 +297,14 @@ const Welcome = () => {
 								</h2>
 								<div className="relative box-border border border-sky-500 rounded-md bg-white shadow-sm overflow-hidden transition hover:shadow-hover">
 									<div className="p-6">
-										<h3 className="relative flex items-center text-slate-800 text-base font-medium pb-2">
+										<h3 className="relative flex items-center text-slate-800 text-base font-semibold pb-2">
 											<span className="flex-1">
 												{__(
 													"Priority Support",
 													"astra"
 												)}
 											</span>
-											<span className="text-[0.625rem] leading-[0.7rem] text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-0.5 px-1 self-start">
+											<span className="text-[0.625rem] leading-[1rem] font-medium text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem] relative inline-flex flex-shrink-0 py-[0rem] px-1.5 self-start">
 												{__("PRO", "astra")}
 											</span>
 										</h3>
@@ -332,7 +332,7 @@ const Welcome = () => {
 								</h2>
 								<div className="box-border rounded-md bg-white shadow-sm overflow-hidden transition hover:shadow-hover">
 									<div className="p-6">
-										<h3 className="text-slate-800 text-base font-medium pb-2">
+										<h3 className="text-slate-800 text-base font-semibold pb-2">
 											{__("Join the Community", "astra")}
 										</h3>
 										<p className="text-slate-500 text-sm pb-5">
@@ -359,7 +359,7 @@ const Welcome = () => {
 								</h2>
 								<div className="box-border rounded-md bg-white shadow-sm overflow-hidden transition hover:shadow-hover">
 									<div className="p-6">
-										<h3 className="text-slate-800 text-base font-medium pb-2">
+										<h3 className="text-slate-800 text-base font-semibold pb-2">
 											{__("Rate Us", "astra")}
 										</h3>
 										<p className="text-slate-500 text-sm pb-2.5 pr-12 flex items-center">

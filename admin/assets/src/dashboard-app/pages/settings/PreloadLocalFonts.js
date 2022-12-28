@@ -46,7 +46,7 @@ const PreloadLocalFonts = () => {
 	return (
 		<section className={ `astra-dep-field-${ enableLoadFontsLocally } block border-b border-solid border-slate-200 px-8 py-8 justify-between` }>
 			<div className='mr-16 w-full flex items-center'>
-				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-8 font-semibold text-slate-800">
+				<h3 className="p-0 flex-1 justify-right inline-flex text-xl leading-6 font-semibold text-slate-800">
 					{ __( 'Preload Local Fonts', 'astra' ) }
 				</h3>
 				<Switch

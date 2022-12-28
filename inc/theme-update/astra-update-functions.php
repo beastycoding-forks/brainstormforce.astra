@@ -11,270 +11,6 @@
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Open Submenu just below menu for existing users.
- *
- * @since 2.1.3
- * @return void
- */
-function astra_submenu_below_header() {
-	$theme_options = get_option( 'astra-settings' );
-
-	// Set flag to use flex align center css to open submenu just below menu.
-	if ( ! isset( $theme_options['submenu-open-below-header'] ) ) {
-		$theme_options['submenu-open-below-header'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Do not apply new default colors to the Elementor & Gutenberg Buttons for existing users.
- *
- * @since 2.2.0
- *
- * @return void
- */
-function astra_page_builder_button_color_compatibility() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	// Set flag to not load button specific CSS.
-	if ( ! isset( $theme_options['pb-button-color-compatibility'] ) ) {
-		$theme_options['pb-button-color-compatibility'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Migrate option data from button vertical & horizontal padding to the new responsive padding param.
- *
- * @since 2.2.0
- *
- * @return void
- */
-function astra_vertical_horizontal_padding_migration() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	$btn_vertical_padding   = isset( $theme_options['button-v-padding'] ) ? $theme_options['button-v-padding'] : 10;
-	$btn_horizontal_padding = isset( $theme_options['button-h-padding'] ) ? $theme_options['button-h-padding'] : 40;
-	/** @psalm-suppress InvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-	if ( false === astra_get_db_option( 'theme-button-padding', false ) ) {
-
-		// Migrate button vertical padding to the new padding param for button.
-		$theme_options['theme-button-padding'] = array(
-			'desktop'      => array(
-				'top'    => $btn_vertical_padding,
-				'right'  => $btn_horizontal_padding,
-				'bottom' => $btn_vertical_padding,
-				'left'   => $btn_horizontal_padding,
-			),
-			'tablet'       => array(
-				'top'    => '',
-				'right'  => '',
-				'bottom' => '',
-				'left'   => '',
-			),
-			'mobile'       => array(
-				'top'    => '',
-				'right'  => '',
-				'bottom' => '',
-				'left'   => '',
-			),
-			'desktop-unit' => 'px',
-			'tablet-unit'  => 'px',
-			'mobile-unit'  => 'px',
-		);
-
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Migrate option data from button url to the new link param.
- *
- * @since 2.3.0
- *
- * @return void
- */
-function astra_header_button_new_options() {
-
-	$theme_options = get_option( 'astra-settings', array() );
-
-	$btn_url = isset( $theme_options['header-main-rt-section-button-link'] ) ? $theme_options['header-main-rt-section-button-link'] : 'https://www.wpastra.com';
-	$theme_options['header-main-rt-section-button-link-option'] = array(
-		'url'      => $btn_url,
-		'new_tab'  => false,
-		'link_rel' => '',
-	);
-
-	update_option( 'astra-settings', $theme_options );
-}
-
-/**
- * For existing users, do not provide Elementor Default Color Typo settings compatibility by default.
- *
- * @since 2.3.3
- *
- * @return void
- */
-function astra_elementor_default_color_typo_comp() {
-
-	$theme_options = get_option( 'astra-settings', array() );
-
-	// Set flag to not load button specific CSS.
-	if ( ! isset( $theme_options['ele-default-color-typo-setting-comp'] ) ) {
-		$theme_options['ele-default-color-typo-setting-comp'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-
-}
-
-/**
- * For existing users, change the separator from html entity to css entity.
- *
- * @since 2.3.4
- *
- * @return void
- */
-function astra_breadcrumb_separator_fix() {
-
-	$theme_options = get_option( 'astra-settings', array() );
-
-	// Check if the saved database value for Breadcrumb Separator is "&#187;", then change it to '\00bb'.
-	if ( isset( $theme_options['breadcrumb-separator'] ) && '&#187;' === $theme_options['breadcrumb-separator'] ) {
-		$theme_options['breadcrumb-separator'] = '\00bb';
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Check if we need to change the default value for tablet breakpoint.
- *
- * @since 2.4.0
- * @return void
- */
-function astra_update_theme_tablet_breakpoint() {
-
-	$theme_options = get_option( 'astra-settings' );
-
-	if ( ! isset( $theme_options['can-update-theme-tablet-breakpoint'] ) ) {
-		// Set a flag to check if we need to change the theme tablet breakpoint value.
-		$theme_options['can-update-theme-tablet-breakpoint'] = false;
-	}
-
-	update_option( 'astra-settings', $theme_options );
-}
-
-/**
- * Migrate option data from site layout background option to its desktop counterpart.
- *
- * @since 2.4.0
- *
- * @return void
- */
-function astra_responsive_base_background_option() {
-
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( false === get_option( 'site-layout-outside-bg-obj-responsive', false ) && isset( $theme_options['site-layout-outside-bg-obj'] ) ) {
-
-		$theme_options['site-layout-outside-bg-obj-responsive']['desktop'] = $theme_options['site-layout-outside-bg-obj'];
-		$theme_options['site-layout-outside-bg-obj-responsive']['tablet']  = array(
-			'background-color'      => '',
-			'background-image'      => '',
-			'background-repeat'     => 'repeat',
-			'background-position'   => 'center center',
-			'background-size'       => 'auto',
-			'background-attachment' => 'scroll',
-		);
-		$theme_options['site-layout-outside-bg-obj-responsive']['mobile']  = array(
-			'background-color'      => '',
-			'background-image'      => '',
-			'background-repeat'     => 'repeat',
-			'background-position'   => 'center center',
-			'background-size'       => 'auto',
-			'background-attachment' => 'scroll',
-		);
-	}
-
-	update_option( 'astra-settings', $theme_options );
-}
-
-/**
- * Do not apply new wide/full image CSS for existing users.
- *
- * @since 2.4.4
- *
- * @return void
- */
-function astra_gtn_full_wide_image_group_css() {
-
-	$theme_options = get_option( 'astra-settings', array() );
-
-	// Set flag to not load button specific CSS.
-	if ( ! isset( $theme_options['gtn-full-wide-image-grp-css'] ) ) {
-		$theme_options['gtn-full-wide-image-grp-css'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Do not apply new wide/full Group and Cover block CSS for existing users.
- *
- * @since 2.5.0
- *
- * @return void
- */
-function astra_gtn_full_wide_group_cover_css() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['gtn-full-wide-grp-cover-css'] ) ) {
-		$theme_options['gtn-full-wide-grp-cover-css'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-
-/**
- * Do not apply the global border width and border color setting for the existng users.
- *
- * @since 2.5.0
- *
- * @return void
- */
-function astra_global_button_woo_css() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	// Set flag to not load button specific CSS.
-	if ( ! isset( $theme_options['global-btn-woo-css'] ) ) {
-		$theme_options['global-btn-woo-css'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Migrate Footer Widget param to array.
- *
- * @since 2.5.2
- *
- * @return void
- */
-function astra_footer_widget_bg() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	// Check if Footer Backgound array is already set or not. If not then set it as array.
-	if ( isset( $theme_options['footer-adv-bg-obj'] ) && ! is_array( $theme_options['footer-adv-bg-obj'] ) ) {
-		$theme_options['footer-adv-bg-obj'] = array(
-			'background-color'      => '',
-			'background-image'      => '',
-			'background-repeat'     => 'repeat',
-			'background-position'   => 'center center',
-			'background-size'       => 'auto',
-			'background-attachment' => 'scroll',
-		);
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
  * Check if we need to load icons as font or SVG.
  *
  * @since 3.3.0
@@ -287,113 +23,6 @@ function astra_icons_svg_compatibility() {
 	if ( ! isset( $theme_options['can-update-astra-icons-svg'] ) ) {
 		// Set a flag to check if we need to add icons as SVG.
 		$theme_options['can-update-astra-icons-svg'] = false;
-		update_option( 'astra-settings', $theme_options );
-	}
-}
-
-/**
- * Migrate Background control options to new array.
- *
- * @since 3.0.0
- *
- * @return void
- */
-function astra_bg_control_migration() {
-
-	$db_options = array(
-		'footer-adv-bg-obj',
-		'footer-bg-obj',
-		'sidebar-bg-obj',
-	);
-
-	$theme_options = get_option( 'astra-settings', array() );
-
-	foreach ( $db_options as $option_name ) {
-
-		if ( ! ( isset( $theme_options[ $option_name ]['background-type'] ) && isset( $theme_options[ $option_name ]['background-media'] ) ) && isset( $theme_options[ $option_name ] ) ) {
-
-			if ( ! empty( $theme_options[ $option_name ]['background-image'] ) ) {
-				$theme_options[ $option_name ]['background-type']  = 'image';
-				$theme_options[ $option_name ]['background-media'] = attachment_url_to_postid( $theme_options[ $option_name ]['background-image'] );
-			} else {
-				$theme_options[ $option_name ]['background-type']  = '';
-				$theme_options[ $option_name ]['background-media'] = '';
-			}
-
-			error_log( sprintf( 'Astra: Migrating Background Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-			update_option( 'astra-settings', $theme_options );
-		}
-	}
-}
-
-/**
- * Migrate Background Responsive options to new array.
- *
- * @since 3.0.0
- *
- * @return void
- */
-function astra_bg_responsive_control_migration() {
-
-	$db_options = array(
-		'site-layout-outside-bg-obj-responsive',
-		'content-bg-obj-responsive',
-		'header-bg-obj-responsive',
-		'primary-menu-bg-obj-responsive',
-		'above-header-bg-obj-responsive',
-		'above-header-menu-bg-obj-responsive',
-		'below-header-bg-obj-responsive',
-		'below-header-menu-bg-obj-responsive',
-	);
-
-	$theme_options = get_option( 'astra-settings', array() );
-
-	foreach ( $db_options as $option_name ) {
-
-		if ( ! ( isset( $theme_options[ $option_name ]['desktop']['background-type'] ) && isset( $theme_options[ $option_name ]['desktop']['background-media'] ) ) && isset( $theme_options[ $option_name ] ) ) {
-
-			if ( ! empty( $theme_options[ $option_name ]['desktop']['background-image'] ) ) {
-				$theme_options[ $option_name ]['desktop']['background-type']  = 'image';
-				$theme_options[ $option_name ]['desktop']['background-media'] = attachment_url_to_postid( $theme_options[ $option_name ]['desktop']['background-image'] );
-			} else {
-				$theme_options[ $option_name ]['desktop']['background-type']  = '';
-				$theme_options[ $option_name ]['desktop']['background-media'] = '';
-			}
-
-			if ( ! empty( $theme_options[ $option_name ]['tablet']['background-image'] ) ) {
-				$theme_options[ $option_name ]['tablet']['background-type']  = 'image';
-				$theme_options[ $option_name ]['tablet']['background-media'] = attachment_url_to_postid( $theme_options[ $option_name ]['tablet']['background-image'] );
-			} else {
-				$theme_options[ $option_name ]['tablet']['background-type']  = '';
-				$theme_options[ $option_name ]['tablet']['background-media'] = '';
-			}
-
-			if ( ! empty( $theme_options[ $option_name ]['mobile']['background-image'] ) ) {
-				$theme_options[ $option_name ]['mobile']['background-type']  = 'image';
-				$theme_options[ $option_name ]['mobile']['background-media'] = attachment_url_to_postid( $theme_options[ $option_name ]['mobile']['background-image'] );
-			} else {
-				$theme_options[ $option_name ]['mobile']['background-type']  = '';
-				$theme_options[ $option_name ]['mobile']['background-media'] = '';
-			}
-
-			error_log( sprintf( 'Astra: Migrating Background Response Option - %s', $option_name ) ); // phpcs:ignore WordPress.PHP.DevelopmentFunctions.error_log_error_log
-			update_option( 'astra-settings', $theme_options );
-		}
-	}
-}
-
-/**
- * Do not apply new Group, Column and Media & Text block CSS for existing users.
- *
- * @since 3.0.0
- *
- * @return void
- */
-function astra_gutenberg_core_blocks_design_compatibility() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['guntenberg-core-blocks-comp-css'] ) ) {
-		$theme_options['guntenberg-core-blocks-comp-css'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
 }
@@ -429,22 +58,6 @@ function astra_header_builder_compatibility() {
 function astra_clear_assets_cache() {
 	if ( is_callable( 'Astra_Minify::refresh_assets' ) ) {
 		Astra_Minify::refresh_assets();
-	}
-}
-
-/**
- * Do not apply new Media & Text block padding CSS & not remove padding for #primary on mobile devices directly for existing users.
- *
- * @since 2.6.1
- *
- * @return void
- */
-function astra_gutenberg_media_text_block_css_compatibility() {
-	$theme_options = get_option( 'astra-settings', array() );
-
-	if ( ! isset( $theme_options['guntenberg-media-text-block-padding-css'] ) ) {
-		$theme_options['guntenberg-media-text-block-padding-css'] = false;
-		update_option( 'astra-settings', $theme_options );
 	}
 }
 
@@ -1234,10 +847,12 @@ function astra_theme_background_updater_4_0_0() {
 			}
 
 			// Archive layout compatibilities.
-			$theme_options[ 'ast-archive-' . esc_attr( $post_type ) . '-title' ] = true;
+			$archive_banner_layout = ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true; // Setting WooCommerce archive option disabled as WC already added their header content on archive.
+			$theme_options[ 'ast-archive-' . esc_attr( $post_type ) . '-title' ] = $archive_banner_layout;
 
 			// Single layout compatibilities.
-			$theme_options[ 'ast-single-' . esc_attr( $post_type ) . '-title' ] = true;
+			$single_banner_layout = ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true; // Setting WC single option disabled as there is no any header set from default WooCommerce.
+			$theme_options[ 'ast-single-' . esc_attr( $post_type ) . '-title' ] = $single_banner_layout;
 
 			// BG color support.
 			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-banner-image-type' ] = ! empty( $theme_options['archive-summary-box-bg-color'] ) ? 'custom' : 'none';
@@ -1257,12 +872,21 @@ function astra_theme_background_updater_4_0_0() {
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-text-transform' ] = ! empty( $theme_options['text-transform-archive-summary-title'] ) ? $theme_options['text-transform-archive-summary-title'] : 'capitalize';
+			$archive_dynamic_line_height = ! empty( $theme_options['line-height-archive-summary-title'] ) ? $theme_options['line-height-archive-summary-title'] : '';
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-line-height' ] = ! empty( $theme_options['line-height-archive-summary-title'] ) ? $theme_options['line-height-archive-summary-title'] : '';
+			$archive_dynamic_text_transform = ! empty( $theme_options['text-transform-archive-summary-title'] ) ? $theme_options['text-transform-archive-summary-title'] : 'capitalize';
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			$theme_options[ 'ast-dynamic-archive-' . esc_attr( $post_type ) . '-title-font-extras' ] = array(
+				'line-height'         => $archive_dynamic_line_height,
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => $archive_dynamic_text_transform,
+				'text-decoration'     => '',
+			);
 
 			// Archive title colors support.
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
@@ -1292,12 +916,21 @@ function astra_theme_background_updater_4_0_0() {
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-text-transform' ] = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : 'capitalize';
+			$single_dynamic_line_height = ! empty( $theme_options['line-height-entry-title'] ) ? $theme_options['line-height-entry-title'] : '';
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-line-height' ] = ! empty( $theme_options['line-height-entry-title'] ) ? $theme_options['line-height-entry-title'] : '';
+			$single_dynamic_text_transform = ! empty( $theme_options['text-transform-entry-title'] ) ? $theme_options['text-transform-entry-title'] : 'capitalize';
 			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+
+			$theme_options[ 'ast-dynamic-single-' . esc_attr( $post_type ) . '-title-font-extras' ] = array(
+				'line-height'         => $single_dynamic_line_height,
+				'line-height-unit'    => 'em',
+				'letter-spacing'      => '',
+				'letter-spacing-unit' => 'px',
+				'text-transform'      => $single_dynamic_text_transform,
+				'text-decoration'     => '',
+			);
 		}
 
 		// Set page specific structure, as page only has featured image at top & title beneath to it, hardcoded writing it here.
@@ -1346,10 +979,15 @@ function astra_theme_background_updater_4_0_0() {
 		update_option( 'astra-settings', $theme_options );
 	}
 
+	// Default colors & typography flag.
+	if ( ! isset( $theme_options['update-default-color-typo'] ) ) {
+		$theme_options['update-default-color-typo'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+
 	// Block editor experience improvements compatibility flag.
 	if ( ! isset( $theme_options['v4-block-editor-compat'] ) ) {
 		$theme_options['v4-block-editor-compat'] = false;
 		update_option( 'astra-settings', $theme_options );
 	}
-
 }

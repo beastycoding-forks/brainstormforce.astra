@@ -113,7 +113,7 @@ const StarterTemplates = () => {
 								className="text-2xl font-semibold leading-7 text-slate-800"
 								id="modal-title"
 							>
-								{ __( 'Starter Templates', 'astra' ) }
+								{ astra_admin.starter_templates_data.title }
 							</h4>
 							<div className="mt-2">
 								<p className="text-sm text-slate-500">

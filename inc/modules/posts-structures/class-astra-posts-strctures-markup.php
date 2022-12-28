@@ -77,17 +77,22 @@ class Astra_Posts_Strctures_Markup {
 
 		// If banner title section is disabled then halt further processing.
 		if ( 'single' === $type ) {
-			if ( false === astra_get_option( 'ast-single-' . $post_type . '-title', true ) ) {
+			if ( false === astra_get_option( 'ast-single-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) {
 				add_filter( 'astra_single_layout_one_banner_visibility', '__return_false' );
 				return;
 			}
 		} else {
 			// If layout-1 is set then no need to process further.
-			if ( false === astra_get_option( 'ast-archive-' . $post_type . '-title', true ) ) {
+			if ( false === astra_get_option( 'ast-archive-' . $post_type . '-title', ( class_exists( 'WooCommerce' ) && 'product' === $post_type ) ? false : true ) ) {
 				add_filter( 'astra_the_title_enabled', '__return_false' );
 				return;
 			}
 			if ( 'layout-1' === $layout_type ) {
+				// WooCommerce specific compatibility - As layout-1 support needs to add externally.
+				if ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
+					$this->astra_woocommerce_banner_layout_1_compatibility();
+					add_action( 'astra_primary_content_top', array( $this, 'astra_force_render_banner_layout_1' ) );
+				}
 				return;
 			}
 
@@ -122,27 +127,7 @@ class Astra_Posts_Strctures_Markup {
 				remove_filter( 'astra_the_blog_home_page_title', array( $this, 'astra_archive_custom_title' ) );
 			}
 		} elseif ( class_exists( 'WooCommerce' ) && ( is_shop() || is_product_taxonomy() ) ) {
-			// For custom title page.
-			if ( is_shop() ) {
-				add_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
-			}
-			add_filter( 'woocommerce_show_page_title', '__return_false' );
-
-			remove_action(
-				'woocommerce_before_main_content',
-				'woocommerce_breadcrumb',
-				20
-			);
-
-			remove_action(
-				'woocommerce_archive_description',
-				'woocommerce_taxonomy_archive_description'
-			);
-
-			remove_action(
-				'woocommerce_archive_description',
-				'woocommerce_product_archive_description'
-			);
+			$this->astra_woocommerce_banner_layout_1_compatibility();
 
 			do_action( 'astra_before_archive_' . $post_type . '_banner_content' );
 
@@ -153,6 +138,9 @@ class Astra_Posts_Strctures_Markup {
 			if ( is_shop() ) {
 				remove_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
 			}
+		} elseif ( class_exists( 'WooCommerce' ) && 'single' === $type && 'product' === $post_type && 'layout-1' === $layout_type ) {
+			// Adding layout 1 support to Product post type for single layout.
+			add_action( 'astra_primary_content_top', array( $this, 'astra_force_render_banner_layout_1' ) );
 		} elseif ( 'archive' === $type ) {
 			$is_post_type_archive = is_post_type_archive( $post_type ) ? true : false;
 
@@ -169,6 +157,71 @@ class Astra_Posts_Strctures_Markup {
 			if ( $is_post_type_archive ) {
 				remove_filter( 'get_the_archive_title', array( $this, 'astra_archive_custom_title' ) );
 			}
+		}
+	}
+
+	/**
+	 * Layout 1 will also needed for WooCommerce product.
+	 * Case: WooCommerce by default adds "Shop" title, breadcrumb on shop/product-archive frontend, but this should also get linked to banner layout 1.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function astra_woocommerce_banner_layout_1_compatibility() {
+		// For custom title page.
+		if ( is_shop() ) {
+			add_filter( 'woocommerce_page_title', array( $this, 'astra_archive_custom_title' ) );
+		}
+		add_filter( 'woocommerce_show_page_title', '__return_false' );
+
+		remove_action(
+			'woocommerce_before_main_content',
+			'woocommerce_breadcrumb',
+			20
+		);
+
+		remove_action(
+			'woocommerce_archive_description',
+			'woocommerce_taxonomy_archive_description'
+		);
+
+		remove_action(
+			'woocommerce_archive_description',
+			'woocommerce_product_archive_description'
+		);
+	}
+
+	/**
+	 * Enable layout 1 for some cases. Ex. WC Product.
+	 *
+	 * @since x.x.x
+	 * @return void
+	 */
+	public function astra_force_render_banner_layout_1() {
+		$is_singular = is_singular() ? true : false;
+		if ( $is_singular ) {
+			?> <header class="entry-header <?php astra_entry_header_class(); ?>"> 
+			<?php
+			astra_single_header_top();
+		} else {
+			?>
+			 <section class="ast-archive-description"> 
+			<?php
+			do_action( 'astra_before_archive_title' );
+		}
+
+		astra_banner_elements_order();
+
+		if ( $is_singular ) {
+			?>
+			 </header> <!-- .entry-header --> 
+			<?php
+			astra_single_header_bottom();
+		} else {
+			?>
+			 </section> 
+			<?php
+			do_action( 'astra_after_archive_title' );
 		}
 	}
 }

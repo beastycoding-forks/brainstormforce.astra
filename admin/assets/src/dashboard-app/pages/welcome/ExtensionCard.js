@@ -93,7 +93,7 @@ const ExtensionCard = ( props ) => {
 						key={Math.floor(Math.random() * 100000)}
 						className={ classNames(
 							getAddonLinksColorClass(condition, link.link_class),
-							( astra_admin.pro_available && ! condition ) ? 'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-sm truncate pointer-events-none' : 'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-sm truncate'
+							( astra_admin.pro_available && ! condition ) ? 'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-base truncate pointer-events-none' : 'focus-visible:text-slate-500 active:text-slate-500 focus:text-slate-400 text-slate-400 text-base truncate'
 						) }
 						href={ link.link_url }
 						target={ link.target_blank ? "_blank" : "_self" }
@@ -106,8 +106,8 @@ const ExtensionCard = ( props ) => {
 			{
 				<div
 					className={ classNames(
-						! astra_admin.pro_available ? 'text-[0.625rem] leading-[0.7rem] text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem]' : 'self-center',
-						( astra_admin.pro_available && ! condition ) ? 'relative inline-flex flex-shrink-0 py-0.5 px-1 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 py-0.5 px-1'
+						! astra_admin.pro_available ? 'text-[0.625rem] leading-[1rem] font-medium text-white bg-slate-800 border border-slate-800 rounded-[0.1875rem]' : 'self-center',
+						( astra_admin.pro_available && ! condition ) ? 'relative inline-flex flex-shrink-0 py-[0rem] px-1.5 opacity-30 pointer-events-none' : 'relative inline-flex flex-shrink-0 py-[0rem] px-1.5'
 					) }
 				>
 					{ ! astra_admin.pro_available && __( 'PRO', 'astra' ) }
@@ -141,7 +141,7 @@ const ExtensionCard = ( props ) => {
 										body: formData,
 									} ).then( ( data ) => {
 										if ( data.success ) {
-											dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!', 'astra' ) } );
+											dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: moduleStatus === 'activate' ?  __( 'Successfully Activated!', 'astra' ) : __( 'Successfully Deactivated!', 'astra' ) } );
 
 											const reFormData = new window.FormData();
 

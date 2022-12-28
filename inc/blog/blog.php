@@ -400,8 +400,9 @@ function astra_banner_elements_order( $structure = array() ) {
 
 	$post_type = $post->post_type;
 
-	$prefix    = 'archive';
-	$structure = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-structure', array( 'ast-dynamic-' . $prefix . '-' . $post_type . '-title', 'ast-dynamic-' . $prefix . '-' . $post_type . '-description' ) );
+	$prefix      = 'archive';
+	$structure   = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-structure', array( 'ast-dynamic-' . $prefix . '-' . $post_type . '-title', 'ast-dynamic-' . $prefix . '-' . $post_type . '-description' ) );
+	$layout_type = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-layout', 'layout-1' );
 
 	if ( is_singular() ) {
 		$prefix    = 'single';
@@ -409,6 +410,7 @@ function astra_banner_elements_order( $structure = array() ) {
 		if ( 'page' === $post_type ) {
 			$structure = astra_get_option( 'ast-dynamic-single-page-structure', array( 'ast-dynamic-single-page-image', 'ast-dynamic-single-page-title' ) );
 		}
+		$layout_type = astra_get_option( 'ast-dynamic-' . $prefix . '-' . $post_type . '-layout', 'layout-1' );
 	}
 
 	foreach ( $structure as $metaval ) {
@@ -467,7 +469,6 @@ function astra_banner_elements_order( $structure = array() ) {
 				break;
 
 			case 'single-image':
-				$layout_type         = astra_get_option( 'ast-dynamic-single-' . $post_type . '-layout', 'layout-1' );
 				$featured_background = astra_get_option( 'ast-dynamic-single-' . $post_type . '-featured-as-background', false );
 
 				if ( ( 'layout-2' === $layout_type && false === $featured_background ) || 'layout-1' === $layout_type ) {
@@ -479,7 +480,11 @@ function astra_banner_elements_order( $structure = array() ) {
 
 			case 'archive-title':
 				do_action( 'astra_blog_archive_title_before' );
-				astra_the_post_title( '<h1>', '</h1>', 0, true );
+				if ( 'layout-1' === $layout_type ) {
+					astra_the_post_title( '<h1 class="page-title ast-archive-title">', '</h1>', 0, true );
+				} else {
+					astra_the_post_title( '<h1>', '</h1>', 0, true );
+				}
 				do_action( 'astra_blog_archive_title_after' );
 				break;
 

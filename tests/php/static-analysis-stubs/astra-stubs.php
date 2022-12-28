@@ -3618,6 +3618,14 @@ namespace {
         public static function load_cart_static_css()
         {
         }
+        /**
+         * Check is new structural things are updated.
+         *
+         * @return bool true|false.
+         */
+        public static function astra_check_default_color_typo()
+        {
+        }
     }
     /**
      * Global palette class
@@ -6906,6 +6914,12 @@ namespace {
          */
         public static $default_responsive_spacing = array('desktop' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'tablet' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'mobile' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'desktop-unit' => 'px', 'tablet-unit' => 'px', 'mobile-unit' => 'px');
         /**
+         * Default button responsive spacing control value.
+         *
+         * @var string[][]
+         */
+        public static $default_button_responsive_spacing = array('desktop' => array('top' => '12', 'right' => '20', 'bottom' => '12', 'left' => '20'), 'tablet' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'mobile' => array('top' => '', 'right' => '', 'bottom' => '', 'left' => ''), 'desktop-unit' => 'px', 'tablet-unit' => 'px', 'mobile-unit' => 'px');
+        /**
          * Config Tablet device context.
          *
          * @var string[][]
@@ -7276,6 +7290,14 @@ namespace {
          * @since 3.9.4
          */
         public static function add_custom_fields($id, $item, $depth, $args)
+        {
+        }
+        /**
+         * Get register & enqueue astra-admin scripts.
+         *
+         * @since 3.6.6
+         */
+        public static function load_astra_admin_script()
         {
         }
         /**
@@ -7655,6 +7677,14 @@ namespace {
          * Update theme static option array.
          */
         public static function refresh()
+        {
+        }
+        /**
+         * Get astra-options DB values.
+         *
+         * @return array Return array of theme options from database.
+         */
+        public static function get_astra_options()
         {
         }
         /**
@@ -9256,7 +9286,7 @@ namespace {
          *
          * @param string $section_id section id.
          * @param array  $required_condition Required Condition.
-		 * @param array  $divider_setup Required divider setup.
+         * @param array  $divider_setup Required divider setup.
          * @return array
          */
         public static function prepare_typography_options($section_id, $required_condition = array(), $divider_setup = array())
@@ -11755,6 +11785,16 @@ namespace {
         public static function get_customizer_default($key)
         {
         }
+        /**
+         * Get dynamic font default.
+         *
+         * @param string $key Retrieve default for this parameter.
+         *
+         * @since x.x.x
+         */
+        public static function astra_get_dynamic_font_extras_default($dynamic_font_extras, $line_height, $text_transform, $type)
+        {
+        }
     }
     /**
      * Register Posts Structures Customizer Configurations.
@@ -12790,7 +12830,7 @@ namespace {
     \define('ASTRA_THEME_SETTINGS', 'astra-settings');
     \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
     \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
-    \define('ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/');
+    \define('ASTRA_PRO_UPGRADE_URL', 'https://wpastra.com/pro/?utm_source=wp&utm_medium=dashboard');
     /**
      * Minimum Version requirement of the Astra Pro addon.
      * This constant will be used to display the notice asking user to update the Astra addon to the version defined below.
@@ -12957,7 +12997,7 @@ namespace {
     /**
      * Post meta
      *
-     * @param  array $post_meta Post meta.
+     * @param  array  $post_meta Post meta.
      * @param  string $separator Separator.
      * @return string            post meta markup.
      */
@@ -12972,11 +13012,12 @@ namespace {
     function astra_post_date()
     {
     }
-	/**
-	 * Function to get Author name.
-	 *
-	 * @return null|string $author_name Author name.
-	 */
+    /**
+     * Function to get Author name.
+     *
+     * @return null|string $author_name Author name.
+     * @since x.x.x
+     */
     function astra_post_author_name()
     {
     }
@@ -13143,13 +13184,13 @@ namespace {
     function astra_get_last_meta_word($string)
     {
     }
-	/**
-	 * Get the current archive description.
-	 *
-	 * @since x.x.x
-	 * @param string $post_type post type.
-	 * @return string $description Description for archive.
-	 */
+    /**
+     * Get the current archive description.
+     *
+     * @since x.x.x
+     * @param string $post_type post type.
+     * @return string $description Description for archive.
+     */
     function astra_get_archive_description($post_type)
     {
     }
@@ -15995,6 +16036,36 @@ namespace {
     {
     }
     /**
+     * Function which will return CSS for font-extras control.
+     * It includes - line-height, letter-spacing, text-decoration, font-style.
+     *
+     * @param array  $config contains extra font settings.
+     * @param string $setting basis on this setting will return.
+     * @param mixed  $unit Unit.
+     *
+     * @since x.x.x
+     */
+    function astra_get_font_extras($config, $setting, $unit = \false)
+    {
+    }
+	/**
+	 * Function which will return CSS array for font specific props for further parsing CSS.
+	 * It includes - font-family, font-weight, font-size, line-height, text-transform, letter-spacing, text-decoration, color (optional).
+	 *
+	 * @param string                                  $font_family Font family.
+	 * @param string                                  $font_weight Font weight.
+	 * @param array                                   $font_size Font size.
+	 * @param string                                  $font_extras contains all font controls.
+	 * @param string                                  $color In most of cases color is also added, so included optional param here.
+	 *
+	 * @param array  array of build CSS font settings.
+	 *
+	 * @since x.x.x
+	 */
+    function astra_get_font_array_css($font_family, $font_weight, $font_size, $font_extras, $color = '')
+    {
+    }
+    /**
      * Showcase "Upgrade to Pro" notices for Astra & here is the filter work as central control to enable/disable those notices from customizer, meta settings, admin area, pro post types pages.
      *
      * @since 3.9.4
@@ -16340,8 +16411,8 @@ namespace {
     }
     /**
      * Astra entry header class
-	 *
-	 * @param bool $echo output being echoed or not.
+     *
+     * @param bool $echo output being echoed or not.
      *
      * @since 1.0.15
      */

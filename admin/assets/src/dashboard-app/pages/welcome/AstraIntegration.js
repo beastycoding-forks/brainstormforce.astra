@@ -97,7 +97,7 @@ const AstraIntegration = () => {
 							{ plugin.isPro ? (
 								<span>{__('Pro', 'astra')}</span>
 							) : (
-								<span className="text-astra uppercase text-[0.625rem] leading-[0.7rem] font-semibold bg-blue-50 px-1 pt-0.5 pb-[0.1875rem] rounded-[0.1875rem]">
+								<span className="text-astra uppercase text-[0.625rem] leading-[0.0625rem] font-semibold bg-blue-50 px-1 pt-0.5 pb-[0.1875rem] rounded-[0.1875rem]">
 									{__('Free', 'astra')}
 								</span>
 							) }

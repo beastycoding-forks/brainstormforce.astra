@@ -282,6 +282,9 @@ input[type="text"] {
 		line-height: 1;
 		font-weight: 600;
 	}
+	&:not(.active) > label {
+		cursor: default;
+	}
 }
 
 .ast-section-toggle-icon {

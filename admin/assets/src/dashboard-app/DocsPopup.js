@@ -7,7 +7,7 @@ const DocsPopup = () => {
 	const [open, setOpen] = useState(false);
 	return (
 		<div>
-			<button onClick={() => setOpen(true)} className="text-xs sm:text-sm font-medium leading-6 text-slate-600">
+			<button onClick={() => setOpen(true)} className="text-xs sm:text-sm font-medium sm:leading-[0.875rem] text-slate-600">
 				{ __( 'Knowledge base', 'astra' ) }
 			</button>
 			<Transition.Root show={open} as={Fragment}>

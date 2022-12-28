@@ -1,6 +1,5 @@
 import SettingsGroupComponent from './settings-group-component';
 import BorderComponent from '../border/border-component';
-import ResponsiveComponent from '../responsive/responsive-component';
 import ResponsiveSliderComponent from '../responsive-slider/responsive-slider-component';
 import ResponsiveSpacingComponent from '../responsive-spacing/responsive-spacing-component';
 import SliderComponent from '../slider/slider-component';
@@ -13,13 +12,13 @@ import DividerComponent from '../divider/divider-component';
 import BoxShadowComponent from '../box-shadow/box-shadow-component.js';
 import SelectorComponent from '../selector/selector-component';
 import FontVariantComponent from '../ast-font-variant/ast-font-variant.js';
+import FontExtrasComponent from '../ast-font-extras/ast-font-extras';
 
 import {
 	astraGetBackground,
 	astraGetColor,
 	astraGetResponsiveBgJs,
 	astraGetResponsiveColorJs,
-	astraGetResponsiveJs,
 	astraGetResponsiveSliderJs,
 	astraGetResponsiveSpacingJs
 } from '../common/responsive-helper';
@@ -81,7 +80,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 		jQuery( '.wp-full-overlay-sidebar-content, .wp-picker-container' ).click( function( e ) {
 			let id = undefined !== e.target ? e.target.id : '',
 				ignoreCloseTrigger = id.indexOf( 'react-select-' ) != -1 ? true  : false;
-			if ( ! ignoreCloseTrigger && ! jQuery( e.target ).closest( '.ast-field-settings-modal' ).length ) {
+			if ( ! ignoreCloseTrigger && ! jQuery( e.target ).closest( '.ast-field-settings-modal' ).length && ! jQuery( e.target ).closest( '.ast-multi-select__multi-value__remove' ).length ) {
 				jQuery( '.ast-adv-toggle-icon.open' ).trigger( 'click' );
 			}
 		});
@@ -262,9 +261,6 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				case "ast-responsive-color":
 					astraGetResponsiveColorJs( control, "#customize-control-" + control_type.name )
 					break;
-				case "ast-responsive":
-					astraGetResponsiveJs( control )
-					break;
 				case "ast-responsive-slider":
 					astraGetResponsiveSliderJs( control )
 					break;
@@ -375,15 +371,17 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 				name: attr.name
 			});
 
-			if ('ast-responsive' == control) {
-				var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
-				attr.responsive = is_responsive;
-			}
-
 			var control_clean_name = attr.name.replace('[', '-');
 			control_clean_name = control_clean_name.replace(']', '');
 
-			fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control customize-control-" + attr.control + "' >";
+			let ast_class = '';
+
+			if ( attr ?. divider ?. ast_class ) {
+
+				ast_class = `${ attr.divider.ast_class} `;
+			}
+
+			fields_html += "<li id='customize-control-" + control_clean_name + "' class='customize-control " + ast_class + "customize-control-" + attr.control + "' >";
 
 			if( jQuery( '#tmpl-' + template_id ).length ) {
 				fields_html += template(attr);
@@ -491,7 +489,6 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-responsive-color' : ResponsiveColorComponent,
 			'ast-color' : ColorComponent,
 			'ast-border' : BorderComponent,
-			'ast-responsive' : ResponsiveComponent,
 			'ast-responsive-slider' : ResponsiveSliderComponent,
 			'ast-slider' : SliderComponent,
 			'ast-responsive-spacing' : ResponsiveSpacingComponent,
@@ -499,6 +496,7 @@ export const settingsGroupControl = wp.customize.astraControl.extend( {
 			'ast-divider' : DividerComponent,
 			'ast-selector' : SelectorComponent,
 			'ast-font-variant' : FontVariantComponent,
+			'ast-font-extras' : FontExtrasComponent
 		};
 
 		if( astra.customizer.is_pro ) {

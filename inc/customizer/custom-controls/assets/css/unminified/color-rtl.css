@@ -371,6 +371,7 @@
 	padding: 4px;
 	background: transparent;
 	box-shadow: none;
+	cursor: pointer;
 }
 .astra-color-clear-button.components-button:focus:not(:disabled) {
 	outline: unset;

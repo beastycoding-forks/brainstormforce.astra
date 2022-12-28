@@ -570,16 +570,6 @@ function astra_is_elemetor_active() {
 }
 
 /**
- * Check the Astra addon 3.5.0 version is using or not.
- * As this is major update and frequently we used version_compare, added a function for this for easy maintenance.
- *
- * @since  3.5.0
- */
-function astra_addon_has_3_5_0_version() {
-	return defined( 'ASTRA_EXT_VER' ) && version_compare( ASTRA_EXT_VER, '3.5.0', '<' );
-}
-
-/**
  * Check the Astra addon version.
  * For  major update and frequently we used version_compare, added a function for this for easy maintenance.
  *
@@ -976,4 +966,52 @@ function astra_search_static_css() {
  */
 function astra_showcase_upgrade_notices() {
 	return ( ! defined( 'ASTRA_EXT_VER' ) && astra_get_option( 'ast-disable-upgrade-notices', true ) ) ? true : false;
+}
+
+/**
+ * Function which will return CSS for font-extras control.
+ * It includes - line-height, letter-spacing, text-decoration, font-style.
+ *
+ * @param array  $config contains extra font settings.
+ * @param string $setting basis on this setting will return.
+ * @param mixed  $unit Unit.
+ *
+ * @since x.x.x
+ */
+function astra_get_font_extras( $config, $setting, $unit = false ) {
+	$css = isset( $config[ $setting ] ) ? $config[ $setting ] : '';
+
+	if ( $unit && $css ) {
+		$css .= isset( $config[ $unit ] ) ? $config[ $unit ] : '';
+	}
+
+	return $css;
+}
+
+/**
+ * Function which will return CSS array for font specific props for further parsing CSS.
+ * It includes - font-family, font-weight, font-size, line-height, text-transform, letter-spacing, text-decoration, color (optional).
+ *
+ * @param string                                  $font_family Font family.
+ * @param string                                  $font_weight Font weight.
+ * @param array                                   $font_size Font size.
+ * @param string                                  $font_extras contains all font controls.
+ * @param string                                  $color In most of cases color is also added, so included optional param here.
+ *
+ * @param array  array of build CSS font settings.
+ *
+ * @since x.x.x
+ */
+function astra_get_font_array_css( $font_family, $font_weight, $font_size, $font_extras, $color = '' ) {
+	$font_extras_ast_option = astra_get_option( $font_extras );
+	return array(
+		'color'           => esc_attr( $color ),
+		'font-family'     => astra_get_css_value( $font_family, 'font' ),
+		'font-weight'     => astra_get_css_value( $font_weight, 'font' ),
+		'font-size'       => ! empty( $font_size ) ? astra_responsive_font( $font_size, 'desktop' ) : '',
+		'line-height'     => astra_get_font_extras( $font_extras_ast_option, 'line-height', 'line-height-unit' ),
+		'text-transform'  => astra_get_font_extras( $font_extras_ast_option, 'text-transform' ),
+		'letter-spacing'  => astra_get_font_extras( $font_extras_ast_option, 'letter-spacing', 'letter-spacing-unit' ),
+		'text-decoration' => astra_get_font_extras( $font_extras_ast_option, 'text-decoration' ),
+	);
 }

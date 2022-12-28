@@ -1413,42 +1413,6 @@ function astra_get_fonts_display_property() {
 }
 
 /**
- * Return Theme options from database.
- *
- * @param  string $option       Option key.
- * @param  string $default      Option default value.
- * @param  string $deprecated   Option default value.
- * @return Mixed               Return option value.
- */
-function astra_get_db_option( $option, $default = '', $deprecated = '' ) {
-
-	if ( '' != $deprecated ) {
-		$default = $deprecated;
-	}
-
-	$theme_options = Astra_Theme_Options::get_db_options();
-
-	/**
-	 * Filter the options array for Astra Settings.
-	 *
-	 * @since  1.0.20
-	 * @var Array
-	 */
-	$theme_options = apply_filters( 'astra_get_db_option_array', $theme_options, $option, $default );
-
-	$value = ( isset( $theme_options[ $option ] ) && '' !== $theme_options[ $option ] ) ? $theme_options[ $option ] : $default;
-
-	/**
-	 * Dynamic filter astra_get_option_$option.
-	 * $option is the name of the Astra Setting, Refer Astra_Theme_Options::defaults() for option names from the theme.
-	 *
-	 * @since  1.0.20
-	 * @var Mixed.
-	 */
-	return apply_filters( "astra_get_db_option_{$option}", $value, $option, $default );
-}
-
-/**
  * Generate Responsive Background Color CSS.
  *
  * @param array  $bg_obj_res array of background object.

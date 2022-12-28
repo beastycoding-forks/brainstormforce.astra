@@ -210,7 +210,7 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 				'priority'          => 6,
 				'transport'         => 'postMessage',
 				'context'           => $login_link_context,
-				'divider'    => array( 'ast_class' => 'ast-section-spacing' ),
+				'divider'           => array( 'ast_class' => 'ast-section-spacing' ),
 				'partial'           => array(
 					'selector'        => '.ast-header-account',
 					'render_callback' => array( 'Astra_Builder_UI_Controller', 'render_account' ),
@@ -438,14 +438,14 @@ class Astra_Header_Account_Component_Configs extends Astra_Customizer_Config_Bas
 			 * Option: Text design options.
 			 */
 			array(
-				'name'        => ASTRA_THEME_SETTINGS . '[header-account-text-design-options]',
-				'type'        => 'control',
-				'control'     => 'ast-heading',
-				'section'     => $_section,
-				'priority'    => 15,
-				'title'       => __( 'Text Options', 'astra' ),
-				'settings'    => array(),
-				'context'           => array(
+				'name'     => ASTRA_THEME_SETTINGS . '[header-account-text-design-options]',
+				'type'     => 'control',
+				'control'  => 'ast-heading',
+				'section'  => $_section,
+				'priority' => 15,
+				'title'    => __( 'Text Options', 'astra' ),
+				'settings' => array(),
+				'context'  => array(
 					Astra_Builder_Helper::$design_tab_config,
 					array(
 						'relation' => 'OR',

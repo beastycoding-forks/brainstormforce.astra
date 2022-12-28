@@ -77,26 +77,6 @@ if ( class_exists( 'Astra_Customizer_Config_Base' ) ) {
 					'description' => '',
 				),
 
-				/**
-				 * Option: Display Title
-				 */
-				array(
-					'name'      => ASTRA_THEME_SETTINGS . '[display-site-title-responsive]',
-					'type'      => 'control',
-					'control'   => 'ast-responsive-toggle-control',
-					'default'   => astra_get_option( 'display-site-title-responsive' ),
-					'section'   => 'title_tagline',
-					'title'     => __( 'Display Site Title', 'astra' ),
-					'priority'  => 7,
-					'transport' => 'postMessage',
-					'partial'   => array(
-						'selector'            => '.site-branding',
-						'container_inclusive' => true,
-						'render_callback'     => 'Astra_Builder_Header::site_identity',
-					),
-					'context'   => Astra_Builder_Helper::$general_tab,
-				),
-
 				// Option: Site Title Color.
 				array(
 					'name'      => 'header-color-site-title',

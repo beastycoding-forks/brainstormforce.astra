@@ -37,6 +37,19 @@ const FontVariantComponent = props => {
 
 	getUpatedBodyFontVariantOptions();
 
+	const verticalScroll = () => { 
+		const scrollContainer = document.querySelectorAll(".ast-multi-select__value-container");
+
+		scrollContainer.forEach(element => {
+			if( element ) {
+				element.addEventListener("wheel", (evt) => {
+					evt.preventDefault();
+					element.scrollLeft += evt.deltaY;
+				});
+			}
+		});
+	}
+
 	const fontVariants = window.AstraBuilderCustomizerData.googleFonts;
 	let fontName = fontVal.split(','),
 		fontFamily = fontName[0].replace(/['"]+/g, '');
@@ -68,6 +81,7 @@ const FontVariantComponent = props => {
 			return;
 		}
 		prepareToSave( newVal );
+		
 	};
 
 	if ( ! fontVariants[fontFamily][0] ) {
@@ -92,6 +106,10 @@ const FontVariantComponent = props => {
 		} );
 	}
 
+	const arrowRenderer = () => {
+		return <div className='sadsad'>This is an arrow</div>
+	  }
+
 	return <>
 		<label className="customize-control-title">
 			{labelHtml}
@@ -103,7 +121,14 @@ const FontVariantComponent = props => {
 				options = { options }
 				isMulti = { true }
 				onChange = { ( value ) => updateValues( value )}
+				onFocus = { () => verticalScroll() }
 				className = "ast-variant-select"
+				classNamePrefix="ast-multi-select"
+				components={{
+					DropdownIndicator: () => null,
+					IndicatorSeparator: () => null,
+					ClearIndicator: () => null
+				}} 
 			/>
 			{helpHtml}
 		</div>

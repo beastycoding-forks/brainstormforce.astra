@@ -1,22 +1,28 @@
 v4.0.1 (Unreleased)
 - New: Introduced a new control to change the navigation position for single post page.
 
-v4.0.0 (Unreleased)
+v4.0.0-beta.1 (Unreleased)
 - New: Redesigned the entire admin area with better user experience.
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
 - New: Introduced Smooth scroll to ID option for smooth scrolling to section ID on one page site navigation.
 - New: Narrow Width Container layout for Single Posts, Blogs/Archives & Pages.
 - New: Added elegant starter-content theme support for wordpress.org preview & for fresh setup.
+- New: Text decoration, text transform options to every typography setting.
+- Improvement: Customizer typography & color defaults updated to get brand new experience for fresh setup.
 - Improvement: Introduced new filter 'astra_global_color_palette' to extend default color palette settings.
-- Improvement: Block Editor - Editor experience improved in relative with the frontend.
+- Improvement: Block Editor - Editor experience improved in relation with the frontend.
+- Improvement: Customizer's responsive font-size control UI is misaligned.
 - Fix: Off-canvas - Full screen - Mobile Menu gets very long scroll when Elementor plugin is activated.
 - Fix: Full Width/Contained layout Layout is showing extra padding above in the Transparent Header.
 - Fix: Block editor - Getting "wp.data.select( 'core/editor' )getBlocks()" console warning in editor as being deprecated in WordPress version 5.3.
-- Fix: Block editor - Button background colour gets overridden by core styles for Legacy block editor setup.
-- Fix: Elementor Global button style overwrites Astra submenu button style.
+- Fix: Block editor - Button background color gets overridden by core styles for Legacy block editor setup.
+- Fix: Elementor Global button style overwrites theme's submenu button style.
 - Fix: Getting console error in customizer when trying to update footer columns.
 - Fix: Block editor - Color gradient angle input field not visible in the block settings.
 - Fix: Block editor - Content background gets explicitly set to white in responsive view.
+- Fix: WooCommerce - Sticky add to cart is not working on old header footer.
+- Fix: Margin applying for the last child 'li' tag inside widget section.
+- Fix: Block editor - Button background color gets overridden by core styles for the Legacy block editor setup.
 
 v3.9.4
 - New: WooCommerce Cart - "Cart Page" click action introduced to redirect the user to the cart page.

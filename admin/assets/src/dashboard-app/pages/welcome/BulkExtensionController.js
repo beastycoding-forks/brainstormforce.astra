@@ -30,7 +30,7 @@ const BulkExtensionController = () => {
 			body: formData,
 		} ).then( (data) => {
 			if ( data.success ) {
-				dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!', 'astra' ) } );
+				dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully Deactivated!', 'astra' ) } );
 
 				const reFormData = new window.FormData();
 
@@ -71,7 +71,7 @@ const BulkExtensionController = () => {
 			body: formData,
 		} ).then( (data) => {
 			if ( data.success ) {
-				dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully saved!', 'astra' ) } );
+				dispatch( {type: 'UPDATE_SETTINGS_SAVED_NOTIFICATION', payload: __( 'Successfully Activated!', 'astra' ) } );
 
 				const reFormData = new window.FormData();
 

@@ -518,19 +518,6 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 					$configuration['value'] = $val;
 
 					break;
-				case 'ast-responsive':
-					if ( ! is_array( $val ) || is_numeric( $val ) ) {
-
-						$configuration['value'] = array(
-							'desktop'      => $val,
-							'tablet'       => '',
-							'mobile'       => '',
-							'desktop-unit' => '',
-							'tablet-unit'  => '',
-							'mobile-unit'  => '',
-						);
-					}
-					break;
 				case 'ast-link':
 					$configuration['value'] = $val;
 

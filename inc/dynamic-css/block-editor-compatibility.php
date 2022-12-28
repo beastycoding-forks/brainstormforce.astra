@@ -494,10 +494,6 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 
 	// Spectra compatibility for narrow width container.
 	$dynamic_css .= '
-		.ast-narrow-container .site-content .ast-container {
-			padding-left: 0;
-			padding-right: 0;
-		}
 		.ast-narrow-container .site-content .wp-block-uagb-image--align-full .wp-block-uagb-image__figure {
 			max-width: 100%;
 			margin-left: auto;
@@ -508,13 +504,9 @@ function astra_load_modern_block_editor_ui( $dynamic_css ) {
 	// Block editor experience improvements introduced with v4.0.0.
 	if ( $v4_block_editor_compat ) {
 		$dynamic_css .= '
-			@media(max-width: ' . $tablet_breakpoint . 'px) {	
-				.ast-plain-container .site-main .entry-header {
-					margin-top: 1.5em;
-				}
-			}
-			.entry-content[ast-blocks-layout] > ul, .entry-content[ast-blocks-layout] > ol {
+			.entry-content ul, .entry-content ol {
 				padding: revert;
+				margin: revert;
 			}
 		';
 	}

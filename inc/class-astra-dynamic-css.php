@@ -1760,11 +1760,22 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$navigation_layout = astra_get_option( 'single-post-navigation-position' );
 
 				if ( $navigation_layout && 'inside' === $navigation_layout ) {
+					$content_layout    = astra_get_content_layout();
+					$navigation_margin = array();
+					if ( 'plain-container' === $content_layout || 'narrow-container' === $content_layout || 'page-builder' === $content_layout ) {
+						$navigation_margin = array(
+							'border-top' => '0',
+							'margin-top' => '0',
+						);
+					}
 
 					$navigation_layout_css = array(
-						'.single .post-navigation' => array(
-							'padding-left'  => 0,
-							'padding-right' => 0,
+						'.single .post-navigation' => array_merge(
+							array(
+								'padding-left'  => 0,
+								'padding-right' => 0,
+							),
+							$navigation_margin
 						),
 					);
 

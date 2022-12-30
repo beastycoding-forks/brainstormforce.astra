@@ -286,7 +286,7 @@ function astra_set_single_post_navigation_position() {
 	if ( $navigation_position && 'inside' === $navigation_position ) {
 		add_action( 'astra_entry_bottom', 'astra_single_post_navigation_markup' );
 	} else {
-		add_action( 'astra_entry_after', 'astra_single_post_navigation_markup' );
+		add_action( 'astra_entry_after', 'astra_single_post_navigation_markup', 10 );
 	}
 }
 

@@ -136,8 +136,8 @@ if ( ! class_exists( 'Astra_Blog_Single_Layout_Configs' ) ) {
 					'priority'   => 6,
 					'title'      => __( 'Navigation Position', 'astra' ),
 					'choices'    => array(
-						'inside'  => __( 'Inside', 'astra' ),
-						'outside' => __( 'Outside', 'astra' ),
+						'inside'  => __( 'Inside Content', 'astra' ),
+						'outside' => __( 'Outside Content', 'astra' ),
 					),
 					'responsive' => false,
 					'divider'    => array( 'ast_class' => 'ast-top-divider' ),

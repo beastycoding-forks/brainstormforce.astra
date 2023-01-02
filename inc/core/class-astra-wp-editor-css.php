@@ -623,33 +623,10 @@ class Astra_WP_Editor_CSS {
 			'text-decoration' => esc_attr( $site_text_decoration ),
 		);
 
-		/**
-		 * Block editor experience improvements & fixes introduced with v4.0.0.
-		 */
-
-		// List block alignment same as frontend.
-		$default_ul_line_height                                      = 1.85714285714286;
-		$desktop_css['.editor-styles-wrapper .is-root-container ul'] = array(
-			'line-height'   => $default_ul_line_height,
-			'margin-bottom' => '1.5em',
-		);
-
-		// Consistent spacing between blocks.
-		$desktop_css['.edit-post-visual-editor .editor-styles-wrapper > .is-root-container'] = array(
-			'padding-top' => 0,
-		);
-		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-quote']            = array(
-			'margin-top'    => '1.5em',
-			'margin-bottom' => '1.5em',
-		);
-		$desktop_css['.editor-styles-wrapper .is-root-container .wp-block-image']            = array(
-			'margin-bottom' => '1em',
-		);
-
 		$content_links_underline = astra_get_option( 'underline-content-links' );
 
 		if ( $content_links_underline ) {
-			$desktop_css['.editor-styles-wrapper .is-root-container a'] = array(
+			$desktop_css['.editor-styles-wrapper .is-root-container a, .editor-styles-wrapper .is-root-container .wp-block-file__button'] = array(
 				'text-decoration' => 'underline',
 			);
 

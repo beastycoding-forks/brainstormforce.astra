@@ -73,7 +73,6 @@ html {
 		padding: 0 !important;
 		box-shadow: 0 0 0 1px var(--wp-admin-theme-color);
 		transition: all 0.2s;
-		text-decoration: none;
 		&:before {
 			width: 100%;
 			height: 100%;
@@ -238,7 +237,6 @@ pre.wp-block {
 		font: 15px Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	}
 	background: #eee;
-	margin-bottom: 1.6em;
 	overflow: auto;
 	max-width: 100%;
 	padding: 1.6em;
@@ -251,7 +249,7 @@ pre.wp-block {
 }
 .editor-styles-wrapper {
 	blockquote {
-		padding: 1.2em 1.2em 1.2em;
+		padding: 20px 20px 20px;
 		margin: 1.5em;
 		border: none;
 	}
@@ -467,4 +465,42 @@ pre.wp-block {
 			}
 		}
 	}
+}
+
+.editor-styles-wrapper {
+    .is-root-container {
+        .wp-block-code {
+            margin-bottom: 1.6em;
+        }
+        .wp-block-image {
+            margin-bottom: 1em;
+        }
+        .wp-block-quote {
+            margin-top: 1.5em;
+            margin-bottom: 1.5em;
+        }
+        ul, ol {
+            margin-bottom: 1.5em;
+            line-height: 1.85714285714286;
+        }
+		.wp-block-gallery {
+			margin-bottom: 1em;
+		}
+		.wp-block-audio {
+			margin-bottom: 1em;			
+		}
+		.wp-block-video {
+			margin-bottom: 1em;			
+		}
+		.wp-block-table {
+			margin-bottom: 1em;			
+		}
+		pre.wp-block {
+			margin-bottom: 1.6em;	
+		}
+		.wp-block-separator {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+    }
 }

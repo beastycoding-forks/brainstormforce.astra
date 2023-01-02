@@ -24,7 +24,7 @@ class Astra_Related_Posts_Markup {
 	 *  Constructor
 	 */
 	public function __construct() {
-		add_action( 'astra_entry_after', array( $this, 'astra_related_posts_markup' ), 11 );
+		add_action( 'astra_entry_after', array( $this, 'astra_related_posts_markup' ), 10 );
 	}
 
 	/**

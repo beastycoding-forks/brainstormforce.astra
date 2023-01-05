@@ -98,6 +98,13 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 		),
 	);
 
+	$menu_content_icon = ($menu_content_alignment == 'left' ? 'right' :  'left');
+
+	if( $is_site_rtl ) {
+		$menu_content_icon = ($menu_content_alignment == 'right' ? 'right' :  'left');
+		$text_align = ($menu_content_alignment == 'right' ? 'left' :  'right');
+	}
+
 	$css_output_mobile = array(
 
 		'.ast-mobile-popup-drawer.active .ast-desktop-popup-content, .ast-mobile-popup-drawer.active .ast-mobile-popup-content' => array(
@@ -107,7 +114,15 @@ function astra_off_canvas_row_setting( $dynamic_css, $dynamic_css_filtered = '' 
 			'padding-left'   => astra_responsive_spacing( $padding, 'left', 'mobile' ),
 			'padding-right'  => astra_responsive_spacing( $padding, 'right', 'mobile' ),
 		),
+		'.main-header-bar-navigation .menu-item-has-children>.ast-menu-toggle::before' =>  array(
+			'float' => $menu_content_icon
+		),
+
 	);
+
+	if( $is_site_rtl ) {
+		$css_output_mobile['.main-header-menu .menu-item']['text-align'] = $text_align;
+	}
 
 	$css_output .= astra_parse_css( $css_output_tablet, '', astra_get_tablet_breakpoint() );
 	$css_output .= astra_parse_css( $css_output_mobile, '', astra_get_mobile_breakpoint() );

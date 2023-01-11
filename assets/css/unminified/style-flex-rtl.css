@@ -1322,8 +1322,13 @@ body {
   position: relative;
 }
 
+.main-header-menu .menu-item .sub-menu {
+  display: none;
+}
+
 .main-header-menu .menu-item:hover > .sub-menu,
 .main-header-menu .menu-item.focus > .sub-menu {
+  display: block;
   left: auto;
   right: 0;
 }

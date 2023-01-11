@@ -3,6 +3,7 @@ v4.0.1 (Unreleased)
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
 - Fix: Block editor - Image breaking outside the entry container when left/right aligned.
 - Fix: WooCommerce - Real Time Quantity Updater not working in case of shortcode used.
+- Fix : Sub menu adding unwanted space at the bottom of the website.
 
 v4.0.0
 - New: Redesigned the entire admin area with better user experience.

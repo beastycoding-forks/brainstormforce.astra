@@ -27,8 +27,13 @@
 	.menu-item {
 		position: relative;
 
+		.sub-menu {
+			display: none;
+		}
+
 		&:hover > .sub-menu,
 		&.focus > .sub-menu {
+			display: block;
 			right: auto;
 			left: 0;
 		}

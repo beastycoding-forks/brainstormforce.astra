@@ -86,3 +86,30 @@ input[type=range] {
 		background: rgba(255, 255, 255, 0.2);
 	}
 }
+
+
+/* Compatibility with cost calculator plugin range slider*/
+.calc-range-slider  {
+	input {
+		
+		&::-webkit-slider-runnable-track {
+			height: auto;
+			box-shadow: none;
+			background: transparent;
+			border-radius: none;
+			border: none;
+		}
+
+		&::-moz-range-track {
+			height: auto;
+			box-shadow: none;
+			background: transparent;
+			border-radius: none;
+			border: none;
+		}
+
+		&::-webkit-slider-thumb {
+			margin-top: auto;
+	   }
+	}
+}

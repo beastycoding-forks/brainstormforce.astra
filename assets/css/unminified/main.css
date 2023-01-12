@@ -2593,6 +2593,27 @@ input[type=range]:focus::-ms-fill-upper {
   background: rgba(255, 255, 255, 0.2);
 }
 
+/* Compatibility with cost calculator plugin range slider*/
+.calc-range-slider input::-webkit-slider-runnable-track {
+  height: auto;
+  box-shadow: none;
+  background: transparent;
+  border-radius: none;
+  border: none;
+}
+
+.calc-range-slider input::-moz-range-track {
+  height: auto;
+  box-shadow: none;
+  background: transparent;
+  border-radius: none;
+  border: none;
+}
+
+.calc-range-slider input::-webkit-slider-thumb {
+  margin-top: auto;
+}
+
 /* 3 - Field - Color */
 /* Color */
 input[type="color"] {

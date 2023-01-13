@@ -1,8 +1,9 @@
-v4.0.1 (Unreleased)
+v4.0.2 (Unreleased)
 - New: WooCommerce - Sortable support for default payment options on single product page.
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
 - Fix: Block editor - Image breaking outside the entry container when left/right aligned.
 - Fix: WooCommerce - Real Time Quantity Updater not working in case of shortcode used.
+- Fix: Header site title transition issue when page loads.
 
 v4.0.0
 - New: Redesigned the entire admin area with better user experience.

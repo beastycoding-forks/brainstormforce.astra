@@ -2557,7 +2557,6 @@ body {
 }
 
 .ast-header-break-point .site-header .main-header-bar-wrap .site-branding {
-  flex: 1;
   align-self: center;
 }
 

@@ -41,6 +41,27 @@ function rest_route() : void {
 					delete_option( 'site_icon' );
 					update_option( 'blogdescription', 'Astra Test Enviornment' );
 
+					$addons = [
+						'advanced-footer' => "advanced-footer",
+						'advanced-headers' => "advanced-headers",
+						'advanced-hooks' => "advanced-hooks",
+						'blog-pro' => "blog-pro",
+						'colors-and-background' => "colors-and-background",
+						'edd' => "edd",
+						'header-sections' => "header-sections",
+						'learndash' => "learndash",
+						'lifterlms' => "lifterlms",
+						'mobile-header' => "mobile-header",
+						'nav-menu' => "nav-menu",
+						'site-layouts' => "site-layouts",
+						'spacing' => "spacing",
+						'sticky-header' => "sticky-header",
+						'transparent-header' => "transparent-header",
+						'typography' => "typography",
+						'woocommerce' => "woocommerce",
+					];
+					update_option( '_astra_ext_enabled_extensions', $addons );
+
 					$all_users = get_users();
 					require_once ABSPATH . 'wp-admin/includes/user.php';
 					foreach ( $all_users as $user ) {

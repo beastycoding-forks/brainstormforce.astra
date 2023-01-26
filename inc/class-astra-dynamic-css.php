@@ -706,6 +706,29 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 			);
+			
+			/* Compatibility with cost calculator plugin range slider*/
+			if ( defined( 'CALC_VERSION' ) ) {
+				$css_output['.calc-range-slider input::-webkit-slider-runnable-track'] = array(
+					'height'        => 'auto',
+					'box-shadow'    => 'none',
+					'background'    => 'transparent',
+					'border-radius' => 'none',
+					'border'        => 'none',
+				);
+
+				$css_output['.calc-range-slider input::-moz-range-track'] = array(
+					'height'        => 'auto',
+					'box-shadow'    => 'none',
+					'background'    => 'transparent',
+					'border-radius' => 'none',
+					'border'        => 'none',
+				);
+
+				$css_output['.calc-range-slider input::-webkit-slider-thumb'] = array(
+					'margin-top' => 'auto',
+				);
+			}
 
 			if ( astra_has_global_color_format_support() ) {
 				$css_output['.ast-archive-title'] = array(

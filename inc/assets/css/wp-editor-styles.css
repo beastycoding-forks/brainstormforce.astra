@@ -438,6 +438,7 @@ body .editor-styles-wrapper .edit-post-visual-editor__post-title-wrapper > * + *
 
 pre.wp-block {
   background: #eee;
+  box-sizing: border-box;
   overflow: auto;
   max-width: 100%;
   padding: 1.6em;
@@ -710,4 +711,12 @@ body .editor-styles-wrapper > .block-editor-block-list__layout.is-root-container
 body .editor-styles-wrapper > .block-editor-block-list__layout.is-root-container > .wp-block + .wp-block-list {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.wp-block-table table {
+  margin-bottom: 1.5em;
+}
+
+.wp-block-table figcaption {
+  font-size: 1rem;
 }

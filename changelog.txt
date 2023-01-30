@@ -1,9 +1,13 @@
-v4.0.1 (Unreleased)
+v4.1.0 (Unreleased)
 - New: WooCommerce - Sortable support for default payment options on single product page.
+- New:  Introduced new filter 'astra_custom_logo_attributes' to add attributes into custom logo.
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
 - Fix: Block editor - Image breaking outside the entry container when left/right aligned.
 - Fix: WooCommerce - Real Time Quantity Updater not working in case of shortcode used.
-- Fix : Sub menu adding unwanted space at the bottom of the website.
+- Fix: Header Builder - Menu - Sub menu adding unwanted space at the bottom of the website for long menu.
+- Fix: Customizer - Global buttons text and background hover color not working in customizer preview.
+- Fix: WordPress 6.1 conflicting with customizer's global outline button styling.
+- Fix: Footer builder - Widgets dynamic CSS gets added multiple times on the frontend.
 
 v4.0.0
 - New: Redesigned the entire admin area with better user experience.

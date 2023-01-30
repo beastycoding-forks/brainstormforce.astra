@@ -2,6 +2,7 @@ v4.1.0 (Unreleased)
 - New: WooCommerce - Sortable customization support for default payment options on single product page.
 - New: WooCommerce - Sortable support for default payment options on single product page.
 - New: Introduced new filter 'astra_custom_logo_attributes' to add attributes into custom logo.
+- Improvement: Improved accessibility for header menu navigation.
 - Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
 - Fix: Block editor - Image breaking outside the entry container when left/right aligned.
 - Fix: WooCommerce - Real Time Quantity Updater not working in case of shortcode used.

@@ -222,6 +222,10 @@
 				padding: 0 0.907em;
 				font-weight: normal;
 				line-height: inherit;
+
+				> .ast-icon.icon-arrow {
+					pointer-events: none;
+				}
 			}
 			.sub-menu {
 				display: none;

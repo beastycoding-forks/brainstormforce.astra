@@ -3697,7 +3697,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'-moz-osx-font-smoothing' => 'grayscale',
 						'z-index'                 => '3',
 					),
-					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
+					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .menu-item-has-children .ast-header-navigation-arrow:after' => array(
 						'content'                 => '"\e900"',
 						'display'                 => 'inline-block',
 						'font-family'             => 'Astra',
@@ -3710,6 +3710,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-' . $default_left_rtl_right => '10px',
 						'line-height'             => 'normal',
 					),
+
+					'.menu-item-has-children .sub-menu .ast-header-navigation-arrow:after' => array(
+						'margin-left' => '0',
+					),
+
 					'.ast-mobile-popup-drawer .main-header-bar-navigation .ast-submenu-expanded>.ast-menu-toggle::before' => array(
 						'transform' => 'rotateX(180deg)',
 					),

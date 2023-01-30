@@ -1104,7 +1104,7 @@
 }
 .astra-color-picker-wrap {
     position: absolute;
-    z-index: 1;
+    z-index: 2;
 	top: 30px;
     left: 0;
     right: 0;
@@ -1537,6 +1537,7 @@ input[type="text"], input[type="password"], input[type="color"], input[type="dat
   top: 50%;
   right: 40px;
   transform: translateY(-50%);
+  z-index: 1;
 }
 
 .customize-control.customize-control-ast-toggle-control.ast-top-dotted-divider .ast-control-tooltip {

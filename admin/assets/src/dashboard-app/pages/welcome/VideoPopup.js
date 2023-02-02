@@ -34,7 +34,7 @@ const VideoPopup = ({ allowAutoPlay, videoPopup, toggleVideoPopup }) => {
 								{/* Added rel=0 query paramter at the end to disable YouTube recommendations */}
 								<iframe
 									className="absolute inset-0 w-full h-full border-0 rounded-md"
-									src={`https://www.youtube.com/embed/${videoID}?showinfo=0&autoplay=${ videoPopup ? 1 : 0 }&rel=0`}
+									src={`https://www.youtube-nocookie.com/embed/${videoID}?showinfo=0&autoplay=${ videoPopup ? 1 : 0 }&rel=0`}
 									allow="autoplay"
 									title="YouTube video player"
 									frameBorder="0"

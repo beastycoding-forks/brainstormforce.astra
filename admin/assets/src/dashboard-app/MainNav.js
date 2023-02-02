@@ -6,7 +6,27 @@ import DocsPopup from "./DocsPopup";
 import { Fragment } from 'react';
 
 export default function MainNav() {
-	const menus = wp.hooks.applyFilters( 'astra_dashboard.main_navigation', [
+	let navMenus = [];
+	if ( astra_admin.is_whitelabel ) {
+		navMenus = [
+			{
+				name: __( 'Welcome', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: '',
+			},
+			{
+				name: __( 'Settings', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: 'settings',
+			},
+			{
+				name: __( 'Free vs Pro', 'astra' ),
+				slug: astra_admin.home_slug,
+				path: 'free-vs-pro',
+			},
+		];
+	} else {
+		navMenus = [
 			{
 				name: __( 'Welcome', 'astra' ),
 				slug: astra_admin.home_slug,
@@ -27,8 +47,9 @@ export default function MainNav() {
 				slug: astra_admin.home_slug,
 				path: 'free-vs-pro',
 			},
-		]
-	);
+		];
+	}
+	const menus = wp.hooks.applyFilters( 'astra_dashboard.main_navigation', navMenus );
 
 	const query = new URLSearchParams( useLocation()?.search );
 	const activePage = query.get( 'page' )

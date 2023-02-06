@@ -45,3 +45,6 @@ inc/metabox/extend-metabox/build/index.asset.php
 
 # Ignore phpunit.result.cache
 inc/lib/astra-notices/.phpunit.result.cache
+/test-results/
+/playwright-report/
+/playwright/.cache/

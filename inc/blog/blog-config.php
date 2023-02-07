@@ -39,8 +39,15 @@ function astra_get_dynamic_taxonomy( $control_tax, $loop_count, $separator ) {
 		foreach ( $terms as $term ) {
 			/** @psalm-suppress PossibleRawObjectIteration */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
+			$term_link = get_term_link( $term->slug, $tax_type );
+
+			// If there was an error, continue to the next term.
+			if ( is_wp_error( $term_link ) ) {
+				continue;
+			}
+
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-			$term_links[] = '<a href="' . esc_url( get_term_link( $term->slug, $tax_type ) ) . '">' . esc_attr( $term->name ) . '</a>';
+			$term_links[] = '<a href="' . esc_url( $term_link ) . '">' . esc_attr( $term->name ) . '</a>';
 			/** @psalm-suppress PossiblyInvalidArgument */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		}
 

@@ -712,3 +712,11 @@ body .editor-styles-wrapper > .block-editor-block-list__layout.is-root-container
   margin-top: 1em;
   margin-bottom: 1em;
 }
+
+.wp-block-table table {
+  margin-bottom: 1.5em;
+}
+
+.wp-block-table figcaption {
+  font-size: 1rem;
+}

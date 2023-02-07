@@ -6,8 +6,7 @@
 	margin: 0 0 1.5em;
 }
 
-.byline,
-.updated:not(.published){
+.byline{
 	display: none;
 }
 
@@ -47,7 +46,7 @@
         @media( max-width: $mx-col-md) {
             margin-bottom: 6px;
         }
-    }    
+    }
 }
 
 

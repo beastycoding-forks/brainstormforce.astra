@@ -341,6 +341,7 @@ class Astra_WP_Editor_CSS {
 		$is_widget_title_support_font_weight = Astra_Dynamic_CSS::support_font_css_to_widget_and_in_editor();
 		$font_weight_prop                    = ( $is_widget_title_support_font_weight ) ? 'inherit' : 'normal';
 		$btn_preset_style                    = astra_get_option( 'button-preset-style' );
+		$border_color                        = astra_get_option( 'border-color' );
 
 		// Apply button 4-6 preset styles same as frontend.
 		if ( 'button_04' === $btn_preset_style || 'button_05' === $btn_preset_style || 'button_06' === $btn_preset_style ) {
@@ -607,6 +608,15 @@ class Astra_WP_Editor_CSS {
 			'text-transform'  => esc_attr( $site_title_text_transform ),
 			'letter-spacing'  => esc_attr( $site_title_spacing ),
 			'text-decoration' => esc_attr( $site_title_decoration ),
+		);
+
+		$desktop_css['.editor-styles-wrapper .wp-block-search__input'] = array(
+			'padding'      => '0 10px',
+			'border-color' => esc_attr( $border_color ),
+		);
+
+		$desktop_css['.wp-block-table figcaption'] = array(
+			'text-align'   => esc_attr( $ltr_left ),
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );

@@ -230,6 +230,20 @@ if ( ! function_exists( 'astra_logo' ) ) {
 }
 
 /**
+ * Add custom attribute to custom site logo.
+ *
+ * @param mixed $html custom logo html.
+ * @since x.x.x
+ * @return mixed custom logo html.
+ */
+function astra_add_custom_logo_attributes( $html ) {
+	$attributes = '';
+	return str_replace( 'rel="home"', 'rel="home"' . apply_filters( 'astra_custom_logo_attributes', $attributes ) . '', $html );
+}
+
+add_filter( 'get_custom_logo', 'astra_add_custom_logo_attributes' );
+
+/**
  * Return or echo site logo markup.
  *
  * @since 2.2.0

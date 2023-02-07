@@ -294,9 +294,9 @@ p.demo_store[data-position="bottom"],
   right: 7px;
 }
 
-.woocommerce .ast-site-header-cart .widget_shopping_cart .widget_shopping_cart_content,
-.ast-site-header-cart .widget_shopping_cart .widget_shopping_cart_content {
-  box-shadow: 0px 2px 8px 1px rgba(0, 0, 0, 0.07);
+.woocommerce .ast-site-header-cart .widget_shopping_cart .widget_shopping_cart_content > .woocommerce-mini-cart__empty-message,
+.ast-site-header-cart .widget_shopping_cart .widget_shopping_cart_content > .woocommerce-mini-cart__empty-message {
+  display: none;
 }
 
 .woocommerce .ast-site-header-cart .widget_shopping_cart .product_list_widget,
@@ -2811,12 +2811,6 @@ p.demo_store[data-position="bottom"],
   vertical-align: middle;
 }
 
-.woocommerce .up-sells h2,
-.woocommerce .related.products h2,
-.woocommerce .woocommerce-tabs h2 {
-  font-size: 1.5rem;
-}
-
 .woocommerce .comment-reply-title {
   font-size: 1.34rem;
   line-height: 1.3;
@@ -3439,11 +3433,6 @@ button.pswp__button--zoom:hover {
 .woocommerce ul.digital-downloads li .count,
 .woocommerce-account ul.digital-downloads li .count {
   float: right;
-}
-
-.woocommerce h2,
-.woocommerce-account h2 {
-  font-size: 1.625rem;
 }
 
 .woocommerce .woocommerce-Addresses .woocommerce-Address-title,

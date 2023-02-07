@@ -782,6 +782,50 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);
 			}
 
+			// Accessibility options.
+			$enable_site_accessibility        = astra_get_option( 'site-accessibility-toggle', false );
+			$html_selectors_focus_visible     = 'a:focus-visible, .ast-menu-toggle:focus-visible, .site .skip-link:focus-visible, .wp-block-loginout input:focus-visible, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper';
+			$html_selectors_focus_only_inputs = 'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="search"]:focus, textarea:focus, .wp-block-search__input:focus';
+
+			if ( $enable_site_accessibility ) {
+				$outline_style = astra_get_option( 'site-accessibility-highlight-type' );
+				$outline_color = astra_get_option( 'site-accessibility-highlight-color' );
+
+				$outline_input_style = astra_get_option( 'site-accessibility-highlight-input-type' );
+				$outline_input_color = astra_get_option( 'site-accessibility-highlight-input-color' );
+
+				$css_output[ $html_selectors_focus_visible ] = array(
+					'outline-style' => $outline_style ? $outline_style : 'inherit',
+					'outline-color' => $outline_color ? $outline_color : 'inherit',
+					'outline-width' => 'thin',
+					'border-color'  => 'transparent',
+				);
+
+				if ( 'disable' !== $outline_input_style ) {
+					$css_output[ $html_selectors_focus_only_inputs ] = array(
+						'border-style'  => $outline_input_style ? $outline_input_style : 'inherit',
+						'border-color'  => $outline_input_color ? $outline_input_color : 'inherit',
+						'border-width'  => 'thin',
+						'outline-color' => 'transparent',
+					);
+				} else {
+					$css_output[ $html_selectors_focus_only_inputs ] = array(
+						'border-style'  => $outline_style ? $outline_style : 'inherit',
+						'border-color'  => $outline_color ? $outline_color : 'inherit',
+						'border-width'  => 'thin',
+						'outline-color' => 'transparent',
+					);
+				}
+			}
+
+			if ( false === $enable_site_accessibility ) {
+				$css_output[ $html_selectors_focus_only_inputs . ', ' . $html_selectors_focus_visible ] = array(
+					'outline-style' => 'none',
+				);
+			}
+
+			
+
 			/**
 			 * Loaded the following CSS conditionally because of following scenarios -
 			 *
@@ -1578,11 +1622,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'border-bottom-width' => esc_attr( $theme_btn_bottom_border ),
 						'border-left-width'   => esc_attr( $theme_btn_left_border ),
 					),
-					'.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), .wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
+					'div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color)' => array(
 						'color' => empty( $btn_border_color ) ? esc_attr( $btn_bg_color ) : esc_attr( $btn_border_color ),
 					),
-					'.wp-block-button.is-style-outline .wp-block-button__link:hover, .wp-block-button.is-style-outline .wp-block-button__link:focus' => array(
-						'color'            => esc_attr( $btn_text_hover_color ) . ' !important',
+					'div.wp-block-button.is-style-outline .wp-block-button__link:hover, div.wp-block-button.is-style-outline .wp-block-button__link:focus, div.wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color):hover, div.wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color):hover' => array(
+						'color'            => esc_attr( $btn_text_hover_color ),
 						'background-color' => esc_attr( $btn_bg_hover_color ),
 						'border-color'     => empty( $btn_border_h_color ) ? esc_attr( $btn_bg_hover_color ) : esc_attr( $btn_border_h_color ),
 					),
@@ -3794,7 +3838,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'-moz-osx-font-smoothing' => 'grayscale',
 						'z-index'                 => '3',
 					),
-					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .site-header-focus-item .main-header-bar-navigation .menu-item-has-children > .menu-link:after' => array(
+					'.main-header-bar .main-header-bar-navigation .page_item_has_children > a:after, .main-header-bar .main-header-bar-navigation .menu-item-has-children > a:after, .menu-item-has-children .ast-header-navigation-arrow:after' => array(
 						'content'                 => '"\e900"',
 						'display'                 => 'inline-block',
 						'font-family'             => 'Astra',
@@ -3807,6 +3851,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'margin-' . $default_left_rtl_right => '10px',
 						'line-height'             => 'normal',
 					),
+
+					'.menu-item-has-children .sub-menu .ast-header-navigation-arrow:after' => array(
+						'margin-left' => '0',
+					),
+
 					'.ast-mobile-popup-drawer .main-header-bar-navigation .ast-submenu-expanded>.ast-menu-toggle::before' => array(
 						'transform' => 'rotateX(180deg)',
 					),
@@ -4349,7 +4398,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				opacity: .5;
 			}
 
-			.astra-cart-drawer.open-right {
+			.astra-cart-drawer {
 				width: 460px;
 				height: 100%;
 				' . $ltr_left . ': 100%;
@@ -4368,6 +4417,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				padding: 1.34em;
 				line-height: 1;
 				z-index: 1;
+				max-height: 3.5em;
 			}
 
 			.astra-cart-drawer .astra-cart-drawer-header .astra-cart-drawer-title {

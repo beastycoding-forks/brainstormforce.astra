@@ -154,6 +154,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			add_filter( 'render_block_woocommerce/active-filters', array( $this, 'add_active_filter_widget_class' ), 10, 2 );
+
+			add_filter( 'option_woocommerce_enable_ajax_add_to_cart', array( $this, 'option_woocommerce_enable_ajax_add_to_cart' ) );
+			add_filter( 'option_woocommerce_cart_redirect_after_add', array( $this, 'option_woocommerce_cart_redirect_after_add' ) );
 		}
 
 		/**
@@ -475,7 +478,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				/* Max width 762px because below to this point admin-bar height converts to 46px. */
 				$dynamic_css .= astra_parse_css( $admin_bar_responsive_css, '', '782' );
 			}
-
 			return $dynamic_css;
 		}
 
@@ -847,8 +849,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$defaults['store-notice-background-color'] = '';
 			$defaults['store-notice-position']         = 'top';
 
-			$defaults['shop-archive-width']     = 'default';
-			$defaults['shop-archive-max-width'] = 1200;
+			$defaults['shop-archive-width']      = 'default';
+			$defaults['shop-archive-max-width']  = 1200;
+			$defaults['shop-add-to-cart-action'] = 'default';
 
 			/* Free shipping */
 			$defaults['single-product-tabs-display']          = false;
@@ -896,12 +899,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			// Single Product Payments.
 			$defaults['single-product-payment-icon-color'] = 'inherit';
 			$defaults['single-product-payment-text']       = __( 'Guaranteed Safe Checkout', 'astra' );
-			$defaults['single-product-payment-visa']       = true;
-			$defaults['single-product-payment-mastercard'] = true;
-			$defaults['single-product-payment-amex']       = true;
-			$defaults['single-product-payment-discover']   = true;
-			$defaults['single-product-payment-paypal']     = false;
-			$defaults['single-product-payment-apple-pay']  = false;
 
 			$defaults['single-product-payment-list'] = array(
 				'items' =>
@@ -910,8 +907,33 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							'id'      => 'item-1',
 							'enabled' => true,
 							'source'  => 'icon',
-							'icon'    => '',
+							'icon'    => 'cc-visa',
 							'image'   => '',
+							'label'   => __( 'Visa', 'astra' ),
+						),
+						array(
+							'id'      => 'item-2',
+							'enabled' => true,
+							'source'  => 'icon',
+							'icon'    => 'cc-mastercard',
+							'image'   => '',
+							'label'   => __( 'Mastercard', 'astra' ),
+						),
+						array(
+							'id'      => 'item-3',
+							'enabled' => true,
+							'source'  => 'icon',
+							'icon'    => 'cc-amex',
+							'image'   => '',
+							'label'   => __( 'Amex', 'astra' ),
+						),
+						array(
+							'id'      => 'item-4',
+							'enabled' => true,
+							'source'  => 'icon',
+							'icon'    => 'cc-discover',
+							'image'   => '',
+							'label'   => __( 'Discover', 'astra' ),
 						),
 					),
 			);
@@ -1592,6 +1614,15 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				$css_desktop_output = array_merge( $css_desktop_output, $compat_css_desktop );
 			}
 
+			if ( Astra_Dynamic_CSS::v4_block_editor_compat() ) {
+				$css_desktop_output['.entry-content .woocommerce-message, .entry-content .woocommerce-error, .entry-content .woocommerce-info'] = array(
+					'padding-top'           => '1em',
+					'padding-bottom'        => '1em',
+					'padding-' . $ltr_left  => '3.5em',
+					'padding-' . $ltr_right => '2em',
+				);
+			}
+
 			if ( Astra_Builder_Helper::apply_flex_based_css() ) {
 				$css_desktop_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
 					'width' => '100%',
@@ -1601,6 +1632,18 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			if ( is_cart() && false === Astra_Builder_Helper::apply_flex_based_css() && true === astra_get_option( 'cart-modern-layout' ) && true === astra_get_option( 'enable-cart-upsells' ) ) {
 				$css_desktop_output['.woocommerce[class*="rel-up-columns-"] .site-main div.product .related.products ul.products li.product, .woocommerce-page .site-main ul.products li.product'] = array(
 					'width' => '100%',
+				);
+			}
+
+			// Backward compatibility for old users for h2 tag global fonts.
+			if ( apply_filters( 'astra_theme_woocommerce_global_h2_font', astra_get_option( 'woo-global-h2-flag', false ) ) ) {
+
+				$css_desktop_output['.woocommerce .up-sells h2, .woocommerce .related.products h2, .woocommerce .woocommerce-tabs h2'] = array(
+					'font-size' => '1.5rem',
+				);
+
+				$css_desktop_output['.woocommerce h2, .woocommerce-account h2'] = array(
+					'font-size' => '1.625rem',
 				);
 			}
 
@@ -2767,7 +2810,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					.ast-single-product-payments ul li svg,
 					.ast-single-product-payments ul li img {
 						height: 30px;
-						width: auto;
+						width: 100%;
 					}
 
 				';
@@ -3226,16 +3269,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function astra_update_flyout_cart_layout() {
 			if ( WC()->cart->is_empty() && 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+				do_action( 'astra_empty_cart_before' );
 				?>
 					<div class="ast-mini-cart-empty">
 						<div class="ast-mini-cart-message">
-							<p class="woocommerce-mini-cart__empty-message"><?php esc_html_e( 'No products in the cart.', 'astra' ); ?></p>
+							<p class="woocommerce-mini-cart__empty-message"><?php echo esc_html( apply_filters( 'astra_mini_cart_empty_msg', __( 'No products in the cart.', 'astra' ) ) ); ?></p>
 						</div>
+						<?php do_action( 'astra_empty_cart_content' ); ?>
 						<div class="woocommerce-mini-cart__buttons">
 							<a href="<?php /** @psalm-suppress PossiblyFalseArgument */  echo esc_url( get_permalink( wc_get_page_id( 'shop' ) ) ); ?>" class="button wc-forward"><?php esc_html_e( 'Continue Shopping', 'astra' ); ?></a> <?php // phpcs:ignore Generic.Commenting.DocComment.MissingShort ?>
 						</div>
 					</div>
 				<?php
+				do_action( 'astra_empty_cart_after' );
 			}
 		}
 
@@ -3375,67 +3421,16 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		public function woocommerce_product_single_payments() {
 			$section_title    = astra_get_option( 'single-product-payment-text' );
 			$if_color_version = astra_get_option( 'single-product-payment-icon-color' );
-			$visa_icon        = Astra_Builder_UI_Controller::fetch_svg_icon( 'visa', false );
-			$visa_gray        = Astra_Builder_UI_Controller::fetch_svg_icon( 'visa_gray', false );
-			$mastercard_icon  = Astra_Builder_UI_Controller::fetch_svg_icon( 'mastercard', false );
-			$mastercard_gray  = Astra_Builder_UI_Controller::fetch_svg_icon( 'mastercard_gray', false );
-			$amex_icon        = Astra_Builder_UI_Controller::fetch_svg_icon( 'amex', false );
-			$amex_gray        = Astra_Builder_UI_Controller::fetch_svg_icon( 'amex_gray', false );
-			$discover_icon    = Astra_Builder_UI_Controller::fetch_svg_icon( 'discover', false );
-			$discover_gray    = Astra_Builder_UI_Controller::fetch_svg_icon( 'discover_gray', false );
-			$paypal_icon      = Astra_Builder_UI_Controller::fetch_svg_icon( 'paypal', false );
-			$paypal_gray      = Astra_Builder_UI_Controller::fetch_svg_icon( 'paypal_gray', false );
-			$applepay_icon    = Astra_Builder_UI_Controller::fetch_svg_icon( 'applepay', false );
-			$applepay_gray    = Astra_Builder_UI_Controller::fetch_svg_icon( 'applepay_gray', false );
-
-			if ( 'inherit_text_color' === $if_color_version ) {
-				$visa_icon       = $visa_gray;
-				$mastercard_icon = $mastercard_gray;
-				$amex_icon       = $amex_gray;
-				$discover_icon   = $discover_gray;
-				$paypal_icon     = $paypal_gray;
-				$applepay_icon   = $applepay_gray;
-			}
 
 			ob_start();
 			?>
-			<?php $if_color_version = 'inherit_text_color' === $if_color_version ? 'ast-text-color-version' : 'ast-inherit-color-version'; ?>
-			<fieldset class="ast-single-product-payments <?php echo esc_attr( $if_color_version ); ?>">
+			<?php $if_color_version_css = 'inherit_text_color' === $if_color_version ? 'ast-text-color-version' : 'ast-inherit-color-version'; ?>
+			<fieldset class="ast-single-product-payments <?php echo esc_attr( $if_color_version_css ); ?>">
 				<legend><?php echo esc_html( $section_title ); ?></legend>
 				<ul>
-					<?php if ( astra_get_option( 'single-product-payment-visa' ) ) { ?>
-						<li class="ast-payment-visa">
-							<?php echo $visa_icon;  // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-						</li>
-					<?php } ?>
-					<?php if ( astra_get_option( 'single-product-payment-mastercard' ) ) { ?>
-						<li class="ast-payment-mastercard">
-							<?php echo $mastercard_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-						</li>
-					<?php } ?>
-					<?php if ( astra_get_option( 'single-product-payment-amex' ) ) { ?>
-						<li class="ast-payment-amex">
-							<?php echo $amex_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-						</li>
-					<?php } ?>
-					<?php if ( astra_get_option( 'single-product-payment-discover' ) ) { ?>
-						<li class="ast-payment-discover">
-							<?php echo $discover_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-						</li>
-					<?php } ?>
-					<?php if ( astra_get_option( 'single-product-payment-paypal' ) ) { ?>
-						<li class="ast-payment-paypal">
-							<?php echo $paypal_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-						</li>
-					<?php } ?>
-					<?php if ( astra_get_option( 'single-product-payment-apple-pay' ) ) { ?>
-						<li class="ast-payment-apple-pay">
-							<?php echo $applepay_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-						</li>
-						<?php
-					}
-
-					$payment_list = astra_get_option( 'single-product-payment-list' );
+					<?php
+					$colored_varients = array( 'cc-amex', 'cc-apple-pay', 'cc-discover', 'cc-mastercard', 'cc-paypal', 'cc-visa' );
+					$payment_list     = astra_get_option( 'single-product-payment-list' );
 
 					if ( isset( $payment_list['items'] ) ) {
 						?>
@@ -3453,11 +3448,13 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 												}
 											} else {
 												if ( isset( $single['icon'] ) && $single['icon'] ) {
+
+													$selected_icon = in_array( $single['icon'], $colored_varients ) && 'inherit_text_color' !== $if_color_version ? $single['icon'] . '-c' : $single['icon'];
 													?>
-															<li class="ast-custom-payment">
-															<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( $single['icon'], false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-															</li>
-														<?php
+													<li class="ast-custom-payment">
+													<?php echo Astra_Builder_UI_Controller::fetch_svg_icon( $selected_icon, false ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+													</li>
+													<?php
 												}
 											}
 										}
@@ -3637,6 +3634,38 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					echo '</div>';
 				}
 			}
+		}
+
+		/**
+		 * Enable ajax add to cart for shop page.
+		 *
+		 * @param string $value ajax add to cart value.
+		 * @return string yes | no  enable / disable ajax add to cart.
+		 * @since x.x.x
+		 */
+		public function option_woocommerce_enable_ajax_add_to_cart( $value ) {
+			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
+			if ( $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart ) {
+				return 'yes';
+			}
+			return $value;
+		}
+
+		/**
+		 * Enable ajax add to cart redirect.
+		 *
+		 * @param string $value cart redirect after add value.
+		 * @return string yes | no enable / disable cart redirect after add.
+		 * @since x.x.x
+		 */
+		public function option_woocommerce_cart_redirect_after_add( $value ) {
+			$astra_shop_add_to_cart = astra_get_option( 'shop-add-to-cart-action' );
+
+			if ( $astra_shop_add_to_cart && 'default' !== $astra_shop_add_to_cart ) {
+				return 'no';
+			}
+
+			return $value;
 		}
 	}
 

@@ -1,5 +1,20 @@
 v4.1.0 (Unreleased)
+- New: Accessibility options to change color and style of highlighted element.
+- New: WooCommerce - Shop - Introducing new redirect actions on Add to cart click.
+- New: WooCommerce - Sortable support for payment options on single product page.
+- New: Published, last-updated date support for post meta date field.
+- New: Date format option for post meta date field.
+- New: Introduced new filter 'astra_custom_logo_attributes' to add attributes into custom logo.
 - Improvement: Starter Templates admin menu nav-link removed when Whitelabel is enabled.
+- Improvement: Improved accessibility for header menu navigation.
+- Fix: W3 validation - Builder - Menu - Duplicate IDs for responsive devices.
+- Fix: Block editor - Image breaking outside the entry container when left/right aligned.
+- Fix: WooCommerce - Real Time Quantity Updater not working in case of shortcode used.
+- Fix: WooCommerce - CSS overriding Global H2 tag font size WooCommerce pages.
+- Fix: Customizer - Global buttons text and background hover color not working in customizer preview.
+- Fix: WordPress 6.1 conflicting with customizer's global outline button styling.
+- Fix: Footer builder - Widgets dynamic CSS gets added multiple times on the frontend.
+- Fix: WooCommerce - Error, info content messages UI breaking on the frontend.
 - Fix: Builder - Off-canvas menu - Dropdown menu arrow icon is misplaced in case of toggle for desktop.
 - Fix: Spectra Compatibility - Spectra spacing options for applying custom margin and padding not working.
 - Fix: Content background color does not apply to Author Box in customizer preview.

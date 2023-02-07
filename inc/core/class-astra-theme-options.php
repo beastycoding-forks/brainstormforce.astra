@@ -136,6 +136,8 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'title-meta',
 					),
 					'blog-width'                           => 'default',
+					'blog-meta-date-type'                  => 'published',
+					'blog-meta-date-format'                => '',
 					'blog-max-width'                       => 1200,
 					'blog-post-content'                    => 'excerpt',
 					'blog-meta'                            => array(
@@ -478,6 +480,9 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 					),
 					'para-margin-bottom'                   => '',
 					'underline-content-links'              => true,
+					'site-accessibility-toggle'            => true,
+					'site-accessibility-highlight-type'    => 'dotted',
+					'site-accessibility-highlight-input-type' => 'disable',
 					'body-text-transform'                  => '',
 					'headings-font-family'                 => 'inherit',
 					'headings-font-weight'                 => $apply_new_default_values ? '600' : 'inherit',

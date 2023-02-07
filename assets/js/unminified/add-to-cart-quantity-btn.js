@@ -147,9 +147,13 @@ function astrawpWooQuantityButtons( $quantitySelector ) {
                     }
 
                     // Trigger change event.
-                    var event = document.createEvent( 'HTMLEvents' );
-                    event.initEvent( 'change', true, false );
-                    $quantityBox.dispatchEvent( event );
+                    var update_cart_btn = document.getElementsByName("update_cart");
+                    if (update_cart_btn.length > 0) {
+                        for ( var btn = 0; btn < update_cart_btn.length; btn++ ) {
+                            update_cart_btn[btn].disabled = false;
+                            update_cart_btn[btn].click();
+                        }
+                    }
 
 
 					// Send AJAX request from mini cart.

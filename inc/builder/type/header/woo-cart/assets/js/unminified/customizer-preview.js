@@ -222,10 +222,10 @@
 			const offcanvasPosition = wp.customize( 'astra-settings[woo-desktop-cart-flyout-direction]' ).get();
 
 			if( 'left' == offcanvasPosition ) {
-				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktop + desktopUnit + '; left: -' + desktop + desktopUnit + '; } ';
-					dynamicStyle += '.ast-desktop .astra-cart-drawer.open-right.active { left: ' + desktop + desktopUnit + '; } ';
+				var dynamicStyle = '.ast-desktop .astra-cart-drawer { width: ' + desktop + desktopUnit + '; left: -' + desktop + desktopUnit + '; } ';
+					dynamicStyle += '.ast-desktop .astra-cart-drawer.active { left: ' + desktop + desktopUnit + '; } ';
 			} else {
-				var dynamicStyle = '.ast-desktop .astra-cart-drawer.open-right { width: ' + desktop + desktopUnit + '; left: 100%; } ';
+				var dynamicStyle = '.ast-desktop .astra-cart-drawer { width: ' + desktop + desktopUnit + '; left: 100%; } ';
 			}
 
 			//Tablets.

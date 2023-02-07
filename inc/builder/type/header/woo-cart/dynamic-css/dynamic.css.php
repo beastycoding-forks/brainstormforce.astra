@@ -268,15 +268,15 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 			'opacity'    => '0',
 			'visibility' => 'hidden',
 		);
-		$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right'] = array(
+		$css_output_desktop['.ast-desktop .astra-cart-drawer'] = array(
 			'width' => astra_get_css_value( $flyout_cart_width_desktop, $flyout_cart_width_desktop_unit ),
 		);
 		if ( 'left' === $desktop_flyout_cart_direction ) {
-			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right']        = array(
+			$css_output_desktop['.ast-desktop .astra-cart-drawer']        = array(
 				'width' => astra_get_css_value( $flyout_cart_width_desktop, $flyout_cart_width_desktop_unit ),
 				'left'  => '-' . astra_get_css_value( $flyout_cart_width_desktop, $flyout_cart_width_desktop_unit ),
 			);
-			$css_output_desktop['.ast-desktop .astra-cart-drawer.open-right.active'] = array(
+			$css_output_desktop['.ast-desktop .astra-cart-drawer.active'] = array(
 				'left' => astra_get_css_value( $flyout_cart_width_desktop, $flyout_cart_width_desktop_unit ),
 			);
 		}

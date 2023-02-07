@@ -1,39 +1,51 @@
 name: Tests
 on:
-  push:
-    branches:
-      - master
-      - next-release
-      - release-candidate
+  # push:
+  #   branches: [ main, master ]
   pull_request:
-    branches:
-      - master
-      - next-release
-      - release-candidate
+    types: [opened, synchronize, ready_for_review, labeled]
+    branches: [master, dev, rc, milestone]
+
 # Cancels all previous workflow runs for pull requests that have not completed.
 concurrency:
-    # The concurrency group contains the workflow name and the branch name for pull requests
-    # or the commit hash for any other events.
-    group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
-    cancel-in-progress: true
+  # The concurrency group contains the workflow name and the branch name for pull requests
+  # or the commit hash for any other events.
+  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && github.head_ref || github.sha }}
+  cancel-in-progress: true
+
 jobs:
-  PlayWrightTest:
+  Playwright:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
     steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v2
-      with:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
           node-version: '14.x'
-    - name: Install dependencies
-      run: npm install
-    - name: Install Playwright
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
-    - uses: actions/upload-artifact@v2
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Start Docker environment
+        run: npm run env:up:gh
+
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test --reporter=line --shard=${{ matrix.shard }}/${{ strategy.job-total }}
+
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+      - name: Stop Docker environment
+        run: npm run env:stop
+        if: always()

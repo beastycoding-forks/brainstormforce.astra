@@ -18,7 +18,7 @@
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {
-    "@wordpress/scripts": "^19.2.2"
+    "@wordpress/scripts": "^24.6.0"
   },
   "scripts": {
     "build": "wp-scripts build",

@@ -1,15 +1,7 @@
 name: Tests / Playwright
 on:
-  push:
-    branches:
-      - master
-      - next-release
-      - release-candidate
   pull_request:
-    branches:
-      - master
-      - next-release
-      - release-candidate
+
 # Cancels all previous workflow runs for pull requests that have not completed.
 concurrency:
     # The concurrency group contains the workflow name and the branch name for pull requests
@@ -20,6 +12,10 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -36,7 +32,7 @@ jobs:
       run: npx playwright install --with-deps
 
     - name: Run Playwright tests
-      run: npx playwright test
+      run: npx playwright test --reporter=line --shard=${{ matrix.shard }}/${{ strategy.job-total }}
 
     - uses: actions/upload-artifact@v2
         if: always()

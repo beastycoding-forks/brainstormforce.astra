@@ -444,24 +444,28 @@ if ( ! class_exists( 'Astra_Customizer_Button_Configs' ) ) {
 				),
 
 				/**
-				 * Option: Global Button Radius
+				 * Option: Global Button Radius Fields
 				 */
 				array(
-					'name'        => ASTRA_THEME_SETTINGS . '[button-radius]',
-					'default'     => astra_get_option( 'button-radius' ),
-					'type'        => 'control',
-					'transport'   => 'postMessage',
-					'section'     => 'section-buttons',
-					'control'     => 'ast-slider',
-					'priority'    => 19,
-					'suffix'      => 'px',
-					'title'       => __( 'Border Radius', 'astra' ),
-					'input_attrs' => array(
-						'min'  => 0,
-						'step' => 1,
-						'max'  => 200,
+					'name'              => ASTRA_THEME_SETTINGS . '[button-radius-fields]',
+					'default'           => astra_get_option( 'button-radius-fields' ),
+					'type'              => 'control',
+					'control'           => 'ast-responsive-spacing',
+					'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_spacing' ),
+					'section'           => 'section-buttons',
+					'title'             => __( 'Border Radius', 'astra' ),
+					'linked_choices'    => true,
+					'transport'         => 'postMessage',
+					'unit_choices'      => array( 'px', 'em', '%' ),
+					'choices'           => array(
+						'top'    => __( 'Top', 'astra' ),
+						'right'  => __( 'Right', 'astra' ),
+						'bottom' => __( 'Bottom', 'astra' ),
+						'left'   => __( 'Left', 'astra' ),
 					),
-					'divider'     => array( 'ast_class' => 'ast-top-dotted-divider' ),
+					'priority'          => 19,
+					'connected'         => false,
+					'divider'           => array( 'ast_class' => 'ast-top-dotted-divider' ),
 				),
 			);
 

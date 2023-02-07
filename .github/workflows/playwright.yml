@@ -25,33 +25,27 @@ jobs:
 
     - uses: actions/setup-node@v3
       with:
-        node-version: 14.15
+        node-version: '14.x'
 
-    - name: Npm install and build
-      run: |
-          npm ci
-          npm run build
+      - name: Install dependencies
+        run: npm install
 
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+      - name: Start Docker environment
+        run: npm run env:up:gh
 
-    - name: Start Docker environment
-      run: npm run wp-env start
-      env:
-        COMPOSE_INTERACTIVE_NO_CLI: true
+      - name: Install Playwright
+        run: npx playwright install --with-deps
 
     - name: Run Playwright tests
       run: npx playwright test
 
-    - name: Stop Docker environment
-      run: npm run wp-env stop
-      if: always()
-      env:
-        COMPOSE_INTERACTIVE_]NO_CLI: true
+    - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
 
-    - uses: actions/upload-artifact@v3
+    - name: Stop Docker environment
+      run: npm run env:stop
       if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30

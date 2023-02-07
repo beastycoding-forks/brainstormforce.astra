@@ -69,8 +69,8 @@
     "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8888 '#astra-theme-css-inline-css'",
     "env": "wp-env",
     "play:install": "npm i -D @playwright/test",
-		"play:run:interactive": "npx playwright test --headed ",
-		"play:run": "npx playwright test",
+    "play:run:interactive": "npx playwright test --headed ",
+    "play:run": "npx playwright test",
     "env:up:gh": "npm run env:start -- --update && npm run env:clean && wp-env run tests-cli 'bash ./wp-content/themes/astra/tests/docker/initial-setup.sh'"
   }
 }

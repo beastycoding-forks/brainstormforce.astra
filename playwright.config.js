@@ -1,12 +1,17 @@
-/**
- * External dependencies
- */
-import os from 'os';
-import { devices } from '@playwright/test';
-import type { PlaywrightTestConfig } from '@playwright/test';
+// @ts-check
+const { defineConfig, devices } = require('@playwright/test');
 
-const config: PlaywrightTestConfig = {
-	testDir: './tests/playwright',
+/**
+ * Read environment variables from file.
+ * https://github.com/motdotla/dotenv
+ */
+// require('dotenv').config();
+
+/**
+ * @see https://playwright.dev/docs/test-configuration
+ */
+module.exports = defineConfig({
+	testDir: './tests/play',
 	/* Fail the build on CI if you accidentally left test.only in the source code. */
 	forbidOnly: !! process.env.CI,
 	fullyParallel: true,
@@ -28,7 +33,7 @@ const config: PlaywrightTestConfig = {
 	},
 	// Don't report slow test "files", as we will be running our tests in serial.
 	reportSlowTests: null,
-	outputDir: 'tests/playwright/test-results/',
+	outputDir: 'tests/play/test-results/',
 	use: {
 		/* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
 		actionTimeout: 0,
@@ -46,29 +51,11 @@ const config: PlaywrightTestConfig = {
 			grepInvert: /-chromium/,
 		},
 		{
-			name: 'webkit',
-			use: {
-				...devices[ 'Desktop Safari' ],
-				/**
-				 * Headless webkit won't receive dataTransfer with custom types in the
-				 * drop event on Linux. The solution is to use `xvfb-run` to run the tests.
-				 * ```sh
-				 * xvfb-run npm run test:e2e:playwright
-				 * ```
-				 * See `.github/workflows/end2end-test-playwright.yml` for advanced usages.
-				 */
-				headless: os.type() !== 'Linux',
-			},
-			grep: /@webkit/,
-			grepInvert: /-webkit/,
-		},
-		{
 			name: 'firefox',
 			use: { ...devices[ 'Desktop Firefox' ] },
 			grep: /@firefox/,
 			grepInvert: /-firefox/,
 		},
-	],
-};
+	]
+});
 
-export default config;

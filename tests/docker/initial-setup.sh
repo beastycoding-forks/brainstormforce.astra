@@ -2,7 +2,7 @@
 
 echo "Our docker file"
 echo "Setup Astra"
-wp theme install astra --activate
+wp theme activate astra
 
 echo "Rewrite permalinks..."
 wp rewrite structure /%postname%/

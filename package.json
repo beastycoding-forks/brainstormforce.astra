@@ -68,11 +68,12 @@
     "env:reset-site": "wp-env clean all",
     "dynamic-css": "node ./bin/scripts/dynamic-css-to-file.js http://localhost:8888 '#astra-theme-css-inline-css'",
     "env": "wp-env",
+    "play:start": "wp-env start",
+    "env:up:gh": "npm run play:start -- --update && npm run env:clean && wp-env run tests-cli 'bash ./wp-content/themes/astra/tests/docker/initial-setup.sh'",
+    "play:up": "npm run play:start -- --update && npm run env:clean && wp-env run tests-cli ./wp-content/themes/astra/tests/docker/initial-setup.sh",
     "play:install": "npm i -D @playwright/test",
     "play:run:interactive": "npx playwright test --headed ",
     "play:run": "npx playwright test",
-    "play:start": "wp-env start && npm run env:activate-astra",
-    "env:clean": "wp-env clean all",
-    "env:up:gh": "npm run play:start && npm run env:clean"
+    "env:clean": "wp-env clean all"
   }
 }

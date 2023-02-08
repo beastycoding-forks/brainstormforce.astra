@@ -616,7 +616,7 @@ class Astra_WP_Editor_CSS {
 		);
 
 		$desktop_css['.wp-block-table figcaption'] = array(
-			'text-align'   => esc_attr( $ltr_left ),
+			'text-align' => esc_attr( $ltr_left ),
 		);
 
 		$content_links_underline = astra_get_option( 'underline-content-links' );

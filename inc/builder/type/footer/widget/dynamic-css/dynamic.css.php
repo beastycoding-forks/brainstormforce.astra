@@ -90,10 +90,10 @@ function astra_fb_widget_dynamic_css( $dynamic_css, $dynamic_css_filtered = '' )
 	if ( astra_support_footer_widget_right_margin() && ! is_customize_preview() ) {
 		$footer_area_css_output = array(
 			'.footer-widget-area.widget-area.site-footer-focus-item' => array(
-				'width' => 'auto'
+				'width' => 'auto',
 			),
 		);
-		$dynamic_css .= astra_parse_css( $footer_area_css_output );
+		$dynamic_css           .= astra_parse_css( $footer_area_css_output );
 	}
 
 	$dynamic_css .= Astra_Widget_Component_Dynamic_CSS::astra_widget_dynamic_css( 'footer' );

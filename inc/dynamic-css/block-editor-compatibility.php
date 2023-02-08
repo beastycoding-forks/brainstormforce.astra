@@ -180,14 +180,14 @@ function astra_block_editor_compatibility_css( $dynamic_css ) {
  * @since 3.8.0
  */
 function astra_load_modern_block_editor_ui( $dynamic_css ) {
-	$dynamic_css                .= astra_get_block_editor_required_css();
-	$ltr_left                   = is_rtl() ? 'right' : 'left';
-	$ltr_right                  = is_rtl() ? 'left' : 'right';
-	$astra_block_editor_v2_ui   = astra_get_option( 'wp-blocks-v2-ui', true );
-	$ast_container_width        = astra_get_option( 'site-content-width', 1200 ) . 'px';
-	$blocks_spacings            = Astra_WP_Editor_CSS::astra_get_block_spacings();
-	$list_blocks_space          = astra_get_option( 'list-blocks-spacing', true );
-	$exclude_uagb_selector      = defined( 'UAGB_VER' ) ? ':not(.wp-block-uagb-container)' : '';
+	$dynamic_css             .= astra_get_block_editor_required_css();
+	$ltr_left                 = is_rtl() ? 'right' : 'left';
+	$ltr_right                = is_rtl() ? 'left' : 'right';
+	$astra_block_editor_v2_ui = astra_get_option( 'wp-blocks-v2-ui', true );
+	$ast_container_width      = astra_get_option( 'site-content-width', 1200 ) . 'px';
+	$blocks_spacings          = Astra_WP_Editor_CSS::astra_get_block_spacings();
+	$list_blocks_space        = astra_get_option( 'list-blocks-spacing', true );
+	$exclude_uagb_selector    = defined( 'UAGB_VER' ) ? ':not(.wp-block-uagb-container)' : '';
 
 	/** @psalm-suppress InvalidCast */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	$tablet_breakpoint = (string) astra_get_tablet_breakpoint();

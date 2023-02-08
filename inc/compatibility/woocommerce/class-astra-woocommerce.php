@@ -3268,7 +3268,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 * @since 3.9.0
 		 */
 		public function astra_update_flyout_cart_layout() {
-			if ( WC()->cart->is_empty() && 'flyout' === astra_get_option( 'woo-header-cart-click-action' ) ) {
+			if ( WC()->cart->is_empty() ) {
 				do_action( 'astra_empty_cart_before' );
 				?>
 					<div class="ast-mini-cart-empty">

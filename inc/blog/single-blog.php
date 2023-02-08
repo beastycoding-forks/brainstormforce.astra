@@ -59,7 +59,7 @@ if ( ! function_exists( 'astra_single_post_class' ) ) {
 		// Blog layout.
 		if ( is_singular() ) {
 
-			if ( !in_array('ast-related-post', $classes)) {
+			if ( ! in_array( 'ast-related-post', $classes ) ) {
 				$classes[] = 'ast-article-single';
 			}
 

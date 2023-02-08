@@ -31,7 +31,7 @@ jobs:
         run: npm install
 
       - name: Start Docker environment
-        run: npm run env:up:gh
+        run: npm run play:start
 
       - name: Install Playwright
         run: npx playwright install --with-deps

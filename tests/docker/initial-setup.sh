@@ -14,8 +14,4 @@ wp plugin activate basic-auth
 # echo "Activate <your-extension>"
 # wp plugin activate your-extension
 
-echo "Setup reset plugin & Creating a snapshot of database..."
-wp cfe2e plugin wp-reset
-wp reset snapshots create --name=initial --yes
-
 echo "Success! Your E2E Test Environment is now ready."

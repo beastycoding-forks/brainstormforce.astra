@@ -49,10 +49,10 @@ For Astra all the environment build-in port number 8889. See `.wp-env.json` file
 npm run play:install
 
 # Run test case in headless mood
-npm run play:run example.spec.js
+npm run play:run hello.spec.js
 
 # Run test case in interactive mood
-npm run play:run:interactive example.spec.js
+npm run play:run:interactive hello.spec.js
 ```
 
 ### Restarting wp-env will restart the underlying Docker containers which can fix many issues.
@@ -80,7 +80,7 @@ wp-env start
 
 ### Please check this video on how to run a test case by Playwright framework
 
--   [Runtestcase](https://d.pr/v/Sf9Mpx)
+-   [Runtestcase](https://share.getcloudapp.com/xQuOXRyj)
 
 ### References
 

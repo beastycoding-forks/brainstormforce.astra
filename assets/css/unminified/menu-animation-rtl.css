@@ -25,7 +25,7 @@
 .ast-desktop .astra-menu-animation-slide-up > .menu-item:hover > .sub-menu,
 .ast-desktop .astra-menu-animation-slide-up > .menu-item .menu-item.focus > .sub-menu,
 .ast-desktop .astra-menu-animation-slide-up > .menu-item .menu-item:hover > .sub-menu,
-.ast-desktop .astra-menu-animation-slide-up > .menu-item .menu-item > .sub-menu {
+.ast-desktop .astra-menu-animation-slide-up > .menu-item .sub-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -53,7 +53,7 @@
 .ast-desktop .astra-menu-animation-slide-down > .menu-item:hover > .sub-menu,
 .ast-desktop .astra-menu-animation-slide-down > .menu-item .menu-item.focus > .sub-menu,
 .ast-desktop .astra-menu-animation-slide-down > .menu-item .menu-item:hover > .sub-menu,
-.ast-desktop .astra-menu-animation-slide-down > .menu-item .menu-item > .sub-menu {
+.ast-desktop .astra-menu-animation-slide-down > .menu-item > .sub-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -80,7 +80,7 @@
 .ast-desktop .astra-menu-animation-fade > .menu-item:hover > .sub-menu,
 .ast-desktop .astra-menu-animation-fade > .menu-item .menu-item.focus > .sub-menu,
 .ast-desktop .astra-menu-animation-fade > .menu-item .menu-item:hover > .sub-menu,
-.ast-desktop .astra-menu-animation-fade > .menu-item .menu-item > .sub-menu {
+.ast-desktop .astra-menu-animation-fade > .menu-item > .sub-menu {
   opacity: 1;
   visibility: visible;
   transition: opacity ease-in-out .3s;

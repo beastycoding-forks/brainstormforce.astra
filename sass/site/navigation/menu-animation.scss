@@ -17,7 +17,8 @@
             &.focus > .sub-menu,
             &:hover > .sub-menu,
             .menu-item.focus > .sub-menu,
-            .menu-item:hover > .sub-menu {
+            .menu-item:hover > .sub-menu,
+            .menu-item > .sub-menu {
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
@@ -53,7 +54,8 @@
             &.focus > .sub-menu,
             &:hover > .sub-menu,
             .menu-item.focus > .sub-menu,
-            .menu-item:hover > .sub-menu {
+            .menu-item:hover > .sub-menu,
+            .menu-item > .sub-menu {
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
@@ -87,7 +89,8 @@
             &.focus > .sub-menu,
             &:hover > .sub-menu,
             .menu-item.focus > .sub-menu,
-            .menu-item:hover > .sub-menu {
+            .menu-item:hover > .sub-menu,
+            .menu-item > .sub-menu {
                 opacity: 1;
                 visibility: visible;
                 transition: opacity ease-in-out .3s;

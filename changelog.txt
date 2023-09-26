@@ -16,6 +16,7 @@ v4.3.2 (Unreleased)
 - Fix: Block - Embed/YouTube block not working inside nested blocks from Custom Layouts.
 - Fix: Blog/Archive - Banner title font size is not working in responsive mode.
 - Fix: Desktop header creates visibility jerk on the exact tablet breakpoint.
+- Fix: Submenu animation not working while navigating site using tab key.
 
 v4.3.1
 - Fix: Block - Lists block style type updated to "disc" after v4.3.0 update.

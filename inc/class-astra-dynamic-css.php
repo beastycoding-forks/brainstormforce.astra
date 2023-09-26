@@ -106,6 +106,19 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Site Background Color.
 			$box_bg_obj = astra_get_option( 'site-layout-outside-bg-obj-responsive' );
 
+			// Override page background with meta value if set.
+			$meta_background_enabled = astra_get_option_meta( 'ast-page-background-enabled' );
+			
+			// Check for third party pages meta.
+			if ( '' === $meta_background_enabled && astra_with_third_party() ) {
+				$meta_background_enabled = astra_third_party_archive_meta( 'ast-page-background-enabled' );
+				if ( isset( $meta_background_enabled ) && 'enabled' === $meta_background_enabled ) {
+					$box_bg_obj = astra_third_party_archive_meta( 'ast-page-background-meta' );
+				}
+			} elseif ( isset( $meta_background_enabled ) && 'enabled' === $meta_background_enabled ) {
+				$box_bg_obj = astra_get_option_meta( 'ast-page-background-meta' );
+			}
+
 			// Color Options.
 			$text_color         = astra_get_option( 'text-color' );
 			$theme_color        = astra_get_option( 'theme-color' );

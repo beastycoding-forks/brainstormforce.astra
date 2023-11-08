@@ -3543,7 +3543,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$astra_navigation .= '}';
 				$parse_css        .= $astra_navigation;
 			}
-
+var_dump($blog_width);
 			/* Blog */
 			if ( 'custom' === $blog_width ) :
 
@@ -3575,10 +3575,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 
 				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu' => array(
-					'border-top-width'    => astra_get_css_value( $submenu_border['top'], 'px' ),
-					'border-right-width'  => astra_get_css_value( $submenu_border['right'], 'px' ),
-					'border-left-width'   => astra_get_css_value( $submenu_border['left'], 'px' ),
-					'border-bottom-width' => astra_get_css_value( $submenu_border['bottom'], 'px' ),
+					'border-top-width'    => ( is_array( $submenu_border ) && isset( $submenu_border['top'] ) ) ? astra_get_css_value( $submenu_border['top'], 'px' ) : '0px',
+					'border-right-width'  => ( is_array( $submenu_border ) && isset( $submenu_border['right'] ) ) ? astra_get_css_value( $submenu_border['right'], 'px' ) : '0px',
+					'border-left-width'   => ( is_array( $submenu_border ) && isset( $submenu_border['left'] ) ) ? astra_get_css_value( $submenu_border['left'], 'px' ) : '0px',
+					'border-bottom-width' => ( is_array( $submenu_border ) && isset( $submenu_border['bottom'] ) ) ? astra_get_css_value( $submenu_border['bottom'], 'px' ) : '0px',
 					'border-style'        => 'solid',
 				),
 				'.ast-desktop .main-header-menu.submenu-with-border .sub-menu .sub-menu' => array(

@@ -3543,7 +3543,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$astra_navigation .= '}';
 				$parse_css        .= $astra_navigation;
 			}
-var_dump($blog_width);
+
 			/* Blog */
 			if ( 'custom' === $blog_width ) :
 

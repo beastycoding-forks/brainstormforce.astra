@@ -1,3 +1,9 @@
+v4.5.0 (Unreleased)
+- New: Introducing fresh color presets to supercharge your site design.
+- Fix: Footer Builder - Above and Below Footer vertical alignment options are not working.
+- Fix: EDD - Mini cart widget UI broken in the RTL mode.
+- Fix: Enable Smooth Scroll to ID causes a jerk issue on the comment navigation section.
+
 v4.4.1
 - Improvement: Compatibility with WordPress-6.4.
 - Improvement: Updated SelectWoo library to 1.0.10 to hardened the security.

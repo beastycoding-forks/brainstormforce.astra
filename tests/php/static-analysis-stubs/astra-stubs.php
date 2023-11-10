@@ -2760,7 +2760,7 @@ namespace {
         /**
          * Return starter content definition.
          *
-         * @return mixed|void 
+         * @return mixed|void
          * @since 4.0.0
          */
         public function get()
@@ -3451,7 +3451,7 @@ namespace {
         public function __construct()
         {
         }
-        /** 
+        /**
          * Comment count wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -3461,7 +3461,7 @@ namespace {
         public function comment_count_wrapper_open($args)
         {
         }
-        /** 
+        /**
          * Comment count wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -3471,7 +3471,7 @@ namespace {
         public function comment_count_wrapper_close($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -3481,7 +3481,7 @@ namespace {
         public function ast_comment_data_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment data wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -3491,7 +3491,7 @@ namespace {
         public function ast_comment_data_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper opening div.
          *
          * @param array $args markup arguments.
@@ -3501,7 +3501,7 @@ namespace {
         public function ast_comment_meta_wrap_open($args)
         {
         }
-        /** 
+        /**
          * Comment meta wrapper closing div.
          *
          * @param array $args markup arguments.
@@ -3511,7 +3511,7 @@ namespace {
         public function ast_comment_meta_wrap_close($args)
         {
         }
-        /** 
+        /**
          * Comment time div attributes.
          *
          * @since 3.3.0
@@ -3520,7 +3520,7 @@ namespace {
         public function ast_comment_time_attr()
         {
         }
-        /** 
+        /**
          * Comment cite wrapper div attributes.
          *
          * @since 3.3.0
@@ -3565,16 +3565,16 @@ namespace {
         public function ast_grid_col_6()
         {
         }
-        /** 
+        /**
          * Comment form grid classes.
          *
-         * @since 3.3.0 
+         * @since 3.3.0
          * @return string.
          */
         public function comment_form_grid_class()
         {
         }
-        /** 
+        /**
          * Removed grid layout classes and make common class for same style
          *
          * @since 3.3.0
@@ -3583,7 +3583,7 @@ namespace {
         public function ast_grid_lg_12()
         {
         }
-        /** 
+        /**
          * Layout-4 grid css backward comaptibility.
          *
          * @return string.
@@ -3591,7 +3591,7 @@ namespace {
         public function ast_layout_4_grid()
         {
         }
-        /** 
+        /**
          * Layout-2 grid css backward comaptibility.
          *
          * @return string.
@@ -3599,7 +3599,7 @@ namespace {
         public function ast_layout_2_grid()
         {
         }
-        /** 
+        /**
          * Layout-1 grid css backward comaptibility.
          *
          * @return string.
@@ -3607,7 +3607,7 @@ namespace {
         public function ast_layout_1_grid()
         {
         }
-        /** 
+        /**
          * Layout-3 grid css backward comaptibility.
          *
          * @return string.
@@ -3615,7 +3615,7 @@ namespace {
         public function ast_layout_3_grid()
         {
         }
-        /** 
+        /**
          * Layout-5 grid css backward comaptibility.
          *
          * @return string.
@@ -3623,7 +3623,7 @@ namespace {
         public function ast_layout_5_grid()
         {
         }
-        /** 
+        /**
          * Layout-6 grid css backward comaptibility.
          *
          * @return string.
@@ -3633,7 +3633,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -3643,7 +3643,7 @@ namespace {
         }
         /**
          * Footer widget closing div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -3673,7 +3673,7 @@ namespace {
         }
         /**
          * Footer widget opening div.
-         * 
+         *
          * @since 3.3.0
          * @param array $args div attributes.
          * @return array.
@@ -9317,7 +9317,7 @@ namespace {
     }
     /*!
      * ISC License
-     * 
+     *
      * Copyright (c) 2018-2021, Andrea Giammarchi, @WebReflection
      *
      * Permission to use, copy, modify, and/or distribute this software for any
@@ -12609,7 +12609,7 @@ namespace {
     /**
      * Define Constants
      */
-    \define('ASTRA_THEME_VERSION', '4.4.0');
+    \define('ASTRA_THEME_VERSION', '4.7.0');
     \define('ASTRA_THEME_SETTINGS', 'astra-settings');
     \define('ASTRA_THEME_DIR', \trailingslashit(\get_template_directory()));
     \define('ASTRA_THEME_URI', \trailingslashit(\esc_url(\get_template_directory_uri())));
@@ -12752,7 +12752,7 @@ namespace {
      *
      * @param string $title for MyAccount title endpoint.
      * @return string
-     * 
+     *
      * @since 4.3.0
      */
     function astra_get_wc_endpoints_title($title)
@@ -12867,7 +12867,7 @@ namespace {
     }
     /**
      * Home starter content.
-     * 
+     *
      * @since 4.0.0
      * @package Astra\Compatibility\Starter_Content
      */
@@ -13220,7 +13220,7 @@ namespace {
     /**
      * Old Header Menu Last Item - Dynamic CSS.
      *
-     * @param string $dynamic_css 
+     * @param string $dynamic_css
      * @since 3.5.0
      */
     function astra_old_header_custom_menu_css($dynamic_css)
@@ -15681,6 +15681,16 @@ namespace {
     {
     }
     /**
+     * Check whether user is exising or new to change the default height of below footer
+     *
+     * @since x.x.x
+     * @return boolean
+     */
+    function astra_4_5_0_compatibility()
+    {
+    }
+    /**
+     * This will check if user is new and apply global color format. This is to manage backward compatibility for colors.
      * Set flag to avoid direct reflections on live site & to maintain backward compatibility for existing users.
      *
      * Backward flag purpose - To keep structure defaults updation by filter.
@@ -15885,6 +15895,15 @@ namespace {
      * @return void
      */
     function astra_theme_background_updater_4_4_0()
+    {
+    }
+    /**
+     * Handle backward compatibility on version x.x.x
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_theme_background_updater_4_7_0()
     {
     }
     /**
@@ -16462,6 +16481,15 @@ namespace {
      * @return array
      */
     function astra_get_queried_post_types()
+    {
+    }
+    /**
+     * Get Global Color Palette's presets
+     *
+     * @return array color presets array.
+     * @since x.x.x
+     */
+    function astra_get_palette_presets()
     {
     }
     /**
@@ -17202,8 +17230,18 @@ namespace {
     function astra_mobile_trigger_row_setting($dynamic_css, $dynamic_css_filtered = '')
     {
     }
+    /**
+     * Handle backward compatibility on version 4.4.0
+     *
+     * @since x.x.x
+     * @return void
+     */
+    function astra_theme_background_updater_4_5_0()
+    {
+    }
     \define('ASTRA_MOBILE_TRIGGER_DIR', \ASTRA_THEME_DIR . 'inc/builder/type/header/mobile-trigger');
     \define('ASTRA_MOBILE_TRIGGER_URI', \ASTRA_THEME_URI . 'inc/builder/type/header/mobile-trigger');
+
     /**
      * Dynamic CSS
      *

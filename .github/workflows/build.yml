@@ -7,6 +7,17 @@ on:
       - next-release
       - release-candidate
 
+  pull_request:
+    branches:
+      - master
+      - next-release
+      - release-candidate
+    types:
+      - opened
+      - edited
+      - synchronize
+      - labeled
+      - unlabeled
 
 jobs:
   build:

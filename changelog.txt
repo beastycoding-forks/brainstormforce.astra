@@ -3,6 +3,7 @@ v4.5.0 (Unreleased)
 - Fix: Footer Builder - Above and Below Footer vertical alignment options are not working.
 - Fix: EDD - Mini cart widget UI broken in the RTL mode.
 - Fix: Enable Smooth Scroll to ID causes a jerk issue on the comment navigation section.
+- Fix: External JavaScript script not loading properly on frontend.
 - Improvement: Improved accessibility by adding aria-label and title attributes to the shopping cart link.
 
 v4.4.1

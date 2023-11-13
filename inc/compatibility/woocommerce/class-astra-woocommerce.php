@@ -3264,7 +3264,19 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			?>
 			<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
 				<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
-					<?php $this->astra_get_cart_link(); ?>
+					<?php
+						ob_start();
+						$this->astra_get_cart_link();
+						$cart_link_html = ob_get_clean();
+		
+						$cart_link_html = str_replace(
+							'<a href',
+							'<a aria-label="View Shopping Cart" title="View Shopping Cart" href',
+							$cart_link_html
+						);
+		
+						echo $cart_link_html;
+					?>
 				</div>
 				<div class="ast-site-header-cart-data">
 

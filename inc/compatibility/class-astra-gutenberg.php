@@ -159,12 +159,12 @@ class Astra_Gutenberg {
 	public function add_iframe_wrapper( $block_content, $block ) {
 		$yt_wrapper_with_inner_iframe_regex = '/(ast-oembed-container)/';
 
-		if ( isset( $block['blockName'] ) && 'core/embed' !== $block['blockName'] && 'core/youtube' !== $block['blockName'] ) {
-			return $block_content;
-		}
-
 		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( ( ! empty( $block['blockName'] ) && ( 'core/embed' === $block['blockName'] || 'core/youtube' === $block['blockName'] ) ) && ! empty( $block['attrs'] ) && empty( $block['attrs']['url'] ) ) {
+			return $block_content;
+		}
+		
+		if ( ( 'core/embed' === $block['blockName'] )  && ! empty( $block['attrs'] ) && ! empty( $block['attrs']['url'] ) ) {
 			return $block_content;
 		}
 

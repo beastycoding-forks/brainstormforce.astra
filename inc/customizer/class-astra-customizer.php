@@ -1672,7 +1672,6 @@ function astra_save_header_customizer_configs( $configs ) {
 	if ( ! empty( $configs['name'] ) ) {
 		$key = str_replace( ASTRA_THEME_SETTINGS . '[', '', $configs['name'] );
 		$key = str_replace( ']', '', $key );
-		// Astra_Customizer::$customizer_header_configs[ $key ] = ! empty( $configs['default'] ) ? $configs['default'] : '';
 		Astra_Customizer::$customizer_header_configs[] = $key;
 	}
 }
@@ -1691,7 +1690,6 @@ function astra_save_footer_customizer_configs( $configs ) {
 	if ( ! empty( $configs['name'] ) ) {
 		$key = str_replace( ASTRA_THEME_SETTINGS . '[', '', $configs['name'] );
 		$key = str_replace( ']', '', $key );
-		// Astra_Customizer::$customizer_footer_configs[ $key ] = ! empty( $configs['default'] ) ? $configs['default'] : '';
 		Astra_Customizer::$customizer_footer_configs[] = $key;
 	}
 }

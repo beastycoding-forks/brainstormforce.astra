@@ -86,11 +86,38 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		/**
 		 * All groups parent-child relation array data.
 		 *
-		 * @access Public
+		 * @access public
 		 * @since 2.0.0
 		 * @var Array
 		 */
 		public static $group_configs = array();
+
+		/**
+		 * All header configs array data.
+		 *
+		 * @access public
+		 * @since x.x.x
+		 * @var array
+		 */
+		public static $customizer_header_configs = array(
+			'different-retina-logo',
+			'ast-header-retina-logo',
+			'different-mobile-logo',
+			'mobile-header-logo',
+			'ast-header-responsive-logo-width',
+			'display-site-title-responsive',
+			'display-site-tagline-responsive',
+			'logo-title-inline',
+		);
+
+		/**
+		 * All footer configs array data.
+		 *
+		 * @access public
+		 * @since x.x.x
+		 * @var array
+		 */
+		public static $customizer_footer_configs = array();
 
 		/**
 		 * Initiator
@@ -1630,3 +1657,41 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
  *  Kicking this off by calling 'get_instance()' method
  */
 Astra_Customizer::get_instance();
+
+/**
+ * Customizer save configs.
+ *
+ * Usecase: Header presets.
+ *
+ * @param array $configs configs.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_save_header_customizer_configs( $configs ) {
+	if ( ! empty( $configs['name'] ) ) {
+		$key = str_replace( ASTRA_THEME_SETTINGS . '[', '', $configs['name'] );
+		$key = str_replace( ']', '', $key );
+		// Astra_Customizer::$customizer_header_configs[ $key ] = ! empty( $configs['default'] ) ? $configs['default'] : '';
+		Astra_Customizer::$customizer_header_configs[] = $key;
+	}
+}
+
+/**
+ * Customizer save configs.
+ *
+ * Usecase: footer presets.
+ *
+ * @param array $configs configs.
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_save_footer_customizer_configs( $configs ) {
+	if ( ! empty( $configs['name'] ) ) {
+		$key = str_replace( ASTRA_THEME_SETTINGS . '[', '', $configs['name'] );
+		$key = str_replace( ']', '', $key );
+		// Astra_Customizer::$customizer_footer_configs[ $key ] = ! empty( $configs['default'] ) ? $configs['default'] : '';
+		Astra_Customizer::$customizer_footer_configs[] = $key;
+	}
+}

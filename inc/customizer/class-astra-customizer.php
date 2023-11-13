@@ -104,6 +104,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			'ast-header-retina-logo',
 			'different-mobile-logo',
 			'mobile-header-logo',
+			'header-color-site-tagline',
 			'ast-header-responsive-logo-width',
 			'display-site-title-responsive',
 			'display-site-tagline-responsive',

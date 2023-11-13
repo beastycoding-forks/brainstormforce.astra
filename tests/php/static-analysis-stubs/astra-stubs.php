@@ -5070,11 +5070,11 @@ namespace {
         /**
          * Register Builder Customizer Configurations.
          *
-         * @param Array  $configurations Configurations.
+         * @param array  $configurations Configurations.
          * @param string $builder_type Builder Type.
          * @param string $section Section slug.
          * @since 3.0.0
-         * @return Array Astra Customizer Configurations with updated configurations.
+         * @return array Astra Customizer Configurations with updated configurations.
          */
         public static function register_configuration($configurations, $builder_type = 'header', $section = 'section-hb-social-icons-')
         {
@@ -5090,7 +5090,7 @@ namespace {
         /**
          * Register Builder Customizer Configurations.
          *
-         * @param Array  $configurations Configurations.
+         * @param array  $configurations Configurations.
          * @param string $builder_type Builder Type.
          * @param string $section Section.
          *
@@ -5111,12 +5111,12 @@ namespace {
         /**
          * Register Builder Customizer Configurations.
          *
-         * @param Array  $configurations Configurations.
+         * @param array  $configurations Configurations.
          * @param string $builder_type Builder Type.
          * @param string $section Section.
          *
          * @since 3.0.0
-         * @return Array Astra Customizer Configurations with updated configurations.
+         * @return array Astra Customizer Configurations with updated configurations.
          */
         public static function register_configuration($configurations, $builder_type = 'header', $section = 'section-hb-button-')
         {
@@ -5612,7 +5612,7 @@ namespace {
          * @since x.x.x
          * @var array
          */
-        public static $customizer_header_configs = array('different-retina-logo', 'ast-header-retina-logo', 'different-mobile-logo', 'mobile-header-logo', 'ast-header-responsive-logo-width', 'display-site-title-responsive', 'display-site-tagline-responsive', 'logo-title-inline');
+        public static $customizer_header_configs = array('different-retina-logo', 'ast-header-retina-logo', 'different-mobile-logo', 'mobile-header-logo', 'header-color-site-tagline', 'ast-header-responsive-logo-width', 'display-site-title-responsive', 'display-site-tagline-responsive', 'logo-title-inline');
         /**
          * All footer configs array data.
          *
@@ -10597,6 +10597,8 @@ namespace {
     {
         /**
          *  Initiator
+         *
+         * @return object initialized Astra_Builder_Header class
          */
         public static function get_instance()
         {
@@ -15146,7 +15148,7 @@ namespace {
     /**
      * Register html footer builder Customizer Configurations.
      *
-     * @param array                $configurations Astra Customizer Configurations.
+     * @param array $configurations Astra Customizer Configurations.
      * @since x.x.x
      * @return array Astra Customizer Configurations with updated configurations.
      */
@@ -15156,7 +15158,7 @@ namespace {
     /**
      * Register social footer builder Customizer Configurations.
      *
-     * @param array                $configurations Astra Customizer Configurations.
+     * @param array $configurations Astra Customizer Configurations.
      * @since x.x.x
      * @return array Astra Customizer Configurations with updated configurations.
      */
@@ -15220,7 +15222,7 @@ namespace {
     /**
      * Register builder footer builder Customizer Configurations.
      *
-     * @param Array                $configurations Astra Customizer Configurations.
+     * @param Array $configurations Astra Customizer Configurations.
      * @since x.x.x
      * @return array Astra Customizer Configurations with updated configurations.
      */
@@ -15230,7 +15232,7 @@ namespace {
     /**
      * Register button footer builder Customizer Configurations.
      *
-     * @param array                $configurations Astra Customizer Configurations.
+     * @param array $configurations Astra Customizer Configurations.
      * @since x.x.x
      * @return array Astra Customizer Configurations with updated configurations.
      */

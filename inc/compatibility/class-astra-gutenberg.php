@@ -164,7 +164,7 @@ class Astra_Gutenberg {
 			return $block_content;
 		}
 		
-		if ( ( 'core/embed' === $block['blockName'] )  && ! empty( $block['attrs'] ) && ! empty( $block['attrs']['url'] ) ) {
+		if ( ! empty( $block['blockName'] ) && ( 'core/embed' === $block['blockName'] )  && ! empty( $block['attrs']['url'] ) ) {
 			return $block_content;
 		}
 

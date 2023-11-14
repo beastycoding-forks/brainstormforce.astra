@@ -5232,9 +5232,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * Check version x.x.x backward compatibility.
+		 * Check version 4.5.0 backward compatibility.
 		 *
-		 * @since x.x.x
+		 * @since 4.5.0
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function astra_4_5_0_compatibility() {

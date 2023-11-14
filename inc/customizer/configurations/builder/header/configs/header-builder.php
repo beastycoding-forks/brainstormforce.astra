@@ -3,6 +3,7 @@
  * header_builder Configuration.
  *
  * @author      Astra
+ * @package     Astra
  * @copyright   Copyright (c) 2023, Astra
  * @link        https://wpastra.com/
  * @since       x.x.x
@@ -526,7 +527,9 @@ function astra_header_header_builder_configuration( $configurations = array() ) 
 		);
 	}
 
+	/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'sticky-header' ) ) {
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		/**
 		 * Option: Header Transparant
 		 */

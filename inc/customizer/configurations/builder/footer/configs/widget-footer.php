@@ -3,6 +3,7 @@
  * widget footer Configuration.
  *
  * @author      Astra
+ * @package     Astra
  * @copyright   Copyright (c) 2023, Astra
  * @link        https://wpastra.com/
  * @since       x.x.x
@@ -15,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Register widget footer builder Customizer Configurations.
  *
+ * @param  array $configurations Astra Customizer Configurations.
  * @since x.x.x
  * @return array Astra Customizer Configurations with updated configurations.
  */

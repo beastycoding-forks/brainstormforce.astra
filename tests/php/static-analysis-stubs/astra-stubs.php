@@ -3798,7 +3798,7 @@ namespace {
         /**
          *  No. Of. Component count array.
          *
-         * @var int
+         * @var array
          */
         public static $component_count_array = array();
         /**
@@ -15168,6 +15168,7 @@ namespace {
     /**
      * Register widget footer builder Customizer Configurations.
      *
+     * @param  array $configurations Astra Customizer Configurations.
      * @since x.x.x
      * @return array Astra Customizer Configurations with updated configurations.
      */

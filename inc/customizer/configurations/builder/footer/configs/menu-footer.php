@@ -3,6 +3,7 @@
  * menu footer Configuration.
  *
  * @author      Astra
+ * @package     Astra
  * @copyright   Copyright (c) 2023, Astra
  * @link        https://wpastra.com/
  * @since       x.x.x
@@ -293,7 +294,9 @@ function astra_menu_footer_configuration() {
 		),
 	);
 
+	/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 		$new_configs = array(
 

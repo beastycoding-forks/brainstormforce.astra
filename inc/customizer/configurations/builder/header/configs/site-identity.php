@@ -3,6 +3,7 @@
  * site identity Header Configuration.
  *
  * @author      Astra
+ * @package     Astra
  * @copyright   Copyright (c) 2023, Astra
  * @link        https://wpastra.com/
  * @since       x.x.x

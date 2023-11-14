@@ -5074,7 +5074,7 @@ namespace {
          * @param string $builder_type Builder Type.
          * @param string $section Section slug.
          * @since 3.0.0
-         * @return array Astra Customizer Configurations with updated configurations.
+         * @return array $configurations Astra Customizer Configurations with updated configurations.
          */
         public static function register_configuration($configurations, $builder_type = 'header', $section = 'section-hb-social-icons-')
         {
@@ -5095,7 +5095,7 @@ namespace {
          * @param string $section Section.
          *
          * @since 3.0.0
-         * @return Array Astra Customizer Configurations with updated configurations.
+         * @return array $configurations Astra Customizer Configurations with updated configurations.
          */
         public static function register_configuration($configurations, $builder_type = 'header', $section = 'section-hb-html-')
         {
@@ -5116,7 +5116,7 @@ namespace {
          * @param string $section Section.
          *
          * @since 3.0.0
-         * @return array Astra Customizer Configurations with updated configurations.
+         * @return array $configurations Astra Customizer Configurations with updated configurations.
          */
         public static function register_configuration($configurations, $builder_type = 'header', $section = 'section-hb-button-')
         {

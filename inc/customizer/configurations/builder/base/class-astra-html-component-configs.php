@@ -29,7 +29,7 @@ class Astra_Html_Component_Configs {
 	 * @param string $section Section.
 	 *
 	 * @since 3.0.0
-	 * @return Array Astra Customizer Configurations with updated configurations.
+	 * @return array $configurations Astra Customizer Configurations with updated configurations.
 	 */
 	public static function register_configuration( $configurations, $builder_type = 'header', $section = 'section-hb-html-' ) {
 

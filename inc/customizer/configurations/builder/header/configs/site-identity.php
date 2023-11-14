@@ -1,6 +1,6 @@
 <?php
 /**
- * site identity Header Configuration.
+ * Site identity Header Configuration.
  *
  * @author      Astra
  * @package     Astra

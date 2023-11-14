@@ -926,7 +926,7 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 			menu.className += ' nav-menu';
 		}
 
-		window.onload = function () {
+		document.addEventListener('DOMContentLoaded', function () {
 			if ('off-canvas' === mobileHeaderType) {
 				var popupClose = document.getElementById('menu-toggle-close');
 				if (popupClose) {
@@ -943,7 +943,7 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 					};
 				}
 			}
-		}
+		});
 
 		button.onclick = function() {
 			if ( -1 !== containerMenu.className.indexOf( 'toggled' ) ) {

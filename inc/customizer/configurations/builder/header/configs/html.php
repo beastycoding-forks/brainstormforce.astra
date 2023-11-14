@@ -1,6 +1,6 @@
 <?php
 /**
- * html Header Configuration.
+ * HTML Header Configuration.
  *
  * @author      Astra
  * @package     Astra

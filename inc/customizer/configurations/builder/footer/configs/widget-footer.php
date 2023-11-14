@@ -1,6 +1,6 @@
 <?php
 /**
- * widget footer Configuration.
+ * Widget footer Configuration.
  *
  * @author      Astra
  * @package     Astra

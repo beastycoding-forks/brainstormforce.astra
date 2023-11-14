@@ -1,6 +1,6 @@
 <?php
 /**
- * button Header Configuration.
+ * Button Header Configuration.
  *
  * @author      Astra
  * @package     Astra

@@ -1,6 +1,6 @@
 <?php
 /**
- * header_builder Configuration.
+ * Header Builder Configuration.
  *
  * @author      Astra
  * @package     Astra
@@ -29,7 +29,9 @@ function astra_header_header_builder_configuration( $configurations = array() ) 
 
 		$header_button_section = 'section-hb-button-' . $index;
 
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( in_array( $header_button_section, $cloned_component_track['removed-items'], true ) ) {
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			continue;
 		}
 
@@ -50,7 +52,9 @@ function astra_header_header_builder_configuration( $configurations = array() ) 
 
 		$header_html_section = 'section-hb-html-' . $index;
 
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( in_array( $header_html_section, $cloned_component_track['removed-items'], true ) ) {
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			continue;
 		}
 
@@ -71,7 +75,9 @@ function astra_header_header_builder_configuration( $configurations = array() ) 
 
 		$header_widget_section = 'sidebar-widgets-header-widget-' . $index;
 
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( in_array( $header_widget_section, $cloned_component_track['removed-items'], true ) ) {
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			continue;
 		}
 
@@ -133,7 +139,9 @@ function astra_header_header_builder_configuration( $configurations = array() ) 
 
 		$header_social_section = 'section-hb-social-icons-' . $index;
 
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		if ( in_array( $header_social_section, $cloned_component_track['removed-items'], true ) ) {
+			/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			continue;
 		}
 

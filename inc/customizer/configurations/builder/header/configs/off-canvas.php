@@ -1,6 +1,6 @@
 <?php
 /**
- * off-canvas Header Configuration.
+ * Off canvas Header Configuration.
  *
  * @author      Astra
  * @package     Astra

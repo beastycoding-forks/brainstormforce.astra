@@ -1,6 +1,6 @@
 <?php
 /**
- * account Header Configuration.
+ * Account Header Configuration.
  *
  * @author      Astra
  * @package     Astra

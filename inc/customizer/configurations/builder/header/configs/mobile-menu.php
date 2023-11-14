@@ -1,6 +1,6 @@
 <?php
 /**
- * mobile-menu Header Configuration.
+ * Mobile Menu Header Configuration.
  *
  * @author      Astra
  * @package     Astra

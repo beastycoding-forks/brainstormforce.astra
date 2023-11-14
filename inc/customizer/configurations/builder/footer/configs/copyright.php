@@ -1,6 +1,6 @@
 <?php
 /**
- * copyright footer Configuration.
+ * Copyright footer Configuration.
  *
  * @author      Astra
  * @package     Astra

@@ -1,6 +1,6 @@
 <?php
 /**
- * menu Header Configuration.
+ * Menu Header Configuration.
  *
  * @author      Astra
  * @package     Astra

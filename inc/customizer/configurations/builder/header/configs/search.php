@@ -1,6 +1,6 @@
 <?php
 /**
- * search Header Configuration.
+ * Search Header Configuration.
  *
  * @author      Astra
  * @package     Astra

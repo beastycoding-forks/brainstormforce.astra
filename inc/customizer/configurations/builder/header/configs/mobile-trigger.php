@@ -1,6 +1,6 @@
 <?php
 /**
- * Header Trigger Header Configuration.
+ * Mobile Trigger Header Configuration.
  *
  * @author      Astra
  * @package     Astra

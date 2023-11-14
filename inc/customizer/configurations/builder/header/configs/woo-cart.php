@@ -1,6 +1,6 @@
 <?php
 /**
- * woo-cart Header Configuration.
+ * WooCommerce cart Header Configuration.
  *
  * @author      Astra
  * @package     Astra

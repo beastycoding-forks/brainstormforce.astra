@@ -1,6 +1,6 @@
 <?php
 /**
- * html footer Configuration.
+ * HTML footer Configuration.
  *
  * @author      Astra
  * @package     Astra

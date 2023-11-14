@@ -1,6 +1,6 @@
 <?php
 /**
- * button footer Configuration.
+ * Button footer Configuration.
  *
  * @author      Astra
  * @package     Astra

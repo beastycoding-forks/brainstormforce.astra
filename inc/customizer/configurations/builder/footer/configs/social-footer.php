@@ -1,6 +1,6 @@
 <?php
 /**
- * social footer Configuration.
+ * Social footer Configuration.
  *
  * @author      Astra
  * @package     Astra

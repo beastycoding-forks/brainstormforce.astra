@@ -1,6 +1,6 @@
 <?php
 /**
- * social Header Configuration.
+ * Social Header Configuration.
  *
  * @author      Astra
  * @package     Astra

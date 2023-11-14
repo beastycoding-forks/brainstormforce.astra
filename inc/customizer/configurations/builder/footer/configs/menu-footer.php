@@ -1,6 +1,6 @@
 <?php
 /**
- * menu footer Configuration.
+ * Menu footer Configuration.
  *
  * @author      Astra
  * @package     Astra

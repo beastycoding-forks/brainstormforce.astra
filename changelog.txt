@@ -1,4 +1,5 @@
 v4.5.0 (Unreleased)
+- New: Site Builder Free Version Preview.
 - New: Introducing fresh color presets to supercharge your site design.
 - Fix: Footer Builder - Above and Below Footer vertical alignment options are not working.
 - Fix: EDD - Mini cart widget UI broken in the RTL mode.

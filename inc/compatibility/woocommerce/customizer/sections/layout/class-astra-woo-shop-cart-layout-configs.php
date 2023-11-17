@@ -84,6 +84,28 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 				),
 			);
 
+			if ( defined( 'WC_VERSION' ) && version_compare( WC_VERSION, '8.3', '>=' ) ) {
+				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-block-incompatible-cart-notice]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'section-woo-shop-cart',
+					'priority' => 1,
+					'label'    => '',
+					'help'     => '<p style="margin-bottom: 20px;>">' . __( 'Note: Certain Cart options may not work smoothly on the block editor\'s Cart page. For best results with these features, prefer use of shortcode-based Cart page instead.', 'astra' ) . '</p>',
+				);
+
+				$_configs[] = array(
+					'name'     => ASTRA_THEME_SETTINGS . '[woo-block-incompatible-checkout-notice]',
+					'type'     => 'control',
+					'control'  => 'ast-description',
+					'section'  => 'woocommerce_checkout',
+					'priority' => 1,
+					'label'    => '',
+					'help'     => '<p style="margin-bottom: 20px;>">' . __( 'Note: Certain Checkout options may not work smoothly on the block editor\'s Checkout page. For best results with these features, prefer use of shortcode-based Checkout page instead.', 'astra' ) . '</p>',
+				);
+			}
+
 			if ( astra_showcase_upgrade_notices() ) {
 				// Learn More link if Astra Pro is not activated.
 				$_configs[] = array(

@@ -1,3 +1,6 @@
+v4.5.1 (Unreleased)
+- Fix: Customizer - Avoid premature closing of Gradient Color Picker.
+
 v4.5.0 (Unreleased)
 - New: Site Builder Free Version Preview.
 - New: Introducing fresh color presets to supercharge your site design.

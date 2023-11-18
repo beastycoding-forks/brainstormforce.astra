@@ -141,9 +141,9 @@
 	.select2-container--default .select2-selection--single .select2-selection__arrow {
 	  position: absolute;
     top: 50%;
-	transform: translateY(-50%);
-	display: flex;
-	justify-content: center;
+	  transform: translateY(-50%);
+	  display: flex;
+	  justify-content: center;
     right: 1px;
     width: 24px; }
    	.select2-container--default .select2-selection--single .select2-selection__arrow .dashicons {

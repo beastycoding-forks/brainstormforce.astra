@@ -1,3 +1,6 @@
+v4.5.1 (Unreleased)
+- Fix: WooCommerce - Boxed Page Setting Option not working on Cart & Checkout Page.
+
 v4.5.0 (Unreleased)
 - New: Site Builder Free Version Preview.
 - New: Introducing fresh color presets to supercharge your site design.

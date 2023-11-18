@@ -1,4 +1,5 @@
 .select2-container {
+	font-size: 14px;
 	box-sizing: border-box;
 	display: inline-block;
 	margin: 0;
@@ -8,7 +9,9 @@
 	  box-sizing: border-box;
 	  cursor: pointer;
 	  display: block;
-	  height: 28px;
+	  min-height: 32px;
+	  padding-top: 1px;
+	  padding-bottom: 1px;
 	  user-select: none;
 	  -webkit-user-select: none; }
 	  .select2-container .select2-selection--single .select2-selection__rendered {

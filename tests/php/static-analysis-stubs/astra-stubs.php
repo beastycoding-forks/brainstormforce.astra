@@ -15683,7 +15683,7 @@ namespace {
     /**
      * Check whether user is exising or new to change the default height of below footer
      *
-     * @since x.x.x
+     * @since 4.5.0
      * @return boolean
      */
     function astra_4_5_0_compatibility()
@@ -15898,9 +15898,9 @@ namespace {
     {
     }
     /**
-     * Handle backward compatibility on version x.x.x
+     * Handle backward compatibility on version 4.5.0
      *
-     * @since x.x.x
+     * @since 4.5.0
      * @return void
      */
     function astra_theme_background_updater_4_7_0()
@@ -16487,7 +16487,7 @@ namespace {
      * Get Global Color Palette's presets
      *
      * @return array color presets array.
-     * @since x.x.x
+     * @since 4.5.0
      */
     function astra_get_palette_presets()
     {
@@ -17233,7 +17233,7 @@ namespace {
     /**
      * Handle backward compatibility on version 4.4.0
      *
-     * @since x.x.x
+     * @since 4.5.0
      * @return void
      */
     function astra_theme_background_updater_4_5_0()

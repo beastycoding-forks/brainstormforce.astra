@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 					'section'  => 'woocommerce_checkout',
 					'priority' => 1,
 					'label'    => '',
-					'help'     => '<p style="margin-bottom: 20px;>"><strong>' . __( 'Note:', 'astra' ) . '</strong>' . __( ' Certain Checkout page options may not work smoothly on the block editor based Checkout page. For best results with these features, prefer using a shortcode-based Checkout page.', 'astra' ) . '</p>',
+					'help'     => '<p style="margin-bottom: 20px;>"><strong>' . __( 'Note:', 'astra' ) . '</strong>' . __( ' Certain Checkout page options may not work smoothly on the block editor based Checkout page. For best results with these fetures, prefer using a shortcode-based Checkout page.', 'astra' ) . '</p>',
 				);
 			}
 

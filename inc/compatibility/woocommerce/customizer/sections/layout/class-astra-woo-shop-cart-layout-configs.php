@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 					'section'  => 'section-woo-shop-cart',
 					'priority' => 1,
 					'label'    => '',
-					'help'     => '<p style="margin-bottom: 20px;>">' . __( 'Note: Certain Cart options may not work smoothly on the block editor\'s Cart page. For best results with these features, prefer use of shortcode-based Cart page instead.', 'astra' ) . '</p>',
+					'help'     => '<p style="margin-bottom: 20px;>"><strong>' . __( 'Note:', 'astra' ) . '</strong>' . __( ' Certain Cart page options may not work smoothly on the block editor based Cart page. For best results with these features, prefer using a shortcode based Cart page.', 'astra' ) . '</p>',
 				);
 
 				$_configs[] = array(
@@ -102,7 +102,7 @@ if ( ! class_exists( 'Astra_Woo_Shop_Cart_Layout_Configs' ) ) {
 					'section'  => 'woocommerce_checkout',
 					'priority' => 1,
 					'label'    => '',
-					'help'     => '<p style="margin-bottom: 20px;>">' . __( 'Note: Certain Checkout options may not work smoothly on the block editor\'s Checkout page. For best results with these features, prefer use of shortcode-based Checkout page instead.', 'astra' ) . '</p>',
+					'help'     => '<p style="margin-bottom: 20px;>"><strong>' . __( 'Note:', 'astra' ) . '</strong>' . __( ' Certain Checkout page options may not work smoothly on the block editor based Checkout page. For best results with these features, prefer using a shortcode-based Checkout page.', 'astra' ) . '</p>',
 				);
 			}
 

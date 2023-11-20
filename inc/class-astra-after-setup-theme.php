@@ -256,6 +256,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 					'youtu.be',
 					'wistia.com',
 					'wistia.net',
+					'spotify.com',
 				)
 			);
 

@@ -24,7 +24,7 @@ class Astra_Gutenberg {
 		}
 
 		add_filter( 'render_block_core/group', array( $this, 'add_inherit_width_group_class' ), 10, 2 );
-		add_filter( 'render_block', array( $this, 'add_iframe_wrapper' ), 10, 2 );
+		add_filter( 'render_block', array( $this, 'add_iframe_wrapper' ), 99, 2 );
 	}
 
 	/**
@@ -159,12 +159,12 @@ class Astra_Gutenberg {
 	public function add_iframe_wrapper( $block_content, $block ) {
 		$yt_wrapper_with_inner_iframe_regex = '/(ast-oembed-container)/';
 
-		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
-		if ( ( ! empty( $block['blockName'] ) && ( 'core/embed' === $block['blockName'] || 'core/youtube' === $block['blockName'] ) ) && ! empty( $block['attrs'] ) && empty( $block['attrs']['url'] ) ) {
+		if ( isset( $block['blockName'] ) && 'core/embed' !== $block['blockName'] && 'core/youtube' !== $block['blockName'] ) {
 			return $block_content;
 		}
-		
-		if ( ! empty( $block['blockName'] ) && ( 'core/embed' === $block['blockName'] ) && ! empty( $block['attrs']['url'] ) ) {
+
+		/** @psalm-suppress PossiblyUndefinedStringArrayOffset */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+		if ( ( ! empty( $block['blockName'] ) && ( 'core/embed' === $block['blockName'] || 'core/youtube' === $block['blockName'] ) ) && ! empty( $block['attrs'] ) && empty( $block['attrs']['url'] ) ) {
 			return $block_content;
 		}
 
@@ -184,7 +184,7 @@ class Astra_Gutenberg {
 			 * @return mixed          Updated content.
 			 */
 			function ( $matches ) use ( $video_url, $block_content, $block ) {
-				return Astra_After_Setup_Theme::get_instance()->responsive_oembed_wrapper( '', $video_url, array(), true );
+				return Astra_After_Setup_Theme::get_instance()->responsive_oembed_wrapper( $matches[1], $video_url, array(), true );
 			},
 			$block_content
 		);

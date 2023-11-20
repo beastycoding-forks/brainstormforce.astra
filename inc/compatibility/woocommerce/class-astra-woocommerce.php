@@ -3275,7 +3275,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 							$cart_link_html
 						);
 		
-						echo $cart_link_html;
+						echo do_shortcode( $cart_link_html );
 					?>
 				</div>
 				<div class="ast-site-header-cart-data">

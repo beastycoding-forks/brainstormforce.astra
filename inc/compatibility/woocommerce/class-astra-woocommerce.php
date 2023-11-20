@@ -3308,7 +3308,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 			$woo_cart_link      = wc_get_cart_url();
 			$cart_count         = WC()->cart->get_cart_contents_count();
-			$aria_label         = $cart_count > 0 ? "View Shopping Cart, {$cart_count} items" : "View Shopping Cart, empty";
+			$aria_label         = $cart_count > 0 ? "View Shopping Cart, {$cart_count} items" : 'View Shopping Cart, empty';
 		
 			// Do not redirect to Cart Page in Customizer Preview & when 'Cart Page' option is not selected.
 			if ( is_customize_preview() && 'redirect' !== astra_get_option( 'woo-header-cart-click-action' ) ) {

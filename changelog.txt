@@ -1,3 +1,7 @@
+v4.5.2 (Unreleased):
+- Improvement: Secondary Button Styles - Padding default values updated for Page Builder button's support.
+- Fix: Secondary Button Styles - Background color option does not apply background color to outline button as expected.
+
 v4.5.1 (Unreleased)
 - Improvement: Compatibility with WooCommerce 8.3.
 - Fix: Customizer - Avoid premature closing of Gradient Color Picker.

@@ -1,5 +1,6 @@
 v4.5.1 (Unreleased)
 - Fix: WooCommerce - Container related meta are settings not working on Cart & Checkout Page.
+- Fix: Submenu border width of old header footer builder causing site crashing issue.
 
 v4.5.0
 - New: Introducing Site Builder theme preview (formerly known as Custom Layout).
@@ -8,7 +9,6 @@ v4.5.0
 - Fix: EDD - Mini cart widget UI broken in the RTL mode.
 - Fix: Enable Smooth Scroll to ID causes a jerk issue on the comment navigation section.
 - Fix: External JavaScript script not loading properly on frontend.
-- Fix: Submenu border width of old header footer builder causing site crashing issue.
 
 v4.4.1
 - Improvement: Compatibility with WordPress-6.4.

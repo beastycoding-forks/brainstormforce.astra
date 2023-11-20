@@ -1,5 +1,6 @@
 v4.5.1 (Unreleased)
 - Fix: WooCommerce - Container related meta are settings not working on Cart & Checkout Page.
+- Fix: Submenu border width of old header footer builder causing site crashing issue.
 
 v4.5.0
 - New: Introducing Site Builder theme preview (formerly known as Custom Layout).

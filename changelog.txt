@@ -1,5 +1,8 @@
-v4.5.0 (Unreleased)
-- New: Site Builder Free Version Preview.
+v4.5.1 (Unreleased)
+- Fix: WooCommerce - Container related meta are settings not working on Cart & Checkout Page.
+
+v4.5.0
+- New: Introducing Site Builder theme preview (formerly known as Custom Layout).
 - New: Introducing fresh color presets to supercharge your site design.
 - Fix: Footer Builder - Above and Below Footer vertical alignment options are not working.
 - Fix: EDD - Mini cart widget UI broken in the RTL mode.

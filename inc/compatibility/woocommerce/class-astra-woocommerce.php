@@ -3264,19 +3264,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			?>
 			<div id="ast-site-header-cart" class="ast-site-header-cart <?php echo esc_attr( implode( ' ', $cart_menu_classes ) ); ?>">
 				<div class="ast-site-header-cart-li <?php echo esc_attr( $class ); ?>">
-					<?php
-						ob_start();
-						$this->astra_get_cart_link();
-						$cart_link_html = ob_get_clean();
-		
-						$cart_link_html = str_replace(
-							'<a href',
-							'<a aria-label="View Shopping Cart" title="View Shopping Cart" href',
-							$cart_link_html
-						);
-		
-						echo do_shortcode( $cart_link_html );
-					?>
+					<?php $this->astra_get_cart_link(); ?>
 				</div>
 				<div class="ast-site-header-cart-data">
 
@@ -3319,7 +3307,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 			$woo_cart_link      = wc_get_cart_url();
-
+			$cart_count         = WC()->cart->get_cart_contents_count();
+			$aria_label         = $cart_count > 0 ? "View Shopping Cart, {$cart_count} items" : "View Shopping Cart, empty";
+		
 			// Do not redirect to Cart Page in Customizer Preview & when 'Cart Page' option is not selected.
 			if ( is_customize_preview() && 'redirect' !== astra_get_option( 'woo-header-cart-click-action' ) ) {
 				$woo_cart_link = '#';
@@ -3327,7 +3317,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			?>
-			<a href="<?php echo esc_url( $woo_cart_link ); ?>" class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> ">
+			<a href="<?php echo esc_url( $woo_cart_link ); ?>" 
+			   class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> "
+			   aria-label="<?php echo $aria_label; ?>">
 
 						<?php
 						do_action( 'astra_woo_header_cart_icons_before' );

@@ -188,6 +188,8 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 
 			// Remove Template Editor support until WP 5.9 since more Theme Blocks are going to be introduced.
 			remove_theme_support( 'block-templates' );
+
+			add_filter( 'woocommerce_create_pages', array( $this, 'astra_enforce_woo_shortcode_pages' ), 99 );
 		}
 
 		/**
@@ -269,6 +271,26 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 			}
 
 			return $html;
+		}
+
+		/**
+		 * Enforce WooCommerce shortcode pages due to following reasons.
+		 *
+		 * 1. In WooCommerce 8.3 version cart & checkout pages are directly added with blocks and not with shortcodes.
+		 * 2. Due to which most of Astra extended features are not working on cart & checkout pages.
+		 *
+		 * This is temporary workaround, once Astra ready with WooCommerce 8.3 version, this will be removed.
+		 *
+		 * @since x.x.x
+		 * @param array $pages_data Array of WooCommerce pages.
+		 *
+		 * @return array
+		 */
+		public function astra_enforce_woo_shortcode_pages( $pages_data ) {
+			$pages_data['cart']['content']     = '<!-- wp:shortcode -->[woocommerce_cart]<!-- /wp:shortcode -->';
+			$pages_data['checkout']['content'] = '<!-- wp:shortcode -->[woocommerce_checkout]<!-- /wp:shortcode -->';
+
+			return $pages_data;
 		}
 	}
 }

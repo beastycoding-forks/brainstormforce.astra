@@ -2036,11 +2036,7 @@ function hasWordPressWidgetBlockEditor() {
 
 					// Clear preset.
 					if ( '' === value ) {
-						jQuery( 'head' ).append(
-							'<style id="astra-settings-secondary-button-preset-style-background-color">'
-							+ btnBgColorSelector + '	{ background: transparent }'
-							+ '</style>'
-						);
+						wp.customize.preview.send( 'refresh' );
 					}
 				}
 

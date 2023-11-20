@@ -17,7 +17,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 	/**
 	 * Site Builder initial setup.
 	 *
-	 * @since x.x.x
+	 * @since 4.5.0
 	 */
 	class Astra_Theme_Builder_Free {
 
@@ -31,7 +31,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		/**
 		 *  Initiator
 		 * 
-		 * @since x.x.x
+		 * @since 4.5.0
 		 */
 		public static function get_instance() {
 			if ( ! isset( self::$instance ) ) {
@@ -45,7 +45,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		/**
 		 *  Constructor
 		 * 
-		 * @since x.x.x
+		 * @since 4.5.0
 		 * @return void
 		 */
 		public function __construct() {
@@ -62,7 +62,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		/**
 		 *  Enqueue scripts and styles.
 		 * 
-		 * @since x.x.x
+		 * @since 4.5.0
 		 * @return void
 		 */
 		public function theme_builder_admin_enqueue_scripts() {
@@ -92,7 +92,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		/**
 		 * Admin Body Classes
 		 *
-		 * @since x.x.x
+		 * @since 4.5.0
 		 * @param string $classes Space separated class string.
 		 */
 		public function admin_body_class( $classes = '' ) {
@@ -106,7 +106,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		/**
 		 * Renders the admin settings.
 		 *
-		 * @since x.x.x
+		 * @since 4.5.0
 		 * @return void
 		 */
 		public function render_theme_builder() {
@@ -124,7 +124,7 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		/**
 		 * Setup menu.
 		 *
-		 * @since x.x.x
+		 * @since 4.5.0
 		 * @return void
 		 */
 		public function setup_menu() {
@@ -142,22 +142,22 @@ if ( ! class_exists( 'Astra_Theme_Builder_Free' ) ) {
 		/**
 		 * Disable notices for Site Builder page.
 		 *
-		 * @since x.x.x
+		 * @since 4.5.0
 		 * @return void
 		 */
 		public function astra_theme_builder_disable_notices() {
 
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Fetching a $_GET value, no nonce available to validate.
 			if ( isset( $_GET['page'] ) && 'theme-builder-free' === $_GET['page'] ) {
-				remove_all_actions('admin_notices');
-				remove_all_actions('all_admin_notices'); // For older versions of WordPress
+				remove_all_actions( 'admin_notices' );
+				remove_all_actions( 'all_admin_notices' ); // For older versions of WordPress
 			}
 		}
 
 		/**
 		 * Redirect to Site Builder pro from free preview if pro module is active.
 		 *
-		 * @since x.x.x
+		 * @since 4.5.0
 		 * @return void
 		 */
 		public function astra_theme_builder_access_denied_redirect() {

@@ -285,7 +285,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 *
 		 * This is temporary workaround, once Astra ready with WooCommerce 8.3 version, this will be removed.
 		 *
-		 * @since x.x.x
+		 * @since 4.5.1
 		 * @param array $pages_data Array of WooCommerce pages.
 		 *
 		 * @return array

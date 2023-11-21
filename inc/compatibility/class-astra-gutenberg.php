@@ -24,7 +24,7 @@ class Astra_Gutenberg {
 		}
 
 		add_filter( 'render_block_core/group', array( $this, 'add_inherit_width_group_class' ), 10, 2 );
-		add_filter( 'render_block', array( $this, 'add_iframe_wrapper' ), 99, 2 );
+		add_filter( 'render_block', array( $this, 'add_iframe_wrapper' ), 10, 2 );
 	}
 
 	/**

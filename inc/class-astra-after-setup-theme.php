@@ -259,6 +259,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 					'wistia.net',
 					'spotify.com',
 					'soundcloud.com',
+					'twitter.com',
 				)
 			);
 

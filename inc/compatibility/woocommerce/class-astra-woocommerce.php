@@ -3317,8 +3317,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			?>
-			<a href="<?php echo esc_url( $woo_cart_link ); ?>" 
-			   class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> "
+			<a href="<?php echo esc_url( $woo_cart_link ); ?>" class="cart-container ast-cart-desktop-position-<?php echo esc_attr( $cart_total_label_position['desktop'] ); ?> ast-cart-mobile-position-<?php echo esc_attr( $cart_total_label_position['mobile'] ); ?> ast-cart-tablet-position-<?php echo esc_attr( $cart_total_label_position['tablet'] ); ?> "
 			   aria-label="<?php echo $aria_label; ?>">
 
 						<?php

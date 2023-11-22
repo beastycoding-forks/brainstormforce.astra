@@ -247,6 +247,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 */
 		public function responsive_oembed_wrapper( $html, $url, $attr, $core_yt_block = false ) {
 			$add_astra_oembed_wrapper = apply_filters( 'astra_responsive_oembed_wrapper_enable', true );
+			$ast_embed_wrapper_class  = apply_filters( 'astra_embed_wrapper_class', '' );
 
 			$allowed_providers = apply_filters(
 				'astra_allowed_fullwidth_oembed_providers',
@@ -256,17 +257,20 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 					'youtu.be',
 					'wistia.com',
 					'wistia.net',
+					'spotify.com',
+					'soundcloud.com',
+					'twitter.com',
 				)
 			);
 
 			if ( $core_yt_block ) {
 				if ( astra_strposa( $url, $allowed_providers ) && $add_astra_oembed_wrapper ) {
 					$embed_html = wp_oembed_get( $url );
-					$html       = false !== $embed_html ? '<div class="wp-block-embed__wrapper"> <div class="ast-oembed-container" style="height: 100%;">' . $embed_html . '</div> </div>' : '';
+					$html       = false !== $embed_html ? '<div class="wp-block-embed__wrapper"> <div class="ast-oembed-container ' . esc_attr( $ast_embed_wrapper_class ) . '" style="height: 100%;">' . $embed_html . '</div> </div>' : '';
 				}
 			} else {
 				if ( astra_strposa( $url, $allowed_providers ) && $add_astra_oembed_wrapper ) {
-					$html = ( '' !== $html ) ? '<div class="ast-oembed-container" style="height: 100%;">' . $html . '</div>' : '';
+					$html = ( '' !== $html ) ? '<div class="ast-oembed-container ' . esc_attr( $ast_embed_wrapper_class ) . '" style="height: 100%;">' . $html . '</div>' : '';
 				}
 			}
 
@@ -281,7 +285,7 @@ if ( ! class_exists( 'Astra_After_Setup_Theme' ) ) {
 		 *
 		 * This is temporary workaround, once Astra ready with WooCommerce 8.3 version, this will be removed.
 		 *
-		 * @since x.x.x
+		 * @since 4.5.1
 		 * @param array $pages_data Array of WooCommerce pages.
 		 *
 		 * @return array

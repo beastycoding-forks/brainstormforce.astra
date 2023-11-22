@@ -53,3 +53,6 @@ admin/assets/theme-builder/node_modules/
 # phpunit
 .phpunit.result.cache
 wordpress/
+
+# Playwright
+playwright-report/

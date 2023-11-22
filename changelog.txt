@@ -1,9 +1,13 @@
-v4.5.2 (Unreleased):
+v4.6.0 (Unreleased)
+- New: Compatibility to Import Export header-footer builder customizer layouts wih "Astra Import Export" plugin.
 - Improvement: Secondary Button Styles - Padding default values updated for Page Builder button's support.
 - Fix: Secondary Button Styles - Background color option does not apply background color to outline button as expected.
 
-v4.5.1 (Unreleased)
+v4.5.1
 - Improvement: Compatibility with WooCommerce 8.3.
+- Improvement: Introducing a new filter 'astra_embed_wrapper_class' to add a class to the iframe wrapper for embed blocks.
+- Fix: Function parameter value was wrong in 'responsive_oembed_wrapper' callback while processing embed blocks iframe. (Props: https://github.com/IngoWinter)
+- Fix: Embed block (Twitter, SoundCloud, Spotify) does not appear on the frontend.
 - Fix: Customizer - Avoid premature closing of Gradient Color Picker.
 - Fix: WooCommerce - Container related meta are settings not working on Cart & Checkout Page.
 - Fix: Submenu border width of old header footer builder causing site crashing issue.

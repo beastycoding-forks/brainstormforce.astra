@@ -1247,7 +1247,7 @@ function astra_get_queried_post_types() {
  * Get Global Color Palette's presets
  *
  * @return array color presets array.
- * @since x.x.x
+ * @since 4.5.0
  */
 function astra_get_palette_presets() {
 	return array(

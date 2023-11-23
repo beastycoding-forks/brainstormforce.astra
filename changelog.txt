@@ -1,5 +1,6 @@
 v4.6.0 (Unreleased)
-- New: Compatibility to Import Export header-footer builder customizer layouts wih "Astra Import Export" plugin.
+- New: Compatibility to Import Export header-footer builder customizer layouts with the "Astra Import Export" plugin.
+- Improvement: Improved accessibility by adding aria-label and title attributes to the shopping cart link.
 - Improvement: Secondary Button Styles - Padding default values updated for Page Builder button's support.
 - Fix: Secondary Button Styles - Background color option does not apply background color to outline button as expected.
 

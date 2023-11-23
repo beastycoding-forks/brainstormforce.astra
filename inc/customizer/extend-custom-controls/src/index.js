@@ -41,14 +41,16 @@ import { responsiveToggleControl } from './responsive-toggle-control/control';
 import { inputWithDropdown } from './ast-input-with-dropdown/control';
 import { astFontVariantControl } from './ast-font-variant/control';
 import { astGroupTitleControl } from './ast-group-title/control';
-import { astMenuSelect } from './ast-menu-select/control';
 import { astButtonLinkControl } from './ast-button-link/control';
 import { multiSelectorControl } from './multi-selector/control';
 import { astFontExtrasControl } from './ast-font-extras/control';
 import { astUpgradeControl } from './ast-upgrade/control';
 import { radioIconControl } from './ast-radio-icon/control';
+import { multiSelectControl } from './ast-select-multi/control';
+import { numberInputControl } from './ast-number/control';
 
 window.svgIcons = svgIcons;
+wp.customize.controlConstructor['ast-number'] = numberInputControl;
 wp.customize.controlConstructor['ast-heading'] = headingControl;
 wp.customize.controlConstructor['ast-hidden'] = hiddenControl;
 wp.customize.controlConstructor['ast-description'] = descriptionControl;
@@ -89,13 +91,13 @@ wp.customize.controlConstructor['ast-responsive-toggle-control'] = responsiveTog
 wp.customize.controlConstructor['ast-input-with-dropdown'] = inputWithDropdown;
 wp.customize.controlConstructor['ast-font-variant'] = astFontVariantControl;
 wp.customize.controlConstructor['ast-group-title'] = astGroupTitleControl;
-wp.customize.controlConstructor['ast-menu-select'] = astMenuSelect;
 wp.customize.controlConstructor['ast-button-link'] = astButtonLinkControl;
 wp.customize.controlConstructor['ast-multi-selector'] = multiSelectorControl;
 wp.customize.controlConstructor['ast-upgrade'] = astUpgradeControl;
 wp.customize.controlConstructor['ast-font-extras'] = astFontExtrasControl;
 wp.customize.controlConstructor['ast-box-shadow'] = boxShadowControl;
 wp.customize.controlConstructor["ast-radio-icon"] = radioIconControl;
+wp.customize.controlConstructor["ast-select-multi"] = multiSelectControl;
 
 import { Base } from './customizer';
 import { ControlBase } from './control-customizer';

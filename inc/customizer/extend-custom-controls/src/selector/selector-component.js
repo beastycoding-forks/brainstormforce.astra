@@ -6,6 +6,8 @@ import svgIcons from '../../../../../assets/svg/svgs.json';
 
 const SelectorComponent = props => {
 
+	const { input_attrs = null } = props.control.params;
+
 	const [propsValue, setPropsValue] = useState(props.control.setting.get());
 
 	const Icons = window.svgIcons;
@@ -22,6 +24,16 @@ const SelectorComponent = props => {
 
 		props.control.setting.set(updateState);
 		setPropsValue(updateState);
+
+		if ( null !== input_attrs && input_attrs.hasOwnProperty('dependents') && input_attrs.dependents ) {
+			let subControlsToggleEvent = new CustomEvent('AstraToggleSubControls', {
+				'detail': {
+					'controlValue': updateState,
+					'dependents': input_attrs.dependents
+				}
+			});
+			document.dispatchEvent(subControlsToggleEvent);
+		}
 	};
 
 	const renderInputHtml = ( device, active = '', resp = true ) => {
@@ -172,7 +184,7 @@ const SelectorComponent = props => {
 	}
 
 	if (description) {
-		descriptionHtml = <span className="description customize-control-description">{description}</span>;
+		descriptionHtml = <><i className="ast-control-tooltip dashicons dashicons-editor-help" data-title={description}></i> <span className="ast-dashicons-custom-tooltip" data-title={description}><span></span></span></>;
 	}
 
 	if (responsiveFlag) {

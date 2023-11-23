@@ -119,7 +119,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 * @since x.x.x
 			 */
 			$apply_scndry_default_padding_values = astra_scndry_btn_default_padding();
-			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			/**
 			 * Update Astra default color and typography values. To not update directly on existing users site, added backwards.

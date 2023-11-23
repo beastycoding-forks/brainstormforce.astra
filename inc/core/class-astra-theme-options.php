@@ -118,7 +118,6 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 			 *
 			 * @since x.x.x
 			 */
-			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$apply_scndry_default_padding_values = astra_scndry_btn_default_padding();
 			/** @psalm-suppress UndefinedFunction  */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 

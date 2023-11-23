@@ -8,6 +8,9 @@
   /**
      * Fade
      */
+  /**
+    * Submenu should be visible while navagating site using tab keys
+    */
 }
 
 .ast-desktop .astra-menu-animation-slide-up > .menu-item > .astra-full-megamenu-wrapper,
@@ -24,8 +27,7 @@
 .ast-desktop .astra-menu-animation-slide-up > .menu-item.focus > .sub-menu,
 .ast-desktop .astra-menu-animation-slide-up > .menu-item:hover > .sub-menu,
 .ast-desktop .astra-menu-animation-slide-up > .menu-item .menu-item.focus > .sub-menu,
-.ast-desktop .astra-menu-animation-slide-up > .menu-item .menu-item:hover > .sub-menu,
-.ast-desktop .astra-menu-animation-slide-up > .menu-item .sub-menu {
+.ast-desktop .astra-menu-animation-slide-up > .menu-item .menu-item:hover > .sub-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -52,8 +54,7 @@
 .ast-desktop .astra-menu-animation-slide-down > .menu-item.focus > .sub-menu,
 .ast-desktop .astra-menu-animation-slide-down > .menu-item:hover > .sub-menu,
 .ast-desktop .astra-menu-animation-slide-down > .menu-item .menu-item.focus > .sub-menu,
-.ast-desktop .astra-menu-animation-slide-down > .menu-item .menu-item:hover > .sub-menu,
-.ast-desktop .astra-menu-animation-slide-down > .menu-item > .sub-menu {
+.ast-desktop .astra-menu-animation-slide-down > .menu-item .menu-item:hover > .sub-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -79,8 +80,7 @@
 .ast-desktop .astra-menu-animation-fade > .menu-item.focus > .sub-menu,
 .ast-desktop .astra-menu-animation-fade > .menu-item:hover > .sub-menu,
 .ast-desktop .astra-menu-animation-fade > .menu-item .menu-item.focus > .sub-menu,
-.ast-desktop .astra-menu-animation-fade > .menu-item .menu-item:hover > .sub-menu,
-.ast-desktop .astra-menu-animation-fade > .menu-item > .sub-menu {
+.ast-desktop .astra-menu-animation-fade > .menu-item .menu-item:hover > .sub-menu {
   opacity: 1;
   visibility: visible;
   transition: opacity ease-in-out .3s;
@@ -90,4 +90,9 @@
 .ast-desktop .astra-menu-animation-fade > .full-width-mega.menu-item:hover > .astra-full-megamenu-wrapper {
   -js-display: flex;
   display: flex;
+}
+
+.ast-desktop .menu-item.ast-menu-hover > .sub-menu.toggled-on {
+  opacity: 1;
+  visibility: visible;
 }

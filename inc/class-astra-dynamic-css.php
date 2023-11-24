@@ -1837,7 +1837,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$scndry_btn_bg_color                     = astra_get_option( 'secondary-button-bg-color' );
 			$scndry_btn_bg_hover_color               = astra_get_option( 'secondary-button-bg-h-color' );
 			$scndry_btn_text_hover_color             = astra_get_option( 'secondary-button-h-color' );
-			$outline_button_selector                 = '.wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
+			$outline_button_selector                 = '.wp-block-button.is-style-outline .wp-block-button__link.wp-element-button, .ast-outline-button';
 			$padding_top                             = astra_responsive_spacing( $scndry_theme_btn_padding, 'top', 'desktop' );
 			$padding_right                           = astra_responsive_spacing( $scndry_theme_btn_padding, 'right', 'desktop' );
 			$padding_bottom                          = astra_responsive_spacing( $scndry_theme_btn_padding, 'bottom', 'desktop' );
@@ -1875,12 +1875,30 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$border_right_val        = $scndry_theme_btn_right_border;
 				$border_bottom_val       = $scndry_theme_btn_bottom_border;
 				$border_left_val         = $scndry_theme_btn_left_border;
-				$outline_button_selector = '.wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
+				$outline_button_selector = '.wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link.wp-element-button, .ast-outline-button';
 			}
 
 			// Secondary button padding.
 			if ( $padding_top || $padding_right || $padding_bottom || $padding_left ) {
-				$outline_button_selector = '.wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link, .ast-outline-button';
+				$outline_button_selector = '.wp-block-buttons .wp-block-button.is-style-outline .wp-block-button__link.wp-element-button, .ast-outline-button';
+			}
+
+			// Secondary button preset compatibility.
+			$secondary_btn_preset_style = astra_get_option( 'secondary-button-preset-style' );
+
+			if ( 'button_04' === $secondary_btn_preset_style || 'button_05' === $secondary_btn_preset_style || 'button_06' === $secondary_btn_preset_style ) {
+
+				if ( empty( $scndry_btn_border_color ) ) {
+					$btn_border_color_val = $scndry_btn_bg_color;
+				}
+
+				if ( '' === astra_get_option( 'secondary-button-bg-color' ) && '' === astra_get_option( 'secondary-button-color' ) ) {
+					$btn_color_val = $theme_color;
+				} elseif ( '' === astra_get_option( 'secondary-button-color' ) ) {
+					$btn_color_val = $scndry_btn_bg_color;
+				}
+
+				$scndry_btn_bg_color = 'transparent';
 			}
 
 			$outline_button_css_desktop = array(
@@ -1905,7 +1923,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-top-right-radius'    => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'right', 'desktop' ),
 					'border-bottom-right-radius' => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'bottom', 'desktop' ),
 					'border-bottom-left-radius'  => astra_responsive_spacing( $scndry_btn_border_radius_fields, 'left', 'desktop' ),
-					'background-color'           => 'transparent',
 				),
 				'.wp-block-buttons .wp-block-button.is-style-outline > .wp-block-button__link:not(.has-text-color), .wp-block-buttons .wp-block-button.wp-block-button__link.is-style-outline:not(.has-text-color), .ast-outline-button' => array(
 					'color' => esc_attr( $btn_color_val ),
@@ -1945,10 +1962,15 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 			);
 
-			// Secondary button preset compatibility.
-			$btn_preset_style = astra_get_option( 'secondary-button-preset-style' );
+			// Secondary button background color.
+			if ( ! empty( $scndry_btn_bg_color ) ) {
+				$outline_button_css_desktop['.wp-block-button .wp-block-button__link.wp-element-button.is-style-outline:not(.has-background), .wp-block-button.is-style-outline>.wp-block-button__link.wp-element-button:not(.has-background)'] = array(
+					'background-color' => empty( $scndry_btn_bg_color ) ? 'transparent' : esc_attr( $scndry_btn_bg_color ),
+				);
+			}
 
-			if ( 'button_01' === $btn_preset_style || 'button_02' === $btn_preset_style || 'button_03' === $btn_preset_style ) {
+			// Secondary button preset compatibility.
+			if ( 'button_01' === $secondary_btn_preset_style || 'button_02' === $secondary_btn_preset_style || 'button_03' === $secondary_btn_preset_style ) {
 				if ( empty( $scndry_btn_text_color ) ) {
 					$scndry_btn_text_color = astra_get_foreground_color( $theme_color );
 				}
@@ -1957,6 +1979,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'color'            => esc_attr( $scndry_btn_text_color ),
 				);
 			}
+
 
 			/* Parse CSS from array() -> Desktop */
 			$parse_css .= astra_parse_css( $outline_button_css_desktop );

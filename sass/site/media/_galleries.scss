@@ -20,7 +20,7 @@
 }
 
 body .ast-oembed-container {
-    *{ 
+   > *{ 
         position: absolute;
         top: 0;
         left: 0;

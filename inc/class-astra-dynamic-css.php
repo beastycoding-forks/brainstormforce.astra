@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
 			$container_layout           = astra_toggle_layout( 'ast-site-content-layout', 'global', false );
-
+			
 			// Get the Global Container Layout based on Global Boxed and Global Sidebar Style.
 			if ( 'plain-container' === $container_layout ) {
 				$is_boxed         = ( 'boxed' === astra_get_option( 'site-content-style' ) );
@@ -1039,6 +1039,56 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css .= astra_parse_css( $css_output );
+			
+			if ( defined( 'BORLABS_COOKIE_VERSION' ) ) {
+				$omebed_wrapper = array (
+					'body .ast-oembed-container > *' => array(
+						'position' => 'absolute',
+						'top' => '0',
+						'width' => '100%',
+						'height' => '100%',
+						'left' => '0',
+					),
+				);
+				if ( $is_site_rtl ) {
+					$omebed_wrapper_rtl = array (
+						'body .ast-oembed-container > *' => array(
+							'position' => 'absolute',
+							'top' => '0',
+							'width' => '100%',
+							'height' => '100%',
+							'right' => '0',
+						),
+					);
+					$parse_css .= astra_parse_css ( $omebed_wrapper_rtl ); 
+				}
+
+				$parse_css .= astra_parse_css( $omebed_wrapper );				
+			} else {
+				$omebed_wrapper = array (
+					'body .ast-oembed-container *' => array(
+						'position' => 'absolute',
+						'top' => '0',
+						'width' => '100%',
+						'height' => '100%',
+						'left' => '0',
+					),
+				);
+				if ( $is_site_rtl ) {
+					$omebed_wrapper_rtl = array (
+						'body .ast-oembed-container *' => array(
+							'position' => 'absolute',
+							'top' => '0',
+							'width' => '100%',
+							'height' => '100%',
+							'right' => '0',
+						),
+					);
+					$parse_css .= astra_parse_css ( $omebed_wrapper_rtl );
+				}
+
+				$parse_css .= astra_parse_css( $omebed_wrapper );				
+			}
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 

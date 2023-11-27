@@ -1047,23 +1047,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'top'      => '0',
 						'width'    => '100%',
 						'height'   => '100%',
-						'left'     => '0',
+						($is_site_rtl ? 'right' : 'left') => '0',
 					),
 				);
-				if ( $is_site_rtl ) {
-					$omebed_wrapper_rtl = array(
-						'body .ast-oembed-container > *' => array(
-							'position' => 'absolute',
-							'top'      => '0',
-							'width'    => '100%',
-							'height'   => '100%',
-							'right'    => '0',
-						),
-					);
-					$parse_css         .= astra_parse_css( $omebed_wrapper_rtl ); 
-				}
-
-				$parse_css .= astra_parse_css( $omebed_wrapper );               
+							             
 			} else {
 				$omebed_wrapper = array(
 					'body .ast-oembed-container *' => array(
@@ -1071,25 +1058,14 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'top'      => '0',
 						'width'    => '100%',
 						'height'   => '100%',
-						'left'     => '0',
+						($is_site_rtl ? 'right' : 'left') => '0',
 					),
 				);
-				if ( $is_site_rtl ) {
-					$omebed_wrapper_rtl = array(
-						'body .ast-oembed-container *' => array(
-							'position' => 'absolute',
-							'top'      => '0',
-							'width'    => '100%',
-							'height'   => '100%',
-							'right'    => '0',
-						),
-					);
-					$parse_css         .= astra_parse_css( $omebed_wrapper_rtl );
-				}
-
-				$parse_css .= astra_parse_css( $omebed_wrapper );               
+            
 			}
 
+			$parse_css .= astra_parse_css( $omebed_wrapper );  
+			
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$old_header_mobile_toggle = array(

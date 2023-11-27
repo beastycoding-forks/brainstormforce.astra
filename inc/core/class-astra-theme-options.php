@@ -229,7 +229,7 @@ if ( ! class_exists( 'Astra_Theme_Options' ) ) {
 						'tablet-unit'  => 'px',
 						'mobile-unit'  => 'px',
 					),
-					'secondary-theme-button-padding' => array(
+					'secondary-theme-button-padding'       => array(
 						'desktop'      => array(
 							'top'    => $apply_scndry_default_padding_values ? 15 : '',
 							'right'  => $apply_scndry_default_padding_values ? 30 : '',

@@ -65,7 +65,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
 			$container_layout           = astra_toggle_layout( 'ast-site-content-layout', 'global', false );
-			
 			// Get the Global Container Layout based on Global Boxed and Global Sidebar Style.
 			if ( 'plain-container' === $container_layout ) {
 				$is_boxed         = ( 'boxed' === astra_get_option( 'site-content-style' ) );

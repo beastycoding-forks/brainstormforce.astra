@@ -1046,9 +1046,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'top'      => '0',
 						'width'    => '100%',
 						'height'   => '100%',
-						($is_site_rtl ? 'right' : 'left') => '0',
+						( $is_site_rtl ? 'right' : 'left' ) => '0',
 					),
-				);							             
+				);                                       
 			} else {
 				$omebed_wrapper = array(
 					'body .ast-oembed-container *' => array(
@@ -1056,7 +1056,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'top'      => '0',
 						'width'    => '100%',
 						'height'   => '100%',
-						($is_site_rtl ? 'right' : 'left') => '0',
+						( $is_site_rtl ? 'right' : 'left' ) => '0',
 					),
 				);         
 			}

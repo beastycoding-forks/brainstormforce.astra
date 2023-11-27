@@ -1137,3 +1137,6 @@ soundcloud
 spotify
 scandir
 Usecase
+BorLabs
+oembed
+BORLABS

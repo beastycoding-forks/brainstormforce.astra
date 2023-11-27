@@ -65,7 +65,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$narrow_container_max_width = astra_get_option( 'narrow-container-max-width', apply_filters( 'astra_narrow_container_width', 750 ) );
 			$header_logo_width          = astra_get_option( 'ast-header-responsive-logo-width' );
 			$container_layout           = astra_toggle_layout( 'ast-site-content-layout', 'global', false );
-
 			// Get the Global Container Layout based on Global Boxed and Global Sidebar Style.
 			if ( 'plain-container' === $container_layout ) {
 				$is_boxed         = ( 'boxed' === astra_get_option( 'site-content-style' ) );
@@ -1039,7 +1038,31 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 
 			/* Parse CSS from array() */
 			$parse_css .= astra_parse_css( $css_output );
+			
+			if ( defined( 'BORLABS_COOKIE_VERSION' ) ) {
+				$oembed_wrapper = array(
+					'body .ast-oembed-container > *' => array(
+						'position' => 'absolute',
+						'top'      => '0',
+						'width'    => '100%',
+						'height'   => '100%',
+						( $is_site_rtl ? 'right' : 'left' ) => '0',
+					),
+				);                                       
+			} else {
+				$oembed_wrapper = array(
+					'body .ast-oembed-container *' => array(
+						'position' => 'absolute',
+						'top'      => '0',
+						'width'    => '100%',
+						'height'   => '100%',
+						( $is_site_rtl ? 'right' : 'left' ) => '0',
+					),
+				);         
+			}
 
+			$parse_css .= astra_parse_css( $oembed_wrapper );  
+			
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$old_header_mobile_toggle = array(

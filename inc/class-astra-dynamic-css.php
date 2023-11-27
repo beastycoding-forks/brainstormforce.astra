@@ -1041,53 +1041,53 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( $css_output );
 			
 			if ( defined( 'BORLABS_COOKIE_VERSION' ) ) {
-				$omebed_wrapper = array (
+				$omebed_wrapper = array(
 					'body .ast-oembed-container > *' => array(
 						'position' => 'absolute',
-						'top' => '0',
-						'width' => '100%',
-						'height' => '100%',
-						'left' => '0',
+						'top'      => '0',
+						'width'    => '100%',
+						'height'   => '100%',
+						'left'     => '0',
 					),
 				);
 				if ( $is_site_rtl ) {
-					$omebed_wrapper_rtl = array (
+					$omebed_wrapper_rtl = array(
 						'body .ast-oembed-container > *' => array(
 							'position' => 'absolute',
-							'top' => '0',
-							'width' => '100%',
-							'height' => '100%',
-							'right' => '0',
+							'top'      => '0',
+							'width'    => '100%',
+							'height'   => '100%',
+							'right'    => '0',
 						),
 					);
-					$parse_css .= astra_parse_css ( $omebed_wrapper_rtl ); 
+					$parse_css         .= astra_parse_css( $omebed_wrapper_rtl ); 
 				}
 
-				$parse_css .= astra_parse_css( $omebed_wrapper );				
+				$parse_css .= astra_parse_css( $omebed_wrapper );               
 			} else {
-				$omebed_wrapper = array (
+				$omebed_wrapper = array(
 					'body .ast-oembed-container *' => array(
 						'position' => 'absolute',
-						'top' => '0',
-						'width' => '100%',
-						'height' => '100%',
-						'left' => '0',
+						'top'      => '0',
+						'width'    => '100%',
+						'height'   => '100%',
+						'left'     => '0',
 					),
 				);
 				if ( $is_site_rtl ) {
-					$omebed_wrapper_rtl = array (
+					$omebed_wrapper_rtl = array(
 						'body .ast-oembed-container *' => array(
 							'position' => 'absolute',
-							'top' => '0',
-							'width' => '100%',
-							'height' => '100%',
-							'right' => '0',
+							'top'      => '0',
+							'width'    => '100%',
+							'height'   => '100%',
+							'right'    => '0',
 						),
 					);
-					$parse_css .= astra_parse_css ( $omebed_wrapper_rtl );
+					$parse_css         .= astra_parse_css( $omebed_wrapper_rtl );
 				}
 
-				$parse_css .= astra_parse_css( $omebed_wrapper );				
+				$parse_css .= astra_parse_css( $omebed_wrapper );               
 			}
 
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {

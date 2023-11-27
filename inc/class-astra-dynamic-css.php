@@ -1040,7 +1040,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$parse_css .= astra_parse_css( $css_output );
 			
 			if ( defined( 'BORLABS_COOKIE_VERSION' ) ) {
-				$omebed_wrapper = array(
+				$oembed_wrapper = array(
 					'body .ast-oembed-container > *' => array(
 						'position' => 'absolute',
 						'top'      => '0',
@@ -1050,7 +1050,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);                                       
 			} else {
-				$omebed_wrapper = array(
+				$oembed_wrapper = array(
 					'body .ast-oembed-container *' => array(
 						'position' => 'absolute',
 						'top'      => '0',
@@ -1061,7 +1061,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				);         
 			}
 
-			$parse_css .= astra_parse_css( $omebed_wrapper );  
+			$parse_css .= astra_parse_css( $oembed_wrapper );  
 			
 			if ( ! Astra_Builder_Helper::$is_header_footer_builder_active ) {
 

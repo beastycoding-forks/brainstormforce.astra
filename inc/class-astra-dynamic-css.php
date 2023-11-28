@@ -5269,7 +5269,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'line-height' => '24px',
 						'width'       => '100%',
 						'padding'     => '12px 16px',
-						'color'       => '#9CA3AF',	
 					),
 					'input[type="text"],
 					input[type="number"],
@@ -5279,9 +5278,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					input[type="search"],
 					input[type=reset],
 					input[type=tel],
-					input[type=date],
-					select' => array(
+					input[type=date]' => array(
 						'height' => '40px',
+					),
+					'select' => array(
+						'height' => '45px',
 					),
 					'input[type="text"]:focus,
 					input[type="number"]:focus,
@@ -5297,6 +5298,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'border-color' => '#046BD2',
 						'box-shadow'   => 'none',
 						'outline'      => 'none',
+						'color'        => 'var(--ast-form-input-focus-text, #475569)'
 					),
 					'label, legend' => array(
 						'color'       => '#111827',
@@ -5316,6 +5318,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					input[type="submit"]' => array(
 						'border-radius' => '4px',
 						'box-shadow'    => '0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
+					),
+					':root'                                  => array(
+						'--ast-comment-inputs-background'     => '#FFF',
 					),
 				);
 				$css .= astra_parse_css( $forms_default_styling_css );

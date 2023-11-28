@@ -1074,6 +1074,9 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= self::astra_sticky_sidebar_css();
 			}
 
+			// Forms default styling improvements.
+			$parse_css .= self::astra_default_forms_styling_dynamic_css();
+
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 
 				$parse_css .= astra_parse_css(
@@ -5194,6 +5197,87 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
+		 * Dynamic CSS for default forms styling improvements.
+		 *
+		 * @return string Dynamic CSS.
+		 * @since x.x.x
+		 */
+		public static function astra_default_forms_styling_dynamic_css() {
+			$css = '';
+			if ( self::astra_forms_default_style_update() ) {
+				$forms_default_styling_css = array(
+					'input[type="text"],
+					input[type="number"],
+					input[type="email"],
+					input[type="url"],
+					input[type="password"],
+					input[type="search"],
+					input[type=reset],
+					input[type=tel],
+					input[type=date],
+					select,
+					textarea' => array(
+						'font-size'   => '16px',
+						'font-style'  => 'normal',
+						'font-weight' => '400',
+						'line-height' => '24px',
+						'width'       => '100%',
+						'padding'     => '12px 16px',
+						'color'       => '#9CA3AF',	
+					),
+					'input[type="text"],
+					input[type="number"],
+					input[type="email"],
+					input[type="url"],
+					input[type="password"],
+					input[type="search"],
+					input[type=reset],
+					input[type=tel],
+					input[type=date],
+					select' => array(
+						'height' => '40px',
+					),
+					'input[type="text"]:focus,
+					input[type="number"]:focus,
+					input[type="email"]:focus,
+					input[type="url"]:focus,
+					input[type="password"]:focus,
+					input[type="search"]:focus,
+					input[type=reset]:focus,
+					input[type="tel"]:focus,
+					input[type="date"]:focus,
+					select:focus,
+					textarea:focus'    => array(
+						'border-color' => '#046BD2',
+						'box-shadow'   => 'none',
+						'outline'      => 'none',
+					),
+					'label, legend' => array(
+						'color'       => '#111827',
+						'font-size'   => '14px',
+						'font-style'  => 'normal',
+						'font-weight' => '500',
+						'line-height' => '20px',
+					),
+					'fieldset' => array(
+						'padding' => '30px',
+					),
+					'button,
+					.ast-button,
+					.button,
+					input[type="button"],
+					input[type="reset"],
+					input[type="submit"]' => array(
+						'border-radius' => '4px',
+						'box-shadow'    => '0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
+					),
+				);
+				$css .= astra_parse_css( $forms_default_styling_css );
+			}
+			return $css;
+		}
+
+		/**
 		 * Check if fullwidth layout with sidebar is supported.
 		 * Old users - yes
 		 * New users - no
@@ -5241,6 +5325,18 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['v4-5-0-backward-option'] = isset( $astra_settings['v4-5-0-backward-option'] ) ? false : true;
 			return apply_filters( 'astra_upgrade_color_styles', $astra_settings['v4-5-0-backward-option'] );
+		}
+
+		/**
+		 * Astra Forms default style update.
+		 *
+		 * @since x.x.x
+		 * @return boolean false if it is an existing user, true if not.
+		 */
+		public static function astra_forms_default_style_update() {
+			$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings['ast-forms-default-style-update'] = isset( $astra_settings['ast-forms-default-style-update'] ) ? false : true;
+			return apply_filters( 'astra_forms_default_style_update', $astra_settings['ast-forms-default-style-update'] );
 		}
 	}
 }

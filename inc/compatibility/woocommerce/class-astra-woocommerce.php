@@ -1518,6 +1518,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'border-color' => 'var(--ast-border-color)',
 					'font-weight'  => '700',
 				),
+				'.woocommerce-Address h3,
+				.cart-collaterals h2' => array(
+					'font-size'=> '',
+				'padding'=> '.7em 1em',
+					),
 				'form #order_review:not(.elementor-widget-woocommerce-checkout-page #order_review)' => array(
 					'padding'      => '0 2em',
 					'border-width' => '0 2px 2px',

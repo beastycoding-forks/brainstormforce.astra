@@ -1502,6 +1502,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			$css_desktop_output = array(
+				/**
+				 * h3, h2 font size support not yet customizer preview and font weight.
+				 */
 				'#customer_details h3:not(.elementor-widget-woocommerce-checkout-page h3)' => array(
 					'font-size'     => '',
 					'padding'       => '20px 0 14px',

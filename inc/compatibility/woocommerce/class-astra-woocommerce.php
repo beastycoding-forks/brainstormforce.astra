@@ -1503,7 +1503,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$css_desktop_output = array(
 				'#customer_details h3:not(.elementor-widget-woocommerce-checkout-page h3)' => array(
-					'font-size'     => '1.2rem',
+					'font-size'     => '',
 					'padding'       => '20px 0 14px',
 					'margin'        => '0 0 20px',
 					'border-bottom' => '1px solid var(--ast-border-color)',
@@ -1512,7 +1512,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 				'form #order_review_heading:not(.elementor-widget-woocommerce-checkout-page #order_review_heading)' => array(
 					'border-width' => '2px 2px 0 2px',
 					'border-style' => 'solid',
-					'font-size'    => '1.2rem',
+					'font-size'    => '',
 					'margin'       => '0',
 					'padding'      => '1.5em 1.5em 1em',
 					'border-color' => 'var(--ast-border-color)',

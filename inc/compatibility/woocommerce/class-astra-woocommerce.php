@@ -1510,7 +1510,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'padding'       => '20px 0 14px',
 					'margin'        => '0 0 20px',
 					'border-bottom' => '1px solid var(--ast-border-color)',
-					'font-weight'   => '700',
+					'font-weight'   => '',
 				),
 				'form #order_review_heading:not(.elementor-widget-woocommerce-checkout-page #order_review_heading)' => array(
 					'border-width' => '2px 2px 0 2px',
@@ -1519,7 +1519,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'margin'       => '0',
 					'padding'      => '1.5em 1.5em 1em',
 					'border-color' => 'var(--ast-border-color)',
-					'font-weight'  => '700',
+					'font-weight'  => '',
 				),
 				'.woocommerce-Address h3,
 				.cart-collaterals h2' => array(

@@ -4,6 +4,7 @@ v4.6.0 (Unreleased)
 - Improvement: Secondary Button Styles - Padding default values updated for Page Builder button's support.
 - Improvement - Improved Gutenberg editor's post update request by adding default value to 'astra-migrate-meta-layouts' meta key.
 - Fix: Secondary Button Styles - Background color option does not apply background color to outline button as expected.
+- Fix: Site Builder - Toggle Block Inserter redirects to Site Builder when Fullscreen mode in Editor is disabled.
 - Fix: Header Builder - After resizing the GIF stops working on the frontend as a site logo.
 - Fix: Submenu animation not working while navigating site using tab key.
 - Fix: Broken UI fix for YouTube block with BorLabs cookie plugin.

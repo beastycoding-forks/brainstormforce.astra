@@ -1526,6 +1526,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'font-size'=> '',
 				'padding'=> '.7em 1em',
 					),
+					'.woocommerce-cart .cart-collaterals .cart_totals>h2' => array(
+						'font-weight' => '',
+					),
 				'form #order_review:not(.elementor-widget-woocommerce-checkout-page #order_review)' => array(
 					'padding'      => '0 2em',
 					'border-width' => '0 2px 2px',

@@ -5250,7 +5250,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function astra_default_forms_styling_dynamic_css() {
 			$css = '';
-			if ( self::astra_forms_default_style_update() ) {
 				$forms_default_styling_css = array(
 					'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date], select, textarea' => array(
 						'font-size'   => '16px',

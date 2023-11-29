@@ -5314,7 +5314,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					),
 				);
 				$css .= astra_parse_css( $forms_default_styling_css );
-			}
 			return $css;
 		}
 

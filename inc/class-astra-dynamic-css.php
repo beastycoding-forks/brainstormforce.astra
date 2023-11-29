@@ -1098,6 +1098,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			}
 
 			if ( self::astra_forms_default_style_update() ) {
+
 				// Forms default styling improvements.
 				$parse_css .= self::astra_default_forms_styling_dynamic_css();
 			}
@@ -5252,69 +5253,46 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 */
 		public static function astra_default_forms_styling_dynamic_css() {
 			$css = '';
-				$forms_default_styling_css = array(
-					'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date], select, textarea' => array(
-						'font-size'   => '16px',
-						'font-style'  => 'normal',
-						'font-weight' => '400',
-						'line-height' => '24px',
-						'width'       => '100%',
-						'padding'     => '12px 16px',
-					),
-					'input[type="text"],
-					input[type="number"],
-					input[type="email"],
-					input[type="url"],
-					input[type="password"],
-					input[type="search"],
-					input[type=reset],
-					input[type=tel],
-					input[type=date]' => array(
-						'height' => '40px',
-					),
-					'select' => array(
-						'height' => '45px',
-					),
-					'input[type="text"]:focus,
-					input[type="number"]:focus,
-					input[type="email"]:focus,
-					input[type="url"]:focus,
-					input[type="password"]:focus,
-					input[type="search"]:focus,
-					input[type=reset]:focus,
-					input[type="tel"]:focus,
-					input[type="date"]:focus,
-					select:focus,
-					textarea:focus'    => array(
-						'border-color' => '#046BD2',
-						'box-shadow'   => 'none',
-						'outline'      => 'none',
-						'color'        => 'var(--ast-form-input-focus-text, #475569)'
-					),
-					'label, legend' => array(
-						'color'       => '#111827',
-						'font-size'   => '14px',
-						'font-style'  => 'normal',
-						'font-weight' => '500',
-						'line-height' => '20px',
-					),
-					'fieldset' => array(
-						'padding' => '30px',
-					),
-					'button,
-					.ast-button,
-					.button,
-					input[type="button"],
-					input[type="reset"],
-					input[type="submit"]' => array(
-						'border-radius' => '4px',
-						'box-shadow'    => '0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
-					),
-					':root'                                  => array(
-						'--ast-comment-inputs-background'     => '#FFF',
-					),
-				);
-				$css .= astra_parse_css( $forms_default_styling_css );
+			$forms_default_styling_css = array(
+				'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date], select, textarea' => array(
+					'font-size'   => '16px',
+					'font-style'  => 'normal',
+					'font-weight' => '400',
+					'line-height' => '24px',
+					'width'       => '100%',
+					'padding'     => '12px 16px',
+				),
+				'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date]' => array(
+					'height' => '40px',
+				),
+				'select' => array(
+					'height' => '45px',
+				),
+				'input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'    => array(
+					'border-color' => '#046BD2',
+					'box-shadow'   => 'none',
+					'outline'      => 'none',
+					'color'        => 'var(--ast-form-input-focus-text, #475569)'
+				),
+				'label, legend' => array(
+					'color'       => '#111827',
+					'font-size'   => '14px',
+					'font-style'  => 'normal',
+					'font-weight' => '500',
+					'line-height' => '20px',
+				),
+				'fieldset' => array(
+					'padding' => '30px',
+				),
+				'button, .ast-button, .button, input[type="button"], input[type="reset"], input[type="submit"]' => array(
+					'border-radius' => '4px',
+					'box-shadow'    => '0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
+				),
+				':root'                                  => array(
+					'--ast-comment-inputs-background'     => '#FFF',
+				),
+			);
+			$css .= astra_parse_css( $forms_default_styling_css );
 			return $css;
 		}
 

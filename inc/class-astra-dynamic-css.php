@@ -1097,8 +1097,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				$parse_css .= self::astra_sticky_sidebar_css();
 			}
 
-			// Forms default styling improvements.
-			$parse_css .= self::astra_default_forms_styling_dynamic_css();
+			if ( self::astra_forms_default_style_update() ) {
+				// Forms default styling improvements.
+				$parse_css .= self::astra_default_forms_styling_dynamic_css();
+			}
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
 

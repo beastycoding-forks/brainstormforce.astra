@@ -16,11 +16,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Register builder footer builder Customizer Configurations.
  *
- * @param Array $configurations Astra Customizer Configurations.
  * @since x.x.x
  * @return array Astra Customizer Configurations with updated configurations.
  */
-function astra_builder_footer_configuration( $configurations = array() ) {
+function astra_builder_footer_configuration() {
 	$cloned_component_track         = Astra_Builder_Helper::$component_count_array;
 	$widget_config                  = array();
 	$astra_has_widgets_block_editor = astra_has_widgets_block_editor();

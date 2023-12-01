@@ -5252,7 +5252,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 */
 		public static function astra_default_forms_styling_dynamic_css() {
-			$is_site_rtl = is_rtl();
 			$css         = '';
 			$forms_default_styling_css = array(
 				'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date], select, textarea' => array(
@@ -5289,9 +5288,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				),
 				'fieldset' => array(
 					'padding' => '0px 30px 30px 30px',
-				),
-				'input[type="radio"]' => array(
-					'margin-' . ( $is_site_rtl ? 'right' : 'left' ) => '5px',
 				),
 				'button, .ast-button, .button, input[type="button"], input[type="reset"], input[type="submit"]' => array(
 					'border-radius' => '4px',

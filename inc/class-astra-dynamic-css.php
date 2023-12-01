@@ -5265,6 +5265,11 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 				'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date]' => array(
 					'height' => '40px',
 				),
+				'input[type="date"]' => array(
+					'border-width' => '1px',
+					'border-style' => 'solid',
+					'border-color' => 'var(--ast-border-color)',
+				),
 				'select' => array(
 					'height' => '45px',
 				),

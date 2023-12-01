@@ -5271,7 +5271,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-color' => 'var(--ast-border-color)',
 				),
 				'select' => array(
-					'height' => '45px',
+					'height' => '50px',
 				),
 				'input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'    => array(
 					'border-color' => '#046BD2',
@@ -5287,7 +5287,10 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'line-height' => '20px',
 				),
 				'fieldset' => array(
-					'padding' => '30px',
+					'padding' => '0px 30px 30px 30px',
+				),
+				'input[type="radio"]' => array(
+					'margin-left' => '5px',
 				),
 				'button, .ast-button, .button, input[type="button"], input[type="reset"], input[type="submit"]' => array(
 					'border-radius' => '4px',

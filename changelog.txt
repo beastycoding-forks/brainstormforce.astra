@@ -10,6 +10,7 @@ v4.6.0 (Unreleased)
 - Fix: Broken UI fix for YouTube block with BorLabs cookie plugin.
 - Fix: Kadence Tabs Block scrolling issue with Astra.
 - Fix: WooCommerce - Inside dropdown cart buttons are not aligned properly on WooCommerce pages.
+- Fix: RTL Website - Hidden Menu on Desktop when Off-Canvas Flyout Menu Position is Left
 
 v4.5.1
 - Improvement: Compatibility with WooCommerce 8.3.

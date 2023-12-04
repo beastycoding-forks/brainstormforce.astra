@@ -1514,9 +1514,6 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			}
 
 			$css_desktop_output = array(
-				/**
-				 * h3, h2 font size support not yet customizer preview and font weight.
-				 */
 				'#customer_details h3:not(.elementor-widget-woocommerce-checkout-page h3)' => array(
 					'font-size'     => $font_style_updates ? '' : '1.2rem',
 					'padding'       => '20px 0 14px',
@@ -1534,9 +1531,9 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 					'font-weight'  => $font_style_updates ? '' : '700',
 				),
 				'.woocommerce-Address h3, .cart-collaterals h2' => array(
-					'font-size'=> $font_style_updates ? '' : '1.2rem',
-				    'padding'=> '.7em 1em',
-				),
+					'font-size' => $font_style_updates ? '' : '1.2rem',
+					'padding'   => '.7em 1em',
+				), 
 				'.woocommerce-cart .cart-collaterals .cart_totals>h2' => array(
 					'font-weight' => $font_style_updates ? '' : '700',
 				),

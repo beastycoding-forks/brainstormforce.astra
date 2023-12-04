@@ -263,6 +263,10 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 		this.style.display = 'none';
 
 		popupWrap.classList.add( 'active', 'show' );
+
+		const mobilePopupWrapper = document.getElementById('ast-mobile-popup');
+
+		if (mobilePopupWrapper) mobilePopupWrapper.style.pointerEvents = 'unset';
 	}
 
 	/**
@@ -306,6 +310,10 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 
 			popupTrigger[item].style.display = 'flex';
 		}
+
+		const mobilePopupWrapper = document.getElementById('ast-mobile-popup');
+
+		if (mobilePopupWrapper) mobilePopupWrapper.style.pointerEvents = 'none';
 	}
 
 	/**

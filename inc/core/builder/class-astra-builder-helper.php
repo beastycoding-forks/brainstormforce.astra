@@ -974,7 +974,7 @@ final class Astra_Builder_Helper {
 		}
 		?>
 		<div id="ast-mobile-popup-wrapper">
-			<div id="ast-mobile-popup" class="ast-mobile-popup-drawer <?php echo esc_attr( $side_class ); ?>">
+			<div id="ast-mobile-popup" class="ast-mobile-popup-drawer <?php echo esc_attr( $side_class ); ?>" style="pointer-events: none;">
 			<div class="ast-mobile-popup-overlay"></div>
 			<div class="ast-mobile-popup-inner">
 					<div class="ast-mobile-popup-header">

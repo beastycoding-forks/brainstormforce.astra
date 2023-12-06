@@ -5252,7 +5252,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @since x.x.x
 		 */
 		public static function astra_default_forms_styling_dynamic_css() {
-			$css         = '';
+			$css                       = '';
+			$enable_site_accessibility = astra_get_option( 'site-accessibility-toggle', false );
 			$forms_default_styling_css = array(
 				'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date], select, textarea' => array(
 					'font-size'   => '16px',
@@ -5274,7 +5275,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'height' => '50px',
 				),
 				'input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'    => array(
-					'border-color' => '#046BD2',
+					'border-color'  => '#046BD2',
 					'box-shadow'   => 'none',
 					'outline'      => 'none',
 					'color'        => 'var(--ast-form-input-focus-text, #475569)'
@@ -5297,6 +5298,30 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'--ast-comment-inputs-background'     => '#FFF',
 				),
 			);
+
+			// Default form styling accessibility options compatibility.
+			if ( $enable_site_accessibility ) {
+				$outline_color             = astra_get_option( 'site-accessibility-highlight-color' );
+				$outline_input_style       = astra_get_option( 'site-accessibility-highlight-input-type' );
+				$outline_input_color       = astra_get_option( 'site-accessibility-highlight-input-color' );
+				if ( 'disable' !== $outline_input_style ) {
+					$forms_default_styling_css['input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'] = array(
+						'border-color' => $outline_input_color ? $outline_input_color : '#046BD2',
+						'box-shadow'   => 'none',
+						'outline'      => 'none',
+						'color'        => 'var(--ast-form-input-focus-text, #475569)'
+					);	
+				}
+				else {
+					$forms_default_styling_css['input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'] = array(
+						'border-color' => $outline_color ? $outline_color : '#046BD2',
+						'box-shadow'   => 'none',
+						'outline'      => 'none',
+						'color'        => 'var(--ast-form-input-focus-text, #475569)'
+					);				
+				}
+			}
+
 			$css .= astra_parse_css( $forms_default_styling_css );
 			return $css;
 		}

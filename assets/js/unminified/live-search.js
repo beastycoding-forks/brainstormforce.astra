@@ -21,7 +21,9 @@
 			processedHtml += `<label class="ast-search--posttype-heading"> ${postTypeLabel} </label>`;
 			postsData.map((post) => {
 				const searchPostTitle = decodeHTMLEntities(post.title.rendered);
-				if (document.getElementById("ast-seach-full-screen-form")) {
+				const headerCoverSearch = document.getElementById("ast-search-form");
+				const fullScreenSearch = document.getElementById("ast-seach-full-screen-form");
+				if (fullScreenSearch || headerCoverSearch) {
 					processedHtml += `<a class="ast-search-item" role="option" target="_self" href="${post.link}" tabindex="1"> <span> ${searchPostTitle} </span> </a>`;
 				} else {
 					processedHtml += `<a class="ast-search-item" role="option" target="_self" href="${post.link}"> <span> ${searchPostTitle} </span> </a>`;

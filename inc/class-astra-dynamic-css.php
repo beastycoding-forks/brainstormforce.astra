@@ -5275,54 +5275,53 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'border-style' => 'solid',
 					'border-color' => 'var(--ast-border-color)',
 				),
-				'select' => array(
+				'select'             => array(
 					'height' => '50px',
 				),
-				'input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'    => array(
-					'border-color'  => '#046BD2',
+				'input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus' => array(
+					'border-color' => '#046BD2',
 					'box-shadow'   => 'none',
 					'outline'      => 'none',
-					'color'        => 'var(--ast-form-input-focus-text, #475569)'
+					'color'        => 'var(--ast-form-input-focus-text, #475569)',
 				),
-				'label, legend' => array(
+				'label, legend'      => array(
 					'color'       => '#111827',
 					'font-size'   => '14px',
 					'font-style'  => 'normal',
 					'font-weight' => '500',
 					'line-height' => '20px',
 				),
-				'fieldset' => array(
+				'fieldset'           => array(
 					'padding' => '0px 30px 30px 30px',
 				),
 				'button, .ast-button, .button, input[type="button"], input[type="reset"], input[type="submit"]' => array(
 					'border-radius' => '4px',
 					'box-shadow'    => '0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
 				),
-				':root'                                  => array(
-					'--ast-comment-inputs-background'     => '#FFF',
+				':root'              => array(
+					'--ast-comment-inputs-background' => '#FFF',
 				),
 			);
 
 			// Default form styling accessibility options compatibility.
 			if ( $enable_site_accessibility ) {
-				$outline_color             = astra_get_option( 'site-accessibility-highlight-color' );
-				$outline_input_style       = astra_get_option( 'site-accessibility-highlight-input-type' );
-				$outline_input_color       = astra_get_option( 'site-accessibility-highlight-input-color' );
+				$outline_color       = astra_get_option( 'site-accessibility-highlight-color' );
+				$outline_input_style = astra_get_option( 'site-accessibility-highlight-input-type' );
+				$outline_input_color = astra_get_option( 'site-accessibility-highlight-input-color' );
 				if ( 'disable' !== $outline_input_style ) {
 					$forms_default_styling_css['input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'] = array(
 						'border-color' => $outline_input_color ? $outline_input_color : '#046BD2',
 						'box-shadow'   => 'none',
 						'outline'      => 'none',
-						'color'        => 'var(--ast-form-input-focus-text, #475569)'
-					);	
-				}
-				else {
+						'color'        => 'var(--ast-form-input-focus-text, #475569)',
+					);  
+				} else {
 					$forms_default_styling_css['input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'] = array(
 						'border-color' => $outline_color ? $outline_color : '#046BD2',
 						'box-shadow'   => 'none',
 						'outline'      => 'none',
-						'color'        => 'var(--ast-form-input-focus-text, #475569)'
-					);				
+						'color'        => 'var(--ast-form-input-focus-text, #475569)',
+					);              
 				}
 			}
 
@@ -5387,7 +5386,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		 * @return boolean false if it is an existing user, true if not.
 		 */
 		public static function astra_forms_default_style_update() {
-			$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
+			$astra_settings                                   = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['ast-forms-default-style-update'] = isset( $astra_settings['ast-forms-default-style-update'] ) ? false : true;
 			return apply_filters( 'astra_forms_default_style_update', $astra_settings['ast-forms-default-style-update'] );
 		}

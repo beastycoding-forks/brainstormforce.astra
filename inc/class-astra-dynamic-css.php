@@ -873,7 +873,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'outline-style' => $outline_style ? $outline_style : 'inherit',
 					'outline-color' => $outline_color ? $outline_color : 'inherit',
 					'outline-width' => 'thin',
-					'border-color'  => 'transparent',
+					'border-color'  => astra_get_option( 'site-accessibility-highlight-input-color' ),
 				);
 
 				if ( 'disable' !== $outline_input_style ) {
@@ -881,16 +881,20 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 						'border-style'  => $outline_input_style ? $outline_input_style : 'inherit',
 						'border-color'  => $outline_input_color ? $outline_input_color : 'inherit',
 						'border-width'  => 'thin',
-						'outline-color' => 'transparent',
+						'outline-color' => astra_get_option( 'site-accessibility-highlight-input-color' ),
 					);
 				} else {
 					$css_output[ $html_selectors_focus_only_inputs ] = array(
 						'border-style'  => $outline_style ? $outline_style : 'inherit',
 						'border-color'  => $outline_color ? $outline_color : 'inherit',
 						'border-width'  => 'thin',
-						'outline-color' => 'transparent',
+						'outline-color' => astra_get_option( 'site-accessibility-highlight-input-color' ),
 					);
 				}
+
+				$css_output['input'] = array(
+					'outline' => 'none',
+				);
 			}
 
 			if ( false === $enable_site_accessibility ) {

@@ -1,3 +1,6 @@
+v4.5.2 (Unreleased)
+- Fix: WooCommerce - Version 8.4 compatibility.
+
 v4.5.1
 - Improvement: Compatibility with WooCommerce 8.3.
 - Improvement: Introducing a new filter 'astra_embed_wrapper_class' to add a class to the iframe wrapper for embed blocks.

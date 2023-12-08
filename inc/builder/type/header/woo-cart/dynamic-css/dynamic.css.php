@@ -521,12 +521,12 @@ function astra_hb_woo_cart_dynamic_css( $dynamic_css, $dynamic_css_filtered = ''
 				'color' => esc_attr( $icon_color ),
 			),
 
-			// Fix: Count color for the legacy users. ( shopping-default ) [Ref: #AST-3683]
+			// Fix: Count color for the legacy users. ( shopping-default ) [Ref: #AST-3683].
 			'.ast-menu-cart-outline .ast-cart-menu-wrap .count' => array(
 				'color' => esc_attr( $cart_products_count_color ),
 			),
 
-			// Fix: Count hover color for the legacy users. ( shopping-default ) [Ref: #AST-3683]
+			// Fix: Count hover color for the legacy users. ( shopping-default ) [Ref: #AST-3683].
 			'.ast-menu-cart-outline .ast-cart-menu-wrap .count:hover' => array(
 				'color' => esc_attr( $cart_products_count_color_hover ),
 			),

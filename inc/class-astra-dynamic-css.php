@@ -860,7 +860,7 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			// Accessibility options.
 			$enable_site_accessibility        = astra_get_option( 'site-accessibility-toggle', false );
 			$html_selectors_focus_visible     = 'a:focus-visible, .ast-menu-toggle:focus-visible, .site .skip-link:focus-visible, .wp-block-loginout input:focus-visible, .wp-block-search.wp-block-search__button-inside .wp-block-search__inside-wrapper, .ast-header-navigation-arrow:focus-visible, .woocommerce .wc-proceed-to-checkout > .checkout-button:focus-visible, .woocommerce .woocommerce-MyAccount-navigation ul li a:focus-visible, .ast-orders-table__row .ast-orders-table__cell:focus-visible, .woocommerce .woocommerce-order-details .order-again > .button:focus-visible, .woocommerce .woocommerce-message a.button.wc-forward:focus-visible, .woocommerce #minus_qty:focus-visible, .woocommerce #plus_qty:focus-visible, a#ast-apply-coupon:focus-visible, .woocommerce .woocommerce-info a:focus-visible, .woocommerce .astra-shop-summary-wrap a:focus-visible, .woocommerce a.wc-forward:focus-visible, #ast-apply-coupon:focus-visible, .woocommerce-js .woocommerce-mini-cart-item a.remove:focus-visible';
-			$html_selectors_focus_only_inputs = 'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="number"]:focus, input[type="date"]:focus, textarea:focus, select:focus, .wp-block-search__input:focus, [data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-minimal:focus, .ast-mobile-popup-drawer.active .menu-toggle-close:focus, .woocommerce-ordering select.orderby:focus, #ast-scroll-top:focus, #coupon_code:focus, .woocommerce-page #comment:focus, .woocommerce #reviews #respond input#submit:focus, .woocommerce a.add_to_cart_button:focus, .woocommerce .button.single_add_to_cart_button:focus, .woocommerce .woocommerce-cart-form button:focus, .woocommerce .woocommerce-cart-form__cart-item .quantity .qty:focus, .woocommerce .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus, .woocommerce #order_comments:focus, .woocommerce #place_order:focus, .woocommerce .woocommerce-address-fields .woocommerce-address-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus, .woocommerce .woocommerce-MyAccount-content form button:focus, .woocommerce .woocommerce-MyAccount-content .woocommerce-EditAccountForm .woocommerce-form-row .woocommerce-Input.input-text:focus, .woocommerce .ast-woocommerce-container .woocommerce-pagination ul.page-numbers li a:focus, body #content .woocommerce form .form-row .select2-container--default .select2-selection--single:focus, #ast-coupon-code:focus, .woocommerce.woocommerce-js .quantity input[type=number]:focus, .woocommerce-js .woocommerce-mini-cart-item .quantity input[type=number]:focus, .woocommerce p#ast-coupon-trigger:focus';
+			$html_selectors_focus_only_inputs = 'input:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="reset"]:focus, input[type="number"]:focus, textarea:focus, .wp-block-search__input:focus, [data-section="section-header-mobile-trigger"] .ast-button-wrap .ast-mobile-menu-trigger-minimal:focus, .ast-mobile-popup-drawer.active .menu-toggle-close:focus, .woocommerce-ordering select.orderby:focus, #ast-scroll-top:focus, #coupon_code:focus, .woocommerce-page #comment:focus, .woocommerce #reviews #respond input#submit:focus, .woocommerce a.add_to_cart_button:focus, .woocommerce .button.single_add_to_cart_button:focus, .woocommerce .woocommerce-cart-form button:focus, .woocommerce .woocommerce-cart-form__cart-item .quantity .qty:focus, .woocommerce .woocommerce-billing-fields .woocommerce-billing-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus, .woocommerce #order_comments:focus, .woocommerce #place_order:focus, .woocommerce .woocommerce-address-fields .woocommerce-address-fields__field-wrapper .woocommerce-input-wrapper > .input-text:focus, .woocommerce .woocommerce-MyAccount-content form button:focus, .woocommerce .woocommerce-MyAccount-content .woocommerce-EditAccountForm .woocommerce-form-row .woocommerce-Input.input-text:focus, .woocommerce .ast-woocommerce-container .woocommerce-pagination ul.page-numbers li a:focus, body #content .woocommerce form .form-row .select2-container--default .select2-selection--single:focus, #ast-coupon-code:focus, .woocommerce.woocommerce-js .quantity input[type=number]:focus, .woocommerce-js .woocommerce-mini-cart-item .quantity input[type=number]:focus, .woocommerce p#ast-coupon-trigger:focus';
 
 			if ( $enable_site_accessibility ) {
 				$outline_style = astra_get_option( 'site-accessibility-highlight-type' );
@@ -1099,12 +1099,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			if ( 'no-sidebar' !== astra_page_layout() ) {
 				$parse_css .= Astra_Enqueue_Scripts::trim_css( self::load_sidebar_static_css() );
 				$parse_css .= self::astra_sticky_sidebar_css();
-			}
-
-			if ( self::astra_forms_default_style_update() ) {
-
-				// Forms default styling improvements.
-				$parse_css .= self::astra_default_forms_styling_dynamic_css();
 			}
 
 			if ( true === Astra_Builder_Helper::$is_header_footer_builder_active ) {
@@ -5250,86 +5244,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 		}
 
 		/**
-		 * Dynamic CSS for default forms styling improvements.
-		 *
-		 * @return string Dynamic CSS.
-		 * @since x.x.x
-		 */
-		public static function astra_default_forms_styling_dynamic_css() {
-			$css                       = '';
-			$enable_site_accessibility = astra_get_option( 'site-accessibility-toggle', false );
-			$forms_default_styling_css = array(
-				'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date], select, textarea' => array(
-					'font-size'   => '16px',
-					'font-style'  => 'normal',
-					'font-weight' => '400',
-					'line-height' => '24px',
-					'width'       => '100%',
-					'padding'     => '12px 16px',
-				),
-				'input[type="text"], input[type="number"], input[type="email"], input[type="url"], input[type="password"], input[type="search"], input[type=reset], input[type=tel], input[type=date]' => array(
-					'height' => '40px',
-				),
-				'input[type="date"]' => array(
-					'border-width' => '1px',
-					'border-style' => 'solid',
-					'border-color' => 'var(--ast-border-color)',
-				),
-				'select'             => array(
-					'height' => '50px',
-				),
-				'input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus' => array(
-					'border-color' => '#046BD2',
-					'box-shadow'   => 'none',
-					'outline'      => 'none',
-					'color'        => 'var(--ast-form-input-focus-text, #475569)',
-				),
-				'label, legend'      => array(
-					'color'       => '#111827',
-					'font-size'   => '14px',
-					'font-style'  => 'normal',
-					'font-weight' => '500',
-					'line-height' => '20px',
-				),
-				'fieldset'           => array(
-					'padding' => '0px 30px 30px 30px',
-				),
-				'button, .ast-button, .button, input[type="button"], input[type="reset"], input[type="submit"]' => array(
-					'border-radius' => '4px',
-					'box-shadow'    => '0px 1px 2px 0px rgba(0, 0, 0, 0.05)',
-				),
-				':root'              => array(
-					'--ast-comment-inputs-background' => '#FFF',
-				),
-			);
-
-			// Default form styling accessibility options compatibility.
-			if ( $enable_site_accessibility ) {
-				$outline_color       = astra_get_option( 'site-accessibility-highlight-color' );
-				$outline_input_style = astra_get_option( 'site-accessibility-highlight-input-type' );
-				$outline_input_color = astra_get_option( 'site-accessibility-highlight-input-color' );
-				if ( 'disable' !== $outline_input_style ) {
-					$forms_default_styling_css['input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'] = array(
-						'border-color' => $outline_input_color ? $outline_input_color : '#046BD2',
-						'box-shadow'   => 'none',
-						'outline'      => 'none',
-						'color'        => 'var(--ast-form-input-focus-text, #475569)',
-					);  
-				} else {
-					$forms_default_styling_css['input[type="text"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type=reset]:focus, input[type="tel"]:focus, input[type="date"]:focus, select:focus, textarea:focus'] = array(
-						'border-color' => $outline_color ? $outline_color : '#046BD2',
-						'box-shadow'   => 'none',
-						'outline'      => 'none',
-						'color'        => 'var(--ast-form-input-focus-text, #475569)',
-					);              
-				}
-			}
-
-			$css .= astra_parse_css( $forms_default_styling_css );
-			return $css;
-		}
-
-		/**
 		 * Check if fullwidth layout with sidebar is supported.
 		 * Old users - yes
 		 * New users - no
@@ -5377,18 +5291,6 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings                           = get_option( ASTRA_THEME_SETTINGS );
 			$astra_settings['v4-5-0-backward-option'] = isset( $astra_settings['v4-5-0-backward-option'] ) ? false : true;
 			return apply_filters( 'astra_upgrade_color_styles', $astra_settings['v4-5-0-backward-option'] );
-		}
-
-		/**
-		 * Astra Forms default style update.
-		 *
-		 * @since x.x.x
-		 * @return boolean false if it is an existing user, true if not.
-		 */
-		public static function astra_forms_default_style_update() {
-			$astra_settings                                   = get_option( ASTRA_THEME_SETTINGS );
-			$astra_settings['ast-forms-default-style-update'] = isset( $astra_settings['ast-forms-default-style-update'] ) ? false : true;
-			return apply_filters( 'astra_forms_default_style_update', $astra_settings['ast-forms-default-style-update'] );
 		}
 	}
 }

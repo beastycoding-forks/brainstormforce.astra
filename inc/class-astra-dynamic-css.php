@@ -755,8 +755,8 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 					'width' => '0',
 				),
 				'.ast-header-search .ast-search-menu-icon.ast-dropdown-active .search-form, .ast-header-search .ast-search-menu-icon.ast-dropdown-active .search-field:focus' => array(
-					'transition' 	=> 'all 0.2s',
-					'border-color'  => astra_get_option( 'site-accessibility-highlight-input-color' ),				
+					'transition'   => 'all 0.2s',
+					'border-color' => astra_get_option( 'site-accessibility-highlight-input-color' ),              
 				),
 				'.search-form input.search-field:focus'  => array(
 					'outline' => 'none', // Making highlight by border that's why making outline none.

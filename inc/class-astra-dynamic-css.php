@@ -5292,17 +5292,5 @@ if ( ! class_exists( 'Astra_Dynamic_CSS' ) ) {
 			$astra_settings['v4-5-0-backward-option'] = isset( $astra_settings['v4-5-0-backward-option'] ) ? false : true;
 			return apply_filters( 'astra_upgrade_color_styles', $astra_settings['v4-5-0-backward-option'] );
 		}
-
-		/**
-		 * Astra Forms default style update.
-		 *
-		 * @since x.x.x
-		 * @return boolean false if it is an existing user, true if not.
-		 */
-		public static function astra_forms_default_style_update() {
-			$astra_settings                                   = get_option( ASTRA_THEME_SETTINGS, array() );
-			$astra_settings['ast-forms-default-style-update'] = isset( $astra_settings['ast-forms-default-style-update'] ) ? false : true;
-			return apply_filters( 'astra_forms_default_style_update', $astra_settings['ast-forms-default-style-update'] );
-		}
 	}
 }

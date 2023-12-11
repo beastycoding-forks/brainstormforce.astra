@@ -14,6 +14,7 @@ v4.5.2 (Unreleased)
 - Fix: WooCommerce - Inside dropdown cart buttons are not aligned properly on WooCommerce pages.
 - Fix: WooCommerce - Shop card structure gets broken if the Add To Cart button is kept just below the title.
 - Fix: Input fields border focus did not consistently inherit the correct styling in certain scenarios.
+- Fix: WooCommerce - PHP fatal error 'Uncaught Error: Call to a member function get_cart_contents_total() on null' when cart element is added in the header and "Hide Cart Total Label" option is enabled.
 - Fix: PHP deprecated notices with PHP 8.0 and above when activating the theme.
 
 v4.5.1

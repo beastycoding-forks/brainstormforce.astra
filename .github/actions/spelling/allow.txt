@@ -1135,3 +1135,9 @@ websites
 workaround
 soundcloud
 spotify
+scandir
+Usecase
+BorLabs
+oembed
+BORLABS
+Kadence

@@ -1513,3 +1513,18 @@ function astra_theme_background_updater_4_5_2() {
 		update_option( 'astra-settings', $theme_options );
 	}
 }
+
+/**
+ * Handle backward compatibility on version x.x.x
+ *
+ * @since x.x.x
+ * @return void
+ */
+function astra_theme_background_updater_4_6_0() {
+	$theme_options = get_option( 'astra-settings', array() );
+	if ( ! isset( $theme_options['ast-font-style-update'] ) ) {
+		$theme_options['ast-font-style-update'] = false;
+		update_option( 'astra-settings', $theme_options );
+	}
+}
+

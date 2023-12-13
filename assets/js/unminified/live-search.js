@@ -135,14 +135,6 @@
 				}
 			});
 		});
-		document
-			.getElementById("close")
-			.addEventListener("keydown", function (event) {
-				if (event.key === "Tab") {
-					event.preventDefault();
-					document.getElementById("search-field").focus();
-				}
-			});
 	});
 
 	// Add a click event listener to the document.

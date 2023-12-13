@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'woocommerce_after_main_content', array( $this, 'before_main_content_end' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'add_scripts_styles' ) );
 			add_action( 'wp', array( $this, 'shop_customization' ), 5 );
 			add_action( 'wp_head', array( $this, 'single_product_customization' ), 5 );
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
@@ -1422,7 +1422,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @since 1.0.31
 		 */
-		public function add_styles() {
+		public function add_scripts_styles() {
+			if ( is_cart() ) {
+				wp_enqueue_script( 'wc-cart-fragments' ); // Require for cart widget update on the cart page.
+			}
 
 			/**
 			 * - Variable Declaration

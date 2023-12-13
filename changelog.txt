@@ -1,3 +1,6 @@
+v4.5.3 (Unreleased)
+- Fix: Site title, tagline font-sizes are not part of export-import header settings.
+
 v4.5.2
 - New: Compatibility to Import Export header-footer builder customizer layouts with the "Astra Import Export" plugin.
 - New: Introducing new "vw" unit support for font-size in customizer typography settings.

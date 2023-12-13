@@ -1,3 +1,6 @@
+v4.5.3 (Unreleased)
+- Fix: Logo color not working in FireFox browser.
+
 v4.5.2
 - New: Compatibility to Import Export header-footer builder customizer layouts with the "Astra Import Export" plugin.
 - New: Introducing new "vw" unit support for font-size in customizer typography settings.
@@ -16,7 +19,6 @@ v4.5.2
 - Fix: Input fields border focus did not consistently inherit the correct styling in certain scenarios.
 - Fix: WooCommerce - PHP fatal error 'Uncaught Error: Call to a member function get_cart_contents_total() on null' when cart element is added in the header and "Hide Cart Total Label" option is enabled.
 - Fix: PHP deprecated notices with PHP 8.0 and above when activating the theme.
-- Fix: Logo color not working in FireFox browser.
 
 v4.5.1
 - Improvement: Compatibility with WooCommerce 8.3.

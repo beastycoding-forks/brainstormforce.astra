@@ -1424,7 +1424,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 */
 		public function add_scripts_styles() {
 			if ( is_cart() ) {
-				wp_enqueue_script( 'wc-cart-fragments' );
+				wp_enqueue_script( 'wc-cart-fragments' ); // Require for cart widget update on the cart page.
 			}
 
 			/**

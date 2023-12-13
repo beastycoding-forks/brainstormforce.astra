@@ -1583,6 +1583,7 @@ p.demo_store[data-position="bottom"],
 
 .woocommerce-js ul.products li.product a.ast-loop-product__link {
   display: inline-block;
+  width: 100%;
 }
 
 .woocommerce-js ul.products li.product:hover .show-on-hover {
@@ -3517,12 +3518,6 @@ button.pswp__button--zoom:hover {
   border: 1px solid var(--ast-border-color);
   padding: 1em;
   border-radius: 0;
-}
-
-.woocommerce-Address h3,
-.cart-collaterals h2 {
-  font-size: 1.2rem;
-  padding: .7em 1em;
 }
 
 /**

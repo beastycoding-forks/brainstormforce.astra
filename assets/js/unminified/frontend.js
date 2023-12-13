@@ -186,7 +186,6 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 		body = document.body,
 		mobileHeader = '';
 
-
 	if ( undefined !== main_header_masthead && null !== main_header_masthead ) {
 
 		mobileHeader = main_header_masthead.querySelector("#ast-mobile-header");

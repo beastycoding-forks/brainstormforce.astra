@@ -6,7 +6,7 @@
  * @package     Astra
  * @copyright   Copyright (c) 2023, Astra
  * @link        https://wpastra.com/
- * @since       x.x.x
+ * @since       4.5.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Register menu footer builder Customizer Configurations.
  *
- * @since x.x.x
+ * @since 4.5.2
  * @return array Astra Customizer Configurations with updated configurations.
  */
 function astra_menu_footer_configuration() {
@@ -326,7 +326,7 @@ function astra_menu_footer_configuration() {
 				'transport'         => 'postMessage',
 				'control'           => 'ast-responsive-slider',
 				'sanitize_callback' => array( 'Astra_Customizer_Sanitizes', 'sanitize_responsive_slider' ),
-				'suffix'            => array( 'px', 'em' ),
+				'suffix'            => array( 'px', 'em', 'vw' ),
 				'input_attrs'       => array(
 					'px' => array(
 						'min'  => 0,
@@ -337,6 +337,11 @@ function astra_menu_footer_configuration() {
 						'min'  => 0,
 						'step' => 0.01,
 						'max'  => 20,
+					),
+					'vw' => array(
+						'min'  => 0,
+						'step' => 0.1,
+						'max'  => 25,
 					),
 				),
 			),
@@ -358,17 +363,22 @@ function astra_menu_footer_configuration() {
 				'transport'         => 'postMessage',
 				'title'             => __( 'Menu Font Size', 'astra' ),
 				'priority'          => 120,
-				'suffix'            => array( 'px', 'em' ),
+				'suffix'            => array( 'px', 'em', 'vw' ),
 				'input_attrs'       => array(
 					'px' => array(
 						'min'  => 0,
 						'step' => 1,
-						'max'  => 100,
+						'max'  => 200,
 					),
 					'em' => array(
 						'min'  => 0,
 						'step' => 0.01,
 						'max'  => 20,
+					),
+					'vw' => array(
+						'min'  => 0,
+						'step' => 0.1,
+						'max'  => 25,
 					),
 				),
 			),

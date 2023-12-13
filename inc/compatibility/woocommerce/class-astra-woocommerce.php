@@ -65,7 +65,7 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			add_action( 'woocommerce_before_main_content', array( $this, 'before_main_content_start' ) );
 			add_action( 'woocommerce_after_main_content', array( $this, 'before_main_content_end' ) );
-			add_action( 'wp_enqueue_scripts', array( $this, 'add_styles' ) );
+			add_action( 'wp_enqueue_scripts', array( $this, 'add_scripts_styles' ) );
 			add_action( 'wp', array( $this, 'shop_customization' ), 5 );
 			add_action( 'wp_head', array( $this, 'single_product_customization' ), 5 );
 			add_action( 'wp', array( $this, 'woocommerce_init' ), 1 );
@@ -537,8 +537,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 			$cart_total_label_position = astra_get_option( 'woo-header-cart-icon-total-label-position' );
 			$cart_total_markup         = '';
 			$cart_total_only_markup    = '';
-			$cart_check_total          = astra_get_option( 'woo-header-cart-total-label' ) ? intval( WC()->cart->get_cart_contents_total() ) > 0 : true;
 
+			/** @psalm-suppress RedundantConditionGivenDocblockType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$cart_check_total          = astra_get_option( 'woo-header-cart-total-label' ) && null !== WC()->cart ? intval( WC()->cart->get_cart_contents_total() ) > 0 : true;
+			/** @psalm-suppress RedundantConditionGivenDocblockType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 
 			if ( null !== WC()->cart ) {
 				if ( $cart_check_total ) {
@@ -1431,7 +1433,10 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 		 *
 		 * @since 1.0.31
 		 */
-		public function add_styles() {
+		public function add_scripts_styles() {
+			if ( is_cart() ) {
+				wp_enqueue_script( 'wc-cart-fragments' ); // Require for cart widget update on the cart page.
+			}
 
 			/**
 			 * - Variable Declaration
@@ -3326,9 +3331,11 @@ if ( ! class_exists( 'Astra_Woocommerce' ) ) :
 
 			$view_shopping_cart = apply_filters( 'astra_woo_view_shopping_cart_title', __( 'View your shopping cart', 'astra' ) );
 			$woo_cart_link      = wc_get_cart_url();
-			$cart_count         = WC()->cart->get_cart_contents_count();
+			/** @psalm-suppress RedundantConditionGivenDocblockType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
+			$cart_count         = null !== WC()->cart ? WC()->cart->get_cart_contents_count() : 0;
+			/** @psalm-suppress RedundantConditionGivenDocblockType */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 			$aria_label         = $cart_count > 0 ? "View Shopping Cart, {$cart_count} items" : 'View Shopping Cart, empty';
-		
+
 			// Do not redirect to Cart Page in Customizer Preview & when 'Cart Page' option is not selected.
 			if ( is_customize_preview() && 'redirect' !== astra_get_option( 'woo-header-cart-click-action' ) ) {
 				$woo_cart_link = '#';

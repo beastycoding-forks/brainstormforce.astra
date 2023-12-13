@@ -96,7 +96,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * All header configs array data.
 		 *
 		 * @access public
-		 * @since x.x.x
+		 * @since 4.5.2
 		 * @var array
 		 */
 		public static $customizer_header_configs = array(
@@ -115,7 +115,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 		 * All footer configs array data.
 		 *
 		 * @access public
-		 * @since x.x.x
+		 * @since 4.5.2
 		 * @var array
 		 */
 		public static $customizer_footer_configs = array();
@@ -1190,13 +1190,7 @@ if ( ! class_exists( 'Astra_Customizer' ) ) {
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-archive-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-body-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/block-editor/class-astra-block-editor-configs.php';
-
-			if( astra_has_gcp_typo_preset_compatibility() ) {
-				require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-headings-typo-configs.php';
-			} else {
-				require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-content-typo-configs.php';
-			}
-
+			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-headings-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-header-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-single-typo-configs.php';
 			require ASTRA_THEME_DIR . 'inc/customizer/configurations/typography/class-astra-global-typo-configs.php';
@@ -1668,7 +1662,7 @@ Astra_Customizer::get_instance();
  *
  * @param array $configs configs.
  *
- * @since x.x.x
+ * @since 4.5.2
  * @return void
  */
 function astra_save_header_customizer_configs( $configs ) {
@@ -1686,7 +1680,7 @@ function astra_save_header_customizer_configs( $configs ) {
  *
  * @param array $configs configs.
  *
- * @since x.x.x
+ * @since 4.5.2
  * @return void
  */
 function astra_save_footer_customizer_configs( $configs ) {

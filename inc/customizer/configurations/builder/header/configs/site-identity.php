@@ -164,7 +164,9 @@ function astra_header_site_identity_configuration() {
 
 	);
 
+	/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 	if ( defined( 'ASTRA_EXT_VER' ) && Astra_Ext_Extension::is_active( 'typography' ) ) {
+		/** @psalm-suppress UndefinedClass */ // phpcs:ignore Generic.Commenting.DocComment.MissingShort
 		$_configs[] = array(
 			'name'              => 'font-size-site-title',
 			'type'              => 'sub-control',

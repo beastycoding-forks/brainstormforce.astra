@@ -645,7 +645,7 @@ class Astra_WebFont_Loader {
 			}
 
 			/**
-			 * Fix: AST-3438 Local google fonts issue in multisites.
+			 * Fix: AST-3438 Local google fonts issue in multisite.
 			 *
 			 * GH Issue: https://github.com/brainstormforce/astra/issues/5291
 			 * @since x.x.x

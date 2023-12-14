@@ -62,6 +62,16 @@ class Astra_WebFont_Loader {
 	protected $subfolder_name;
 
 	/**
+	 * Current blog id.
+	 *
+	 * @multisite
+	 * @access protected
+	 * @since x.x.x
+	 * @var int
+	 */
+	protected $current_blog_id;
+
+	/**
 	 * The fonts folder.
 	 *
 	 * @access protected
@@ -602,6 +612,26 @@ class Astra_WebFont_Loader {
 	}
 
 	/**
+	 * Returns the current blog id if current WordPress setup is a multisite setup.
+	 *
+	 * @access public
+	 * @since x.x.x
+	 * @return void|int
+	 */
+	public function get_current_blog_id() {
+
+		if ( ! is_multisite() ) {
+			return;
+		}
+
+		if ( ! $this->current_blog_id ) {
+			$this->current_blog_id = apply_filters( 'astra_local_fonts_current_blog_id', get_current_blog_id() );
+		}
+
+		return $this->current_blog_id;
+	}
+
+	/**
 	 * Get the folder for fonts.
 	 *
 	 * @access public
@@ -613,7 +643,28 @@ class Astra_WebFont_Loader {
 			if ( $this->get_subfolder_name() ) {
 				$this->fonts_folder .= '/' . $this->get_subfolder_name();
 			}
+
+			/**
+			 * Fix: AST-3438 Local google fonts issue in multisites.
+			 *
+			 * GH Issue: https://github.com/brainstormforce/astra/issues/5291
+			 * @since x.x.x
+			 */
+			if ( $this->get_current_blog_id() ) {
+				if ( ! file_exists( $this->fonts_folder ) ) {
+					// Lets create subfolder first if it does not exists.
+					$this->get_filesystem()->mkdir( $this->get_fonts_folder(), FS_CHMOD_DIR );
+				}
+
+				/**
+				 * This helps us to isolate the google fonts files according to the sub sites.
+				 * Which will also helps in isolated flushing of local font files without effecting
+				 * the font files and generated css files of other sub sites.
+				 */
+				$this->fonts_folder .= '/' . $this->get_current_blog_id();
+			}
 		}
+
 		return $this->fonts_folder;
 	}
 

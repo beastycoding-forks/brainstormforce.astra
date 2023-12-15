@@ -38,7 +38,7 @@ class Astra_Customizer_Woo_Cart_Configs extends Astra_Customizer_Config_Base {
 		if ( is_callable( 'astra_header_woo_cart_configuration' ) ) {
 			$configurations = astra_header_woo_cart_configuration( $configurations );
 		}
-			return $configurations;
+		return $configurations;
 	}
 }
 

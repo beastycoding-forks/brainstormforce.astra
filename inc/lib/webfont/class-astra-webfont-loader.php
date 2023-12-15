@@ -616,7 +616,7 @@ class Astra_WebFont_Loader {
 	 *
 	 * @access public
 	 * @since x.x.x
-	 * @return void|int
+	 * @return void|int Returns integer if current WP setup is multisite.
 	 */
 	public function get_current_blog_id() {
 
@@ -645,9 +645,14 @@ class Astra_WebFont_Loader {
 			}
 
 			/**
-			 * Fix: AST-3438 Local google fonts issue in multisite.
+			 * Fix: Local google fonts issue in multisite.
 			 *
-			 * GH Issue: https://github.com/brainstormforce/astra/issues/5291
+			 * This block of code primarily does 3 things:
+			 * 1. Checks if we have blog id.
+			 * 2. If we have blog id, then checks if subfolder "$this->get_subfolder_name()" exists. If not, creates the subfolder.
+			 * 3. Then, finally, creates the child folders inside the subfolder by the current blog id.
+			 *
+			 * Ref: GH Issue: #5291, [AST-3438]
 			 * @since x.x.x
 			 */
 			if ( $this->get_current_blog_id() ) {

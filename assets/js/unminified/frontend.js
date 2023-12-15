@@ -265,7 +265,6 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 
 		popupWrap.classList.add( 'active', 'show' );
 
-		if (mobilePopupWrapper) mobilePopupWrapper.style.pointerEvents = 'unset';
 	}
 
 	/**
@@ -310,7 +309,6 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 			popupTrigger[item].style.display = 'flex';
 		}
 
-		if (mobilePopupWrapper) mobilePopupWrapper.style.pointerEvents = 'none';
 	}
 
 	/**

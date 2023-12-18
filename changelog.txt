@@ -1,6 +1,7 @@
 v4.5.3 (Unreleased)
 - Fix: Logo color not working in FireFox browser.
 - Fix: Site title, tagline font-sizes are not part of export-import header settings.
+- Fix: The Color Picker Picks the Wrong Color on Surface Color Page Level Setting.
 
 v4.5.2
 - New: Compatibility to Import Export header-footer builder customizer layouts with the "Astra Import Export" plugin.

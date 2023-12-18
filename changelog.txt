@@ -2,7 +2,7 @@ v4.5.3 (Unreleased)
 - Fix: Logo color not working in FireFox browser.
 - Fix: Site title, tagline font-sizes are not part of export-import header settings.
 - Fix: Block Editor - The color picker picks the wrong color on Surface Color Page Level Setting.
-
+- Fix: WooCommerce - PHP fatal error for old header footer builder users 'Call to undefined function astra_header_woo_cart_configuration' when WooCommerce is enable.
 v4.5.2
 - New: Compatibility to Import Export header-footer builder customizer layouts with the "Astra Import Export" plugin.
 - New: Introducing new "vw" unit support for font-size in customizer typography settings.

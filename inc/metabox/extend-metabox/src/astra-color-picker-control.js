@@ -81,7 +81,7 @@ class AstraColorPickerControl extends Component {
 	}
 
 	componentDidUpdate() {
-		
+
 		// If the color picker is already open, hide the second color picker.
 		if ( document.querySelectorAll('.open').length > 1 ) {
 			const colorPickerPosition = 1;
@@ -91,19 +91,19 @@ class AstraColorPickerControl extends Component {
 			}
 		}
 	}
-	
+
 	componentWillUnmount() {
 		// Remove the event listener when the component unmounts.
 		document.removeEventListener('click', this.handleClickOutside);
 	}
 
 	handleClickOutside = (event) => {
-		
+
 		// If clicked on elements outside the range then close the modal.
 		const isOutsideClickRange =  ( !event.target.closest('.astra-popover-color') && !event.target.closest('.astra-advanced-color-indicate') && !event.target.closest('.media-modal-content') && !event.target.closest('.dashicons-format-image') && !event.target.closest('.components-popover__content') && !event.target.closest('.ast-bg-img-remove') );
 
 		if (this.state.isVisible && isOutsideClickRange ) {
-		  
+
 			// If the click is outside the modal, close it.
 		  this.closePicker();
 		}
@@ -196,6 +196,10 @@ class AstraColorPickerControl extends Component {
 			"#cbd5e1",
 			"#94a3b8"
 		  ]};
+
+		if (astMetaParams.global_color_palette) {
+			globalColorPalette = { 'palette' : astMetaParams.global_color_palette.palette }
+		}
 
 		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
 			let palettePrefix = '--ast-global-color-';
@@ -498,6 +502,10 @@ class AstraColorPickerControl extends Component {
 			"#cbd5e1",
 			"#94a3b8"
 		  ]};
+
+		  if (astMetaParams.global_color_palette) {
+			globalColorPalette = { 'palette' : astMetaParams.global_color_palette.palette }
+		}
 
 		Object.entries(globalColorPalette.palette).forEach(([ index, color])=>{
 			let palettePrefix = '--ast-global-color-';

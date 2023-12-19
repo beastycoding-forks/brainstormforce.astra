@@ -307,7 +307,6 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 
 			popupTrigger[item].style.display = 'flex';
 		}
-
 	}
 
 	/**

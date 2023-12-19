@@ -264,7 +264,6 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 		this.style.display = 'none';
 
 		popupWrap.classList.add( 'active', 'show' );
-
 	}
 
 	/**

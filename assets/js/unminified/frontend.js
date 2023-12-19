@@ -180,7 +180,6 @@ astScrollToTopHandler = function ( masthead, astScrollTop ) {
 
 	var menu_toggle_all 	 = document.querySelectorAll( '#masthead .main-header-menu-toggle' ),
 		main_header_masthead = document.getElementById('masthead'),
-		mobilePopupWrapper = document.getElementById('ast-mobile-popup');
 		menu_click_listeners_nav = {},
 		mobileHeaderType = '',
 		body = document.body,

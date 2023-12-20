@@ -1,6 +1,7 @@
 v4.5.3 (Unreleased)
 - Fix: Logo color not working in FireFox browser.
 - Fix: Site title, tagline font-sizes are not part of export-import header settings.
+- Fix: Self-hosted Google fonts not working properly on the multisite setup.
 - Fix: Cart count color not working for the first cart icon option.
 - Fix: RTL - Hidden menu on Desktop when off-canvas is of type Flyout and position is set to Left.
 - Fix: Block Editor - The color picker picks the wrong color on Surface Color Page Level Setting.

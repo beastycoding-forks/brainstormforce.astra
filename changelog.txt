@@ -1,7 +1,7 @@
 v4.5.3 (Unreleased)
 - Fix: Logo color not working in FireFox browser.
 - Fix: Site title, tagline font-sizes are not part of export-import header settings.
-- Fix: Locally downloaded google fonts not working properly in multisite WordPress setup.
+- Fix: Self-hosted Google fonts not working properly on the multisite setup.
 
 v4.5.2
 - New: Compatibility to Import Export header-footer builder customizer layouts with the "Astra Import Export" plugin.
